@@ -1,0 +1,387 @@
+# loc = INT
+# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ enters) (NP (NNP Sal) (POS 's)) (PP (IN with) (S (NP (NN music)) (VP (VBG blaring))))) (. .) (  ))
+# scene = 41
+# sent_id = 1
+# sent_len = 10
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Radio Raheem enters Sal's with music blaring.
+# time = DAY
+1	Radio	radio	NOUN	NN	_	2	compound	_	_
+2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+3	enters	enter	VERB	VBZ	_	3	ROOT	_	_
+4	Sal	sal	PROPN	NNP	_	3	dobj	_	_
+5	's	's	PART	POS	_	4	case	_	_
+6	with	with	ADP	IN	_	3	prep	_	_
+7	music	music	NOUN	NN	_	8	compound	_	_
+8	blaring	blare	VERB	VBG	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 407
+# loc = INT
+# parse = (NP (CD Two) (NNS slices) (. ..) (  ))
+# scene = 41
+# sent_id = 2
+# sent_len = 4
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Two slices..
+# time = DAY
+1	Two	two	NUM	CD	_	2	nummod	_	_
+2	slices	slice	NOUN	NNS	_	2	ROOT	_	_
+3	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 408
+# loc = INT
+# parse = (FRAG (NP (DT No) (NN service)) (SBAR (SBAR (IN till) (S (NP (PRP you)) (VP (VBP turn) (NP (NN dat) (NP (NN shit))) (PRT (RP off))))) (. ..) (  )))
+# scene = 41
+# sent_id = 3
+# sent_len = 10
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = No service till you turn dat shit off..
+# time = DAY
+1	No	no	DET	DT	_	2	det	_	_
+2	service	service	NOUN	NN	_	7	nsubj	_	_
+3	till	till	ADP	IN	_	5	mark	_	_
+4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
+5	turn	turn	VERB	VBP	_	2	advcl	_	_
+6	dat	dat	NOUN	NN	_	5	dobj	_	_
+7	shit	shit	NOUN	NN	_	7	ROOT	_	_
+8	off	off	PART	RP	_	7	prt	_	_
+9	..	..	PUNCT	.	_	7	punct	_	_
+
+# line = 409
+# loc = INT
+# parse = (NP (CD Two) (NNS slices) (. ..) (  ))
+# scene = 41
+# sent_id = 4
+# sent_len = 4
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Two slices..
+# time = DAY
+1	Two	two	NUM	CD	_	2	nummod	_	_
+2	slices	slice	NOUN	NNS	_	2	ROOT	_	_
+3	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 410
+# loc = INT
+# parse = (S (VP (VBP Turn) (NP (PRP it)) (PRT (RP off))) (. ..) (  ))
+# scene = 41
+# sent_id = 5
+# sent_len = 5
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = PINO
+# stage_direction = True
+# text = Turn it off..
+# time = DAY
+1	Turn	turn	VERB	VBP	_	1	ROOT	_	_
+2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
+3	off	off	PART	RP	_	1	prt	_	_
+4	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 411
+# loc = INT
+# parse = (S (S (NP (NNP Mister) (NNP Radio) (NNP Raheem))) (, ,) (NP (PRP I)) (VP (MD ca) (RB n't) (ADVP (RB even)) (VP (VB hear) (S (NP (PRP myself)) (VP (VB think))))) (. .))
+# scene = 41
+# sent_id = 6
+# sent_len = 12
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = Mister Radio Raheem, I can't even hear myself think.
+# time = DAY
+1	Mister	mister	PROPN	NNP	_	3	compound	_	_
+2	Radio	radio	PROPN	NNP	_	3	compound	_	_
+3	Raheem	raheem	PROPN	NNP	_	9	dep	_	_
+4	,	,	PUNCT	,	_	9	punct	_	_
+5	I	-PRON-	PRON	PRP	_	9	nsubj	_	_
+6	ca	can	VERB	MD	_	9	aux	_	_
+7	n't	not	ADV	RB	_	9	neg	_	_
+8	even	even	ADV	RB	_	9	advmod	_	_
+9	hear	hear	VERB	VB	_	9	ROOT	_	_
+10	myself	-PRON-	PRON	PRP	_	11	nsubj	_	_
+11	think	think	VERB	VB	_	9	ccomp	_	_
+12	.	.	PUNCT	.	_	9	punct	_	_
+
+# line = 411
+# loc = INT
+# parse = (S (S (NP (PRP You)) (VP (VBP are) (VP (VBG disturbing) (NP (PRP me))))) (CC and) (S (NP (PRP you)) (VP (VBP are) (VP (VBG disturbing) (NP (PRP$ my) (NNS customers))))) (NFP ..) (  ))
+# scene = 41
+# sent_id = 7
+# sent_len = 12
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = You are disturbing me and you are disturbing my customers..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	are	be	VERB	VBP	_	3	aux	_	_
+3	disturbing	disturb	VERB	VBG	_	3	ROOT	_	_
+4	me	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	and	and	CCONJ	CC	_	3	cc	_	_
+6	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
+7	are	be	VERB	VBP	_	8	aux	_	_
+8	disturbing	disturb	VERB	VBG	_	3	conj	_	_
+9	my	-PRON-	ADJ	PRP$	_	10	poss	_	_
+10	customers	customer	NOUN	NNS	_	8	dobj	_	_
+11	..	..	PUNCT	NFP	_	8	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Sal)) (VP (VBZ grabs) (NP (PRP$ his) (NNP Mickey) (NNP Mantle) (NN bat)) (PP (IN from) (PP (IN underneath) (NP (DT the) (NN counter))))) (. .))
+# scene = 41
+# sent_id = 8
+# sent_len = 11
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Sal grabs his Mickey Mantle bat from underneath the counter.
+# time = DAY
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
+2	grabs	grab	VERB	VBZ	_	2	ROOT	_	_
+3	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+4	Mickey	mickey	PROPN	NNP	_	5	compound	_	_
+5	Mantle	mantle	PROPN	NNP	_	6	compound	_	_
+6	bat	bat	NOUN	NN	_	2	dobj	_	_
+7	from	from	ADP	IN	_	2	prep	_	_
+8	underneath	underneath	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	counter	counter	NOUN	NN	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NN Everyone) (, ,) (NNP Sal) (, ,) (NNP Vito) (, ,) (NNP Pino) (, ,) (NP (NNP Radio) (NNP Raheem)) (, ,) (CC and) (NP (DT the) (NNS customers))) (VP (VBP are) (VP (VBN poised) (PP (IN for) (NP (NP (NP (NN something)) (SBAR (S (VP (TO to) (VP (VB jump) (ADVP (RP off))))))) (, ,) (NP (NNP STATIC)))))) (. .))
+# scene = 41
+# sent_id = 9
+# sent_len = 24
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Everyone, Sal, Vito, Pino, Radio Raheem, and the customers are poised for something to jump off, STATIC.
+# time = DAY
+1	Everyone	everyone	NOUN	NN	_	16	nsubjpass	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	Sal	sal	PROPN	NNP	_	1	conj	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	Vito	vito	PROPN	NNP	_	3	conj	_	_
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	Pino	pino	PROPN	NNP	_	5	conj	_	_
+8	,	,	PUNCT	,	_	7	punct	_	_
+9	Radio	radio	PROPN	NNP	_	10	compound	_	_
+10	Raheem	raheem	PROPN	NNP	_	7	conj	_	_
+11	,	,	PUNCT	,	_	10	punct	_	_
+12	and	and	CCONJ	CC	_	10	cc	_	_
+13	the	the	DET	DT	_	14	det	_	_
+14	customers	customer	NOUN	NNS	_	10	conj	_	_
+15	are	be	VERB	VBP	_	16	auxpass	_	_
+16	poised	poise	VERB	VBN	_	16	ROOT	_	_
+17	for	for	ADP	IN	_	16	prep	_	_
+18	something	something	NOUN	NN	_	17	pobj	_	_
+19	to	to	PART	TO	_	20	aux	_	_
+20	jump	jump	VERB	VB	_	18	relcl	_	_
+21	off	off	PART	RP	_	20	prt	_	_
+22	,	,	PUNCT	,	_	18	punct	_	_
+23	STATIC	static	PROPN	NNP	_	18	appos	_	_
+24	.	.	PUNCT	.	_	16	punct	_	_
+
+# loc = INT
+# parse = (S (NP (PRP He)) (VP (VP (VBZ smiles)) (CC and) (VP (VBZ turns) (PRT (RP off)) (NP (DT the) (NN beat)))) (. .) (  ))
+# scene = 41
+# sent_id = 10
+# sent_len = 9
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = He smiles and turns off the beat.
+# time = DAY
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	smiles	smile	VERB	VBZ	_	2	ROOT	_	_
+3	and	and	CCONJ	CC	_	2	cc	_	_
+4	turns	turn	VERB	VBZ	_	2	conj	_	_
+5	off	off	PART	RP	_	4	prt	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	beat	beat	NOUN	NN	_	4	dobj	_	_
+8	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (PRP He)) (VP (VP (VBZ smiles)) (CC and) (VP (VBZ turns) (PRT (RP off)) (NP (DT the) (NN beat)))) (. .) (  ))
+# scene = 41
+# sent_id = 11
+# sent_len = 9
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = He smiles and turns off the beat.
+# time = DAY
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	smiles	smile	VERB	VBZ	_	2	ROOT	_	_
+3	and	and	CCONJ	CC	_	2	cc	_	_
+4	turns	turn	VERB	VBZ	_	2	conj	_	_
+5	off	off	PART	RP	_	4	prt	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	beat	beat	NOUN	NN	_	4	dobj	_	_
+8	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 412
+# loc = INT
+# parse = (NP (NP (CD Two) (NNS slices)) (, ,) (NP (JJ extra) (NN cheese)) (. ..) (  ))
+# scene = 41
+# sent_id = 12
+# sent_len = 7
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Two slices, extra cheese..
+# time = DAY
+1	Two	two	NUM	CD	_	2	nummod	_	_
+2	slices	slice	NOUN	NNS	_	2	ROOT	_	_
+3	,	,	PUNCT	,	_	2	punct	_	_
+4	extra	extra	ADJ	JJ	_	5	amod	_	_
+5	cheese	cheese	NOUN	NN	_	2	appos	_	_
+6	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Sal)) (VP (VBZ puts) (NP (NNP Mickey) (NNP Mantle)) (ADVP (RB back) (PP (IN into) (NP (PRP$ its) (NN place))))) (. .) (  ))
+# scene = 41
+# sent_id = 13
+# sent_len = 10
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Sal puts Mickey Mantle back into its place.
+# time = DAY
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
+2	puts	put	VERB	VBZ	_	2	ROOT	_	_
+3	Mickey	mickey	PROPN	NNP	_	4	compound	_	_
+4	Mantle	mantle	PROPN	NNP	_	2	dobj	_	_
+5	back	back	ADV	RB	_	2	advmod	_	_
+6	into	into	ADP	IN	_	5	prep	_	_
+7	its	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	place	place	NOUN	NN	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Sal)) (VP (VBZ puts) (NP (NNP Mickey) (NNP Mantle)) (ADVP (RB back) (PP (IN into) (NP (PRP$ its) (NN place))))) (. .) (  ))
+# scene = 41
+# sent_id = 14
+# sent_len = 10
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Sal puts Mickey Mantle back into its place.
+# time = DAY
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
+2	puts	put	VERB	VBZ	_	2	ROOT	_	_
+3	Mickey	mickey	PROPN	NNP	_	4	compound	_	_
+4	Mantle	mantle	PROPN	NNP	_	2	dobj	_	_
+5	back	back	ADV	RB	_	2	advmod	_	_
+6	into	into	ADP	IN	_	5	prep	_	_
+7	its	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	place	place	NOUN	NN	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 413
+# loc = INT
+# parse = (FRAG (SBAR (WHADVP (WRB When)) (S (NP (PRP you)) (VP (VBP come) (PP (IN in) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)))))) (, ,) (NP (DT no) (NN music)) (. .))
+# scene = 41
+# sent_id = 15
+# sent_len = 12
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = When you come in Sal's Famous Pizzeria, no music.
+# time = DAY
+1	When	when	ADV	WRB	_	3	advmod	_	_
+2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	come	come	VERB	VBP	_	3	ROOT	_	_
+4	in	in	ADP	IN	_	3	prep	_	_
+5	Sal	sal	PROPN	NNP	_	8	poss	_	_
+6	's	's	PART	POS	_	5	case	_	_
+7	Famous	famous	PROPN	NNP	_	8	compound	_	_
+8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	_
+9	,	,	PUNCT	,	_	8	punct	_	_
+10	no	no	DET	DT	_	11	det	_	_
+11	music	music	NOUN	NN	_	8	appos	_	_
+12	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 413
+# loc = INT
+# parse = (NP (NP (DT No) (NN rap)) (, ,) (NP (DT no) (NN music)) (. .))
+# scene = 41
+# sent_id = 16
+# sent_len = 6
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = No rap, no music.
+# time = DAY
+1	No	no	DET	DT	_	2	det	_	_
+2	rap	rap	NOUN	NN	_	2	ROOT	_	_
+3	,	,	PUNCT	,	_	2	punct	_	_
+4	no	no	DET	DT	_	5	det	_	_
+5	music	music	NOUN	NN	_	2	appos	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 413
+# loc = INT
+# parse = (NP (NNP Capisce) (. ?))
+# scene = 41
+# sent_id = 17
+# sent_len = 2
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = Capisce?
+# time = DAY
+1	Capisce	capisce	PROPN	NNP	_	1	ROOT	_	_
+2	?	?	PUNCT	.	_	1	punct	_	_
+
+# line = 413
+# loc = INT
+# parse = (S (VP (VB Understand)) (. ?) (NFP ...))
+# scene = 41
+# sent_id = 18
+# sent_len = 3
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = Understand?...
+# time = DAY
+1	Understand	understand	VERB	VB	_	1	ROOT	_	_
+2	?	?	PUNCT	.	_	1	punct	_	_
+3	...	...	PUNCT	NFP	_	1	punct	_	_
+
+# line = 413
+# loc = INT
+# parse = (S (NP (DT This)) (VP (VBZ is) (NP (NP (DT a) (NN place)) (PP (IN of) (NP (NN business))))) (. .))
+# scene = 41
+# sent_id = 19
+# sent_len = 7
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = This is a place of business.
+# time = DAY
+1	This	this	DET	DT	_	2	nsubj	_	_
+2	is	be	VERB	VBZ	_	2	ROOT	_	_
+3	a	a	DET	DT	_	4	det	_	_
+4	place	place	NOUN	NN	_	2	attr	_	_
+5	of	of	ADP	IN	_	4	prep	_	_
+6	business	business	NOUN	NN	_	5	pobj	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 413
+# loc = INT
+# parse = (S (NP (JJ Extra) (NN cheese)) (VP (VBZ is) (NP (CD two) (NNS dollars))) (. ..))
+# scene = 41
+# sent_id = 20
+# sent_len = 6
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = SAL
+# stage_direction = True
+# text = Extra cheese is two dollars..
+# time = DAY
+1	Extra	extra	ADJ	JJ	_	2	amod	_	_
+2	cheese	cheese	NOUN	NN	_	3	nsubj	_	_
+3	is	be	VERB	VBZ	_	3	ROOT	_	_
+4	two	two	NUM	CD	_	5	nummod	_	_
+5	dollars	dollar	NOUN	NNS	_	3	attr	_	_
+6	..	..	PUNCT	.	_	3	punct	_	_

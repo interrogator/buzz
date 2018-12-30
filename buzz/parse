@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+
+import argparse
+from .classes import Corpus
+
+"""
+A script to parse using corpkit
+
+:Example:
+
+$ parse junglebook --speaker-segmentation True
+
+"""
+
+parser = argparse.ArgumentParser(description='Parse a corpus.')
+
+parser.add_argument('-l', '--language',
+                    nargs='?',
+                    default='english',
+                    type=str,
+                    required=False,
+                    help='Language of the corpus')
+
+parser.add_argument('-w', '--workers',
+                    dest='multiprocess',
+                    nargs='?',
+                    default=1,
+                    type=int,
+                    required=False,
+                    help='Parse with parallel processing')
+
+parser.add_argument('-p', '--parser',
+                    nargs='?',
+                    default='spacy',
+                    type=str,
+                    required=False,
+                    choices=['corenlp', 'spacy', 'features'],
+                    help='Parser to use (corenlp/spacy)')
+
+parser.add_argument('-s', '--speaker-segmentation',
+                    dest='speaker_segmentation',
+                    default=False,
+                    action='store_true',
+                    help='Does the corpus contain speaker names?')
+
+parser.add_argument('-metadata', '--metadata',
+                    dest='metadata',
+                    default=False,
+                    action='store_true',
+                    help='Does the corpus contain xml metadata?')
+
+parser.add_argument('path', help='Directory or file to parse')
+
+kwargs = vars(parser.parse_args())
+
+corpus = Corpus(kwargs.pop('path'))
+
+corpus.parse(**kwargs)

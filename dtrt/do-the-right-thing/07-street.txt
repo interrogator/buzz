@@ -1,0 +1,1 @@
+The Block is beginning to come to life. Those unlucky souls who have to work this Saturday drag themselves to it, and the kids are out on the street to play in the hot sun all day long. <metadata time="DAY" loc="EXT" setting="STREET" scene="7" stage_direction="true">

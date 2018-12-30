@@ -1,0 +1,269 @@
+# loc = INT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ wakes) (PRT (RP up)) (PP (IN in) (NP (NP (NNP Mother) (NNP Sister) (POS 's)) (JJ big) (NN brass) (NN bed))) (PRN (-LRB- -LRB-) (S (NP (PRP she)) (VP (VBD was) (VP (VBN born) (PP (IN in) (NP (PRP it)))))) (-RRB- -RRB-))) (. .))
+# scene = 96
+# sent_id = 1
+# sent_len = 19
+# setting = MOTHER SISTER'S BEDROOM
+# stage_direction = True
+# text = Da Mayor wakes up in Mother Sister's big brass bed (she was born in it).
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	wakes	wake	VERB	VBZ	_	15	ccomp	_	_
+4	up	up	PART	RP	_	3	prt	_	_
+5	in	in	ADP	IN	_	3	prep	_	_
+6	Mother	mother	PROPN	NNP	_	7	compound	_	_
+7	Sister	sister	PROPN	NNP	_	11	poss	_	_
+8	's	's	PART	POS	_	7	case	_	_
+9	big	big	ADJ	JJ	_	11	amod	_	_
+10	brass	brass	NOUN	NN	_	11	compound	_	_
+11	bed	bed	NOUN	NN	_	5	pobj	_	_
+12	(	(	PUNCT	-LRB-	_	15	punct	_	_
+13	she	-PRON-	PRON	PRP	_	15	nsubjpass	_	_
+14	was	be	VERB	VBD	_	15	auxpass	_	_
+15	born	bear	VERB	VBN	_	15	ROOT	_	_
+16	in	in	ADP	IN	_	15	prep	_	_
+17	it	-PRON-	PRON	PRP	_	16	pobj	_	_
+18	)	)	PUNCT	-RRB-	_	15	punct	_	_
+19	.	.	PUNCT	.	_	15	punct	_	_
+
+# loc = INT
+# parse = (S (PP (IN At) (NP (RB first))) (NP (PRP he)) (VP (VP (VBZ has) (NP (NP (DT no) (NN idea)) (SBAR (WHADVP (WRB where)) (S (NP (PRP he)) (VP (VBZ 's) (PP (IN at))))))) (, ,) (RB then) (VP (VBZ sees) (S (NP (NNP Mother) (NNP Sister)) (VP (VBG sitting) (ADVP (RP down)) (PP (IN across) (NP (DT the) (NN room))) (S (VP (VBG smiling) (PP (IN at) (NP (PRP him))))))))) (. .) (  ))
+# scene = 96
+# sent_id = 2
+# sent_len = 25
+# setting = MOTHER SISTER'S BEDROOM
+# stage_direction = True
+# text = At first he has no idea where he's at, then sees Mother Sister sitting down across the room smiling at him.
+# time = DAY
+1	At	at	ADP	IN	_	4	prep	_	_
+2	first	first	ADV	RB	_	1	pcomp	_	_
+3	he	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	has	have	VERB	VBZ	_	4	ROOT	_	_
+5	no	no	DET	DT	_	6	det	_	_
+6	idea	idea	NOUN	NN	_	4	dobj	_	_
+7	where	where	ADV	WRB	_	9	advmod	_	_
+8	he	-PRON-	PRON	PRP	_	9	nsubj	_	_
+9	's	be	VERB	VBZ	_	6	relcl	_	_
+10	at	at	ADP	IN	_	9	advmod	_	_
+11	,	,	PUNCT	,	_	4	punct	_	_
+12	then	then	ADV	RB	_	13	advmod	_	_
+13	sees	see	VERB	VBZ	_	4	conj	_	_
+14	Mother	mother	PROPN	NNP	_	15	compound	_	_
+15	Sister	sister	PROPN	NNP	_	16	nsubj	_	_
+16	sitting	sit	VERB	VBG	_	13	ccomp	_	_
+17	down	down	PART	RP	_	16	prt	_	_
+18	across	across	ADP	IN	_	16	prep	_	_
+19	the	the	DET	DT	_	20	det	_	_
+20	room	room	NOUN	NN	_	18	pobj	_	_
+21	smiling	smile	VERB	VBG	_	20	acl	_	_
+22	at	at	ADP	IN	_	21	prep	_	_
+23	him	-PRON-	PRON	PRP	_	22	pobj	_	_
+24	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 768
+# loc = INT
+# parse = (NP (JJ Good) (NN morning) (NFP ..) (  ))
+# scene = 96
+# sent_id = 3
+# sent_len = 4
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Good morning..
+# time = DAY
+1	Good	good	ADJ	JJ	_	2	amod	_	_
+2	morning	morning	NOUN	NN	_	2	ROOT	_	_
+3	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# line = 769
+# loc = INT
+# parse = (SQ (VBZ Is) (NP (PRP it)) (NP (DT a) (JJ good) (NN morning)) (. ?) (. .) (  ))
+# scene = 96
+# sent_id = 4
+# sent_len = 8
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Is it a good morning?.
+# time = DAY
+1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+2	it	-PRON-	PRON	PRP	_	1	nsubj	_	_
+3	a	a	DET	DT	_	5	det	_	_
+4	good	good	ADJ	JJ	_	5	amod	_	_
+5	morning	morning	NOUN	NN	_	1	attr	_	_
+6	?	?	PUNCT	.	_	1	punct	_	_
+7	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 770
+# loc = INT
+# parse = (FRAG (ADJP (UH Yes)) (ADVP (RB indeed)) (. .))
+# scene = 96
+# sent_id = 5
+# sent_len = 3
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Yes indeed.
+# time = DAY
+1	Yes	yes	INTJ	UH	_	2	intj	_	_
+2	indeed	indeed	ADV	RB	_	2	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 770
+# loc = INT
+# parse = (S (NP (PRP You)) (ADVP (RB almost)) (VP (VP (VBD got) (S (NP (PRP yourself)) (VP (VBN killed))) (NP (JJ last) (NN night))) (. ..) (  )))
+# scene = 96
+# sent_id = 6
+# sent_len = 9
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = You almost got yourself killed last night..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	almost	almost	ADV	RB	_	3	advmod	_	_
+3	got	get	VERB	VBD	_	3	ROOT	_	_
+4	yourself	-PRON-	PRON	PRP	_	5	nsubj	_	_
+5	killed	kill	VERB	VBN	_	3	ccomp	_	_
+6	last	last	ADJ	JJ	_	7	amod	_	_
+7	night	night	NOUN	NN	_	5	npadvmod	_	_
+8	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 771
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VB 've) (VP (VBN done) (NP (IN that)) (ADVP (RB before)))) (. ..) (  ))
+# scene = 96
+# sent_id = 7
+# sent_len = 7
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = DA MAYOR
+# stage_direction = True
+# text = I've done that before..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	've	have	VERB	VB	_	3	aux	_	_
+3	done	do	VERB	VBN	_	3	ROOT	_	_
+4	that	that	ADP	IN	_	3	dobj	_	_
+5	before	before	ADV	RB	_	3	advmod	_	_
+6	..	..	PUNCT	.	_	3	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ gets) (PP (ADVP (RP up)) (PP (IN out) (PP (IN of) (NP (PRP$ her) (JJ big) (NN brass) (NN bed)))))) (. .) (  ))
+# scene = 96
+# sent_id = 8
+# sent_len = 12
+# setting = MOTHER SISTER'S BEDROOM
+# stage_direction = True
+# text = Da Mayor gets up out of her big brass bed.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	gets	get	VERB	VBZ	_	3	ROOT	_	_
+4	up	up	PART	RP	_	3	prt	_	_
+5	out	out	ADP	IN	_	3	prep	_	_
+6	of	of	ADP	IN	_	5	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	10	poss	_	_
+8	big	big	ADJ	JJ	_	10	amod	_	_
+9	brass	brass	NOUN	NN	_	10	compound	_	_
+10	bed	bed	NOUN	NN	_	6	pobj	_	_
+11	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 772
+# loc = INT
+# parse = (SBARQ (WHADVP (WRB Where)) (SQ (VBD did) (NP (PRP you)) (VP (VB sleep))) (. ?) (. .) (  ))
+# scene = 96
+# sent_id = 9
+# sent_len = 7
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Where did you sleep?.
+# time = DAY
+1	Where	where	ADV	WRB	_	4	advmod	_	_
+2	did	do	VERB	VBD	_	4	aux	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	sleep	sleep	VERB	VB	_	4	ROOT	_	_
+5	?	?	PUNCT	.	_	4	punct	_	_
+6	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 773
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VP (VBD did) (RB n't)) (. ..) (  )))
+# scene = 96
+# sent_id = 10
+# sent_len = 5
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = I didn't..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	did	do	VERB	VBD	_	2	ROOT	_	_
+3	n't	not	ADV	RB	_	2	neg	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 774
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VBP hope) (SBAR (S (NP (DT the) (NN block)) (VP (VBZ is) (ADVP (RB still)) (VP (VBG standing)))))) (. ..) (  ))
+# scene = 96
+# sent_id = 11
+# sent_len = 9
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = DA MAYOR
+# stage_direction = True
+# text = I hope the block is still standing..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	hope	hope	VERB	VBP	_	2	ROOT	_	_
+3	the	the	DET	DT	_	4	det	_	_
+4	block	block	NOUN	NN	_	7	nsubj	_	_
+5	is	be	VERB	VBZ	_	7	aux	_	_
+6	still	still	ADV	RB	_	7	advmod	_	_
+7	standing	stand	VERB	VBG	_	2	ccomp	_	_
+8	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 775
+# loc = INT
+# parse = (S (NP (PRP We)) (VP (VBP 're) (ADVP (RB still)) (VP (VBG standing))) (NFP ..) (  ))
+# scene = 96
+# sent_id = 12
+# sent_len = 6
+# setting = MOTHER SISTER'S BEDROOM
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = We're still standing..
+# time = DAY
+1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	're	be	VERB	VBP	_	4	aux	_	_
+3	still	still	ADV	RB	_	4	advmod	_	_
+4	standing	stand	VERB	VBG	_	4	ROOT	_	_
+5	..	..	PUNCT	NFP	_	4	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NP (NNP Da) (NNP Mayor)) (CC and) (NP (NNP Mother) (NNP Sister))) (DT both) (VP (VB look) (PP (RP out) (NP (DT the) (NN parlor) (NN window))) (S (VP (TO to) (VP (VB see) (NP (DT THE) (NN BLOCK) (CC and) (NNP Mookie)))))) (. .))
+# scene = 96
+# sent_id = 13
+# sent_len = 18
+# setting = MOTHER SISTER'S BEDROOM
+# stage_direction = True
+# text = Da Mayor and Mother Sister both look out the parlor window to see THE BLOCK and Mookie.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	7	nsubj	_	_
+3	and	and	CCONJ	CC	_	2	cc	_	_
+4	Mother	mother	PROPN	NNP	_	5	compound	_	_
+5	Sister	sister	PROPN	NNP	_	2	conj	_	_
+6	both	both	DET	DT	_	2	appos	_	_
+7	look	look	VERB	VB	_	7	ROOT	_	_
+8	out	out	PART	RP	_	7	prt	_	_
+9	the	the	DET	DT	_	11	det	_	_
+10	parlor	parlor	NOUN	NN	_	11	compound	_	_
+11	window	window	NOUN	NN	_	8	pobj	_	_
+12	to	to	PART	TO	_	13	aux	_	_
+13	see	see	VERB	VB	_	7	advcl	_	_
+14	THE	the	DET	DT	_	15	det	_	_
+15	BLOCK	block	NOUN	NN	_	13	dobj	_	_
+16	and	and	CCONJ	CC	_	15	cc	_	_
+17	Mookie	mookie	PROPN	NNP	_	15	conj	_	_
+18	.	.	PUNCT	.	_	7	punct	_	_

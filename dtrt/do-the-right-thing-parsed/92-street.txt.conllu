@@ -1,0 +1,52 @@
+# loc = EXT
+# parse = (S (S (NP (NP (NNP Jade)) (CC and) (NP (NNP Mother) (NNP Sister))) (VP (VB try) (S (VP (TO to) (VP (VB hold) (PRT (RP on)) (PP (IN to) (NP (DT a) (NN streetlamp))) (SBAR (IN as) (S (NP (NP (DT a) (NN gush)) (PP (IN of) (NP (NN water)))) (VP (VBZ hits) (NP (PRP them)))))))))) (: ;) (S (NP (PRP$ their) (NNS grips)) (VP (VBZ loosens))) (, ,) (S (NP (DT the) (NN water)) (VP (VBZ is) (ADJP (RB too) (JJ powerful)))) (, ,) (CC and) (S (S (NP (PRP they)) (VP (VBP slide) (ADVP (RB away)) (PP (IN down) (NP (DT the) (NN block))))) (CC and) (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ runs) (PP (IN after) (NP (PRP them)))))) (. .))
+# scene = 92
+# sent_id = 1
+# sent_len = 43
+# setting = STREET
+# stage_direction = True
+# text = Jade and Mother Sister try to hold on to a streetlamp as a gush of water hits them; their grips loosens, the water is too powerful, and they slide away down the block and Da Mayor runs after them.
+# time = NIGHT
+1	Jade	jade	PROPN	NNP	_	5	nsubj	_	_
+2	and	and	CCONJ	CC	_	1	cc	_	_
+3	Mother	mother	PROPN	NNP	_	4	compound	_	_
+4	Sister	sister	PROPN	NNP	_	1	conj	_	_
+5	try	try	VERB	VB	_	22	ccomp	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	hold	hold	VERB	VB	_	5	xcomp	_	_
+8	on	on	PART	RP	_	7	prt	_	_
+9	to	to	ADP	IN	_	7	prep	_	_
+10	a	a	DET	DT	_	11	det	_	_
+11	streetlamp	streetlamp	NOUN	NN	_	9	pobj	_	_
+12	as	as	ADP	IN	_	17	mark	_	_
+13	a	a	DET	DT	_	14	det	_	_
+14	gush	gush	NOUN	NN	_	17	nsubj	_	_
+15	of	of	ADP	IN	_	14	prep	_	_
+16	water	water	NOUN	NN	_	15	pobj	_	_
+17	hits	hit	VERB	VBZ	_	7	advcl	_	_
+18	them	-PRON-	PRON	PRP	_	17	dobj	_	_
+19	;	;	PUNCT	:	_	22	punct	_	_
+20	their	-PRON-	ADJ	PRP$	_	21	poss	_	_
+21	grips	grip	NOUN	NNS	_	22	nsubj	_	_
+22	loosens	loosen	VERB	VBZ	_	26	parataxis	_	_
+23	,	,	PUNCT	,	_	26	punct	_	_
+24	the	the	DET	DT	_	25	det	_	_
+25	water	water	NOUN	NN	_	26	nsubj	_	_
+26	is	be	VERB	VBZ	_	26	ROOT	_	_
+27	too	too	ADV	RB	_	28	advmod	_	_
+28	powerful	powerful	ADJ	JJ	_	26	acomp	_	_
+29	,	,	PUNCT	,	_	26	punct	_	_
+30	and	and	CCONJ	CC	_	26	cc	_	_
+31	they	-PRON-	PRON	PRP	_	32	nsubj	_	_
+32	slide	slide	VERB	VBP	_	26	conj	_	_
+33	away	away	ADV	RB	_	32	advmod	_	_
+34	down	down	ADP	IN	_	32	prep	_	_
+35	the	the	DET	DT	_	36	det	_	_
+36	block	block	NOUN	NN	_	34	pobj	_	_
+37	and	and	CCONJ	CC	_	36	cc	_	_
+38	Da	da	PROPN	NNP	_	39	compound	_	_
+39	Mayor	mayor	PROPN	NNP	_	40	nsubj	_	_
+40	runs	run	VERB	VBZ	_	32	ccomp	_	_
+41	after	after	ADP	IN	_	40	prep	_	_
+42	them	-PRON-	PRON	PRP	_	41	pobj	_	_
+43	.	.	PUNCT	.	_	32	punct	_	_

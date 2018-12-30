@@ -1,0 +1,60 @@
+# loc = EXT
+# parse = (S (NP (DT The) (NNP Block)) (VP (VBZ is) (VP (VBG beginning) (S (VP (TO to) (VP (VB come) (PP (IN to) (NP (NN life)))))))) (. .))
+# scene = 7
+# sent_id = 1
+# sent_len = 9
+# setting = STREET
+# stage_direction = True
+# text = The Block is beginning to come to life.
+# time = DAY
+1	The	the	DET	DT	_	2	det	_	_
+2	Block	block	PROPN	NNP	_	4	nsubj	_	_
+3	is	be	VERB	VBZ	_	4	aux	_	_
+4	beginning	begin	VERB	VBG	_	4	ROOT	_	_
+5	to	to	PART	TO	_	6	aux	_	_
+6	come	come	VERB	VB	_	4	xcomp	_	_
+7	to	to	ADP	IN	_	6	prep	_	_
+8	life	life	NOUN	NN	_	7	pobj	_	_
+9	.	.	PUNCT	.	_	4	punct	_	_
+
+# loc = EXT
+# parse = (S (S (NP (NP (DT Those) (JJ unlucky) (NNS souls)) (SBAR (WHNP (WP who)) (S (VP (VBP have) (S (VP (TO to) (VP (VB work) (NP (DT this) (NNP Saturday))))))))) (VP (VB drag) (NP (PRP themselves)) (PP (IN to) (NP (PRP it))))) (, ,) (CC and) (S (NP (DT the) (NNS kids)) (VP (VBP are) (PP (RB out) (PP (IN on) (NP (DT the) (NN street)))) (S (VP (TO to) (VP (VB play) (PP (IN in) (NP (DT the) (JJ hot) (NN sun))) (ADVP (NP (DT all) (NN day)) (RB long))))))) (. .))
+# scene = 7
+# sent_id = 2
+# sent_len = 32
+# setting = STREET
+# stage_direction = True
+# text = Those unlucky souls who have to work this Saturday drag themselves to it, and the kids are out on the street to play in the hot sun all day long.
+# time = DAY
+1	Those	those	DET	DT	_	3	det	_	_
+2	unlucky	unlucky	ADJ	JJ	_	3	amod	_	_
+3	souls	soul	NOUN	NNS	_	10	nsubj	_	_
+4	who	who	NOUN	WP	_	5	nsubj	_	_
+5	have	have	VERB	VBP	_	3	relcl	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	work	work	VERB	VB	_	5	xcomp	_	_
+8	this	this	DET	DT	_	9	det	_	_
+9	Saturday	saturday	PROPN	NNP	_	7	npadvmod	_	_
+10	drag	drag	VERB	VB	_	10	ROOT	_	_
+11	themselves	-PRON-	PRON	PRP	_	10	dobj	_	_
+12	to	to	ADP	IN	_	10	prep	_	_
+13	it	-PRON-	PRON	PRP	_	12	pobj	_	_
+14	,	,	PUNCT	,	_	10	punct	_	_
+15	and	and	CCONJ	CC	_	10	cc	_	_
+16	the	the	DET	DT	_	17	det	_	_
+17	kids	kid	NOUN	NNS	_	18	nsubj	_	_
+18	are	be	VERB	VBP	_	10	conj	_	_
+19	out	out	ADV	RB	_	18	advmod	_	_
+20	on	on	ADP	IN	_	18	prep	_	_
+21	the	the	DET	DT	_	22	det	_	_
+22	street	street	NOUN	NN	_	20	pobj	_	_
+23	to	to	PART	TO	_	24	aux	_	_
+24	play	play	VERB	VB	_	18	advcl	_	_
+25	in	in	ADP	IN	_	24	prep	_	_
+26	the	the	DET	DT	_	28	det	_	_
+27	hot	hot	ADJ	JJ	_	28	amod	_	_
+28	sun	sun	NOUN	NN	_	25	pobj	_	_
+29	all	all	DET	DT	_	30	det	_	_
+30	day	day	NOUN	NN	_	31	npadvmod	_	_
+31	long	long	ADV	RB	_	24	advmod	_	_
+32	.	.	PUNCT	.	_	18	punct	_	_

@@ -1,0 +1,56 @@
+# loc = INT
+# parse = (S (S (NP (PRP We)) (VP (VBP hear) (NP (NP (DT a) (NN key)) (PP (IN in) (NP (DT the) (NN door)))))) (, ,) (S (NP (DT the) (NN lock)) (VP (VBZ turns))) (CC and) (S (NP (NNP Mookie)) (VP (VBZ enters))) (. .) (  ))
+# scene = 45
+# sent_id = 1
+# sent_len = 16
+# setting = MOOKIE'S APARTMENT
+# stage_direction = True
+# text = We hear a key in the door, the lock turns and Mookie enters.
+# time = DAY
+1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+3	a	a	DET	DT	_	4	det	_	_
+4	key	key	NOUN	NN	_	2	dobj	_	_
+5	in	in	ADP	IN	_	4	prep	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	door	door	NOUN	NN	_	5	pobj	_	_
+8	,	,	PUNCT	,	_	2	punct	_	_
+9	the	the	DET	DT	_	11	det	_	_
+10	lock	lock	NOUN	NN	_	11	compound	_	_
+11	turns	turn	VERB	VBZ	_	2	dobj	_	_
+12	and	and	CCONJ	CC	_	11	cc	_	_
+13	Mookie	mookie	PROPN	NNP	_	14	compound	_	_
+14	enters	enter	VERB	VBZ	_	11	conj	_	_
+15	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 415
+# loc = INT
+# parse = (NP (NNP Jade) (. ..) (  ))
+# scene = 45
+# sent_id = 2
+# sent_len = 3
+# setting = MOOKIE'S APARTMENT
+# speaker = MOOKIE
+# stage_direction = True
+# text = Jade..
+# time = DAY
+1	Jade	jade	PROPN	NNP	_	1	ROOT	_	_
+2	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 416
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (RB in) (ADVP (RB here))) (. ..))
+# scene = 45
+# sent_id = 3
+# sent_len = 5
+# setting = MOOKIE'S APARTMENT
+# speaker = JADE
+# stage_direction = True
+# text = I'm in here..
+# time = DAY
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	in	in	ADV	RB	_	2	prep	_	_
+4	here	here	ADV	RB	_	2	advmod	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_

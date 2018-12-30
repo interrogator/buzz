@@ -1,0 +1,22 @@
+# loc = EXT
+# parse = (S (NP (NN Radio) (DT Raheem)) (VP (NNS waves) (PP (IN to) (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy))) (SBAR (IN as) (S (NP (PRP he)) (VP (VBZ walks) (ADVP (RB by)))))) (. .))
+# scene = 12
+# sent_id = 1
+# sent_len = 13
+# setting = WE LOVE STOREFRONT
+# stage_direction = True
+# text = Radio Raheem waves to Mister Señor Love Daddy as he walks by.
+# time = DAY
+1	Radio	radio	NOUN	NN	_	2	compound	_	_
+2	Raheem	raheem	DET	DT	_	3	compound	_	_
+3	waves	wave	NOUN	NNS	_	3	ROOT	_	_
+4	to	to	ADP	IN	_	3	prep	_	_
+5	Mister	mister	PROPN	NNP	_	7	compound	_	_
+6	Señor	señor	PROPN	NNP	_	7	compound	_	_
+7	Love	love	PROPN	NNP	_	8	compound	_	_
+8	Daddy	daddy	PROPN	NNP	_	4	pobj	_	_
+9	as	as	ADP	IN	_	11	mark	_	_
+10	he	-PRON-	PRON	PRP	_	11	nsubj	_	_
+11	walks	walk	VERB	VBZ	_	3	advcl	_	_
+12	by	by	ADV	RB	_	11	advmod	_	_
+13	.	.	PUNCT	.	_	3	punct	_	_

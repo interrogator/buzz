@@ -1,0 +1,58 @@
+# loc = INT
+# parse = (S (NP (DT The) (NNS people)) (VP (VBP rush) (PP (IN into) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria))) (, ,) (S (VP (VBG tearing) (NP (PRP it)) (PRT (RP up))))) (. .))
+# scene = 81
+# sent_id = 1
+# sent_len = 13
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = The people rush into Sal's Famous Pizzeria, tearing it up.
+# time = NIGHT
+1	The	the	DET	DT	_	2	det	_	_
+2	people	people	NOUN	NNS	_	3	nsubj	_	_
+3	rush	rush	VERB	VBP	_	3	ROOT	_	_
+4	into	into	ADP	IN	_	3	prep	_	_
+5	Sal	sal	PROPN	NNP	_	8	poss	_	_
+6	's	's	PART	POS	_	5	case	_	_
+7	Famous	famous	PROPN	NNP	_	8	compound	_	_
+8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	_
+9	,	,	PUNCT	,	_	3	punct	_	_
+10	tearing	tear	VERB	VBG	_	3	advcl	_	_
+11	it	-PRON-	PRON	PRP	_	10	dobj	_	_
+12	up	up	PART	RP	_	10	prt	_	_
+13	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = INT
+# parse = (S (NP (DT The) (NN cash) (NN register)) (VP (VBZ is) (VP (VBN opened))) (. .))
+# scene = 81
+# sent_id = 2
+# sent_len = 6
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = The cash register is opened.
+# time = NIGHT
+1	The	the	DET	DT	_	3	det	_	_
+2	cash	cash	NOUN	NN	_	3	compound	_	_
+3	register	register	NOUN	NN	_	5	nsubjpass	_	_
+4	is	be	VERB	VBZ	_	5	auxpass	_	_
+5	opened	open	VERB	VBN	_	5	ROOT	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
+
+# loc = INT
+# parse = (S (S (NP (PRP WE)) (VP (VBP SEE) (NP (JJ only) (NNS coins)))) (, ,) (S (NP (NNP Sal)) (VP (VBZ has) (NP (DT the) (NN paper)))) (. .))
+# scene = 81
+# sent_id = 3
+# sent_len = 10
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = WE SEE only coins, Sal has the paper.
+# time = NIGHT
+1	WE	we	PRON	PRP	_	2	nsubj	_	_
+2	SEE	see	VERB	VBP	_	7	ccomp	_	_
+3	only	only	ADJ	JJ	_	4	advmod	_	_
+4	coins	coin	NOUN	NNS	_	2	dobj	_	_
+5	,	,	PUNCT	,	_	7	punct	_	_
+6	Sal	sal	PROPN	NNP	_	7	nsubj	_	_
+7	has	have	VERB	VBZ	_	7	ROOT	_	_
+8	the	the	DET	DT	_	9	det	_	_
+9	paper	paper	NOUN	NN	_	7	dobj	_	_
+10	.	.	PUNCT	.	_	7	punct	_	_

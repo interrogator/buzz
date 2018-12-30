@@ -1,0 +1,1 @@
+Mookie turns on the shower and screams; the water is ice cold. <metadata time="DAY" loc="INT" setting="BATHROOM" scene="47" stage_direction="true">

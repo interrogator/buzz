@@ -1,0 +1,20 @@
+# loc = EXT
+# parse = (S (NP (NN Mookie)) (VP (VP (VBZ walks)) (, ,) (VBZ says) (INTJ (UH hello)) (PP (IN to) (NP (NP (DT the) (NNS people)) (SBAR (S (NP (PRP he)) (VP (VBZ knows))))))) (. .))
+# scene = 43
+# sent_id = 1
+# sent_len = 11
+# setting = STREET
+# stage_direction = True
+# text = Mookie walks, says hello to the people he knows.
+# time = DAY
+1	Mookie	mookie	NOUN	NN	_	2	compound	_	_
+2	walks	walk	VERB	VBZ	_	4	ccomp	_	_
+3	,	,	PUNCT	,	_	4	punct	_	_
+4	says	say	VERB	VBZ	_	4	ROOT	_	_
+5	hello	hello	INTJ	UH	_	4	intj	_	_
+6	to	to	ADP	IN	_	4	prep	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	people	people	NOUN	NNS	_	6	pobj	_	_
+9	he	-PRON-	PRON	PRP	_	10	nsubj	_	_
+10	knows	know	VERB	VBZ	_	8	relcl	_	_
+11	.	.	PUNCT	.	_	4	punct	_	_

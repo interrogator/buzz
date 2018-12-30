@@ -1,0 +1,28 @@
+# loc = EXT
+# parse = (S (S (NP (NNP Mookie) (CC and) (NNP Vito)) (VP (NN wave) (PP (IN at) (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy))) (PP (IN through) (NP (DT the) (NN storefront) (NN window))))) (CC and) (S (NP (PRP he)) (VP (VBZ buzzes) (NP (PRP them)) (PRT (RP in)))) (. .))
+# scene = 29
+# sent_id = 1
+# sent_len = 19
+# setting = WE LOVE RADIO
+# stage_direction = True
+# text = Mookie and Vito wave at Mister Señor Love Daddy through the storefront window and he buzzes them in.
+# time = DAY
+1	Mookie	mookie	PROPN	NNP	_	4	nmod	_	_
+2	and	and	CCONJ	CC	_	1	cc	_	_
+3	Vito	vito	PROPN	NNP	_	1	conj	_	_
+4	wave	wave	NOUN	NN	_	4	ROOT	_	_
+5	at	at	ADP	IN	_	4	prep	_	_
+6	Mister	mister	PROPN	NNP	_	8	compound	_	_
+7	Señor	señor	PROPN	NNP	_	8	compound	_	_
+8	Love	love	PROPN	NNP	_	9	compound	_	_
+9	Daddy	daddy	NOUN	NN	_	5	pobj	_	_
+10	through	through	ADP	IN	_	4	prep	_	_
+11	the	the	DET	DT	_	13	det	_	_
+12	storefront	storefront	NOUN	NN	_	13	amod	_	_
+13	window	window	NOUN	NN	_	10	pobj	_	_
+14	and	and	CCONJ	CC	_	4	cc	_	_
+15	he	-PRON-	PRON	PRP	_	16	nsubj	_	_
+16	buzzes	buzz	VERB	VBZ	_	4	conj	_	_
+17	them	-PRON-	PRON	PRP	_	16	dobj	_	_
+18	in	in	PART	RP	_	16	prt	_	_
+19	.	.	PUNCT	.	_	16	punct	_	_

@@ -1,0 +1,1 @@
+Mookie walks, says hello to the people he knows. <metadata time="DAY" loc="EXT" setting="STREET" scene="43" stage_direction="true">

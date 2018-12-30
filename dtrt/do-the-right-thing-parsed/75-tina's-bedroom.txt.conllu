@@ -1,0 +1,608 @@
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ sits) (PRT (RP down)) (PP (IN on) (NP (DT the) (NN bed))) (PP (IN with) (NP (NP (DT a) (NN bowl)) (VP (VBN filled) (PP (IN with) (NP (NN ice) (NNS cubes))))))) (. .))
+# scene = 75
+# sent_id = 1
+# sent_len = 14
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie sits down on the bed with a bowl filled with ice cubes.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
+3	down	down	PART	RP	_	2	prt	_	_
+4	on	on	ADP	IN	_	2	prep	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	bed	bed	NOUN	NN	_	4	pobj	_	_
+7	with	with	ADP	IN	_	2	prep	_	_
+8	a	a	DET	DT	_	9	det	_	_
+9	bowl	bowl	NOUN	NN	_	7	pobj	_	_
+10	filled	fill	VERB	VBN	_	9	acl	_	_
+11	with	with	ADP	IN	_	10	prep	_	_
+12	ice	ice	NOUN	NN	_	13	compound	_	_
+13	cubes	cube	NOUN	NNS	_	11	pobj	_	_
+14	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (PRP$ her) (NN forehead)))) (. .) (  ))
+# scene = 75
+# sent_id = 2
+# sent_len = 10
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie rubs an ice cube on her forehead.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	2	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	forehead	forehead	NOUN	NN	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (PRP$ her) (NN forehead)))) (. .) (  ))
+# scene = 75
+# sent_id = 3
+# sent_len = 10
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie rubs an ice cube on her forehead.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	2	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	forehead	forehead	NOUN	NN	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 632
+# loc = INT
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ cold))) (. ..) (  ))
+# scene = 75
+# sent_id = 4
+# sent_len = 5
+# setting = TINA'S BEDROOM
+# speaker = TINA
+# stage_direction = True
+# text = It's cold..
+# time = NIGHT
+1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	's	be	VERB	VBZ	_	2	ROOT	_	_
+3	cold	cold	ADJ	JJ	_	2	acomp	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 633
+# loc = INT
+# parse = (S (NP (NP (PRP It))) (VP (VP (VBZ 's) ('' ') (VP (VBP pose) (S (VP (TO to) (VP (VB be) (ADJP (JJ cold))))))) (. ..) (  )))
+# scene = 75
+# sent_id = 5
+# sent_len = 9
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = It's 'pose to be cold..
+# time = NIGHT
+1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	's	be	VERB	VBZ	_	4	auxpass	_	_
+3	'	'	PUNCT	''	_	2	punct	_	_
+4	pose	pose	VERB	VBP	_	4	ROOT	_	_
+5	to	to	PART	TO	_	6	aux	_	_
+6	be	be	VERB	VB	_	4	xcomp	_	_
+7	cold	cold	ADJ	JJ	_	6	acomp	_	_
+8	..	..	PUNCT	.	_	4	punct	_	_
+
+# line = 634
+# loc = INT
+# parse = (ADVP (RB Later) (PP (IN for) (NP (PRP you))) (. ..) (  ))
+# scene = 75
+# sent_id = 6
+# sent_len = 5
+# setting = TINA'S BEDROOM
+# speaker = TINA
+# stage_direction = True
+# text = Later for you..
+# time = NIGHT
+1	Later	later	ADV	RB	_	2	advmod	_	_
+2	for	for	ADP	IN	_	2	ROOT	_	_
+3	you	-PRON-	PRON	PRP	_	2	pobj	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 635
+# loc = INT
+# parse = (NP (NNP Meda) (. .))
+# scene = 75
+# sent_id = 7
+# sent_len = 2
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Meda.
+# time = NIGHT
+1	Meda	meda	PROPN	NNP	_	1	ROOT	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 635
+# loc = INT
+# parse = (NP (NNP Meda) (. ..) (  ))
+# scene = 75
+# sent_id = 8
+# sent_len = 3
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Meda..
+# time = NIGHT
+1	Meda	meda	PROPN	NNP	_	1	ROOT	_	_
+2	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 636
+# loc = INT
+# parse = (FRAG (WHNP (WP What)) (. ?) (. .) (  ))
+# scene = 75
+# sent_id = 9
+# sent_len = 4
+# setting = TINA'S BEDROOM
+# speaker = TINA
+# stage_direction = True
+# text = What?.
+# time = NIGHT
+1	What	what	NOUN	WP	_	1	ROOT	_	_
+2	?	?	PUNCT	.	_	1	punct	_	_
+3	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 637
+# loc = INT
+# parse = (S (NP (NNP Tina)) (, ,) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB have) (NP (DT a) (NN forehead))))) (, ,) (S (NP (PRP you)) (VP (VBD got) (NP (DT a) (CD eight) (HYPH -) (NN head)))) (. ..) (  ))
+# scene = 75
+# sent_id = 10
+# sent_len = 17
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Tina, you don't have a forehead, you got a eight-head..
+# time = NIGHT
+1	Tina	tina	PROPN	NNP	_	6	npadvmod	_	_
+2	,	,	PUNCT	,	_	6	punct	_	_
+3	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
+4	do	do	VERB	VBP	_	6	aux	_	_
+5	n't	not	ADV	RB	_	6	neg	_	_
+6	have	have	VERB	VB	_	11	ccomp	_	_
+7	a	a	DET	DT	_	8	det	_	_
+8	forehead	forehead	NOUN	NN	_	6	dobj	_	_
+9	,	,	PUNCT	,	_	11	punct	_	_
+10	you	-PRON-	PRON	PRP	_	11	nsubj	_	_
+11	got	get	VERB	VBD	_	11	ROOT	_	_
+12	a	a	DET	DT	_	15	det	_	_
+13	eight	eight	NUM	CD	_	15	nummod	_	_
+14	-	-	PUNCT	HYPH	_	15	punct	_	_
+15	head	head	NOUN	NN	_	11	dobj	_	_
+16	..	..	PUNCT	.	_	11	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (PRP$ her) (NN neck)))) (. .))
+# scene = 75
+# sent_id = 11
+# sent_len = 9
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie rubs an ice cube on her neck.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	2	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	neck	neck	NOUN	NN	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (PRP$ her) (JJ full) (NN moist) (NNS lips)))) (, ,) (RB then) (VP (VBZ puts) (NP (PRP it)) (PP (IN in) (NP (PRP$ her) (NN mouth))))) (. .) (  ))
+# scene = 75
+# sent_id = 12
+# sent_len = 19
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie rubs an ice cube on her full moist lips, then puts it in her mouth.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	5	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	10	poss	_	_
+8	full	full	ADJ	JJ	_	10	amod	_	_
+9	moist	moist	NOUN	NN	_	10	amod	_	_
+10	lips	lip	NOUN	NNS	_	6	pobj	_	_
+11	,	,	PUNCT	,	_	2	punct	_	_
+12	then	then	ADV	RB	_	13	advmod	_	_
+13	puts	put	VERB	VBZ	_	2	dep	_	_
+14	it	-PRON-	PRON	PRP	_	13	dobj	_	_
+15	in	in	ADP	IN	_	13	prep	_	_
+16	her	-PRON-	ADJ	PRP$	_	17	poss	_	_
+17	mouth	mouth	NOUN	NN	_	15	pobj	_	_
+18	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 638
+# loc = INT
+# parse = (S (INTJ (UH Yes)) (, ,) (NP (NNS children)) (, ,) (NP (DT this)) (VP (VBZ is) (NP (DT the) (NNP Cool) (NNP Out) (NNP Corner))) (. .))
+# scene = 75
+# sent_id = 13
+# sent_len = 11
+# setting = TINA'S BEDROOM
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = Yes, children, this is the Cool Out Corner.
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Yes	yes	INTJ	UH	_	6	intj	_	_
+2	,	,	PUNCT	,	_	6	punct	_	_
+3	children	child	NOUN	NNS	_	6	npadvmod	_	_
+4	,	,	PUNCT	,	_	6	punct	_	_
+5	this	this	DET	DT	_	6	nsubj	_	_
+6	is	be	VERB	VBZ	_	6	ROOT	_	_
+7	the	the	DET	DT	_	10	det	_	_
+8	Cool	cool	PROPN	NNP	_	10	compound	_	_
+9	Out	out	PROPN	NNP	_	10	compound	_	_
+10	Corner	corner	PROPN	NNP	_	6	attr	_	_
+11	.	.	PUNCT	.	_	6	punct	_	_
+
+# line = 638
+# loc = INT
+# parse = (S (NP (PRP We)) (VP (VBP 're) (VP (VBG slowing) (NP (PRP it)) (PRT (RP down)) (PP (IN for) (NP (NP (PDT all) (DT the) (NNS lovers)) (PP (IN in) (NP (DT the) (NN house))))))) (. .))
+# scene = 75
+# sent_id = 14
+# sent_len = 13
+# setting = TINA'S BEDROOM
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = We're slowing it down for all the lovers in the house.
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	We	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	're	be	VERB	VBP	_	3	aux	_	_
+3	slowing	slow	VERB	VBG	_	3	ROOT	_	_
+4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	down	down	PART	RP	_	3	prt	_	_
+6	for	for	ADP	IN	_	3	prep	_	_
+7	all	all	ADJ	PDT	_	9	predet	_	_
+8	the	the	DET	DT	_	9	det	_	_
+9	lovers	lover	NOUN	NNS	_	6	pobj	_	_
+10	in	in	ADP	IN	_	9	prep	_	_
+11	the	the	DET	DT	_	12	det	_	_
+12	house	house	NOUN	NN	_	10	pobj	_	_
+13	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 638
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB be) (VP (VBG giving) (NP (PRP you)) (NP (NP (NP (PDT all) (DT the) (NN help)) (SBAR (S (NP (PRP you)) (VB need)))) (, ,) (ADVP (RB musically)) (, ,) (SBAR (WHNP (DT that)) (S (VP (RB is)))))))) (. ..) (  ))
+# scene = 75
+# sent_id = 15
+# sent_len = 17
+# setting = TINA'S BEDROOM
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = I'll be giving you all the help you need, musically, that is..
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	'll	will	VERB	MD	_	4	aux	_	_
+3	be	be	VERB	VB	_	4	aux	_	_
+4	giving	give	VERB	VBG	_	15	ccomp	_	_
+5	you	-PRON-	PRON	PRP	_	4	dative	_	_
+6	all	all	ADJ	PDT	_	8	predet	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	help	help	NOUN	NN	_	4	dobj	_	_
+9	you	-PRON-	PRON	PRP	_	10	nsubj	_	_
+10	need	need	VERB	VB	_	8	relcl	_	_
+11	,	,	PUNCT	,	_	4	punct	_	_
+12	musically	musically	ADV	RB	_	4	advmod	_	_
+13	,	,	PUNCT	,	_	15	punct	_	_
+14	that	that	DET	DT	_	15	nsubj	_	_
+15	is	is	ADV	RB	_	15	ROOT	_	_
+16	..	..	PUNCT	.	_	15	punct	_	_
+
+# loc = INT
+# parse = (S (NP (PRP He)) (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN up) (CC and) (IN down) (NP (PRP$ her) (NNS thighs)))) (. .) (  ))
+# scene = 75
+# sent_id = 16
+# sent_len = 12
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = He rubs an ice cube up and down her thighs.
+# time = NIGHT
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	up	up	ADP	IN	_	2	advmod	_	_
+7	and	and	CCONJ	CC	_	6	cc	_	_
+8	down	down	ADP	IN	_	6	conj	_	_
+9	her	-PRON-	ADJ	PRP$	_	10	poss	_	_
+10	thighs	thigh	NOUN	NNS	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 639
+# loc = INT
+# parse = (S (VP (VBP Thank) (NP (NNP God)) (PP (IN for) (NP (NNS thighs)))) (. ..) (  ))
+# scene = 75
+# sent_id = 17
+# sent_len = 6
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Thank God for thighs..
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Thank	thank	VERB	VBP	_	1	ROOT	_	_
+2	God	god	PROPN	NNP	_	1	dobj	_	_
+3	for	for	ADP	IN	_	1	prep	_	_
+4	thighs	thigh	NOUN	NNS	_	3	pobj	_	_
+5	..	..	PUNCT	.	_	1	punct	_	_
+
+# loc = INT
+# parse = (S (NP (PRP He)) (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (PRP$ her) (JJ round) (, ,) (JJ firm) (NNS buttocks)))) (. .) (  ))
+# scene = 75
+# sent_id = 18
+# sent_len = 13
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = He rubs an ice cube on her round, firm buttocks.
+# time = NIGHT
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	5	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	11	poss	_	_
+8	round	round	ADJ	JJ	_	11	amod	_	_
+9	,	,	PUNCT	,	_	11	punct	_	_
+10	firm	firm	ADJ	JJ	_	11	amod	_	_
+11	buttocks	buttock	NOUN	NNS	_	6	pobj	_	_
+12	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 640
+# loc = INT
+# parse = (S (VP (VBP Thank) (NP (NNP God)) (PP (IN for) (NP (NNS buttocks)))) (. ..) (  ))
+# scene = 75
+# sent_id = 19
+# sent_len = 6
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Thank God for buttocks..
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Thank	thank	VERB	VBP	_	1	ROOT	_	_
+2	God	god	PROPN	NNP	_	1	dobj	_	_
+3	for	for	ADP	IN	_	1	prep	_	_
+4	buttocks	buttock	NOUN	NNS	_	3	pobj	_	_
+5	..	..	PUNCT	.	_	1	punct	_	_
+
+# loc = INT
+# parse = (S (NP (PRP He)) (VP (VBZ rubs) (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (PRP$ her) (NN breast)))) (. .) (  ))
+# scene = 75
+# sent_id = 20
+# sent_len = 10
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = He rubs an ice cube on her breast.
+# time = NIGHT
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	rubs	rub	VERB	VBZ	_	2	ROOT	_	_
+3	an	an	DET	DT	_	5	det	_	_
+4	ice	ice	NOUN	NN	_	5	compound	_	_
+5	cube	cube	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	2	prep	_	_
+7	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	breast	breast	NOUN	NN	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 641
+# loc = INT
+# parse = (S (VP (VBP Thank) (NP (NNP God)) (PP (IN for) (NP (DT the) (JJ right) (NN nipple)))) (: ...))
+# scene = 75
+# sent_id = 21
+# sent_len = 7
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Thank God for the right nipple...
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Thank	thank	VERB	VBP	_	1	ROOT	_	_
+2	God	god	PROPN	NNP	_	1	dobj	_	_
+3	for	for	ADP	IN	_	1	prep	_	_
+4	the	the	DET	DT	_	6	det	_	_
+5	right	right	ADJ	JJ	_	6	amod	_	_
+6	nipple	nipple	NOUN	NN	_	3	pobj	_	_
+7	...	...	PUNCT	:	_	1	punct	_	_
+
+# line = 641
+# loc = INT
+# parse = (S (VP (VBP Thank) (NP (NNP God)) (PP (IN for) (NP (DT the) (JJ left) (NN nipple)))) (NFP ....) (  ))
+# scene = 75
+# sent_id = 22
+# sent_len = 8
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Thank God for the left nipple....
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Thank	thank	VERB	VBP	_	1	ROOT	_	_
+2	God	god	PROPN	NNP	_	1	dobj	_	_
+3	for	for	ADP	IN	_	1	prep	_	_
+4	the	the	DET	DT	_	6	det	_	_
+5	left	left	ADJ	JJ	_	6	amod	_	_
+6	nipple	nipple	NOUN	NN	_	3	pobj	_	_
+7	....	....	PUNCT	NFP	_	1	punct	_	_
+
+# loc = INT
+# parse = (S (NP (CC Both) (NNP Tina) (CC and) (NNP Mookie)) (VP (VBP are) (VP (VBG dying))) (. .))
+# scene = 75
+# sent_id = 23
+# sent_len = 7
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Both Tina and Mookie are dying.
+# time = NIGHT
+1	Both	both	CCONJ	CC	_	2	det	_	_
+2	Tina	tina	PROPN	NNP	_	6	nsubj	_	_
+3	and	and	CCONJ	CC	_	2	cc	_	_
+4	Mookie	mookie	PROPN	NNP	_	2	conj	_	_
+5	are	be	VERB	VBP	_	6	aux	_	_
+6	dying	die	VERB	VBG	_	6	ROOT	_	_
+7	.	.	PUNCT	.	_	6	punct	_	_
+
+# loc = INT
+# parse = (S (S (NP (NNP Mookie)) (ADVP (RB now)) (VP (VBZ has) (NP (NP (DT an) (NN ice) (NN cube)) (PP (IN on) (NP (DT the) (NN left) (CC and) (JJ right) (NNS nipples)))))) (CC and) (S (NP (PRP WE)) (VP (VBP SEE) (PP (IN before) (NP (PRP$ our) (ADJP (RB very) (JJ own)) (NNS eyes))))))
+# scene = 75
+# sent_id = 24
+# sent_len = 20
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie now has an ice cube on the left and right nipples and WE SEE before our very own eyes
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
+2	now	now	ADV	RB	_	3	advmod	_	_
+3	has	have	VERB	VBZ	_	3	ROOT	_	_
+4	an	an	DET	DT	_	6	det	_	_
+5	ice	ice	NOUN	NN	_	6	compound	_	_
+6	cube	cube	NOUN	NN	_	3	dobj	_	_
+7	on	on	ADP	IN	_	6	prep	_	_
+8	the	the	DET	DT	_	12	det	_	_
+9	left	left	NOUN	NN	_	12	amod	_	_
+10	and	and	CCONJ	CC	_	9	cc	_	_
+11	right	right	ADJ	JJ	_	9	conj	_	_
+12	nipples	nipple	NOUN	NNS	_	7	pobj	_	_
+13	and	and	CCONJ	CC	_	3	cc	_	_
+14	WE	we	PRON	PRP	_	15	nsubj	_	_
+15	SEE	see	VERB	VBP	_	3	conj	_	_
+16	before	before	ADP	IN	_	15	prep	_	_
+17	our	-PRON-	ADJ	PRP$	_	20	poss	_	_
+18	very	very	ADV	RB	_	19	advmod	_	_
+19	own	own	ADJ	JJ	_	20	amod	_	_
+20	eyes	eye	NOUN	NNS	_	16	pobj	_	_
+
+# loc = INT
+# parse = (S (NP (DT both)) (VP (VBP get) (ADJP (JJ swollen) (, ,) (ADJP (JJ red)) (, ,) (CC and) (VB erect))) (. .) (  ))
+# scene = 75
+# sent_id = 25
+# sent_len = 10
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = both get swollen, red, and erect.
+# time = NIGHT
+1	both	both	DET	DT	_	2	preconj	_	_
+2	get	get	VERB	VBP	_	2	ROOT	_	_
+3	swollen	swollen	ADJ	JJ	_	2	acomp	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	red	red	ADJ	JJ	_	3	conj	_	_
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	and	and	CCONJ	CC	_	5	cc	_	_
+8	erect	erect	VERB	VB	_	5	conj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 642
+# loc = INT
+# parse = (S (VP (NNP Feels) (ADJP (JJ good))) (. ..) (  ))
+# scene = 75
+# sent_id = 26
+# sent_len = 4
+# setting = TINA'S BEDROOM
+# speaker = TINA
+# stage_direction = True
+# text = Feels good..
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Feels	feels	PROPN	NNP	_	1	ROOT	_	_
+2	good	good	ADJ	JJ	_	1	acomp	_	_
+3	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 643
+# loc = INT
+# parse = (FRAG (INTJ (UH Yes)) (, ,) (INTJ (UH yes)) (, ,) (NP (NNP Lord)) (. .))
+# scene = 75
+# sent_id = 27
+# sent_len = 6
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Yes, yes, Lord.
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Yes	yes	INTJ	UH	_	1	ROOT	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	yes	yes	INTJ	UH	_	1	intj	_	_
+4	,	,	PUNCT	,	_	1	punct	_	_
+5	Lord	lord	PROPN	NNP	_	1	npadvmod	_	_
+6	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 643
+# loc = INT
+# parse = (SQ (VBZ Is) (RB n't) (NP (DT this)) (ADJP (ADJP (JJR better)) (PP (IN than) (NP (NP (NNP Haagen)) (HYPH -) (NP (NNP Dazs) (NN butter) (NN pecan) (NN ice) (NN cream))))) (. ?) (. .) (  ))
+# scene = 75
+# sent_id = 28
+# sent_len = 15
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = Isn't this better than Haagen-Dazs butter pecan ice cream?.
+# time = NIGHT
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+2	n't	not	ADV	RB	_	1	neg	_	_
+3	this	this	DET	DT	_	1	nsubj	_	_
+4	better	good	ADJ	JJR	_	1	acomp	_	_
+5	than	than	ADP	IN	_	4	prep	_	_
+6	Haagen	haagen	PROPN	NNP	_	8	compound	_	_
+7	-	-	PUNCT	HYPH	_	8	punct	_	_
+8	Dazs	dazs	PROPN	NNP	_	9	compound	_	_
+9	butter	butter	NOUN	NN	_	10	nsubj	_	_
+10	pecan	pecan	NOUN	NN	_	12	compound	_	_
+11	ice	ice	NOUN	NN	_	12	compound	_	_
+12	cream	cream	NOUN	NN	_	5	pobj	_	_
+13	?	?	PUNCT	.	_	1	punct	_	_
+14	.	.	PUNCT	.	_	1	punct	_	_
+
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ kisses) (NP (PRP her))) (. .) (  ))
+# scene = 75
+# sent_id = 29
+# sent_len = 5
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = Mookie kisses her.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	kisses	kiss	VERB	VBZ	_	2	ROOT	_	_
+3	her	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 644
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB be) (ADVP (RB back)) (NP (NN tonight)))) (. ..))
+# scene = 75
+# sent_id = 30
+# sent_len = 6
+# setting = TINA'S BEDROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = I'll be back tonight..
+# time = NIGHT
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	'll	will	VERB	MD	_	3	aux	_	_
+3	be	be	VERB	VB	_	3	ROOT	_	_
+4	back	back	ADV	RB	_	3	advmod	_	_
+5	tonight	tonight	NOUN	NN	_	3	npadvmod	_	_
+6	..	..	PUNCT	.	_	3	punct	_	_

@@ -1,0 +1,159 @@
+# loc = EXT
+# parse = (S (NP (NNP Vito) (CC and) (NNP Mookie)) (VP (VB see) (S (NP (NNP Buggin) ('' ')) (PRT (RB Out)) (PP (IN on) (NP (NP (PRP$ their) (NN way)) (ADVP (RB back) (PP (IN to) (NP (NNP Sal) (POS 's)))))))) (. .) (  ))
+# scene = 32
+# sent_id = 1
+# sent_len = 16
+# setting = STREET
+# stage_direction = True
+# text = Vito and Mookie see Buggin' Out on their way back to Sal's.
+# time = DAY
+1	Vito	vito	PROPN	NNP	_	4	nsubj	_	_
+2	and	and	CCONJ	CC	_	1	cc	_	_
+3	Mookie	mookie	PROPN	NNP	_	1	conj	_	_
+4	see	see	VERB	VB	_	4	ROOT	_	_
+5	Buggin	buggin	PROPN	NNP	_	4	dobj	_	_
+6	'	'	PUNCT	''	_	7	punct	_	_
+7	Out	out	ADV	RB	_	4	ccomp	_	_
+8	on	on	ADP	IN	_	7	prep	_	_
+9	their	-PRON-	ADJ	PRP$	_	10	poss	_	_
+10	way	way	NOUN	NN	_	8	pobj	_	_
+11	back	back	ADV	RB	_	10	advmod	_	_
+12	to	to	ADP	IN	_	11	prep	_	_
+13	Sal	sal	PROPN	NNP	_	12	pobj	_	_
+14	's	's	PART	POS	_	13	case	_	_
+15	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 238
+# loc = EXT
+# parse = (NP (NP (PRP You)) (NP (NP (DT the) (NN man)) (. ..) (  )))
+# scene = 32
+# sent_id = 2
+# sent_len = 5
+# setting = STREET
+# speaker = MOOKIE
+# stage_direction = True
+# text = You the man..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	1	ROOT	_	_
+2	the	the	DET	DT	_	3	det	_	_
+3	man	man	NOUN	NN	_	1	appos	_	_
+4	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 239
+# loc = EXT
+# parse = (NP (NP (PRP You)) (NP (NP (DT the) (NN man)) (. ..) (  )))
+# scene = 32
+# sent_id = 3
+# sent_len = 5
+# setting = STREET
+# speaker = BUGGIN' OUT
+# stage_direction = True
+# text = You the man..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	1	ROOT	_	_
+2	the	the	DET	DT	_	3	det	_	_
+3	man	man	NOUN	NN	_	1	appos	_	_
+4	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 240
+# loc = EXT
+# parse = (FRAG (INTJ (UH No)) (, ,) (NP (PRP you)) (NP (DT the) (NN man)) (. ..) (  ))
+# scene = 32
+# sent_id = 4
+# sent_len = 7
+# setting = STREET
+# speaker = MOOKIE
+# stage_direction = True
+# text = No, you the man..
+# time = DAY
+1	No	no	INTJ	UH	_	3	intj	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	you	-PRON-	PRON	PRP	_	3	ROOT	_	_
+4	the	the	DET	DT	_	5	det	_	_
+5	man	man	NOUN	NN	_	3	appos	_	_
+6	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 241
+# loc = EXT
+# parse = (INTJ (UH No) (. .))
+# scene = 32
+# sent_id = 5
+# sent_len = 2
+# setting = STREET
+# speaker = BUGGIN' OUT
+# stage_direction = True
+# text = No.
+# time = DAY
+1	No	no	INTJ	UH	_	1	ROOT	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 241
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VP (VBP 'm) (NP (ADVP (RB just)) (NP (DT a) (JJ struggling) (JJ Black) (NN man))) (VP (VBG trying) (S (VP (TO to) (VP (VB keep) (NP (PRP$ my) (NN dick)) (ADVP (RB hard)) (PP (IN in) (NP (DT a) (ADJP (JJ cruel) (CC and) (JJ harsh)) (NN world)))))))) (. ..) (FRAG (INTJ (  )))))
+# scene = 32
+# sent_id = 6
+# sent_len = 21
+# setting = STREET
+# speaker = BUGGIN' OUT
+# stage_direction = True
+# text = I'm just a struggling Black man trying to keep my dick hard in a cruel and harsh world..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	just	just	ADV	RB	_	7	advmod	_	_
+4	a	a	DET	DT	_	7	det	_	_
+5	struggling	struggling	ADJ	JJ	_	7	amod	_	_
+6	Black	black	ADJ	JJ	_	7	amod	_	_
+7	man	man	NOUN	NN	_	2	attr	_	_
+8	trying	try	VERB	VBG	_	7	acl	_	_
+9	to	to	PART	TO	_	10	aux	_	_
+10	keep	keep	VERB	VB	_	8	xcomp	_	_
+11	my	-PRON-	ADJ	PRP$	_	12	poss	_	_
+12	dick	dick	NOUN	NN	_	10	dobj	_	_
+13	hard	hard	ADV	RB	_	10	oprd	_	_
+14	in	in	ADP	IN	_	10	prep	_	_
+15	a	a	DET	DT	_	19	det	_	_
+16	cruel	cruel	ADJ	JJ	_	19	amod	_	_
+17	and	and	CCONJ	CC	_	16	cc	_	_
+18	harsh	harsh	ADJ	JJ	_	16	conj	_	_
+19	world	world	NOUN	NN	_	14	pobj	_	_
+20	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NP (NNP Buggin) ('' ')) (NN Out)) (VP (VBZ gives) (NP (NNP Mookie)) (NP (NP (NP (CD five)) (CC and) (NP (DT a) (JJ menacing) (NN look))) (PP (IN at) (NP (NNP Vito))))) (. .) (  ))
+# scene = 32
+# sent_id = 7
+# sent_len = 14
+# setting = STREET
+# stage_direction = True
+# text = Buggin' Out gives Mookie five and a menacing look at Vito.
+# time = DAY
+1	Buggin	buggin	PROPN	NNP	_	3	poss	_	_
+2	'	'	PUNCT	''	_	1	case	_	_
+3	Out	out	NOUN	NN	_	4	nsubj	_	_
+4	gives	give	VERB	VBZ	_	4	ROOT	_	_
+5	Mookie	mookie	PROPN	NNP	_	4	dative	_	_
+6	five	five	NUM	CD	_	4	dobj	_	_
+7	and	and	CCONJ	CC	_	4	cc	_	_
+8	a	a	DET	DT	_	9	det	_	_
+9	menacing	menacing	ADJ	JJ	_	10	nsubj	_	_
+10	look	look	NOUN	NN	_	4	conj	_	_
+11	at	at	ADP	IN	_	10	prep	_	_
+12	Vito	vito	PROPN	NNP	_	11	pobj	_	_
+13	.	.	PUNCT	.	_	10	punct	_	_
+
+# line = 242
+# loc = EXT
+# parse = (S (NP (NNP Vito)) (VP (VBZ is) (ADVP (RB down))) (. ..))
+# scene = 32
+# sent_id = 8
+# sent_len = 4
+# setting = STREET
+# speaker = MOOKIE
+# stage_direction = True
+# text = Vito is down..
+# time = DAY
+1	Vito	vito	PROPN	NNP	_	2	nsubj	_	_
+2	is	be	VERB	VBZ	_	2	ROOT	_	_
+3	down	down	ADV	RB	_	2	advmod	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_

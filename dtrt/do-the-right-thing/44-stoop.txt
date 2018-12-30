@@ -1,0 +1,1 @@
+Mookie runs up stoop. <metadata time="DAY" loc="EXT" setting="STOOP" scene="44" stage_direction="true">

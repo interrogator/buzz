@@ -1,0 +1,106 @@
+# line = 126
+# loc = EXT
+# parse = (NP (NNP Buggin) ('' '))
+# scene = 20
+# sent_id = 1
+# sent_len = 2
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = MOOKIE
+# stage_direction = True
+# text = Buggin'
+# time = DAY
+1	Buggin	buggin	PROPN	NNP	_	1	ROOT	_	_
+2	'	'	PUNCT	''	_	1	punct	_	_
+
+# line = 126
+# loc = EXT
+# parse = (S (ADVP (RB Out)) (, ,) (NP (PRP I)) (VP (VBD got) (TO ta) (VP (VB work) (ADVP (RB here)))) (. ..) (  ))
+# scene = 20
+# sent_id = 2
+# sent_len = 9
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = MOOKIE
+# stage_direction = True
+# text = Out, I gotta work here..
+# time = DAY
+1	Out	out	ADV	RB	_	4	advmod	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	got	get	VERB	VBD	_	4	ROOT	_	_
+5	ta	to	PART	TO	_	6	aux	_	_
+6	work	work	VERB	VB	_	4	xcomp	_	_
+7	here	here	ADV	RB	_	6	advmod	_	_
+8	..	..	PUNCT	.	_	4	punct	_	_
+
+# line = 127
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ cool))) (. .))
+# scene = 20
+# sent_id = 3
+# sent_len = 4
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = BUGGIN' OUT
+# stage_direction = True
+# text = I'm cool.
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	cool	cool	ADJ	JJ	_	2	acomp	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 127
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ cool))) (. ..) (  ))
+# scene = 20
+# sent_id = 4
+# sent_len = 5
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = BUGGIN' OUT
+# stage_direction = True
+# text = I'm cool..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	cool	cool	ADJ	JJ	_	2	acomp	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 128
+# loc = EXT
+# parse = (S (S (VP (VB Come) (ADVP (RB back)) (PP (IN in) (NP (DT a) (NN week))))) (, ,) (NP (PRP it)) (VP (MD will) (VP (VB be) (VP (VBN squashed)))) (. ..) (  ))
+# scene = 20
+# sent_id = 5
+# sent_len = 12
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = MOOKIE
+# stage_direction = True
+# text = Come back in a week, it will be squashed..
+# time = DAY
+1	Come	come	VERB	VB	_	10	advcl	_	_
+2	back	back	ADV	RB	_	1	advmod	_	_
+3	in	in	ADP	IN	_	1	prep	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	week	week	NOUN	NN	_	3	pobj	_	_
+6	,	,	PUNCT	,	_	10	punct	_	_
+7	it	-PRON-	PRON	PRP	_	10	nsubjpass	_	_
+8	will	will	VERB	MD	_	10	aux	_	_
+9	be	be	VERB	VB	_	10	auxpass	_	_
+10	squashed	squash	VERB	VBN	_	10	ROOT	_	_
+11	..	..	PUNCT	.	_	10	punct	_	_
+
+# line = 126
+# loc = EXT
+# parse = (S (NP (PRP They)) (VP (VBP give) (NP (DT each) (JJ other)) (NP (CD five))) (. .))
+# scene = 20
+# sent_id = 6
+# sent_len = 6
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = MOOKIE
+# stage_direction = True
+# text = They give each other five.
+# time = DAY
+1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	give	give	VERB	VBP	_	2	ROOT	_	_
+3	each	each	DET	DT	_	5	det	_	_
+4	other	other	ADJ	JJ	_	5	amod	_	_
+5	five	five	NUM	CD	_	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_

@@ -1,0 +1,401 @@
+# line = 575
+# loc = INT
+# parse = (S (SBAR (IN As) (S (NP (DT the) (NN evening)) (VP (ADVP (RB slowly)) (VBZ falls) (PP (IN upon) (NP (NP (PRP us)) (VP (VBG living) (ADVP (RB here)) (PP (IN in) (NP (NP (NNP Brooklyn)) (, ,) (NP (NNP New) (NNP York)))))))))) (, ,) (NP (DT this)) (VP (VBZ is) (NP (PRP ya)) (VP (NNP Love) (JJ Daddy) (VP (NN rappin) ('' ') (PP (IN to) (NP (PRP you)))))) (. .))
+# scene = 69
+# sent_id = 1
+# sent_len = 25
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = As the evening slowly falls upon us living here in Brooklyn, New York, this is ya Love Daddy rappin' to you.
+# time = DUSK
+1	As	as	ADP	IN	_	5	mark	_	_
+2	the	the	DET	DT	_	3	det	_	_
+3	evening	evening	NOUN	NN	_	5	nsubj	_	_
+4	slowly	slowly	ADV	RB	_	5	advmod	_	_
+5	falls	fall	VERB	VBZ	_	17	advcl	_	_
+6	upon	upon	ADP	IN	_	5	prep	_	_
+7	us	-PRON-	PRON	PRP	_	6	pobj	_	_
+8	living	live	VERB	VBG	_	7	acl	_	_
+9	here	here	ADV	RB	_	8	advmod	_	_
+10	in	in	ADP	IN	_	8	prep	_	_
+11	Brooklyn	brooklyn	PROPN	NNP	_	10	pobj	_	_
+12	,	,	PUNCT	,	_	11	punct	_	_
+13	New	new	PROPN	NNP	_	14	compound	_	_
+14	York	york	PROPN	NNP	_	11	npadvmod	_	_
+15	,	,	PUNCT	,	_	17	punct	_	_
+16	this	this	DET	DT	_	17	nsubj	_	_
+17	is	be	VERB	VBZ	_	17	ROOT	_	_
+18	ya	ya	PRON	PRP	_	20	compound	_	_
+19	Love	love	PROPN	NNP	_	20	compound	_	_
+20	Daddy	daddy	ADJ	JJ	_	21	compound	_	_
+21	rappin	rappin	NOUN	NN	_	17	attr	_	_
+22	'	'	PUNCT	''	_	21	punct	_	_
+23	to	to	ADP	IN	_	21	prep	_	_
+24	you	-PRON-	PRON	PRP	_	23	pobj	_	_
+25	.	.	PUNCT	.	_	17	punct	_	_
+
+# line = 575
+# loc = INT
+# parse = (S (ADVP (RB Right) (RB now)) (NP (PRP we)) (VP (VBP 're) (VP (VBG gon) (S (VP (TO na) (VP (VB open) (PRT (RP up)) (NP (DT the) (NNP Love) (NNPS Lines))))))) (. .))
+# scene = 69
+# sent_id = 2
+# sent_len = 12
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = Right now we're gonna open up the Love Lines.
+# time = DUSK
+1	Right	right	ADV	RB	_	2	advmod	_	_
+2	now	now	ADV	RB	_	5	advmod	_	_
+3	we	-PRON-	PRON	PRP	_	5	nsubj	_	_
+4	're	be	VERB	VBP	_	5	aux	_	_
+5	gon	go	VERB	VBG	_	5	ROOT	_	_
+6	na	to	PART	TO	_	7	aux	_	_
+7	open	open	VERB	VB	_	5	xcomp	_	_
+8	up	up	PART	RP	_	7	prt	_	_
+9	the	the	DET	DT	_	11	det	_	_
+10	Love	love	PROPN	NNP	_	11	compound	_	_
+11	Lines	lines	PROPN	NNPS	_	7	dobj	_	_
+12	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 575
+# loc = INT
+# parse = (S (INTJ (UH Hello)) (, ,) (NP (PRP you)) (VP (VBP 're) (PP (IN on) (NP (NP (NNP Love) (NNP Daddy) (POS 's)) (NNP Love) (NNP Line)))) (. .))
+# scene = 69
+# sent_id = 3
+# sent_len = 11
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = Hello, you're on Love Daddy's Love Line.
+# time = DUSK
+1	Hello	hello	INTJ	UH	_	4	intj	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	're	be	VERB	VBP	_	4	ROOT	_	_
+5	on	on	ADP	IN	_	4	prep	_	_
+6	Love	love	PROPN	NNP	_	7	compound	_	_
+7	Daddy	daddy	PROPN	NNP	_	10	poss	_	_
+8	's	's	PART	POS	_	7	case	_	_
+9	Love	love	PROPN	NNP	_	10	compound	_	_
+10	Line	line	PROPN	NNP	_	5	pobj	_	_
+11	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 575
+# loc = INT
+# parse = (FRAG (NP (DT No) (NNS names)) (, ,) (INTJ (UH please)) (. .))
+# scene = 69
+# sent_id = 4
+# sent_len = 5
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = No names, please.
+# time = DUSK
+1	No	no	DET	DT	_	2	det	_	_
+2	names	name	NOUN	NNS	_	2	ROOT	_	_
+3	,	,	PUNCT	,	_	4	punct	_	_
+4	please	please	INTJ	UH	_	2	advmod	_	_
+5	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 575
+# loc = INT
+# parse = (S (VP (VB Let) (S (NP (PRP 's)) (VP (VB keep) (S (NP (PRP it)) (ADJP (JJ anonymous)))))) (. ..) (  ))
+# scene = 69
+# sent_id = 5
+# sent_len = 7
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = Let's keep it anonymous..
+# time = DUSK
+1	Let	let	VERB	VB	_	1	ROOT	_	_
+2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	keep	keep	VERB	VB	_	1	ccomp	_	_
+4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	anonymous	anonymous	ADJ	JJ	_	3	oprd	_	_
+6	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 576
+# loc = INT
+# parse = (FRAG (INTJ (UH Hi)) (, ,) (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (. .))
+# scene = 69
+# sent_id = 6
+# sent_len = 7
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #1
+# stage_direction = True
+# text = Hi, Mister Señor Love Daddy.
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Hi	hi	INTJ	UH	_	1	ROOT	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	Mister	mister	PROPN	NNP	_	5	compound	_	_
+4	Señor	señor	PROPN	NNP	_	5	compound	_	_
+5	Love	love	PROPN	NNP	_	6	compound	_	_
+6	Daddy	daddy	PROPN	NNP	_	1	npadvmod	_	_
+7	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 576
+# loc = INT
+# parse = (S (S (NP (PRP I)) (VP (MD 'd) (VP (VB kiss) (NP (PRP$ your) (NNS feet)) (NP (DT every) (NN morning))))) (, ,) (S (NP (DT that)) (VP (VBZ 's) (SBAR (WHADVP (WRB how) (JJ much)) (S (NP (PRP I)) (VP (VBP love) (NP (PRP you))))))) (. ..) (  ))
+# scene = 69
+# sent_id = 7
+# sent_len = 17
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #1
+# stage_direction = True
+# text = I'd kiss your feet every morning, that's how much I love you..
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	'd	would	VERB	MD	_	3	aux	_	_
+3	kiss	kiss	VERB	VB	_	10	ccomp	_	_
+4	your	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	feet	foot	NOUN	NNS	_	3	dobj	_	_
+6	every	every	DET	DT	_	7	det	_	_
+7	morning	morning	NOUN	NN	_	3	npadvmod	_	_
+8	,	,	PUNCT	,	_	10	punct	_	_
+9	that	that	DET	DT	_	10	nsubj	_	_
+10	's	be	VERB	VBZ	_	10	ROOT	_	_
+11	how	how	ADV	WRB	_	12	advmod	_	_
+12	much	much	ADJ	JJ	_	14	dative	_	_
+13	I	-PRON-	PRON	PRP	_	14	nsubj	_	_
+14	love	love	VERB	VBP	_	10	ccomp	_	_
+15	you	-PRON-	PRON	PRP	_	14	dobj	_	_
+16	..	..	PUNCT	.	_	10	punct	_	_
+
+# line = 577
+# loc = INT
+# parse = (FRAG (WRB How) (JJ nice) (PP (IN of) (NP (PRP you))) (. ..) (  ))
+# scene = 69
+# sent_id = 8
+# sent_len = 6
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = How nice of you..
+# time = DUSK
+1	How	how	ADV	WRB	_	2	advmod	_	_
+2	nice	nice	ADJ	JJ	_	2	ROOT	_	_
+3	of	of	ADP	IN	_	2	prep	_	_
+4	you	-PRON-	PRON	PRP	_	3	pobj	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 578
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VBP think) (SBAR (S (NP (PRP you)) (VP (VBP have) (NP (NP (DT the) (JJS sexiest) (NN voice)) (PP (IN in) (NP (DT the) (NN world)))))))) (. .))
+# scene = 69
+# sent_id = 9
+# sent_len = 11
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #2
+# stage_direction = True
+# text = I think you have the sexiest voice in the world.
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	think	think	VERB	VBP	_	2	ROOT	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	have	have	VERB	VBP	_	2	ccomp	_	_
+5	the	the	DET	DT	_	7	det	_	_
+6	sexiest	sexy	ADJ	JJS	_	7	amod	_	_
+7	voice	voice	NOUN	NN	_	4	dobj	_	_
+8	in	in	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	world	world	NOUN	NN	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 578
+# loc = INT
+# parse = (S (NP (NP (DT All)) (SBAR (S (NP (PRP you)) (VP (VBP have) (S (VP (TO to) (VP (VB do)))))))) (VP (VP (VBZ is) (VP (VB talk))) (. ..) (X (  ))))
+# scene = 69
+# sent_id = 10
+# sent_len = 9
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #2
+# stage_direction = True
+# text = All you have to do is talk..
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	All	all	DET	DT	_	6	nsubj	_	_
+2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	have	have	VERB	VBP	_	1	relcl	_	_
+4	to	to	PART	TO	_	5	aux	_	_
+5	do	do	VERB	VB	_	3	xcomp	_	_
+6	is	be	VERB	VBZ	_	6	ROOT	_	_
+7	talk	talk	VERB	VB	_	6	attr	_	_
+8	..	..	PUNCT	.	_	7	punct	_	_
+
+# line = 579
+# loc = INT
+# parse = (S (NP (NNP Love) (NN Line)) (, ,) (S (NP (PRP you)) (VP (VBP 're) (ADVP (IN on)))) (. ..) (  ))
+# scene = 69
+# sent_id = 11
+# sent_len = 8
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = Love Line, you're on..
+# time = DUSK
+1	Love	love	PROPN	NNP	_	2	compound	_	_
+2	Line	line	NOUN	NN	_	5	npadvmod	_	_
+3	,	,	PUNCT	,	_	5	punct	_	_
+4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
+5	're	be	VERB	VBP	_	5	ROOT	_	_
+6	on	on	ADP	IN	_	5	advmod	_	_
+7	..	..	PUNCT	.	_	5	punct	_	_
+
+# line = 580
+# loc = INT
+# parse = (S (NP (PRP You)) (VP (VBP give) (NP (PRP me)) (NP (NN fever))) (NFP ..) (. .) (  ))
+# scene = 69
+# sent_id = 12
+# sent_len = 7
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #3
+# stage_direction = True
+# text = You give me fever.. .
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	give	give	VERB	VBP	_	2	ROOT	_	_
+3	me	-PRON-	PRON	PRP	_	2	dative	_	_
+4	fever	fever	NOUN	NN	_	2	dobj	_	_
+5	..	..	PUNCT	NFP	_	2	punct	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 581
+# loc = INT
+# parse = (S (NP (PRP She)) (VP (VBZ 's) (VP (VBG feeling) (NP (PRP it)))) (. ..) (  ))
+# scene = 69
+# sent_id = 13
+# sent_len = 6
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = She's feeling it..
+# time = DUSK
+1	She	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	's	be	VERB	VBZ	_	3	aux	_	_
+3	feeling	feel	VERB	VBG	_	3	ROOT	_	_
+4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 582
+# loc = INT
+# parse = (S (S (VP (NNP Love) (NP (NNP Daddy)))) (, ,) (NP (PRP I)) (VP (MD 'd) (VP (VB work) (PP (IN in) (NP (NP (NNP Mickey) (NNP D) (POS 's)) (CD 24) (, ,) (CD 7) (, ,) (CC and) (CD 365))) (S (ADVP (RB just)) (VP (TO to) (VP (VB call) (S (NP (PRP you)) (NP (PRP$ my) (JJ own)))))))) (. .))
+# scene = 69
+# sent_id = 14
+# sent_len = 23
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #4
+# stage_direction = True
+# text = Love Daddy, I'd work in Mickey D's 24, 7, and 365 just to call you my own.
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Love	love	PROPN	NNP	_	6	advcl	_	_
+2	Daddy	daddy	PROPN	NNP	_	1	dobj	_	_
+3	,	,	PUNCT	,	_	6	punct	_	_
+4	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
+5	'd	would	VERB	MD	_	6	aux	_	_
+6	work	work	VERB	VB	_	6	ROOT	_	_
+7	in	in	ADP	IN	_	6	prep	_	_
+8	Mickey	mickey	PROPN	NNP	_	9	compound	_	_
+9	D	d	PROPN	NNP	_	11	poss	_	_
+10	's	's	PART	POS	_	9	case	_	_
+11	24	24	NUM	CD	_	7	pobj	_	_
+12	,	,	PUNCT	,	_	11	punct	_	_
+13	7	7	NUM	CD	_	11	conj	_	_
+14	,	,	PUNCT	,	_	11	punct	_	_
+15	and	and	CCONJ	CC	_	11	cc	_	_
+16	365	365	NUM	CD	_	11	conj	_	_
+17	just	just	ADV	RB	_	19	advmod	_	_
+18	to	to	PART	TO	_	19	aux	_	_
+19	call	call	VERB	VB	_	6	advcl	_	_
+20	you	-PRON-	PRON	PRP	_	19	dobj	_	_
+21	my	-PRON-	ADJ	PRP$	_	22	poss	_	_
+22	own	own	ADJ	JJ	_	19	oprd	_	_
+23	.	.	PUNCT	.	_	6	punct	_	_
+
+# line = 582
+# loc = INT
+# parse = (S (VP (VB Give) (NP (PRP you)) (PDT all) (PRP$ my) (NN money) (, ,) (NN honey)) (. ..) (  ))
+# scene = 69
+# sent_id = 15
+# sent_len = 9
+# setting = CONTROL BOOTH
+# speaker = FEMALE VOICE #4
+# stage_direction = True
+# text = Give you all my money, honey..
+# time = DUSK
+# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+1	Give	give	VERB	VB	_	1	ROOT	_	_
+2	you	-PRON-	PRON	PRP	_	1	dative	_	_
+3	all	all	ADJ	PDT	_	5	predet	_	_
+4	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	money	money	NOUN	NN	_	1	dobj	_	_
+6	,	,	PUNCT	,	_	1	punct	_	_
+7	honey	honey	NOUN	NN	_	1	dobj	_	_
+8	..	..	PUNCT	.	_	7	punct	_	_
+
+# line = 583
+# loc = INT
+# parse = (S (NP (DT That)) (VP (VBD was) (NP (NP (DT the) (JJ last) (NN call)) (PP (IN for) (NP (NN tonight))) (PP (IN on) (NP (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy) (POS 's)) (NNP Love) (NNP Line))))) (. .))
+# scene = 69
+# sent_id = 16
+# sent_len = 16
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = That was the last call for tonight on Mister Señor Love Daddy's Love Line.
+# time = DUSK
+1	That	that	DET	DT	_	2	nsubj	_	_
+2	was	be	VERB	VBD	_	2	ROOT	_	_
+3	the	the	DET	DT	_	5	det	_	_
+4	last	last	ADJ	JJ	_	5	amod	_	_
+5	call	call	NOUN	NN	_	2	attr	_	_
+6	for	for	ADP	IN	_	5	prep	_	_
+7	tonight	tonight	NOUN	NN	_	6	pobj	_	_
+8	on	on	ADP	IN	_	5	prep	_	_
+9	Mister	mister	PROPN	NNP	_	11	compound	_	_
+10	Señor	señor	PROPN	NNP	_	11	compound	_	_
+11	Love	love	PROPN	NNP	_	12	compound	_	_
+12	Daddy	daddy	PROPN	NNP	_	15	poss	_	_
+13	's	's	PART	POS	_	12	case	_	_
+14	Love	love	PROPN	NNP	_	15	compound	_	_
+15	Line	line	PROPN	NNP	_	8	pobj	_	_
+16	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 583
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VBP love) (NP (PRP you))) (. .))
+# scene = 69
+# sent_id = 17
+# sent_len = 4
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = I love you.
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	love	love	VERB	VBP	_	2	ROOT	_	_
+3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 583
+# loc = INT
+# parse = (S (NP (PRP You)) (NP (PRP I)) (VP (VBP love)) (. ..))
+# scene = 69
+# sent_id = 18
+# sent_len = 4
+# setting = CONTROL BOOTH
+# speaker = MISTER SEÑOR LOVE DADDY
+# stage_direction = True
+# text = You I love..
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	3	npadvmod	_	_
+2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	love	love	VERB	VBP	_	3	ROOT	_	_
+4	..	..	PUNCT	.	_	3	punct	_	_

@@ -1,0 +1,11 @@
+nltk
+bllipparser
+scipy
+benepar
+benepar[cpu]
+tensorflow
+spacy
+pandas
+tqdm
+pyparsing
+https://github.com/interrogator/tabview/archive/master.zip

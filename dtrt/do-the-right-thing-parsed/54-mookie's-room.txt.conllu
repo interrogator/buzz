@@ -1,0 +1,70 @@
+# loc = INT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ sits) (PP (IN on) (NP (PRP$ his) (NN bed))) (, ,) (S (ADJP (RB still) (JJ wet)))) (. .) (  ))
+# scene = 54
+# sent_id = 1
+# sent_len = 10
+# setting = MOOKIE'S ROOM
+# stage_direction = True
+# text = Mookie sits on his bed, still wet.
+# time = DAY
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
+3	on	on	ADP	IN	_	2	prep	_	_
+4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	bed	bed	NOUN	NN	_	3	pobj	_	_
+6	,	,	PUNCT	,	_	2	punct	_	_
+7	still	still	ADV	RB	_	8	advmod	_	_
+8	wet	wet	ADJ	JJ	_	2	advcl	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 444
+# loc = INT
+# parse = (S (VP (VP (NNP Hurry) (PRT (RP up))) (CC and) (VP (VB get) (VP (JJ dressed)))) (. ..) (  ))
+# scene = 54
+# sent_id = 2
+# sent_len = 7
+# setting = MOOKIE'S ROOM
+# speaker = JADE
+# stage_direction = True
+# text = Hurry up and get dressed..
+# time = DAY
+1	Hurry	hurry	PROPN	NNP	_	1	ROOT	_	_
+2	up	up	PART	RP	_	1	prt	_	_
+3	and	and	CCONJ	CC	_	1	cc	_	_
+4	get	get	VERB	VB	_	1	conj	_	_
+5	dressed	dressed	ADJ	JJ	_	4	acomp	_	_
+6	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 445
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG coming))) (. ..) (  ))
+# scene = 54
+# sent_id = 3
+# sent_len = 5
+# setting = MOOKIE'S ROOM
+# speaker = MOOKIE
+# stage_direction = True
+# text = I'm coming..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	'm	be	VERB	VBP	_	3	aux	_	_
+3	coming	come	VERB	VBG	_	3	ROOT	_	_
+4	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 446
+# loc = INT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG going) (PP (IN with) (NP (PRP you))))) (. ..))
+# scene = 54
+# sent_id = 4
+# sent_len = 6
+# setting = MOOKIE'S ROOM
+# speaker = JADE
+# stage_direction = True
+# text = I'm going with you..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	'm	be	VERB	VBP	_	3	aux	_	_
+3	going	go	VERB	VBG	_	3	ROOT	_	_
+4	with	with	ADP	IN	_	3	prep	_	_
+5	you	-PRON-	PRON	PRP	_	4	pobj	_	_
+6	..	..	PUNCT	.	_	3	punct	_	_

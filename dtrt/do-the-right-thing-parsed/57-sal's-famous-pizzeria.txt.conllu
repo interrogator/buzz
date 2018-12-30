@@ -1,0 +1,67 @@
+# loc = INT
+# parse = (S (NP (NP (NNP Buggin) ('' ')) (RB Out)) (VP (VP (VBZ sticks) (NP (PRP$ his) (NN head)) (PRT (RB in))) (CC and) (VP (VBZ yells) (: :) (NP (  )))))
+# scene = 57
+# sent_id = 1
+# sent_len = 11
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Buggin' Out sticks his head in and yells:
+# time = DAY
+1	Buggin	buggin	PROPN	NNP	_	4	nsubj	_	_
+2	'	'	PUNCT	''	_	1	case	_	_
+3	Out	out	ADV	RB	_	4	advmod	_	_
+4	sticks	stick	VERB	VBZ	_	4	ROOT	_	_
+5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+6	head	head	NOUN	NN	_	4	dobj	_	_
+7	in	in	ADV	RB	_	4	prt	_	_
+8	and	and	CCONJ	CC	_	4	cc	_	_
+9	yells	yell	VERB	VBZ	_	4	conj	_	_
+10	:	:	PUNCT	:	_	9	punct	_	_
+
+# line = 456
+# loc = INT
+# parse = (S (NP (NNP Sal)) (, ,) (NP (PRP we)) (VP (VBP 're) (VP (VBG gon) (S (VP (TO na) (VP (VB boycott) (NP (PRP ya)) (NP (JJ fat) (NN ass))))))) (. ..) (X (  )))
+# scene = 57
+# sent_id = 2
+# sent_len = 12
+# setting = SAL'S FAMOUS PIZZERIA
+# speaker = BUGGIN' OUT
+# stage_direction = True
+# text = Sal, we're gonna boycott ya fat ass..
+# time = DAY
+1	Sal	sal	PROPN	NNP	_	5	npadvmod	_	_
+2	,	,	PUNCT	,	_	5	punct	_	_
+3	we	-PRON-	PRON	PRP	_	5	nsubj	_	_
+4	're	be	VERB	VBP	_	5	aux	_	_
+5	gon	go	VERB	VBG	_	5	ROOT	_	_
+6	na	to	PART	TO	_	7	aux	_	_
+7	boycott	boycott	VERB	VB	_	5	xcomp	_	_
+8	ya	ya	PRON	PRP	_	7	dative	_	_
+9	fat	fat	ADJ	JJ	_	10	amod	_	_
+10	ass	ass	NOUN	NN	_	7	dobj	_	_
+11	..	..	PUNCT	.	_	5	punct	_	_
+
+# loc = INT
+# parse = (S (SBAR (IN Before) (S (NP (NP (NNP Sal)) (CC and) (NP (PRP$ his) (CD two) (NNS sons))) (VP (MD can) (VP (VB answer))))) (, ,) (NP (NP (NNP Buggin) ('' ')) (RB Out)) (VP (VBZ is) (VP (VBN gone))) (. .))
+# scene = 57
+# sent_id = 3
+# sent_len = 15
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = Before Sal and his two sons can answer, Buggin' Out is gone.
+# time = DAY
+1	Before	before	ADP	IN	_	8	mark	_	_
+2	Sal	sal	PROPN	NNP	_	8	nsubj	_	_
+3	and	and	CCONJ	CC	_	2	cc	_	_
+4	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+5	two	two	NUM	CD	_	6	nummod	_	_
+6	sons	son	NOUN	NNS	_	2	conj	_	_
+7	can	can	VERB	MD	_	8	aux	_	_
+8	answer	answer	VERB	VB	_	14	advcl	_	_
+9	,	,	PUNCT	,	_	14	punct	_	_
+10	Buggin	buggin	PROPN	NNP	_	12	poss	_	_
+11	'	'	PUNCT	''	_	10	case	_	_
+12	Out	out	ADV	RB	_	14	nsubjpass	_	_
+13	is	be	VERB	VBZ	_	14	auxpass	_	_
+14	gone	go	VERB	VBN	_	14	ROOT	_	_
+15	.	.	PUNCT	.	_	14	punct	_	_

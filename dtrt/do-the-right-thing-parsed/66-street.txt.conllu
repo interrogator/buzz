@@ -1,0 +1,1278 @@
+# loc = EXT
+# parse = (S (NP (DT An) (JJ old) (JJ Puerto) (JJ Rican) (NN man)) (VP (VBZ rings) (NP (DT a) (NN bell)) (SBAR (IN as) (S (NP (PRP he)) (VP (VBZ pushes) (NP (DT a) (NN cart)) (PP (IN on) (NP (NNS wheels))))))) (. .))
+# scene = 66
+# sent_id = 1
+# sent_len = 16
+# setting = STREET
+# stage_direction = True
+# text = An old Puerto Rican man rings a bell as he pushes a cart on wheels.
+# time = DUSK
+1	An	an	DET	DT	_	5	det	_	_
+2	old	old	ADJ	JJ	_	5	amod	_	_
+3	Puerto	puerto	ADJ	JJ	_	4	amod	_	_
+4	Rican	rican	ADJ	JJ	_	5	amod	_	_
+5	man	man	NOUN	NN	_	6	nsubj	_	_
+6	rings	ring	VERB	VBZ	_	6	ROOT	_	_
+7	a	a	DET	DT	_	8	det	_	_
+8	bell	bell	NOUN	NN	_	6	dobj	_	_
+9	as	as	ADP	IN	_	11	mark	_	_
+10	he	-PRON-	PRON	PRP	_	11	nsubj	_	_
+11	pushes	push	VERB	VBZ	_	6	advcl	_	_
+12	a	a	DET	DT	_	13	det	_	_
+13	cart	cart	NOUN	NN	_	11	dobj	_	_
+14	on	on	ADP	IN	_	13	prep	_	_
+15	wheels	wheel	NOUN	NNS	_	14	pobj	_	_
+16	.	.	PUNCT	.	_	6	punct	_	_
+
+# loc = EXT
+# parse = (SINV (PP (IN On) (NP (NP (DT the) (NN side)) (PP (IN of) (NP (DT the) (NN cart))))) (VP (VBZ is)) (NP (NP (NP (NN hand)) (HYPH -) (VP (VBN lettered) (S (NP (NNP HELADO) (NNP DE) (NNP COCO))))) (, ,) (CC and) (S (NP (NP (DT a) (JJ big) (NN block)) (PP (IN of) (NP (NN ice)))) (VP (NNS rests) (PP (IN on) (NP (NN top))) (S (VP (VBN surrounded) (PP (IN by) (NP (NP (JJ different) (JJ colored) (NNS bottles)) (PP (IN of) (NP (NNS flavors)))))))))) (. .))
+# scene = 66
+# sent_id = 2
+# sent_len = 31
+# setting = STREET
+# stage_direction = True
+# text = On the side of the cart is hand-lettered HELADO DE COCO, and a big block of ice rests on top surrounded by different colored bottles of flavors.
+# time = DUSK
+1	On	on	ADP	IN	_	7	prep	_	_
+2	the	the	DET	DT	_	3	det	_	_
+3	side	side	NOUN	NN	_	1	pobj	_	_
+4	of	of	ADP	IN	_	3	prep	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	cart	cart	NOUN	NN	_	4	pobj	_	_
+7	is	be	VERB	VBZ	_	7	ROOT	_	_
+8	hand	hand	NOUN	NN	_	10	npadvmod	_	_
+9	-	-	PUNCT	HYPH	_	10	punct	_	_
+10	lettered	letter	VERB	VBN	_	13	amod	_	_
+11	HELADO	helado	PROPN	NNP	_	13	compound	_	_
+12	DE	de	PROPN	NNP	_	13	compound	_	_
+13	COCO	coco	PROPN	NNP	_	7	attr	_	_
+14	,	,	PUNCT	,	_	7	punct	_	_
+15	and	and	CCONJ	CC	_	7	cc	_	_
+16	a	a	DET	DT	_	18	det	_	_
+17	big	big	ADJ	JJ	_	18	amod	_	_
+18	block	block	NOUN	NN	_	7	conj	_	_
+19	of	of	ADP	IN	_	18	prep	_	_
+20	ice	ice	NOUN	NN	_	21	compound	_	_
+21	rests	rest	NOUN	NNS	_	19	pobj	_	_
+22	on	on	ADP	IN	_	21	prep	_	_
+23	top	top	NOUN	NN	_	22	pobj	_	_
+24	surrounded	surround	VERB	VBN	_	23	acl	_	_
+25	by	by	ADP	IN	_	24	agent	_	_
+26	different	different	ADJ	JJ	_	28	amod	_	_
+27	colored	colored	ADJ	JJ	_	28	amod	_	_
+28	bottles	bottle	NOUN	NNS	_	25	pobj	_	_
+29	of	of	ADP	IN	_	28	prep	_	_
+30	flavors	flavor	NOUN	NNS	_	29	pobj	_	_
+31	.	.	PUNCT	.	_	7	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NP (DT A) (NN group)) (PP (IN of) (NP (NNS kids)))) (VP (ADVP (RB eagerly)) (VBZ waits) (PP (IN for) (NP (DT the) (NNS ices)))) (. .))
+# scene = 66
+# sent_id = 3
+# sent_len = 10
+# setting = STREET
+# stage_direction = True
+# text = A group of kids eagerly waits for the ices.
+# time = DUSK
+1	A	a	DET	DT	_	2	det	_	_
+2	group	group	NOUN	NN	_	6	nsubj	_	_
+3	of	of	ADP	IN	_	2	prep	_	_
+4	kids	kid	NOUN	NNS	_	3	pobj	_	_
+5	eagerly	eagerly	ADV	RB	_	6	advmod	_	_
+6	waits	wait	VERB	VBZ	_	6	ROOT	_	_
+7	for	for	ADP	IN	_	6	prep	_	_
+8	the	the	DET	DT	_	9	det	_	_
+9	ices	ice	NOUN	NNS	_	7	pobj	_	_
+10	.	.	PUNCT	.	_	6	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT The) (NN man)) (VP (VP (VBZ scrapes) (NP (NP (DT the) (NN block)) (PP (IN of) (NP (NN ice))))) (, ,) (VP (VBZ puts) (NP (DT the) (NNS shavings)) (PP (IN in) (NP (DT a) (NN paper) (NN cup)))) (, ,) (CC and) (VP (VBZ drowns) (NP (PRP it)) (PP (IN with) (NP (NN syrup))))) (. .))
+# scene = 66
+# sent_id = 4
+# sent_len = 22
+# setting = STREET
+# stage_direction = True
+# text = The man scrapes the block of ice, puts the shavings in a paper cup, and drowns it with syrup.
+# time = DUSK
+1	The	the	DET	DT	_	2	det	_	_
+2	man	man	NOUN	NN	_	3	nsubj	_	_
+3	scrapes	scrap	VERB	VBZ	_	3	ROOT	_	_
+4	the	the	DET	DT	_	5	det	_	_
+5	block	block	NOUN	NN	_	3	dobj	_	_
+6	of	of	ADP	IN	_	5	prep	_	_
+7	ice	ice	NOUN	NN	_	6	pobj	_	_
+8	,	,	PUNCT	,	_	3	punct	_	_
+9	puts	put	VERB	VBZ	_	3	conj	_	_
+10	the	the	DET	DT	_	11	det	_	_
+11	shavings	shaving	NOUN	NNS	_	9	dobj	_	_
+12	in	in	ADP	IN	_	9	prep	_	_
+13	a	a	DET	DT	_	15	det	_	_
+14	paper	paper	NOUN	NN	_	15	compound	_	_
+15	cup	cup	NOUN	NN	_	12	pobj	_	_
+16	,	,	PUNCT	,	_	9	punct	_	_
+17	and	and	CCONJ	CC	_	9	cc	_	_
+18	drowns	drown	VERB	VBZ	_	9	conj	_	_
+19	it	-PRON-	PRON	PRP	_	18	dobj	_	_
+20	with	with	ADP	IN	_	18	prep	_	_
+21	syrup	syrup	NOUN	NN	_	20	pobj	_	_
+22	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ is) (VP (VBG walking) (PP (RP down) (NP (DT the) (NN street))))) (. .))
+# scene = 66
+# sent_id = 5
+# sent_len = 8
+# setting = STREET
+# stage_direction = True
+# text = Da Mayor is walking down the street.
+# time = DUSK
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	_
+3	is	be	VERB	VBZ	_	4	aux	_	_
+4	walking	walk	VERB	VBG	_	4	ROOT	_	_
+5	down	down	PART	RP	_	4	prep	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	street	street	NOUN	NN	_	5	pobj	_	_
+8	.	.	PUNCT	.	_	4	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP We)) (VP (VBP hear) (NP (DT the) (JJ familiar) (NN tune)) (PP (IN from) (NP (DT the) (NNP Mister) (NNP Softee) (NN truck))) (SBAR (IN as) (S (NP (PRP it)) (VP (VBZ comes) (PP (IN down) (NP (DT the) (NN street))))))) (. .))
+# scene = 66
+# sent_id = 6
+# sent_len = 17
+# setting = STREET
+# stage_direction = True
+# text = We hear the familiar tune from the Mister Softee truck as it comes down the street.
+# time = DUSK
+1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+3	the	the	DET	DT	_	5	det	_	_
+4	familiar	familiar	ADJ	JJ	_	5	amod	_	_
+5	tune	tune	NOUN	NN	_	2	dobj	_	_
+6	from	from	ADP	IN	_	5	prep	_	_
+7	the	the	DET	DT	_	10	det	_	_
+8	Mister	mister	PROPN	NNP	_	9	compound	_	_
+9	Softee	softee	PROPN	NNP	_	10	compound	_	_
+10	truck	truck	NOUN	NN	_	6	pobj	_	_
+11	as	as	ADP	IN	_	13	mark	_	_
+12	it	-PRON-	PRON	PRP	_	13	nsubj	_	_
+13	comes	come	VERB	VBZ	_	2	advcl	_	_
+14	down	down	ADP	IN	_	13	prt	_	_
+15	the	the	DET	DT	_	16	det	_	_
+16	street	street	NOUN	NN	_	14	pobj	_	_
+17	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NP (NNP Eddie)) (, ,) (NP (NP (DT the) (JJ young) (NN kid)) (SBAR (WHNP (WP who)) (S (ADVP (RBR earlier)) (VP (VBD ran) (NP (DT an) (NN errand)) (PP (IN for) (NP (NNP Da) (NNP Mayor))))))) (, ,)) (VP (VP (VBZ looks) (ADVP (RP up)) (PP (IN from) (NP (NP (DT the) (NN sidewalk)) (SBAR (WHADVP (WRB where)) (S (NP (PRP he)) (VP (VBZ 's) (VP (VBG playing)))))))) (CC and) (VP (VBZ runs) (PP (RP out) (PP (IN into) (NP (DT the) (NN street)))) (PP (IN in) (NP (NP (NN pursuit)) (PP (IN of) (NP (NNP Mister) (NNP Softee))))))) (. .) (  ))
+# scene = 66
+# sent_id = 7
+# sent_len = 36
+# setting = STREET
+# stage_direction = True
+# text = Eddie, the young kid who earlier ran an errand for Da Mayor, looks up from the sidewalk where he's playing and runs out into the street in pursuit of Mister Softee.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	15	nsubj	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	the	the	DET	DT	_	5	det	_	_
+4	young	young	ADJ	JJ	_	5	amod	_	_
+5	kid	kid	NOUN	NN	_	1	appos	_	_
+6	who	who	NOUN	WP	_	8	nsubj	_	_
+7	earlier	earlier	ADV	RBR	_	8	advmod	_	_
+8	ran	run	VERB	VBD	_	5	relcl	_	_
+9	an	an	DET	DT	_	10	det	_	_
+10	errand	errand	NOUN	NN	_	8	dobj	_	_
+11	for	for	ADP	IN	_	10	prep	_	_
+12	Da	da	PROPN	NNP	_	13	compound	_	_
+13	Mayor	mayor	PROPN	NNP	_	11	pobj	_	_
+14	,	,	PUNCT	,	_	15	punct	_	_
+15	looks	look	VERB	VBZ	_	15	ROOT	_	_
+16	up	up	PART	RP	_	15	prt	_	_
+17	from	from	ADP	IN	_	15	prep	_	_
+18	the	the	DET	DT	_	19	det	_	_
+19	sidewalk	sidewalk	NOUN	NN	_	17	pobj	_	_
+20	where	where	ADV	WRB	_	25	advmod	_	_
+21	he	-PRON-	PRON	PRP	_	23	nsubj	_	_
+22	's	be	VERB	VBZ	_	23	aux	_	_
+23	playing	play	VERB	VBG	_	19	relcl	_	_
+24	and	and	CCONJ	CC	_	23	cc	_	_
+25	runs	run	VERB	VBZ	_	23	conj	_	_
+26	out	out	PART	RP	_	25	prt	_	_
+27	into	into	ADP	IN	_	25	prep	_	_
+28	the	the	DET	DT	_	29	det	_	_
+29	street	street	NOUN	NN	_	27	pobj	_	_
+30	in	in	ADP	IN	_	25	prep	_	_
+31	pursuit	pursuit	NOUN	NN	_	30	pobj	_	_
+32	of	of	ADP	IN	_	31	prep	_	_
+33	Mister	mister	PROPN	NNP	_	34	compound	_	_
+34	Softee	softee	PROPN	NNP	_	32	pobj	_	_
+35	.	.	PUNCT	.	_	15	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NP (NNP Eddie)) (, ,) (NP (NP (DT the) (JJ young) (NN kid)) (SBAR (WHNP (WP who)) (S (ADVP (RBR earlier)) (VP (VBD ran) (NP (DT an) (NN errand)) (PP (IN for) (NP (NNP Da) (NNP Mayor))))))) (, ,)) (VP (VP (VBZ looks) (ADVP (RP up)) (PP (IN from) (NP (NP (DT the) (NN sidewalk)) (SBAR (WHADVP (WRB where)) (S (NP (PRP he)) (VP (VBZ 's) (VP (VBG playing)))))))) (CC and) (VP (VBZ runs) (PP (RP out) (PP (IN into) (NP (DT the) (NN street)))) (PP (IN in) (NP (NP (NN pursuit)) (PP (IN of) (NP (NNP Mister) (NNP Softee))))))) (. .) (  ))
+# scene = 66
+# sent_id = 8
+# sent_len = 36
+# setting = STREET
+# stage_direction = True
+# text = Eddie, the young kid who earlier ran an errand for Da Mayor, looks up from the sidewalk where he's playing and runs out into the street in pursuit of Mister Softee.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	15	nsubj	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	the	the	DET	DT	_	5	det	_	_
+4	young	young	ADJ	JJ	_	5	amod	_	_
+5	kid	kid	NOUN	NN	_	1	appos	_	_
+6	who	who	NOUN	WP	_	8	nsubj	_	_
+7	earlier	earlier	ADV	RBR	_	8	advmod	_	_
+8	ran	run	VERB	VBD	_	5	relcl	_	_
+9	an	an	DET	DT	_	10	det	_	_
+10	errand	errand	NOUN	NN	_	8	dobj	_	_
+11	for	for	ADP	IN	_	10	prep	_	_
+12	Da	da	PROPN	NNP	_	13	compound	_	_
+13	Mayor	mayor	PROPN	NNP	_	11	pobj	_	_
+14	,	,	PUNCT	,	_	15	punct	_	_
+15	looks	look	VERB	VBZ	_	15	ROOT	_	_
+16	up	up	PART	RP	_	15	prt	_	_
+17	from	from	ADP	IN	_	15	prep	_	_
+18	the	the	DET	DT	_	19	det	_	_
+19	sidewalk	sidewalk	NOUN	NN	_	17	pobj	_	_
+20	where	where	ADV	WRB	_	25	advmod	_	_
+21	he	-PRON-	PRON	PRP	_	23	nsubj	_	_
+22	's	be	VERB	VBZ	_	23	aux	_	_
+23	playing	play	VERB	VBG	_	19	relcl	_	_
+24	and	and	CCONJ	CC	_	23	cc	_	_
+25	runs	run	VERB	VBZ	_	23	conj	_	_
+26	out	out	PART	RP	_	25	prt	_	_
+27	into	into	ADP	IN	_	25	prep	_	_
+28	the	the	DET	DT	_	29	det	_	_
+29	street	street	NOUN	NN	_	27	pobj	_	_
+30	in	in	ADP	IN	_	25	prep	_	_
+31	pursuit	pursuit	NOUN	NN	_	30	pobj	_	_
+32	of	of	ADP	IN	_	31	prep	_	_
+33	Mister	mister	PROPN	NNP	_	34	compound	_	_
+34	Softee	softee	PROPN	NNP	_	32	pobj	_	_
+35	.	.	PUNCT	.	_	15	punct	_	_
+
+# line = 530
+# loc = EXT
+# parse = (NP (NNP Ice) (NN cream) (. .))
+# scene = 66
+# sent_id = 9
+# sent_len = 3
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = Ice cream.
+# time = DUSK
+1	Ice	ice	PROPN	NNP	_	2	compound	_	_
+2	cream	cream	NOUN	NN	_	2	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 530
+# loc = EXT
+# parse = (NP (NN Ice) (NN cream) (. ..) (  ))
+# scene = 66
+# sent_id = 10
+# sent_len = 4
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = Ice cream..
+# time = DUSK
+1	Ice	ice	NOUN	NN	_	2	compound	_	_
+2	cream	cream	NOUN	NN	_	2	ROOT	_	_
+3	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ is) (VP (VBG running) (PP (IN in) (NP (NP (NN pursuit)) (PP (IN of) (NP (DT the) (NN truck))))) (, ,) (S (ADJP (JJ unaware) (PP (IN of) (NP (DT the) (JJ oncoming) (VBG speeding) (NN car))))))) (. .))
+# scene = 66
+# sent_id = 11
+# sent_len = 16
+# setting = STREET
+# stage_direction = True
+# text = Eddie is running in pursuit of the truck, unaware of the oncoming speeding car.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	3	nsubj	_	_
+2	is	be	VERB	VBZ	_	3	aux	_	_
+3	running	run	VERB	VBG	_	3	ROOT	_	_
+4	in	in	ADP	IN	_	3	prep	_	_
+5	pursuit	pursuit	NOUN	NN	_	4	pobj	_	_
+6	of	of	ADP	IN	_	5	prep	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	truck	truck	NOUN	NN	_	6	pobj	_	_
+9	,	,	PUNCT	,	_	3	punct	_	_
+10	unaware	unaware	ADJ	JJ	_	3	intj	_	_
+11	of	of	ADP	IN	_	10	prep	_	_
+12	the	the	DET	DT	_	15	det	_	_
+13	oncoming	oncoming	ADJ	JJ	_	15	amod	_	_
+14	speeding	speed	VERB	VBG	_	15	amod	_	_
+15	car	car	NOUN	NN	_	11	pobj	_	_
+16	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ sees) (S (NP (VBG speeding) (NN car)) (VP (VBG bearing) (PRT (RP down)) (PP (IN on) (NP (NNP Eddie)))))) (. .))
+# scene = 66
+# sent_id = 12
+# sent_len = 10
+# setting = STREET
+# stage_direction = True
+# text = Da Mayor sees speeding car bearing down on Eddie.
+# time = DUSK
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	sees	see	VERB	VBZ	_	3	ROOT	_	_
+4	speeding	speed	VERB	VBG	_	5	amod	_	_
+5	car	car	NOUN	NN	_	3	dobj	_	_
+6	bearing	bear	VERB	VBG	_	5	acl	_	_
+7	down	down	PART	RP	_	6	prt	_	_
+8	on	on	ADP	IN	_	6	prep	_	_
+9	Eddie	eddie	PROPN	NNP	_	8	pobj	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ runs) (PP (IN across) (NP (DT the) (NN street)))) (CC and) (VP (NNS knocks) (NP (NNP Eddie)) (ADVP (RP down)) (, ,) (PP (IN out) (PP (IN of) (NP (NP (DT the) (NN way)) (PP (IN of) (NP (DT the) (NN car)))))))) (. .))
+# scene = 66
+# sent_id = 13
+# sent_len = 19
+# setting = STREET
+# stage_direction = True
+# text = Da Mayor runs across the street and knocks Eddie down, out of the way of the car.
+# time = DUSK
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	runs	run	VERB	VBZ	_	3	ROOT	_	_
+4	across	across	ADP	IN	_	3	prep	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	street	street	NOUN	NN	_	4	pobj	_	_
+7	and	and	CCONJ	CC	_	3	cc	_	_
+8	knocks	knock	NOUN	NNS	_	3	conj	_	_
+9	Eddie	eddie	PROPN	NNP	_	8	dobj	_	_
+10	down	down	PART	RP	_	8	advmod	_	_
+11	,	,	PUNCT	,	_	8	punct	_	_
+12	out	out	ADP	IN	_	8	prep	_	_
+13	of	of	ADP	IN	_	12	prep	_	_
+14	the	the	DET	DT	_	15	det	_	_
+15	way	way	NOUN	NN	_	13	pobj	_	_
+16	of	of	ADP	IN	_	15	prep	_	_
+17	the	the	DET	DT	_	18	det	_	_
+18	car	car	NOUN	NN	_	16	pobj	_	_
+19	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT Both)) (VP (VBP are) (VP (VBN thrown) (SBAR (IN as) (S (NP (PRP they)) (VP (VBP are) (VP (VBN hit) (PP (IN by) (NP (DT the) (JJ reckless) (NN driver))))))))) (. .))
+# scene = 66
+# sent_id = 14
+# sent_len = 12
+# setting = STREET
+# stage_direction = True
+# text = Both are thrown as they are hit by the reckless driver.
+# time = DUSK
+1	Both	both	DET	DT	_	3	nsubjpass	_	_
+2	are	be	VERB	VBP	_	3	auxpass	_	_
+3	thrown	throw	VERB	VBN	_	3	ROOT	_	_
+4	as	as	ADP	IN	_	7	mark	_	_
+5	they	-PRON-	PRON	PRP	_	7	nsubjpass	_	_
+6	are	be	VERB	VBP	_	7	auxpass	_	_
+7	hit	hit	VERB	VBN	_	3	advcl	_	_
+8	by	by	ADP	IN	_	7	agent	_	_
+9	the	the	DET	DT	_	11	det	_	_
+10	reckless	reckless	ADJ	JJ	_	11	amod	_	_
+11	driver	driver	NOUN	NN	_	8	pobj	_	_
+12	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ is) (VP (VBG crying) (SBAR (IN as) (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ picks) (NP (PRP him)) (PRT (RP up))))))) (. .) (  ))
+# scene = 66
+# sent_id = 15
+# sent_len = 11
+# setting = STREET
+# stage_direction = True
+# text = Eddie is crying as Da Mayor picks him up.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	3	nsubj	_	_
+2	is	be	VERB	VBZ	_	3	aux	_	_
+3	crying	cry	VERB	VBG	_	3	ROOT	_	_
+4	as	as	ADP	IN	_	7	mark	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	_
+6	Mayor	mayor	PROPN	NNP	_	7	nsubj	_	_
+7	picks	pick	VERB	VBZ	_	3	advcl	_	_
+8	him	-PRON-	PRON	PRP	_	7	dobj	_	_
+9	up	up	PART	RP	_	7	prt	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ sees) (S (NP (VBG speeding) (NN car)) (VP (VBG bearing) (PRT (RP down)) (PP (IN on) (NP (NNP Eddie)))))) (. .))
+# scene = 66
+# sent_id = 16
+# sent_len = 10
+# setting = STREET
+# stage_direction = True
+# text = Da Mayor sees speeding car bearing down on Eddie.
+# time = DUSK
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	sees	see	VERB	VBZ	_	3	ROOT	_	_
+4	speeding	speed	VERB	VBG	_	5	amod	_	_
+5	car	car	NOUN	NN	_	3	dobj	_	_
+6	bearing	bear	VERB	VBG	_	5	acl	_	_
+7	down	down	PART	RP	_	6	prt	_	_
+8	on	on	ADP	IN	_	6	prep	_	_
+9	Eddie	eddie	PROPN	NNP	_	8	pobj	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ runs) (PP (IN across) (NP (DT the) (NN street)))) (CC and) (VP (NNS knocks) (NP (NNP Eddie)) (ADVP (RP down)) (, ,) (PP (IN out) (PP (IN of) (NP (NP (DT the) (NN way)) (PP (IN of) (NP (DT the) (NN car)))))))) (. .))
+# scene = 66
+# sent_id = 17
+# sent_len = 19
+# setting = STREET
+# stage_direction = True
+# text = Da Mayor runs across the street and knocks Eddie down, out of the way of the car.
+# time = DUSK
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	runs	run	VERB	VBZ	_	3	ROOT	_	_
+4	across	across	ADP	IN	_	3	prep	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	street	street	NOUN	NN	_	4	pobj	_	_
+7	and	and	CCONJ	CC	_	3	cc	_	_
+8	knocks	knock	NOUN	NNS	_	3	conj	_	_
+9	Eddie	eddie	PROPN	NNP	_	8	dobj	_	_
+10	down	down	PART	RP	_	8	advmod	_	_
+11	,	,	PUNCT	,	_	8	punct	_	_
+12	out	out	ADP	IN	_	8	prep	_	_
+13	of	of	ADP	IN	_	12	prep	_	_
+14	the	the	DET	DT	_	15	det	_	_
+15	way	way	NOUN	NN	_	13	pobj	_	_
+16	of	of	ADP	IN	_	15	prep	_	_
+17	the	the	DET	DT	_	18	det	_	_
+18	car	car	NOUN	NN	_	16	pobj	_	_
+19	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT Both)) (VP (VBP are) (VP (VBN thrown) (SBAR (IN as) (S (NP (PRP they)) (VP (VBP are) (VP (VBN hit) (PP (IN by) (NP (DT the) (JJ reckless) (NN driver))))))))) (. .))
+# scene = 66
+# sent_id = 18
+# sent_len = 12
+# setting = STREET
+# stage_direction = True
+# text = Both are thrown as they are hit by the reckless driver.
+# time = DUSK
+1	Both	both	DET	DT	_	3	nsubjpass	_	_
+2	are	be	VERB	VBP	_	3	auxpass	_	_
+3	thrown	throw	VERB	VBN	_	3	ROOT	_	_
+4	as	as	ADP	IN	_	7	mark	_	_
+5	they	-PRON-	PRON	PRP	_	7	nsubjpass	_	_
+6	are	be	VERB	VBP	_	7	auxpass	_	_
+7	hit	hit	VERB	VBN	_	3	advcl	_	_
+8	by	by	ADP	IN	_	7	agent	_	_
+9	the	the	DET	DT	_	11	det	_	_
+10	reckless	reckless	ADJ	JJ	_	11	amod	_	_
+11	driver	driver	NOUN	NN	_	8	pobj	_	_
+12	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ is) (VP (VBG crying) (SBAR (IN as) (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ picks) (NP (PRP him)) (PRT (RP up))))))) (. .) (  ))
+# scene = 66
+# sent_id = 19
+# sent_len = 11
+# setting = STREET
+# stage_direction = True
+# text = Eddie is crying as Da Mayor picks him up.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	3	nsubj	_	_
+2	is	be	VERB	VBZ	_	3	aux	_	_
+3	crying	cry	VERB	VBG	_	3	ROOT	_	_
+4	as	as	ADP	IN	_	7	mark	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	_
+6	Mayor	mayor	PROPN	NNP	_	7	nsubj	_	_
+7	picks	pick	VERB	VBZ	_	3	advcl	_	_
+8	him	-PRON-	PRON	PRP	_	7	dobj	_	_
+9	up	up	PART	RP	_	7	prt	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ is) (VP (VBG crying) (SBAR (IN as) (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ picks) (NP (PRP him)) (PRT (RP up))))))) (. .) (  ))
+# scene = 66
+# sent_id = 20
+# sent_len = 11
+# setting = STREET
+# stage_direction = True
+# text = Eddie is crying as Da Mayor picks him up.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	3	nsubj	_	_
+2	is	be	VERB	VBZ	_	3	aux	_	_
+3	crying	cry	VERB	VBG	_	3	ROOT	_	_
+4	as	as	ADP	IN	_	7	mark	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	_
+6	Mayor	mayor	PROPN	NNP	_	7	nsubj	_	_
+7	picks	pick	VERB	VBZ	_	3	advcl	_	_
+8	him	-PRON-	PRON	PRP	_	7	dobj	_	_
+9	up	up	PART	RP	_	7	prt	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 531
+# loc = EXT
+# parse = (S (NP (NN Doctor)) (, ,) (NP (PRP you)) (VP (VBP know) (ADJP (JJR better)) (S (VP (TO to) (VP (VB run) (ADVP (RP out)) (PP (IN in) (NP (DT the) (NN street))))))) (. ...))
+# scene = 66
+# sent_id = 21
+# sent_len = 12
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Doctor, you know better to run out in the street...
+# time = DUSK
+1	Doctor	doctor	NOUN	NN	_	4	npadvmod	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	know	know	VERB	VBP	_	4	ROOT	_	_
+5	better	good	ADJ	JJR	_	4	advmod	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	run	run	VERB	VB	_	4	xcomp	_	_
+8	out	out	PART	RP	_	7	prt	_	_
+9	in	in	ADP	IN	_	7	prep	_	_
+10	the	the	DET	DT	_	11	det	_	_
+11	street	street	NOUN	NN	_	9	pobj	_	_
+12	...	...	PUNCT	.	_	4	punct	_	_
+
+# line = 531
+# loc = EXT
+# parse = (S (VP (VB Stop) (S (VP (S (VP (VBG crying))) (, ,) (INTJ (NN son))))) (. ..) (  ))
+# scene = 66
+# sent_id = 22
+# sent_len = 6
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Stop crying, son..
+# time = DUSK
+1	Stop	stop	VERB	VB	_	1	ROOT	_	_
+2	crying	cry	VERB	VBG	_	1	xcomp	_	_
+3	,	,	PUNCT	,	_	2	punct	_	_
+4	son	son	NOUN	NN	_	2	appos	_	_
+5	..	..	PUNCT	.	_	1	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT A) (NN crowd)) (VP (VBZ gathers)) (. .) (  ))
+# scene = 66
+# sent_id = 23
+# sent_len = 5
+# setting = STREET
+# stage_direction = True
+# text = A crowd gathers.
+# time = DUSK
+1	A	a	DET	DT	_	2	det	_	_
+2	crowd	crowd	NOUN	NN	_	3	nsubj	_	_
+3	gathers	gather	VERB	VBZ	_	3	ROOT	_	_
+4	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 532
+# loc = EXT
+# parse = (S (NP (NNP Doctor)) (, ,) (NP (EX there)) (VP (VBZ 's) (NP (NP (NN nothing)) (SBAR (S (VP (TO to) (VP (VB cry) (PP (IN about)))))))) (. .))
+# scene = 66
+# sent_id = 24
+# sent_len = 9
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Doctor, there's nothing to cry about.
+# time = DUSK
+1	Doctor	doctor	PROPN	NNP	_	4	npadvmod	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	there	there	ADV	EX	_	4	expl	_	_
+4	's	be	VERB	VBZ	_	4	ROOT	_	_
+5	nothing	nothing	NOUN	NN	_	4	attr	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	cry	cry	VERB	VB	_	5	relcl	_	_
+8	about	about	ADP	IN	_	7	prep	_	_
+9	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 532
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ OK))) (. ..) (  ))
+# scene = 66
+# sent_id = 25
+# sent_len = 5
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = You're OK..
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	're	be	VERB	VBP	_	2	ROOT	_	_
+3	OK	ok	ADJ	JJ	_	2	acomp	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (S (NP (NP (DT A) (NN woman)) (PP (IN in) (NP (PRP$ her) (NNS twenties))))) (, ,) (NP (NP (NNP LOUISE)) (, ,) (NP (NP (NNP Eddie) (POS 's)) (NN mother)) (, ,)) (VP (VP (VBZ breaks) (PP (IN through) (NP (DT the) (NN crowd)))) (CC and) (VP (VBZ hugs) (NP (PRP$ her) (NN baby)))) (. .) (  ))
+# scene = 66
+# sent_id = 26
+# sent_len = 22
+# setting = STREET
+# stage_direction = True
+# text = A woman in her twenties, LOUISE, Eddie's mother, breaks through the crowd and hugs her baby.
+# time = DUSK
+1	A	a	DET	DT	_	2	det	_	_
+2	woman	woman	NOUN	NN	_	13	nsubj	_	_
+3	in	in	ADP	IN	_	2	prep	_	_
+4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	twenties	twenty	NOUN	NNS	_	3	pobj	_	_
+6	,	,	PUNCT	,	_	2	punct	_	_
+7	LOUISE	louise	PROPN	NNP	_	2	appos	_	_
+8	,	,	PUNCT	,	_	7	punct	_	_
+9	Eddie	eddie	PROPN	NNP	_	11	poss	_	_
+10	's	's	PART	POS	_	9	case	_	_
+11	mother	mother	NOUN	NN	_	2	appos	_	_
+12	,	,	PUNCT	,	_	13	punct	_	_
+13	breaks	break	VERB	VBZ	_	13	ROOT	_	_
+14	through	through	ADP	IN	_	13	prep	_	_
+15	the	the	DET	DT	_	16	det	_	_
+16	crowd	crowd	NOUN	NN	_	14	pobj	_	_
+17	and	and	CCONJ	CC	_	13	cc	_	_
+18	hugs	hug	VERB	VBZ	_	13	conj	_	_
+19	her	-PRON-	ADJ	PRP$	_	20	poss	_	_
+20	baby	baby	NOUN	NN	_	18	dobj	_	_
+21	.	.	PUNCT	.	_	13	punct	_	_
+
+# line = 533
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VP (VBZ 's) (ADJP (JJ wrong)))) (. ?) (. .) (  ))
+# scene = 66
+# sent_id = 27
+# sent_len = 6
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = What's wrong?.
+# time = DUSK
+1	What	what	NOUN	WP	_	2	nsubj	_	_
+2	's	be	VERB	VBZ	_	2	ROOT	_	_
+3	wrong	wrong	ADJ	JJ	_	2	acomp	_	_
+4	?	?	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 534
+# loc = EXT
+# parse = (S (NP (NNP Mayor)) (VP (VBD knocked) (NP (PRP me)) (PRT (RP down))) (. ..) (  ))
+# scene = 66
+# sent_id = 28
+# sent_len = 6
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = Mayor knocked me down..
+# time = DUSK
+1	Mayor	mayor	PROPN	NNP	_	2	nsubj	_	_
+2	knocked	knock	VERB	VBD	_	2	ROOT	_	_
+3	me	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	down	down	PART	RP	_	2	prt	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 535
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (MD should) (VP (VB be) (ADJP (JJ ashamed) (PP (IN of) (NP (PRP yourself)))))) (. ..) (  ))
+# scene = 66
+# sent_id = 29
+# sent_len = 8
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = You should be ashamed of yourself..
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	should	should	VERB	MD	_	3	aux	_	_
+3	be	be	VERB	VB	_	3	ROOT	_	_
+4	ashamed	ashamed	ADJ	JJ	_	3	acomp	_	_
+5	of	of	ADP	IN	_	4	prep	_	_
+6	yourself	-PRON-	PRON	PRP	_	5	pobj	_	_
+7	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 536
+# loc = EXT
+# parse = (S (NP (NNP Ma'am)) (, ,) (NP (DT the) (NN boy)) (VP (VBZ is) (ADVP (RB just)) (ADJP (JJ scared) (PP (IN to) (NP (NN death))))) (. .))
+# scene = 66
+# sent_id = 30
+# sent_len = 10
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Ma'am, the boy is just scared to death.
+# time = DUSK
+1	Ma'am	madam	PROPN	NNP	_	5	npadvmod	_	_
+2	,	,	PUNCT	,	_	5	punct	_	_
+3	the	the	DET	DT	_	4	det	_	_
+4	boy	boy	NOUN	NN	_	5	nsubj	_	_
+5	is	be	VERB	VBZ	_	5	ROOT	_	_
+6	just	just	ADV	RB	_	7	advmod	_	_
+7	scared	scared	ADJ	JJ	_	5	acomp	_	_
+8	to	to	ADP	IN	_	7	prep	_	_
+9	death	death	NOUN	NN	_	8	pobj	_	_
+10	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 536
+# loc = EXT
+# parse = (S (SBAR (WHNP (WP What)) (S (ADVP (RB actually)) (VP (VBD happened)))) (VP (VBZ is) (SBAR (IN that) (S (NP (PRP I)) (VP (VBD was) (VP (VBG minding) (NP (PRP$ my) (NN business)) (SBAR (WHADVP (WRB when)) (S (NP (PRP I)) (VP (VBD saw) (S (NP (PRP$ your) (NN son)) (VP (RP about) (S (VP (TO to) (VP (VB be) (VP (VBN run) (PRT (RP over)))))))))))))))) (. .))
+# scene = 66
+# sent_id = 31
+# sent_len = 21
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = What actually happened is that I was minding my business when I saw your son about to be run over.
+# time = DUSK
+1	What	what	NOUN	WP	_	3	nsubj	_	_
+2	actually	actually	ADV	RB	_	3	advmod	_	_
+3	happened	happen	VERB	VBD	_	4	csubj	_	_
+4	is	be	VERB	VBZ	_	4	ROOT	_	_
+5	that	that	ADP	IN	_	8	mark	_	_
+6	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
+7	was	be	VERB	VBD	_	8	aux	_	_
+8	minding	mind	VERB	VBG	_	4	ccomp	_	_
+9	my	-PRON-	ADJ	PRP$	_	10	poss	_	_
+10	business	business	NOUN	NN	_	8	dobj	_	_
+11	when	when	ADV	WRB	_	13	advmod	_	_
+12	I	-PRON-	PRON	PRP	_	13	nsubj	_	_
+13	saw	see	VERB	VBD	_	8	advcl	_	_
+14	your	-PRON-	ADJ	PRP$	_	15	poss	_	_
+15	son	son	NOUN	NN	_	16	nsubj	_	_
+16	about	about	PART	RP	_	13	ccomp	_	_
+17	to	to	PART	TO	_	19	aux	_	_
+18	be	be	VERB	VB	_	19	auxpass	_	_
+19	run	run	VERB	VBN	_	16	xcomp	_	_
+20	over	over	PART	RP	_	19	prt	_	_
+21	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 536
+# loc = EXT
+# parse = (S (S (NP (PRP I)) (VP (VBD ran) (PP (IN into) (NP (DT the) (NN street))) (S (VP (TO to) (VP (VB save) (NP (PRP him))))))) (CC and) (S (S (NP (PRP I)) (VP (VBD had) (S (VP (TO to) (VP (VB knock) (NP (PRP him)) (PRT (RP down))))) (S (VP (TO to) (VP (VB keep) (NP (NP (DT the) (DT both)) (PP (IN of) (NP (PRP us)))) (PP (IN from) (S (VP (VBG getting) (VP (NN hit)))))))))) (. ..) (  )))
+# scene = 66
+# sent_id = 32
+# sent_len = 26
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = I ran into the street to save him and I had to knock him down to keep the both of us from getting hit..
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	ran	run	VERB	VBD	_	2	ROOT	_	_
+3	into	into	ADP	IN	_	2	prep	_	_
+4	the	the	DET	DT	_	5	det	_	_
+5	street	street	NOUN	NN	_	3	pobj	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	save	save	VERB	VB	_	2	advcl	_	_
+8	him	-PRON-	PRON	PRP	_	7	dobj	_	_
+9	and	and	CCONJ	CC	_	2	cc	_	_
+10	I	-PRON-	PRON	PRP	_	11	nsubj	_	_
+11	had	have	VERB	VBD	_	2	conj	_	_
+12	to	to	PART	TO	_	13	aux	_	_
+13	knock	knock	VERB	VB	_	11	xcomp	_	_
+14	him	-PRON-	PRON	PRP	_	13	dobj	_	_
+15	down	down	PART	RP	_	13	prt	_	_
+16	to	to	PART	TO	_	17	aux	_	_
+17	keep	keep	VERB	VB	_	13	advcl	_	_
+18	the	the	DET	DT	_	19	det	_	_
+19	both	both	DET	DT	_	17	dobj	_	_
+20	of	of	ADP	IN	_	19	prep	_	_
+21	us	-PRON-	PRON	PRP	_	20	pobj	_	_
+22	from	from	ADP	IN	_	17	prep	_	_
+23	getting	get	VERB	VBG	_	24	auxpass	_	_
+24	hit	hit	NOUN	NN	_	22	pcomp	_	_
+25	..	..	PUNCT	.	_	11	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT The) (NN crowd)) (VP (VBZ agrees) (`` ") (SBAR (S (S (NP (DT That)) (VP (VBZ 's) (NP (NP (DT the) (NN way)) (SBAR (S (NP (PRP it)) (VP (VBD happened))))))) (, ,) ('' ") (CC and) (S (NP (NNP Louise)) (VP (VBZ stands) (PRT (RP up))))))) (. .) (  ))
+# scene = 66
+# sent_id = 33
+# sent_len = 18
+# setting = STREET
+# stage_direction = True
+# text = The crowd agrees "That's the way it happened," and Louise stands up.
+# time = DUSK
+1	The	the	DET	DT	_	2	det	_	_
+2	crowd	crowd	NOUN	NN	_	3	nsubj	_	_
+3	agrees	agree	VERB	VBZ	_	3	ROOT	_	_
+4	"	"	PUNCT	``	_	3	punct	_	_
+5	That	that	DET	DT	_	6	nsubj	_	_
+6	's	be	VERB	VBZ	_	3	ccomp	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	way	way	NOUN	NN	_	6	attr	_	_
+9	it	-PRON-	PRON	PRP	_	10	nsubj	_	_
+10	happened	happen	VERB	VBD	_	8	relcl	_	_
+11	,	,	PUNCT	,	_	6	punct	_	_
+12	"	"	PUNCT	''	_	6	punct	_	_
+13	and	and	CCONJ	CC	_	6	cc	_	_
+14	Louise	louise	PROPN	NNP	_	15	nsubj	_	_
+15	stands	stand	VERB	VBZ	_	6	conj	_	_
+16	up	up	PART	RP	_	15	prt	_	_
+17	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 537
+# loc = EXT
+# parse = (SQ (NP (NNP Eddie)) (, ,) (VBZ is) (NP (IN that)) (NP (DT the) (NN truth)) (. ?) (. .) (  ))
+# scene = 66
+# sent_id = 34
+# sent_len = 9
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = Eddie, is that the truth?.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	3	nsubj	_	_
+2	,	,	PUNCT	,	_	3	punct	_	_
+3	is	be	VERB	VBZ	_	3	ROOT	_	_
+4	that	that	ADP	IN	_	3	nsubj	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	truth	truth	NOUN	NN	_	3	attr	_	_
+7	?	?	PUNCT	.	_	3	punct	_	_
+8	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ is) (ADJP (JJ quiet))) (. .) (  ))
+# scene = 66
+# sent_id = 35
+# sent_len = 5
+# setting = STREET
+# stage_direction = True
+# text = Eddie is quiet.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	2	nsubj	_	_
+2	is	be	VERB	VBZ	_	2	ROOT	_	_
+3	quiet	quiet	ADJ	JJ	_	2	acomp	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 538
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (, ,) (NP (PRP you)) (VP (VBP hear) (S (NP (PRP me)) (VP (NN talkin) ('' ') (PP (IN to) (NP (PRP you)))))) (. ?) (. .) (  ))
+# scene = 66
+# sent_id = 36
+# sent_len = 12
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = Eddie, you hear me talkin' to you?.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	4	intj	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	hear	hear	VERB	VBP	_	4	ROOT	_	_
+5	me	-PRON-	PRON	PRP	_	4	dative	_	_
+6	talkin	talkin	NOUN	NN	_	4	dobj	_	_
+7	'	'	PUNCT	''	_	6	punct	_	_
+8	to	to	ADP	IN	_	6	prep	_	_
+9	you	-PRON-	PRON	PRP	_	8	pobj	_	_
+10	?	?	PUNCT	.	_	4	punct	_	_
+11	.	.	PUNCT	.	_	4	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ is) (ADVP (RB still)) (ADJP (JJ mum))) (. .) (  ))
+# scene = 66
+# sent_id = 37
+# sent_len = 6
+# setting = STREET
+# stage_direction = True
+# text = Eddie is still mum.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	4	nsubjpass	_	_
+2	is	be	VERB	VBZ	_	4	auxpass	_	_
+3	still	still	ADV	RB	_	4	advmod	_	_
+4	mum	mum	ADJ	JJ	_	4	ROOT	_	_
+5	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 539
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VP (VBP 'm) (VP (VBG talkin) ('' ') (PP (IN to) (NP (PRP you))) (, ,) (NP (UH boy)))) (. ..) (NP (  ))))
+# scene = 66
+# sent_id = 38
+# sent_len = 10
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = I'm talkin' to you, boy..
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	talkin	talkin	VERB	VBG	_	2	attr	_	_
+4	'	'	PUNCT	''	_	3	punct	_	_
+5	to	to	ADP	IN	_	3	prep	_	_
+6	you	-PRON-	PRON	PRP	_	5	pobj	_	_
+7	,	,	PUNCT	,	_	3	punct	_	_
+8	boy	boy	INTJ	UH	_	3	conj	_	_
+9	..	..	PUNCT	.	_	8	punct	_	_
+
+# line = 540
+# loc = EXT
+# parse = (S (INTJ (NNP Miss)) (, ,) (NP (DT the) (NN boy)) (VP (VBZ is) (ADJP (JJ fine))) (. ..) (  ))
+# scene = 66
+# sent_id = 39
+# sent_len = 8
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Miss, the boy is fine..
+# time = DUSK
+1	Miss	miss	PROPN	NNP	_	5	npadvmod	_	_
+2	,	,	PUNCT	,	_	5	punct	_	_
+3	the	the	DET	DT	_	4	det	_	_
+4	boy	boy	NOUN	NN	_	5	nsubj	_	_
+5	is	be	VERB	VBZ	_	5	ROOT	_	_
+6	fine	fine	ADJ	JJ	_	5	acomp	_	_
+7	..	..	PUNCT	.	_	5	punct	_	_
+
+# loc = EXT
+# parse = (NP (NNP WHAP) (. !))
+# scene = 66
+# sent_id = 40
+# sent_len = 2
+# setting = STREET
+# stage_direction = True
+# text = WHAP!
+# time = DUSK
+1	WHAP	whap	PROPN	NNP	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Louise)) (VP (VBZ hits) (NP (NNP Eddie)) (PP (IN on) (NP (NNP da) (NN butt)))) (. .))
+# scene = 66
+# sent_id = 41
+# sent_len = 7
+# setting = STREET
+# stage_direction = True
+# text = Louise hits Eddie on da butt.
+# time = DUSK
+1	Louise	louise	PROPN	NNP	_	2	nsubj	_	_
+2	hits	hit	VERB	VBZ	_	2	ROOT	_	_
+3	Eddie	eddie	PROPN	NNP	_	2	dobj	_	_
+4	on	on	ADP	IN	_	2	prep	_	_
+5	da	da	PROPN	NNP	_	6	compound	_	_
+6	butt	butt	NOUN	NN	_	4	pobj	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VP (VBZ starts) (S (VP (TO to) (VP (VB dance)))) (, ,) (SBAR (IN as) (S (S (NP (PRP$ his) (NN mother)) (VP (VBZ hits) (ADVP (RB hard)))) (: ;) (S (NP (PRP she)) (VP (VBZ 's) (ADJP (JJ heavy)) (HYPH -) (VP (JJ handed))))))) (. .) (NP (  ))))
+# scene = 66
+# sent_id = 42
+# sent_len = 18
+# setting = STREET
+# stage_direction = True
+# text = Eddie starts to dance, as his mother hits hard; she's heavy-handed.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	2	nsubj	_	_
+2	starts	start	VERB	VBZ	_	13	ccomp	_	_
+3	to	to	PART	TO	_	4	aux	_	_
+4	dance	dance	VERB	VB	_	2	xcomp	_	_
+5	,	,	PUNCT	,	_	4	punct	_	_
+6	as	as	ADP	IN	_	9	mark	_	_
+7	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	mother	mother	NOUN	NN	_	9	nsubj	_	_
+9	hits	hit	VERB	VBZ	_	4	advcl	_	_
+10	hard	hard	ADV	RB	_	9	advmod	_	_
+11	;	;	PUNCT	:	_	13	punct	_	_
+12	she	-PRON-	PRON	PRP	_	13	nsubj	_	_
+13	's	be	VERB	VBZ	_	13	ROOT	_	_
+14	heavy	heavy	ADJ	JJ	_	16	advmod	_	_
+15	-	-	PUNCT	HYPH	_	16	punct	_	_
+16	handed	handed	ADJ	JJ	_	13	acomp	_	_
+17	.	.	PUNCT	.	_	13	punct	_	_
+
+# line = 541
+# loc = EXT
+# parse = (S (WHNP (WP What)) (SQ (NP (PRP I)) (VP (VBP tell) (NP (NP (PRP you)) (IN 'bout)) (VP (VBG lying)))) (. ?) (. .) (  ))
+# scene = 66
+# sent_id = 43
+# sent_len = 9
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = What I tell you 'bout lying?.
+# time = DUSK
+1	What	what	NOUN	WP	_	3	dative	_	_
+2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	tell	tell	VERB	VBP	_	3	ROOT	_	_
+4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	'bout	about	ADP	IN	_	3	prep	_	_
+6	lying	lie	VERB	VBG	_	5	pcomp	_	_
+7	?	?	PUNCT	.	_	3	punct	_	_
+8	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 542
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBD did) (NP (PRP I)) (VP (VB tell) (NP (PRP you)) (IN 'bout) (VP (VBG playing) (PP (IN in) (NP (DT the) (NN street)))))) (. ?) (. .) (  ))
+# scene = 66
+# sent_id = 44
+# sent_len = 13
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = What did I tell you 'bout playing in the street?.
+# time = DUSK
+1	What	what	NOUN	WP	_	6	pobj	_	_
+2	did	do	VERB	VBD	_	4	aux	_	_
+3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	tell	tell	VERB	VB	_	4	ROOT	_	_
+5	you	-PRON-	PRON	PRP	_	4	dobj	_	_
+6	'bout	about	ADP	IN	_	4	prep	_	_
+7	playing	play	VERB	VBG	_	6	pcomp	_	_
+8	in	in	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	street	street	NOUN	NN	_	8	pobj	_	_
+11	?	?	PUNCT	.	_	4	punct	_	_
+12	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 543
+# loc = EXT
+# parse = (INTJ (NNP Mommy) (. !))
+# scene = 66
+# sent_id = 45
+# sent_len = 2
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = Mommy!
+# time = DUSK
+1	Mommy	mommy	PROPN	NNP	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 543
+# loc = EXT
+# parse = (INTJ (NNP Mommy) (. !))
+# scene = 66
+# sent_id = 46
+# sent_len = 2
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = Mommy!
+# time = DUSK
+1	Mommy	mommy	PROPN	NNP	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 543
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ sorry))) (. .))
+# scene = 66
+# sent_id = 47
+# sent_len = 4
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = I'm sorry.
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	sorry	sorry	ADJ	JJ	_	2	acomp	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 543
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ sorry))) (NFP ..) (  ))
+# scene = 66
+# sent_id = 48
+# sent_len = 5
+# setting = STREET
+# speaker = EDDIE
+# stage_direction = True
+# text = I'm sorry..
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	'm	be	VERB	VBP	_	2	ROOT	_	_
+3	sorry	sorry	ADJ	JJ	_	2	acomp	_	_
+4	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# line = 544
+# loc = EXT
+# parse = (S (VP (VBP Get) (ADVP (RB upstairs)) (ADVP (RB now))) (. ..) (  ))
+# scene = 66
+# sent_id = 49
+# sent_len = 5
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = Get upstairs now..
+# time = DUSK
+1	Get	get	VERB	VBP	_	1	ROOT	_	_
+2	upstairs	upstairs	ADV	RB	_	1	advmod	_	_
+3	now	now	ADV	RB	_	1	advmod	_	_
+4	..	..	PUNCT	.	_	1	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ runs) (ADVP (RB away))) (. .) (  ))
+# scene = 66
+# sent_id = 50
+# sent_len = 5
+# setting = STREET
+# stage_direction = True
+# text = Eddie runs away.
+# time = DUSK
+1	Eddie	eddie	PROPN	NNP	_	2	nsubj	_	_
+2	runs	run	VERB	VBZ	_	2	ROOT	_	_
+3	away	away	ADV	RB	_	2	advmod	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 545
+# loc = EXT
+# parse = (S (CC And) (SBAR (WHADVP (WRB when)) (S (NP (PRP$ your) (NN father)) (VP (VBZ comes) (ADVP (RB home))))) (, ,) (NP (PRP he)) (VP (VP (VBZ 's) (VP (VBG gon) (S (VP (TO na) (VP (VB wear) (NP (NP (PRP ya)) (NP (JJ little)) (JJ narrow)) (PP (RB behind) (PRT (RB out))) (ADVP (RB too))))))) (. ..) (  )))
+# scene = 66
+# sent_id = 51
+# sent_len = 20
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = And when your father comes home, he's gonna wear ya little narrow behind out too..
+# time = DUSK
+1	And	and	CCONJ	CC	_	10	cc	_	_
+2	when	when	ADV	WRB	_	5	advmod	_	_
+3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
+4	father	father	NOUN	NN	_	5	nsubj	_	_
+5	comes	come	VERB	VBZ	_	10	advcl	_	_
+6	home	home	ADV	RB	_	5	advmod	_	_
+7	,	,	PUNCT	,	_	10	punct	_	_
+8	he	-PRON-	PRON	PRP	_	10	nsubj	_	_
+9	's	be	VERB	VBZ	_	10	aux	_	_
+10	gon	go	VERB	VBG	_	10	ROOT	_	_
+11	na	to	PART	TO	_	12	aux	_	_
+12	wear	wear	VERB	VB	_	10	xcomp	_	_
+13	ya	ya	PRON	PRP	_	12	dobj	_	_
+14	little	little	ADJ	JJ	_	15	advmod	_	_
+15	narrow	narrow	ADJ	JJ	_	12	advmod	_	_
+16	behind	behind	ADV	RB	_	15	advmod	_	_
+17	out	out	ADV	RB	_	15	prt	_	_
+18	too	too	ADV	RB	_	12	advmod	_	_
+19	..	..	PUNCT	.	_	10	punct	_	_
+
+# line = 546
+# loc = EXT
+# parse = (S (S (NP (PRP You)) (VP (VBD did) (RB n't) (VP (VB have) (S (VP (TO to) (VP (VB hit) (NP (PRP$ your) (NN son)))))))) (: ;) (S (S (NP (PRP he)) (VP (VBZ 's) (ADJP (JJ scared) (PP (IN to) (NP (NN death)))) (SBAR (IN as) (S (NP (PRP it)) (VP (VBD was)))))) (. ..) (FRAG (INTJ (  )))))
+# scene = 66
+# sent_id = 52
+# sent_len = 19
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = You didn't have to hit your son; he's scared to death as it was..
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	did	do	VERB	VBD	_	4	aux	_	_
+3	n't	not	ADV	RB	_	4	neg	_	_
+4	have	have	VERB	VB	_	11	ccomp	_	_
+5	to	to	PART	TO	_	6	aux	_	_
+6	hit	hit	VERB	VB	_	4	xcomp	_	_
+7	your	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	son	son	NOUN	NN	_	6	dobj	_	_
+9	;	;	PUNCT	:	_	11	punct	_	_
+10	he	-PRON-	PRON	PRP	_	11	nsubj	_	_
+11	's	be	VERB	VBZ	_	11	ROOT	_	_
+12	scared	scared	ADJ	JJ	_	11	acomp	_	_
+13	to	to	ADP	IN	_	12	prep	_	_
+14	death	death	NOUN	NN	_	13	pobj	_	_
+15	as	as	ADP	IN	_	17	mark	_	_
+16	it	-PRON-	PRON	PRP	_	17	nsubj	_	_
+17	was	be	VERB	VBD	_	11	advcl	_	_
+18	..	..	PUNCT	.	_	11	punct	_	_
+
+# line = 547
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP appreciate) (S (NP (PRP ya)) (VP (VBG helping) (NP (PRP$ my) (NNP Eddie))))) (. .))
+# scene = 66
+# sent_id = 53
+# sent_len = 7
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = I appreciate ya helping my Eddie.
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	appreciate	appreciate	VERB	VBP	_	2	ROOT	_	_
+3	ya	ya	PRON	PRP	_	4	nsubj	_	_
+4	helping	help	VERB	VBG	_	2	ccomp	_	_
+5	my	-PRON-	ADJ	PRP$	_	6	poss	_	_
+6	Eddie	eddie	PROPN	NNP	_	4	dobj	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 547
+# loc = EXT
+# parse = (S (S (NP (PRP I)) (ADVP (RB truly)) (VP (VBP do))) (, ,) (CC but) (S (NP (PRP I)) (VP (MD 'll) (VP (VB have) (S (NP (NN nobody)) (VP (VB question) (SBAR (SBAR (WHADVP (WRB how)) (S (NP (PRP I)) (VP (VBP raise) (NP (PRP him))))) (, ,) (NP (RB not) (RB even) (PRP$ his) (NN Daddy)))))))) (. ..) (  ))
+# scene = 66
+# sent_id = 54
+# sent_len = 21
+# setting = STREET
+# speaker = LOUISE
+# stage_direction = True
+# text = I truly do, but I'll have nobody question how I raise him, not even his Daddy..
+# time = DUSK
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	truly	truly	ADV	RB	_	3	advmod	_	_
+3	do	do	VERB	VBP	_	3	ROOT	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	but	but	CCONJ	CC	_	3	cc	_	_
+6	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
+7	'll	will	VERB	MD	_	8	aux	_	_
+8	have	have	VERB	VB	_	3	conj	_	_
+9	nobody	nobody	NOUN	NN	_	10	nsubj	_	_
+10	question	question	VERB	VB	_	8	ccomp	_	_
+11	how	how	ADV	WRB	_	13	advmod	_	_
+12	I	-PRON-	PRON	PRP	_	13	nsubj	_	_
+13	raise	raise	VERB	VBP	_	10	ccomp	_	_
+14	him	-PRON-	PRON	PRP	_	13	dobj	_	_
+15	,	,	PUNCT	,	_	13	punct	_	_
+16	not	not	ADV	RB	_	17	neg	_	_
+17	even	even	ADV	RB	_	19	advmod	_	_
+18	his	-PRON-	ADJ	PRP$	_	19	poss	_	_
+19	Daddy	daddy	NOUN	NN	_	12	appos	_	_
+20	..	..	PUNCT	.	_	8	punct	_	_
+
+# line = 548
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ right))) (NFP ..) (  ))
+# scene = 66
+# sent_id = 55
+# sent_len = 5
+# setting = STREET
+# speaker = DA MAYOR
+# stage_direction = True
+# text = You're right..
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	're	be	VERB	VBP	_	2	ROOT	_	_
+3	right	right	ADJ	JJ	_	2	acomp	_	_
+4	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Louise)) (VP (VBZ goes) (ADVP (RB away)) (, ,) (S (ADVP (RB probably)) (VP (TO to) (VP (VB give) (NP (PRP$ her) (NN son)) (NP (DT another) (`` ") (JJ whooping)))))) (. .) ('' "))
+# scene = 66
+# sent_id = 56
+# sent_len = 14
+# setting = STREET
+# stage_direction = True
+# text = Louise goes away, probably to give her son another "whooping."
+# time = DUSK
+1	Louise	louise	PROPN	NNP	_	2	nsubj	_	_
+2	goes	go	VERB	VBZ	_	2	ROOT	_	_
+3	away	away	ADV	RB	_	2	advmod	_	_
+4	,	,	PUNCT	,	_	2	punct	_	_
+5	probably	probably	ADV	RB	_	7	advmod	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	give	give	VERB	VB	_	2	advcl	_	_
+8	her	-PRON-	ADJ	PRP$	_	9	poss	_	_
+9	son	son	NOUN	NN	_	7	dative	_	_
+10	another	another	DET	DT	_	12	det	_	_
+11	"	"	PUNCT	``	_	12	punct	_	_
+12	whooping	whooping	ADJ	JJ	_	7	dobj	_	_
+13	.	.	PUNCT	.	_	2	punct	_	_
+14	"	"	PUNCT	''	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ tips) (NP (PRP$ his) (NN hat)) (PP (IN to) (NP (PRP her)))) (. .))
+# scene = 66
+# sent_id = 57
+# sent_len = 8
+# setting = STREET
+# stage_direction = True
+# text = Da Mayor tips his hat to her.
+# time = DUSK
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	tips	tip	VERB	VBZ	_	3	ROOT	_	_
+4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	hat	hat	NOUN	NN	_	3	dobj	_	_
+6	to	to	ADP	IN	_	3	prep	_	_
+7	her	-PRON-	PRON	PRP	_	6	pobj	_	_
+8	.	.	PUNCT	.	_	3	punct	_	_

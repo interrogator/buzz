@@ -1,0 +1,307 @@
+# line = 496
+# loc = INT
+# parse = (NP (CD Twenty) (`` ") (NNP D) ('' ") (NNP Duracells) (. ..) (NP (  ) (NNP Twenty) (`` ") (NNP C) ('' ") (NNP Duracells) (. ..) (NP (NP (  ) (NN D)) (, ,) (RB not) (NN C) (. ..) (  ))))
+# scene = 62
+# sent_id = 1
+# sent_len = 20
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Twenty "D" Duracells.. Twenty "C" Duracells.. D, not C..
+# time = DUSK
+1	Twenty	twenty	NUM	CD	_	12	nmod	_	_
+2	"	"	PUNCT	``	_	12	punct	_	_
+3	D	d	PROPN	NNP	_	12	amod	_	_
+4	"	"	PUNCT	''	_	5	punct	_	_
+5	Duracells	duracells	PROPN	NNP	_	12	nmod	_	_
+6	..	..	PUNCT	.	_	5	punct	_	_
+7	Twenty	twenty	PROPN	NNP	_	5	appos	_	_
+8	"	"	PUNCT	``	_	12	punct	_	_
+9	C	c	PROPN	NNP	_	12	nmod	_	_
+10	"	"	PUNCT	''	_	12	punct	_	_
+11	Duracells	duracells	PROPN	NNP	_	12	ROOT	_	_
+12	..	..	PUNCT	.	_	12	punct	_	_
+13	D	d	NOUN	NN	_	12	appos	_	_
+14	,	,	PUNCT	,	_	15	punct	_	_
+15	not	not	ADV	RB	_	15	neg	_	_
+16	C	c	NOUN	NN	_	12	appos	_	_
+17	..	..	PUNCT	.	_	18	punct	_	_
+
+# line = 499
+# loc = INT
+# parse = (NP (NNP C) (NNP Duracell) (NFP ..) (  ))
+# scene = 62
+# sent_id = 2
+# sent_len = 4
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = KOREAN CLERK
+# stage_direction = True
+# text = C Duracell..
+# time = DUSK
+1	C	c	PROPN	NNP	_	2	compound	_	_
+2	Duracell	duracell	PROPN	NNP	_	2	ROOT	_	_
+3	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# line = 500
+# loc = INT
+# parse = (INTJ (NN D) (. !))
+# scene = 62
+# sent_id = 3
+# sent_len = 2
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = D!
+# time = DUSK
+1	D	d	NOUN	NN	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 500
+# loc = INT
+# parse = (INTJ (NN D) (. !))
+# scene = 62
+# sent_id = 4
+# sent_len = 2
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = D!
+# time = DUSK
+1	D	d	NOUN	NN	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 500
+# loc = INT
+# parse = (INTJ (NN D) (. !))
+# scene = 62
+# sent_id = 5
+# sent_len = 2
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = D!
+# time = DUSK
+1	D	d	NOUN	NN	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 500
+# loc = INT
+# parse = (S (NP (PRP You)) (VP (JJ dumb) (NP (NN motherfucker))) (. .))
+# scene = 62
+# sent_id = 6
+# sent_len = 4
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = You dumb motherfucker.
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	3	nmod	_	_
+2	dumb	dumb	ADJ	JJ	_	3	amod	_	_
+3	motherfucker	motherfucker	NOUN	NN	_	3	ROOT	_	_
+4	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 500
+# loc = INT
+# parse = (S (VP (VB Learn) (SBAR (WHADVP (WRB how)) (S (VP (TO to) (VP (VB speak) (NP (NNP English)) (ADVP (RB first))))))) (. .))
+# scene = 62
+# sent_id = 7
+# sent_len = 7
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Learn how to speak English first.
+# time = DUSK
+1	Learn	learn	VERB	VB	_	1	ROOT	_	_
+2	how	how	ADV	WRB	_	4	advmod	_	_
+3	to	to	PART	TO	_	4	aux	_	_
+4	speak	speak	VERB	VB	_	1	xcomp	_	_
+5	English	english	PROPN	NNP	_	4	dobj	_	_
+6	first	first	ADV	RB	_	4	advmod	_	_
+7	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 500
+# loc = INT
+# parse = (NP (NNP D) (. ..) (  ))
+# scene = 62
+# sent_id = 8
+# sent_len = 3
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = D..
+# time = DUSK
+1	D	d	PROPN	NNP	_	1	ROOT	_	_
+2	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 496
+# loc = INT
+# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (NNS points) (PP (IN to) (NP (NP (DT the) (JJ D) (NNS batteries)) (PP (IN behind) (NP (DT the) (NN counter)))))) (. .) (  ))
+# scene = 62
+# sent_id = 9
+# sent_len = 12
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Radio Raheem points to the D batteries behind the counter.
+# time = DUSK
+1	Radio	radio	NOUN	NN	_	2	compound	_	_
+2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+3	points	point	NOUN	NNS	_	3	ROOT	_	_
+4	to	to	ADP	IN	_	3	prep	_	_
+5	the	the	DET	DT	_	7	det	_	_
+6	D	d	ADJ	JJ	_	7	amod	_	_
+7	batteries	battery	NOUN	NNS	_	4	pobj	_	_
+8	behind	behind	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	counter	counter	NOUN	NN	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 501
+# loc = INT
+# parse = (FRAG (WHNP (WRB How) (JJ many)) (S (NP (PRP you)) (VP (VBP say))) (. ?) (. .) (  ))
+# scene = 62
+# sent_id = 10
+# sent_len = 7
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = KOREAN CLERK
+# stage_direction = True
+# text = How many you say?.
+# time = DUSK
+1	How	how	ADV	WRB	_	2	advmod	_	_
+2	many	many	ADJ	JJ	_	4	dobj	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	say	say	VERB	VBP	_	4	ROOT	_	_
+5	?	?	PUNCT	.	_	4	punct	_	_
+6	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 502
+# loc = INT
+# parse = (NP (NP (NNP Twenty)) (. !) (NP (NNP Motherfucker)) (. !))
+# scene = 62
+# sent_id = 11
+# sent_len = 4
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Twenty! Motherfucker!
+# time = DUSK
+1	Twenty	twenty	PROPN	NNP	_	3	nmod	_	_
+2	!	!	PUNCT	.	_	3	punct	_	_
+3	Motherfucker	motherfucker	PROPN	NNP	_	3	ROOT	_	_
+4	!	!	PUNCT	.	_	3	punct	_	_
+
+# line = 502
+# loc = INT
+# parse = (NP (NNS Twenty!.) (  ))
+# scene = 62
+# sent_id = 12
+# sent_len = 2
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Twenty!.
+# time = DUSK
+1	Twenty!.	twenty!.	NOUN	NNS	_	1	ROOT	_	_
+
+# line = 503
+# loc = INT
+# parse = (ADJP (NP (NNP Motherfucker)) (NP (PRP you) (. ..) (  )))
+# scene = 62
+# sent_id = 13
+# sent_len = 4
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = KOREAN CLERK
+# stage_direction = True
+# text = Motherfucker you..
+# time = DUSK
+1	Motherfucker	motherfucker	PROPN	NNP	_	2	compound	_	_
+2	you	-PRON-	PRON	PRP	_	2	ROOT	_	_
+3	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 496
+# loc = INT
+# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ has) (S (VP (TO to) (VP (VB laugh) (PP (IN at) (NP (DT that) (CD one))))))) (. .) (  ))
+# scene = 62
+# sent_id = 14
+# sent_len = 10
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Radio Raheem has to laugh at that one.
+# time = DUSK
+1	Radio	radio	NOUN	NN	_	2	compound	_	_
+2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+3	has	have	VERB	VBZ	_	3	ROOT	_	_
+4	to	to	PART	TO	_	5	aux	_	_
+5	laugh	laugh	VERB	VB	_	3	xcomp	_	_
+6	at	at	ADP	IN	_	5	prep	_	_
+7	that	that	DET	DT	_	8	det	_	_
+8	one	one	NUM	CD	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 504
+# loc = INT
+# parse = (NP (NNP Motherfucker) (PRP you) (. .))
+# scene = 62
+# sent_id = 15
+# sent_len = 3
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Motherfucker you.
+# time = DUSK
+1	Motherfucker	motherfucker	PROPN	NNP	_	2	compound	_	_
+2	you	-PRON-	PRON	PRP	_	2	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 504
+# loc = INT
+# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ alright))) (. .))
+# scene = 62
+# sent_id = 16
+# sent_len = 4
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = You're alright.
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	're	be	VERB	VBP	_	2	ROOT	_	_
+3	alright	alright	ADJ	JJ	_	2	acomp	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 504
+# loc = INT
+# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ alright))) (. .))
+# scene = 62
+# sent_id = 17
+# sent_len = 4
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = You're alright.
+# time = DUSK
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	're	be	VERB	VBP	_	2	ROOT	_	_
+3	alright	alright	ADJ	JJ	_	2	acomp	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 504
+# loc = INT
+# parse = (FRAG (ADVP (RB Just)) (VP (VB gimme) (NP (PRP$ my) (CD twenty) (NNP Duracells)) (, ,) (INTJ (UH please))) (. ..))
+# scene = 62
+# sent_id = 18
+# sent_len = 8
+# setting = FRUIT-N-VEG DELIGHT
+# speaker = RADIO RAHEEM
+# stage_direction = True
+# text = Just gimme my twenty Duracells, please..
+# time = DUSK
+1	Just	just	ADV	RB	_	2	advmod	_	_
+2	gimme	gimme	VERB	VB	_	2	ROOT	_	_
+3	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	twenty	twenty	NUM	CD	_	5	nummod	_	_
+5	Duracells	duracells	PROPN	NNP	_	2	dobj	_	_
+6	,	,	PUNCT	,	_	2	punct	_	_
+7	please	please	INTJ	UH	_	2	intj	_	_
+8	..	..	PUNCT	.	_	2	punct	_	_

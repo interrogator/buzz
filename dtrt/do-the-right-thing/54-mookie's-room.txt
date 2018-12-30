@@ -1,0 +1,4 @@
+Mookie sits on his bed, still wet. <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true">
+Hurry up and get dressed.. <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true" speaker="JADE" line="444"> <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true" speaker="JADE" line="444">
+I'm coming.. <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true" speaker="MOOKIE" line="445"> <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true" speaker="MOOKIE" line="445">
+I'm going with you.. <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true" speaker="JADE" line="446"> <metadata time="DAY" loc="INT" setting="MOOKIE'S ROOM" scene="54" stage_direction="true" speaker="JADE" line="446">

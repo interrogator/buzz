@@ -1,0 +1,94 @@
+# loc = EXT
+# parse = (S (NP (NNP Jade)) (VP (VBZ is) (VP (VBG running) (PP (IN through) (NP (DT the) (NN mob))) (, ,) (S (VP (VBG looking) (PP (IN for) (NP (PRP$ her) (NN brother))))))) (. .) (  ))
+# scene = 88
+# sent_id = 1
+# sent_len = 13
+# setting = STREET
+# stage_direction = True
+# text = Jade is running through the mob, looking for her brother.
+# time = NIGHT
+1	Jade	jade	PROPN	NNP	_	3	nsubj	_	_
+2	is	be	VERB	VBZ	_	3	aux	_	_
+3	running	run	VERB	VBG	_	3	ROOT	_	_
+4	through	through	ADP	IN	_	3	prep	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	mob	mob	NOUN	NN	_	4	pobj	_	_
+7	,	,	PUNCT	,	_	3	punct	_	_
+8	looking	look	VERB	VBG	_	3	advcl	_	_
+9	for	for	ADP	IN	_	8	prep	_	_
+10	her	-PRON-	ADJ	PRP$	_	11	poss	_	_
+11	brother	brother	NOUN	NN	_	9	pobj	_	_
+12	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 745
+# loc = EXT
+# parse = (NP (NNP Mookie) (. !))
+# scene = 88
+# sent_id = 2
+# sent_len = 2
+# setting = STREET
+# speaker = JADE
+# stage_direction = True
+# text = Mookie!
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 745
+# loc = EXT
+# parse = (NP (NNP Mookie!.) (  ))
+# scene = 88
+# sent_id = 3
+# sent_len = 2
+# setting = STREET
+# speaker = JADE
+# stage_direction = True
+# text = Mookie!.
+# time = NIGHT
+1	Mookie!.	mookie!.	PROPN	NNP	_	1	ROOT	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ is) (VP (VBG running) (ADVP (RB around)) (PP (IN with) (NP (NP (DT the) (NN rest)) (PP (IN of) (NP (DT the) (NN mob))))))) (. .))
+# scene = 88
+# sent_id = 4
+# sent_len = 11
+# setting = STREET
+# stage_direction = True
+# text = Mookie is running around with the rest of the mob.
+# time = NIGHT
+1	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
+2	is	be	VERB	VBZ	_	3	aux	_	_
+3	running	run	VERB	VBG	_	3	ROOT	_	_
+4	around	around	ADV	RB	_	3	prt	_	_
+5	with	with	ADP	IN	_	3	prep	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	rest	rest	NOUN	NN	_	5	pobj	_	_
+8	of	of	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	mob	mob	NOUN	NN	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NP (DT The) (NN wail)) (PP (IN of) (NP (NP (NN fire) (NNS trucks)) (CC and) (NP (NN police) (NNS sirens))))) (VP (VBZ is) (ADVP (RB now)) (VP (VBN added) (PP (IN to) (NP (DT the) (NN night))))) (. .))
+# scene = 88
+# sent_id = 5
+# sent_len = 15
+# setting = STREET
+# stage_direction = True
+# text = The wail of fire trucks and police sirens is now added to the night.
+# time = NIGHT
+1	The	the	DET	DT	_	2	det	_	_
+2	wail	wail	NOUN	NN	_	11	nsubjpass	_	_
+3	of	of	ADP	IN	_	2	prep	_	_
+4	fire	fire	NOUN	NN	_	5	compound	_	_
+5	trucks	truck	NOUN	NNS	_	3	pobj	_	_
+6	and	and	CCONJ	CC	_	5	cc	_	_
+7	police	police	NOUN	NN	_	8	compound	_	_
+8	sirens	siren	NOUN	NNS	_	5	conj	_	_
+9	is	be	VERB	VBZ	_	11	auxpass	_	_
+10	now	now	ADV	RB	_	11	advmod	_	_
+11	added	add	VERB	VBN	_	11	ROOT	_	_
+12	to	to	ADP	IN	_	11	prep	_	_
+13	the	the	DET	DT	_	14	det	_	_
+14	night	night	NOUN	NN	_	12	pobj	_	_
+15	.	.	PUNCT	.	_	11	punct	_	_

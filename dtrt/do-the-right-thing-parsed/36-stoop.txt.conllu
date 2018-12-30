@@ -1,0 +1,927 @@
+# loc = EXT
+# parse = (S (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ sits) (PP (IN on) (NP (PRP$ his) (NN stoop))))) (CC and) (S (NP (NP (DT a) (NN kid)) (, ,) (NP (NNP EDDIE)) (, ,)) (VP (VBZ runs) (ADVP (IN by)))) (. .) (  ))
+# scene = 36
+# sent_id = 1
+# sent_len = 16
+# setting = STOOP
+# stage_direction = True
+# text = Da Mayor sits on his stoop and a kid, EDDIE, runs by.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	sits	sit	VERB	VBZ	_	3	ROOT	_	_
+4	on	on	ADP	IN	_	3	prep	_	_
+5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+6	stoop	stoop	NOUN	NN	_	4	pobj	_	_
+7	and	and	CCONJ	CC	_	6	cc	_	_
+8	a	a	DET	DT	_	9	det	_	_
+9	kid	kid	NOUN	NN	_	6	conj	_	_
+10	,	,	PUNCT	,	_	6	punct	_	_
+11	EDDIE	eddie	PROPN	NNP	_	6	appos	_	_
+12	,	,	PUNCT	,	_	6	punct	_	_
+13	runs	run	VERB	VBZ	_	3	conj	_	_
+14	by	by	ADP	IN	_	13	prep	_	_
+15	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 309
+# loc = EXT
+# parse = (NP (JJ Sonny) (. !))
+# scene = 36
+# sent_id = 2
+# sent_len = 2
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Sonny!
+# time = DAY
+1	Sonny	sonny	ADJ	JJ	_	1	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
+
+# line = 309
+# loc = EXT
+# parse = (NP (NNS Sonny!.) (  ))
+# scene = 36
+# sent_id = 3
+# sent_len = 2
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Sonny!.
+# time = DAY
+1	Sonny!.	sonny!.	NOUN	NNS	_	1	ROOT	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ stops)) (. .) (  ))
+# scene = 36
+# sent_id = 4
+# sent_len = 4
+# setting = STOOP
+# stage_direction = True
+# text = Eddie stops.
+# time = DAY
+1	Eddie	eddie	PROPN	NNP	_	2	nsubj	_	_
+2	stops	stop	VERB	VBZ	_	2	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 310
+# loc = EXT
+# parse = (SBARQ (NP (NNP Doctor)) (, ,) (WHNP (WP what)) (SQ (VP (VBZ 's) (NP (PRP$ your) (NN name)))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 5
+# sent_len = 9
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Doctor, what's your name?.
+# time = DAY
+1	Doctor	doctor	PROPN	NNP	_	4	npadvmod	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	what	what	NOUN	WP	_	4	attr	_	_
+4	's	be	VERB	VBZ	_	4	ROOT	_	_
+5	your	-PRON-	ADJ	PRP$	_	6	poss	_	_
+6	name	name	NOUN	NN	_	4	nsubj	_	_
+7	?	?	PUNCT	.	_	4	punct	_	_
+8	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 311
+# loc = EXT
+# parse = (NP (NNP Eddie) (NNP Lovell) (NFP ..) (  ))
+# scene = 36
+# sent_id = 6
+# sent_len = 4
+# setting = STOOP
+# speaker = EDDIE
+# stage_direction = True
+# text = Eddie Lovell..
+# time = DAY
+1	Eddie	eddie	PROPN	NNP	_	2	compound	_	_
+2	Lovell	lovell	PROPN	NNP	_	2	ROOT	_	_
+3	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# line = 312
+# loc = EXT
+# parse = (SBARQ (WHADVP (WRB How) (JJ old)) (SQ (VBP are) (NP (PRP you))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 7
+# sent_len = 7
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = How old are you?.
+# time = DAY
+1	How	how	ADV	WRB	_	2	advmod	_	_
+2	old	old	ADJ	JJ	_	3	acomp	_	_
+3	are	be	VERB	VBP	_	3	ROOT	_	_
+4	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
+5	?	?	PUNCT	.	_	3	punct	_	_
+6	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 313
+# loc = EXT
+# parse = (NP (CD Ten) (. ..) (  ))
+# scene = 36
+# sent_id = 8
+# sent_len = 3
+# setting = STOOP
+# speaker = EDDIE
+# stage_direction = True
+# text = Ten..
+# time = DAY
+1	Ten	ten	NUM	CD	_	1	ROOT	_	_
+2	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 314
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VP (VBZ makes) (S (NP (NNP Sammy)) (VP (VB run))))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 9
+# sent_len = 7
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = What makes Sammy run?.
+# time = DAY
+1	What	what	NOUN	WP	_	2	nsubj	_	_
+2	makes	make	VERB	VBZ	_	2	ROOT	_	_
+3	Sammy	sammy	PROPN	NNP	_	4	nsubj	_	_
+4	run	run	VERB	VB	_	2	ccomp	_	_
+5	?	?	PUNCT	.	_	2	punct	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 315
+# loc = EXT
+# parse = (S (NP (PRP$ My) (NN name)) (VP (VBZ is) (NP (NNP Eddie))) (. ..) (  ))
+# scene = 36
+# sent_id = 10
+# sent_len = 6
+# setting = STOOP
+# speaker = EDDIE
+# stage_direction = True
+# text = My name is Eddie..
+# time = DAY
+1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
+2	name	name	NOUN	NN	_	3	nsubj	_	_
+3	is	be	VERB	VBZ	_	3	ROOT	_	_
+4	Eddie	eddie	PROPN	NNP	_	3	attr	_	_
+5	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 316
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VP (VBZ makes) (S (NP (NNP Sammy)) (VP (VB run))))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 11
+# sent_len = 7
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = What makes Sammy run?.
+# time = DAY
+1	What	what	NOUN	WP	_	2	nsubj	_	_
+2	makes	make	VERB	VBZ	_	2	ROOT	_	_
+3	Sammy	sammy	PROPN	NNP	_	4	nsubj	_	_
+4	run	run	VERB	VB	_	2	ccomp	_	_
+5	?	?	PUNCT	.	_	2	punct	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 317
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBD said) (SBAR (S (NP (PRP$ my) (NN name)) (VP (VBZ is) (NP (NNP Eddie) (NNP Lovell)))))) (NFP ..) (  ))
+# scene = 36
+# sent_id = 12
+# sent_len = 9
+# setting = STOOP
+# speaker = EDDIE
+# stage_direction = True
+# text = I said my name is Eddie Lovell..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	said	say	VERB	VBD	_	2	ROOT	_	_
+3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
+4	name	name	NOUN	NN	_	5	nsubj	_	_
+5	is	be	VERB	VBZ	_	2	ccomp	_	_
+6	Eddie	eddie	PROPN	NNP	_	7	compound	_	_
+7	Lovell	lovell	PROPN	NNP	_	5	attr	_	_
+8	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# line = 318
+# loc = EXT
+# parse = (NP (NNP Relax) (, ,) (NP (NNP Eddie)))
+# scene = 36
+# sent_id = 13
+# sent_len = 3
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Relax, Eddie
+# time = DAY
+1	Relax	relax	PROPN	NNP	_	1	ROOT	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	Eddie	eddie	PROPN	NNP	_	1	npadvmod	_	_
+
+# line = 318
+# loc = EXT
+# parse = (S (, ,) (NP (PRP I)) (VP (VBP want) (S (NP (PRP you)) (VP (TO to) (VP (VB go) (PP (IN to) (NP (DT the) (NN corner) (NN store))))))) (. .))
+# scene = 36
+# sent_id = 14
+# sent_len = 11
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = , I want you to go to the corner store.
+# time = DAY
+1	,	,	PUNCT	,	_	3	punct	_	_
+2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	want	want	VERB	VBP	_	3	ROOT	_	_
+4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
+5	to	to	PART	TO	_	6	aux	_	_
+6	go	go	VERB	VB	_	3	ccomp	_	_
+7	to	to	ADP	IN	_	6	prep	_	_
+8	the	the	DET	DT	_	10	det	_	_
+9	corner	corner	NOUN	NN	_	10	compound	_	_
+10	store	store	NOUN	NN	_	7	pobj	_	_
+11	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 318
+# loc = EXT
+# parse = (SBARQ (WHNP (WRB How) (JJ much)) (SQ (MD will) (NP (PRP it)) (VP (VB cost) (NP (PRP me)))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 15
+# sent_len = 9
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = How much will it cost me?.
+# time = DAY
+1	How	how	ADV	WRB	_	2	advmod	_	_
+2	much	much	ADJ	JJ	_	5	advmod	_	_
+3	will	will	VERB	MD	_	5	aux	_	_
+4	it	-PRON-	PRON	PRP	_	5	nsubj	_	_
+5	cost	cost	VERB	VB	_	5	ROOT	_	_
+6	me	-PRON-	PRON	PRP	_	5	dobj	_	_
+7	?	?	PUNCT	.	_	5	punct	_	_
+8	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 319
+# loc = EXT
+# parse = (SBARQ (WHADVP (WRB How)) (SQ (MD would) (NP (PRP I)) (VP (VB know) (SBAR (WHNP (WRB how) (JJ much)) (S (NP (NP (PRP it))) (VP (VBZ 's) (VP (VBG gon) (S (VP (TO na) (VP (VB cost) (SBAR (IN if) (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB know) (SBAR (WHNP (WP what)) (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG buying)))))))))))))))))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 16
+# sent_len = 23
+# setting = STOOP
+# speaker = EDDIE
+# stage_direction = True
+# text = How would I know how much it's gonna cost if I don't know what I'm buying?.
+# time = DAY
+1	How	how	ADV	WRB	_	4	advmod	_	_
+2	would	would	VERB	MD	_	4	aux	_	_
+3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	know	know	VERB	VB	_	4	ROOT	_	_
+5	how	how	ADV	WRB	_	6	advmod	_	_
+6	much	much	ADJ	JJ	_	11	advmod	_	_
+7	it	-PRON-	PRON	PRP	_	9	nsubj	_	_
+8	's	be	VERB	VBZ	_	9	aux	_	_
+9	gon	go	VERB	VBG	_	4	ccomp	_	_
+10	na	to	PART	TO	_	11	aux	_	_
+11	cost	cost	VERB	VB	_	9	xcomp	_	_
+12	if	if	ADP	IN	_	16	mark	_	_
+13	I	-PRON-	PRON	PRP	_	16	nsubj	_	_
+14	do	do	VERB	VBP	_	16	aux	_	_
+15	n't	not	ADV	RB	_	16	neg	_	_
+16	know	know	VERB	VB	_	9	advcl	_	_
+17	what	what	NOUN	WP	_	20	dobj	_	_
+18	I	-PRON-	PRON	PRP	_	20	nsubj	_	_
+19	'm	be	VERB	VBP	_	20	aux	_	_
+20	buying	buy	VERB	VBG	_	16	ccomp	_	_
+21	?	?	PUNCT	.	_	4	punct	_	_
+22	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 320
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (, ,) (NP (PRP you)) (VP (VBP 're) (ADJP (RB too) (JJ smart) (PP (IN for) (NP (PRP$ your) (JJ own) (NNS britches))))) (. .))
+# scene = 36
+# sent_id = 17
+# sent_len = 11
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Eddie, you're too smart for your own britches.
+# time = DAY
+1	Eddie	eddie	PROPN	NNP	_	4	npadvmod	_	_
+2	,	,	PUNCT	,	_	4	punct	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	're	be	VERB	VBP	_	4	ROOT	_	_
+5	too	too	ADV	RB	_	6	advmod	_	_
+6	smart	smart	ADJ	JJ	_	4	acomp	_	_
+7	for	for	ADP	IN	_	6	prep	_	_
+8	your	-PRON-	ADJ	PRP$	_	10	poss	_	_
+9	own	own	ADJ	JJ	_	10	amod	_	_
+10	britches	britch	NOUN	NNS	_	7	pobj	_	_
+11	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 320
+# loc = EXT
+# parse = (S (VP (VB Listen) (PP (IN to) (NP (PRP me)))) (. .))
+# scene = 36
+# sent_id = 18
+# sent_len = 4
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Listen to me.
+# time = DAY
+1	Listen	listen	VERB	VB	_	1	ROOT	_	_
+2	to	to	ADP	IN	_	1	prep	_	_
+3	me	-PRON-	PRON	PRP	_	2	pobj	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 320
+# loc = EXT
+# parse = (SBARQ (WHADVP (WRB How) (JJ much)) (SQ (VBP do) (NP (PRP you)) (VP (VB want) (S (VP (TO to) (VP (VB run) (PP (IN to) (NP (DT the) (NN store))) (PP (IN for) (NP (NNP Da) (NNP Mayor)))))))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 19
+# sent_len = 16
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = How much do you want to run to the store for Da Mayor?.
+# time = DAY
+1	How	how	ADV	WRB	_	2	advmod	_	_
+2	much	much	ADJ	JJ	_	7	dobj	_	_
+3	do	do	VERB	VBP	_	5	aux	_	_
+4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
+5	want	want	VERB	VB	_	5	ROOT	_	_
+6	to	to	PART	TO	_	7	aux	_	_
+7	run	run	VERB	VB	_	5	xcomp	_	_
+8	to	to	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	store	store	NOUN	NN	_	8	pobj	_	_
+11	for	for	ADP	IN	_	10	prep	_	_
+12	Da	da	PROPN	NNP	_	13	compound	_	_
+13	Mayor	mayor	PROPN	NNP	_	11	pobj	_	_
+14	?	?	PUNCT	.	_	5	punct	_	_
+15	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 321
+# loc = EXT
+# parse = (NP (CD Fifty) (NNS cents) (NFP ..) (  ))
+# scene = 36
+# sent_id = 20
+# sent_len = 4
+# setting = STOOP
+# speaker = EDDIE
+# stage_direction = True
+# text = Fifty cents..
+# time = DAY
+1	Fifty	fifty	NUM	CD	_	2	nummod	_	_
+2	cents	cent	NOUN	NNS	_	2	ROOT	_	_
+3	..	..	PUNCT	NFP	_	2	punct	_	_
+
+# line = 322
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBD got) (NP (DT a) (NN deal))) (. ..) (  ))
+# scene = 36
+# sent_id = 21
+# sent_len = 6
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = You got a deal..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	got	get	VERB	VBD	_	2	ROOT	_	_
+3	a	a	DET	DT	_	4	det	_	_
+4	deal	deal	NOUN	NN	_	2	dobj	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP He)) (VP (VBZ gives) (NP (NNP Eddie)) (NP (DT some) (NN money))) (. .) (  ))
+# scene = 36
+# sent_id = 22
+# sent_len = 7
+# setting = STOOP
+# stage_direction = True
+# text = He gives Eddie some money.
+# time = DAY
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	gives	give	VERB	VBZ	_	2	ROOT	_	_
+3	Eddie	eddie	PROPN	NNP	_	2	dative	_	_
+4	some	some	DET	DT	_	5	det	_	_
+5	money	money	NOUN	NN	_	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 323
+# loc = EXT
+# parse = (S (NNP Git) (NP (PRP me)) (NP (NP (DT a) (NN quart)) (PP (IN of) (NP (NN beer)))) (, ,) (NP (NNP Budweiser)) (, ,) (VP (VBP say) (SBAR (S (SBAR (S (NP (PRP it)) (VP (VBZ 's) (PP (IN for) (NP (PRP$ your) (NN father)))))) (, ,) (SBAR (IN if) (S (NP (PRP they)) (VP (VBP bother) (NP (PRP you)))))))) (. ..) (  ))
+# scene = 36
+# sent_id = 23
+# sent_len = 22
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Git me a quart of beer, Budweiser, say it's for your father, if they bother you..
+# time = DAY
+1	Git	git	PROPN	NNP	_	1	ROOT	_	_
+2	me	-PRON-	PRON	PRP	_	1	dative	_	_
+3	a	a	DET	DT	_	4	det	_	_
+4	quart	quart	NOUN	NN	_	1	dobj	_	_
+5	of	of	ADP	IN	_	4	prep	_	_
+6	beer	beer	NOUN	NN	_	5	pobj	_	_
+7	,	,	PUNCT	,	_	6	punct	_	_
+8	Budweiser	budweiser	PROPN	NNP	_	6	appos	_	_
+9	,	,	PUNCT	,	_	10	punct	_	_
+10	say	say	VERB	VBP	_	1	intj	_	_
+11	it	-PRON-	PRON	PRP	_	12	nsubj	_	_
+12	's	be	VERB	VBZ	_	10	ccomp	_	_
+13	for	for	ADP	IN	_	12	prep	_	_
+14	your	-PRON-	ADJ	PRP$	_	15	poss	_	_
+15	father	father	NOUN	NN	_	13	pobj	_	_
+16	,	,	PUNCT	,	_	10	punct	_	_
+17	if	if	ADP	IN	_	19	mark	_	_
+18	they	-PRON-	PRON	PRP	_	19	nsubj	_	_
+19	bother	bother	VERB	VBP	_	10	advcl	_	_
+20	you	-PRON-	PRON	PRP	_	19	dobj	_	_
+21	..	..	PUNCT	.	_	10	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Eddie)) (VP (VBZ runs) (PP (IN down) (NP (DT the) (NN block))) (SBAR (RB just) (IN as) (S (NP (NNP Ahmad) (, ,) (NNP Cee) (, ,) (NNP Punchy) (, ,) (CC and) (NNP Ella)) (VP (VB pass) (NP (PRP him)))))) (. .) (  ))
+# scene = 36
+# sent_id = 24
+# sent_len = 19
+# setting = STOOP
+# stage_direction = True
+# text = Eddie runs down the block just as Ahmad, Cee, Punchy, and Ella pass him.
+# time = DAY
+1	Eddie	eddie	PROPN	NNP	_	2	nsubj	_	_
+2	runs	run	VERB	VBZ	_	2	ROOT	_	_
+3	down	down	ADP	IN	_	2	prt	_	_
+4	the	the	DET	DT	_	5	det	_	_
+5	block	block	NOUN	NN	_	3	pobj	_	_
+6	just	just	ADV	RB	_	16	advmod	_	_
+7	as	as	ADP	IN	_	16	mark	_	_
+8	Ahmad	ahmad	PROPN	NNP	_	16	nsubj	_	_
+9	,	,	PUNCT	,	_	8	punct	_	_
+10	Cee	cee	PROPN	NNP	_	8	conj	_	_
+11	,	,	PUNCT	,	_	10	punct	_	_
+12	Punchy	punchy	PROPN	NNP	_	10	conj	_	_
+13	,	,	PUNCT	,	_	12	punct	_	_
+14	and	and	CCONJ	CC	_	12	cc	_	_
+15	Ella	ella	PROPN	NNP	_	12	conj	_	_
+16	pass	pass	VERB	VB	_	2	advcl	_	_
+17	him	-PRON-	PRON	PRP	_	16	dobj	_	_
+18	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 324
+# loc = EXT
+# parse = (SBARQ (WHNP (WP Who)) (SQ (VP (VBD told) (NP (PRP him)) (SBAR (S (NP (PRP he)) (VP (VBD was) (NP (NP (NNP Da) (NNP Mayor)) (PP (IN of) (NP (DT this) (NN block))))))))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 25
+# sent_len = 13
+# setting = STOOP
+# speaker = AHMAD
+# stage_direction = True
+# text = Who told him he was Da Mayor of this block?.
+# time = DAY
+1	Who	who	NOUN	WP	_	2	nsubj	_	_
+2	told	tell	VERB	VBD	_	2	ROOT	_	_
+3	him	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
+5	was	be	VERB	VBD	_	2	ccomp	_	_
+6	Da	da	PROPN	NNP	_	7	compound	_	_
+7	Mayor	mayor	PROPN	NNP	_	5	attr	_	_
+8	of	of	ADP	IN	_	7	prep	_	_
+9	this	this	DET	DT	_	10	det	_	_
+10	block	block	NOUN	NN	_	8	pobj	_	_
+11	?	?	PUNCT	.	_	2	punct	_	_
+12	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 325
+# loc = EXT
+# parse = (S (NP (PRP He)) (VP (VBZ 's) (ADJP (ADJP (NN self)) (HYPH -) (VP (VBN appointed)))) (. ..) (  ))
+# scene = 36
+# sent_id = 26
+# sent_len = 7
+# setting = STOOP
+# speaker = CEE
+# stage_direction = True
+# text = He's self-appointed..
+# time = DAY
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	's	be	VERB	VBZ	_	2	ROOT	_	_
+3	self	self	NOUN	NN	_	5	npadvmod	_	_
+4	-	-	PUNCT	HYPH	_	5	punct	_	_
+5	appointed	appoint	VERB	VBN	_	2	acomp	_	_
+6	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 326
+# loc = EXT
+# parse = (S (VP (VB Leave) (NP (PRP him)) (ADVP (JJ alone))) (NFP ..) (  ))
+# scene = 36
+# sent_id = 27
+# sent_len = 5
+# setting = STOOP
+# speaker = ELLA
+# stage_direction = True
+# text = Leave him alone..
+# time = DAY
+1	Leave	leave	VERB	VB	_	1	ROOT	_	_
+2	him	-PRON-	PRON	PRP	_	1	dobj	_	_
+3	alone	alone	ADJ	JJ	_	1	oprd	_	_
+4	..	..	PUNCT	NFP	_	1	punct	_	_
+
+# line = 327
+# loc = EXT
+# parse = (S (VP (VBN Shut) (PRT (RP up))) (. ..) (  ))
+# scene = 36
+# sent_id = 28
+# sent_len = 4
+# setting = STOOP
+# speaker = PUNCHY
+# stage_direction = True
+# text = Shut up..
+# time = DAY
+1	Shut	shut	VERB	VBN	_	1	ROOT	_	_
+2	up	up	PART	RP	_	1	prt	_	_
+3	..	..	PUNCT	.	_	1	punct	_	_
+
+# line = 328
+# loc = EXT
+# parse = (S (VP (VB Go) (PRT (RP on)) (ADVP (RB now))) (. .))
+# scene = 36
+# sent_id = 29
+# sent_len = 4
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Go on now.
+# time = DAY
+1	Go	go	VERB	VB	_	1	ROOT	_	_
+2	on	on	PART	RP	_	1	prt	_	_
+3	now	now	ADV	RB	_	1	advmod	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 328
+# loc = EXT
+# parse = (S (VP (VB Leave) (S (NP (PRP me)) (VP (VB be)))) (NFP ..) (  ))
+# scene = 36
+# sent_id = 30
+# sent_len = 5
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Leave me be..
+# time = DAY
+1	Leave	leave	VERB	VB	_	1	ROOT	_	_
+2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
+3	be	be	VERB	VB	_	1	ccomp	_	_
+4	..	..	PUNCT	NFP	_	3	punct	_	_
+
+# line = 329
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP walk) (ADVP (RB up) (CC and) (IN down) (NP (DT this) (NN block))) (SBAR (IN like) (S (NP (PRP you)) (VP (VBP own) (NP (PRP it)))))) (. ..) (  ))
+# scene = 36
+# sent_id = 31
+# sent_len = 13
+# setting = STOOP
+# speaker = AHMAD
+# stage_direction = True
+# text = You walk up and down this block like you own it..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	walk	walk	VERB	VBP	_	2	ROOT	_	_
+3	up	up	ADV	RB	_	2	prt	_	_
+4	and	and	CCONJ	CC	_	3	cc	_	_
+5	down	down	ADP	IN	_	3	conj	_	_
+6	this	this	DET	DT	_	7	det	_	_
+7	block	block	NOUN	NN	_	5	pobj	_	_
+8	like	like	ADP	IN	_	10	mark	_	_
+9	you	-PRON-	PRON	PRP	_	10	nsubj	_	_
+10	own	own	VERB	VBP	_	2	advcl	_	_
+11	it	-PRON-	PRON	PRP	_	10	dobj	_	_
+12	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 330
+# loc = EXT
+# parse = (NP (NNP Da) (NNP Mayor) (. ..) (  ))
+# scene = 36
+# sent_id = 32
+# sent_len = 4
+# setting = STOOP
+# speaker = CEE
+# stage_direction = True
+# text = Da Mayor..
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	2	ROOT	_	_
+3	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 331
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ old))) (. ..) (  ))
+# scene = 36
+# sent_id = 33
+# sent_len = 5
+# setting = STOOP
+# speaker = PUNCHY
+# stage_direction = True
+# text = You're old..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	're	be	VERB	VBP	_	2	ROOT	_	_
+3	old	old	ADJ	JJ	_	2	acomp	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 332
+# loc = EXT
+# parse = (NP (DT A) (JJ old) (JJ drunk) (NN bum) (. ..) (NP (  )))
+# scene = 36
+# sent_id = 34
+# sent_len = 6
+# setting = STOOP
+# speaker = AHMAD
+# stage_direction = True
+# text = A old drunk bum..
+# time = DAY
+1	A	a	DET	DT	_	4	det	_	_
+2	old	old	ADJ	JJ	_	4	amod	_	_
+3	drunk	drunk	ADJ	JJ	_	4	amod	_	_
+4	bum	bum	NOUN	NN	_	4	ROOT	_	_
+5	..	..	PUNCT	.	_	4	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ stands) (PRT (RP up)) (PP (IN from) (NP (NP (PRP$ his) (NN seat) (NN cushion)) (PP (IN on) (NP (DT the) (NN stoop)))))) (. .) (  ))
+# scene = 36
+# sent_id = 35
+# sent_len = 13
+# setting = STOOP
+# stage_direction = True
+# text = Da Mayor stands up from his seat cushion on the stoop.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	stands	stand	VERB	VBZ	_	3	ROOT	_	_
+4	up	up	PART	RP	_	3	prt	_	_
+5	from	from	ADP	IN	_	3	prep	_	_
+6	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
+7	seat	seat	NOUN	NN	_	8	compound	_	_
+8	cushion	cushion	NOUN	NN	_	5	pobj	_	_
+9	on	on	ADP	IN	_	8	prep	_	_
+10	the	the	DET	DT	_	11	det	_	_
+11	stoop	stoop	NOUN	NN	_	9	pobj	_	_
+12	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 333
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBP do) (NP (PRP you)) (VP (VB have) (S (VP (TO to) (VP (VB say)))))) (. ?) (. .) (  ))
+# scene = 36
+# sent_id = 36
+# sent_len = 9
+# setting = STOOP
+# speaker = AHMAD
+# stage_direction = True
+# text = What do you have to say?.
+# time = DAY
+1	What	what	NOUN	WP	_	6	dobj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	have	have	VERB	VB	_	4	ROOT	_	_
+5	to	to	PART	TO	_	6	aux	_	_
+6	say	say	VERB	VB	_	4	xcomp	_	_
+7	?	?	PUNCT	.	_	4	punct	_	_
+8	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBP do) (NP (PRP you)) (VP (VB know) (IN 'bout) (NP (PRP me)))) (. ?))
+# scene = 36
+# sent_id = 37
+# sent_len = 7
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = What do you know 'bout me?
+# time = DAY
+1	What	what	NOUN	WP	_	4	dobj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	know	know	VERB	VB	_	4	ROOT	_	_
+5	'bout	about	ADP	IN	_	4	prep	_	_
+6	me	-PRON-	PRON	PRP	_	5	pobj	_	_
+7	?	?	PUNCT	.	_	4	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (S (NP (DT Y'all)) (VP (MD ca) (RB n't) (ADVP (RB even)) (VP (VB pee) (ADVP (RB straight)))) (. .))
+# scene = 36
+# sent_id = 38
+# sent_len = 7
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Y'all can't even pee straight.
+# time = DAY
+1	Y'all	y'all	DET	DT	_	5	nsubj	_	_
+2	ca	can	VERB	MD	_	5	aux	_	_
+3	n't	not	ADV	RB	_	5	neg	_	_
+4	even	even	ADV	RB	_	5	advmod	_	_
+5	pee	pee	VERB	VB	_	5	ROOT	_	_
+6	straight	straight	ADV	RB	_	5	advmod	_	_
+7	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBP do) (NP (PRP you)) (VP (VB know))) (. ?))
+# scene = 36
+# sent_id = 39
+# sent_len = 5
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = What do you know?
+# time = DAY
+1	What	what	NOUN	WP	_	4	dobj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	know	know	VERB	VB	_	4	ROOT	_	_
+5	?	?	PUNCT	.	_	4	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (S (SBAR (IN Until) (S (NP (PRP you)) (VP (VBP have) (VP (VP (VBN stood) (PP (IN in) (NP (DT the) (NN doorway)))) (CC and) (VP (VBD heard) (NP (NP (DT the) (NN hunger)) (PP (IN of) (NP (PRP$ your) (CD five) (NNS children))))) (, ,) (S (ADJP (JJ unable) (S (VP (TO to) (VP (VB do) (NP (DT a) (JJ damn) (NN thing)) (PP (IN about) (NP (PRP it)))))))))))) (, ,) (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB know) (NP (NN shit)))) (. .))
+# scene = 36
+# sent_id = 40
+# sent_len = 31
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Until you have stood in the doorway and heard the hunger of your five children, unable to do a damn thing about it, you don't know shit.
+# time = DAY
+1	Until	until	ADP	IN	_	4	mark	_	_
+2	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
+3	have	have	VERB	VBP	_	4	aux	_	_
+4	stood	stand	VERB	VBN	_	29	advcl	_	_
+5	in	in	ADP	IN	_	4	prep	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	doorway	doorway	NOUN	NN	_	5	pobj	_	_
+8	and	and	CCONJ	CC	_	4	cc	_	_
+9	heard	hear	VERB	VBD	_	4	conj	_	_
+10	the	the	DET	DT	_	11	det	_	_
+11	hunger	hunger	NOUN	NN	_	9	dobj	_	_
+12	of	of	ADP	IN	_	11	prep	_	_
+13	your	-PRON-	ADJ	PRP$	_	15	poss	_	_
+14	five	five	NUM	CD	_	15	nummod	_	_
+15	children	child	NOUN	NNS	_	12	pobj	_	_
+16	,	,	PUNCT	,	_	9	punct	_	_
+17	unable	unable	ADJ	JJ	_	9	conj	_	_
+18	to	to	PART	TO	_	19	aux	_	_
+19	do	do	VERB	VB	_	17	xcomp	_	_
+20	a	a	DET	DT	_	22	det	_	_
+21	damn	damn	ADJ	JJ	_	22	amod	_	_
+22	thing	thing	NOUN	NN	_	19	dobj	_	_
+23	about	about	ADP	IN	_	19	prep	_	_
+24	it	-PRON-	PRON	PRP	_	23	pobj	_	_
+25	,	,	PUNCT	,	_	29	punct	_	_
+26	you	-PRON-	PRON	PRP	_	29	nsubj	_	_
+27	do	do	VERB	VBP	_	29	aux	_	_
+28	n't	not	ADV	RB	_	29	neg	_	_
+29	know	know	VERB	VB	_	29	ROOT	_	_
+30	shit	shit	NOUN	NN	_	29	dobj	_	_
+31	.	.	PUNCT	.	_	29	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (S (S (NP (PRP You)) (VP (VBP do) (RB n't) (VP (VB know) (NP (PRP$ my) (NN pain))))) (, ,) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB know) (NP (PRP me))))) (. .))
+# scene = 36
+# sent_id = 41
+# sent_len = 13
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = You don't know my pain, you don't know me.
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	n't	not	ADV	RB	_	4	neg	_	_
+4	know	know	VERB	VB	_	11	ccomp	_	_
+5	my	-PRON-	ADJ	PRP$	_	6	poss	_	_
+6	pain	pain	NOUN	NN	_	4	dobj	_	_
+7	,	,	PUNCT	,	_	11	punct	_	_
+8	you	-PRON-	PRON	PRP	_	11	nsubj	_	_
+9	do	do	VERB	VBP	_	11	aux	_	_
+10	n't	not	ADV	RB	_	11	neg	_	_
+11	know	know	VERB	VB	_	11	ROOT	_	_
+12	me	-PRON-	PRON	PRP	_	11	dobj	_	_
+13	.	.	PUNCT	.	_	11	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (S (S (VP (VB Do) (RB n't) (VP (VB call) (S (NP (PRP me)) (NP (DT a) (NN bum)))))) (, ,) (S (VP (VB do) (RB n't) (VP (VB call) (S (NP (PRP me)) (NP (DT a) (NN drunk)))))) (, ,) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB know) (NP (PRP me))))) (, ,) (CC and) (S (NP (PRP it)) (VP (VBZ 's) (ADJP (JJ disrespectful)))) (. .))
+# scene = 36
+# sent_id = 42
+# sent_len = 25
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Don't call me a bum, don't call me a drunk, you don't know me, and it's disrespectful.
+# time = DAY
+1	Do	do	VERB	VB	_	3	aux	_	_
+2	n't	not	ADV	RB	_	3	neg	_	_
+3	call	call	VERB	VB	_	10	ccomp	_	_
+4	me	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	a	a	DET	DT	_	6	det	_	_
+6	bum	bum	NOUN	NN	_	3	oprd	_	_
+7	,	,	PUNCT	,	_	10	punct	_	_
+8	do	do	VERB	VB	_	10	aux	_	_
+9	n't	not	ADV	RB	_	10	neg	_	_
+10	call	call	VERB	VB	_	10	ROOT	_	_
+11	me	-PRON-	PRON	PRP	_	10	dobj	_	_
+12	a	a	DET	DT	_	13	det	_	_
+13	drunk	drunk	NOUN	NN	_	10	oprd	_	_
+14	,	,	PUNCT	,	_	18	punct	_	_
+15	you	-PRON-	PRON	PRP	_	18	nsubj	_	_
+16	do	do	VERB	VBP	_	18	aux	_	_
+17	n't	not	ADV	RB	_	18	neg	_	_
+18	know	know	VERB	VB	_	10	parataxis	_	_
+19	me	-PRON-	PRON	PRP	_	18	dobj	_	_
+20	,	,	PUNCT	,	_	18	punct	_	_
+21	and	and	CCONJ	CC	_	18	cc	_	_
+22	it	-PRON-	PRON	PRP	_	23	nsubj	_	_
+23	's	be	VERB	VBZ	_	18	conj	_	_
+24	disrespectful	disrespectful	ADJ	JJ	_	23	acomp	_	_
+25	.	.	PUNCT	.	_	23	punct	_	_
+
+# line = 334
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP know) (SBAR (S (NP (PRP$ your) (NNS parents)) (VP (VBD raised) (NP (PRP you)) (ADVP (RBR better)))))) (. ..) (  ))
+# scene = 36
+# sent_id = 43
+# sent_len = 9
+# setting = STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = I know your parents raised you better..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	know	know	VERB	VBP	_	2	ROOT	_	_
+3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
+4	parents	parent	NOUN	NNS	_	5	nsubj	_	_
+5	raised	raise	VERB	VBD	_	2	ccomp	_	_
+6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
+7	better	better	ADV	RBR	_	5	advmod	_	_
+8	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT The) (NNS teenagers)) (VP (VBP look) (PP (IN at) (NP (NNP Da) (NNP Mayor)))) (. .) (  ))
+# scene = 36
+# sent_id = 44
+# sent_len = 8
+# setting = STOOP
+# stage_direction = True
+# text = The teenagers look at Da Mayor.
+# time = DAY
+1	The	the	DET	DT	_	2	det	_	_
+2	teenagers	teenager	NOUN	NNS	_	3	nsubj	_	_
+3	look	look	VERB	VBP	_	3	ROOT	_	_
+4	at	at	ADP	IN	_	3	prep	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	_
+6	Mayor	mayor	PROPN	NNP	_	4	pobj	_	_
+7	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 335
+# loc = EXT
+# parse = (S (NP (PRP He)) (VP (VP (VBD told) (NP (PRP you)) (PRT (RP off))) (. ..) (NP (  ))))
+# scene = 36
+# sent_id = 45
+# sent_len = 6
+# setting = STOOP
+# speaker = ELLA
+# stage_direction = True
+# text = He told you off..
+# time = DAY
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	told	tell	VERB	VBD	_	2	ROOT	_	_
+3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	off	off	PART	RP	_	2	prt	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ sits) (ADVP (RB back) (RP down)) (IN on) (NP (NP (PRP$ his) (NN seat) (NN cushion)) (PP (IN on) (NP (PRP$ his) (NN stoop))))) (. .))
+# scene = 36
+# sent_id = 46
+# sent_len = 13
+# setting = STOOP
+# stage_direction = True
+# text = Da Mayor sits back down on his seat cushion on his stoop.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	sits	sit	VERB	VBZ	_	3	ROOT	_	_
+4	back	back	ADV	RB	_	5	advmod	_	_
+5	down	down	PART	RP	_	3	advmod	_	_
+6	on	on	ADP	IN	_	3	prep	_	_
+7	his	-PRON-	ADJ	PRP$	_	9	poss	_	_
+8	seat	seat	NOUN	NN	_	9	compound	_	_
+9	cushion	cushion	NOUN	NN	_	6	pobj	_	_
+10	on	on	ADP	IN	_	9	prep	_	_
+11	his	-PRON-	ADJ	PRP$	_	12	poss	_	_
+12	stoop	stoop	NOUN	NN	_	10	pobj	_	_
+13	.	.	PUNCT	.	_	3	punct	_	_

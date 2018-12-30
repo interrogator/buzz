@@ -1,0 +1,279 @@
+# loc = EXT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ stops) (S (VP (TO to) (VP (VB say) (INTJ (UH hello)) (PP (IN to) (NP (NNP MOTHER) (NNP SISTER))))))) (. .))
+# scene = 8
+# sent_id = 1
+# sent_len = 9
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = Mookie stops to say hello to MOTHER SISTER.
+# time = DAY
+1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+2	stops	stop	VERB	VBZ	_	2	ROOT	_	_
+3	to	to	PART	TO	_	4	aux	_	_
+4	say	say	VERB	VB	_	2	xcomp	_	_
+5	hello	hello	INTJ	UH	_	4	intj	_	_
+6	to	to	ADP	IN	_	4	prep	_	_
+7	MOTHER	mother	PROPN	NNP	_	8	compound	_	_
+8	SISTER	sister	PROPN	NNP	_	6	pobj	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP She)) (VP (VBZ leans) (PP (RP out) (NP (PRP$ her) (NN window))) (PP (IN on) (NP (DT the) (NN parlor) (NN floor)))) (. .))
+# scene = 8
+# sent_id = 2
+# sent_len = 10
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = She leans out her window on the parlor floor.
+# time = DAY
+1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	leans	lean	VERB	VBZ	_	2	ROOT	_	_
+3	out	out	PART	RP	_	2	prt	_	_
+4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	window	window	NOUN	NN	_	2	dobj	_	_
+6	on	on	ADP	IN	_	5	prep	_	_
+7	the	the	DET	DT	_	9	det	_	_
+8	parlor	parlor	NOUN	NN	_	9	compound	_	_
+9	floor	floor	NOUN	NN	_	6	pobj	_	_
+10	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (PP (IN In) (NP (DT the) (NN summertime))) (, ,) (NP (NP (DT the) (JJ only) (NN time)) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ 's) (RB not) (VP (VBN perched) (PP (IN in) (NP (PRP$ her) (NN window)))))))) (VP (VBZ is) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ 's) (ADJP (JJ asleep)))))) (. .) (  ))
+# scene = 8
+# sent_id = 3
+# sent_len = 22
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = In the summertime, the only time when she's not perched in her window is when she's asleep.
+# time = DAY
+1	In	in	ADP	IN	_	16	prep	_	_
+2	the	the	DET	DT	_	3	det	_	_
+3	summertime	summertime	NOUN	NN	_	1	pobj	_	_
+4	,	,	PUNCT	,	_	16	punct	_	_
+5	the	the	DET	DT	_	7	det	_	_
+6	only	only	ADJ	JJ	_	7	amod	_	_
+7	time	time	NOUN	NN	_	16	nsubj	_	_
+8	when	when	ADV	WRB	_	12	advmod	_	_
+9	she	-PRON-	PRON	PRP	_	12	nsubjpass	_	_
+10	's	be	VERB	VBZ	_	12	auxpass	_	_
+11	not	not	ADV	RB	_	12	neg	_	_
+12	perched	perch	VERB	VBN	_	7	relcl	_	_
+13	in	in	ADP	IN	_	12	prep	_	_
+14	her	-PRON-	ADJ	PRP$	_	15	poss	_	_
+15	window	window	NOUN	NN	_	13	pobj	_	_
+16	is	be	VERB	VBZ	_	16	ROOT	_	_
+17	when	when	ADV	WRB	_	19	advmod	_	_
+18	she	-PRON-	PRON	PRP	_	19	nsubj	_	_
+19	's	be	VERB	VBZ	_	16	advcl	_	_
+20	asleep	asleep	ADJ	JJ	_	19	acomp	_	_
+21	.	.	PUNCT	.	_	16	punct	_	_
+
+# line = 30
+# loc = EXT
+# parse = (FRAG (NP (JJ Good) (NN morning)) (, ,) (NP (NNP Mookie)) (. ..) (  ))
+# scene = 8
+# sent_id = 4
+# sent_len = 6
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Good morning, Mookie..
+# time = DAY
+1	Good	good	ADJ	JJ	_	2	amod	_	_
+2	morning	morning	NOUN	NN	_	2	ROOT	_	_
+3	,	,	PUNCT	,	_	2	punct	_	_
+4	Mookie	mookie	PROPN	NNP	_	2	npadvmod	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 31
+# loc = EXT
+# parse = (FRAG (NP (JJ Good) (NN morning)) (PP (IN to) (NP (PRP you))) (. ..) (  ))
+# scene = 8
+# sent_id = 5
+# sent_len = 6
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOOKIE
+# stage_direction = True
+# text = Good morning to you..
+# time = DAY
+1	Good	good	ADJ	JJ	_	2	amod	_	_
+2	morning	morning	NOUN	NN	_	2	ROOT	_	_
+3	to	to	ADP	IN	_	2	prep	_	_
+4	you	-PRON-	PRON	PRP	_	3	pobj	_	_
+5	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 32
+# loc = EXT
+# parse = (S (ADVP (RB Now)) (, ,) (NP (NNP Mookie)) (, ,) (VP (VBP do) (RB n't) (VP (VB work) (ADVP (RB too) (RB hard)) (NP (NN today)))) (. .))
+# scene = 8
+# sent_id = 6
+# sent_len = 11
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Now, Mookie, don't work too hard today.
+# time = DAY
+1	Now	now	ADV	RB	_	7	advmod	_	_
+2	,	,	PUNCT	,	_	7	punct	_	_
+3	Mookie	mookie	PROPN	NNP	_	7	npadvmod	_	_
+4	,	,	PUNCT	,	_	7	punct	_	_
+5	do	do	VERB	VBP	_	7	aux	_	_
+6	n't	not	ADV	RB	_	7	neg	_	_
+7	work	work	VERB	VB	_	7	ROOT	_	_
+8	too	too	ADV	RB	_	9	advmod	_	_
+9	hard	hard	ADV	RB	_	7	advmod	_	_
+10	today	today	NOUN	NN	_	7	npadvmod	_	_
+11	.	.	PUNCT	.	_	7	punct	_	_
+
+# line = 32
+# loc = EXT
+# parse = (S (NP (DT The) (NN man)) (VP (VBD said) (SBAR (S (NP (PRP it)) (VP (VBZ 's) (VP (VBG gon) (S (VP (TO na) (VP (VB be) (ADJP (JJ HOT)) (PP (IN as) (NP (DT the) (NN devil))))))))))) (. .))
+# scene = 8
+# sent_id = 7
+# sent_len = 13
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = The man said it's gonna be HOT as the devil.
+# time = DAY
+1	The	the	DET	DT	_	2	det	_	_
+2	man	man	NOUN	NN	_	3	nsubj	_	_
+3	said	say	VERB	VBD	_	3	ROOT	_	_
+4	it	-PRON-	PRON	PRP	_	6	nsubj	_	_
+5	's	be	VERB	VBZ	_	6	aux	_	_
+6	gon	go	VERB	VBG	_	3	ccomp	_	_
+7	na	to	PART	TO	_	8	aux	_	_
+8	be	be	VERB	VB	_	6	xcomp	_	_
+9	HOT	hot	ADJ	JJ	_	8	acomp	_	_
+10	as	as	ADP	IN	_	9	prep	_	_
+11	the	the	DET	DT	_	12	det	_	_
+12	devil	devil	NOUN	NN	_	10	pobj	_	_
+13	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 32
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB want) (S (NP (PRP ya)) (VP (VBG falling) (PRT (RP out)) (PP (IN from) (NP (DT the) (NN heat))))))) (. .))
+# scene = 8
+# sent_id = 8
+# sent_len = 11
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = I don't want ya falling out from the heat.
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	n't	not	ADV	RB	_	4	neg	_	_
+4	want	want	VERB	VB	_	4	ROOT	_	_
+5	ya	ya	PRON	PRP	_	6	nsubj	_	_
+6	falling	fall	VERB	VBG	_	4	ccomp	_	_
+7	out	out	PART	RP	_	6	prt	_	_
+8	from	from	ADP	IN	_	6	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	heat	heat	NOUN	NN	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 32
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP hear) (NP (PRP me)) (, ,) (INTJ (NN son))) (. ?) (. .) (  ))
+# scene = 8
+# sent_id = 9
+# sent_len = 8
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = You hear me, son?.
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+3	me	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	son	son	NOUN	NN	_	3	appos	_	_
+6	?	?	PUNCT	.	_	2	punct	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 33
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP hear) (NP (PRP ya)) (, ,) (NP (NNP Mother) (NNP Sister))) (. .))
+# scene = 8
+# sent_id = 10
+# sent_len = 7
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOOKIE
+# stage_direction = True
+# text = I hear ya, Mother Sister.
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+3	ya	ya	PRON	PRP	_	2	dobj	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	Mother	mother	PROPN	NNP	_	6	compound	_	_
+6	Sister	sister	PROPN	NNP	_	3	conj	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 33
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VP (VBP hear) (NP (PRP you))) (. ..) (  )))
+# scene = 8
+# sent_id = 11
+# sent_len = 5
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOOKIE
+# stage_direction = True
+# text = I hear you..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 34
+# loc = EXT
+# parse = (FRAG (JJ Good) (. .))
+# scene = 8
+# sent_id = 12
+# sent_len = 2
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Good.
+# time = DAY
+1	Good	good	ADJ	JJ	_	1	ROOT	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 34
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB be) (VP (VBG watching) (NP (PRP ya)) (, ,) (NP (NN son))))) (. .))
+# scene = 8
+# sent_id = 13
+# sent_len = 8
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = I'll be watching ya, son.
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	'll	will	VERB	MD	_	4	aux	_	_
+3	be	be	VERB	VB	_	4	aux	_	_
+4	watching	watch	VERB	VBG	_	4	ROOT	_	_
+5	ya	ya	PRON	PRP	_	4	dobj	_	_
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	son	son	NOUN	NN	_	5	appos	_	_
+8	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 34
+# loc = EXT
+# parse = (S (NP (NNP Mother) (NNP Sister)) (ADVP (RB always)) (VP (VBZ watches)) (. ..))
+# scene = 8
+# sent_id = 14
+# sent_len = 5
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Mother Sister always watches..
+# time = DAY
+1	Mother	mother	PROPN	NNP	_	2	compound	_	_
+2	Sister	sister	PROPN	NNP	_	4	nsubj	_	_
+3	always	always	ADV	RB	_	4	advmod	_	_
+4	watches	watch	VERB	VBZ	_	4	ROOT	_	_
+5	..	..	PUNCT	.	_	4	punct	_	_

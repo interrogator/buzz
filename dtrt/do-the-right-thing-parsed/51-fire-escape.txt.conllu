@@ -1,0 +1,54 @@
+# loc = EXT
+# parse = (S (NP (NNP Ahmad) (, ,) (NNP Punchy) (, ,) (NNP Cee) (, ,) (CC and) (NNP Ella)) (VP (VBP sit) (PP (IN on) (NP (DT a) (NN fire) (NN escape))) (, ,) (S (VP (VBG trying) (S (VP (TO to) (VP (VB keep) (ADVP (RB still))))))) (, ,) (S (VP (VBG trying) (S (VP (TO to) (VP (VB find) (NP (NP (DT a) (JJ cool) (NN spot)) (PP (IN in) (NP (DT the) (NN shade)))))))))) (. .))
+# scene = 51
+# sent_id = 1
+# sent_len = 29
+# setting = FIRE ESCAPE
+# stage_direction = True
+# text = Ahmad, Punchy, Cee, and Ella sit on a fire escape, trying to keep still, trying to find a cool spot in the shade.
+# time = DAY
+1	Ahmad	ahmad	PROPN	NNP	_	9	nsubj	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	Punchy	punchy	PROPN	NNP	_	1	conj	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	Cee	cee	PROPN	NNP	_	3	conj	_	_
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	and	and	CCONJ	CC	_	5	cc	_	_
+8	Ella	ella	PROPN	NNP	_	5	conj	_	_
+9	sit	sit	VERB	VBP	_	9	ROOT	_	_
+10	on	on	ADP	IN	_	9	prep	_	_
+11	a	a	DET	DT	_	13	det	_	_
+12	fire	fire	NOUN	NN	_	13	compound	_	_
+13	escape	escape	NOUN	NN	_	10	pobj	_	_
+14	,	,	PUNCT	,	_	9	punct	_	_
+15	trying	try	VERB	VBG	_	9	advcl	_	_
+16	to	to	PART	TO	_	17	aux	_	_
+17	keep	keep	VERB	VB	_	15	xcomp	_	_
+18	still	still	ADV	RB	_	17	advmod	_	_
+19	,	,	PUNCT	,	_	17	punct	_	_
+20	trying	try	VERB	VBG	_	17	advcl	_	_
+21	to	to	PART	TO	_	22	aux	_	_
+22	find	find	VERB	VB	_	20	xcomp	_	_
+23	a	a	DET	DT	_	25	det	_	_
+24	cool	cool	ADJ	JJ	_	25	amod	_	_
+25	spot	spot	NOUN	NN	_	22	dobj	_	_
+26	in	in	ADP	IN	_	25	prep	_	_
+27	the	the	DET	DT	_	28	det	_	_
+28	shade	shade	NOUN	NN	_	26	pobj	_	_
+29	.	.	PUNCT	.	_	9	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (DT No) (NN one)) (VP (VBZ says) (NP (DT a) (NN word))) (. .))
+# scene = 51
+# sent_id = 2
+# sent_len = 6
+# setting = FIRE ESCAPE
+# stage_direction = True
+# text = No one says a word.
+# time = DAY
+1	No	no	DET	DT	_	2	det	_	_
+2	one	one	NOUN	NN	_	3	nsubj	_	_
+3	says	say	VERB	VBZ	_	3	ROOT	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	word	word	NOUN	NN	_	3	dobj	_	_
+6	.	.	PUNCT	.	_	3	punct	_	_

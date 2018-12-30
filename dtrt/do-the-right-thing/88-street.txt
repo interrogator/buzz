@@ -1,0 +1,3 @@
+Jade is running through the mob, looking for her brother. <metadata time="NIGHT" loc="EXT" setting="STREET" scene="88" stage_direction="true">
+Mookie! Mookie!. <metadata time="NIGHT" loc="EXT" setting="STREET" scene="88" stage_direction="true" speaker="JADE" line="745"> <metadata time="NIGHT" loc="EXT" setting="STREET" scene="88" stage_direction="true" speaker="JADE" line="745">
+Mookie is running around with the rest of the mob. The wail of fire trucks and police sirens is now added to the night. <metadata time="NIGHT" loc="EXT" setting="STREET" scene="88" stage_direction="true">

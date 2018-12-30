@@ -1,0 +1,30 @@
+# loc = EXT
+# parse = (S (NP (NP (NNP Sweet) (NNP Dick)) (, ,) (NP (NNP ML)) (, ,) (CC and) (NP (NNP Coconut) (NNP Sid))) (DT each) (VP (VBP hold) (NP (NP (DT an) (NN umbrella)) (PP (IN for) (NP (NP (NN protection)) (PP (IN from) (NP (DT the) (ADJP (JJ hot) (CC and) (JJ harsh)) (NNS rays))))))) (. .))
+# scene = 50
+# sent_id = 1
+# sent_len = 21
+# setting = CORNER
+# stage_direction = True
+# text = Sweet Dick, ML, and Coconut Sid each hold an umbrella for protection from the hot and harsh rays.
+# time = DAY
+1	Sweet	sweet	PROPN	NNP	_	2	compound	_	_
+2	Dick	dick	PROPN	NNP	_	10	nsubj	_	_
+3	,	,	PUNCT	,	_	2	punct	_	_
+4	ML	ml	PROPN	NNP	_	2	npadvmod	_	_
+5	,	,	PUNCT	,	_	2	punct	_	_
+6	and	and	CCONJ	CC	_	2	cc	_	_
+7	Coconut	coconut	PROPN	NNP	_	8	compound	_	_
+8	Sid	sid	PROPN	NNP	_	2	conj	_	_
+9	each	each	DET	DT	_	10	det	_	_
+10	hold	hold	VERB	VBP	_	10	ROOT	_	_
+11	an	an	DET	DT	_	12	det	_	_
+12	umbrella	umbrella	NOUN	NN	_	10	dobj	_	_
+13	for	for	ADP	IN	_	10	prep	_	_
+14	protection	protection	NOUN	NN	_	13	pobj	_	_
+15	from	from	ADP	IN	_	14	prep	_	_
+16	the	the	DET	DT	_	20	det	_	_
+17	hot	hot	ADJ	JJ	_	20	amod	_	_
+18	and	and	CCONJ	CC	_	17	cc	_	_
+19	harsh	harsh	ADJ	JJ	_	17	conj	_	_
+20	rays	ray	NOUN	NNS	_	15	pobj	_	_
+21	.	.	PUNCT	.	_	10	punct	_	_

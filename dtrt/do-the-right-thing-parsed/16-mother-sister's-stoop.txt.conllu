@@ -1,0 +1,564 @@
+# loc = EXT
+# parse = (S (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ has) (NP (NP (PRP$ his) (NN can)) (PP (IN of) (NP (NP (NN beer)) (PRN (-LRB- -LRB-) (RB not) (NP (NNP Budweiser)) (-RRB- -RRB-))))))) (CC and) (S (NP (DT the) (JJ brown) (NN paper) (NN bag)) (VP (VBZ is) (VP (VBN twisted) (PP (IN into) (NP (DT a) (NN knot))) (PP (IN at) (NP (DT the) (NN bottom)))))) (. .))
+# scene = 16
+# sent_id = 1
+# sent_len = 25
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = Da Mayor has his can of beer (not Budweiser) and the brown paper bag is twisted into a knot at the bottom.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	has	have	VERB	VBZ	_	3	ROOT	_	_
+4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	can	can	NOUN	NN	_	3	dobj	_	_
+6	of	of	ADP	IN	_	5	prep	_	_
+7	beer	beer	NOUN	NN	_	6	pobj	_	_
+8	(	(	PUNCT	-LRB-	_	7	punct	_	_
+9	not	not	ADV	RB	_	7	neg	_	_
+10	Budweiser	budweiser	PROPN	NNP	_	7	appos	_	_
+11	)	)	PUNCT	-RRB-	_	3	punct	_	_
+12	and	and	CCONJ	CC	_	3	cc	_	_
+13	the	the	DET	DT	_	16	det	_	_
+14	brown	brown	ADJ	JJ	_	16	amod	_	_
+15	paper	paper	NOUN	NN	_	16	compound	_	_
+16	bag	bag	NOUN	NN	_	18	nsubjpass	_	_
+17	is	be	VERB	VBZ	_	18	auxpass	_	_
+18	twisted	twist	VERB	VBN	_	3	conj	_	_
+19	into	into	ADP	IN	_	18	prep	_	_
+20	a	a	DET	DT	_	21	det	_	_
+21	knot	knot	NOUN	NN	_	19	pobj	_	_
+22	at	at	ADP	IN	_	18	prep	_	_
+23	the	the	DET	DT	_	24	det	_	_
+24	bottom	bottom	NOUN	NN	_	22	pobj	_	_
+25	.	.	PUNCT	.	_	18	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP He)) (VP (VBZ stops) (CC and) (VBZ takes) (NP (DT a) (JJ long) (NN swig))) (. .) (  ))
+# scene = 16
+# sent_id = 2
+# sent_len = 9
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = He stops and takes a long swig.
+# time = DAY
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	stops	stop	VERB	VBZ	_	2	ROOT	_	_
+3	and	and	CCONJ	CC	_	2	cc	_	_
+4	takes	take	VERB	VBZ	_	2	conj	_	_
+5	a	a	DET	DT	_	7	det	_	_
+6	long	long	ADJ	JJ	_	7	amod	_	_
+7	swig	swig	NOUN	NN	_	4	dobj	_	_
+8	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 89
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP ole) (JJ drunk)) (. .))
+# scene = 16
+# sent_id = 3
+# sent_len = 4
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = You ole drunk.
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	ole	ole	VERB	VBP	_	2	ROOT	_	_
+3	drunk	drunk	ADJ	JJ	_	2	acomp	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 89
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBD did) (NP (PRP I)) (VP (VB tell) (NP (PRP ya)) (PP (IN about) (S (VP (VBG drinking) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (PRP$ my) (NN stoop)))))))))) (. ?))
+# scene = 16
+# sent_id = 4
+# sent_len = 13
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = What did I tell ya about drinking in front of my stoop?
+# time = DAY
+1	What	what	NOUN	WP	_	4	dative	_	_
+2	did	do	VERB	VBD	_	4	aux	_	_
+3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
+4	tell	tell	VERB	VB	_	4	ROOT	_	_
+5	ya	ya	PRON	PRP	_	4	dobj	_	_
+6	about	about	ADP	IN	_	4	prep	_	_
+7	drinking	drink	VERB	VBG	_	6	pcomp	_	_
+8	in	in	ADP	IN	_	7	prep	_	_
+9	front	front	NOUN	NN	_	8	pobj	_	_
+10	of	of	ADP	IN	_	9	prep	_	_
+11	my	-PRON-	ADJ	PRP$	_	12	poss	_	_
+12	stoop	stoop	NOUN	NN	_	10	pobj	_	_
+13	?	?	PUNCT	.	_	4	punct	_	_
+
+# line = 89
+# loc = EXT
+# parse = (S (S (VP (VB Move) (PRT (RP on)))) (, ,) (S (NP (PRP you)) (VP (VBP 're) (VP (VBG blocking) (NP (PRP$ my) (NN view))))) (NFP ..) (  ))
+# scene = 16
+# sent_id = 5
+# sent_len = 10
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Move on, you're blocking my view..
+# time = DAY
+1	Move	move	VERB	VB	_	6	advcl	_	_
+2	on	on	PART	RP	_	1	prt	_	_
+3	,	,	PUNCT	,	_	6	punct	_	_
+4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
+5	're	be	VERB	VBP	_	6	aux	_	_
+6	blocking	block	VERB	VBG	_	6	ROOT	_	_
+7	my	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	view	view	NOUN	NN	_	6	dobj	_	_
+9	..	..	PUNCT	NFP	_	6	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ lowers) (NP (DT the) (NN can)) (PP (IN from) (NP (PRP$ his) (NN mouth)))) (CC and) (VP (VBZ looks) (PRT (RP up)) (PP (IN at) (NP (PRP$ his) (NN heckler))))) (. .))
+# scene = 16
+# sent_id = 6
+# sent_len = 15
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = Da Mayor lowers the can from his mouth and looks up at his heckler.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	lowers	lower	VERB	VBZ	_	3	ROOT	_	_
+4	the	the	DET	DT	_	5	det	_	_
+5	can	can	NOUN	NN	_	3	dobj	_	_
+6	from	from	ADP	IN	_	3	prep	_	_
+7	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
+8	mouth	mouth	NOUN	NN	_	6	pobj	_	_
+9	and	and	CCONJ	CC	_	3	cc	_	_
+10	looks	look	VERB	VBZ	_	3	conj	_	_
+11	up	up	PART	RP	_	10	advmod	_	_
+12	at	at	ADP	IN	_	10	prep	_	_
+13	his	-PRON-	ADJ	PRP$	_	14	poss	_	_
+14	heckler	heckler	NOUN	NN	_	12	pobj	_	_
+15	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NP (PRP It))) (VP (VBZ 's) (ADJP (JJ obvious)) (PP (IN from) (NP (NP (DT the) (NN look)) (PP (IN on) (NP (PRP$ his) (NN face))) (SBAR (S (NP (PRP he)) (VP (VBZ 's) (VP (VBN heard) (NP (DT this)) (ADVP (RB before))))))))) (. .))
+# scene = 16
+# sent_id = 7
+# sent_len = 15
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = It's obvious from the look on his face he's heard this before.
+# time = DAY
+1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	's	be	VERB	VBZ	_	2	ROOT	_	_
+3	obvious	obvious	ADJ	JJ	_	2	acomp	_	_
+4	from	from	ADP	IN	_	3	prep	_	_
+5	the	the	DET	DT	_	6	det	_	_
+6	look	look	NOUN	NN	_	4	pobj	_	_
+7	on	on	ADP	IN	_	6	prep	_	_
+8	his	-PRON-	ADJ	PRP$	_	9	poss	_	_
+9	face	face	NOUN	NN	_	7	pobj	_	_
+10	he	-PRON-	PRON	PRP	_	12	nsubjpass	_	_
+11	's	be	VERB	VBZ	_	12	auxpass	_	_
+12	heard	hear	VERB	VBN	_	2	ccomp	_	_
+13	this	this	DET	DT	_	12	dobj	_	_
+14	before	before	ADV	RB	_	12	advmod	_	_
+15	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ contorts) (NP (PRP$ his) (NN face))) (CC and) (VP (NNS stares) (PP (IN at) (NP (PRP her))))) (. .) (  ))
+# scene = 16
+# sent_id = 8
+# sent_len = 11
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = Da Mayor contorts his face and stares at her.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	contorts	contort	VERB	VBZ	_	3	ROOT	_	_
+4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	face	face	NOUN	NN	_	3	dobj	_	_
+6	and	and	CCONJ	CC	_	5	cc	_	_
+7	stares	stare	NOUN	NNS	_	5	conj	_	_
+8	at	at	ADP	IN	_	3	prep	_	_
+9	her	-PRON-	PRON	PRP	_	8	pobj	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 90
+# loc = EXT
+# parse = (NP (NP (PRP You)) (ADJP (JJ ugly) (RB enough)) (. .))
+# scene = 16
+# sent_id = 9
+# sent_len = 4
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = You ugly enough.
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	ugly	ugly	ADJ	JJ	_	2	ROOT	_	_
+3	enough	enough	ADV	RB	_	2	advmod	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 90
+# loc = EXT
+# parse = (S (VP (VB Do) (RB n't) (VP (VB stare) (PP (IN at) (NP (PRP me))))) (. ..) (  ))
+# scene = 16
+# sent_id = 10
+# sent_len = 7
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Don't stare at me..
+# time = DAY
+1	Do	do	VERB	VB	_	3	aux	_	_
+2	n't	not	ADV	RB	_	3	neg	_	_
+3	stare	stare	VERB	VB	_	3	ROOT	_	_
+4	at	at	ADP	IN	_	3	prep	_	_
+5	me	-PRON-	PRON	PRP	_	4	pobj	_	_
+6	..	..	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ changes) (NP (PRP$ his) (NN face)) (PP (IN into) (NP (DT a) (ADJP (RBR more) (JJ grotesque)) (NN look)))) (. .) (  ))
+# scene = 16
+# sent_id = 11
+# sent_len = 12
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = Da Mayor changes his face into a more grotesque look.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	changes	change	VERB	VBZ	_	3	ROOT	_	_
+4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+5	face	face	NOUN	NN	_	3	dobj	_	_
+6	into	into	ADP	IN	_	3	prep	_	_
+7	a	a	DET	DT	_	10	det	_	_
+8	more	more	ADV	RBR	_	10	amod	_	_
+9	grotesque	grotesque	ADJ	JJ	_	10	amod	_	_
+10	look	look	NOUN	NN	_	6	pobj	_	_
+11	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 91
+# loc = EXT
+# parse = (S (NP (DT The) (JJ evil) (NN eye)) (VP (VBZ does) (RB n't) (VP (VB work) (PP (IN on) (NP (PRP me))))) (. ..) (  ))
+# scene = 16
+# sent_id = 12
+# sent_len = 10
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = The evil eye doesn't work on me..
+# time = DAY
+1	The	the	DET	DT	_	3	det	_	_
+2	evil	evil	ADJ	JJ	_	3	amod	_	_
+3	eye	eye	NOUN	NN	_	6	nsubj	_	_
+4	does	do	VERB	VBZ	_	6	aux	_	_
+5	n't	not	ADV	RB	_	6	neg	_	_
+6	work	work	VERB	VB	_	6	ROOT	_	_
+7	on	on	ADP	IN	_	6	prep	_	_
+8	me	-PRON-	PRON	PRP	_	7	pobj	_	_
+9	..	..	PUNCT	.	_	6	punct	_	_
+
+# line = 92
+# loc = EXT
+# parse = (S (NP (NNP Mother) (NNP Sister)) (, ,) (NP (PRP you)) (VP (VB 've) (VP (VBN been) (VP (VBG talkin) (PP ('' ') (IN 'bout) (NP (PRP me))) (NP (DT the) (JJ last) (CD eighteen) (NNS years))))) (. .))
+# scene = 16
+# sent_id = 13
+# sent_len = 15
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Mother Sister, you've been talkin' 'bout me the last eighteen years.
+# time = DAY
+1	Mother	mother	PROPN	NNP	_	2	compound	_	_
+2	Sister	sister	PROPN	NNP	_	6	npadvmod	_	_
+3	,	,	PUNCT	,	_	6	punct	_	_
+4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
+5	've	have	VERB	VB	_	6	aux	_	_
+6	been	be	VERB	VBN	_	6	ROOT	_	_
+7	talkin	talkin	VERB	VBG	_	6	attr	_	_
+8	'	'	PUNCT	''	_	7	punct	_	_
+9	'bout	about	ADP	IN	_	7	prep	_	_
+10	me	-PRON-	PRON	PRP	_	9	pobj	_	_
+11	the	the	DET	DT	_	14	det	_	_
+12	last	last	ADJ	JJ	_	14	amod	_	_
+13	eighteen	eighteen	NUM	CD	_	14	nummod	_	_
+14	years	year	NOUN	NNS	_	7	npadvmod	_	_
+15	.	.	PUNCT	.	_	6	punct	_	_
+
+# line = 92
+# loc = EXT
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBP have) (NP (PRP I)) (ADVP (RB ever)) (VP (VBN done) (PP (IN to) (NP (PRP you))))) (. ?) (. .) (  ))
+# scene = 16
+# sent_id = 14
+# sent_len = 10
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = What have I ever done to you?.
+# time = DAY
+1	What	what	NOUN	WP	_	5	dobj	_	_
+2	have	have	VERB	VBP	_	5	aux	_	_
+3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
+4	ever	ever	ADV	RB	_	5	advmod	_	_
+5	done	do	VERB	VBN	_	5	ROOT	_	_
+6	to	to	ADP	IN	_	5	dative	_	_
+7	you	-PRON-	PRON	PRP	_	6	pobj	_	_
+8	?	?	PUNCT	.	_	5	punct	_	_
+9	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 93
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP 're) (NP (DT a) (JJ drunk) (NN fool))) (. ..) (  ))
+# scene = 16
+# sent_id = 15
+# sent_len = 7
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = You're a drunk fool..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	're	be	VERB	VBP	_	2	ROOT	_	_
+3	a	a	DET	DT	_	5	det	_	_
+4	drunk	drunk	ADJ	JJ	_	5	amod	_	_
+5	fool	fool	NOUN	NN	_	2	attr	_	_
+6	..	..	PUNCT	.	_	2	punct	_	_
+
+# line = 94
+# loc = EXT
+# parse = (PP (IN Besides) (NP (DT that)) (. .))
+# scene = 16
+# sent_id = 16
+# sent_len = 3
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Besides that.
+# time = DAY
+1	Besides	besides	ADP	IN	_	1	ROOT	_	_
+2	that	that	DET	DT	_	1	pobj	_	_
+3	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 94
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBP do) (RB n't) (VP (VB bother) (NP (NN nobody)))) (. .))
+# scene = 16
+# sent_id = 17
+# sent_len = 7
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Da Mayor don't bother nobody.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	5	nsubj	_	_
+3	do	do	VERB	VBP	_	5	aux	_	_
+4	n't	not	ADV	RB	_	5	neg	_	_
+5	bother	bother	VERB	VB	_	5	ROOT	_	_
+6	nobody	nobody	NOUN	NN	_	5	dobj	_	_
+7	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 94
+# loc = EXT
+# parse = (S (NP (NN Nobody)) (VP (VBP do) (RB n't) (VP (VB bother) (NP (NP (NNP Da) (NNP Mayor)) (CC but) (NP (PRP you))))) (. .))
+# scene = 16
+# sent_id = 18
+# sent_len = 9
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Nobody don't bother Da Mayor but you.
+# time = DAY
+1	Nobody	nobody	NOUN	NN	_	4	nsubj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	n't	not	ADV	RB	_	4	neg	_	_
+4	bother	bother	VERB	VB	_	4	ROOT	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	_
+6	Mayor	mayor	PROPN	NNP	_	4	dobj	_	_
+7	but	but	CCONJ	CC	_	6	cc	_	_
+8	you	-PRON-	PRON	PRP	_	6	conj	_	_
+9	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 94
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (ADVP (RB just)) (VP (VB mind) (NP (PRP$ his) (NN business))) (. .))
+# scene = 16
+# sent_id = 19
+# sent_len = 7
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = Da Mayor just mind his business.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	_
+3	just	just	ADV	RB	_	4	advmod	_	_
+4	mind	mind	VERB	VB	_	4	ROOT	_	_
+5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+6	business	business	NOUN	NN	_	4	dobj	_	_
+7	.	.	PUNCT	.	_	4	punct	_	_
+
+# line = 94
+# loc = EXT
+# parse = (S (NP (PRP I)) (VP (VBP love) (NP (NN everybody))) (. .))
+# scene = 16
+# sent_id = 20
+# sent_len = 4
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = I love everybody.
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	love	love	VERB	VBP	_	2	ROOT	_	_
+3	everybody	everybody	NOUN	NN	_	2	dobj	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 94
+# loc = EXT
+# parse = (S (NP (PRP I)) (ADVP (RB even)) (VP (VBP love) (NP (PRP you))) (. ..) (  ))
+# scene = 16
+# sent_id = 21
+# sent_len = 6
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = I even love you..
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
+2	even	even	ADV	RB	_	3	advmod	_	_
+3	love	love	VERB	VBP	_	3	ROOT	_	_
+4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
+5	..	..	PUNCT	.	_	3	punct	_	_
+
+# line = 95
+# loc = EXT
+# parse = (S (VP (VBP Hold) (NP (PRP$ your) (NN tongue))) (. .))
+# scene = 16
+# sent_id = 22
+# sent_len = 4
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = Hold your tongue.
+# time = DAY
+1	Hold	hold	VERB	VBP	_	1	ROOT	_	_
+2	your	-PRON-	ADJ	PRP$	_	3	poss	_	_
+3	tongue	tongue	NOUN	NN	_	1	dobj	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
+
+# line = 95
+# loc = EXT
+# parse = (S (NP (PRP You)) (VP (VBP do) (RB n't) (VP (VB have) (NP (ADJP (DT that) (JJ much)) (NN love)))) (. ..) (  ))
+# scene = 16
+# sent_id = 23
+# sent_len = 9
+# setting = MOTHER SISTER'S STOOP
+# speaker = MOTHER SISTER
+# stage_direction = True
+# text = You don't have that much love..
+# time = DAY
+1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	do	do	VERB	VBP	_	4	aux	_	_
+3	n't	not	ADV	RB	_	4	neg	_	_
+4	have	have	VERB	VB	_	4	ROOT	_	_
+5	that	that	DET	DT	_	7	det	_	_
+6	much	much	ADJ	JJ	_	7	amod	_	_
+7	love	love	NOUN	NN	_	4	dobj	_	_
+8	..	..	PUNCT	.	_	4	punct	_	_
+
+# line = 96
+# loc = EXT
+# parse = (S (NP (CD One) (NN day)) (NP (PRP you)) (VP (MD 'll) (VP (VB be) (ADJP (JJ nice) (PP (IN to) (NP (PRP me)))))) (. .))
+# scene = 16
+# sent_id = 24
+# sent_len = 9
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = One day you'll be nice to me.
+# time = DAY
+1	One	one	NUM	CD	_	2	nummod	_	_
+2	day	day	NOUN	NN	_	5	npadvmod	_	_
+3	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
+4	'll	will	VERB	MD	_	5	aux	_	_
+5	be	be	VERB	VB	_	5	ROOT	_	_
+6	nice	nice	ADJ	JJ	_	5	acomp	_	_
+7	to	to	ADP	IN	_	6	prep	_	_
+8	me	-PRON-	PRON	PRP	_	7	pobj	_	_
+9	.	.	PUNCT	.	_	5	punct	_	_
+
+# line = 96
+# loc = EXT
+# parse = (S (S (NP (PRP We)) (VP (MD might) (DT both) (VP (VB be) (ADJP (JJ dead) (CC and) (VBN buried))))) (, ,) (CC but) (S (NP (PRP you)) (VP (MD 'll) (VP (VB be) (ADJP (JJ nice))))) (. .))
+# scene = 16
+# sent_id = 25
+# sent_len = 14
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = We might both be dead and buried, but you'll be nice.
+# time = DAY
+1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
+2	might	may	VERB	MD	_	4	aux	_	_
+3	both	both	DET	DT	_	4	preconj	_	_
+4	be	be	VERB	VB	_	4	ROOT	_	_
+5	dead	dead	ADJ	JJ	_	4	acomp	_	_
+6	and	and	CCONJ	CC	_	5	cc	_	_
+7	buried	bury	VERB	VBN	_	5	conj	_	_
+8	,	,	PUNCT	,	_	4	punct	_	_
+9	but	but	CCONJ	CC	_	4	cc	_	_
+10	you	-PRON-	PRON	PRP	_	12	nsubj	_	_
+11	'll	will	VERB	MD	_	12	aux	_	_
+12	be	be	VERB	VB	_	4	conj	_	_
+13	nice	nice	ADJ	JJ	_	12	acomp	_	_
+14	.	.	PUNCT	.	_	12	punct	_	_
+
+# line = 96
+# loc = EXT
+# parse = (FRAG (ADVP (IN At) (JJS least)) (JJ civil) (. ..) (  ))
+# scene = 16
+# sent_id = 26
+# sent_len = 5
+# setting = MOTHER SISTER'S STOOP
+# speaker = DA MAYOR
+# stage_direction = True
+# text = At least civil..
+# time = DAY
+1	At	at	ADP	IN	_	2	advmod	_	_
+2	least	least	ADJ	JJS	_	3	advmod	_	_
+3	civil	civil	ADJ	JJ	_	3	ROOT	_	_
+4	..	..	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ tips) (NP (NP (PRP$ his) (NN beat)) (HYPH -) (RP up) (NP (NN hat))) (PP (IN to) (NP (NNP Mother) (NNP Sister)))) (CC and) (VP (VBZ takes) (NP (NP (DT a) (JJ final) (NN swig)) (PP (IN of) (NP (NN beer)))) (PP (ADVP (RB just)) (IN for) (NP (PRP her))))) (. .))
+# scene = 16
+# sent_id = 27
+# sent_len = 22
+# setting = MOTHER SISTER'S STOOP
+# stage_direction = True
+# text = Da Mayor tips his beat-up hat to Mother Sister and takes a final swig of beer just for her.
+# time = DAY
+1	Da	da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+3	tips	tip	VERB	VBZ	_	3	ROOT	_	_
+4	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
+5	beat	beat	NOUN	NN	_	8	amod	_	_
+6	-	-	PUNCT	HYPH	_	5	punct	_	_
+7	up	up	PART	RP	_	5	prt	_	_
+8	hat	hat	NOUN	NN	_	3	dobj	_	_
+9	to	to	ADP	IN	_	3	prep	_	_
+10	Mother	mother	PROPN	NNP	_	11	compound	_	_
+11	Sister	sister	PROPN	NNP	_	9	pobj	_	_
+12	and	and	CCONJ	CC	_	3	cc	_	_
+13	takes	take	VERB	VBZ	_	3	conj	_	_
+14	a	a	DET	DT	_	16	det	_	_
+15	final	final	ADJ	JJ	_	16	amod	_	_
+16	swig	swig	NOUN	NN	_	13	dobj	_	_
+17	of	of	ADP	IN	_	16	prep	_	_
+18	beer	beer	NOUN	NN	_	17	pobj	_	_
+19	just	just	ADV	RB	_	20	advmod	_	_
+20	for	for	ADP	IN	_	13	prep	_	_
+21	her	-PRON-	PRON	PRP	_	20	pobj	_	_
+22	.	.	PUNCT	.	_	3	punct	_	_
