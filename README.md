@@ -38,17 +38,17 @@ from buzz import Corpus
 corpus = Corpus('sopranos')
 parsed = corpus.parse()
 # if you don't need constitency parses, you can speed things up with:
-parsed = corpus.pparse(cons_parser=None)
+parsed = corpus.parse(cons_parser=None)
 ```
 
 That will give us output in CONLL-U format, complete with original text, speaker names, all other metadata and constituency parses (if not excluded). It also creates another `Corpus` object, called `parsed` above, which we can exlore via commands like:
 
 ```python
 parsed.files[0]
-parsed.subcorora.s1[:5]
+parsed.subcorpora.s1[:5]
 ```
 
-You can interactiely explore the corpus using the `tabview()` method:
+You can interactively explore the corpus using the `tabview()` method:
 
 ```python
 parsed.tabview()
