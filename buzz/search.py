@@ -3,14 +3,7 @@ from nltk.tgrep import tgrep_compile
 
 from .query import depgrep_compile
 
-from .utils import maketree
-
-from tqdm import tqdm, tqdm_notebook
-try:
-    if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
-        tqdm = tqdm_notebook
-except:
-    pass
+from .utils import maketree, _get_tqdm
 
 
 class Searcher(object):
@@ -24,7 +17,6 @@ class Searcher(object):
         if type(corpus) == Corpus and self.corpus.too_large_for_memory:
             self.to_search = corpus.files
             self.reference = None
-            self.corpus.is_loaded = False
             return
         if type(corpus) in {File, Corpus}:
             self.corpus = corpus.load()
@@ -35,7 +27,6 @@ class Searcher(object):
         elif isinstance(corpus, pd.DataFrame):
             self.reference = corpus.copy()
         self.to_search = [corpus]
-        self.corpus.is_loaded = True
 
     def tgrep_searcher(self, countmode=False, multiprocess=0):
         """
@@ -47,13 +38,8 @@ class Searcher(object):
         if isinstance(self.query, (str, bool)):
             self.query = tgrep_compile(self.query)
 
-        if self.corpus.is_loaded:
-            from tqdm import tqdm, tqdm_notebook
-            try:
-                if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
-                    tqdm = tqdm_notebook
-            except:
-                pass
+        if self.corpus.is_loaded():
+            tqdm = _get_tqdm()
 
         tree_once = self.corpus.tree_once()
         if isinstance(tree_once.values[0], str):
@@ -62,7 +48,7 @@ class Searcher(object):
         ser = list()
         six = list()
 
-        if self.corpus.is_loaded:
+        if self.corpus.is_loaded():
             running_count = 0
             t = tqdm(total=len(tree_once),
                      desc='Searching trees',
@@ -88,13 +74,13 @@ class Searcher(object):
                     form = ','.join([str(x) for x in range(pos+1, pos+size+1)])
                     ser.append(form)
                     six.append(n+pos)
-            if self.corpus.is_loaded:
+            if self.corpus.is_loaded():
                 running_count += match_count
                 kwa = dict(results=format(running_count, ','))
                 t.set_postfix(**kwa)
                 t.update()
 
-        if self.corpus.is_loaded:
+        if self.corpus.is_loaded():
             t.close()
 
         df = df.iloc[six].copy()
@@ -127,7 +113,7 @@ class Searcher(object):
 
     def query_a_piece(self, piece, usecols):
         """
-        Return bool index
+        Return bool index for match/no match for each token in this piece
         """
         if not isinstance(piece, pd.DataFrame):
             piece = piece.load(usecols=usecols)
@@ -137,26 +123,31 @@ class Searcher(object):
 
         num_query = self.target in ['i', 'g', 'sent_len']
 
-        # build dep searcher if need be
+        # dependency search
         if self.target == 'd':
             self.query = depgrep_compile(self.query, df=piece, case_sensitive=self.case_sensitive)
-            bool_ix = self.depgrep(piece) #piece=piece
-
-        # do tgrep
-        if self.target == 't':
+            bool_ix = self.depgrep(piece)
+        # tree search
+        elif self.target == 't':
             bool_ix = self.tgrep_searcher()
-
+        # numerical query
         elif num_query:
             bool_ix = self.number_query(piece, self.target, self.query)['w']
+        # anything else
         else:
             bool_ix = piece[self.target].str.contains(self.query, case=self.case_sensitive, regex=self.regex)
+            # invert if we want to
             if self.inverse:
                 bool_ix = ~bool_ix
+        # assume na means false (plz check)
         bool_ix = bool_ix.fillna(False)
+        print('PIECE', piece['w'].head(), 'BOOL IX', bool_ix)
         return piece['w'][bool_ix]
 
     def depgrep(self, df):
+
         from .classes import LoadedCorpus, Results
+        # get the full dataframe
         if type(self.corpus) == Results:
             df = self._df()
         elif type(self.corpus) == LoadedCorpus:
@@ -164,25 +155,15 @@ class Searcher(object):
 
         df = self.corpus
 
-        if isinstance(self.query, str):
-            self.query = depgrep_compile(self.query, df=df, case_sensitive=self.case_sensitive)
-
         # make multiindex and add an _n column, then remove old index
-        if not isinstance(df.index, pd.MultiIndex):
-            df = df.set_index(['file', 's', 'i'])
-            df = df.drop('_n', axis=1, errors='ignore')
-            df['_n'] = range(len(df))
-            df = df.drop('index', axis=1, errors='ignore')
+        df = df.drop('_n', axis=1, errors='ignore')
+        df['_n'] = range(len(df))
 
         # create progress bar
-        if self.corpus.is_loaded:
-            try:
-                if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
-                    tqdm = tqdm_notebook()
-            except:
-                pass
-            prog_bar_info = dict(desc="Searching loaded corpus",
-                                 unit="tokens",
+        if self.corpus.is_loaded():
+            tqdm = _get_tqdm()
+            prog_bar_info = dict(desc='Searching loaded corpus',
+                                 unit='tokens',
                                  ncols=120)
             tqdm.pandas(**prog_bar_info)
 
@@ -190,6 +171,8 @@ class Searcher(object):
         # when corpus is not loaded, no progress bar?
         else:
             matches = df.apply(self.query, axis=1)
+
+        print('MATCHES', matches)
 
         # if we got a boolean index from our search, drop false
         if matches.dtypes.name == 'bool':
@@ -243,6 +226,7 @@ class Searcher(object):
 
         t = None
         if len(self.to_search) > 1 and self.target not in {'t', 'd'}:
+            tqdm = _get_tqdm()
             t = tqdm(total=len(self.to_search),
                      desc='Searching corpus',
                      position=multiprocess,

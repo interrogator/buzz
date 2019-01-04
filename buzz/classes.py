@@ -89,6 +89,9 @@ class Corpus(MutableSequence):
         self.extend(self.files)
         self._metadata_path = os.path.join(self.path, '.metadata.json')
 
+    def is_loaded(self):
+        return type(self) == LoadedCorpus
+
     @property
     def metadata(self):
         if not os.path.isfile(self._metadata_path):
@@ -304,6 +307,12 @@ class Corpus(MutableSequence):
         Search corpus for dependency role
         """
         return Searcher(Searcher(self)).run('f', query, *args, **kwargs)
+
+    def deps(self, query, *args, **kwargs):
+        """
+        Search dependencies
+        """
+        return Searcher(Searcher(self)).run('d', query, *args, **kwargs)
 
     def trees(self, query, *args, **kwargs):
         """

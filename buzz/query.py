@@ -21,7 +21,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-'''
+"""
 TGrep search implementation for CONLL-U data (depgrep).
 
 Original copyright:
@@ -75,35 +75,24 @@ specified in a call to a predicate.  Predicates which call other
 predicates must always pass the value of these arguments on.  The
 top-level predicate (constructed by `_tgrep_exprs_action`) binds the
 macro definitions to `m` and initialises `l` to an empty dictionary.
-'''
+"""
 import pandas as pd
-from tqdm import tqdm, tqdm_notebook
-import numpy as np
-
-try:
-    from builtins import bytes, range, str
-except ImportError:
-    print('Warning: depgrep may not work correctly on Python 2.* without the')
-    print('`future` package installed.')
 import functools
-try:
-    import pyparsing
-except ImportError:
-    print('Warning: depgrep will not work without the `pyparsing` package')
-    print('installed.')
+import pyparsing
 import re
-import pandas as pd
+
 
 class DepGrepException(Exception):
-    '''Tgrep exception type.'''
+    """Tgrep exception type."""
     pass
 
+
 def ancestors(node, df):
-    '''
+    """
     Returns the list of all nodes dominating the given tree node.
     This method will not work with leaf nodes, since there is no way
     to recover the parent.
-    '''
+    """
     ancestors = []
     gov = node['g']
     sent = df.xs((node.name[0], node.name[1]), level=["f", "s"])
@@ -113,16 +102,15 @@ def ancestors(node, df):
         gov = gov_tok['g']
     return ancestors
 
+
 def _descendants(node, df):
-    '''
+    """
     Returns the list of all nodes which are descended from the given
     tree node in some way.
-    '''
+    """
     sent = df.xs((node.name[0], node.name[1]), level=["f", "s"])
     # a bag of governors
     govs = {node.name[2]}
-    # all indices
-    nums = set(sent.index)
     size = len(govs)
 
     while True:
@@ -133,32 +121,32 @@ def _descendants(node, df):
         if size == len(govs):
             break
         size = len(govs)
-
     govs.remove(node.name[2])
-
     return [sent.loc[i] for i in govs]
 
+
 def _before(node, df, places=False):
-    '''
+    """
     Returns the set of all nodes that are before the given node.
-    '''
+    """
     f, s, i = node.name
-    matches = df.loc[f,s,slice(None, i-1)]
+    matches = df.loc[f, s, slice(None, i-1)]
     aslist = [matches.loc[i] for i in matches.index]
     if places is not False:
         places = -places
         aslist = [aslist[places]]
     return aslist
 
+
 def _immediately_before(node, df, positions):
-    '''
+    """
     Returns the set of all nodes that are immediately after the given
     node.
 
     Tree node A immediately follows node B if the first terminal
     symbol (word) produced by A immediately follows the last
     terminal symbol produced by B.
-    '''
+    """
     import pandas as pd
     if isinstance(node, pd.Series):
         i = node._n - 1
@@ -170,28 +158,30 @@ def _immediately_before(node, df, positions):
         try:
             return [df[i]]
         except:
-            return []
+            return list()
+
 
 def _after(node, df, places=False):
-    '''
+    """
     Returns the set of all nodes that are after the given node.
-    '''
+    """
     f, s, i = node.name
-    matches = df.loc[f,s,slice(i+1, None)]
+    matches = df.loc[f, s, slice(i+1, None)]
     aslist = [matches.loc[i] for i in matches.index]
     if places is not False:
         aslist = [aslist[places-1]]
     return aslist
 
+
 def _immediately_after(node, df, positions):
-    '''
+    """
     Returns the set of all nodes that are immediately after the given
     node.
 
     Tree node A immediately follows node B if the first terminal
     symbol (word) produced by A immediately follows the last
     terminal symbol produced by B.
-    '''
+    """
     import pandas as pd
     if isinstance(node, pd.Series):
         i = node._n + 1
@@ -208,10 +198,10 @@ def _immediately_after(node, df, positions):
 
 
 def row_attr(node, attr=False, cs=False):
-    '''
+    """
     Gets the string value of a given parse tree node, for comparison
     using the tgrep node literal predicates.
-    '''
+    """
     if isinstance(node, pd.Series):
         nd = str(node[attr])
     else:
@@ -220,6 +210,7 @@ def row_attr(node, attr=False, cs=False):
         return nd
     else:
         return nd.lower()
+
 
 def np_attr(node, pos, cs):
     if isinstance(node, str):
@@ -230,30 +221,31 @@ def np_attr(node, pos, cs):
         else:
             pos -= 1
         node = node.values
-    try:
-        x = node[pos] if cs else node[pos].lower()
-    except:
-        x = node[pos]
-        return str(s).lower() if not cs else str(s)
+
+    return node[pos] if cs else node[pos].lower()
+
 
 def _tgrep_macro_use_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function which looks up the macro name used.
-    '''
+    """
     assert len(tokens) == 1
     assert tokens[0][0] == '@'
     macro_name = tokens[0][1:]
+
     def macro_use(n, m=None, l=None):
         if m is None or macro_name not in m:
             raise DepGrepException('macro {0} not defined'.format(macro_name))
         return m[macro_name](n, m, l)
+
     return macro_use
 
+
 def _tgrep_node_action(_s, _l, tokens, cols, case_sensitive=False):
-    '''
+    """
     Builds a lambda function representing a predicate on a tree node
     depending on the name of its node.
-    '''
+    """
     # print 'node tokens: ', tokens
     if tokens[0] == "'":
         # strip initial apostrophe (tgrep2 print command)
@@ -274,7 +266,7 @@ def _tgrep_node_action(_s, _l, tokens, cols, case_sensitive=False):
 
         # determine the attribute we want to search (word, lemma, pos, etc)
         if tokens[0][0].lower() in list('siwlpnmfgdch') \
-            and not tokens[0].startswith('i@'):
+                and not tokens[0].startswith('i@'):
             attr = tokens[0][0].lower()
             tokens[0] = tokens[0][1:].lower()
         else:
@@ -311,38 +303,41 @@ def _tgrep_node_action(_s, _l, tokens, cols, case_sensitive=False):
             return (lambda s: lambda n, m=None, l=None:
                     np_attr(n, pos, cs=case_sensitive) == s)(tokens[0])
 
+
 def _tgrep_parens_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function representing a predicate on a tree node
     from a parenthetical notation.
-    '''
+    """
     # print 'parenthetical tokens: ', tokens
     assert len(tokens) == 3
     assert tokens[0] == '('
     assert tokens[2] == ')'
     return tokens[1]
 
+
 def _tgrep_nltk_tree_pos_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function representing a predicate on a tree node
     which returns true if the node is located at a specific tree
     position.
-    '''
+    """
     # recover the tuple from the parsed sting
     node_tree_position = tuple(int(x) for x in tokens if x.isdigit())
     # capture the node's tree position
     return (lambda i: lambda n, m=None, l=None: (hasattr(n, 'treeposition') and
                                                  n.treeposition() == i))(node_tree_position)
 
+
 def _tgrep_relation_action(_s, _l, tokens, df):
-    '''
+    """
     Builds a lambda function repredfing a predicate on a tree node
     depending on its relation to other nodes in the tree.
-    '''
+    """
     # print 'relation tokens: ', tokens
     # process negation first if needed
 
-    from corpkit.conll import dependents, has_dependent, has_governor, governors, sisters, governor
+    from buzz.conll import dependents, has_dependent, has_governor, governors, sisters, governor
 
     positions = {y: x for x, y in enumerate(list(df.columns))}
     df = df.values
@@ -426,10 +421,10 @@ def _tgrep_relation_action(_s, _l, tokens, df):
             idx = -int(operator[0])
             # capture the index parameter
             retval = (lambda i: lambda n, m=None, l=None:
-                          (has_governor(n) and
-                           0 <= (i + len(governors(n, df))) < len(governors(n, df)) and
-                           (n is governors(n, df)[i + len(governors(n, df))]) and
-                           predicate(governors(n, df), m, l)))(idx)
+                      (has_governor(n) and
+                          0 <= (i + len(governors(n, df))) < len(governors(n, df)) and
+                          (n is governors(n, df)[i + len(governors(n, df))]) and
+                          predicate(governors(n, df), m, l)))(idx)
 
         # A + B       A immediately precedes B.
         elif operator == '+':
@@ -506,8 +501,9 @@ def _tgrep_relation_action(_s, _l, tokens, df):
     else:
         return retval
 
-def _tgrep_conjunction_action(_s, _l, tokens, join_char = '&'):
-    '''
+
+def _tgrep_conjunction_action(_s, _l, tokens, join_char='&'):
+    """
     Builds a lambda function representing a predicate on a tree node
     from the conjunction of several other such lambda functions.
 
@@ -528,18 +524,18 @@ def _tgrep_conjunction_action(_s, _l, tokens, join_char = '&'):
     tokens[0] is a tgrep_expr predicate; tokens[1:] are an (optional)
     list of segmented patterns (`tgrep_expr_labeled`, processed by
     `_tgrep_segmented_pattern_action`).
-    '''
+    """
     # filter out the ampersand
     tokens = [x for x in tokens if x != join_char]
-    # print 'relation conjunction tokens: ', tokens
     if len(tokens) == 1:
         return tokens[0]
     else:
         return (lambda ts: lambda n, m=None, l=None: all(predicate(n, m, l)
                                                          for predicate in ts))(tokens)
 
+
 def _tgrep_segmented_pattern_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function representing a segmented pattern.
 
     Called for expressions like (`tgrep_expr_labeled`)::
@@ -561,25 +557,27 @@ def _tgrep_segmented_pattern_action(_s, _l, tokens):
     parse action to the pred use inside a node_expr.  See
     `_tgrep_node_label_use_action` and
     `_tgrep_node_label_pred_use_action`.
-    '''
+    """
     # tokens[0] is a string containing the node label
     node_label = tokens[0]
     # tokens[1:] is an (optional) list of predicates which must all
     # hold of the bound node
     reln_preds = tokens[1:]
+
     def pattern_segment_pred(n, m=None, l=None):
-        '''This predicate function ignores its node argument.'''
+        """This predicate function ignores its node argument."""
         # look up the bound node using its label
         if l is None or node_label not in l:
-            raise DepGrepException('node_label ={0} not bound in pattern'.format(
-                node_label))
+            problem = 'node_label={0} not bound in pattern'.format(node_label)
+            raise DepGrepException(problem)
         node = l[node_label]
         # match the relation predicates against the node
         return all(pred(node, m, l) for pred in reln_preds)
     return pattern_segment_pred
 
+
 def _tgrep_node_label_use_action(_s, _l, tokens):
-    '''
+    """
     Returns the node label used to begin a tgrep_expr_labeled.  See
     `_tgrep_segmented_pattern_action`.
 
@@ -591,13 +589,14 @@ def _tgrep_node_label_use_action(_s, _l, tokens):
     expression (see `_tgrep_segmented_pattern_action`).
 
     It returns the node label.
-    '''
+    """
     assert len(tokens) == 1
     assert tokens[0].startswith('=')
     return tokens[0][1:]
 
+
 def _tgrep_node_label_pred_use_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function representing a predicate on a tree node
     which describes the use of a previously bound node label.
 
@@ -609,22 +608,24 @@ def _tgrep_node_label_pred_use_action(_s, _l, tokens):
     relation).  The predicate returns true if and only if its node
     argument is identical the the node looked up in the node label
     dictionary using the node's label.
-    '''
+    """
     assert len(tokens) == 1
     assert tokens[0].startswith('=')
     node_label = tokens[0][1:]
+
     def node_label_use_pred(n, m=None, l=None):
         # look up the bound node using its label
         if l is None or node_label not in l:
-            raise DepGrepException('node_label ={0} not bound in pattern'.format(
-                node_label))
+            problem = 'node_label={0} not bound in pattern'.format(node_label)
+            raise DepGrepException(problem)
         node = l[node_label]
         # truth means the given node is this node
         return n is node
     return node_label_use_pred
 
+
 def _tgrep_bind_node_label_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function representing a predicate on a tree node
     which can optionally bind a matching node into the tgrep2 string's
     label_dict.
@@ -633,7 +634,7 @@ def _tgrep_bind_node_label_action(_s, _l, tokens):
 
         /NP/
         @NP=n
-    '''
+    """
     # tokens[0] is a tgrep_node_expr
     if len(tokens) == 1:
         return tokens[0]
@@ -646,24 +647,25 @@ def _tgrep_bind_node_label_action(_s, _l, tokens):
         assert tokens[1] == '='
         node_pred = tokens[0]
         node_label = tokens[2]
+
         def node_label_bind_pred(n, m=None, l=None):
             if node_pred(n, m, l):
                 # bind `n` into the dictionary `l`
                 if l is None:
-                    raise DepGrepException(
-                        'cannot bind node_label {0}: label_dict is None'.format(
-                            node_label))
+                    problem = 'cannot bind node_label {0}: label_dict is None'.format(node_label)
+                    raise DepGrepException(problem)
                 l[node_label] = n
                 return True
             else:
                 return False
         return node_label_bind_pred
 
+
 def _tgrep_rel_disjunction_action(_s, _l, tokens):
-    '''
+    """
     Builds a lambda function representing a predicate on a tree node
     from the disjunction of several other such lambda functions.
-    '''
+    """
     # filter out the pipe
     tokens = [x for x in tokens if x != '|']
     # print 'relation disjunction tokens: ', tokens
@@ -673,16 +675,18 @@ def _tgrep_rel_disjunction_action(_s, _l, tokens):
         return (lambda a, b: lambda n, m=None, l=None:
                 a(n, m, l) or b(n, m, l))(tokens[0], tokens[1])
 
+
 def _macro_defn_action(_s, _l, tokens):
-    '''
+    """
     Builds a dictionary structure which defines the given macro.
-    '''
+    """
     assert len(tokens) == 3
     assert tokens[0] == '@'
     return {tokens[1]: tokens[2]}
 
+
 def _tgrep_exprs_action(_s, _l, tokens):
-    '''
+    """
     This is the top-level node in a tgrep2 search string; the
     predicate function it returns binds together all the state of a
     tgrep2 search string.
@@ -691,7 +695,7 @@ def _tgrep_exprs_action(_s, _l, tokens):
     from the disjunction of several tgrep expressions.  Also handles
     macro definitions and macro name binding, and node label
     definitions and node label binding.
-    '''
+    """
     if len(tokens) == 1:
         return lambda n, m=None, l=None: tokens[0](n, None, {})
     # filter out all the semicolons
@@ -704,22 +708,22 @@ def _tgrep_exprs_action(_s, _l, tokens):
     # collect all tgrep expressions
     tgrep_exprs = [tok for tok in tokens if not isinstance(tok, dict)]
     # create a new scope for the node label dictionary
+
     def top_level_pred(n, m=macro_dict, l=None):
         label_dict = {}
         # bind macro definitions and OR together all tgrep_exprs
         return any(predicate(n, m, label_dict) for predicate in tgrep_exprs)
+
     return top_level_pred
 
+
 def _build_depgrep_parser(set_parse_actions=True, df=False, case_sensitive=False):
-    '''
+    """
     Builds a pyparsing-based parser object for tokenizing and
     interpreting tgrep search strings.
-    '''
+    """
     tgrep_op = (pyparsing.Optional('!') +
-                 pyparsing.Regex('[$%,.<>&-\|\+][%,.<>0-9\-\':\|]*'))
-                #pyparsing.Regex('[$%,.<>&\-\+][\+%,.<>0-9\-\':]*'))
-                #pyparsing.Regex('[0123456789<>\-\+$:]+'))
-                #pyparsing.Regex(r'[$%,.<>-+][%,.<>0-9-\':]*'))
+                pyparsing.Regex('[$%,.<>&-\|\+][%,.<>0-9\-\':\|]*'))
 
     node_attr = pyparsing.Optional(pyparsing.Word("siwlpnmfgdchSIWLPNMFGDCH", max=1))
     tgrep_node_regex = node_attr + pyparsing.QuotedString(quoteChar='/', escChar='\\',
@@ -740,7 +744,7 @@ def _build_depgrep_parser(set_parse_actions=True, df=False, case_sensitive=False
         pyparsing.Literal('N(') +
         pyparsing.Optional(pyparsing.Word(pyparsing.nums) + ',' +
                            pyparsing.Optional(pyparsing.delimitedList(
-                    pyparsing.Word(pyparsing.nums), delim=',') +
+                               pyparsing.Word(pyparsing.nums), delim=',') +
                                               pyparsing.Optional(','))) + ')')
     tgrep_node_label = pyparsing.Regex('[A-Za-z0-9]+')
     tgrep_node_label_use = pyparsing.Combine('=' + tgrep_node_label)
@@ -763,9 +767,9 @@ def _build_depgrep_parser(set_parse_actions=True, df=False, case_sensitive=False
                          tgrep_node_label.copy().setWhitespaceChars('')) |
                         tgrep_node_expr)
     tgrep_node = (tgrep_parens |
-                  (pyparsing.Optional("'") +
+                  (pyparsing.Optional('\'') +
                    tgrep_node_expr2 +
-                   pyparsing.ZeroOrMore("|" + tgrep_node_expr)))
+                   pyparsing.ZeroOrMore('|' + tgrep_node_expr)))
     tgrep_brackets = pyparsing.Optional('!') + '[' + tgrep_relations + ']'
     tgrep_relation = tgrep_brackets | (tgrep_op + tgrep_node)
     tgrep_rel_conjunction = pyparsing.Forward()
@@ -773,7 +777,7 @@ def _build_depgrep_parser(set_parse_actions=True, df=False, case_sensitive=False
                               pyparsing.ZeroOrMore(pyparsing.Optional('&') +
                                                    tgrep_rel_conjunction))
     tgrep_relations << tgrep_rel_conjunction + pyparsing.ZeroOrMore(
-        "|" + tgrep_relations)
+        '|' + tgrep_relations)
     tgrep_expr << tgrep_node + pyparsing.Optional(tgrep_relations)
     tgrep_expr_labeled = tgrep_node_label_use + pyparsing.Optional(tgrep_relations)
     tgrep_expr2 = tgrep_expr + pyparsing.ZeroOrMore(':' + tgrep_expr_labeled)
@@ -789,12 +793,12 @@ def _build_depgrep_parser(set_parse_actions=True, df=False, case_sensitive=False
         tgrep_node_label_use.setParseAction(_tgrep_node_label_use_action)
         tgrep_node_label_use_pred.setParseAction(_tgrep_node_label_pred_use_action)
         macro_use.setParseAction(_tgrep_macro_use_action)
-        tgrep_node.setParseAction(lambda x,y,z: _tgrep_node_action(x, y, z, cols=df.columns,
-                                                 case_sensitive=case_sensitive))
+        tgrep_node.setParseAction(lambda x, y, z: _tgrep_node_action(x, y, z, cols=df.columns,
+                                                                     case_sensitive=case_sensitive))
         tgrep_node_expr2.setParseAction(_tgrep_bind_node_label_action)
         tgrep_parens.setParseAction(_tgrep_parens_action)
         tgrep_nltk_tree_pos.setParseAction(_tgrep_nltk_tree_pos_action)
-        tgrep_relation.setParseAction(lambda x,y,z: _tgrep_relation_action(x, y, z, df=df))
+        tgrep_relation.setParseAction(lambda x, y, z: _tgrep_relation_action(x, y, z, df=df))
         tgrep_rel_conjunction.setParseAction(_tgrep_conjunction_action)
         tgrep_relations.setParseAction(_tgrep_rel_disjunction_action)
         macro_defn.setParseAction(_macro_defn_action)
@@ -804,9 +808,10 @@ def _build_depgrep_parser(set_parse_actions=True, df=False, case_sensitive=False
         tgrep_expr.setParseAction(_tgrep_conjunction_action)
         tgrep_expr_labeled.setParseAction(_tgrep_segmented_pattern_action)
         tgrep_expr2.setParseAction(functools.partial(_tgrep_conjunction_action,
-                                                     join_char = ':'))
+                                                     join_char=':'))
         tgrep_exprs.setParseAction(_tgrep_exprs_action)
     return tgrep_exprs.ignore('#' + pyparsing.restOfLine)
+
 
 def preprocess_depgrep(target, depgrep_string, case_sensitive):
     """
@@ -822,10 +827,8 @@ def preprocess_depgrep(target, depgrep_string, case_sensitive):
     getval = '=([\"/])([^\"/]+)[\"/]'
     add_to_search = {}
     # disabled for now: check for valid features
-    #cats = list(fobj.columns))
-    #divider = ' @(' + '|'.join([re.escape(i) for i in cats]) + ')' + getval
     # instead, just find @field="value" or @field=/value/
-    divider = ' @([^\(\)]+)' + getval
+    divider = r' @([^\(\)]+)' + getval
     found = re.findall(divider, depgrep_string)
     # if the query contained this kinf of stuff, iterate over matches
     # and add them to a temp dict. cut the specifiers from the query to be
@@ -839,9 +842,9 @@ def preprocess_depgrep(target, depgrep_string, case_sensitive):
         offset = None
 
     # now, try to make the first part of depgrep query into boolean index
-    if depgrep_string[0].lower() in ["w", "l", "p", "f", "n", "i", "s"]:
+    if depgrep_string[0].lower() in {'w', 'l', 'p', 'f', 'n', 'i', 's'}:
         attr = depgrep_string[0].lower()
-    elif depgrep_string[0] in ['/', '"']:
+    elif depgrep_string[0] in {'/', '"'}:
         attr = 'w'
         depgrep_string = 'w' + depgrep_string
 
@@ -852,24 +855,19 @@ def preprocess_depgrep(target, depgrep_string, case_sensitive):
         # get the string to search on
         no_outer = depgrep_string[2:endquote]
         stringsize = len(no_outer)
-        if no_outer in ['*', '__']:
-            return depgrep_string, search, offsets
+        if no_outer in {'*', '__'}:
+            return depgrep_string, search, offset
         no_outer = no_outer.split(',')
 
         # check if there is more to the query
-        #data = data[data[attr] == no_outer]
     elif depgrep_string[1] == '/':
         # same as above
         endquote = depgrep_string[2:].index('/') + 2
         no_outer = depgrep_string[2:endquote]
         stringsize = len(no_outer)
-        if no_outer in ['*', '__']:
-            return depgrep_string, search, offsets
+        if no_outer in {'*', '__'}:
+            return depgrep_string, search, offset
 
-        #if case_sensitive:
-        #    no_outer = re.compile(no_outer)
-        #else:
-        #    no_outer = re.compile(no_outer, re.IGNORECASE)
     else:
         stringsize = 0
 
@@ -882,15 +880,12 @@ def preprocess_depgrep(target, depgrep_string, case_sensitive):
 
     return depgrep_string, search, offset
 
+
 def depgrep_compile(depgrep_string, df=False, case_sensitive=False):
-    '''
+    """
     Parses (and tokenizes, if necessary) a depgrep search string into a
     lambda function.
-    '''
-    # todo: remove these three lines
-    df = df.reset_index()
-    df['_n'] = range(len(df))
-    df = df.drop('index', axis=1, errors='ignore')
+    """
     parser = _build_depgrep_parser(True, df=df, case_sensitive=case_sensitive)
     if isinstance(depgrep_string, bytes):
         depgrep_string = depgrep_string.decode()

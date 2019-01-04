@@ -8,6 +8,16 @@ from nltk.tree import ParentedTree
 from .constants import CONLL_COLUMNS, DTYPES
 
 
+def _get_tqdm():
+    from tqdm import tqdm, tqdm_notebook
+    try:
+        if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
+            return tqdm_notebook
+    except:
+        pass
+    return tqdm
+
+
 def auto_window():
     import shutil
     columns = shutil.get_terminal_size().columns
