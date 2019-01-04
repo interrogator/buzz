@@ -125,7 +125,11 @@ class Searcher(object):
 
         # dependency search
         if self.target == 'd':
-            self.query = depgrep_compile(self.query, df=piece, case_sensitive=self.case_sensitive)
+            # make multiindex and add an _n column, then remove old index
+            df = piece.drop(['_n', 'file', 's', 'i'], axis=1, errors='ignore')
+            df['_n'] = range(len(df))
+            df = df.reset_index()
+            self.query = depgrep_compile(self.query, df=df, case_sensitive=self.case_sensitive)
             bool_ix = self.depgrep(piece)
         # tree search
         elif self.target == 't':
@@ -139,13 +143,12 @@ class Searcher(object):
             # invert if we want to
             if self.inverse:
                 bool_ix = ~bool_ix
-        # assume na means false (plz check)
-        bool_ix = bool_ix.fillna(False)
-        print('PIECE', piece['w'].head(), 'BOOL IX', bool_ix)
         return piece['w'][bool_ix]
 
     def depgrep(self, df):
-
+        """
+        Run query over dependencies
+        """
         from .classes import LoadedCorpus, Results
         # get the full dataframe
         if type(self.corpus) == Results:
@@ -154,10 +157,6 @@ class Searcher(object):
             df = self.corpus
 
         df = self.corpus
-
-        # make multiindex and add an _n column, then remove old index
-        df = df.drop('_n', axis=1, errors='ignore')
-        df['_n'] = range(len(df))
 
         # create progress bar
         if self.corpus.is_loaded():
@@ -172,19 +171,25 @@ class Searcher(object):
         else:
             matches = df.apply(self.query, axis=1)
 
-        print('MATCHES', matches)
+        try:
+            matches = matches.fillna(False)
+        except:
+            pass
+
+        bools = [bool(i) for i in matches.values]
+        return bools
 
         # if we got a boolean index from our search, drop false
-        if matches.dtypes.name == 'bool':
-            try:
-                return df[matches.values]
-            except:
-                return df.loc[matches]
+        # if matches.dtypes.name == 'bool':
+        #     try:
+        #         return df[matches.values]
+        #     except:
+        #         return df.loc[matches]
         # if if wasn't boolean, it has nans to drop
-        else:
-            import numpy as np
-            matches = matches.fillna(value=np.nan)
-            return df.loc[matches.dropna().index]
+        # else:
+        #     import numpy as np
+        #     matches = matches.fillna(value=np.nan)
+        #     return df.loc[matches.dropna().index]
 
     def run(self,
             target,
