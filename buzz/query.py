@@ -215,9 +215,7 @@ def row_attr(node, attr=False, cs=False):
 def np_attr(node, pos, cs):
     if isinstance(node, str):
         return node if cs else node.lower()
-    if isinstance(node, pd.Series):
-        return node[pos] if cs else node[pos].lower()
-    raise ValueError('What is {} ... {} ... {}'.format(node, pos, cs))
+    return node[pos] if cs else node[pos].lower()
 
 
 def _tgrep_macro_use_action(_s, _l, tokens):
@@ -329,12 +327,11 @@ def governor(row, df):
     Get governor of row as row from df
     """
     if not row['g']:
-        return "ROOT"
+        return 'ROOT'
     else:
         i = row.name[2] if isinstance(row.name, tuple) else row['i']
         n = row['_n'] if isinstance(row.name, tuple) else row.name
-        # n-1+g
-        return [df[n-i+row['g']]]
+        return [df[n-int(i)+row['g']]]
 
 
 def sentence(row, df, start=False, positions=False):

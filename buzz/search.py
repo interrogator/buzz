@@ -143,7 +143,7 @@ class Searcher(object):
             # invert if we want to
             if self.inverse:
                 bool_ix = ~bool_ix
-        return piece['w'][bool_ix]
+        return piece['_n'][bool_ix]
 
     def depgrep(self, df):
         """
@@ -178,18 +178,6 @@ class Searcher(object):
 
         bools = [bool(i) for i in matches.values]
         return bools
-
-        # if we got a boolean index from our search, drop false
-        # if matches.dtypes.name == 'bool':
-        #     try:
-        #         return df[matches.values]
-        #     except:
-        #         return df.loc[matches]
-        # if if wasn't boolean, it has nans to drop
-        # else:
-        #     import numpy as np
-        #     matches = matches.fillna(value=np.nan)
-        #     return df.loc[matches.dropna().index]
 
     def run(self,
             target,

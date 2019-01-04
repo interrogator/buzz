@@ -46,7 +46,7 @@ DTYPES = dict(i=np.int32,
               sent_len=np.int64,
               line=np.int64)
 
-CONC_CONTEXT = 20
+CONC_CONTEXT = 30
 
 LONG_NAMES = dict(file={'corpus'},
                   s={'sentence'},

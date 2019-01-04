@@ -18,7 +18,7 @@ def _get_widths(df, is_conc, window):
     tot = len(df.columns) + len(df.index.names)
     aligns = [True] * tot
     truncs = [False] * tot
-    widths = list()
+    widths = [5]
 
     for i, col_name in enumerate(df.columns):
         if is_conc and col_name == 'left':
@@ -28,16 +28,16 @@ def _get_widths(df, is_conc, window):
             widths.append(window[1])
             aligns[i+len(df.index.names)] = False
         elif is_conc and col_name == 'match':
-            mx = df[col_name].astype(str)[:100].str.len().max() + 1
+            mx = df[col_name].astype(str).str.len().max() + 1
             mx = min(15, mx)
             widths.append(mx)
             aligns[i+len(df.index.names)] = False
         elif is_conc:
-            mx = df[col_name].astype(str)[:100].str.len().max() + 1
+            mx = df[col_name].astype(str).str.len().max() + 1
             if mx > 10:
                 mx = 10
             widths.append(mx)
-        return aligns, truncs, widths
+    return aligns, truncs, widths
 
 
 def _tabview(self, window='auto', **kwargs):
@@ -51,15 +51,15 @@ def _tabview(self, window='auto', **kwargs):
     if isinstance(self, Results):
         df = self._df()
         reference = self.reference
-    elif isinstance(self, Frequencies):
+    elif type(self) == Frequencies:
         df = self.copy()
         reference = self.reference
     elif type(self) == Corpus:
         df = self.load()
         reference = df.copy()
-    else:
-        df = self.copy()
-        reference = df.copy()
+    elif type(self) == Concordance:
+        df = self
+        reference = self.reference
 
     is_conc = type(df) == Concordance
 
@@ -75,10 +75,7 @@ def _tabview(self, window='auto', **kwargs):
                 widths.append(10)
     # if index is flat, make into string and find longest
     else:
-        iwid = df.index.astype(str)[:100].str.len().max() + 1
-        if iwid > 10:
-            iwid = 10
-        widths = [iwid]
+        widths = [5]
 
     # expand single window integer to both sides
     if isinstance(window, int):
@@ -90,17 +87,20 @@ def _tabview(self, window='auto', **kwargs):
 
     # make window smaller if it can be
     if is_conc:
-        window[0] = max(df['left'][:100].str.len().max(), window[0])
-        window[1] = max(df['right'][:100].str.len().max(), window[1])
+        window[0] = max(df['left'].str.len().max(), window[0])
+        window[1] = max(df['right'].str.len().max(), window[1])
 
     aligns, truncs, widths = _get_widths(df, is_conc, window)
 
     view_style = dict(column_widths=widths,
-                      data_type=df.__class__.__name__.lower(),
                       reference=reference)
 
     if 'align_right' not in kwargs:
         view_style['align_right'] = aligns
+    if 'trunc_left' not in kwargs:
+        view_style['trunc_left'] = truncs
+
+    print('VIEW STYLE', view_style)
 
     view(pd.DataFrame(df), **view_style)
 

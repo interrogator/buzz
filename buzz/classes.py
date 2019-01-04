@@ -140,7 +140,7 @@ class Corpus(MutableSequence):
     def _check_if_too_large(self, passed_in):
         if passed_in is False:
             return False
-        size = sum(os.path.getsize(os.path.join(dirpath,filename)) for dirpath, dirnames, filenames in os.walk('.') for filename in filenames)
+        size = sum(os.path.getsize(os.path.join(dirpath, filename)) for dirpath, dirnames, filenames in os.walk('.') for filename in filenames)
         import psutil
         free_mem = psutil.virtual_memory().free
         return size * 10 > free_mem
@@ -596,6 +596,20 @@ class Results(pd.Series, LoadedCorpus):
     def _constructor_expanddim(self):
         return Frequencies
 
+    def __getitem__(self, item):
+        try:
+            row = pd.Series.__getitem__(self, item)
+            return self.reference.loc[row.index]
+        except (ValueError, KeyError):  # the series doesn't have it
+            return self.reference.loc[self.index][item]
+
+    def __getattr__(self, attr):
+        try:
+            row = pd.Series.__getattr__(self, attr)
+            return self.reference.loc[row.index]
+        except ValueError:  # the series doesn't have it
+            return getattr(self.reference.loc[self.index], attr)
+
     def __repr__(self):
         return pd.DataFrame(self._df()).__repr__()
 
@@ -668,13 +682,29 @@ class Frequencies(pd.DataFrame):
         return _sort(self, *args, **kwargs)
 
 
-class Concordance(Frequencies):
-
+class Concordance(pd.DataFrame):
+    """
+    A corpus in memory
+    """
     _internal_names = pd.DataFrame._internal_names + ['reference']
     _internal_names_set = set(_internal_names)
 
-    _metadata = ['reference']
+    _metadata = ['reference', 'path', 'name']
 
-    def __init__(self, data, reference, **kwargs):
-        super().__init__(data, reference, **kwargs)
+    def __init__(self, data, reference=None, **kwargs):
+        super().__init__(data, **kwargs)
         self.reference = reference
+
+    @property
+    def _constructor(self, **kwargs):
+        return Concordance
+
+    def keywords(self, *args, **kwargs):
+        return _keywords(self, *args, **kwargs)
+
+    def tabview(self, *args, **kwargs):
+        return _tabview(self, *args, **kwargs)
+
+    def sort(self, *args, **kwargs):
+        from .views import _sort
+        return _sort(self, *args, **kwargs)

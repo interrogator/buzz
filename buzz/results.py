@@ -21,33 +21,25 @@ def resize_by_window_size(df, window):
 
 
 def apply_conc(line, allwords, window):
-
-    file, s, i, middle, n = line['file'], line['s'], line['i'], line['_match'], line['_n']
-    start = max(n-window[0], 0)
+    middle, n = line['_match'], line['_n']
+    start = n - window[0]
     end = min(n+window[1], len(allwords)-1)
-
     left = ' '.join(allwords[start:n])[-window[0]:]
     right = ' '.join(allwords[n+1:end])[:window[1]]
-
     series = pd.Series([left, middle, right])
     series.names = ['left', 'match', 'right']
-
     return series
 
 
 def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs):
     """
     Generate a concordance
-
-    Args:
-        kind (str): string, csv or latex
     """
     df = self._df()
     reference = self.reference
 
     # max number of lines
-    if n > len(df):
-        n = len(df)
+    n = max(n, len(df))
 
     if window == 'auto':
         from .utils import auto_window
@@ -55,10 +47,8 @@ def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs
     if isinstance(window, int):
         window = [window, window]
 
-    # shitty thing to hardcode
-    pd.set_option('display.max_colwidth', -1)
-
     df['_match'] = make_match_col(df, show)
+
     try:
         df = pd.DataFrame(df).reset_index()
     except ValueError:
