@@ -1,0 +1,1 @@
+{"language": "english", "parser": "spacy", "cons_parser": "benepar", "copula_head": true, "path": "./do-the-right-thing-parsed", "name": "do-the-right-thing", "parsed": true, "nsents": 1930, "ntokens": 19020, "nfiles": 98, "desc": null}
