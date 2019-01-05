@@ -124,6 +124,7 @@ class Corpus(MutableSequence):
             raise ValueError('Fields must exist: {}'.format(not_there))
         with open(self._metadata_path, 'w') as fo:
             json.dump(value, fo)
+        return self.metadata
 
     def concordance(self, target='w', query='.*', show=['w'], subcorpora='file', **kwargs):
         results = Searcher(self).run(target, query, **kwargs)

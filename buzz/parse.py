@@ -262,7 +262,7 @@ class Parser(object):
         return dict(language=self.language,
                     parser=self.parser,
                     cons_parser=self.cons_parser,
-                    copula_head=self.corpula_head,
+                    copula_head=self.copula_head,
                     path=self.parsed_path,
                     name=self.corpus_name,
                     parsed=True,
@@ -327,7 +327,7 @@ class Parser(object):
         try:
             prepared = self.prepare_parser()
             if not prepared:
-                print("Error in preparation...")
+                print('Error in preparation...')
             self.parse()
         except:
             if self.made_new_dir:
@@ -336,5 +336,5 @@ class Parser(object):
 
         parsed = Corpus(self.parsed_path)
         metadata = self._make_metadata(kwargs.get('desc'))
-        parsed.metadata = metadata
+        parsed.add_metadata(metadata)
         return parsed
