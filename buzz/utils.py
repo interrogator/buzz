@@ -18,6 +18,16 @@ def _get_tqdm():
     return tqdm
 
 
+def _tqdm_update(tqdm):
+    if tqdm is not None:
+        tqdm.update(1)
+
+
+def _tqdm_close(tqdm):
+    if tqdm is not None:
+        tqdm.close()
+
+
 def auto_window():
     import shutil
     columns = shutil.get_terminal_size().columns
