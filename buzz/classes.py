@@ -3,7 +3,7 @@ from .search import Searcher
 from .parse import Parser
 from .constants import CONLL_COLUMNS, LONG_NAMES
 from collections import MutableSequence
-from .utils import _to_df, _get_nlp, _strip_metadata, _set_best_data_types
+from .utils import _to_df, _get_nlp, _strip_metadata, _set_best_data_types, _get_tqdm, _tqdm_close, _tqdm_update
 from .views import _tabview, _table
 from .keys import _keywords
 import pandas as pd
@@ -11,12 +11,7 @@ import re
 from functools import total_ordering
 import json
 
-from tqdm import tqdm, tqdm_notebook
-try:
-    if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
-        tqdm = tqdm_notebook
-except:
-    pass
+tqdm = _get_tqdm()
 
 
 class Contents(MutableSequence):
@@ -51,10 +46,10 @@ class Contents(MutableSequence):
         # allow user to pass in a regular expression and get all matching names
         if isinstance(i, re._pattern_type):
             it = [s for s in to_iter if re.search(i, s.name.split('.', 1)[0])]
-            return Corpus(it, path=self.path)
+            return Corpus(it, path=self.path, name=self.name)
         # normal indexing and slicing
         if isinstance(i, slice):
-            return Corpus(to_iter[i], path=self.path)
+            return Corpus(to_iter[i], path=self.path, name=self.name)
         return to_iter[i]
 
     def __delitem__(self, i):
@@ -71,7 +66,7 @@ class Corpus(MutableSequence):
     """
     Model a collection of plain text or CONLL-U files.
     """
-    def __init__(self, data=None, root=None, path=None, too_large_for_memory=False):
+    def __init__(self, data=None, root=None, path=None, name=None, too_large_for_memory=False):
         """
         Initialise the corpus, deteremine if parsed, hook up methods
         """
@@ -80,7 +75,7 @@ class Corpus(MutableSequence):
         self.list = list()
         self.path = path
         self.root = root
-        self.name = None
+        self.name = name
         self.is_conll = None
         self.is_parsed = None
         self.too_large_for_memory = self._check_if_too_large(too_large_for_memory)
@@ -221,10 +216,10 @@ class Corpus(MutableSequence):
         except:
             pattern_type = re.Pattern
         if isinstance(i, pattern_type):
-            return Corpus([s for s in to_iter if re.search(i, s.name.split('.', 1)[0])], path=self.path)
+            return Corpus([s for s in to_iter if re.search(i, s.name.split('.', 1)[0])], path=self.path, name=self.name)
         # normal indexing and slicing
         if isinstance(i, slice):
-            return Corpus(to_iter[i], path=self.path)
+            return Corpus(to_iter[i], path=self.path, name=self.name)
         return to_iter[i]
 
     def __delitem__(self, i):
@@ -330,14 +325,12 @@ class Corpus(MutableSequence):
         """
         Load a Corpus into memory
         """
-        t = None
         kwa = dict(ncols=120,
                    unit='file',
                    desc='Loading',
                    total=len(self))
 
-        if len(self) > 1:
-            t = tqdm(**kwa)
+        t = tqdm(**kwa) if len(self) > 1 else None
 
         loaded = list()
         for file in self.files:
@@ -346,10 +339,9 @@ class Corpus(MutableSequence):
                 loaded.append(loaded_file)
             else:
                 loaded.append(file.read())
-            if t is not None:
-                t.update(1)
-        if t is not None:
-            t.close()
+
+            _tqdm_update(t)
+        _tqdm_close(t)
 
         if combine and not self.nlp:
             self._prepare_spacy()
