@@ -2,7 +2,7 @@ import os
 import shutil
 import fnmatch
 
-from .utils import _strip_metadata
+from .utils import _strip_metadata, _get_tqdm, _tqdm_close, _tqdm_update
 from .conll import get_metadata
 
 import nltk
@@ -12,12 +12,7 @@ try:
 except ImportError:
     rumps = False
 
-from tqdm import tqdm, tqdm_notebook
-try:
-    if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
-        tqdm = tqdm_notebook
-except:
-    pass
+tqdm = _get_tqdm()
 
 # theoretically may not need spacy for features
 try:
@@ -30,7 +25,6 @@ class Phony(object):
     """
     shitty object that overrides the str.decode method in bllip, currently broken
     """
-
     def __init__(self, word):
         self.word = Parser.normalise_word(word)
 
@@ -123,15 +117,13 @@ class Parser(object):
         return Phony(norm) if wrap else norm
 
     def spacy_parse(self):
-        fs = [f.path for f in self.plain_corpus.files]
         abspath = os.path.abspath(os.getcwd())
-        fs = [os.path.join(abspath, f) for f in fs]
+        fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
         kwa = dict(ncols=120, unit='file', desc='Parsing', total=len(fs))
         t = None
         ntokens = 0
         nsents = 0
-        if len(fs) > 1:
-            t = tqdm(**kwa)
+        t = tqdm(**kwa) if len(fs) > 1 else None
         for file_num, path in enumerate(fs, start=1):
             with open(path, 'r') as fo:
                 plain = fo.read().strip()
@@ -144,7 +136,7 @@ class Parser(object):
             has_file_meta = plain.splitlines()[0].strip().startswith('<metadata')
 
             output = list()
-            nsents += len(doc.sents)
+            nsents += len(list(doc.sents))
             for sent_index, sent in enumerate(doc.sents, start=1):
                 word_index = 1
                 sent_parts = list()
@@ -202,10 +194,9 @@ class Parser(object):
 
             with open(outpath, 'w') as fo:
                 fo.write(output)
-            if t is not None:
-                t.update(1)
-        if t is not None:
-            t.close()
+
+            _tqdm_update(t)
+        _tqdm_close(t)
 
         self.ntokens = ntokens
         self.nsents = nsents
@@ -232,7 +223,7 @@ class Parser(object):
         """
         to_parse = self.plain_corpus
         # make a dictionary of the right paths
-        pathdict = {}
+        pathdict = dict()
         for rootd, dirnames, filenames in os.walk(self.plain_corpus.path):
             for filename in fnmatch.filter(filenames, '*.txt'):
                 pathdict[filename] = rootd
@@ -245,13 +236,11 @@ class Parser(object):
 
             df = self.feature_grammar.process(data)
             df.index.names = ['s', 'i']
-            outstring = []
+            outstring = list()
 
             for ix, sent in df.groupby(level='s'):
                 offsets = (sent['start'].values[0], sent['end'].values[0])
-                metad = get_metadata(stripped,
-                                     raw,
-                                     offsets)
+                metad = get_metadata(stripped, raw, offsets)
                 output = '# sent_id = %d\n# sent_len = %d\n# parser = features\n' % (ix, len(sent))
                 for k, v in sorted(metad.items()):
                     output += '# %s = %s\n' % (k, v)
@@ -270,9 +259,9 @@ class Parser(object):
             fo.write(outstring)
 
     def _make_metadata(self, description):
-        return dict(language=self.parser.language,
-                    parser=self.parser.parser,
-                    cons_parser=self.parser.cons_parser,
+        return dict(language=self.language,
+                    parser=self.parser,
+                    cons_parser=self.cons_parser,
                     copula_head=self.corpula_head,
                     path=self.parsed_path,
                     name=self.corpus_name,
