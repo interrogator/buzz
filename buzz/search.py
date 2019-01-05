@@ -3,7 +3,7 @@ from nltk.tgrep import tgrep_compile
 
 from .query import depgrep_compile
 
-from .utils import maketree, _get_tqdm
+from .utils import maketree, _get_tqdm, _tqdm_update, _tqdm_close
 
 
 class Searcher(object):
@@ -217,14 +217,14 @@ class Searcher(object):
         # just load the target column coz we are bad ass
         usecols = ['file', 's', 'i', target]
 
-        t = None
-        if len(self.to_search) > 1 and self.target not in {'t', 'd'}:
-            tqdm = _get_tqdm()
-            t = tqdm(total=len(self.to_search),
-                     desc='Searching corpus',
-                     position=multiprocess,
-                     ncols=120,
-                     unit='document')
+        tqdm = _get_tqdm()
+        kwa = dict(total=len(self.to_search),
+                   desc='Searching corpus',
+                   position=multiprocess,
+                   ncols=120,
+                   unit='document')
+        simple = self.target not in {'t', 'd'}
+        t = tqdm(**kwa) if len(self.to_search) > 1 and simple else None
 
         for piece in self.to_search:
             if isinstance(piece, File):
@@ -233,10 +233,8 @@ class Searcher(object):
             res = self.query_a_piece(piece, usecols)
             if not res.empty:
                 results.append(res)
-            if t is not None:
-                t.update()
-        if t is not None:
-            t.close()
+            _tqdm_update(t)
+        _tqdm_close(t)
 
         from .classes import Results
         results = pd.concat(results, sort=False)
