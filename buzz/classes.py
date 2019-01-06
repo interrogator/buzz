@@ -30,7 +30,7 @@ class Contents(MutableSequence):
         return len(self.list)
 
     def __bool__(self):
-        return True if self.data else False
+        return True if self.list else False
 
     def __getattr__(self, name):
         """
@@ -181,9 +181,7 @@ class Corpus(MutableSequence):
             self.path = input_data
             self.name = os.path.basename(input_data)
             self._get_corpus_contents()
-        # if already a corpus?
-        elif isinstance(input_data, MutableSequence):
-            raise NotImplementedError()
+
         # if there are any files, figure out if they are parsed
         if self.files:
             if self.files[0].path.endswith(('conll', 'conllu')):
