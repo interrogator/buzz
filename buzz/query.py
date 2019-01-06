@@ -265,7 +265,9 @@ def _tgrep_node_action(_s, _l, tokens, cols, case_sensitive=False):
         else:
             attr = 'w'
 
-        pos = cols.get_loc(attr)
+        # todo: find out wtf goin on with this - 1
+        # is it from resetting index twice perhaps?
+        pos = cols.get_loc(attr) - 1
 
         # if the token is 'anything', just return true
         if tokens[0] == '*' or tokens[0] == '__':
@@ -964,7 +966,7 @@ def depgrep_compile(depgrep_string, df=False, case_sensitive=False):
     Parses (and tokenizes, if necessary) a depgrep search string into a
     lambda function.
     """
-    # df = df.drop(['file', 's', 'i'], axis=1, errors='ignore').reset_index()
+    df = df.drop(['file', 's', 'i'], axis=1, errors='ignore').reset_index()
     parser = _build_depgrep_parser(df=df, case_sensitive=case_sensitive)
     if isinstance(depgrep_string, bytes):
         depgrep_string = depgrep_string.decode()

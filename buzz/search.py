@@ -126,7 +126,7 @@ class Searcher(object):
         if self.target in piece.index.names:
             piece[self.target] = piece.index.get_level_values(self.target)
 
-        num_query = self.target in ['i', 'g', 'sent_len']
+        num_query = self.target in {'i', 'g', 'sent_len'}
 
         # dependency search
         if self.target == 'd':
