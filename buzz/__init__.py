@@ -7,4 +7,4 @@ warnings.filterwarnings('ignore')
 
 from .classes import Corpus, LoadedCorpus, Results
 
-__version__ = '1.0.2'
+__version__ = '1.0.3'
