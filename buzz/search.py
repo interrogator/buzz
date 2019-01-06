@@ -23,7 +23,7 @@ class Searcher(object):
         # if corpus is unloaded or a file, load it
         if type(corpus) in {File, Corpus}:
             self.corpus = corpus.load()
-            self.reference = self.corpus
+            self.reference = self.corpus  # .copy()
         # if it's results, use the reference of that
         elif type(corpus) == Results:
             self.corpus = corpus._df()
@@ -160,8 +160,6 @@ class Searcher(object):
             df = self._df()
         elif type(self.corpus) == LoadedCorpus:
             df = self.corpus
-
-        df = self.corpus
 
         # create progress bar
         if self.corpus.is_loaded():
