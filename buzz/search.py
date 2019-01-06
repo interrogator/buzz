@@ -14,19 +14,24 @@ class Searcher(object):
         # really hate this code...
         from .classes import File, Results, Corpus
         self.corpus = corpus
+        # if we can't bring corpus into memory, we will use files
         if type(corpus) == Corpus and self.corpus.too_large_for_memory:
+            print('Warning: corpus too large for memory!')
             self.to_search = corpus.files
             self.reference = None
             return
+        # if corpus is unloaded or a file, load it
         if type(corpus) in {File, Corpus}:
             self.corpus = corpus.load()
-            self.reference = corpus.copy()
+            self.reference = self.corpus
+        # if it's results, use the reference of that
         elif type(corpus) == Results:
             self.corpus = corpus._df()
             self.reference = corpus.reference
+        # if it's just a dataframe, we can guess...
         elif isinstance(corpus, pd.DataFrame):
-            self.reference = corpus.copy()
-        self.to_search = [corpus]
+            self.reference = corpus
+        self.to_search = [self.corpus]
 
     def tgrep_searcher(self, countmode=False, multiprocess=0):
         """
@@ -116,7 +121,7 @@ class Searcher(object):
         Return bool index for match/no match for each token in this piece
         """
         if not isinstance(piece, pd.DataFrame):
-            piece = piece.load(usecols=usecols)
+            piece = piece.load()
 
         if self.target in piece.index.names:
             piece[self.target] = piece.index.get_level_values(self.target)
@@ -212,7 +217,6 @@ class Searcher(object):
             self.query = tgrep_compile(query)
 
         results = list()
-        pieces = list()
 
         # just load the target column coz we are bad ass
         usecols = ['file', 's', 'i', target]
@@ -229,7 +233,6 @@ class Searcher(object):
         for piece in self.to_search:
             if isinstance(piece, File):
                 piece = piece.load()
-            pieces.append(piece)
             res = self.query_a_piece(piece, usecols)
             if not res.empty:
                 results.append(res)
@@ -237,7 +240,11 @@ class Searcher(object):
         _tqdm_close(t)
 
         from .classes import Results
-        results = pd.concat(results, sort=False)
-        results = Results(results)
+        if not results:
+            print('No results, sorry.')
+            results = Results()
+        else:
+            results = pd.concat(results, sort=False)
+            results = Results(results)
         results.reference = self.reference
         return results
