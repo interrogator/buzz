@@ -9,11 +9,11 @@
 # time = DAY
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	DET	DT	_	3	compound	_	_
-3	waves	wave	NOUN	NNS	_	3	ROOT	_	_
+3	waves	wave	NOUN	NNS	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	Mister	mister	PROPN	NNP	_	7	compound	_	_
-6	Señor	señor	PROPN	NNP	_	7	compound	_	_
-7	Love	love	PROPN	NNP	_	8	compound	_	_
+6	Señor	señor	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+7	Love	love	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 8	Daddy	daddy	PROPN	NNP	_	4	pobj	_	_
 9	as	as	ADP	IN	_	11	mark	_	_
 10	he	-PRON-	PRON	PRP	_	11	nsubj	_	_

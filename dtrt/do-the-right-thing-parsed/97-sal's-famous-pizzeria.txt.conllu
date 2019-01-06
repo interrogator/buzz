@@ -8,20 +8,20 @@
 # text = Mookie walks up to Sal's Famous Pizzeria as it still smoulders in the morning light.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	walks	walk	VERB	VBZ	_	2	ROOT	_	_
+2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	ADP	IN	_	2	prt	_	_
 4	to	to	ADP	IN	_	2	prep	_	_
-5	Sal	sal	PROPN	NNP	_	8	poss	_	_
-6	's	's	PART	POS	_	5	case	_	_
-7	Famous	famous	PROPN	NNP	_	8	compound	_	_
-8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	_
+5	Sal	sal	PROPN	NNP	_	8	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
+6	's	's	PART	POS	_	5	case	_	ent_type=ORG|ent_id=381|ent_iob=I
+7	Famous	famous	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 9	as	as	ADP	IN	_	12	mark	_	_
 10	it	-PRON-	PRON	PRP	_	12	nsubj	_	_
 11	still	still	ADV	RB	_	12	advmod	_	_
 12	smoulders	smoulder	VERB	VBZ	_	2	advcl	_	_
 13	in	in	ADP	IN	_	12	prep	_	_
 14	the	the	DET	DT	_	16	det	_	_
-15	morning	morning	NOUN	NN	_	16	compound	_	_
+15	morning	morning	NOUN	NN	_	16	compound	_	ent_type=TIME|ent_id=389|ent_iob=B
 16	light	light	NOUN	NN	_	13	pobj	_	_
 17	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -34,14 +34,14 @@
 # stage_direction = True
 # text = Sal emerges from the wreckage; he looks like he might have slept there.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	emerges	emerge	VERB	VBZ	_	8	ccomp	_	_
 3	from	from	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	wreckage	wreckage	NOUN	NN	_	3	pobj	_	_
 6	;	;	PUNCT	:	_	8	punct	_	_
 7	he	-PRON-	PRON	PRP	_	8	nsubj	_	_
-8	looks	look	VERB	VBZ	_	8	ROOT	_	_
+8	looks	look	VERB	VBZ	_	0	ROOT	_	_
 9	like	like	ADP	IN	_	13	mark	_	_
 10	he	-PRON-	PRON	PRP	_	13	nsubj	_	_
 11	might	may	VERB	MD	_	13	aux	_	_
@@ -64,7 +64,7 @@
 1	Whatdafuck	whatdafuck	PROPN	NNP	_	4	dobj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -80,7 +80,7 @@
 # text = I wants my money.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	wants	want	VERB	VBZ	_	2	ROOT	_	_
+2	wants	want	VERB	VBZ	_	0	ROOT	_	_
 3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	money	money	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -97,7 +97,7 @@
 # text = I wants to get paid..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	wants	want	VERB	VBZ	_	2	ROOT	_	_
+2	wants	want	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	PART	TO	_	5	aux	_	_
 4	get	get	VERB	VB	_	5	auxpass	_	_
 5	paid	pay	VERB	VBN	_	2	xcomp	_	_
@@ -112,10 +112,10 @@
 # stage_direction = True
 # text = Sal looks at Mookie in disbelief.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	pobj	_	_
+4	Mookie	mookie	PROPN	NNP	_	3	pobj	_	ent_type=LOC|ent_id=383|ent_iob=B
 5	in	in	ADP	IN	_	2	prep	_	_
 6	disbelief	disbelief	NOUN	NN	_	5	pobj	_	_
 7	.	.	PUNCT	.	_	2	punct	_	_
@@ -135,7 +135,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	always	always	ADV	RB	_	5	advmod	_	_
-5	liked	like	VERB	VBD	_	5	ROOT	_	_
+5	liked	like	VERB	VBD	_	0	ROOT	_	_
 6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -153,7 +153,7 @@
 1	Not	not	ADV	RB	_	4	neg	_	_
 2	the	the	DET	DT	_	4	det	_	_
 3	smartest	smart	ADJ	JJS	_	4	amod	_	_
-4	kid	kid	NOUN	NN	_	4	ROOT	_	_
+4	kid	kid	NOUN	NN	_	0	ROOT	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	but	but	CCONJ	CC	_	4	cc	_	_
 7	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
@@ -174,7 +174,7 @@
 # time = DAY
 1	Do	do	VERB	VB	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	make	make	VERB	VB	_	3	ROOT	_	_
+3	make	make	VERB	VB	_	0	ROOT	_	_
 4	me	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	dislike	dislike	VERB	VB	_	3	ccomp	_	_
 6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
@@ -194,7 +194,7 @@
 1	Sal	sal	PROPN	NNP	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	want	want	VERB	VBP	_	4	ROOT	_	_
+4	want	want	VERB	VBP	_	0	ROOT	_	_
 5	my	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	money	money	NOUN	NN	_	4	dobj	_	_
 7	..	..	PUNCT	.	_	4	punct	_	_
@@ -213,7 +213,7 @@
 1	Do	do	VERB	VBP	_	4	aux	_	_
 2	n't	not	ADV	RB	_	4	neg	_	_
 3	even	even	ADV	RB	_	4	advmod	_	_
-4	ask	ask	VERB	VB	_	4	ROOT	_	_
+4	ask	ask	VERB	VB	_	0	ROOT	_	_
 5	about	about	ADP	IN	_	4	prep	_	_
 6	your	-PRON-	ADJ	PRP$	_	7	poss	_	_
 7	money	money	NOUN	NN	_	5	pobj	_	_
@@ -235,7 +235,7 @@
 3	would	would	VERB	MD	_	6	aux	_	_
 4	n't	not	ADV	RB	_	6	neg	_	_
 5	even	even	ADV	RB	_	6	advmod	_	_
-6	pay	pay	VERB	VB	_	6	ROOT	_	_
+6	pay	pay	VERB	VB	_	0	ROOT	_	_
 7	for	for	ADP	IN	_	6	prep	_	_
 8	that	that	DET	DT	_	9	det	_	_
 9	window	window	NOUN	NN	_	7	pobj	_	_
@@ -254,13 +254,13 @@
 # stage_direction = True
 # text = Motherfuck a window, Radio Raheem is dead..
 # time = DAY
-1	Motherfuck	motherfuck	PROPN	NNP	_	7	advcl	_	_
+1	Motherfuck	motherfuck	PROPN	NNP	_	7	advcl	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	a	a	DET	DT	_	3	det	_	_
 3	window	window	NOUN	NN	_	1	appos	_	_
 4	,	,	PUNCT	,	_	7	punct	_	_
-5	Radio	radio	PROPN	NNP	_	6	compound	_	_
-6	Raheem	raheem	PROPN	NNP	_	7	nsubj	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+5	Radio	radio	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Raheem	raheem	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	dead	dead	ADJ	JJ	_	7	acomp	_	_
 9	..	..	PUNCT	.	_	7	punct	_	_
 
@@ -281,11 +281,11 @@
 4	,	,	PUNCT	,	_	7	punct	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	kid	kid	NOUN	NN	_	7	nsubj	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	dead	dead	ADJ	JJ	_	7	acomp	_	_
 9	,	,	PUNCT	,	_	7	punct	_	_
 10	but	but	CCONJ	CC	_	7	cc	_	_
-11	Mook	mook	PROPN	NNP	_	14	advcl	_	_
+11	Mook	mook	PROPN	NNP	_	14	advcl	_	ent_type=PERSON|ent_id=378|ent_iob=B
 12	,	,	PUNCT	,	_	14	punct	_	_
 13	this	this	DET	DT	_	14	nsubj	_	_
 14	is	be	VERB	VBZ	_	7	conj	_	_
@@ -293,7 +293,7 @@
 16	the	the	DET	DT	_	17	det	_	_
 17	time	time	NOUN	NN	_	14	attr	_	_
 18	..	..	PUNCT	.	_	14	punct	_	_
-19	Fuck	fuck	PROPN	NNP	_	21	compound	_	_
+19	Fuck	fuck	PROPN	NNP	_	21	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
 20	dat	dat	NOUN	NN	_	14	attr	_	_
 21	.	.	PUNCT	.	_	14	punct	_	_
 
@@ -310,7 +310,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	time	time	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	fuckin	fuckin	VERB	VBG	_	3	acomp	_	_
 5	'	'	PUNCT	''	_	3	punct	_	_
 6	now	now	ADV	RB	_	3	advmod	_	_
@@ -327,7 +327,7 @@
 # stage_direction = True
 # text = Y'know
 # time = DAY
-1	Y'know	y'know	NOUN	NN	_	1	ROOT	_	_
+1	Y'know	y'know	NOUN	NN	_	0	ROOT	_	_
 
 # line = 783
 # loc = EXT
@@ -341,13 +341,13 @@
 # text = I'm sorry 'bout Sal's Famous Pizzeria, but I gotta live, too.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	sorry	sorry	ADJ	JJ	_	2	acomp	_	_
 4	'bout	about	ADP	IN	_	3	prep	_	_
-5	Sal	sal	PROPN	NNP	_	8	poss	_	_
-6	's	's	PART	POS	_	5	case	_	_
-7	Famous	famous	PROPN	NNP	_	8	compound	_	_
-8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	_
+5	Sal	sal	PROPN	NNP	_	8	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	's	's	PART	POS	_	5	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
+7	Famous	famous	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
+8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	,	,	PUNCT	,	_	2	punct	_	_
 10	but	but	CCONJ	CC	_	2	cc	_	_
 11	I	-PRON-	PRON	PRP	_	12	nsubj	_	_
@@ -370,7 +370,7 @@
 # text = I gotta get paid..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	ta	to	PART	TO	_	5	aux	_	_
 4	get	get	VERB	VB	_	5	auxpass	_	_
 5	paid	pay	VERB	VBN	_	2	xcomp	_	_
@@ -389,7 +389,7 @@
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	both	both	DET	DT	_	1	appos	_	_
-3	do	do	VERB	VBP	_	3	ROOT	_	_
+3	do	do	VERB	VBP	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 785
@@ -405,7 +405,7 @@
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	all	all	DET	DT	_	1	appos	_	_
-3	know	know	VERB	VBP	_	3	ROOT	_	_
+3	know	know	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	're	be	VERB	VBP	_	6	aux	_	_
 6	gon	go	VERB	VBG	_	3	ccomp	_	_
@@ -430,8 +430,8 @@
 # stage_direction = True
 # text = Ya know da deal..
 # time = DAY
-1	Ya	ya	PROPN	NNP	_	2	nsubj	_	_
-2	know	know	VERB	VBP	_	2	ROOT	_	_
+1	Ya	ya	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	know	know	VERB	VBP	_	0	ROOT	_	_
 3	da	da	PROPN	NNP	_	4	compound	_	_
 4	deal	deal	NOUN	NN	_	2	dobj	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -447,7 +447,7 @@
 # stage_direction = True
 # text = Do we now?.
 # time = DAY
-1	Do	do	VERB	VBP	_	1	ROOT	_	_
+1	Do	do	VERB	VBP	_	0	ROOT	_	_
 2	we	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	now	now	ADV	RB	_	1	advmod	_	_
 4	?	?	PUNCT	.	_	1	punct	_	_
@@ -465,7 +465,7 @@
 # text = Quit bullshitting..
 # time = DAY
 1	Quit	quit	PROPN	NNP	_	2	compound	_	_
-2	bullshitting	bullshitting	NOUN	NN	_	2	ROOT	_	_
+2	bullshitting	bullshitting	NOUN	NN	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 788
@@ -482,7 +482,7 @@
 1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	know	know	VERB	VB	_	4	ROOT	_	_
+4	know	know	VERB	VB	_	0	ROOT	_	_
 5	shit	shit	NOUN	NN	_	4	dobj	_	_
 6	about	about	ADP	IN	_	5	prep	_	_
 7	shit	shit	NOUN	NN	_	6	pobj	_	_
@@ -502,7 +502,7 @@
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	know	know	VERB	VBP	_	4	parataxis	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	wants	want	VERB	VBZ	_	4	ROOT	_	_
+4	wants	want	VERB	VBZ	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	get	get	VERB	VB	_	4	xcomp	_	_
 7	my	-PRON-	ADJ	PRP$	_	8	poss	_	_
@@ -518,9 +518,9 @@
 # stage_direction = True
 # text = Sal has had it.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	3	nsubj	_	_
+1	Sal	sal	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	has	have	VERB	VBZ	_	3	aux	_	_
-3	had	have	VERB	VBN	_	3	ROOT	_	_
+3	had	have	VERB	VBN	_	0	ROOT	_	_
 4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -536,7 +536,7 @@
 # text = How much?
 # time = DAY
 1	How	how	ADV	WRB	_	2	advmod	_	_
-2	much	much	ADJ	JJ	_	2	ROOT	_	_
+2	much	much	ADJ	JJ	_	0	ROOT	_	_
 3	?	?	PUNCT	.	_	2	punct	_	_
 
 # line = 790
@@ -554,7 +554,7 @@
 2	much	much	ADJ	JJ	_	5	dative	_	_
 3	do	do	VERB	VBP	_	5	aux	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	owe	owe	VERB	VB	_	5	ROOT	_	_
+5	owe	owe	VERB	VB	_	0	ROOT	_	_
 6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	?	?	PUNCT	.	_	5	punct	_	_
 8	.	.	PUNCT	.	_	5	punct	_	_
@@ -571,7 +571,7 @@
 # text = My salary.
 # time = DAY
 1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	salary	salary	NOUN	NN	_	2	ROOT	_	_
+2	salary	salary	NOUN	NN	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 791
@@ -585,9 +585,9 @@
 # stage_direction = True
 # text = Two-fifty..
 # time = DAY
-1	Two	two	NUM	CD	_	3	nummod	_	_
-2	-	-	PUNCT	HYPH	_	3	punct	_	_
-3	fifty	fifty	NUM	CD	_	3	ROOT	_	_
+1	Two	two	NUM	CD	_	3	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+2	-	-	PUNCT	HYPH	_	3	punct	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
+3	fifty	fifty	NUM	CD	_	0	ROOT	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # loc = EXT
@@ -599,8 +599,8 @@
 # stage_direction = True
 # text = Sal pulls out a wad and quickly peels off hundred dollar bills.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	pulls	pull	VERB	VBZ	_	2	ROOT	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
 3	out	out	PART	RP	_	2	prt	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	wad	wad	NOUN	NN	_	2	dobj	_	_
@@ -608,8 +608,8 @@
 7	quickly	quickly	ADV	RB	_	8	advmod	_	_
 8	peels	peel	VERB	VBZ	_	5	conj	_	_
 9	off	off	PART	RP	_	8	prt	_	_
-10	hundred	hundred	NUM	CD	_	11	nummod	_	_
-11	dollar	dollar	NOUN	NN	_	12	compound	_	_
+10	hundred	hundred	NUM	CD	_	11	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+11	dollar	dollar	NOUN	NN	_	12	compound	_	ent_type=MONEY|ent_id=391|ent_iob=I
 12	bills	bill	NOUN	NNS	_	5	conj	_	_
 13	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -624,15 +624,15 @@
 # stage_direction = True
 # text = One, two, three, four, five..
 # time = DAY
-1	One	one	NUM	CD	_	1	ROOT	_	_
+1	One	one	NUM	CD	_	0	ROOT	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	two	two	NUM	CD	_	1	appos	_	_
+3	two	two	NUM	CD	_	1	appos	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	three	three	NUM	CD	_	3	appos	_	_
+5	three	three	NUM	CD	_	3	appos	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	four	four	NUM	CD	_	5	conj	_	_
 8	,	,	PUNCT	,	_	5	punct	_	_
-9	five	five	NUM	CD	_	1	appos	_	_
+9	five	five	NUM	CD	_	1	appos	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 10	..	..	PUNCT	NFP	_	9	punct	_	_
 
 # loc = EXT
@@ -655,7 +655,7 @@
 9	Mookie	mookie	PROPN	NNP	_	8	pobj	_	_
 10	,	,	PUNCT	,	_	12	punct	_	_
 11	they	-PRON-	PRON	PRP	_	12	nsubj	_	_
-12	hit	hit	VERB	VBD	_	12	ROOT	_	_
+12	hit	hit	VERB	VBD	_	0	ROOT	_	_
 13	him	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	in	in	ADP	IN	_	12	prep	_	_
 15	the	the	DET	DT	_	16	det	_	_
@@ -678,7 +678,7 @@
 # stage_direction = True
 # text = Are you happy now?
 # time = DAY
-1	Are	be	VERB	VBP	_	1	ROOT	_	_
+1	Are	be	VERB	VBP	_	0	ROOT	_	_
 2	you	-PRON-	PRON	PRP	_	1	nsubj	_	_
 3	happy	happy	ADJ	JJ	_	1	acomp	_	_
 4	now	now	ADV	RB	_	1	advmod	_	_
@@ -696,11 +696,11 @@
 # text = That's five fucking hundred dollars.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
-3	five	five	NUM	CD	_	5	quantmod	_	_
-4	fucking	fucking	ADJ	JJ	_	5	quantmod	_	_
-5	hundred	hundred	NUM	CD	_	6	nummod	_	_
-6	dollars	dollar	NOUN	NNS	_	2	attr	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
+3	five	five	NUM	CD	_	5	quantmod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+4	fucking	fucking	ADJ	JJ	_	5	quantmod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+5	hundred	hundred	NUM	CD	_	6	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+6	dollars	dollar	NOUN	NNS	_	2	attr	_	ent_type=MONEY|ent_id=391|ent_iob=I
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 793
@@ -717,7 +717,7 @@
 1	You	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 2	just	just	ADV	RB	_	4	advmod	_	_
 3	got	get	VERB	VBD	_	4	auxpass	_	_
-4	paid	pay	VERB	VBN	_	4	ROOT	_	_
+4	paid	pay	VERB	VBN	_	0	ROOT	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 793
@@ -748,7 +748,7 @@
 15	you	-PRON-	PRON	PRP	_	18	nsubj	_	_
 16	'll	will	VERB	MD	_	18	aux	_	_
 17	never	never	ADV	RB	_	18	neg	_	_
-18	have	have	VERB	VB	_	18	ROOT	_	_
+18	have	have	VERB	VB	_	0	ROOT	_	_
 19	another	another	DET	DT	_	20	det	_	_
 20	worry	worry	NOUN	NN	_	18	dobj	_	_
 21	,	,	PUNCT	,	_	20	punct	_	_
@@ -778,13 +778,13 @@
 6	a	a	DET	DT	_	7	det	_	_
 7	fuckin	fuckin	NOUN	NN	_	12	poss	_	_
 8	'	'	PUNCT	``	_	7	punct	_	_
-9	Rockefeller	rockefeller	PROPN	NNP	_	12	nmod	_	_
+9	Rockefeller	rockefeller	PROPN	NNP	_	12	nmod	_	ent_type=ORG|ent_id=381|ent_iob=B
 10	..	..	PUNCT	NFP	_	9	punct	_	_
-11	Mookie	mookie	PROPN	NNP	_	14	nsubjpass	_	_
+11	Mookie	mookie	PROPN	NNP	_	14	nsubjpass	_	ent_type=GPE|ent_id=382|ent_iob=I
 12	is	be	VERB	VBZ	_	14	auxpass	_	_
-13	stunned	stun	VERB	VBN	_	14	ROOT	_	_
+13	stunned	stun	VERB	VBN	_	0	ROOT	_	_
 14	by	by	ADP	IN	_	14	agent	_	_
-15	Sal	sal	PROPN	NNP	_	18	poss	_	_
+15	Sal	sal	PROPN	NNP	_	18	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 16	's	's	PART	POS	_	16	case	_	_
 17	outburst	outburst	NOUN	NN	_	15	pobj	_	_
 18	.	.	PUNCT	.	_	14	punct	_	_
@@ -799,7 +799,7 @@
 # text = He picks up the bills.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	picks	pick	VERB	VBZ	_	2	ROOT	_	_
+2	picks	pick	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	bills	bill	NOUN	NNS	_	2	dobj	_	_
@@ -816,13 +816,13 @@
 # stage_direction = True
 # text = Ya just got paid, so leave me the fuck alone..
 # time = DAY
-1	Ya	ya	PROPN	NNP	_	4	nsubjpass	_	_
-2	just	just	ADV	RB	_	4	advmod	_	_
+1	Ya	ya	PROPN	NNP	_	4	nsubjpass	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+2	just	just	ADV	RB	_	4	advmod	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
 3	got	get	VERB	VBD	_	4	auxpass	_	_
 4	paid	pay	VERB	VBN	_	7	ccomp	_	_
 5	,	,	PUNCT	,	_	7	punct	_	_
 6	so	so	ADV	RB	_	7	advmod	_	_
-7	leave	leave	VERB	VB	_	7	ROOT	_	_
+7	leave	leave	VERB	VB	_	0	ROOT	_	_
 8	me	-PRON-	PRON	PRP	_	7	dobj	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	fuck	fuck	NOUN	NN	_	7	oprd	_	_
@@ -842,11 +842,11 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	only	only	ADV	RB	_	3	advmod	_	_
-3	pay	pay	VERB	VBP	_	3	ROOT	_	_
+3	pay	pay	VERB	VBP	_	0	ROOT	_	_
 4	me	-PRON-	PRON	PRP	_	3	dative	_	_
-5	two	two	NUM	CD	_	7	nummod	_	_
-6	-	-	PUNCT	HYPH	_	7	punct	_	_
-7	fifty	fifty	NUM	CD	_	3	dobj	_	_
+5	two	two	NUM	CD	_	7	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+6	-	-	PUNCT	HYPH	_	7	punct	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
+7	fifty	fifty	NUM	CD	_	3	dobj	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
 8	a	a	DET	DT	_	9	det	_	_
 9	week	week	NOUN	NN	_	7	npadvmod	_	_
 10	..	..	PUNCT	NFP	_	3	punct	_	_
@@ -868,10 +868,10 @@
 # text = I owe you fifty bucks..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	owe	owe	VERB	VBP	_	2	ROOT	_	_
+2	owe	owe	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dative	_	_
-4	fifty	fifty	NUM	CD	_	5	nummod	_	_
-5	bucks	buck	NOUN	NNS	_	2	dobj	_	_
+4	fifty	fifty	NUM	CD	_	5	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+5	bucks	buck	NOUN	NNS	_	2	dobj	_	ent_type=MONEY|ent_id=391|ent_iob=I
 6	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 796
@@ -885,7 +885,7 @@
 # stage_direction = True
 # text = Keep it..
 # time = DAY
-1	Keep	keep	VERB	VBP	_	1	ROOT	_	_
+1	Keep	keep	VERB	VBP	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -901,7 +901,7 @@
 # text = You keep it..
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	keep	keep	VERB	VBP	_	2	ROOT	_	_
+2	keep	keep	VERB	VBP	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -916,8 +916,8 @@
 # stage_direction = True
 # text = Christmas came early..
 # time = DAY
-1	Christmas	christmas	PROPN	NNP	_	2	nsubj	_	_
-2	came	come	VERB	VBD	_	2	ROOT	_	_
+1	Christmas	christmas	PROPN	NNP	_	2	nsubj	_	ent_type=DATE|ent_id=388|ent_iob=B
+2	came	come	VERB	VBD	_	0	ROOT	_	_
 3	early	early	ADV	RB	_	2	advmod	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -931,13 +931,13 @@
 # text = Both look at the two hundred-dollar bills on the sidewalk and refuse to pick them up.
 # time = DAY
 1	Both	both	DET	DT	_	2	nsubj	_	_
-2	look	look	VERB	VBP	_	2	ROOT	_	_
+2	look	look	VERB	VBP	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	9	det	_	_
-5	two	two	NUM	CD	_	9	nummod	_	_
-6	hundred	hundred	NUM	CD	_	8	nummod	_	_
-7	-	-	PUNCT	HYPH	_	8	punct	_	_
-8	dollar	dollar	NOUN	NN	_	9	compound	_	_
+5	two	two	NUM	CD	_	9	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+6	hundred	hundred	NUM	CD	_	8	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+7	-	-	PUNCT	HYPH	_	8	punct	_	ent_type=MONEY|ent_id=391|ent_iob=I
+8	dollar	dollar	NOUN	NN	_	9	compound	_	ent_type=MONEY|ent_id=391|ent_iob=I
 9	bills	bill	NOUN	NNS	_	3	pobj	_	_
 10	on	on	ADP	IN	_	9	prep	_	_
 11	the	the	DET	DT	_	12	det	_	_
@@ -960,7 +960,7 @@
 # text = It's a stalemate.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	stalemate	stalemate	NOUN	NN	_	2	attr	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -977,10 +977,10 @@
 # text = This is the hottest Christmas I've known..
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	hottest	hot	ADJ	JJS	_	5	amod	_	_
-5	Christmas	christmas	PROPN	NNP	_	2	attr	_	_
+5	Christmas	christmas	PROPN	NNP	_	2	attr	_	ent_type=DATE|ent_id=388|ent_iob=B
 6	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
 7	've	have	VERB	VB	_	8	aux	_	_
 8	known	know	VERB	VBN	_	5	relcl	_	_
@@ -996,7 +996,7 @@
 # text = Mookie counts his money.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	counts	count	VERB	VBZ	_	2	ROOT	_	_
+2	counts	count	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	money	money	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -1014,12 +1014,12 @@
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	3	nsubjpass	_	_
 2	's	be	VERB	VBZ	_	3	auxpass	_	_
-3	supposed	suppose	VERB	VBN	_	3	ROOT	_	_
+3	supposed	suppose	VERB	VBN	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	even	even	ADV	RB	_	7	advmod	_	_
 7	hotter	hot	ADJ	JJR	_	5	acomp	_	_
-8	today	today	NOUN	NN	_	5	npadvmod	_	_
+8	today	today	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
 9	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 801
@@ -1034,7 +1034,7 @@
 # text = You gonna open up another Sal's Famous Pizzeria?.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	gon	go	VERB	VBP	_	2	ROOT	_	_
+2	gon	go	VERB	VBP	_	0	ROOT	_	_
 3	na	to	PART	TO	_	4	aux	_	_
 4	open	open	VERB	VB	_	2	xcomp	_	_
 5	up	up	PART	RP	_	4	prt	_	_
@@ -1057,7 +1057,7 @@
 # stage_direction = True
 # text = No.
 # time = DAY
-1	No	no	INTJ	UH	_	1	ROOT	_	_
+1	No	no	INTJ	UH	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 802
@@ -1074,7 +1074,7 @@
 1	What	what	NOUN	WP	_	6	dobj	_	_
 2	are	be	VERB	VBP	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	gon	go	VERB	VBG	_	4	ROOT	_	_
+4	gon	go	VERB	VBG	_	0	ROOT	_	_
 5	na	to	PART	TO	_	6	aux	_	_
 6	do	do	VERB	VB	_	4	xcomp	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
@@ -1091,7 +1091,7 @@
 # stage_direction = True
 # text = Make dat money.
 # time = DAY
-1	Make	make	VERB	VBP	_	1	ROOT	_	_
+1	Make	make	VERB	VBP	_	0	ROOT	_	_
 2	dat	dat	NOUN	NN	_	3	compound	_	_
 3	money	money	NOUN	NN	_	1	dobj	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -1108,7 +1108,7 @@
 # text = Get paid..
 # time = DAY
 1	Get	get	VERB	VB	_	2	auxpass	_	_
-2	paid	pay	VERB	VBN	_	2	ROOT	_	_
+2	paid	pay	VERB	VBN	_	0	ROOT	_	_
 3	..	..	PUNCT	NFP	_	2	punct	_	_
 
 # line = 804
@@ -1125,7 +1125,7 @@
 1	Yeah!	yeah!	NOUN	NNS	_	4	intj	_	_
 2	...	...	PUNCT	:	_	4	punct	_	_
 3	I'm	i'm	PRON	PRP	_	4	nsubj	_	_
-4	goin'	go	VERB	VBG	_	4	ROOT	_	_
+4	goin'	go	VERB	VBG	_	0	ROOT	_	_
 5	to	to	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	beach	beach	NOUN	NN	_	5	pobj	_	_
@@ -1134,8 +1134,8 @@
 10	first	first	ADJ	JJ	_	11	amod	_	_
 11	day	day	NOUN	NN	_	8	pobj	_	_
 12	in	in	ADP	IN	_	11	prep	_	_
-13	fifteen	fifteen	NUM	CD	_	14	nummod	_	_
-14	years	year	NOUN	NNS	_	12	pobj	_	_
+13	fifteen	fifteen	NUM	CD	_	14	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
+14	years	year	NOUN	NNS	_	12	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 15	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 804
@@ -1149,11 +1149,11 @@
 # stage_direction = True
 # text = Gonna take the day off and go to the beach..
 # time = DAY
-1	Gon	go	VERB	VB	_	1	ROOT	_	_
+1	Gon	go	VERB	VB	_	0	ROOT	_	_
 2	na	to	PART	TO	_	3	aux	_	_
 3	take	take	VERB	VB	_	1	xcomp	_	_
-4	the	the	DET	DT	_	5	det	_	_
-5	day	day	NOUN	NN	_	3	dobj	_	_
+4	the	the	DET	DT	_	5	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+5	day	day	NOUN	NN	_	3	dobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 6	off	off	PART	RP	_	3	prt	_	_
 7	and	and	CCONJ	CC	_	3	cc	_	_
 8	go	go	VERB	VB	_	3	conj	_	_
@@ -1175,7 +1175,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	can	can	VERB	MD	_	3	aux	_	_
-3	dig	dig	VERB	VB	_	3	ROOT	_	_
+3	dig	dig	VERB	VB	_	0	ROOT	_	_
 4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -1192,15 +1192,15 @@
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
-6	HOT	hot	ADJ	JJ	_	5	acomp	_	_
+6	HOT	hot	ADJ	JJ	_	5	acomp	_	ent_type=ORG|ent_id=381|ent_iob=B
 7	as	as	ADP	IN	_	5	prep	_	_
 8	a	a	DET	DT	_	9	det	_	_
 9	motherfucker	motherfucker	NOUN	NN	_	7	pobj	_	_
 10	..	..	PUNCT	.	_	3	punct	_	_
-11	Mookie	mookie	PROPN	NNP	_	3	npadvmod	_	_
+11	Mookie	mookie	PROPN	NNP	_	3	npadvmod	_	ent_type=ORG|ent_id=381|ent_iob=I
 12	?	?	PUNCT	.	_	3	punct	_	_
 13	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -1215,7 +1215,7 @@
 # stage_direction = True
 # text = Gotta go..
 # time = DAY
-1	Got	got	PROPN	NNP	_	1	ROOT	_	_
+1	Got	got	PROPN	NNP	_	0	ROOT	_	_
 2	ta	to	PART	TO	_	3	aux	_	_
 3	go	go	VERB	VB	_	1	xcomp	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -1236,7 +1236,7 @@
 3	Doctor	doctor	PROPN	NNP	_	1	npadvmod	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 5	Mookie	mookie	PROPN	NNP	_	3	conj	_	_
-6	turns	turn	VERB	VBZ	_	7	ROOT	_	_
+6	turns	turn	VERB	VBZ	_	0	ROOT	_	_
 7	around	around	PART	RP	_	7	prt	_	_
 8	and	and	CCONJ	CC	_	7	cc	_	_
 9	goes	go	VERB	VBZ	_	7	conj	_	_
@@ -1257,8 +1257,8 @@
 1	Doctor	doctor	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	this	this	DET	DT	_	4	nsubj	_	_
-4	is	be	VERB	VBZ	_	4	ROOT	_	_
-5	Sal	sal	PROPN	NNP	_	6	compound	_	_
+4	is	be	VERB	VBZ	_	0	ROOT	_	_
+5	Sal	sal	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	talkin	talkin	NOUN	NN	_	4	attr	_	_
 7	'	'	PUNCT	''	_	4	punct	_	_
 8	..	..	PUNCT	NFP	_	4	punct	_	_
@@ -1274,7 +1274,7 @@
 # stage_direction = True
 # text = OK.
 # time = DAY
-1	OK	ok	INTJ	UH	_	1	ROOT	_	_
+1	OK	ok	INTJ	UH	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 810
@@ -1288,7 +1288,7 @@
 # stage_direction = True
 # text = OK..
 # time = DAY
-1	OK	ok	INTJ	UH	_	1	ROOT	_	_
+1	OK	ok	INTJ	UH	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 811
@@ -1305,7 +1305,7 @@
 1	Doctor	doctor	NOUN	NN	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	always	always	ADV	RB	_	4	advmod	_	_
-4	try	try	VERB	VB	_	4	ROOT	_	_
+4	try	try	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	do	do	VERB	VB	_	4	xcomp	_	_
 7	the	the	DET	DT	_	9	det	_	_
@@ -1325,7 +1325,7 @@
 # text = That's it?.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	attr	_	_
 4	?	?	PUNCT	.	_	2	punct	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -1342,7 +1342,7 @@
 # text = That's it..
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	attr	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -1356,14 +1356,14 @@
 # text = Mookie thinks about it, looks at the two "C" notes still smiling up at him.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	thinks	think	VERB	VBZ	_	2	ROOT	_	_
+2	thinks	think	VERB	VBZ	_	0	ROOT	_	_
 3	about	about	ADP	IN	_	2	prep	_	_
 4	it	-PRON-	PRON	PRP	_	3	pobj	_	_
 5	,	,	PUNCT	,	_	2	punct	_	_
 6	looks	look	VERB	VBZ	_	2	ccomp	_	_
 7	at	at	ADP	IN	_	6	prep	_	_
 8	the	the	DET	DT	_	13	det	_	_
-9	two	two	NUM	CD	_	13	nummod	_	_
+9	two	two	NUM	CD	_	13	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 10	"	"	PUNCT	``	_	13	punct	_	_
 11	C	c	PROPN	NNP	_	13	nmod	_	_
 12	"	"	PUNCT	''	_	13	punct	_	_
@@ -1386,7 +1386,7 @@
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	quickly	quickly	ADV	RB	_	3	advmod	_	_
-3	scoops	scoop	VERB	VBZ	_	3	ROOT	_	_
+3	scoops	scoop	VERB	VBZ	_	0	ROOT	_	_
 4	them	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	up	up	PART	RP	_	3	prt	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -1403,6 +1403,6 @@
 # text = I got it..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_

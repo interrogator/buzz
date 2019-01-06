@@ -8,7 +8,7 @@
 # text = Mookie walks down the block with pizza box in hand when he sees Da Mayor sitting on his stoop.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	walks	walk	VERB	VBZ	_	2	ROOT	_	_
+2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADP	IN	_	2	prt	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	block	block	NOUN	NN	_	3	pobj	_	_
@@ -20,8 +20,8 @@
 11	when	when	ADV	WRB	_	13	advmod	_	_
 12	he	-PRON-	PRON	PRP	_	13	nsubj	_	_
 13	sees	see	VERB	VBZ	_	2	advcl	_	_
-14	Da	da	PROPN	NNP	_	15	compound	_	_
-15	Mayor	mayor	PROPN	NNP	_	16	nsubj	_	_
+14	Da	da	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+15	Mayor	mayor	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 16	sitting	sit	VERB	VBG	_	13	ccomp	_	_
 17	on	on	ADP	IN	_	16	prep	_	_
 18	his	-PRON-	ADJ	PRP$	_	19	poss	_	_
@@ -41,7 +41,7 @@
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	4	nsubj	_	_
 2	..	..	PUNCT	.	_	4	punct	_	_
-3	Got	got	VERB	VBP	_	4	ROOT	_	_
+3	Got	got	VERB	VBP	_	0	ROOT	_	_
 4	ta	to	PART	TO	_	6	aux	_	_
 5	go	go	VERB	VB	_	4	xcomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
@@ -62,7 +62,7 @@
 3	Doctor	doctor	PROPN	NNP	_	1	npadvmod	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 5	Mookie	mookie	PROPN	NNP	_	3	conj	_	_
-6	turns	turn	VERB	VBZ	_	7	ROOT	_	_
+6	turns	turn	VERB	VBZ	_	0	ROOT	_	_
 7	around	around	PART	RP	_	7	prt	_	_
 8	and	and	CCONJ	CC	_	7	cc	_	_
 9	goes	go	VERB	VBZ	_	7	conj	_	_
@@ -83,9 +83,9 @@
 1	Doctor	doctor	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	this	this	DET	DT	_	4	nsubj	_	_
-4	is	be	VERB	VBZ	_	4	ROOT	_	_
-5	Da	da	PROPN	NNP	_	6	compound	_	_
-6	Mayor	mayor	PROPN	NNP	_	7	compound	_	_
+4	is	be	VERB	VBZ	_	0	ROOT	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Mayor	mayor	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 7	talkin	talkin	NOUN	NN	_	4	attr	_	_
 8	'	'	PUNCT	''	_	4	punct	_	_
 9	..	..	PUNCT	NFP	_	4	punct	_	_
@@ -101,7 +101,7 @@
 # stage_direction = True
 # text = OK.
 # time = DAY
-1	OK	ok	INTJ	UH	_	1	ROOT	_	_
+1	OK	ok	INTJ	UH	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 138
@@ -115,7 +115,7 @@
 # stage_direction = True
 # text = OK..
 # time = DAY
-1	OK	ok	INTJ	UH	_	1	ROOT	_	_
+1	OK	ok	INTJ	UH	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 139
@@ -132,7 +132,7 @@
 1	Doctor	doctor	NOUN	NN	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	always	always	ADV	RB	_	4	advmod	_	_
-4	try	try	VERB	VB	_	4	ROOT	_	_
+4	try	try	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	do	do	VERB	VB	_	4	xcomp	_	_
 7	the	the	DET	DT	_	9	det	_	_
@@ -152,7 +152,7 @@
 # text = That's it?.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	attr	_	_
 4	?	?	PUNCT	.	_	2	punct	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -169,7 +169,7 @@
 # text = That's it..
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	attr	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -185,6 +185,6 @@
 # text = I got it..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_

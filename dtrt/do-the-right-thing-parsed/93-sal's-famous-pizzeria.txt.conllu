@@ -9,7 +9,7 @@
 # time = NIGHT
 1	Some	some	DET	DT	_	3	det	_	_
 2	burnt	burn	VERB	VBN	_	3	amod	_	_
-3	photos	photo	NOUN	NNS	_	3	ROOT	_	_
+3	photos	photo	NOUN	NNS	_	0	ROOT	_	_
 4	on	on	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	floor	floor	NOUN	NN	_	4	pobj	_	_
@@ -25,10 +25,10 @@
 # text = The Mickey Mantle bat burns.
 # time = NIGHT
 1	The	the	DET	DT	_	5	det	_	_
-2	Mickey	mickey	PROPN	NNP	_	3	compound	_	_
-3	Mantle	mantle	PROPN	NNP	_	5	compound	_	_
+2	Mickey	mickey	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+3	Mantle	mantle	PROPN	NNP	_	5	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
 4	bat	bat	NOUN	NN	_	5	compound	_	_
-5	burns	burn	VERB	VBZ	_	5	ROOT	_	_
+5	burns	burn	VERB	VBZ	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = INT
@@ -41,11 +41,11 @@
 # text = Radio Raheem's box has melted into a black mass of goo.
 # time = NIGHT
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	4	poss	_	_
+2	Raheem	raheem	PROPN	NNP	_	4	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	's	's	PART	POS	_	2	case	_	_
 4	box	box	NOUN	NN	_	6	nsubj	_	_
 5	has	have	VERB	VBZ	_	6	aux	_	_
-6	melted	melt	VERB	VBN	_	6	ROOT	_	_
+6	melted	melt	VERB	VBN	_	0	ROOT	_	_
 7	into	into	ADP	IN	_	6	prep	_	_
 8	a	a	DET	DT	_	10	det	_	_
 9	black	black	ADJ	JJ	_	10	amod	_	_
@@ -74,7 +74,7 @@
 9	box	box	NOUN	NN	_	6	pobj	_	_
 10	,	,	PUNCT	,	_	12	punct	_	_
 11	we	-PRON-	PRON	PRP	_	12	nsubj	_	_
-12	begin	begin	VERB	VBP	_	12	ROOT	_	_
+12	begin	begin	VERB	VBP	_	0	ROOT	_	_
 13	to	to	PART	TO	_	14	aux	_	_
 14	hear	hear	VERB	VB	_	12	xcomp	_	_
 15	the	the	DET	DT	_	17	det	_	_
@@ -99,7 +99,7 @@
 1	All	all	DET	DT	_	3	det	_	_
 2	other	other	ADJ	JJ	_	3	amod	_	_
 3	sound	sound	ADJ	JJ	_	4	nsubj	_	_
-4	drops	drop	NOUN	NNS	_	4	ROOT	_	_
+4	drops	drop	NOUN	NNS	_	0	ROOT	_	_
 5	as	as	ADP	IN	_	9	mark	_	_
 6	the	the	DET	DT	_	8	det	_	_
 7	rap	rap	NOUN	NN	_	8	compound	_	_
@@ -123,8 +123,8 @@
 # stage_direction = True
 # text = Smiley sits up from where he hid during the burning and looting of Sal's Famous Pizzeria.
 # time = NIGHT
-1	Smiley	smiley	PROPN	NNP	_	2	nsubj	_	_
-2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
+1	Smiley	smiley	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	from	from	ADP	IN	_	2	prep	_	_
 5	where	where	ADV	WRB	_	7	advmod	_	_
@@ -136,10 +136,10 @@
 11	and	and	CCONJ	CC	_	10	cc	_	_
 12	looting	looting	NOUN	NN	_	10	conj	_	_
 13	of	of	ADP	IN	_	10	prep	_	_
-14	Sal	sal	PROPN	NNP	_	17	poss	_	_
-15	's	's	PART	POS	_	14	case	_	_
-16	Famous	famous	PROPN	NNP	_	17	compound	_	_
-17	Pizzeria	pizzeria	PROPN	NNP	_	13	pobj	_	_
+14	Sal	sal	PROPN	NNP	_	17	poss	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
+15	's	's	PART	POS	_	14	case	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+16	Famous	famous	PROPN	NNP	_	17	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+17	Pizzeria	pizzeria	PROPN	NNP	_	13	pobj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
 18	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
@@ -151,8 +151,8 @@
 # stage_direction = True
 # text = Smiley looks around and goes directly to the smoldering Wall of Fame.
 # time = NIGHT
-1	Smiley	smiley	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+1	Smiley	smiley	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	around	around	PART	RP	_	2	advmod	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	goes	go	VERB	VBZ	_	2	conj	_	_
@@ -175,7 +175,7 @@
 # text = He stands there.
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	stands	stand	VERB	VBZ	_	2	ROOT	_	_
+2	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 3	there	there	ADV	RB	_	2	advmod	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -188,26 +188,26 @@
 # stage_direction = True
 # text = Smiley pins one of his Malcolm X/Martin Luther King, Jr., cards to the Wall of Fame.
 # time = NIGHT
-1	Smiley	smiley	NOUN	NN	_	2	nsubj	_	_
-2	pins	pin	VERB	VBZ	_	2	ROOT	_	_
-3	one	one	NUM	CD	_	2	dobj	_	_
+1	Smiley	smiley	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	pins	pin	VERB	VBZ	_	0	ROOT	_	_
+3	one	one	NUM	CD	_	2	dobj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 4	of	of	ADP	IN	_	3	prep	_	_
 5	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
-6	Malcolm	malcolm	PROPN	NNP	_	11	compound	_	_
-7	X	x	PROPN	NNP	_	10	nmod	_	_
+6	Malcolm	malcolm	PROPN	NNP	_	11	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+7	X	x	PROPN	NNP	_	10	nmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
 8	/	/	SYM	SYM	_	10	punct	_	_
-9	Martin	martin	PROPN	NNP	_	10	compound	_	_
-10	Luther	luther	PROPN	NNP	_	11	compound	_	_
-11	King	king	PROPN	NNP	_	13	nmod	_	_
+9	Martin	martin	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+10	Luther	luther	PROPN	NNP	_	11	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
+11	King	king	PROPN	NNP	_	13	nmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
 12	,	,	PUNCT	,	_	13	punct	_	_
-13	Jr.	jr.	PROPN	NNP	_	4	pobj	_	_
+13	Jr.	jr.	PROPN	NNP	_	4	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 14	,	,	PUNCT	,	_	2	punct	_	_
 15	cards	card	VERB	VBZ	_	2	conj	_	_
 16	to	to	ADP	IN	_	15	prep	_	_
-17	the	the	DET	DT	_	18	det	_	_
-18	Wall	wall	PROPN	NNP	_	16	pobj	_	_
-19	of	of	ADP	IN	_	18	prep	_	_
-20	Fame	fame	PROPN	NNP	_	19	pobj	_	_
+17	the	the	DET	DT	_	18	det	_	ent_type=ORG|ent_id=381|ent_iob=B
+18	Wall	wall	PROPN	NNP	_	16	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+19	of	of	ADP	IN	_	18	prep	_	ent_type=ORG|ent_id=381|ent_iob=I
+20	Fame	fame	PROPN	NNP	_	19	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 21	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
@@ -220,9 +220,9 @@
 # text = We're on Smiley's face and a smile slowly travels across.
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	on	on	ADP	IN	_	2	prep	_	_
-4	Smiley	smiley	PROPN	NNP	_	6	poss	_	_
+4	Smiley	smiley	PROPN	NNP	_	6	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	's	's	PART	POS	_	4	case	_	_
 6	face	face	NOUN	NN	_	3	pobj	_	_
 7	and	and	CCONJ	CC	_	2	cc	_	_
@@ -243,15 +243,15 @@
 # text = It's the first time Smiley has smiled in years and nobody is there to see this event.
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
-4	first	first	ADJ	JJ	_	5	amod	_	_
+4	first	first	ADJ	JJ	_	5	amod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
 5	time	time	NOUN	NN	_	2	attr	_	_
-6	Smiley	smiley	PROPN	NNP	_	8	nsubj	_	_
+6	Smiley	smiley	PROPN	NNP	_	8	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
 7	has	have	VERB	VBZ	_	8	aux	_	_
 8	smiled	smile	VERB	VBN	_	5	relcl	_	_
 9	in	in	ADP	IN	_	8	prep	_	_
-10	years	year	NOUN	NNS	_	9	pobj	_	_
+10	years	year	NOUN	NNS	_	9	pobj	_	ent_type=DATE|ent_id=388|ent_iob=B
 11	and	and	CCONJ	CC	_	8	cc	_	_
 12	nobody	nobody	NOUN	NN	_	13	nsubj	_	_
 13	is	be	VERB	VBZ	_	8	conj	_	_

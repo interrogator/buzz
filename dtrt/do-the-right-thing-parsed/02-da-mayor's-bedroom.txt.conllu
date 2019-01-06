@@ -20,7 +20,7 @@
 11	his	-PRON-	ADJ	PRP$	_	12	poss	_	_
 12	sheets	sheet	NOUN	NNS	_	14	nsubjpass	_	_
 13	are	be	VERB	VBP	_	14	auxpass	_	_
-14	soaked	soak	VERB	VBN	_	14	ROOT	_	_
+14	soaked	soak	VERB	VBN	_	0	ROOT	_	_
 15	with	with	ADP	IN	_	14	prep	_	_
 16	sweat	sweat	NOUN	NN	_	15	pobj	_	_
 17	.	.	PUNCT	.	_	14	punct	_	_
@@ -35,7 +35,7 @@
 # text = He flings them off his wet body.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	flings	fling	VERB	VBZ	_	2	ROOT	_	_
+2	flings	fling	VERB	VBZ	_	0	ROOT	_	_
 3	them	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	off	off	ADP	IN	_	2	prep	_	_
 5	his	-PRON-	ADJ	PRP$	_	7	poss	_	_
@@ -57,6 +57,6 @@
 1	Damn	damn	PROPN	NNP	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	's	be	VERB	VBZ	_	4	ROOT	_	_
+4	's	be	VERB	VBZ	_	0	ROOT	_	_
 5	hot	hot	ADJ	JJ	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_

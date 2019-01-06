@@ -17,7 +17,7 @@
 8	;	;	PUNCT	:	_	11	punct	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	man	man	NOUN	NN	_	11	nsubj	_	_
-11	is	be	VERB	VBZ	_	11	ROOT	_	_
+11	is	be	VERB	VBZ	_	0	ROOT	_	_
 12	on	on	ADP	IN	_	11	prep	_	_
 13	the	the	DET	DT	_	14	det	_	_
 14	air	air	NOUN	NN	_	12	pobj	_	_
@@ -40,7 +40,7 @@
 4	stomach	stomach	NOUN	NN	_	7	nsubjpass	_	_
 5	's	be	VERB	VBZ	_	7	auxpass	_	_
 6	been	be	VERB	VBN	_	7	aux	_	_
-7	grumbling	grumble	VERB	VBG	_	7	ROOT	_	_
+7	grumbling	grumble	VERB	VBG	_	0	ROOT	_	_
 8	but	but	CCONJ	CC	_	7	cc	_	_
 9	help	help	NOUN	NN	_	11	nsubj	_	_
 10	has	have	VERB	VBZ	_	11	aux	_	_
@@ -61,18 +61,18 @@
 1	My	-PRON-	ADJ	PRP$	_	3	poss	_	_
 2	main	main	ADJ	JJ	_	3	amod	_	_
 3	man	man	NOUN	NN	_	6	nsubj	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	appos	_	_
+4	Mookie	mookie	PROPN	NNP	_	3	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	has	have	VERB	VBZ	_	6	aux	_	_
-6	saved	save	VERB	VBN	_	6	ROOT	_	_
-7	the	the	DET	DT	_	8	det	_	_
-8	day	day	NOUN	NN	_	6	dobj	_	_
+6	saved	save	VERB	VBN	_	0	ROOT	_	_
+7	the	the	DET	DT	_	8	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+8	day	day	NOUN	NN	_	6	dobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 9	,	,	PUNCT	,	_	6	punct	_	_
 10	straight	straight	ADV	RB	_	11	advmod	_	_
 11	from	from	ADP	IN	_	6	prep	_	_
-12	Sal	sal	PROPN	NNP	_	15	poss	_	_
-13	's	's	PART	POS	_	12	case	_	_
-14	Famous	famous	PROPN	NNP	_	15	compound	_	_
-15	Pizzeria	pizzeria	PROPN	NNP	_	11	pobj	_	_
+12	Sal	sal	PROPN	NNP	_	15	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
+13	's	's	PART	POS	_	12	case	_	ent_type=ORG|ent_id=381|ent_iob=I
+14	Famous	famous	PROPN	NNP	_	15	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+15	Pizzeria	pizzeria	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 16	,	,	PUNCT	,	_	6	punct	_	_
 17	down	down	ADP	IN	_	6	prep	_	_
 18	the	the	DET	DT	_	19	det	_	_
@@ -90,13 +90,13 @@
 # stage_direction = True
 # text = Come up to the mike, Mookie..
 # time = DAY
-1	Come	come	VERB	VB	_	1	ROOT	_	_
+1	Come	come	VERB	VB	_	0	ROOT	_	_
 2	up	up	PART	RP	_	1	prt	_	_
 3	to	to	ADP	IN	_	1	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	mike	mike	NOUN	NN	_	3	pobj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	Mookie	mookie	PROPN	NNP	_	5	appos	_	_
+7	Mookie	mookie	PROPN	NNP	_	5	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
 8	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
@@ -109,7 +109,7 @@
 # text = Mookie goes to the mike.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	goes	go	VERB	VBZ	_	2	ROOT	_	_
+2	goes	go	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	mike	mike	NOUN	NN	_	3	pobj	_	_
@@ -130,7 +130,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	do	do	VERB	VB	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	be	be	VERB	VB	_	5	ROOT	_	_
+5	be	be	VERB	VB	_	0	ROOT	_	_
 6	shy	shy	ADJ	JJ	_	5	acomp	_	_
 7	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -147,7 +147,7 @@
 # time = DAY
 1	Mmm	mmm	PROPN	NNP	_	3	nsubj	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	smells	smell	VERB	VBZ	_	3	ROOT	_	_
+3	smells	smell	VERB	VBZ	_	0	ROOT	_	_
 4	good	good	ADJ	JJ	_	3	acomp	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -172,10 +172,10 @@
 8	to	to	ADP	IN	_	2	prep	_	_
 9	ya	ya	PRON	PRP	_	8	pobj	_	_
 10	,	,	PUNCT	,	_	11	punct	_	_
-11	starvin	starvin	VERB	VB	_	11	ROOT	_	_
+11	starvin	starvin	VERB	VB	_	0	ROOT	_	_
 12	'	'	PUNCT	''	_	11	punct	_	_
 13	like	like	ADP	IN	_	11	prep	_	_
-14	Marvin	marvin	PROPN	NNP	_	13	pobj	_	_
+14	Marvin	marvin	PROPN	NNP	_	13	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 15	.	.	PUNCT	.	_	11	punct	_	_
 
 # line = 227
@@ -189,7 +189,7 @@
 # stage_direction = True
 # text = Say something, Mookie..
 # time = DAY
-1	Say	say	VERB	VB	_	1	ROOT	_	_
+1	Say	say	VERB	VB	_	0	ROOT	_	_
 2	something	something	NOUN	NN	_	1	dobj	_	_
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	Mookie	mookie	PROPN	NNP	_	2	npadvmod	_	_
@@ -207,13 +207,13 @@
 # text = Mister Señor Love Daddy, I'd like to dedicate the next record to my heart, Tina..
 # time = DAY
 1	Mister	mister	PROPN	NNP	_	4	compound	_	_
-2	Señor	señor	PROPN	NNP	_	4	compound	_	_
-3	Love	love	PROPN	NNP	_	4	compound	_	_
+2	Señor	señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Love	love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 4	Daddy	daddy	PROPN	NNP	_	8	npadvmod	_	_
 5	,	,	PUNCT	,	_	8	punct	_	_
 6	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
 7	'd	would	VERB	MD	_	8	aux	_	_
-8	like	like	VERB	VB	_	8	ROOT	_	_
+8	like	like	VERB	VB	_	0	ROOT	_	_
 9	to	to	PART	TO	_	10	aux	_	_
 10	dedicate	dedicate	VERB	VB	_	8	xcomp	_	_
 11	the	the	DET	DT	_	13	det	_	_
@@ -223,7 +223,7 @@
 15	my	-PRON-	ADJ	PRP$	_	16	poss	_	_
 16	heart	heart	NOUN	NN	_	14	pobj	_	_
 17	,	,	PUNCT	,	_	16	punct	_	_
-18	Tina	tina	PROPN	NNP	_	16	appos	_	_
+18	Tina	tina	PROPN	NNP	_	16	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
 19	..	..	PUNCT	.	_	18	punct	_	_
 
 # line = 229
@@ -237,7 +237,7 @@
 # stage_direction = True
 # text = Alright.
 # time = DAY
-1	Alright	alright	INTJ	UH	_	1	ROOT	_	_
+1	Alright	alright	INTJ	UH	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 229
@@ -251,7 +251,7 @@
 # stage_direction = True
 # text = Let me play this record while I go to work on my chicken Parmigiana hero with extra cheese and extra sauce..
 # time = DAY
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	play	play	VERB	VB	_	1	ccomp	_	_
 4	this	this	DET	DT	_	5	det	_	_
@@ -264,7 +264,7 @@
 11	on	on	ADP	IN	_	10	prep	_	_
 12	my	-PRON-	ADJ	PRP$	_	13	poss	_	_
 13	chicken	chicken	NOUN	NN	_	11	pobj	_	_
-14	Parmigiana	parmigiana	PROPN	NNP	_	15	compound	_	_
+14	Parmigiana	parmigiana	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
 15	hero	hero	NOUN	NN	_	13	appos	_	_
 16	with	with	ADP	IN	_	10	prep	_	_
 17	extra	extra	ADJ	JJ	_	18	amod	_	_
@@ -284,7 +284,7 @@
 # text = He hits the cart machine...
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hits	hit	VERB	VBZ	_	2	ROOT	_	_
+2	hits	hit	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	cart	cart	NOUN	NN	_	5	compound	_	_
 5	machine	machine	NOUN	NN	_	2	dobj	_	_
@@ -303,13 +303,13 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
-3	looove	looove	VERB	VBP	_	3	ROOT	_	_
+3	looove	looove	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	so	so	ADV	RB	_	6	advmod	_	_
 6	much	much	ADV	RB	_	3	advmod	_	_
 7	Mister	mister	PROPN	NNP	_	9	compound	_	_
-8	Señor	señor	PROPN	NNP	_	9	compound	_	_
-9	Love	love	PROPN	NNP	_	10	compound	_	_
+8	Señor	señor	PROPN	NNP	_	9	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+9	Love	love	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 10	Daddy	daddy	PROPN	NNP	_	3	dobj	_	_
 11	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -324,11 +324,11 @@
 # stage_direction = True
 # text = WE LOVE RADIO, 108 FM..
 # time = DAY
-1	WE	we	PRON	PRP	_	3	compound	_	_
-2	LOVE	love	PROPN	NNP	_	3	compound	_	_
-3	RADIO	radio	PROPN	NNP	_	3	ROOT	_	_
+1	WE	we	PRON	PRP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	LOVE	love	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+3	RADIO	radio	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=I
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	108	108	NUM	CD	_	6	nummod	_	_
+5	108	108	NUM	CD	_	6	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 6	FM	fm	PROPN	NNP	_	3	appos	_	_
 7	..	..	PUNCT	.	_	3	punct	_	_
 
@@ -345,7 +345,7 @@
 # time = DAY
 1	Here	here	ADV	RB	_	3	advmod	_	_
 2	ya	ya	PRON	PRP	_	3	nsubj	_	_
-3	are	be	VERB	VBP	_	3	ROOT	_	_
+3	are	be	VERB	VBP	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 231
@@ -359,10 +359,10 @@
 # stage_direction = True
 # text = twenty-dollar bill)
 # time = DAY
-1	twenty	twenty	NUM	CD	_	3	nummod	_	_
-2	-	-	PUNCT	HYPH	_	3	punct	_	_
-3	dollar	dollar	NOUN	NN	_	4	compound	_	_
-4	bill	bill	NOUN	NN	_	4	ROOT	_	_
+1	twenty	twenty	NUM	CD	_	3	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+2	-	-	PUNCT	HYPH	_	3	punct	_	ent_type=MONEY|ent_id=391|ent_iob=I
+3	dollar	dollar	NOUN	NN	_	4	compound	_	ent_type=MONEY|ent_id=391|ent_iob=I
+4	bill	bill	NOUN	NN	_	0	ROOT	_	_
 5	)	)	PUNCT	-RRB-	_	4	punct	_	_
 
 # line = 231
@@ -376,7 +376,7 @@
 # stage_direction = True
 # text = Keep the change..
 # time = DAY
-1	Keep	keep	VERB	VB	_	1	ROOT	_	_
+1	Keep	keep	VERB	VB	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	change	change	NOUN	NN	_	1	dobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -393,7 +393,7 @@
 # text = That's right on time.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	right	right	ADJ	JJ	_	2	acomp	_	_
 4	on	on	ADP	IN	_	3	prep	_	_
 5	time	time	NOUN	NN	_	4	pobj	_	_
@@ -411,11 +411,11 @@
 # text = This is my friend, Vito.
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	friend	friend	NOUN	NN	_	2	attr	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
-6	Vito	vito	PROPN	NNP	_	4	appos	_	_
+6	Vito	vito	PROPN	NNP	_	4	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 232
@@ -431,8 +431,8 @@
 # time = DAY
 1	His	-PRON-	ADJ	PRP$	_	2	poss	_	_
 2	pops	pop	NOUN	NNS	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	attr	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
+4	Sal	sal	PROPN	NNP	_	3	attr	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # line = 233
@@ -446,7 +446,7 @@
 # stage_direction = True
 # text = Tell ya father he makes the best heros in Brooklyn..
 # time = DAY
-1	Tell	tell	VERB	VBP	_	1	ROOT	_	_
+1	Tell	tell	VERB	VBP	_	0	ROOT	_	_
 2	ya	ya	PRON	PRP	_	1	dobj	_	_
 3	father	father	NOUN	NN	_	1	dobj	_	_
 4	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
@@ -455,7 +455,7 @@
 7	best	good	ADJ	JJS	_	8	amod	_	_
 8	heros	hero	NOUN	NNS	_	5	advmod	_	_
 9	in	in	ADP	IN	_	5	prep	_	_
-10	Brooklyn	brooklyn	PROPN	NNP	_	9	pobj	_	_
+10	Brooklyn	brooklyn	PROPN	NNP	_	9	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 11	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 234
@@ -471,7 +471,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	do	do	VERB	VB	_	3	ROOT	_	_
+3	do	do	VERB	VB	_	0	ROOT	_	_
 4	that	that	DET	DT	_	3	dobj	_	_
 5	..	..	PUNCT	NFP	_	3	punct	_	_
 
@@ -487,7 +487,7 @@
 # text = We're outta here..
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	outta	outta	ADJ	JJ	_	2	attr	_	_
 4	here	here	ADV	RB	_	2	advmod	_	_
 5	..	..	PUNCT	NFP	_	2	punct	_	_
@@ -503,7 +503,7 @@
 # stage_direction = True
 # text = Thanks for stopping by.
 # time = DAY
-1	Thanks	thank	NOUN	NNS	_	1	ROOT	_	_
+1	Thanks	thank	NOUN	NNS	_	0	ROOT	_	_
 2	for	for	ADP	IN	_	1	prep	_	_
 3	stopping	stop	VERB	VBG	_	2	pcomp	_	_
 4	by	by	ADV	RB	_	3	prt	_	_
@@ -520,10 +520,10 @@
 # stage_direction = True
 # text = WE LOVE Radio, 108 FM..
 # time = DAY
-1	WE	we	PRON	PRP	_	2	nsubj	_	_
-2	LOVE	love	PROPN	NNP	_	3	compound	_	_
-3	Radio	radio	PROPN	NNP	_	3	ROOT	_	_
+1	WE	we	PRON	PRP	_	2	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	LOVE	love	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+3	Radio	radio	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=I
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	108	108	NUM	CD	_	6	nummod	_	_
+5	108	108	NUM	CD	_	6	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 6	FM	fm	NOUN	NN	_	3	appos	_	_
 7	..	..	PUNCT	.	_	3	punct	_	_

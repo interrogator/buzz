@@ -7,16 +7,16 @@
 # stage_direction = True
 # text = Da Mayor has his can of beer (not Budweiser) and the brown paper bag is twisted into a knot at the bottom.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	has	have	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	has	have	VERB	VBZ	_	0	ROOT	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	can	can	NOUN	NN	_	3	dobj	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
 7	beer	beer	NOUN	NN	_	6	pobj	_	_
 8	(	(	PUNCT	-LRB-	_	7	punct	_	_
 9	not	not	ADV	RB	_	7	neg	_	_
-10	Budweiser	budweiser	PROPN	NNP	_	7	appos	_	_
+10	Budweiser	budweiser	PROPN	NNP	_	7	appos	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
 11	)	)	PUNCT	-RRB-	_	3	punct	_	_
 12	and	and	CCONJ	CC	_	3	cc	_	_
 13	the	the	DET	DT	_	16	det	_	_
@@ -43,7 +43,7 @@
 # text = He stops and takes a long swig.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	stops	stop	VERB	VBZ	_	2	ROOT	_	_
+2	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 3	and	and	CCONJ	CC	_	2	cc	_	_
 4	takes	take	VERB	VBZ	_	2	conj	_	_
 5	a	a	DET	DT	_	7	det	_	_
@@ -63,7 +63,7 @@
 # text = You ole drunk.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	ole	ole	VERB	VBP	_	2	ROOT	_	_
+2	ole	ole	VERB	VBP	_	0	ROOT	_	_
 3	drunk	drunk	ADJ	JJ	_	2	acomp	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -81,7 +81,7 @@
 1	What	what	NOUN	WP	_	4	dative	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	tell	tell	VERB	VB	_	4	ROOT	_	_
+4	tell	tell	VERB	VB	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	4	dobj	_	_
 6	about	about	ADP	IN	_	4	prep	_	_
 7	drinking	drink	VERB	VBG	_	6	pcomp	_	_
@@ -108,7 +108,7 @@
 3	,	,	PUNCT	,	_	6	punct	_	_
 4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	're	be	VERB	VBP	_	6	aux	_	_
-6	blocking	block	VERB	VBG	_	6	ROOT	_	_
+6	blocking	block	VERB	VBG	_	0	ROOT	_	_
 7	my	-PRON-	ADJ	PRP$	_	8	poss	_	_
 8	view	view	NOUN	NN	_	6	dobj	_	_
 9	..	..	PUNCT	NFP	_	6	punct	_	_
@@ -122,9 +122,9 @@
 # stage_direction = True
 # text = Da Mayor lowers the can from his mouth and looks up at his heckler.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	lowers	lower	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	lowers	lower	VERB	VBZ	_	0	ROOT	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	can	can	NOUN	NN	_	3	dobj	_	_
 6	from	from	ADP	IN	_	3	prep	_	_
@@ -148,7 +148,7 @@
 # text = It's obvious from the look on his face he's heard this before.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	obvious	obvious	ADJ	JJ	_	2	acomp	_	_
 4	from	from	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
@@ -172,9 +172,9 @@
 # stage_direction = True
 # text = Da Mayor contorts his face and stares at her.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	contorts	contort	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	contorts	contort	VERB	VBZ	_	0	ROOT	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	face	face	NOUN	NN	_	3	dobj	_	_
 6	and	and	CCONJ	CC	_	5	cc	_	_
@@ -195,7 +195,7 @@
 # text = You ugly enough.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	ugly	ugly	ADJ	JJ	_	2	ROOT	_	_
+2	ugly	ugly	ADJ	JJ	_	0	ROOT	_	_
 3	enough	enough	ADV	RB	_	2	advmod	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -212,7 +212,7 @@
 # time = DAY
 1	Do	do	VERB	VB	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	stare	stare	VERB	VB	_	3	ROOT	_	_
+3	stare	stare	VERB	VB	_	0	ROOT	_	_
 4	at	at	ADP	IN	_	3	prep	_	_
 5	me	-PRON-	PRON	PRP	_	4	pobj	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -226,9 +226,9 @@
 # stage_direction = True
 # text = Da Mayor changes his face into a more grotesque look.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	changes	change	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	changes	change	VERB	VBZ	_	0	ROOT	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	face	face	NOUN	NN	_	3	dobj	_	_
 6	into	into	ADP	IN	_	3	prep	_	_
@@ -254,7 +254,7 @@
 3	eye	eye	NOUN	NN	_	6	nsubj	_	_
 4	does	do	VERB	VBZ	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	work	work	VERB	VB	_	6	ROOT	_	_
+6	work	work	VERB	VB	_	0	ROOT	_	_
 7	on	on	ADP	IN	_	6	prep	_	_
 8	me	-PRON-	PRON	PRP	_	7	pobj	_	_
 9	..	..	PUNCT	.	_	6	punct	_	_
@@ -270,20 +270,20 @@
 # stage_direction = True
 # text = Mother Sister, you've been talkin' 'bout me the last eighteen years.
 # time = DAY
-1	Mother	mother	PROPN	NNP	_	2	compound	_	_
-2	Sister	sister	PROPN	NNP	_	6	npadvmod	_	_
+1	Mother	mother	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Sister	sister	PROPN	NNP	_	6	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	,	,	PUNCT	,	_	6	punct	_	_
 4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	've	have	VERB	VB	_	6	aux	_	_
-6	been	be	VERB	VBN	_	6	ROOT	_	_
+6	been	be	VERB	VBN	_	0	ROOT	_	_
 7	talkin	talkin	VERB	VBG	_	6	attr	_	_
 8	'	'	PUNCT	''	_	7	punct	_	_
 9	'bout	about	ADP	IN	_	7	prep	_	_
 10	me	-PRON-	PRON	PRP	_	9	pobj	_	_
-11	the	the	DET	DT	_	14	det	_	_
-12	last	last	ADJ	JJ	_	14	amod	_	_
-13	eighteen	eighteen	NUM	CD	_	14	nummod	_	_
-14	years	year	NOUN	NNS	_	7	npadvmod	_	_
+11	the	the	DET	DT	_	14	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+12	last	last	ADJ	JJ	_	14	amod	_	ent_type=DATE|ent_id=388|ent_iob=I
+13	eighteen	eighteen	NUM	CD	_	14	nummod	_	ent_type=DATE|ent_id=388|ent_iob=I
+14	years	year	NOUN	NNS	_	7	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
 15	.	.	PUNCT	.	_	6	punct	_	_
 
 # line = 92
@@ -301,7 +301,7 @@
 2	have	have	VERB	VBP	_	5	aux	_	_
 3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	ever	ever	ADV	RB	_	5	advmod	_	_
-5	done	do	VERB	VBN	_	5	ROOT	_	_
+5	done	do	VERB	VBN	_	0	ROOT	_	_
 6	to	to	ADP	IN	_	5	dative	_	_
 7	you	-PRON-	PRON	PRP	_	6	pobj	_	_
 8	?	?	PUNCT	.	_	5	punct	_	_
@@ -319,7 +319,7 @@
 # text = You're a drunk fool..
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	drunk	drunk	ADJ	JJ	_	5	amod	_	_
 5	fool	fool	NOUN	NN	_	2	attr	_	_
@@ -336,7 +336,7 @@
 # stage_direction = True
 # text = Besides that.
 # time = DAY
-1	Besides	besides	ADP	IN	_	1	ROOT	_	_
+1	Besides	besides	ADP	IN	_	0	ROOT	_	_
 2	that	that	DET	DT	_	1	pobj	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -351,11 +351,11 @@
 # stage_direction = True
 # text = Da Mayor don't bother nobody.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	5	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	do	do	VERB	VBP	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	bother	bother	VERB	VB	_	5	ROOT	_	_
+5	bother	bother	VERB	VB	_	0	ROOT	_	_
 6	nobody	nobody	NOUN	NN	_	5	dobj	_	_
 7	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -373,9 +373,9 @@
 1	Nobody	nobody	NOUN	NN	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	bother	bother	VERB	VB	_	4	ROOT	_	_
-5	Da	da	PROPN	NNP	_	6	compound	_	_
-6	Mayor	mayor	PROPN	NNP	_	4	dobj	_	_
+4	bother	bother	VERB	VB	_	0	ROOT	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Mayor	mayor	PROPN	NNP	_	4	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 7	but	but	CCONJ	CC	_	6	cc	_	_
 8	you	-PRON-	PRON	PRP	_	6	conj	_	_
 9	.	.	PUNCT	.	_	4	punct	_	_
@@ -391,10 +391,10 @@
 # stage_direction = True
 # text = Da Mayor just mind his business.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	just	just	ADV	RB	_	4	advmod	_	_
-4	mind	mind	VERB	VB	_	4	ROOT	_	_
+4	mind	mind	VERB	VB	_	0	ROOT	_	_
 5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	business	business	NOUN	NN	_	4	dobj	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
@@ -411,7 +411,7 @@
 # text = I love everybody.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	love	love	VERB	VBP	_	2	ROOT	_	_
+2	love	love	VERB	VBP	_	0	ROOT	_	_
 3	everybody	everybody	NOUN	NN	_	2	dobj	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -428,7 +428,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	even	even	ADV	RB	_	3	advmod	_	_
-3	love	love	VERB	VBP	_	3	ROOT	_	_
+3	love	love	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	..	..	PUNCT	.	_	3	punct	_	_
 
@@ -443,7 +443,7 @@
 # stage_direction = True
 # text = Hold your tongue.
 # time = DAY
-1	Hold	hold	VERB	VBP	_	1	ROOT	_	_
+1	Hold	hold	VERB	VBP	_	0	ROOT	_	_
 2	your	-PRON-	ADJ	PRP$	_	3	poss	_	_
 3	tongue	tongue	NOUN	NN	_	1	dobj	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -462,7 +462,7 @@
 1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	have	have	VERB	VB	_	4	ROOT	_	_
+4	have	have	VERB	VB	_	0	ROOT	_	_
 5	that	that	DET	DT	_	7	det	_	_
 6	much	much	ADJ	JJ	_	7	amod	_	_
 7	love	love	NOUN	NN	_	4	dobj	_	_
@@ -479,11 +479,11 @@
 # stage_direction = True
 # text = One day you'll be nice to me.
 # time = DAY
-1	One	one	NUM	CD	_	2	nummod	_	_
-2	day	day	NOUN	NN	_	5	npadvmod	_	_
+1	One	one	NUM	CD	_	2	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
+2	day	day	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
 3	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	'll	will	VERB	MD	_	5	aux	_	_
-5	be	be	VERB	VB	_	5	ROOT	_	_
+5	be	be	VERB	VB	_	0	ROOT	_	_
 6	nice	nice	ADJ	JJ	_	5	acomp	_	_
 7	to	to	ADP	IN	_	6	prep	_	_
 8	me	-PRON-	PRON	PRP	_	7	pobj	_	_
@@ -503,7 +503,7 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	might	may	VERB	MD	_	4	aux	_	_
 3	both	both	DET	DT	_	4	preconj	_	_
-4	be	be	VERB	VB	_	4	ROOT	_	_
+4	be	be	VERB	VB	_	0	ROOT	_	_
 5	dead	dead	ADJ	JJ	_	4	acomp	_	_
 6	and	and	CCONJ	CC	_	5	cc	_	_
 7	buried	bury	VERB	VBN	_	5	conj	_	_
@@ -528,7 +528,7 @@
 # time = DAY
 1	At	at	ADP	IN	_	2	advmod	_	_
 2	least	least	ADJ	JJS	_	3	advmod	_	_
-3	civil	civil	ADJ	JJ	_	3	ROOT	_	_
+3	civil	civil	ADJ	JJ	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
@@ -540,17 +540,17 @@
 # stage_direction = True
 # text = Da Mayor tips his beat-up hat to Mother Sister and takes a final swig of beer just for her.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	tips	tip	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	tips	tip	VERB	VBZ	_	0	ROOT	_	_
 4	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
 5	beat	beat	NOUN	NN	_	8	amod	_	_
 6	-	-	PUNCT	HYPH	_	5	punct	_	_
 7	up	up	PART	RP	_	5	prt	_	_
 8	hat	hat	NOUN	NN	_	3	dobj	_	_
 9	to	to	ADP	IN	_	3	prep	_	_
-10	Mother	mother	PROPN	NNP	_	11	compound	_	_
-11	Sister	sister	PROPN	NNP	_	9	pobj	_	_
+10	Mother	mother	PROPN	NNP	_	11	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+11	Sister	sister	PROPN	NNP	_	9	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 12	and	and	CCONJ	CC	_	3	cc	_	_
 13	takes	take	VERB	VBZ	_	3	conj	_	_
 14	a	a	DET	DT	_	16	det	_	_

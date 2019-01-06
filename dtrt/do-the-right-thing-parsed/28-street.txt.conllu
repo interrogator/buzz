@@ -10,7 +10,7 @@
 1	Vito	vito	PROPN	NNP	_	4	nsubj	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
 3	Mookie	mookie	PROPN	NNP	_	1	conj	_	_
-4	walk	walk	VERB	VBP	_	4	ROOT	_	_
+4	walk	walk	VERB	VBP	_	0	ROOT	_	_
 5	down	down	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	block	block	NOUN	NN	_	5	pobj	_	_
@@ -28,10 +28,10 @@
 # text = Mister Señor Love Daddy is cool..
 # time = DAY
 1	Mister	mister	PROPN	NNP	_	4	compound	_	_
-2	Señor	señor	PROPN	NNP	_	4	compound	_	_
-3	Love	love	PROPN	NNP	_	4	compound	_	_
+2	Señor	señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Love	love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 4	Daddy	daddy	PROPN	NNP	_	5	nsubj	_	_
-5	is	be	VERB	VBZ	_	5	ROOT	_	_
+5	is	be	VERB	VBZ	_	0	ROOT	_	_
 6	cool	cool	ADJ	JJ	_	5	acomp	_	_
 7	..	..	PUNCT	.	_	5	punct	_	_
 
@@ -50,7 +50,7 @@
 2	like	like	ADP	IN	_	1	prep	_	_
 3	him	-PRON-	PRON	PRP	_	2	pobj	_	_
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	huh	huh	INTJ	UH	_	5	ROOT	_	_
+5	huh	huh	INTJ	UH	_	0	ROOT	_	_
 6	?	?	PUNCT	.	_	5	punct	_	_
 7	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -65,7 +65,7 @@
 # stage_direction = True
 # text = Yeah..
 # time = DAY
-1	Yeah	yeah	INTJ	UH	_	1	ROOT	_	_
+1	Yeah	yeah	INTJ	UH	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 219
@@ -79,9 +79,9 @@
 # stage_direction = True
 # text = Y'know, Vito
 # time = DAY
-1	Y'know	y'know	PROPN	NNP	_	1	ROOT	_	_
+1	Y'know	y'know	PROPN	NNP	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Vito	vito	PROPN	NNP	_	1	npadvmod	_	_
+3	Vito	vito	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 
 # line = 219
 # loc = EXT
@@ -96,8 +96,8 @@
 # time = DAY
 1	,	,	PUNCT	,	_	3	punct	_	_
 2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	know	know	VERB	VBP	_	3	ROOT	_	_
-4	Pino	pino	NOUN	NN	_	5	nsubj	_	_
+3	know	know	VERB	VBP	_	0	ROOT	_	_
+4	Pino	pino	NOUN	NN	_	5	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 5	is	be	VERB	VBZ	_	3	ccomp	_	_
 6	ya	ya	PRON	PRP	_	7	compound	_	_
 7	brother	brother	NOUN	NN	_	5	attr	_	_
@@ -138,7 +138,7 @@
 # stage_direction = True
 # text = Kick his ass..
 # time = DAY
-1	Kick	kick	VERB	VB	_	1	ROOT	_	_
+1	Kick	kick	VERB	VB	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	his	-PRON-	ADJ	PRP$	_	3	poss	_	_
 3	ass	ass	NOUN	NN	_	1	dobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -157,7 +157,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	know	know	VERB	VB	_	4	ROOT	_	_
+4	know	know	VERB	VB	_	0	ROOT	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_
 
 # line = 221
@@ -181,7 +181,7 @@
 8	,	,	PUNCT	,	_	11	punct	_	_
 9	he	-PRON-	PRON	PRP	_	11	nsubj	_	_
 10	's	be	VERB	VBZ	_	11	aux	_	_
-11	gon	go	VERB	VBG	_	11	ROOT	_	_
+11	gon	go	VERB	VBG	_	0	ROOT	_	_
 12	na	to	PART	TO	_	14	aux	_	_
 13	be	be	VERB	VB	_	14	aux	_	_
 14	beating	beat	VERB	VBG	_	11	xcomp	_	_
@@ -209,7 +209,7 @@
 # text = That's what you think?.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	what	what	NOUN	WP	_	5	dobj	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	think	think	VERB	VBP	_	2	ccomp	_	_
@@ -228,7 +228,7 @@
 # text = That's what I think..
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	what	what	NOUN	WP	_	5	dobj	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	think	think	VERB	VBP	_	2	ccomp	_	_
@@ -248,7 +248,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	like	like	VERB	VB	_	4	ROOT	_	_
+4	like	like	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	fight	fight	VERB	VB	_	4	xcomp	_	_
 7	..	..	PUNCT	.	_	4	punct	_	_
@@ -264,7 +264,7 @@
 # stage_direction = True
 # text = Do it this one time
 # time = DAY
-1	Do	do	VERB	VBP	_	1	ROOT	_	_
+1	Do	do	VERB	VBP	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	this	this	DET	DT	_	5	det	_	_
 4	one	one	NUM	CD	_	5	nummod	_	_
@@ -285,7 +285,7 @@
 2	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
 3	'll	will	VERB	MD	_	5	aux	_	_
 4	never	never	ADV	RB	_	5	neg	_	_
-5	touch	touch	VERB	VB	_	5	ROOT	_	_
+5	touch	touch	VERB	VB	_	0	ROOT	_	_
 6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	again	again	ADV	RB	_	5	advmod	_	_
 8	..	..	PUNCT	.	_	5	punct	_	_

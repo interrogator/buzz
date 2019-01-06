@@ -17,7 +17,7 @@
 8	;	;	PUNCT	:	_	11	punct	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	water	water	NOUN	NN	_	11	nsubj	_	_
-11	is	be	VERB	VBZ	_	11	ROOT	_	_
+11	is	be	VERB	VBZ	_	0	ROOT	_	_
 12	ice	ice	NOUN	NN	_	13	npadvmod	_	_
 13	cold	cold	ADJ	JJ	_	11	acomp	_	_
 14	.	.	PUNCT	.	_	11	punct	_	_

@@ -8,8 +8,8 @@
 # text = Mookie sits Tina down on her futon bed, turns off the lights, and turns on WE LOVE RADIO as Mister Señor Love Daddy serenades them with slow jams.
 # time = NIGHT
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
-3	Tina	tina	PROPN	NNP	_	2	dobj	_	_
+2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
+3	Tina	tina	PROPN	NNP	_	2	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 4	down	down	PART	RP	_	2	prt	_	_
 5	on	on	ADP	IN	_	2	prep	_	_
 6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
@@ -24,13 +24,13 @@
 15	and	and	CCONJ	CC	_	10	cc	_	_
 16	turns	turn	VERB	VBZ	_	10	conj	_	_
 17	on	on	ADP	IN	_	16	prep	_	_
-18	WE	we	PROPN	NNP	_	20	compound	_	_
-19	LOVE	love	PROPN	NNP	_	20	compound	_	_
-20	RADIO	radio	NOUN	NN	_	17	pobj	_	_
+18	WE	we	PROPN	NNP	_	20	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+19	LOVE	love	PROPN	NNP	_	20	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+20	RADIO	radio	NOUN	NN	_	17	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 21	as	as	ADP	IN	_	26	mark	_	_
 22	Mister	mister	PROPN	NNP	_	25	compound	_	_
-23	Señor	señor	PROPN	NNP	_	24	compound	_	_
-24	Love	love	PROPN	NNP	_	25	compound	_	_
+23	Señor	señor	PROPN	NNP	_	24	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+24	Love	love	PROPN	NNP	_	25	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
 25	Daddy	daddy	PROPN	NNP	_	26	nsubj	_	_
 26	serenades	serenade	VERB	VBZ	_	16	advcl	_	_
 27	them	-PRON-	PRON	PRP	_	26	dobj	_	_
@@ -52,7 +52,7 @@
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	take	take	VERB	VB	_	3	xcomp	_	_
 6	off	off	PART	RP	_	5	prt	_	_
@@ -74,7 +74,7 @@
 1	Mookie	mookie	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	told	tell	VERB	VBD	_	4	ROOT	_	_
+4	told	tell	VERB	VBD	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	already	already	ADV	RB	_	4	advmod	_	_
 7	it	-PRON-	PRON	PRP	_	8	nsubj	_	_
@@ -100,7 +100,7 @@
 # time = NIGHT
 1	Why	why	ADV	WRB	_	3	advmod	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	got	get	VERB	VBD	_	3	ROOT	_	_
+3	got	get	VERB	VBD	_	0	ROOT	_	_
 4	ta	to	PART	TO	_	5	aux	_	_
 5	curse	curse	VERB	VB	_	3	xcomp	_	_
 6	?	?	PUNCT	.	_	3	punct	_	_
@@ -118,7 +118,7 @@
 # text = I'm sorry, but no rawness is jumping off tonight..
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	sorry	sorry	ADJ	JJ	_	2	acomp	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	but	but	CCONJ	CC	_	2	cc	_	_
@@ -127,7 +127,7 @@
 8	is	be	VERB	VBZ	_	9	aux	_	_
 9	jumping	jump	VERB	VBG	_	2	conj	_	_
 10	off	off	PART	RP	_	9	prt	_	_
-11	tonight	tonight	NOUN	NN	_	9	npadvmod	_	_
+11	tonight	tonight	NOUN	NN	_	9	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=B
 12	..	..	PUNCT	.	_	9	punct	_	_
 
 # line = 627
@@ -142,7 +142,7 @@
 # text = No rawness..
 # time = NIGHT
 1	No	no	DET	DT	_	2	det	_	_
-2	rawness	rawness	NOUN	NN	_	2	ROOT	_	_
+2	rawness	rawness	NOUN	NN	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
@@ -155,7 +155,7 @@
 # text = He laughs his sinister laugh.
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	laughs	laugh	VERB	VBZ	_	2	ROOT	_	_
+2	laughs	laugh	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	sinister	sinister	ADJ	JJ	_	5	nsubj	_	_
 5	laugh	laugh	NOUN	NN	_	2	ccomp	_	_
@@ -176,7 +176,7 @@
 4	bra	bra	NOUN	NN	_	2	dobj	_	_
 5	,	,	PUNCT	,	_	7	punct	_	_
 6	then	then	ADV	RB	_	7	advmod	_	_
-7	pulls	pull	VERB	VBZ	_	7	ROOT	_	_
+7	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
 8	her	-PRON-	ADJ	PRP$	_	9	poss	_	_
 9	panties	pantie	NOUN	NNS	_	7	dobj	_	_
 10	off	off	PART	RP	_	7	prt	_	_
@@ -191,8 +191,8 @@
 # stage_direction = True
 # text = Tina is naked as a jaybird.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	naked	naked	ADJ	JJ	_	2	acomp	_	_
 4	as	as	ADP	IN	_	3	prep	_	_
 5	a	a	DET	DT	_	6	det	_	_
@@ -209,7 +209,7 @@
 # text = Mookie unsnaps her bra, then pulls her panties off.
 # time = NIGHT
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	unsnaps	unsnap	VERB	VBZ	_	2	ROOT	_	_
+2	unsnaps	unsnap	VERB	VBZ	_	0	ROOT	_	_
 3	her	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	bra	bra	NOUN	NN	_	2	dobj	_	_
 5	,	,	PUNCT	,	_	2	punct	_	_
@@ -229,8 +229,8 @@
 # stage_direction = True
 # text = Tina is naked as a jaybird.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	naked	naked	ADJ	JJ	_	2	acomp	_	_
 4	as	as	ADP	IN	_	3	prep	_	_
 5	a	a	DET	DT	_	6	det	_	_
@@ -252,7 +252,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	're	be	VERB	VBP	_	5	aux	_	_
-5	sweating	sweat	VERB	VBG	_	5	ROOT	_	_
+5	sweating	sweat	VERB	VBG	_	0	ROOT	_	_
 6	..	..	PUNCT	.	_	5	punct	_	_
 
 # line = 629
@@ -269,7 +269,7 @@
 1	Of	of	ADV	RB	_	2	advmod	_	_
 2	course	course	ADV	RB	_	4	advmod	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	'm	be	VERB	VBP	_	4	ROOT	_	_
+4	'm	be	VERB	VBP	_	0	ROOT	_	_
 5	sweating	sweat	VERB	VBG	_	4	acomp	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -286,7 +286,7 @@
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	burning	burn	VERB	VBG	_	3	ROOT	_	_
+3	burning	burn	VERB	VBG	_	0	ROOT	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -302,15 +302,15 @@
 # text = It's hot, moron, only a hundred degrees in here..
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	hot	hot	ADJ	JJ	_	5	amod	_	_
 4	,	,	PUNCT	,	_	5	punct	_	_
 5	moron	moron	ADJ	JJ	_	2	attr	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	only	only	ADV	RB	_	9	advmod	_	_
 8	a	a	DET	DT	_	9	quantmod	_	_
-9	hundred	hundred	NUM	CD	_	10	nummod	_	_
-10	degrees	degree	NOUN	NNS	_	5	appos	_	_
+9	hundred	hundred	NUM	CD	_	10	nummod	_	ent_type=QUANTITY|ent_id=392|ent_iob=B
+10	degrees	degree	NOUN	NNS	_	5	appos	_	ent_type=QUANTITY|ent_id=392|ent_iob=I
 11	in	in	ADV	RB	_	12	advmod	_	_
 12	here	here	ADV	RB	_	10	advmod	_	_
 13	..	..	PUNCT	.	_	2	punct	_	_
@@ -326,7 +326,7 @@
 # stage_direction = True
 # text = Lie down, please..
 # time = NIGHT
-1	Lie	lie	VERB	VBP	_	1	ROOT	_	_
+1	Lie	lie	VERB	VBP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	down	down	PART	RP	_	1	prt	_	_
 3	,	,	PUNCT	,	_	4	punct	_	_
 4	please	please	INTJ	UH	_	1	intj	_	_
@@ -342,7 +342,7 @@
 # text = He gets up.
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	gets	get	VERB	VBZ	_	2	ROOT	_	_
+2	gets	get	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -356,15 +356,15 @@
 # text = Mookie walks into the kitchen and sees CARMEN, Tina's mother, fixing some food on the stove.
 # time = NIGHT
 1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	walks	walk	VERB	VBZ	_	2	ROOT	_	_
+2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	into	into	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	kitchen	kitchen	NOUN	NN	_	3	pobj	_	_
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	sees	see	VERB	VBZ	_	2	conj	_	_
-8	CARMEN	carmen	NOUN	NN	_	7	dobj	_	_
+8	CARMEN	carmen	NOUN	NN	_	7	dobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	Tina	tina	PROPN	NNP	_	12	poss	_	_
+10	Tina	tina	PROPN	NNP	_	12	poss	_	ent_type=GPE|ent_id=382|ent_iob=B
 11	's	's	PART	POS	_	10	case	_	_
 12	mother	mother	NOUN	NN	_	7	dobj	_	_
 13	,	,	PUNCT	,	_	7	punct	_	_
@@ -390,7 +390,7 @@
 1	Hello	hello	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	Mrs.	mrs.	PROPN	NNP	_	4	compound	_	_
-4	Rampolla	rampolla	PROPN	NNP	_	4	ROOT	_	_
+4	Rampolla	rampolla	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	..	..	PUNCT	.	_	4	punct	_	_
 
 # loc = INT
@@ -418,9 +418,9 @@
 14	traffic	traffic	NOUN	NN	_	13	dobj	_	_
 15	,	,	PUNCT	,	_	17	punct	_	_
 16	she	-PRON-	PRON	PRP	_	17	nsubj	_	_
-17	mutters	mutter	VERB	VBZ	_	17	ROOT	_	_
+17	mutters	mutter	VERB	VBZ	_	0	ROOT	_	_
 18	some	some	DET	DT	_	19	det	_	_
-19	Spanish	spanish	ADJ	JJ	_	17	dobj	_	_
+19	Spanish	spanish	ADJ	JJ	_	17	dobj	_	ent_type=NORP|ent_id=379|ent_iob=B
 20	and	and	CCONJ	CC	_	17	cc	_	_
 21	goes	go	VERB	VBZ	_	17	conj	_	_
 22	into	into	ADP	IN	_	21	prep	_	_
@@ -444,7 +444,7 @@
 # text = He opens the refrigerator and takes out all the trays of ice.
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	opens	open	VERB	VBZ	_	2	ROOT	_	_
+2	opens	open	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	refrigerator	refrigerator	NOUN	NN	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	2	cc	_	_

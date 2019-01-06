@@ -9,20 +9,20 @@
 # time = DAY
 1	An	an	DET	DT	_	5	det	_	_
 2	elderly	elderly	ADJ	JJ	_	5	amod	_	_
-3	Puerto	puerto	ADJ	JJ	_	4	amod	_	_
-4	Rican	rican	ADJ	JJ	_	5	amod	_	_
+3	Puerto	puerto	ADJ	JJ	_	4	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
+4	Rican	rican	ADJ	JJ	_	5	amod	_	ent_type=NORP|ent_id=379|ent_iob=I
 5	woman	woman	NOUN	NN	_	10	nsubj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	CARMEN	carmen	NOUN	NN	_	5	appos	_	_
+7	CARMEN	carmen	NOUN	NN	_	5	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	is	be	VERB	VBZ	_	10	aux	_	_
-10	telling	tell	VERB	VBG	_	10	ROOT	_	_
+10	telling	tell	VERB	VBG	_	0	ROOT	_	_
 11	off	off	PART	RP	_	10	prt	_	_
 12	her	-PRON-	ADJ	PRP$	_	13	poss	_	_
 13	daughter	daughter	NOUN	NN	_	10	dobj	_	_
-14	TINA	tina	PROPN	NNP	_	13	appos	_	_
+14	TINA	tina	PROPN	NNP	_	13	appos	_	ent_type=NORP|ent_id=379|ent_iob=B
 15	in	in	ADP	IN	_	10	prep	_	_
-16	Spanish	spanish	PROPN	NNP	_	15	pobj	_	_
+16	Spanish	spanish	PROPN	NNP	_	15	pobj	_	ent_type=NORP|ent_id=379|ent_iob=B
 17	.	.	PUNCT	.	_	10	punct	_	_
 
 # loc = INT
@@ -34,13 +34,13 @@
 # stage_direction = True
 # text = Tina, having heard enough, closes the door on her mother's ranting and raving.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	7	nsubj	_	_
+1	Tina	tina	PROPN	NNP	_	7	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	,	,	PUNCT	,	_	7	punct	_	_
 3	having	have	VERB	VBG	_	4	aux	_	_
 4	heard	hear	VERB	VBN	_	7	advcl	_	_
 5	enough	enough	ADV	RB	_	4	advmod	_	_
 6	,	,	PUNCT	,	_	7	punct	_	_
-7	closes	close	VERB	VBZ	_	7	ROOT	_	_
+7	closes	close	VERB	VBZ	_	0	ROOT	_	_
 8	the	the	DET	DT	_	9	det	_	_
 9	door	door	NOUN	NN	_	7	dobj	_	_
 10	on	on	ADP	IN	_	9	prep	_	_
@@ -61,15 +61,15 @@
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	scoops	scoop	VERB	VBZ	_	2	conj	_	_
 6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
 7	baby	baby	NOUN	NN	_	8	compound	_	_
 8	son	son	NOUN	NN	_	5	dobj	_	_
-9	HECTOR	hector	VERB	VB	_	5	dep	_	_
+9	HECTOR	hector	VERB	VB	_	5	dep	_	ent_type=ORG|ent_id=381|ent_iob=B
 10	up	up	PART	RP	_	9	prt	_	_
 11	from	from	ADP	IN	_	9	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
@@ -95,7 +95,7 @@
 # text = She talks to her son while walking around the room.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	talks	talk	VERB	VBZ	_	2	ROOT	_	_
+2	talks	talk	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	son	son	NOUN	NN	_	3	pobj	_	_
@@ -116,14 +116,14 @@
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
 1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADV	RB	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	scoops	scoop	VERB	VBZ	_	2	conj	_	_
 6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
 7	baby	baby	NOUN	NN	_	8	compound	_	_
 8	son	son	NOUN	NN	_	5	dobj	_	_
-9	HECTOR	hector	VERB	VB	_	5	dep	_	_
+9	HECTOR	hector	VERB	VB	_	5	dep	_	ent_type=ORG|ent_id=381|ent_iob=B
 10	up	up	PART	RP	_	9	prt	_	_
 11	from	from	ADP	IN	_	9	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
@@ -149,7 +149,7 @@
 # text = She talks to her son while walking around the room.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	talks	talk	VERB	VBZ	_	2	ROOT	_	_
+2	talks	talk	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	son	son	NOUN	NN	_	3	pobj	_	_
@@ -170,14 +170,14 @@
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
 1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADV	RB	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	scoops	scoop	VERB	VBZ	_	2	conj	_	_
 6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
 7	baby	baby	NOUN	NN	_	8	compound	_	_
 8	son	son	NOUN	NN	_	5	dobj	_	_
-9	HECTOR	hector	VERB	VB	_	5	dep	_	_
+9	HECTOR	hector	VERB	VB	_	5	dep	_	ent_type=ORG|ent_id=381|ent_iob=B
 10	up	up	PART	RP	_	9	prt	_	_
 11	from	from	ADP	IN	_	9	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
@@ -203,7 +203,7 @@
 # text = She talks to her son while walking around the room.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	talks	talk	VERB	VBZ	_	2	ROOT	_	_
+2	talks	talk	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	son	son	NOUN	NN	_	3	pobj	_	_
@@ -231,7 +231,7 @@
 4	should	should	VERB	MD	_	7	aux	_	_
 5	n't	not	ADV	RB	_	7	neg	_	_
 6	be	be	VERB	VB	_	7	aux	_	_
-7	telling	tell	VERB	VBG	_	7	ROOT	_	_
+7	telling	tell	VERB	VBG	_	0	ROOT	_	_
 8	you	-PRON-	PRON	PRP	_	7	dative	_	_
 9	this	this	DET	DT	_	7	dobj	_	_
 
@@ -249,7 +249,7 @@
 1	but	but	CCONJ	CC	_	4	cc	_	_
 2	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 3	would	would	VERB	MD	_	4	aux	_	_
-4	find	find	VERB	VB	_	4	ROOT	_	_
+4	find	find	VERB	VB	_	0	ROOT	_	_
 5	out	out	PART	RP	_	4	prt	_	_
 6	sooner	sooner	ADV	RBR	_	4	advmod	_	_
 7	or	or	CCONJ	CC	_	6	cc	_	_
@@ -267,9 +267,9 @@
 # stage_direction = True
 # text = Ya father ain't no real father.
 # time = DAY
-1	Ya	ya	DET	DT	_	2	compound	_	_
+1	Ya	ya	DET	DT	_	2	compound	_	ent_type=NORP|ent_id=379|ent_iob=B
 2	father	father	NOUN	NN	_	3	nsubj	_	_
-3	ai	be	VERB	VBP	_	3	ROOT	_	_
+3	ai	be	VERB	VBP	_	0	ROOT	_	_
 4	n't	not	ADV	RB	_	3	neg	_	_
 5	no	no	DET	DT	_	7	det	_	_
 6	real	real	ADJ	JJ	_	7	amod	_	_
@@ -288,20 +288,20 @@
 # text = He's a bum, a two-bit bum in a hundred-dollar world.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	bum	bum	NOUN	NN	_	2	attr	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	a	a	DET	DT	_	10	det	_	_
-7	two	two	NUM	CD	_	9	nummod	_	_
+7	two	two	NUM	CD	_	9	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 8	-	-	PUNCT	HYPH	_	9	punct	_	_
 9	bit	bit	NOUN	NN	_	10	compound	_	_
 10	bum	bum	NOUN	NN	_	4	appos	_	_
 11	in	in	ADP	IN	_	10	prep	_	_
 12	a	a	DET	DT	_	16	det	_	_
-13	hundred	hundred	NUM	CD	_	15	nummod	_	_
-14	-	-	PUNCT	HYPH	_	15	punct	_	_
-15	dollar	dollar	NOUN	NN	_	16	compound	_	_
+13	hundred	hundred	NUM	CD	_	15	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+14	-	-	PUNCT	HYPH	_	15	punct	_	ent_type=MONEY|ent_id=391|ent_iob=I
+15	dollar	dollar	NOUN	NN	_	16	compound	_	ent_type=MONEY|ent_id=391|ent_iob=I
 16	world	world	NOUN	NN	_	11	pobj	_	_
 17	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -318,7 +318,7 @@
 # time = DAY
 1	Your	-PRON-	ADJ	PRP$	_	2	poss	_	_
 2	father	father	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	curb	curb	NOUN	NN	_	4	pobj	_	_
@@ -336,7 +336,7 @@
 # text = You're smart.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	smart	smart	ADJ	JJ	_	2	acomp	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -352,7 +352,7 @@
 # text = I see that look on ya face.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	see	see	VERB	VBP	_	2	ROOT	_	_
+2	see	see	VERB	VBP	_	0	ROOT	_	_
 3	that	that	DET	DT	_	4	nsubj	_	_
 4	look	look	NOUN	NN	_	2	ccomp	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
@@ -373,7 +373,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	're	be	VERB	VBP	_	3	aux	_	_
-3	saying	say	VERB	VBG	_	3	ROOT	_	_
+3	saying	say	VERB	VBG	_	0	ROOT	_	_
 4	if	if	ADP	IN	_	6	mark	_	_
 5	he	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	's	be	VERB	VBZ	_	3	ccomp	_	_
@@ -399,7 +399,7 @@
 # text = Good question.
 # time = DAY
 1	Good	good	ADJ	JJ	_	2	amod	_	_
-2	question	question	NOUN	NN	_	2	ROOT	_	_
+2	question	question	NOUN	NN	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 97
@@ -415,7 +415,7 @@
 # time = DAY
 1	Like	like	INTJ	UH	_	3	intj	_	_
 2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	said	say	VERB	VBD	_	3	ROOT	_	_
+3	said	say	VERB	VBD	_	0	ROOT	_	_
 4	before	before	ADV	RB	_	3	advmod	_	_
 
 # line = 97
@@ -431,7 +431,7 @@
 # time = DAY
 1	,	,	PUNCT	,	_	3	punct	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	're	be	VERB	VBP	_	3	ROOT	_	_
+3	're	be	VERB	VBP	_	0	ROOT	_	_
 4	no	no	DET	DT	_	5	det	_	_
 5	dummy	dummy	NOUN	NN	_	3	acomp	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -448,7 +448,7 @@
 # text = He talked his way into my panties
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	talked	talk	VERB	VBD	_	2	ROOT	_	_
+2	talked	talk	VERB	VBD	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	way	way	NOUN	NN	_	2	dobj	_	_
 5	into	into	ADP	IN	_	2	prep	_	_
@@ -477,7 +477,7 @@
 9	me	-PRON-	PRON	PRP	_	10	nsubj	_	_
 10	happy	happy	ADJ	JJ	_	8	ccomp	_	_
 11	,	,	PUNCT	,	_	12	punct	_	_
-12	make	make	VERB	VB	_	12	ROOT	_	_
+12	make	make	VERB	VB	_	0	ROOT	_	_
 13	me	-PRON-	PRON	PRP	_	14	nsubj	_	_
 14	whole	whole	ADJ	JJ	_	12	ccomp	_	_
 15	.	.	PUNCT	.	_	12	punct	_	_
@@ -494,7 +494,7 @@
 # text = He's a mistake, but you are not..
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	mistake	mistake	NOUN	NN	_	2	attr	_	_
 5	,	,	PUNCT	,	_	2	punct	_	_
@@ -514,7 +514,7 @@
 # text = Tina kisses her son.
 # time = DAY
 1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	kisses	kiss	VERB	VBZ	_	2	ROOT	_	_
+2	kisses	kiss	VERB	VBZ	_	0	ROOT	_	_
 3	her	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	son	son	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -528,11 +528,11 @@
 # stage_direction = True
 # text = Tina is seventeen years old, another teenage parent.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
-3	seventeen	seventeen	NUM	CD	_	4	nummod	_	_
-4	years	year	NOUN	NNS	_	5	npadvmod	_	_
-5	old	old	ADJ	JJ	_	2	acomp	_	_
+1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
+3	seventeen	seventeen	NUM	CD	_	4	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
+4	years	year	NOUN	NNS	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
+5	old	old	ADJ	JJ	_	2	acomp	_	ent_type=DATE|ent_id=388|ent_iob=I
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	another	another	DET	DT	_	9	det	_	_
 8	teenage	teenage	ADJ	JJ	_	9	amod	_	_

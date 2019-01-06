@@ -9,20 +9,20 @@
 # text = As Mookie turns and walks away, Sal goes back into Sal's Famous Pizzeria to salvage what is salvageable, and The Block begins to awake from its slumber, ready to deal once again with the heat of the hottest day of the year.
 # time = DAY
 1	As	as	ADP	IN	_	3	mark	_	_
-2	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
+2	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	turns	turn	VERB	VBZ	_	9	advcl	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	walks	walk	VERB	VBZ	_	3	conj	_	_
 6	away	away	ADV	RB	_	5	advmod	_	_
 7	,	,	PUNCT	,	_	9	punct	_	_
-8	Sal	sal	PROPN	NNP	_	9	nsubj	_	_
-9	goes	go	VERB	VBZ	_	9	ROOT	_	_
+8	Sal	sal	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+9	goes	go	VERB	VBZ	_	0	ROOT	_	_
 10	back	back	ADV	RB	_	9	advmod	_	_
 11	into	into	ADP	IN	_	10	prep	_	_
-12	Sal	sal	PROPN	NNP	_	15	poss	_	_
-13	's	's	PART	POS	_	12	case	_	_
-14	Famous	famous	PROPN	NNP	_	15	compound	_	_
-15	Pizzeria	pizzeria	PROPN	NNP	_	11	pobj	_	_
+12	Sal	sal	PROPN	NNP	_	15	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+13	's	's	PART	POS	_	12	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
+14	Famous	famous	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
+15	Pizzeria	pizzeria	PROPN	NNP	_	11	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 16	to	to	PART	TO	_	17	aux	_	_
 17	salvage	salvage	VERB	VB	_	9	advcl	_	_
 18	what	what	NOUN	WP	_	19	nsubj	_	_
@@ -31,7 +31,7 @@
 21	,	,	PUNCT	,	_	9	punct	_	_
 22	and	and	CCONJ	CC	_	9	cc	_	_
 23	The	the	DET	DT	_	24	det	_	_
-24	Block	block	PROPN	NNP	_	25	nsubj	_	_
+24	Block	block	PROPN	NNP	_	25	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 25	begins	begin	VERB	VBZ	_	9	conj	_	_
 26	to	to	PART	TO	_	27	aux	_	_
 27	awake	awake	VERB	VB	_	25	xcomp	_	_
@@ -52,6 +52,6 @@
 42	hottest	hot	ADJ	JJS	_	43	amod	_	_
 43	day	day	NOUN	NN	_	40	pobj	_	_
 44	of	of	ADP	IN	_	43	prep	_	_
-45	the	the	DET	DT	_	46	det	_	_
-46	year	year	NOUN	NN	_	44	pobj	_	_
+45	the	the	DET	DT	_	46	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+46	year	year	NOUN	NN	_	44	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 47	.	.	PUNCT	.	_	25	punct	_	_

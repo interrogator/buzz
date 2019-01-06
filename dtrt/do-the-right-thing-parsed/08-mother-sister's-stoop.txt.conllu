@@ -8,7 +8,7 @@
 # text = Mookie stops to say hello to MOTHER SISTER.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	stops	stop	VERB	VBZ	_	2	ROOT	_	_
+2	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	say	say	VERB	VB	_	2	xcomp	_	_
 5	hello	hello	INTJ	UH	_	4	intj	_	_
@@ -27,7 +27,7 @@
 # text = She leans out her window on the parlor floor.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	leans	lean	VERB	VBZ	_	2	ROOT	_	_
+2	leans	lean	VERB	VBZ	_	0	ROOT	_	_
 3	out	out	PART	RP	_	2	prt	_	_
 4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	window	window	NOUN	NN	_	2	dobj	_	_
@@ -61,7 +61,7 @@
 13	in	in	ADP	IN	_	12	prep	_	_
 14	her	-PRON-	ADJ	PRP$	_	15	poss	_	_
 15	window	window	NOUN	NN	_	13	pobj	_	_
-16	is	be	VERB	VBZ	_	16	ROOT	_	_
+16	is	be	VERB	VBZ	_	0	ROOT	_	_
 17	when	when	ADV	WRB	_	19	advmod	_	_
 18	she	-PRON-	PRON	PRP	_	19	nsubj	_	_
 19	's	be	VERB	VBZ	_	16	advcl	_	_
@@ -79,8 +79,8 @@
 # stage_direction = True
 # text = Good morning, Mookie..
 # time = DAY
-1	Good	good	ADJ	JJ	_	2	amod	_	_
-2	morning	morning	NOUN	NN	_	2	ROOT	_	_
+1	Good	good	ADJ	JJ	_	2	amod	_	ent_type=TIME|ent_id=389|ent_iob=B
+2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	Mookie	mookie	PROPN	NNP	_	2	npadvmod	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -96,8 +96,8 @@
 # stage_direction = True
 # text = Good morning to you..
 # time = DAY
-1	Good	good	ADJ	JJ	_	2	amod	_	_
-2	morning	morning	NOUN	NN	_	2	ROOT	_	_
+1	Good	good	ADJ	JJ	_	2	amod	_	ent_type=TIME|ent_id=389|ent_iob=B
+2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
 3	to	to	ADP	IN	_	2	prep	_	_
 4	you	-PRON-	PRON	PRP	_	3	pobj	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -119,10 +119,10 @@
 4	,	,	PUNCT	,	_	7	punct	_	_
 5	do	do	VERB	VBP	_	7	aux	_	_
 6	n't	not	ADV	RB	_	7	neg	_	_
-7	work	work	VERB	VB	_	7	ROOT	_	_
+7	work	work	VERB	VB	_	0	ROOT	_	_
 8	too	too	ADV	RB	_	9	advmod	_	_
 9	hard	hard	ADV	RB	_	7	advmod	_	_
-10	today	today	NOUN	NN	_	7	npadvmod	_	_
+10	today	today	NOUN	NN	_	7	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
 11	.	.	PUNCT	.	_	7	punct	_	_
 
 # line = 32
@@ -138,13 +138,13 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	man	man	NOUN	NN	_	3	nsubj	_	_
-3	said	say	VERB	VBD	_	3	ROOT	_	_
+3	said	say	VERB	VBD	_	0	ROOT	_	_
 4	it	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	's	be	VERB	VBZ	_	6	aux	_	_
 6	gon	go	VERB	VBG	_	3	ccomp	_	_
 7	na	to	PART	TO	_	8	aux	_	_
 8	be	be	VERB	VB	_	6	xcomp	_	_
-9	HOT	hot	ADJ	JJ	_	8	acomp	_	_
+9	HOT	hot	ADJ	JJ	_	8	acomp	_	ent_type=ORG|ent_id=381|ent_iob=B
 10	as	as	ADP	IN	_	9	prep	_	_
 11	the	the	DET	DT	_	12	det	_	_
 12	devil	devil	NOUN	NN	_	10	pobj	_	_
@@ -164,7 +164,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	6	nsubj	_	_
 6	falling	fall	VERB	VBG	_	4	ccomp	_	_
 7	out	out	PART	RP	_	6	prt	_	_
@@ -185,7 +185,7 @@
 # text = You hear me, son?.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	me	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	son	son	NOUN	NN	_	3	appos	_	_
@@ -204,7 +204,7 @@
 # text = I hear ya, Mother Sister.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	ya	ya	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	Mother	mother	PROPN	NNP	_	6	compound	_	_
@@ -223,7 +223,7 @@
 # text = I hear you..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -238,7 +238,7 @@
 # stage_direction = True
 # text = Good.
 # time = DAY
-1	Good	good	ADJ	JJ	_	1	ROOT	_	_
+1	Good	good	ADJ	JJ	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 34
@@ -255,7 +255,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	'll	will	VERB	MD	_	4	aux	_	_
 3	be	be	VERB	VB	_	4	aux	_	_
-4	watching	watch	VERB	VBG	_	4	ROOT	_	_
+4	watching	watch	VERB	VBG	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	4	dobj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	son	son	NOUN	NN	_	5	appos	_	_
@@ -275,5 +275,5 @@
 1	Mother	mother	PROPN	NNP	_	2	compound	_	_
 2	Sister	sister	PROPN	NNP	_	4	nsubj	_	_
 3	always	always	ADV	RB	_	4	advmod	_	_
-4	watches	watch	VERB	VBZ	_	4	ROOT	_	_
+4	watches	watch	VERB	VBZ	_	0	ROOT	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_

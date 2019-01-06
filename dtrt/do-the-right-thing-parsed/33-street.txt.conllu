@@ -11,7 +11,7 @@
 2	'	'	PUNCT	``	_	1	punct	_	_
 3	Out	out	ADV	RB	_	5	nsubj	_	_
 4	is	be	VERB	VBZ	_	5	aux	_	_
-5	walking	walk	VERB	VBG	_	5	ROOT	_	_
+5	walking	walk	VERB	VBG	_	0	ROOT	_	_
 6	down	down	PART	RP	_	5	prt	_	_
 7	the	the	DET	DT	_	8	det	_	_
 8	block	block	NOUN	NN	_	6	pobj	_	_
@@ -43,7 +43,7 @@
 # text = He looks at his sneakers.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	sneakers	sneaker	NOUN	NNS	_	3	pobj	_	_
@@ -59,7 +59,7 @@
 # text = There is a big black smudge on his new white unlaced Air Jordans.
 # time = DAY
 1	There	there	ADV	EX	_	2	expl	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	6	det	_	_
 4	big	big	ADJ	JJ	_	6	amod	_	_
 5	black	black	ADJ	JJ	_	6	amod	_	_
@@ -69,8 +69,8 @@
 9	new	new	ADJ	JJ	_	13	amod	_	_
 10	white	white	ADJ	JJ	_	13	amod	_	_
 11	unlaced	unlaced	ADJ	JJ	_	13	amod	_	_
-12	Air	air	PROPN	NNP	_	13	compound	_	_
-13	Jordans	jordans	PROPN	NNPS	_	7	pobj	_	_
+12	Air	air	PROPN	NNP	_	13	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+13	Jordans	jordans	PROPN	NNPS	_	7	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 14	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -83,12 +83,12 @@
 # text = He runs down the block after Clifton.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	runs	run	VERB	VBZ	_	2	ROOT	_	_
+2	runs	run	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADP	IN	_	2	prt	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	block	block	NOUN	NN	_	3	pobj	_	_
 6	after	after	ADP	IN	_	2	prep	_	_
-7	Clifton	clifton	PROPN	NNP	_	6	pobj	_	_
+7	Clifton	clifton	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -101,7 +101,7 @@
 # text = He looks at his sneakers.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	sneakers	sneaker	NOUN	NNS	_	3	pobj	_	_
@@ -117,7 +117,7 @@
 # text = There is a big black smudge on his new white unlaced Air Jordans.
 # time = DAY
 1	There	there	ADV	EX	_	2	expl	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	6	det	_	_
 4	big	big	ADJ	JJ	_	6	amod	_	_
 5	black	black	ADJ	JJ	_	6	amod	_	_
@@ -127,8 +127,8 @@
 9	new	new	ADJ	JJ	_	13	amod	_	_
 10	white	white	ADJ	JJ	_	13	amod	_	_
 11	unlaced	unlaced	ADJ	JJ	_	13	amod	_	_
-12	Air	air	PROPN	NNP	_	13	compound	_	_
-13	Jordans	jordans	PROPN	NNPS	_	7	pobj	_	_
+12	Air	air	PROPN	NNP	_	13	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+13	Jordans	jordans	PROPN	NNPS	_	7	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 14	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -141,12 +141,12 @@
 # text = He runs down the block after Clifton.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	runs	run	VERB	VBZ	_	2	ROOT	_	_
+2	runs	run	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADP	IN	_	2	prt	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	block	block	NOUN	NN	_	3	pobj	_	_
 6	after	after	ADP	IN	_	2	prep	_	_
-7	Clifton	clifton	PROPN	NNP	_	6	pobj	_	_
+7	Clifton	clifton	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -159,12 +159,12 @@
 # text = He runs down the block after Clifton.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	runs	run	VERB	VBZ	_	2	ROOT	_	_
+2	runs	run	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADP	IN	_	2	prt	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	block	block	NOUN	NN	_	3	pobj	_	_
 6	after	after	ADP	IN	_	2	prep	_	_
-7	Clifton	clifton	PROPN	NNP	_	6	pobj	_	_
+7	Clifton	clifton	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 243
@@ -179,8 +179,8 @@
 # text = Yo!. Clifton turns around.
 # time = DAY
 1	Yo!.	yo!.	PROPN	NNP	_	3	nmod	_	_
-2	Clifton	clifton	PROPN	NNP	_	4	nsubj	_	_
-3	turns	turn	VERB	VBZ	_	4	ROOT	_	_
+2	Clifton	clifton	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	turns	turn	VERB	VBZ	_	0	ROOT	_	_
 4	around	around	PART	RP	_	4	prt	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -195,7 +195,7 @@
 # stage_direction = True
 # text = Yo!.
 # time = DAY
-1	Yo!.	yo!.	PROPN	NNP	_	1	ROOT	_	_
+1	Yo!.	yo!.	PROPN	NNP	_	0	ROOT	_	_
 
 # line = 245
 # loc = EXT
@@ -208,7 +208,7 @@
 # stage_direction = True
 # text = Yes?.
 # time = DAY
-1	Yes	yes	INTJ	UH	_	1	ROOT	_	_
+1	Yes	yes	INTJ	UH	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -225,7 +225,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	almost	almost	ADV	RB	_	3	advmod	_	_
-3	knocked	knock	VERB	VBD	_	3	ROOT	_	_
+3	knocked	knock	VERB	VBD	_	0	ROOT	_	_
 4	me	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	down	down	PART	RP	_	3	prt	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -243,7 +243,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	word	word	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	"	"	PUNCT	``	_	3	punct	_	_
 5	excuse	excuse	VERB	VB	_	3	xcomp	_	_
 6	me	-PRON-	PRON	PRP	_	5	dobj	_	_
@@ -262,7 +262,7 @@
 # stage_direction = True
 # text = Excuse me.
 # time = DAY
-1	Excuse	excuse	PROPN	NNP	_	1	ROOT	_	_
+1	Excuse	excuse	PROPN	NNP	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -278,7 +278,7 @@
 # text = I'm very sorry..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	very	very	ADV	RB	_	4	advmod	_	_
 4	sorry	sorry	ADJ	JJ	_	2	acomp	_	_
 5	..	..	PUNCT	NFP	_	2	punct	_	_
@@ -303,13 +303,13 @@
 7	down	down	PART	RP	_	5	prt	_	_
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	you	-PRON-	PRON	PRP	_	10	nsubj	_	_
-10	stepped	step	VERB	VBD	_	10	ROOT	_	_
+10	stepped	step	VERB	VBD	_	0	ROOT	_	_
 11	on	on	ADP	IN	_	10	prep	_	_
 12	my	-PRON-	ADJ	PRP$	_	16	poss	_	_
 13	new	new	ADJ	JJ	_	16	amod	_	_
 14	white	white	ADJ	JJ	_	16	amod	_	_
-15	Air	air	PROPN	NNP	_	16	compound	_	_
-16	Jordans	jordans	PROPN	NNP	_	11	pobj	_	_
+15	Air	air	PROPN	NNP	_	16	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+16	Jordans	jordans	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 17	that	that	ADP	IN	_	20	dobj	_	_
 18	I	-PRON-	PRON	PRP	_	20	nsubj	_	_
 19	just	just	ADV	RB	_	20	advmod	_	_
@@ -341,19 +341,19 @@
 1	This	this	DET	DT	_	2	det	_	_
 2	commotion	commotion	NOUN	NN	_	4	nsubj	_	_
 3	has	have	VERB	VBZ	_	4	aux	_	_
-4	attracted	attract	VERB	VBN	_	4	ROOT	_	_
+4	attracted	attract	VERB	VBN	_	0	ROOT	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	crowd	crowd	NOUN	NN	_	4	dobj	_	_
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	including	include	VERB	VBG	_	6	prep	_	_
-9	Ahmad	ahmad	PROPN	NNP	_	8	pobj	_	_
+9	Ahmad	ahmad	PROPN	NNP	_	8	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 10	,	,	PUNCT	,	_	9	punct	_	_
-11	Cee	cee	PROPN	NNP	_	9	conj	_	_
+11	Cee	cee	PROPN	NNP	_	9	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 12	,	,	PUNCT	,	_	11	punct	_	_
-13	Punchy	punchy	PROPN	NNP	_	11	conj	_	_
+13	Punchy	punchy	PROPN	NNP	_	11	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 14	,	,	PUNCT	,	_	13	punct	_	_
 15	and	and	CCONJ	CC	_	13	cc	_	_
-16	Ella	ella	PROPN	NNP	_	13	conj	_	_
+16	Ella	ella	PROPN	NNP	_	13	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
 17	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 249
@@ -369,11 +369,11 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	fuck	fuck	VERB	VB	_	3	ROOT	_	_
+3	fuck	fuck	VERB	VB	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	up	up	PART	RP	_	3	prt	_	_
 6	quick	quick	ADJ	JJ	_	8	amod	_	_
-7	two	two	NUM	CD	_	8	nummod	_	_
+7	two	two	NUM	CD	_	8	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 8	times	time	NOUN	NNS	_	3	npadvmod	_	_
 9	..	..	PUNCT	NFP	_	3	punct	_	_
 
@@ -389,7 +389,7 @@
 # text = Who told you to step on my sneakers?
 # time = DAY
 1	Who	who	NOUN	WP	_	2	nsubj	_	_
-2	told	tell	VERB	VBD	_	2	ROOT	_	_
+2	told	tell	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	step	step	VERB	VB	_	2	xcomp	_	_
@@ -410,7 +410,7 @@
 # text = Who told you to walk on my side of the block?
 # time = DAY
 1	Who	who	NOUN	WP	_	2	nsubj	_	_
-2	told	tell	VERB	VBD	_	2	ROOT	_	_
+2	told	tell	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	walk	walk	VERB	VB	_	2	xcomp	_	_
@@ -434,7 +434,7 @@
 # text = Who told you to be in my neighborhood?.
 # time = DAY
 1	Who	who	NOUN	WP	_	2	nsubj	_	_
-2	told	tell	VERB	VBD	_	2	ROOT	_	_
+2	told	tell	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	2	xcomp	_	_
@@ -456,7 +456,7 @@
 # text = I own a brownstone on this block..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	own	own	VERB	VBP	_	2	ROOT	_	_
+2	own	own	VERB	VBP	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	brownstone	brownstone	NOUN	NN	_	2	dobj	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
@@ -476,7 +476,7 @@
 # text = Who told you to buy a brownstone on my block, in my neighborhood on my side of the street?.
 # time = DAY
 1	Who	who	NOUN	WP	_	2	nsubj	_	_
-2	told	tell	VERB	VBD	_	2	ROOT	_	_
+2	told	tell	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	buy	buy	VERB	VB	_	2	xcomp	_	_
@@ -509,7 +509,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	crowd	crowd	NOUN	NN	_	3	nsubj	_	_
-3	likes	like	VERB	VBZ	_	3	ROOT	_	_
+3	likes	like	VERB	VBZ	_	0	ROOT	_	_
 4	that	that	DET	DT	_	5	det	_	_
 5	one	one	NUM	CD	_	3	dobj	_	_
 6	and	and	CCONJ	CC	_	3	cc	_	_
@@ -535,12 +535,12 @@
 1	What	what	NOUN	WP	_	6	dobj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	live	live	VERB	VB	_	4	xcomp	_	_
 7	in	in	ADP	IN	_	6	prep	_	_
 8	a	a	DET	DT	_	10	det	_	_
-9	Black	black	ADJ	JJ	_	10	amod	_	_
+9	Black	black	ADJ	JJ	_	10	amod	_	ent_type=GPE|ent_id=382|ent_iob=B
 10	neighborhood	neighborhood	NOUN	NN	_	7	pobj	_	_
 11	for	for	ADP	IN	_	10	prep	_	_
 12	?	?	PUNCT	.	_	4	punct	_	_
@@ -556,8 +556,8 @@
 # stage_direction = True
 # text = Motherfuck gentrification..
 # time = DAY
-1	Motherfuck	motherfuck	PROPN	NNP	_	2	compound	_	_
-2	gentrification	gentrification	NOUN	NN	_	2	ROOT	_	_
+1	Motherfuck	motherfuck	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	gentrification	gentrification	NOUN	NN	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 254
@@ -572,7 +572,7 @@
 # text = I'm under the assumption that this is a free country and one can live where he pleases..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	under	under	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	assumption	assumption	NOUN	NN	_	3	pobj	_	_
@@ -604,7 +604,7 @@
 # time = DAY
 1	A	a	DET	DT	_	3	det	_	_
 2	free	free	ADJ	JJ	_	3	amod	_	_
-3	country	country	NOUN	NN	_	3	ROOT	_	_
+3	country	country	NOUN	NN	_	0	ROOT	_	_
 4	?	?	PUNCT	.	_	3	punct	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -617,8 +617,8 @@
 # stage_direction = True
 # text = AWWW SHIT!
 # time = DAY
-1	AWWW	awww	PROPN	NNP	_	2	compound	_	_
-2	SHIT	shit	PROPN	NNP	_	2	ROOT	_	_
+1	AWWW	awww	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	SHIT	shit	PROPN	NNP	_	0	ROOT	_	_
 3	!	!	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -633,8 +633,8 @@
 1	Why	why	ADV	WRB	_	4	advmod	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	he	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	get	get	VERB	VB	_	4	ROOT	_	_
-5	Buggin	buggin	PROPN	NNP	_	4	dobj	_	_
+4	get	get	VERB	VB	_	0	ROOT	_	_
+5	Buggin	buggin	PROPN	NNP	_	4	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	'	'	PUNCT	''	_	5	case	_	_
 7	started	start	VERB	VBD	_	4	ccomp	_	_
 8	?	?	PUNCT	.	_	7	punct	_	_
@@ -652,7 +652,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	should	should	VERB	MD	_	3	aux	_	_
-3	fuck	fuck	VERB	VB	_	3	ROOT	_	_
+3	fuck	fuck	VERB	VB	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	up	up	PART	RP	_	3	prt	_	_
 6	just	just	ADV	RB	_	7	advmod	_	_
@@ -675,13 +675,13 @@
 1	Buggin	buggin	PROPN	NNP	_	3	poss	_	_
 2	'	'	PUNCT	''	_	1	case	_	_
 3	Out	out	PROPN	NNP	_	4	nsubj	_	_
-4	looks	look	VERB	VBZ	_	4	ROOT	_	_
+4	looks	look	VERB	VBZ	_	0	ROOT	_	_
 5	down	down	PART	RP	_	4	prt	_	_
 6	at	at	ADP	IN	_	4	prep	_	_
 7	his	-PRON-	ADJ	PRP$	_	10	poss	_	_
 8	marred	marred	ADJ	JJ	_	10	amod	_	_
-9	Air	air	PROPN	NNP	_	10	compound	_	_
-10	Jordans	jordans	PROPN	NNPS	_	6	pobj	_	_
+9	Air	air	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	Jordans	jordans	PROPN	NNPS	_	6	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 11	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -699,7 +699,7 @@
 4	smelling	smell	VERB	VBG	_	7	advcl	_	_
 5	blood	blood	NOUN	NN	_	4	dobj	_	_
 6	,	,	PUNCT	,	_	7	punct	_	_
-7	wants	want	VERB	VBZ	_	7	ROOT	_	_
+7	wants	want	VERB	VBZ	_	0	ROOT	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	see	see	VERB	VB	_	7	xcomp	_	_
 10	some	some	DET	DT	_	9	dobj	_	_
@@ -717,9 +717,9 @@
 # text = Your Jordans are dogged..
 # time = DAY
 1	Your	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	Jordans	jordans	PROPN	NNPS	_	4	nsubjpass	_	_
+2	Jordans	jordans	PROPN	NNPS	_	4	nsubjpass	_	ent_type=NORP|ent_id=379|ent_iob=B
 3	are	be	VERB	VBP	_	4	auxpass	_	_
-4	dogged	dog	VERB	VBN	_	4	ROOT	_	_
+4	dogged	dog	VERB	VBN	_	0	ROOT	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_
 
 # line = 258
@@ -737,7 +737,7 @@
 2	might	may	VERB	MD	_	5	aux	_	_
 3	as	as	ADV	RB	_	4	advmod	_	_
 4	well	well	ADV	RB	_	5	advmod	_	_
-5	throw	throw	VERB	VB	_	5	ROOT	_	_
+5	throw	throw	VERB	VB	_	0	ROOT	_	_
 6	'em	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	out	out	PART	RP	_	5	prt	_	_
 8	..	..	PUNCT	.	_	5	punct	_	_
@@ -754,7 +754,7 @@
 # text = They looked good before he messed them up..
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looked	look	VERB	VBD	_	2	ROOT	_	_
+2	looked	look	VERB	VBD	_	0	ROOT	_	_
 3	good	good	ADJ	JJ	_	2	acomp	_	_
 4	before	before	ADP	IN	_	6	mark	_	_
 5	he	-PRON-	PRON	PRP	_	6	nsubj	_	_
@@ -775,7 +775,7 @@
 # text = You used to be so fine..
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	used	use	VERB	VBD	_	2	ROOT	_	_
+2	used	use	VERB	VBD	_	0	ROOT	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	be	be	VERB	VB	_	2	xcomp	_	_
 5	so	so	ADV	RB	_	6	advmod	_	_
@@ -797,7 +797,7 @@
 2	much	much	ADJ	JJ	_	5	dobj	_	_
 3	did	do	VERB	VBD	_	5	aux	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	pay	pay	VERB	VB	_	5	ROOT	_	_
+5	pay	pay	VERB	VB	_	0	ROOT	_	_
 6	for	for	ADP	IN	_	5	dative	_	_
 7	them	-PRON-	PRON	PRP	_	6	pobj	_	_
 8	?	?	PUNCT	.	_	5	punct	_	_
@@ -814,9 +814,9 @@
 # stage_direction = True
 # text = A hundred bucks..
 # time = DAY
-1	A	a	DET	DT	_	2	quantmod	_	_
-2	hundred	hundred	NUM	CD	_	3	nummod	_	_
-3	bucks	buck	NOUN	NNS	_	3	ROOT	_	_
+1	A	a	DET	DT	_	2	quantmod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+2	hundred	hundred	NUM	CD	_	3	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+3	bucks	buck	NOUN	NNS	_	0	ROOT	_	ent_type=MONEY|ent_id=391|ent_iob=I
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 263
@@ -832,7 +832,7 @@
 # time = DAY
 1	A	a	DET	DT	_	2	quantmod	_	_
 2	hundred	hundred	NUM	CD	_	3	nummod	_	_
-3	bucks!.	bucks!.	NOUN	NN	_	3	ROOT	_	_
+3	bucks!.	bucks!.	NOUN	NN	_	0	ROOT	_	_
 
 # line = 264
 # loc = EXT
@@ -846,7 +846,7 @@
 # text = You're lucky the Black man has a loving heart.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	lucky	lucky	ADJ	JJ	_	2	acomp	_	_
 4	the	the	DET	DT	_	6	det	_	_
 5	Black	black	ADJ	JJ	_	6	amod	_	_
@@ -871,7 +871,7 @@
 1	Next	next	ADJ	JJ	_	2	amod	_	_
 2	time	time	NOUN	NN	_	4	npadvmod	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	see	see	VERB	VBP	_	4	ROOT	_	_
+4	see	see	VERB	VBP	_	0	ROOT	_	_
 5	me	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	coming	come	VERB	VBG	_	4	ccomp	_	_
 7	,	,	PUNCT	,	_	8	punct	_	_
@@ -894,7 +894,7 @@
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	dissing	diss	VERB	VBG	_	3	ROOT	_	_
+3	dissing	diss	VERB	VBG	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	..	..	PUNCT	.	_	3	punct	_	_
 
@@ -909,13 +909,13 @@
 # stage_direction = True
 # text = Damn, my brand-new Jordans.
 # time = DAY
-1	Damn	damn	PROPN	NNP	_	1	ROOT	_	_
+1	Damn	damn	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	my	-PRON-	ADJ	PRP$	_	7	poss	_	_
 4	brand	brand	NOUN	NN	_	6	npadvmod	_	_
 5	-	-	PUNCT	HYPH	_	6	punct	_	_
 6	new	new	ADJ	JJ	_	7	amod	_	_
-7	Jordans	jordans	PROPN	NNPS	_	1	appos	_	_
+7	Jordans	jordans	PROPN	NNPS	_	1	appos	_	ent_type=NORP|ent_id=379|ent_iob=B
 8	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 266
@@ -931,7 +931,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	should	should	VERB	MD	_	3	aux	_	_
-3	buy	buy	VERB	VB	_	3	ROOT	_	_
+3	buy	buy	VERB	VB	_	0	ROOT	_	_
 4	me	-PRON-	PRON	PRP	_	3	dative	_	_
 5	another	another	DET	DT	_	6	det	_	_
 6	pair	pair	NOUN	NN	_	3	dobj	_	_
@@ -950,7 +950,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	leave	leave	VERB	VB	_	3	xcomp	_	_
 6	now	now	ADV	RB	_	5	advmod	_	_
@@ -977,7 +977,7 @@
 8	man	man	NOUN	NN	_	3	attr	_	_
 9	you	-PRON-	PRON	PRP	_	11	nsubj	_	_
 10	'd	would	VERB	MD	_	11	aux	_	_
-11	be	be	VERB	VB	_	11	ROOT	_	_
+11	be	be	VERB	VB	_	0	ROOT	_	_
 12	in	in	ADP	IN	_	11	prep	_	_
 13	serious	serious	ADJ	JJ	_	14	amod	_	_
 14	trouble	trouble	NOUN	NN	_	12	pobj	_	_
@@ -994,7 +994,7 @@
 # stage_direction = True
 # text = SERIOUS..
 # time = DAY
-1	SERIOUS	serious	PROPN	NNP	_	1	ROOT	_	_
+1	SERIOUS	serious	PROPN	NNP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
@@ -1008,7 +1008,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	crowd	crowd	NOUN	NN	_	3	nsubj	_	_
-3	gives	give	VERB	VBZ	_	3	ROOT	_	_
+3	gives	give	VERB	VBZ	_	0	ROOT	_	_
 4	their	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	approval	approval	NOUN	NN	_	3	dobj	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -1024,8 +1024,8 @@
 # stage_direction = True
 # text = Move back to Connecticut..
 # time = DAY
-1	Move	move	PROPN	NNP	_	1	ROOT	_	_
+1	Move	move	PROPN	NNP	_	0	ROOT	_	_
 2	back	back	ADV	RB	_	1	advmod	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
-4	Connecticut	connecticut	PROPN	NNP	_	3	pobj	_	_
+4	Connecticut	connecticut	PROPN	NNP	_	3	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 5	..	..	PUNCT	.	_	1	punct	_	_

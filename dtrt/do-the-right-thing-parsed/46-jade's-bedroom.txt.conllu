@@ -8,7 +8,7 @@
 # text = Jade sits in a chair directly in front of an air conditioner going full blast.
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
+2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
 3	in	in	ADP	IN	_	2	prep	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	chair	chair	NOUN	NN	_	3	pobj	_	_
@@ -38,10 +38,10 @@
 1	How	how	ADV	WRB	_	4	advmod	_	_
 2	come	come	VERB	VBP	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	're	be	VERB	VBP	_	4	ROOT	_	_
+4	're	be	VERB	VBP	_	0	ROOT	_	_
 5	not	not	ADV	RB	_	4	neg	_	_
 6	at	at	ADP	IN	_	4	prep	_	_
-7	Sal	sal	PROPN	NNP	_	6	pobj	_	_
+7	Sal	sal	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	's	's	PART	POS	_	7	case	_	_
 9	?	?	PUNCT	.	_	4	punct	_	_
 10	.	.	PUNCT	.	_	4	punct	_	_
@@ -59,7 +59,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	working	work	VERB	VBG	_	3	ROOT	_	_
+3	working	work	VERB	VBG	_	0	ROOT	_	_
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # line = 419
@@ -73,16 +73,16 @@
 # stage_direction = True
 # text = Is this another one of your patented two-hour lunches?.
 # time = DAY
-1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+1	Is	be	VERB	VBZ	_	0	ROOT	_	_
 2	this	this	DET	DT	_	1	nsubj	_	_
 3	another	another	DET	DT	_	4	det	_	_
 4	one	one	NUM	CD	_	1	attr	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
 6	your	-PRON-	ADJ	PRP$	_	11	poss	_	_
 7	patented	patent	VERB	VBN	_	11	amod	_	_
-8	two	two	NUM	CD	_	10	nummod	_	_
-9	-	-	PUNCT	HYPH	_	10	punct	_	_
-10	hour	hour	NOUN	NN	_	11	compound	_	_
+8	two	two	NUM	CD	_	10	nummod	_	ent_type=TIME|ent_id=389|ent_iob=B
+9	-	-	PUNCT	HYPH	_	10	punct	_	ent_type=TIME|ent_id=389|ent_iob=I
+10	hour	hour	NOUN	NN	_	11	compound	_	ent_type=TIME|ent_id=389|ent_iob=I
 11	lunches	lunch	NOUN	NNS	_	5	pobj	_	_
 12	?	?	PUNCT	.	_	1	punct	_	_
 13	.	.	PUNCT	.	_	1	punct	_	_
@@ -100,7 +100,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
-3	come	come	VERB	VBP	_	3	ROOT	_	_
+3	come	come	VERB	VBP	_	0	ROOT	_	_
 4	home	home	ADV	RB	_	3	advmod	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	take	take	VERB	VB	_	3	advcl	_	_
@@ -122,7 +122,7 @@
 # time = DAY
 1	Sal	sal	PROPN	NNP	_	3	nsubj	_	_
 2	's	's	PART	POS	_	1	case	_	_
-3	gon	go	NOUN	NN	_	3	ROOT	_	_
+3	gon	go	NOUN	NN	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	mad	mad	ADJ	JJ	_	5	acomp	_	_
@@ -139,9 +139,9 @@
 # stage_direction = True
 # text = Later for Sal.
 # time = DAY
-1	Later	later	ADV	RB	_	1	ROOT	_	_
+1	Later	later	ADV	RB	_	0	ROOT	_	_
 2	for	for	ADP	IN	_	1	prep	_	_
-3	Sal	sal	PROPN	NNP	_	2	pobj	_	_
+3	Sal	sal	PROPN	NNP	_	2	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 422
@@ -159,7 +159,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	sometimes	sometimes	ADV	RB	_	5	advmod	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	think	think	VERB	VBP	_	5	ROOT	_	_
+5	think	think	VERB	VBP	_	0	ROOT	_	_
 6	you	-PRON-	PRON	PRP	_	7	nsubj	_	_
 7	're	be	VERB	VBP	_	5	ccomp	_	_
 8	more	more	ADV	RBR	_	9	advmod	_	_
@@ -182,7 +182,7 @@
 # text = I think no such a thing.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	think	think	VERB	VBP	_	2	ROOT	_	_
+2	think	think	VERB	VBP	_	0	ROOT	_	_
 3	no	no	INTJ	UH	_	6	det	_	_
 4	such	such	ADJ	PDT	_	6	predet	_	_
 5	a	a	DET	DT	_	6	det	_	_
@@ -200,8 +200,8 @@
 # stage_direction = True
 # text = Sal pays you, you should work..
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	pays	pay	VERB	VBZ	_	2	ROOT	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	pays	pay	VERB	VBZ	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	7	punct	_	_
 5	you	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -221,8 +221,8 @@
 # text = Slavery days are over.
 # time = DAY
 1	Slavery	slavery	PROPN	NNP	_	2	compound	_	_
-2	days	day	NOUN	NNS	_	3	nsubj	_	_
-3	are	be	VERB	VBP	_	3	ROOT	_	_
+2	days	day	NOUN	NNS	_	3	nsubj	_	ent_type=DATE|ent_id=388|ent_iob=B
+3	are	be	VERB	VBP	_	0	ROOT	_	_
 4	over	over	ADV	RB	_	3	advmod	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -239,10 +239,10 @@
 # time = DAY
 1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
 2	name	name	NOUN	NN	_	3	nsubj	_	_
-3	ai	be	VERB	VBP	_	3	ROOT	_	_
+3	ai	be	VERB	VBP	_	0	ROOT	_	_
 4	n't	not	ADV	RB	_	3	neg	_	_
-5	Kunta	kunta	PROPN	NNP	_	6	compound	_	_
-6	Kinte	kinte	PROPN	NNP	_	3	attr	_	_
+5	Kunta	kunta	PROPN	NNP	_	6	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
+6	Kinte	kinte	PROPN	NNP	_	3	attr	_	ent_type=GPE|ent_id=382|ent_iob=I
 7	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 424
@@ -261,7 +261,7 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	want	want	VERB	VB	_	6	ROOT	_	_
+6	want	want	VERB	VB	_	0	ROOT	_	_
 7	to	to	PART	TO	_	8	aux	_	_
 8	argue	argue	VERB	VB	_	6	xcomp	_	_
 9	,	,	PUNCT	,	_	6	punct	_	_
@@ -290,7 +290,7 @@
 7	to	to	PART	TO	_	8	aux	_	_
 8	lose	lose	VERB	VB	_	5	ccomp	_	_
 9	the	the	DET	DT	_	11	det	_	_
-10	one	one	NUM	CD	_	11	nummod	_	_
+10	one	one	NUM	CD	_	11	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 11	job	job	NOUN	NN	_	8	dobj	_	_
 12	you	-PRON-	PRON	PRP	_	14	nsubj	_	_
 13	've	have	VERB	VB	_	14	aux	_	_
@@ -300,7 +300,7 @@
 17	keep	keep	VERB	VB	_	15	xcomp	_	_
 18	,	,	PUNCT	,	_	20	punct	_	_
 19	that	that	DET	DT	_	20	nsubj	_	_
-20	's	be	VERB	VBZ	_	20	ROOT	_	_
+20	's	be	VERB	VBZ	_	0	ROOT	_	_
 21	all	all	DET	DT	_	20	attr	_	_
 22	.	.	PUNCT	.	_	20	punct	_	_
 
@@ -317,7 +317,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	carrying	carry	VERB	VBG	_	3	ROOT	_	_
+3	carrying	carry	VERB	VBG	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	as	as	ADP	IN	_	7	mark	_	_
 6	it	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -337,7 +337,7 @@
 # time = DAY
 1	Do	do	VERB	VBP	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	worry	worry	VERB	VB	_	3	ROOT	_	_
+3	worry	worry	VERB	VB	_	0	ROOT	_	_
 4	'bout	about	ADP	IN	_	3	prep	_	_
 5	me	-PRON-	PRON	PRP	_	4	pobj	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -356,7 +356,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 2	always	always	ADV	RB	_	4	advmod	_	_
 3	get	get	VERB	VBP	_	4	auxpass	_	_
-4	paid	pay	VERB	VBN	_	4	ROOT	_	_
+4	paid	pay	VERB	VBN	_	0	ROOT	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_
 
 # line = 427
@@ -375,7 +375,7 @@
 3	then	then	ADV	RB	_	6	advmod	_	_
 4	ya	ya	PRON	PRP	_	6	nsubj	_	_
 5	should	should	VERB	MD	_	6	aux	_	_
-6	take	take	VERB	VB	_	6	ROOT	_	_
+6	take	take	VERB	VB	_	0	ROOT	_	_
 7	better	good	ADJ	JJR	_	8	amod	_	_
 8	care	care	NOUN	NN	_	6	dobj	_	_
 9	of	of	ADP	IN	_	8	prep	_	_
@@ -395,7 +395,7 @@
 # text = What responsibilities?.
 # time = DAY
 1	What	what	NOUN	WP	_	2	det	_	_
-2	responsibilities	responsibility	NOUN	NNS	_	2	ROOT	_	_
+2	responsibilities	responsibility	NOUN	NNS	_	0	ROOT	_	_
 3	?	?	PUNCT	.	_	2	punct	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -413,7 +413,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	stutter	stutter	VERB	VB	_	4	ROOT	_	_
+4	stutter	stutter	VERB	VB	_	0	ROOT	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 429
@@ -427,7 +427,7 @@
 # stage_direction = True
 # text = Take care of your responsibilities.
 # time = DAY
-1	Take	take	VERB	VB	_	1	ROOT	_	_
+1	Take	take	VERB	VB	_	0	ROOT	_	_
 2	care	care	NOUN	NN	_	1	dobj	_	_
 3	of	of	ADP	IN	_	1	prep	_	_
 4	your	-PRON-	ADJ	PRP$	_	5	poss	_	_
@@ -445,7 +445,7 @@
 # stage_direction = True
 # text = Y'know exactly what I'm talking about..
 # time = DAY
-1	Y'know	y'know	NOUN	NN	_	1	ROOT	_	_
+1	Y'know	y'know	NOUN	NN	_	0	ROOT	_	_
 2	exactly	exactly	ADV	RB	_	3	advmod	_	_
 3	what	what	NOUN	WP	_	7	pobj	_	_
 4	I	-PRON-	PRON	PRP	_	6	nsubj	_	_

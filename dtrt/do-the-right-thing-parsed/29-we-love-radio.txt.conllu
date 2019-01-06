@@ -10,11 +10,11 @@
 1	Mookie	mookie	PROPN	NNP	_	4	nmod	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
 3	Vito	vito	PROPN	NNP	_	1	conj	_	_
-4	wave	wave	NOUN	NN	_	4	ROOT	_	_
+4	wave	wave	NOUN	NN	_	0	ROOT	_	_
 5	at	at	ADP	IN	_	4	prep	_	_
 6	Mister	mister	PROPN	NNP	_	8	compound	_	_
-7	Señor	señor	PROPN	NNP	_	8	compound	_	_
-8	Love	love	PROPN	NNP	_	9	compound	_	_
+7	Señor	señor	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+8	Love	love	PROPN	NNP	_	9	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	Daddy	daddy	NOUN	NN	_	5	pobj	_	_
 10	through	through	ADP	IN	_	4	prep	_	_
 11	the	the	DET	DT	_	13	det	_	_

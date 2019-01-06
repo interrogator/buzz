@@ -19,13 +19,13 @@
 8	living	live	VERB	VBG	_	7	acl	_	_
 9	here	here	ADV	RB	_	8	advmod	_	_
 10	in	in	ADP	IN	_	8	prep	_	_
-11	Brooklyn	brooklyn	PROPN	NNP	_	10	pobj	_	_
+11	Brooklyn	brooklyn	PROPN	NNP	_	10	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 12	,	,	PUNCT	,	_	11	punct	_	_
-13	New	new	PROPN	NNP	_	14	compound	_	_
-14	York	york	PROPN	NNP	_	11	npadvmod	_	_
+13	New	new	PROPN	NNP	_	14	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
+14	York	york	PROPN	NNP	_	11	npadvmod	_	ent_type=GPE|ent_id=382|ent_iob=I
 15	,	,	PUNCT	,	_	17	punct	_	_
 16	this	this	DET	DT	_	17	nsubj	_	_
-17	is	be	VERB	VBZ	_	17	ROOT	_	_
+17	is	be	VERB	VBZ	_	0	ROOT	_	_
 18	ya	ya	PRON	PRP	_	20	compound	_	_
 19	Love	love	PROPN	NNP	_	20	compound	_	_
 20	Daddy	daddy	ADJ	JJ	_	21	compound	_	_
@@ -50,13 +50,13 @@
 2	now	now	ADV	RB	_	5	advmod	_	_
 3	we	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	're	be	VERB	VBP	_	5	aux	_	_
-5	gon	go	VERB	VBG	_	5	ROOT	_	_
+5	gon	go	VERB	VBG	_	0	ROOT	_	_
 6	na	to	PART	TO	_	7	aux	_	_
 7	open	open	VERB	VB	_	5	xcomp	_	_
 8	up	up	PART	RP	_	7	prt	_	_
-9	the	the	DET	DT	_	11	det	_	_
-10	Love	love	PROPN	NNP	_	11	compound	_	_
-11	Lines	lines	PROPN	NNPS	_	7	dobj	_	_
+9	the	the	DET	DT	_	11	det	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	Love	love	PROPN	NNP	_	11	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+11	Lines	lines	PROPN	NNPS	_	7	dobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 12	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 575
@@ -73,13 +73,13 @@
 1	Hello	hello	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	're	be	VERB	VBP	_	4	ROOT	_	_
+4	're	be	VERB	VBP	_	0	ROOT	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
-6	Love	love	PROPN	NNP	_	7	compound	_	_
+6	Love	love	PROPN	NNP	_	7	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
 7	Daddy	daddy	PROPN	NNP	_	10	poss	_	_
 8	's	's	PART	POS	_	7	case	_	_
-9	Love	love	PROPN	NNP	_	10	compound	_	_
-10	Line	line	PROPN	NNP	_	5	pobj	_	_
+9	Love	love	PROPN	NNP	_	10	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+10	Line	line	PROPN	NNP	_	5	pobj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
 11	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 575
@@ -94,7 +94,7 @@
 # text = No names, please.
 # time = DUSK
 1	No	no	DET	DT	_	2	det	_	_
-2	names	name	NOUN	NNS	_	2	ROOT	_	_
+2	names	name	NOUN	NNS	_	0	ROOT	_	_
 3	,	,	PUNCT	,	_	4	punct	_	_
 4	please	please	INTJ	UH	_	2	advmod	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
@@ -110,7 +110,7 @@
 # stage_direction = True
 # text = Let's keep it anonymous..
 # time = DUSK
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	keep	keep	VERB	VB	_	1	ccomp	_	_
 4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
@@ -129,11 +129,11 @@
 # text = Hi, Mister Señor Love Daddy.
 # time = DUSK
 # voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
-1	Hi	hi	INTJ	UH	_	1	ROOT	_	_
+1	Hi	hi	INTJ	UH	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	Mister	mister	PROPN	NNP	_	5	compound	_	_
-4	Señor	señor	PROPN	NNP	_	5	compound	_	_
-5	Love	love	PROPN	NNP	_	6	compound	_	_
+4	Señor	señor	PROPN	NNP	_	5	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+5	Love	love	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 6	Daddy	daddy	PROPN	NNP	_	1	npadvmod	_	_
 7	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -153,12 +153,12 @@
 2	'd	would	VERB	MD	_	3	aux	_	_
 3	kiss	kiss	VERB	VB	_	10	ccomp	_	_
 4	your	-PRON-	ADJ	PRP$	_	5	poss	_	_
-5	feet	foot	NOUN	NNS	_	3	dobj	_	_
-6	every	every	DET	DT	_	7	det	_	_
-7	morning	morning	NOUN	NN	_	3	npadvmod	_	_
+5	feet	foot	NOUN	NNS	_	3	dobj	_	ent_type=TIME|ent_id=389|ent_iob=B
+6	every	every	DET	DT	_	7	det	_	ent_type=TIME|ent_id=389|ent_iob=I
+7	morning	morning	NOUN	NN	_	3	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=I
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	that	that	DET	DT	_	10	nsubj	_	_
-10	's	be	VERB	VBZ	_	10	ROOT	_	_
+10	's	be	VERB	VBZ	_	0	ROOT	_	_
 11	how	how	ADV	WRB	_	12	advmod	_	_
 12	much	much	ADJ	JJ	_	14	dative	_	_
 13	I	-PRON-	PRON	PRP	_	14	nsubj	_	_
@@ -178,7 +178,7 @@
 # text = How nice of you..
 # time = DUSK
 1	How	how	ADV	WRB	_	2	advmod	_	_
-2	nice	nice	ADJ	JJ	_	2	ROOT	_	_
+2	nice	nice	ADJ	JJ	_	0	ROOT	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
 4	you	-PRON-	PRON	PRP	_	3	pobj	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -196,7 +196,7 @@
 # time = DUSK
 # voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	think	think	VERB	VBP	_	2	ROOT	_	_
+2	think	think	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	have	have	VERB	VBP	_	2	ccomp	_	_
 5	the	the	DET	DT	_	7	det	_	_
@@ -224,7 +224,7 @@
 3	have	have	VERB	VBP	_	1	relcl	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	do	do	VERB	VB	_	3	xcomp	_	_
-6	is	be	VERB	VBZ	_	6	ROOT	_	_
+6	is	be	VERB	VBZ	_	0	ROOT	_	_
 7	talk	talk	VERB	VB	_	6	attr	_	_
 8	..	..	PUNCT	.	_	7	punct	_	_
 
@@ -243,7 +243,7 @@
 2	Line	line	NOUN	NN	_	5	npadvmod	_	_
 3	,	,	PUNCT	,	_	5	punct	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	're	be	VERB	VBP	_	5	ROOT	_	_
+5	're	be	VERB	VBP	_	0	ROOT	_	_
 6	on	on	ADP	IN	_	5	advmod	_	_
 7	..	..	PUNCT	.	_	5	punct	_	_
 
@@ -260,7 +260,7 @@
 # time = DUSK
 # voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	give	give	VERB	VBP	_	2	ROOT	_	_
+2	give	give	VERB	VBP	_	0	ROOT	_	_
 3	me	-PRON-	PRON	PRP	_	2	dative	_	_
 4	fever	fever	NOUN	NN	_	2	dobj	_	_
 5	..	..	PUNCT	NFP	_	2	punct	_	_
@@ -279,7 +279,7 @@
 # time = DUSK
 1	She	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	feeling	feel	VERB	VBG	_	3	ROOT	_	_
+3	feeling	feel	VERB	VBG	_	0	ROOT	_	_
 4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	..	..	PUNCT	.	_	3	punct	_	_
 
@@ -300,17 +300,17 @@
 3	,	,	PUNCT	,	_	6	punct	_	_
 4	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	'd	would	VERB	MD	_	6	aux	_	_
-6	work	work	VERB	VB	_	6	ROOT	_	_
+6	work	work	VERB	VB	_	0	ROOT	_	_
 7	in	in	ADP	IN	_	6	prep	_	_
-8	Mickey	mickey	PROPN	NNP	_	9	compound	_	_
-9	D	d	PROPN	NNP	_	11	poss	_	_
-10	's	's	PART	POS	_	9	case	_	_
-11	24	24	NUM	CD	_	7	pobj	_	_
+8	Mickey	mickey	PROPN	NNP	_	9	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	D	d	PROPN	NNP	_	11	poss	_	ent_type=ORG|ent_id=381|ent_iob=I
+10	's	's	PART	POS	_	9	case	_	ent_type=ORG|ent_id=381|ent_iob=I
+11	24	24	NUM	CD	_	7	pobj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 12	,	,	PUNCT	,	_	11	punct	_	_
-13	7	7	NUM	CD	_	11	conj	_	_
+13	7	7	NUM	CD	_	11	conj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 14	,	,	PUNCT	,	_	11	punct	_	_
 15	and	and	CCONJ	CC	_	11	cc	_	_
-16	365	365	NUM	CD	_	11	conj	_	_
+16	365	365	NUM	CD	_	11	conj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 17	just	just	ADV	RB	_	19	advmod	_	_
 18	to	to	PART	TO	_	19	aux	_	_
 19	call	call	VERB	VB	_	6	advcl	_	_
@@ -331,7 +331,7 @@
 # text = Give you all my money, honey..
 # time = DUSK
 # voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
-1	Give	give	VERB	VB	_	1	ROOT	_	_
+1	Give	give	VERB	VB	_	0	ROOT	_	_
 2	you	-PRON-	PRON	PRP	_	1	dative	_	_
 3	all	all	ADJ	PDT	_	5	predet	_	_
 4	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
@@ -352,20 +352,20 @@
 # text = That was the last call for tonight on Mister Señor Love Daddy's Love Line.
 # time = DUSK
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	was	be	VERB	VBD	_	2	ROOT	_	_
+2	was	be	VERB	VBD	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	last	last	ADJ	JJ	_	5	amod	_	_
 5	call	call	NOUN	NN	_	2	attr	_	_
 6	for	for	ADP	IN	_	5	prep	_	_
-7	tonight	tonight	NOUN	NN	_	6	pobj	_	_
+7	tonight	tonight	NOUN	NN	_	6	pobj	_	ent_type=TIME|ent_id=389|ent_iob=B
 8	on	on	ADP	IN	_	5	prep	_	_
 9	Mister	mister	PROPN	NNP	_	11	compound	_	_
-10	Señor	señor	PROPN	NNP	_	11	compound	_	_
-11	Love	love	PROPN	NNP	_	12	compound	_	_
+10	Señor	señor	PROPN	NNP	_	11	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+11	Love	love	PROPN	NNP	_	12	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
 12	Daddy	daddy	PROPN	NNP	_	15	poss	_	_
 13	's	's	PART	POS	_	12	case	_	_
-14	Love	love	PROPN	NNP	_	15	compound	_	_
-15	Line	line	PROPN	NNP	_	8	pobj	_	_
+14	Love	love	PROPN	NNP	_	15	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+15	Line	line	PROPN	NNP	_	8	pobj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
 16	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 583
@@ -380,7 +380,7 @@
 # text = I love you.
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	love	love	VERB	VBP	_	2	ROOT	_	_
+2	love	love	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -397,5 +397,5 @@
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	3	npadvmod	_	_
 2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	love	love	VERB	VBP	_	3	ROOT	_	_
+3	love	love	VERB	VBP	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_

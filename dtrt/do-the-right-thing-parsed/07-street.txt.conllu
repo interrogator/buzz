@@ -8,9 +8,9 @@
 # text = The Block is beginning to come to life.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	Block	block	PROPN	NNP	_	4	nsubj	_	_
+2	Block	block	PROPN	NNP	_	4	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 3	is	be	VERB	VBZ	_	4	aux	_	_
-4	beginning	begin	VERB	VBG	_	4	ROOT	_	_
+4	beginning	begin	VERB	VBG	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	come	come	VERB	VB	_	4	xcomp	_	_
 7	to	to	ADP	IN	_	6	prep	_	_
@@ -34,8 +34,8 @@
 6	to	to	PART	TO	_	7	aux	_	_
 7	work	work	VERB	VB	_	5	xcomp	_	_
 8	this	this	DET	DT	_	9	det	_	_
-9	Saturday	saturday	PROPN	NNP	_	7	npadvmod	_	_
-10	drag	drag	VERB	VB	_	10	ROOT	_	_
+9	Saturday	saturday	PROPN	NNP	_	7	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
+10	drag	drag	VERB	VB	_	0	ROOT	_	_
 11	themselves	-PRON-	PRON	PRP	_	10	dobj	_	_
 12	to	to	ADP	IN	_	10	prep	_	_
 13	it	-PRON-	PRON	PRP	_	12	pobj	_	_
@@ -54,7 +54,7 @@
 26	the	the	DET	DT	_	28	det	_	_
 27	hot	hot	ADJ	JJ	_	28	amod	_	_
 28	sun	sun	NOUN	NN	_	25	pobj	_	_
-29	all	all	DET	DT	_	30	det	_	_
-30	day	day	NOUN	NN	_	31	npadvmod	_	_
-31	long	long	ADV	RB	_	24	advmod	_	_
+29	all	all	DET	DT	_	30	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+30	day	day	NOUN	NN	_	31	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
+31	long	long	ADV	RB	_	24	advmod	_	ent_type=DATE|ent_id=388|ent_iob=I
 32	.	.	PUNCT	.	_	18	punct	_	_

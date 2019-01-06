@@ -9,7 +9,7 @@
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
 2	is	be	VERB	VBZ	_	3	aux	_	_
-3	hiking	hike	VERB	VBG	_	3	ROOT	_	_
+3	hiking	hike	VERB	VBG	_	0	ROOT	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	flight	flight	NOUN	NN	_	3	dobj	_	_
@@ -27,7 +27,7 @@
 # text = He puts the pizza box down and takes a breather.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	puts	put	VERB	VBZ	_	2	ROOT	_	_
+2	puts	put	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	pizza	pizza	NOUN	NN	_	5	compound	_	_
 5	box	box	NOUN	NN	_	2	dobj	_	_
@@ -48,7 +48,7 @@
 # text = Sweat drips off his face.
 # time = DAY
 1	Sweat	sweat	NOUN	NN	_	2	compound	_	_
-2	drips	drip	VERB	VBZ	_	2	ROOT	_	_
+2	drips	drip	VERB	VBZ	_	0	ROOT	_	_
 3	off	off	ADP	IN	_	2	prep	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	face	face	NOUN	NN	_	3	pobj	_	_
@@ -64,7 +64,7 @@
 # text = He bends down to pick up the pizza box and tackles the last few flights.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	pick	pick	VERB	VB	_	2	advcl	_	_
@@ -90,7 +90,7 @@
 # text = Mookie pushes the buzzer.
 # time = DAY
 1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	pushes	push	VERB	VBZ	_	2	ROOT	_	_
+2	pushes	push	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	buzzer	buzzer	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -106,10 +106,10 @@
 # time = DAY
 1	A	a	DET	DT	_	5	det	_	_
 2	young	young	ADJ	JJ	_	5	amod	_	_
-3	Puerto	puerto	ADJ	JJ	_	4	amod	_	_
-4	Rican	rican	ADJ	JJ	_	5	amod	_	_
+3	Puerto	puerto	ADJ	JJ	_	4	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
+4	Rican	rican	ADJ	JJ	_	5	amod	_	ent_type=NORP|ent_id=379|ent_iob=I
 5	woman	woman	NOUN	NN	_	6	nsubj	_	_
-6	opens	open	VERB	VBZ	_	6	ROOT	_	_
+6	opens	open	VERB	VBZ	_	0	ROOT	_	_
 7	the	the	DET	DT	_	8	det	_	_
 8	door	door	NOUN	NN	_	6	dobj	_	_
 9	.	.	PUNCT	.	_	6	punct	_	_
@@ -126,7 +126,7 @@
 # text = I hope it's not cold..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hope	hope	VERB	VBP	_	2	ROOT	_	_
+2	hope	hope	VERB	VBP	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	's	be	VERB	VBZ	_	2	ccomp	_	_
 5	not	not	ADV	RB	_	4	neg	_	_
@@ -143,7 +143,7 @@
 # text = Mookie hands her the pizza.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	hands	hand	VERB	VBZ	_	2	ROOT	_	_
+2	hands	hand	VERB	VBZ	_	0	ROOT	_	_
 3	her	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	pizza	pizza	NOUN	NN	_	2	dobj	_	_
@@ -163,7 +163,7 @@
 1	No	no	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	's	be	VERB	VBZ	_	4	ROOT	_	_
+4	's	be	VERB	VBZ	_	0	ROOT	_	_
 5	not	not	ADV	RB	_	4	neg	_	_
 6	cold	cold	ADJ	JJ	_	4	acomp	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
@@ -179,8 +179,8 @@
 # stage_direction = True
 # text = Twelve dollars for the pie..
 # time = DAY
-1	Twelve	twelve	NUM	CD	_	2	nummod	_	_
-2	dollars	dollar	NOUN	NNS	_	2	ROOT	_	_
+1	Twelve	twelve	NUM	CD	_	2	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+2	dollars	dollar	NOUN	NNS	_	0	ROOT	_	ent_type=MONEY|ent_id=391|ent_iob=I
 3	for	for	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	pie	pie	NOUN	NN	_	3	pobj	_	_
@@ -196,7 +196,7 @@
 # text = Nilda hands him a handful of singles.
 # time = DAY
 1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	_
-2	hands	hand	VERB	VBZ	_	2	ROOT	_	_
+2	hands	hand	VERB	VBZ	_	0	ROOT	_	_
 3	him	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	handful	handful	NOUN	NN	_	2	oprd	_	_
@@ -214,7 +214,7 @@
 # text = Mookie looks at the crumpled mess.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	6	det	_	_
 5	crumpled	crumple	VERB	VBN	_	6	amod	_	_
@@ -231,14 +231,14 @@
 # text = Nilda attempts to close the door, but Mookie's foot says, "Hell no."
 # time = DAY
 1	Nilda	nilda	PROPN	NNP	_	2	amod	_	_
-2	attempts	attempt	VERB	VBZ	_	2	ROOT	_	_
+2	attempts	attempt	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	close	close	VERB	VB	_	2	xcomp	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	door	door	NOUN	NN	_	4	dobj	_	_
 7	,	,	PUNCT	,	_	2	punct	_	_
 8	but	but	CCONJ	CC	_	2	cc	_	_
-9	Mookie	mookie	PROPN	NNP	_	11	poss	_	_
+9	Mookie	mookie	PROPN	NNP	_	11	poss	_	ent_type=GPE|ent_id=382|ent_iob=B
 10	's	's	PART	POS	_	9	case	_	_
 11	foot	foot	NOUN	NN	_	12	nsubj	_	_
 12	says	say	VERB	VBZ	_	2	conj	_	_
@@ -260,7 +260,7 @@
 # stage_direction = True
 # text = Hold it.
 # time = DAY
-1	Hold	hold	VERB	VBP	_	1	ROOT	_	_
+1	Hold	hold	VERB	VBP	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -275,11 +275,11 @@
 # stage_direction = True
 # text = Let me count this first..
 # time = DAY
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	count	count	VERB	VB	_	1	ccomp	_	_
 4	this	this	DET	DT	_	5	det	_	_
-5	first	first	ADJ	JJ	_	3	advmod	_	_
+5	first	first	ADJ	JJ	_	3	advmod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
 6	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
@@ -291,9 +291,9 @@
 # stage_direction = True
 # text = First he straightens out the dollars, then counts the bills.
 # time = DAY
-1	First	first	ADV	RB	_	3	advmod	_	_
+1	First	first	ADV	RB	_	3	advmod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
 2	he	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	straightens	straighten	VERB	VBZ	_	3	ROOT	_	_
+3	straightens	straighten	VERB	VBZ	_	0	ROOT	_	_
 4	out	out	PART	RP	_	3	prt	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	dollars	dollar	NOUN	NNS	_	3	dobj	_	_
@@ -316,7 +316,7 @@
 # text = You're short..
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	short	short	ADJ	JJ	_	2	acomp	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -332,10 +332,10 @@
 # text = I counted the twelve dollars myself..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	counted	count	VERB	VBD	_	2	ROOT	_	_
+2	counted	count	VERB	VBD	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
-4	twelve	twelve	NUM	CD	_	5	nummod	_	_
-5	dollars	dollar	NOUN	NNS	_	2	dobj	_	_
+4	twelve	twelve	NUM	CD	_	5	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
+5	dollars	dollar	NOUN	NNS	_	2	dobj	_	ent_type=MONEY|ent_id=391|ent_iob=I
 6	myself	-PRON-	PRON	PRP	_	5	appos	_	_
 7	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -351,7 +351,7 @@
 # text = Twelve is right, but no tip..
 # time = DAY
 1	Twelve	twelve	NUM	CD	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	right	right	ADJ	JJ	_	2	acomp	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	but	but	CCONJ	CC	_	2	cc	_	_
@@ -371,7 +371,7 @@
 # text = No tip..
 # time = DAY
 1	No	no	DET	DT	_	2	det	_	_
-2	tip	tip	NOUN	NN	_	2	ROOT	_	_
+2	tip	tip	NOUN	NN	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 150
@@ -385,7 +385,7 @@
 # stage_direction = True
 # text = Look, lady.
 # time = DAY
-1	Look	look	PROPN	NNP	_	1	ROOT	_	_
+1	Look	look	PROPN	NNP	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	lady	lady	NOUN	NN	_	1	npadvmod	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -402,11 +402,11 @@
 # text = I carried your pizza up five flights of stairs and shit.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	carried	carry	VERB	VBD	_	2	ROOT	_	_
+2	carried	carry	VERB	VBD	_	0	ROOT	_	_
 3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	pizza	pizza	NOUN	NN	_	2	dobj	_	_
 5	up	up	PART	RP	_	2	prt	_	_
-6	five	five	NUM	CD	_	7	nummod	_	_
+6	five	five	NUM	CD	_	7	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 7	flights	flight	NOUN	NNS	_	2	dobj	_	_
 8	of	of	ADP	IN	_	7	prep	_	_
 9	stairs	stair	NOUN	NNS	_	8	pobj	_	_
@@ -429,10 +429,10 @@
 2	cheese	cheese	NOUN	NN	_	5	nsubj	_	_
 3	did	do	VERB	VBD	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	slide	slide	VERB	VB	_	5	ROOT	_	_
+5	slide	slide	VERB	VB	_	0	ROOT	_	_
 6	over	over	ADP	IN	_	5	prt	_	_
 7	to	to	ADP	IN	_	5	prep	_	_
-8	one	one	NUM	CD	_	9	nummod	_	_
+8	one	one	NUM	CD	_	9	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 9	side	side	NOUN	NN	_	7	pobj	_	_
 10	like	like	ADP	IN	_	13	mark	_	_
 11	it	-PRON-	PRON	PRP	_	13	nsubj	_	_
@@ -460,7 +460,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	do	do	VERB	VBP	_	3	aux	_	_
-3	care	care	VERB	VB	_	3	ROOT	_	_
+3	care	care	VERB	VB	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 150
@@ -477,7 +477,7 @@
 1	May	may	VERB	MD	_	4	aux	_	_
 2	I	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 3	get	get	VERB	VB	_	4	auxpass	_	_
-4	paid	pay	VERB	VBN	_	4	ROOT	_	_
+4	paid	pay	VERB	VBN	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -490,8 +490,8 @@
 # stage_direction = True
 # text = Nilda looks at him and sees right away he's not going anywhere.
 # time = DAY
-1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	him	-PRON-	PRON	PRP	_	3	pobj	_	_
 5	and	and	CCONJ	CC	_	2	cc	_	_
@@ -516,7 +516,7 @@
 # stage_direction = True
 # text = Wait here..
 # time = DAY
-1	Wait	wait	VERB	VB	_	1	ROOT	_	_
+1	Wait	wait	VERB	VB	_	0	ROOT	_	_
 2	here	here	ADV	RB	_	1	advmod	_	_
 3	..	..	PUNCT	NFP	_	1	punct	_	_
 
@@ -533,7 +533,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	wait	wait	VERB	VB	_	3	ROOT	_	_
+3	wait	wait	VERB	VB	_	0	ROOT	_	_
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # loc = INT
@@ -545,8 +545,8 @@
 # stage_direction = True
 # text = Nilda goes into the apartment and we hear her talking in Spanish to a male.
 # time = DAY
-1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	_
-2	goes	go	VERB	VBZ	_	2	ROOT	_	_
+1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	goes	go	VERB	VBZ	_	0	ROOT	_	_
 3	into	into	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	apartment	apartment	NOUN	NN	_	3	pobj	_	_
@@ -556,7 +556,7 @@
 9	her	-PRON-	ADJ	PRP$	_	10	nsubj	_	_
 10	talking	talk	VERB	VBG	_	8	ccomp	_	_
 11	in	in	ADP	IN	_	10	prep	_	_
-12	Spanish	spanish	PROPN	NNP	_	11	pobj	_	_
+12	Spanish	spanish	PROPN	NNP	_	11	pobj	_	ent_type=NORP|ent_id=379|ent_iob=B
 13	to	to	ADP	IN	_	10	prep	_	_
 14	a	a	DET	DT	_	15	det	_	_
 15	male	male	NOUN	NN	_	13	pobj	_	_
@@ -572,7 +572,7 @@
 # text = Mookie bends down to tie his sneakers.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	tie	tie	VERB	VB	_	2	advcl	_	_
@@ -589,7 +589,7 @@
 # stage_direction = True
 # text = Nilda reappears and holds out a lonely lone dollar for him.
 # time = DAY
-1	Nilda	nilda	PROPN	NNP	_	1	ROOT	_	_
+1	Nilda	nilda	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	reappears	reappear	NOUN	NNS	_	1	pobj	_	_
 3	and	and	CCONJ	CC	_	1	cc	_	_
 4	holds	hold	VERB	VBZ	_	1	conj	_	_
@@ -622,7 +622,7 @@
 9	,	,	PUNCT	,	_	12	punct	_	_
 10	then	then	ADV	RB	_	12	advmod	_	_
 11	he	-PRON-	PRON	PRP	_	12	nsubj	_	_
-12	takes	take	VERB	VBZ	_	12	ROOT	_	_
+12	takes	take	VERB	VBZ	_	0	ROOT	_	_
 13	it	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	.	.	PUNCT	.	_	12	punct	_	_
 
@@ -636,7 +636,7 @@
 # text = Mookie bends down to tie his sneakers.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	tie	tie	VERB	VB	_	2	advcl	_	_
@@ -653,7 +653,7 @@
 # stage_direction = True
 # text = Nilda reappears and holds out a lonely lone dollar for him.
 # time = DAY
-1	Nilda	nilda	PROPN	NNP	_	1	ROOT	_	_
+1	Nilda	nilda	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	reappears	reappear	NOUN	NNS	_	1	pobj	_	_
 3	and	and	CCONJ	CC	_	1	cc	_	_
 4	holds	hold	VERB	VBZ	_	1	conj	_	_
@@ -686,7 +686,7 @@
 9	,	,	PUNCT	,	_	12	punct	_	_
 10	then	then	ADV	RB	_	12	advmod	_	_
 11	he	-PRON-	PRON	PRP	_	12	nsubj	_	_
-12	takes	take	VERB	VBZ	_	12	ROOT	_	_
+12	takes	take	VERB	VBZ	_	0	ROOT	_	_
 13	it	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	.	.	PUNCT	.	_	12	punct	_	_
 
@@ -701,8 +701,8 @@
 # stage_direction = True
 # text = Gracias mucho..
 # time = DAY
-1	Gracias	gracias	PROPN	NNP	_	2	nsubj	_	_
-2	mucho	mucho	ADV	RB	_	2	ROOT	_	_
+1	Gracias	gracias	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	mucho	mucho	ADV	RB	_	0	ROOT	_	_
 3	..	..	PUNCT	NFP	_	2	punct	_	_
 
 # loc = INT
@@ -714,8 +714,8 @@
 # stage_direction = True
 # text = Nilda slams the door.
 # time = DAY
-1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	_
-2	slams	slam	VERB	VBZ	_	2	ROOT	_	_
+1	Nilda	nilda	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	slams	slam	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	door	door	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -732,7 +732,7 @@
 # text = A dollar!
 # time = DAY
 1	A	a	DET	DT	_	2	det	_	_
-2	dollar	dollar	NOUN	NN	_	2	ROOT	_	_
+2	dollar	dollar	NOUN	NN	_	0	ROOT	_	_
 3	!	!	PUNCT	.	_	2	punct	_	_
 
 # line = 154
@@ -747,7 +747,7 @@
 # text = Cheap bastard!
 # time = DAY
 1	Cheap	cheap	ADJ	JJ	_	2	amod	_	_
-2	bastard	bastard	NOUN	NN	_	2	ROOT	_	_
+2	bastard	bastard	NOUN	NN	_	0	ROOT	_	_
 3	!	!	PUNCT	.	_	2	punct	_	_
 
 # line = 154
@@ -764,7 +764,7 @@
 1	Your	-PRON-	ADJ	PRP$	_	2	poss	_	_
 2	pizza	pizza	NOUN	NN	_	4	nsubj	_	_
 3	is	be	VERB	VBZ	_	4	aux	_	_
-4	gon	go	VERB	VBG	_	4	ROOT	_	_
+4	gon	go	VERB	VBG	_	0	ROOT	_	_
 5	na	to	PART	TO	_	7	aux	_	_
 6	be	be	VERB	VB	_	7	auxpass	_	_
 7	fucked	fuck	VERB	VBN	_	4	xcomp	_	_

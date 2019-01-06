@@ -8,7 +8,7 @@
 # text = We hear a key in the door, the lock turns and Mookie enters.
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	key	key	NOUN	NN	_	2	dobj	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
@@ -34,7 +34,7 @@
 # stage_direction = True
 # text = Jade..
 # time = DAY
-1	Jade	jade	PROPN	NNP	_	1	ROOT	_	_
+1	Jade	jade	PROPN	NNP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 416
@@ -50,7 +50,7 @@
 # time = DAY
 # voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	in	in	ADV	RB	_	2	prep	_	_
 4	here	here	ADV	RB	_	2	advmod	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_

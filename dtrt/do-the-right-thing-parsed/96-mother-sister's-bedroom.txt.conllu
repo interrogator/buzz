@@ -7,21 +7,21 @@
 # stage_direction = True
 # text = Da Mayor wakes up in Mother Sister's big brass bed (she was born in it).
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	wakes	wake	VERB	VBZ	_	15	ccomp	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	in	in	ADP	IN	_	3	prep	_	_
-6	Mother	mother	PROPN	NNP	_	7	compound	_	_
-7	Sister	sister	PROPN	NNP	_	11	poss	_	_
-8	's	's	PART	POS	_	7	case	_	_
+6	Mother	mother	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+7	Sister	sister	PROPN	NNP	_	11	poss	_	ent_type=PERSON|ent_id=378|ent_iob=I
+8	's	's	PART	POS	_	7	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	big	big	ADJ	JJ	_	11	amod	_	_
 10	brass	brass	NOUN	NN	_	11	compound	_	_
 11	bed	bed	NOUN	NN	_	5	pobj	_	_
 12	(	(	PUNCT	-LRB-	_	15	punct	_	_
 13	she	-PRON-	PRON	PRP	_	15	nsubjpass	_	_
 14	was	be	VERB	VBD	_	15	auxpass	_	_
-15	born	bear	VERB	VBN	_	15	ROOT	_	_
+15	born	bear	VERB	VBN	_	0	ROOT	_	_
 16	in	in	ADP	IN	_	15	prep	_	_
 17	it	-PRON-	PRON	PRP	_	16	pobj	_	_
 18	)	)	PUNCT	-RRB-	_	15	punct	_	_
@@ -37,9 +37,9 @@
 # text = At first he has no idea where he's at, then sees Mother Sister sitting down across the room smiling at him.
 # time = DAY
 1	At	at	ADP	IN	_	4	prep	_	_
-2	first	first	ADV	RB	_	1	pcomp	_	_
+2	first	first	ADV	RB	_	1	pcomp	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
 3	he	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	has	have	VERB	VBZ	_	4	ROOT	_	_
+4	has	have	VERB	VBZ	_	0	ROOT	_	_
 5	no	no	DET	DT	_	6	det	_	_
 6	idea	idea	NOUN	NN	_	4	dobj	_	_
 7	where	where	ADV	WRB	_	9	advmod	_	_
@@ -72,9 +72,9 @@
 # stage_direction = True
 # text = Good morning..
 # time = DAY
-1	Good	good	ADJ	JJ	_	2	amod	_	_
-2	morning	morning	NOUN	NN	_	2	ROOT	_	_
-3	..	..	PUNCT	NFP	_	2	punct	_	_
+1	Good	good	ADJ	JJ	_	2	amod	_	ent_type=TIME|ent_id=389|ent_iob=B
+2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
+3	..	..	PUNCT	NFP	_	2	punct	_	ent_type=TIME|ent_id=389|ent_iob=I
 
 # line = 769
 # loc = INT
@@ -87,7 +87,7 @@
 # stage_direction = True
 # text = Is it a good morning?.
 # time = DAY
-1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+1	Is	be	VERB	VBZ	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	nsubj	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	good	good	ADJ	JJ	_	5	amod	_	_
@@ -107,7 +107,7 @@
 # text = Yes indeed.
 # time = DAY
 1	Yes	yes	INTJ	UH	_	2	intj	_	_
-2	indeed	indeed	ADV	RB	_	2	ROOT	_	_
+2	indeed	indeed	ADV	RB	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 770
@@ -123,7 +123,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	almost	almost	ADV	RB	_	3	advmod	_	_
-3	got	get	VERB	VBD	_	3	ROOT	_	_
+3	got	get	VERB	VBD	_	0	ROOT	_	_
 4	yourself	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	killed	kill	VERB	VBN	_	3	ccomp	_	_
 6	last	last	ADJ	JJ	_	7	amod	_	_
@@ -143,7 +143,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	've	have	VERB	VB	_	3	aux	_	_
-3	done	do	VERB	VBN	_	3	ROOT	_	_
+3	done	do	VERB	VBN	_	0	ROOT	_	_
 4	that	that	ADP	IN	_	3	dobj	_	_
 5	before	before	ADV	RB	_	3	advmod	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -157,9 +157,9 @@
 # stage_direction = True
 # text = Da Mayor gets up out of her big brass bed.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	gets	get	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	gets	get	VERB	VBZ	_	0	ROOT	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	out	out	ADP	IN	_	3	prep	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
@@ -183,7 +183,7 @@
 1	Where	where	ADV	WRB	_	4	advmod	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	sleep	sleep	VERB	VB	_	4	ROOT	_	_
+4	sleep	sleep	VERB	VB	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -199,7 +199,7 @@
 # text = I didn't..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	did	do	VERB	VBD	_	2	ROOT	_	_
+2	did	do	VERB	VBD	_	0	ROOT	_	_
 3	n't	not	ADV	RB	_	2	neg	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -215,7 +215,7 @@
 # text = I hope the block is still standing..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hope	hope	VERB	VBP	_	2	ROOT	_	_
+2	hope	hope	VERB	VBP	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	block	block	NOUN	NN	_	7	nsubj	_	_
 5	is	be	VERB	VBZ	_	7	aux	_	_
@@ -237,7 +237,7 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	're	be	VERB	VBP	_	4	aux	_	_
 3	still	still	ADV	RB	_	4	advmod	_	_
-4	standing	stand	VERB	VBG	_	4	ROOT	_	_
+4	standing	stand	VERB	VBG	_	0	ROOT	_	_
 5	..	..	PUNCT	NFP	_	4	punct	_	_
 
 # loc = INT
@@ -249,13 +249,13 @@
 # stage_direction = True
 # text = Da Mayor and Mother Sister both look out the parlor window to see THE BLOCK and Mookie.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	7	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	and	and	CCONJ	CC	_	2	cc	_	_
-4	Mother	mother	PROPN	NNP	_	5	compound	_	_
-5	Sister	sister	PROPN	NNP	_	2	conj	_	_
+4	Mother	mother	PROPN	NNP	_	5	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+5	Sister	sister	PROPN	NNP	_	2	conj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 6	both	both	DET	DT	_	2	appos	_	_
-7	look	look	VERB	VB	_	7	ROOT	_	_
+7	look	look	VERB	VB	_	0	ROOT	_	_
 8	out	out	PART	RP	_	7	prt	_	_
 9	the	the	DET	DT	_	11	det	_	_
 10	parlor	parlor	NOUN	NN	_	11	compound	_	_

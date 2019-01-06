@@ -7,12 +7,12 @@
 # stage_direction = True
 # text = Sal's Famous Pizzeria is going up in flames and now it's a carnival.
 # time = NIGHT
-1	Sal	sal	PROPN	NNP	_	4	poss	_	_
-2	's	's	PART	POS	_	1	case	_	_
-3	Famous	famous	PROPN	NNP	_	4	compound	_	_
-4	Pizzeria	pizzeria	PROPN	NNP	_	6	nsubj	_	_
+1	Sal	sal	PROPN	NNP	_	4	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	's	's	PART	POS	_	1	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	Famous	famous	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
+4	Pizzeria	pizzeria	PROPN	NNP	_	6	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 5	is	be	VERB	VBZ	_	6	aux	_	_
-6	going	go	VERB	VBG	_	6	ROOT	_	_
+6	going	go	VERB	VBG	_	0	ROOT	_	_
 7	up	up	PART	RP	_	6	prt	_	_
 8	in	in	ADP	IN	_	6	prep	_	_
 9	flames	flame	NOUN	NNS	_	8	pobj	_	_
@@ -35,7 +35,7 @@
 # stage_direction = True
 # text = Burn it down.
 # time = NIGHT
-1	Burn	burn	VERB	VBP	_	1	ROOT	_	_
+1	Burn	burn	VERB	VBP	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	down	down	PART	RP	_	1	prt	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -51,7 +51,7 @@
 # stage_direction = True
 # text = Burn it down..
 # time = NIGHT
-1	Burn	burn	VERB	VB	_	1	ROOT	_	_
+1	Burn	burn	VERB	VB	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	down	down	PART	RP	_	1	prt	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -68,15 +68,15 @@
 1	One	one	NUM	CD	_	4	nsubj	_	_
 2	might	may	VERB	MD	_	4	aux	_	_
 3	have	have	VERB	VB	_	4	aux	_	_
-4	thought	think	VERB	VBN	_	4	ROOT	_	_
+4	thought	think	VERB	VBN	_	0	ROOT	_	_
 5	that	that	ADP	IN	_	24	mark	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	elders	elder	NOUN	NNS	_	24	nsubj	_	_
 8	--	--	PUNCT	:	_	7	punct	_	_
 9	who	who	NOUN	WP	_	15	nsubjpass	_	_
 10	through	through	ADP	IN	_	15	prep	_	_
-11	the	the	DET	DT	_	12	det	_	_
-12	years	year	NOUN	NNS	_	10	pobj	_	_
+11	the	the	DET	DT	_	12	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+12	years	year	NOUN	NNS	_	10	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 13	have	have	VERB	VBP	_	15	aux	_	_
 14	been	be	VERB	VBN	_	15	auxpass	_	_
 15	broken	break	VERB	VBN	_	7	relcl	_	_
@@ -110,13 +110,13 @@
 # text = That's not true except for Da Mayor.
 # time = NIGHT
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	not	not	ADV	RB	_	2	neg	_	_
 4	true	true	ADJ	JJ	_	2	acomp	_	_
 5	except	except	ADP	IN	_	2	prep	_	_
 6	for	for	ADP	IN	_	5	prep	_	_
-7	Da	da	PROPN	NNP	_	8	compound	_	_
-8	Mayor	mayor	PROPN	NNP	_	6	pobj	_	_
+7	Da	da	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+8	Mayor	mayor	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -133,7 +133,7 @@
 3	of	of	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	elders	elder	NOUN	NNS	_	3	pobj	_	_
-6	are	be	VERB	VBP	_	6	ROOT	_	_
+6	are	be	VERB	VBP	_	0	ROOT	_	_
 7	right	right	ADV	RB	_	8	advmod	_	_
 8	up	up	ADV	RB	_	6	advmod	_	_
 9	in	in	ADP	IN	_	6	prep	_	_

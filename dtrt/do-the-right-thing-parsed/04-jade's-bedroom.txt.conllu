@@ -7,13 +7,13 @@
 # stage_direction = True
 # text = JADE, Mookie's sister, is fast asleep.
 # time = DAY
-1	JADE	jade	PROPN	NNP	_	7	nsubj	_	_
+1	JADE	jade	PROPN	NNP	_	7	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Mookie	mookie	PROPN	NNP	_	5	poss	_	_
+3	Mookie	mookie	PROPN	NNP	_	5	poss	_	ent_type=GPE|ent_id=382|ent_iob=B
 4	's	's	PART	POS	_	3	case	_	_
 5	sister	sister	NOUN	NN	_	1	appos	_	_
 6	,	,	PUNCT	,	_	1	punct	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	fast	fast	ADV	RB	_	9	advmod	_	_
 9	asleep	asleep	ADJ	JJ	_	7	acomp	_	_
 10	.	.	PUNCT	.	_	7	punct	_	_
@@ -30,9 +30,9 @@
 1	Mookie	mookie	PROPN	NNP	_	3	poss	_	_
 2	's	's	PART	POS	_	1	case	_	_
 3	fingers	finger	NOUN	NNS	_	4	nsubj	_	_
-4	ENTER	enter	VERB	VBP	_	4	ROOT	_	_
+4	ENTER	enter	VERB	VBP	_	0	ROOT	_	_
 5	THE	the	DET	DT	_	6	det	_	_
-6	FRAME	frame	NOUN	NNS	_	4	dobj	_	_
+6	FRAME	frame	NOUN	NNS	_	4	dobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 7	and	and	CCONJ	CC	_	4	cc	_	_
 8	start	start	VERB	VB	_	4	conj	_	_
 9	to	to	PART	TO	_	10	aux	_	_
@@ -52,7 +52,7 @@
 # text = Jade pushes his hands away.
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	pushes	push	VERB	VBZ	_	2	ROOT	_	_
+2	pushes	push	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	hands	hand	NOUN	NNS	_	2	dobj	_	_
 5	away	away	ADV	RB	_	2	advmod	_	_
@@ -68,7 +68,7 @@
 # text = Mookie waits several beats and he continues.
 # time = DAY
 1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	waits	wait	VERB	VBZ	_	2	ROOT	_	_
+2	waits	wait	VERB	VBZ	_	0	ROOT	_	_
 3	several	several	ADJ	JJ	_	4	amod	_	_
 4	beats	beat	NOUN	NNS	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	2	cc	_	_
@@ -86,7 +86,7 @@
 # text = Jade wakes up--mad.
 # time = DAY
 1	Jade	jade	VERB	VB	_	2	compound	_	_
-2	wakes	wake	VERB	VBZ	_	2	ROOT	_	_
+2	wakes	wake	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	--	--	PUNCT	:	_	2	punct	_	_
 5	mad	mad	ADJ	JJ	_	2	amod	_	_
@@ -101,13 +101,13 @@
 # stage_direction = True
 # text = JADE, Mookie's sister, is fast asleep.
 # time = DAY
-1	JADE	jade	PROPN	NNP	_	7	nsubj	_	_
+1	JADE	jade	PROPN	NNP	_	7	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Mookie	mookie	PROPN	NNP	_	5	poss	_	_
+3	Mookie	mookie	PROPN	NNP	_	5	poss	_	ent_type=GPE|ent_id=382|ent_iob=B
 4	's	's	PART	POS	_	3	case	_	_
 5	sister	sister	NOUN	NN	_	1	appos	_	_
 6	,	,	PUNCT	,	_	1	punct	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	fast	fast	ADV	RB	_	9	advmod	_	_
 9	asleep	asleep	ADJ	JJ	_	7	acomp	_	_
 10	.	.	PUNCT	.	_	7	punct	_	_
@@ -124,9 +124,9 @@
 1	Mookie	mookie	PROPN	NNP	_	3	poss	_	_
 2	's	's	PART	POS	_	1	case	_	_
 3	fingers	finger	NOUN	NNS	_	4	nsubj	_	_
-4	ENTER	enter	VERB	VBP	_	4	ROOT	_	_
+4	ENTER	enter	VERB	VBP	_	0	ROOT	_	_
 5	THE	the	DET	DT	_	6	det	_	_
-6	FRAME	frame	NOUN	NNS	_	4	dobj	_	_
+6	FRAME	frame	NOUN	NNS	_	4	dobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 7	and	and	CCONJ	CC	_	4	cc	_	_
 8	start	start	VERB	VB	_	4	conj	_	_
 9	to	to	PART	TO	_	10	aux	_	_
@@ -146,7 +146,7 @@
 # text = Jade pushes his hands away.
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	pushes	push	VERB	VBZ	_	2	ROOT	_	_
+2	pushes	push	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	hands	hand	NOUN	NNS	_	2	dobj	_	_
 5	away	away	ADV	RB	_	2	advmod	_	_
@@ -162,7 +162,7 @@
 # text = Mookie waits several beats and he continues.
 # time = DAY
 1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	waits	wait	VERB	VBZ	_	2	ROOT	_	_
+2	waits	wait	VERB	VBZ	_	0	ROOT	_	_
 3	several	several	ADJ	JJ	_	4	amod	_	_
 4	beats	beat	NOUN	NNS	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	2	cc	_	_
@@ -180,7 +180,7 @@
 # text = Jade wakes up--mad.
 # time = DAY
 1	Jade	jade	VERB	VB	_	2	compound	_	_
-2	wakes	wake	VERB	VBZ	_	2	ROOT	_	_
+2	wakes	wake	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	--	--	PUNCT	:	_	2	punct	_	_
 5	mad	mad	ADJ	JJ	_	2	amod	_	_
@@ -200,7 +200,7 @@
 1	Do	do	VERB	VBP	_	4	aux	_	_
 2	n't	not	ADV	RB	_	4	neg	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	have	have	VERB	VB	_	4	ROOT	_	_
+4	have	have	VERB	VB	_	0	ROOT	_	_
 5	enough	enough	ADJ	JJ	_	6	amod	_	_
 6	sense	sense	NOUN	NN	_	4	dobj	_	_
 7	not	not	ADV	RB	_	9	neg	_	_
@@ -225,7 +225,7 @@
 # stage_direction = True
 # text = Wake up!.
 # time = DAY
-1	Wake	wake	PROPN	NNP	_	1	ROOT	_	_
+1	Wake	wake	PROPN	NNP	_	0	ROOT	_	_
 2	up!.	up!.	PROPN	NNP	_	1	acomp	_	_
 
 # line = 9
@@ -239,7 +239,7 @@
 # stage_direction = True
 # text = Wake up?
 # time = DAY
-1	Wake	wake	VERB	VBP	_	1	ROOT	_	_
+1	Wake	wake	VERB	VBP	_	0	ROOT	_	_
 2	up	up	PART	RP	_	1	prt	_	_
 3	?	?	PUNCT	.	_	1	punct	_	_
 
@@ -254,8 +254,8 @@
 # stage_direction = True
 # text = Saturday is the lone day I get to sleep late..
 # time = DAY
-1	Saturday	saturday	PROPN	NNP	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+1	Saturday	saturday	PROPN	NNP	_	2	nsubj	_	ent_type=DATE|ent_id=388|ent_iob=B
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	lone	lone	ADJ	JJ	_	5	amod	_	_
 5	day	day	NOUN	NN	_	2	attr	_	_
@@ -279,11 +279,11 @@
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	hot	hot	ADJ	JJ	_	5	acomp	_	_
-7	today	today	NOUN	NN	_	5	npadvmod	_	_
+7	today	today	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
 8	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 11
@@ -297,7 +297,7 @@
 # stage_direction = True
 # text = Good!
 # time = DAY
-1	Good	good	ADJ	JJ	_	1	ROOT	_	_
+1	Good	good	ADJ	JJ	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 11
@@ -311,7 +311,7 @@
 # stage_direction = True
 # text = Leave me alone when I'm sleeping.
 # time = DAY
-1	Leave	leave	VERB	VB	_	1	ROOT	_	_
+1	Leave	leave	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	alone	alone	ADJ	JJ	_	1	oprd	_	_
 4	when	when	ADV	WRB	_	7	advmod	_	_
@@ -333,7 +333,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	get	get	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
@@ -364,10 +364,10 @@
 1	Do	do	VERB	VBP	_	4	aux	_	_
 2	n't	not	ADV	RB	_	4	neg	_	_
 3	ya	ya	PRON	PRP	_	4	nsubj	_	_
-4	love	love	VERB	VB	_	4	ROOT	_	_
+4	love	love	VERB	VB	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	4	dobj	_	_
 6	brother	brother	NOUN	NN	_	7	compound	_	_
-7	Mookie	mookie	PROPN	NNP	_	4	npadvmod	_	_
+7	Mookie	mookie	PROPN	NNP	_	4	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	anymore	anymore	ADV	RB	_	4	advmod	_	_
 9	?	?	PUNCT	.	_	4	punct	_	_
 
@@ -383,10 +383,10 @@
 # text = I loves ya, Jade..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	loves	love	VERB	VBZ	_	2	ROOT	_	_
+2	loves	love	VERB	VBZ	_	0	ROOT	_	_
 3	ya	ya	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Jade	jade	PROPN	NNP	_	3	conj	_	_
+5	Jade	jade	PROPN	NNP	_	3	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
 6	..	..	PUNCT	.	_	5	punct	_	_
 
 # line = 13
@@ -400,7 +400,7 @@
 # stage_direction = True
 # text = Do me a favor.
 # time = DAY
-1	Do	do	VERB	VBP	_	1	ROOT	_	_
+1	Do	do	VERB	VBP	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dative	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	favor	favor	NOUN	NN	_	1	dobj	_	_
@@ -417,7 +417,7 @@
 # stage_direction = True
 # text = Go to work..
 # time = DAY
-1	Go	go	VERB	VB	_	1	ROOT	_	_
+1	Go	go	VERB	VB	_	0	ROOT	_	_
 2	to	to	PART	TO	_	1	prep	_	_
 3	work	work	VERB	VB	_	2	pobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -433,7 +433,7 @@
 # stage_direction = True
 # text = Later.
 # time = DAY
-1	Later	later	ADV	RBR	_	1	ROOT	_	_
+1	Later	later	ADV	RBR	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 14
@@ -447,7 +447,7 @@
 # stage_direction = True
 # text = Gotta get paid..
 # time = DAY
-1	Got	get	VERB	VBD	_	1	ROOT	_	_
+1	Got	get	VERB	VBD	_	0	ROOT	_	_
 2	ta	to	PART	TO	_	4	aux	_	_
 3	get	get	VERB	VB	_	4	auxpass	_	_
 4	paid	pay	VERB	VBN	_	1	xcomp	_	_
@@ -463,7 +463,7 @@
 # text = He plants a big fat juicy on his sister's forehead.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	plants	plant	VERB	VBZ	_	2	ROOT	_	_
+2	plants	plant	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	6	det	_	_
 4	big	big	ADJ	JJ	_	6	amod	_	_
 5	fat	fat	NOUN	NN	_	6	amod	_	_

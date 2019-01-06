@@ -10,11 +10,11 @@
 1	Buggin	buggin	PROPN	NNP	_	4	poss	_	_
 2	'	'	PUNCT	``	_	1	case	_	_
 3	Out	out	PART	RP	_	4	amod	_	_
-4	waves	wave	NOUN	NNS	_	4	ROOT	_	_
+4	waves	wave	NOUN	NNS	_	0	ROOT	_	_
 5	at	at	ADP	IN	_	4	prep	_	_
 6	Mister	mister	PROPN	NNP	_	8	compound	_	_
-7	Señor	señor	PROPN	NNP	_	8	compound	_	_
-8	Love	love	PROPN	NNP	_	9	compound	_	_
+7	Señor	señor	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+8	Love	love	PROPN	NNP	_	9	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	Daddy	daddy	PROPN	NNP	_	5	pobj	_	_
 10	as	as	ADP	IN	_	12	mark	_	_
 11	he	-PRON-	PRON	PRP	_	12	nsubj	_	_

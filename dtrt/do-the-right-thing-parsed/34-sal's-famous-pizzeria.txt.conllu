@@ -10,7 +10,7 @@
 1	Mookie	mookie	PROPN	NNP	_	4	nsubj	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
 3	Vito	vito	PROPN	NNP	_	1	conj	_	_
-4	enter	enter	VERB	VBP	_	4	ROOT	_	_
+4	enter	enter	VERB	VBP	_	0	ROOT	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	shop	shop	NOUN	NN	_	4	dobj	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
@@ -28,8 +28,8 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	should	should	VERB	MD	_	3	aux	_	_
-3	have	have	VERB	VB	_	3	ROOT	_	_
-4	Vito	vito	PROPN	NNP	_	5	nsubj	_	_
+3	have	have	VERB	VB	_	0	ROOT	_	_
+4	Vito	vito	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	go	go	VERB	VB	_	3	ccomp	_	_
 6	with	with	ADP	IN	_	5	prep	_	_
 7	you	-PRON-	PRON	PRP	_	6	pobj	_	_
@@ -53,10 +53,10 @@
 2	,	,	PUNCT	,	_	8	punct	_	_
 3	no	no	DET	DT	_	8	det	_	_
 4	more	more	ADV	RBR	_	8	amod	_	_
-5	ninety	ninety	NUM	CD	_	7	nummod	_	_
-6	-	-	PUNCT	HYPH	_	7	punct	_	_
-7	minute	minute	NOUN	NN	_	8	compound	_	_
-8	deliveries	delivery	NOUN	NNS	_	8	ROOT	_	_
+5	ninety	ninety	NUM	CD	_	7	nummod	_	ent_type=TIME|ent_id=389|ent_iob=B
+6	-	-	PUNCT	HYPH	_	7	punct	_	ent_type=TIME|ent_id=389|ent_iob=I
+7	minute	minute	NOUN	NN	_	8	compound	_	ent_type=TIME|ent_id=389|ent_iob=I
+8	deliveries	delivery	NOUN	NNS	_	0	ROOT	_	_
 9	around	around	ADP	IN	_	8	prep	_	_
 10	the	the	DET	DT	_	11	det	_	_
 11	corner	corner	NOUN	NN	_	9	pobj	_	_
@@ -76,7 +76,7 @@
 1	Pino	pino	PROPN	NNP	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	work	work	VERB	VBP	_	4	ROOT	_	_
+4	work	work	VERB	VBP	_	0	ROOT	_	_
 5	hard	hard	ADV	RB	_	4	advmod	_	_
 6	like	like	ADP	IN	_	4	prep	_	_
 7	everybody	everybody	NOUN	NN	_	6	pobj	_	_
@@ -96,7 +96,7 @@
 # text = He's right..
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	right	right	ADJ	JJ	_	2	acomp	_	_
 4	..	..	PUNCT	NFP	_	2	punct	_	_
 
@@ -111,7 +111,7 @@
 # stage_direction = True
 # text = C'mere..
 # time = DAY
-1	C'mere	c'mere	ADV	RB	_	1	ROOT	_	_
+1	C'mere	c'mere	ADV	RB	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # line = 274
@@ -127,7 +127,7 @@
 # time = DAY
 1	Do	do	VERB	VBP	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	get	get	VERB	VB	_	3	ROOT	_	_
+3	get	get	VERB	VB	_	0	ROOT	_	_
 4	too	too	ADV	RB	_	5	advmod	_	_
 5	friendly	friendly	ADJ	JJ	_	3	acomp	_	_
 6	with	with	ADP	IN	_	3	prep	_	_
@@ -148,7 +148,7 @@
 # time = DAY
 1	That	that	DET	DT	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	the	the	DET	DT	_	8	det	_	_
@@ -170,7 +170,7 @@
 # stage_direction = True
 # text = Smack him back..
 # time = DAY
-1	Smack	smack	PROPN	NNP	_	1	ROOT	_	_
+1	Smack	smack	PROPN	NNP	_	0	ROOT	_	_
 2	him	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	back	back	ADV	RB	_	1	prt	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -186,7 +186,7 @@
 # stage_direction = True
 # text = What?.
 # time = DAY
-1	What	what	NOUN	WP	_	1	ROOT	_	_
+1	What	what	NOUN	WP	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -201,7 +201,7 @@
 # stage_direction = True
 # text = Remember what I said..
 # time = DAY
-1	Remember	remember	VERB	VB	_	1	ROOT	_	_
+1	Remember	remember	VERB	VB	_	0	ROOT	_	_
 2	what	what	NOUN	WP	_	4	dobj	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	said	say	VERB	VBD	_	1	ccomp	_	_
@@ -216,8 +216,8 @@
 # stage_direction = True
 # text = Vito stands frozen in front of his brother.
 # time = DAY
-1	Vito	vito	PROPN	NNP	_	2	nsubj	_	_
-2	stands	stand	VERB	VBZ	_	2	ROOT	_	_
+1	Vito	vito	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 3	frozen	frozen	ADJ	JJ	_	2	advcl	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
 5	front	front	NOUN	NN	_	4	pobj	_	_
@@ -239,12 +239,12 @@
 # time = DAY
 1	Are	be	VERB	VBP	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	listen	listen	VERB	VB	_	3	xcomp	_	_
 6	to	to	ADP	IN	_	5	prep	_	_
 7	this	this	DET	DT	_	8	det	_	_
-8	Mook	mook	PROPN	NNP	_	6	pobj	_	_
+8	Mook	mook	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 9	?	?	PUNCT	.	_	3	punct	_	_
 
 # line = 279
@@ -261,7 +261,7 @@
 1	Listen	listen	VERB	VB	_	4	csubj	_	_
 2	to	to	ADP	IN	_	1	prep	_	_
 3	him	-PRON-	PRON	PRP	_	2	pobj	_	_
-4	tell	tell	VERB	VB	_	4	ROOT	_	_
+4	tell	tell	VERB	VB	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	to	to	PART	TO	_	7	aux	_	_
 7	smack	smack	VERB	VB	_	4	xcomp	_	_
@@ -281,7 +281,7 @@
 # time = DAY
 1	Your	-PRON-	ADJ	PRP$	_	3	poss	_	_
 2	only	only	ADJ	JJ	_	3	amod	_	_
-3	brother	brother	NOUN	NN	_	3	ROOT	_	_
+3	brother	brother	NOUN	NN	_	0	ROOT	_	_
 4	?	?	PUNCT	.	_	3	punct	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -295,7 +295,7 @@
 # text = Vito walks away and Mookie is disgusted.
 # time = DAY
 1	Vito	vito	PROPN	NNP	_	2	nsubj	_	_
-2	walks	walk	VERB	VBZ	_	2	ROOT	_	_
+2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	away	away	ADV	RB	_	2	advmod	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	Mookie	mookie	PROPN	NNP	_	6	nsubj	_	_
@@ -317,6 +317,6 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	think	think	VERB	VB	_	4	ROOT	_	_
+4	think	think	VERB	VB	_	0	ROOT	_	_
 5	so	so	ADV	RB	_	4	advmod	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_

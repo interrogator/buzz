@@ -10,7 +10,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	mob	mob	NOUN	NN	_	4	nsubj	_	_
 3	now	now	ADV	RB	_	4	advmod	_	_
-4	moves	move	VERB	VBZ	_	4	ROOT	_	_
+4	moves	move	VERB	VBZ	_	0	ROOT	_	_
 5	across	across	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	street	street	NOUN	NN	_	5	pobj	_	_
@@ -18,7 +18,7 @@
 9	front	front	NOUN	NN	_	8	pobj	_	_
 10	of	of	ADP	IN	_	9	prep	_	_
 11	the	the	DET	DT	_	13	det	_	_
-12	Korean	korean	ADJ	JJ	_	13	amod	_	_
+12	Korean	korean	ADJ	JJ	_	13	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
 13	fruit	fruit	NOUN	NN	_	16	nmod	_	_
 14	and	and	CCONJ	CC	_	13	cc	_	_
 15	vegetable	vegetable	NOUN	NN	_	13	conj	_	_
@@ -34,16 +34,16 @@
 # stage_direction = True
 # text = Sweet Dick Willie, Coconut Sid, and ML stand at the head of the mob.
 # time = NIGHT
-1	Sweet	sweet	PROPN	NNP	_	3	compound	_	_
-2	Dick	dick	PROPN	NNP	_	3	compound	_	_
+1	Sweet	sweet	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Dick	dick	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	Willie	willie	PROPN	NNP	_	10	nsubj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Coconut	coconut	PROPN	NNP	_	6	compound	_	_
-6	Sid	sid	PROPN	NNP	_	3	conj	_	_
+5	Coconut	coconut	PROPN	NNP	_	6	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
+6	Sid	sid	PROPN	NNP	_	3	conj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	ML	ml	PROPN	NNP	_	10	compound	_	_
-10	stand	stand	NOUN	NN	_	10	ROOT	_	_
+9	ML	ml	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	stand	stand	NOUN	NN	_	0	ROOT	_	_
 11	at	at	ADP	IN	_	10	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
 13	head	head	NOUN	NN	_	11	pobj	_	_
@@ -64,7 +64,7 @@
 # text = It's your turn..
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	turn	turn	NOUN	NN	_	2	attr	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -79,7 +79,7 @@
 # text = He's scared to death, as the mob is poised to tear his place up too.
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	scared	scared	ADJ	JJ	_	2	acomp	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	death	death	NOUN	NN	_	4	pobj	_	_
@@ -109,7 +109,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	clerk	clerk	NOUN	NN	_	4	nsubj	_	_
 3	wildly	wildly	ADV	RB	_	4	advmod	_	_
-4	swings	swing	VERB	VBZ	_	4	ROOT	_	_
+4	swings	swing	VERB	VBZ	_	0	ROOT	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	broom	broom	NOUN	NN	_	4	dobj	_	_
 7	to	to	PART	TO	_	8	aux	_	_
@@ -128,7 +128,7 @@
 # text = He's scared to death, as the mob is poised to tear his place up too.
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	scared	scared	ADJ	JJ	_	2	acomp	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	death	death	NOUN	NN	_	4	pobj	_	_
@@ -158,7 +158,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	clerk	clerk	NOUN	NN	_	4	nsubj	_	_
 3	wildly	wildly	ADV	RB	_	4	advmod	_	_
-4	swings	swing	VERB	VBZ	_	4	ROOT	_	_
+4	swings	swing	VERB	VBZ	_	0	ROOT	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	broom	broom	NOUN	NN	_	4	dobj	_	_
 7	to	to	PART	TO	_	8	aux	_	_
@@ -180,7 +180,7 @@
 # time = NIGHT
 1	Me	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	no	no	DET	DT	_	3	det	_	_
-3	white	white	ADJ	JJ	_	3	ROOT	_	_
+3	white	white	ADJ	JJ	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 740
@@ -196,7 +196,7 @@
 # time = NIGHT
 1	Me	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	no	no	DET	DT	_	3	det	_	_
-3	white	white	ADJ	JJ	_	3	ROOT	_	_
+3	white	white	ADJ	JJ	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 740
@@ -210,8 +210,8 @@
 # stage_direction = True
 # text = Me Black.
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 740
@@ -225,8 +225,8 @@
 # stage_direction = True
 # text = Me Black.
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 740
@@ -240,8 +240,8 @@
 # stage_direction = True
 # text = Me Black..
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 741
@@ -256,7 +256,7 @@
 # text = Me Black.
 # time = NIGHT
 1	Me	me	PROPN	NNP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+2	Black	black	PROPN	NNP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 741
@@ -270,8 +270,8 @@
 # stage_direction = True
 # text = Me Black..
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -290,7 +290,7 @@
 5	laugh	laugh	VERB	VB	_	3	xcomp	_	_
 6	;	;	PUNCT	:	_	8	punct	_	_
 7	they	-PRON-	PRON	PRP	_	8	nsubj	_	_
-8	feel	feel	VERB	VBP	_	8	ROOT	_	_
+8	feel	feel	VERB	VBP	_	0	ROOT	_	_
 9	for	for	ADP	IN	_	8	prep	_	_
 10	him	-PRON-	PRON	PRP	_	9	pobj	_	_
 11	.	.	PUNCT	.	_	8	punct	_	_
@@ -306,9 +306,9 @@
 # stage_direction = True
 # text = Korea man is OK.
 # time = NIGHT
-1	Korea	korea	PROPN	NNP	_	2	compound	_	_
+1	Korea	korea	PROPN	NNP	_	2	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	man	man	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	OK	ok	ADJ	JJ	_	3	acomp	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -323,7 +323,7 @@
 # stage_direction = True
 # text = Let's leave him alone..
 # time = NIGHT
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	leave	leave	VERB	VB	_	1	ccomp	_	_
 4	him	-PRON-	PRON	PRP	_	3	dobj	_	_
@@ -343,7 +343,7 @@
 # time = NIGHT
 1	Him	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	no	no	DET	DT	_	3	det	_	_
-3	white	white	NOUN	NN	_	3	ROOT	_	_
+3	white	white	NOUN	NN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 743
@@ -359,7 +359,7 @@
 # time = NIGHT
 1	Him	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	no	no	DET	DT	_	3	det	_	_
-3	white	white	ADJ	JJ	_	3	ROOT	_	_
+3	white	white	ADJ	JJ	_	0	ROOT	_	_
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # line = 744
@@ -374,7 +374,7 @@
 # text = Him Black.
 # time = NIGHT
 1	Him	him	PROPN	NNP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+2	Black	black	PROPN	NNP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 744
@@ -389,5 +389,5 @@
 # text = Him Black..
 # time = NIGHT
 1	Him	-PRON-	PRON	PRP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	2	ROOT	_	_
+2	Black	black	PROPN	NNP	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_

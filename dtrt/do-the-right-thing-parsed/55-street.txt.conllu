@@ -9,11 +9,11 @@
 # stage_direction = True
 # text = Da Mayor, we need your leadership..
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	5	npadvmod	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	5	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	,	,	PUNCT	,	_	5	punct	_	_
 4	we	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	need	need	VERB	VBP	_	5	ROOT	_	_
+5	need	need	VERB	VBP	_	0	ROOT	_	_
 6	your	-PRON-	ADJ	PRP$	_	7	poss	_	_
 7	leadership	leadership	NOUN	NN	_	5	dobj	_	_
 8	..	..	PUNCT	.	_	5	punct	_	_
@@ -32,7 +32,7 @@
 1	Doctor	doctor	NOUN	NN	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	what	what	NOUN	WP	_	4	attr	_	_
-4	are	be	VERB	VBP	_	4	ROOT	_	_
+4	are	be	VERB	VBP	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 6	talkin	talkin	NOUN	NN	_	8	poss	_	_
 7	'	'	PUNCT	``	_	6	case	_	_
@@ -53,11 +53,11 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	organizing	organize	VERB	VBG	_	3	ROOT	_	_
+3	organizing	organize	VERB	VBG	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	boycott	boycott	NOUN	NN	_	3	dobj	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
-7	Sal	sal	PROPN	NNP	_	10	poss	_	_
+7	Sal	sal	PROPN	NNP	_	10	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	's	's	PART	POS	_	7	case	_	_
 9	Famous	famous	PROPN	NNP	_	10	compound	_	_
 10	Pizzeria	pizzeria	PROPN	NNP	_	6	pobj	_	_
@@ -74,7 +74,7 @@
 # stage_direction = True
 # text = Keep walkin', Doctor.
 # time = DAY
-1	Keep	keep	VERB	VBP	_	1	ROOT	_	_
+1	Keep	keep	VERB	VBP	_	0	ROOT	_	_
 2	walkin	walkin	NOUN	NN	_	1	dobj	_	_
 3	'	'	PUNCT	''	_	1	punct	_	_
 4	,	,	PUNCT	,	_	1	punct	_	_
@@ -95,7 +95,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	hear	hear	VERB	VB	_	4	xcomp	_	_
 7	none	none	NOUN	NN	_	6	dobj	_	_
@@ -115,7 +115,7 @@
 # stage_direction = True
 # text = No!.
 # time = DAY
-1	No!.	no!.	PROPN	NNP	_	1	ROOT	_	_
+1	No!.	no!.	PROPN	NNP	_	0	ROOT	_	ent_type=EVENT|ent_id=385|ent_iob=B
 
 # line = 452
 # loc = EXT
@@ -128,7 +128,7 @@
 # stage_direction = True
 # text = No!.
 # time = DAY
-1	No!.	no!.	PROPN	NNP	_	1	ROOT	_	_
+1	No!.	no!.	PROPN	NNP	_	0	ROOT	_	_
 
 # line = 453
 # loc = EXT
@@ -141,7 +141,7 @@
 # stage_direction = True
 # text = Hell no!
 # time = DAY
-1	Hell	hell	PROPN	NNP	_	1	ROOT	_	_
+1	Hell	hell	PROPN	NNP	_	0	ROOT	_	_
 2	no	no	INTJ	UH	_	1	intj	_	_
 3	!	!	PUNCT	.	_	1	punct	_	_
 
@@ -156,7 +156,7 @@
 # stage_direction = True
 # text = Goddamnit.
 # time = DAY
-1	Goddamnit	goddamnit	NOUN	NN	_	1	ROOT	_	_
+1	Goddamnit	goddamnit	NOUN	NN	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 453
@@ -170,11 +170,11 @@
 # stage_direction = True
 # text = Sal ain't never done me no harm.
 # time = DAY
-1	Sal	sal	NOUN	NN	_	5	nsubj	_	_
+1	Sal	sal	NOUN	NN	_	5	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	ai	be	VERB	VBP	_	5	aux	_	_
 3	n't	not	ADV	RB	_	5	neg	_	_
 4	never	never	ADV	RB	_	5	neg	_	_
-5	done	do	VERB	VBN	_	5	ROOT	_	_
+5	done	do	VERB	VBN	_	0	ROOT	_	_
 6	me	-PRON-	PRON	PRP	_	5	dative	_	_
 7	no	no	DET	DT	_	8	det	_	_
 8	harm	harm	NOUN	NN	_	5	dobj	_	_
@@ -191,7 +191,7 @@
 # stage_direction = True
 # text = You either..
 # time = DAY
-1	You	-PRON-	PRON	PRP	_	1	ROOT	_	_
+1	You	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	either	either	ADV	RB	_	1	advmod	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -208,15 +208,15 @@
 # time = DAY
 1	Would	would	VERB	MD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	like	like	VERB	VB	_	3	ROOT	_	_
+3	like	like	VERB	VB	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	sign	sign	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	petition	petition	NOUN	NN	_	5	dobj	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	boycott	boycott	VERB	VB	_	7	acl	_	_
-10	Sal	sal	PROPN	NNP	_	13	poss	_	_
-11	's	's	PART	POS	_	10	case	_	_
+10	Sal	sal	PROPN	NNP	_	13	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+11	's	's	PART	POS	_	10	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
 12	Famous	famous	PROPN	NNP	_	13	compound	_	_
 13	Pizzeria	pizzeria	PROPN	NNP	_	9	dobj	_	_
 14	..	..	PUNCT	.	_	3	punct	_	_
@@ -232,7 +232,7 @@
 # stage_direction = True
 # text = CLOSE--
 # time = DAY
-1	CLOSE	close	ADV	RB	_	1	ROOT	_	_
+1	CLOSE	close	ADV	RB	_	0	ROOT	_	_
 2	--	--	PUNCT	:	_	1	punct	_	_
 
 # line = 447
@@ -246,14 +246,14 @@
 # stage_direction = True
 # text = AHMAD, CEE, PUNCHY, and ELLA
 # time = DAY
-1	AHMAD	ahmad	PROPN	NNP	_	1	ROOT	_	_
+1	AHMAD	ahmad	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	CEE	cee	PROPN	NNP	_	1	conj	_	_
+3	CEE	cee	PROPN	NNP	_	1	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	PUNCHY	punchy	NOUN	NN	_	3	conj	_	_
+5	PUNCHY	punchy	NOUN	NN	_	3	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
-8	ELLA	ella	PROPN	NNP	_	5	conj	_	_
+8	ELLA	ella	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
 
 # line = 447
 # loc = EXT
@@ -267,7 +267,7 @@
 # text = They DOG him out
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	DOG	dog	VERB	VBP	_	2	ROOT	_	_
+2	DOG	dog	VERB	VBP	_	0	ROOT	_	_
 3	him	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	out	out	PART	RP	_	2	prt	_	_
 
@@ -283,7 +283,7 @@
 # text = (ADLIB)
 # time = DAY
 1	(	(	PUNCT	-LRB-	_	2	punct	_	_
-2	ADLIB	adlib	PROPN	NNP	_	2	ROOT	_	_
+2	ADLIB	adlib	PROPN	NNP	_	0	ROOT	_	_
 3	)	)	PUNCT	-RRB-	_	2	punct	_	_
 
 # line = 455
@@ -299,7 +299,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	do	do	VERB	VB	_	3	ROOT	_	_
+3	do	do	VERB	VB	_	0	ROOT	_	_
 4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	without	without	ADP	IN	_	3	prep	_	_
 6	your	-PRON-	ADJ	PRP$	_	7	poss	_	_

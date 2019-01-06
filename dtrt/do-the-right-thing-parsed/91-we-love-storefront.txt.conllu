@@ -8,7 +8,7 @@
 # text = WE SEE the reflection of the fire in the storefront window as Mister Señor Love Daddy looks on.
 # time = NIGHT
 1	WE	we	PRON	PRP	_	2	nsubj	_	_
-2	SEE	see	VERB	VBP	_	2	ROOT	_	_
+2	SEE	see	VERB	VBP	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	reflection	reflection	NOUN	NN	_	2	dobj	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
@@ -20,8 +20,8 @@
 11	window	window	NOUN	NN	_	8	pobj	_	_
 12	as	as	ADP	IN	_	17	mark	_	_
 13	Mister	mister	PROPN	NNP	_	16	compound	_	_
-14	Señor	señor	PROPN	NNP	_	15	compound	_	_
-15	Love	love	PROPN	NNP	_	16	compound	_	_
+14	Señor	señor	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+15	Love	love	PROPN	NNP	_	16	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 16	Daddy	daddy	PROPN	NNP	_	17	nsubj	_	_
 17	looks	look	VERB	VBZ	_	2	advcl	_	_
 18	on	on	PART	RP	_	17	prt	_	_

@@ -15,7 +15,7 @@
 6	sun	sun	NOUN	NN	_	9	nsubj	_	_
 7	is	be	VERB	VBZ	_	9	aux	_	_
 8	now	now	ADV	RB	_	9	advmod	_	_
-9	turning	turn	VERB	VBG	_	9	ROOT	_	_
+9	turning	turn	VERB	VBG	_	0	ROOT	_	_
 10	into	into	ADP	IN	_	9	prep	_	_
 11	a	a	DET	DT	_	14	det	_	_
 12	golden	golden	ADJ	JJ	_	14	amod	_	_
@@ -37,14 +37,14 @@
 # stage_direction = True
 # text = Ahmad, Cee, Punchy, and Ella dance on the roof around a box that is turned into WE LOVE.
 # time = DUSK
-1	Ahmad	ahmad	PROPN	NNP	_	1	ROOT	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Cee	cee	PROPN	NNP	_	1	conj	_	_
+3	Cee	cee	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Punchy	punchy	PROPN	NNP	_	3	conj	_	_
+5	Punchy	punchy	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
-8	Ella	ella	PROPN	NNP	_	9	compound	_	_
+8	Ella	ella	PROPN	NNP	_	9	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
 9	dance	dance	NOUN	NN	_	5	conj	_	_
 10	on	on	ADP	IN	_	9	prep	_	_
 11	the	the	DET	DT	_	12	det	_	_
@@ -56,8 +56,8 @@
 17	is	be	VERB	VBZ	_	18	auxpass	_	_
 18	turned	turn	VERB	VBN	_	15	relcl	_	_
 19	into	into	ADP	IN	_	18	prep	_	_
-20	WE	we	PROPN	NNP	_	21	compound	_	_
-21	LOVE	love	PROPN	NNP	_	19	pobj	_	_
+20	WE	we	PROPN	NNP	_	21	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+21	LOVE	love	PROPN	NNP	_	19	pobj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
 22	.	.	PUNCT	.	_	9	punct	_	_
 
 # loc = EXT
@@ -72,7 +72,7 @@
 1	Each	each	DET	DT	_	2	det	_	_
 2	one	one	NOUN	NN	_	4	nsubj	_	_
 3	is	be	VERB	VBZ	_	4	aux	_	_
-4	trying	try	VERB	VBG	_	4	ROOT	_	_
+4	trying	try	VERB	VBG	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	come	come	VERB	VB	_	4	xcomp	_	_
 7	up	up	PART	RP	_	6	prt	_	_

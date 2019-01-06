@@ -8,11 +8,11 @@
 # text = Mookie enters the pizzeria and Pino is on him before the door closes.
 # time = DAY
 1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	enters	enter	VERB	VBZ	_	2	ROOT	_	_
+2	enters	enter	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	pizzeria	pizzeria	NOUN	NN	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	2	cc	_	_
-6	Pino	pino	PROPN	NNP	_	7	nsubj	_	_
+6	Pino	pino	PROPN	NNP	_	7	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 7	is	be	VERB	VBZ	_	2	conj	_	_
 8	on	on	ADP	IN	_	7	prep	_	_
 9	him	-PRON-	PRON	PRP	_	8	pobj	_	_
@@ -36,7 +36,7 @@
 1	Mookie	mookie	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	late	late	ADV	RB	_	4	advmod	_	_
-4	again	again	ADV	RB	_	4	ROOT	_	_
+4	again	again	ADV	RB	_	0	ROOT	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 35
@@ -54,7 +54,7 @@
 2	many	many	ADJ	JJ	_	3	amod	_	_
 3	times	time	NOUN	NNS	_	5	npadvmod	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	got	get	VERB	VBD	_	5	ROOT	_	_
+5	got	get	VERB	VBD	_	0	ROOT	_	_
 6	ta	to	PART	TO	_	7	aux	_	_
 7	tell	tell	VERB	VB	_	5	xcomp	_	_
 8	you	-PRON-	PRON	PRP	_	7	dobj	_	_
@@ -72,9 +72,9 @@
 # stage_direction = True
 # text = Hello, Sal.
 # time = DAY
-1	Hello	hello	INTJ	UH	_	1	ROOT	_	_
+1	Hello	hello	INTJ	UH	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Sal	sal	PROPN	NNP	_	1	npadvmod	_	_
+3	Sal	sal	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 36
@@ -88,7 +88,7 @@
 # stage_direction = True
 # text = Hello, Vito..
 # time = DAY
-1	Hello	hello	INTJ	UH	_	1	ROOT	_	_
+1	Hello	hello	INTJ	UH	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	Vito	vito	PROPN	NNP	_	1	npadvmod	_	_
 4	..	..	PUNCT	NFP	_	1	punct	_	_
@@ -106,7 +106,7 @@
 # time = DAY
 1	How	how	ADV	WRB	_	3	advmod	_	_
 2	ya	ya	PRON	PRP	_	3	nsubj	_	_
-3	doin'	do	VERB	VBP	_	3	ROOT	_	_
+3	doin'	do	VERB	VBP	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	Mookie	mookie	PROPN	NNP	_	3	npadvmod	_	_
 6	?	?	PUNCT	.	_	3	punct	_	_
@@ -123,7 +123,7 @@
 # stage_direction = True
 # text = Whaddup?.
 # time = DAY
-1	Whaddup	whaddup	PROPN	NNP	_	1	ROOT	_	_
+1	Whaddup	whaddup	PROPN	NNP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -139,7 +139,7 @@
 # text = Just coolin'..
 # time = DAY
 1	Just	just	ADV	RB	_	2	advmod	_	_
-2	coolin	coolin	NOUN	NN	_	2	ROOT	_	_
+2	coolin	coolin	NOUN	NN	_	0	ROOT	_	_
 3	'	'	PUNCT	''	_	2	punct	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -155,7 +155,7 @@
 # text = You're still late..
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	still	still	ADV	RB	_	2	advmod	_	_
 4	late	late	ADJ	JJ	_	2	acomp	_	_
 5	..	..	PUNCT	NFP	_	2	punct	_	_
@@ -173,7 +173,7 @@
 # time = DAY
 1	Pino	pino	PROPN	NNP	_	3	nsubj	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	relax	relax	VERB	VB	_	3	ROOT	_	_
+3	relax	relax	VERB	VB	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	will	will	VERB	MD	_	3	dep	_	_
 6	ya	ya	PRON	PRP	_	5	nsubj	_	_
@@ -192,7 +192,7 @@
 # time = DAY
 1	Here	here	ADV	RB	_	3	advmod	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	take	take	VERB	VB	_	3	ROOT	_	_
+3	take	take	VERB	VB	_	0	ROOT	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	broom	broom	NOUN	NN	_	3	dobj	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -210,7 +210,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	front	front	ADJ	JJ	_	3	nsubj	_	_
-3	needs	need	VERB	VBZ	_	3	ROOT	_	_
+3	needs	need	VERB	VBZ	_	0	ROOT	_	_
 4	sweeping	sweep	VERB	VBG	_	3	dobj	_	_
 5	..	..	PUNCT	.	_	3	punct	_	_
 
@@ -225,7 +225,7 @@
 # stage_direction = True
 # text = Wait a minute.
 # time = DAY
-1	Wait	wait	VERB	VB	_	1	ROOT	_	_
+1	Wait	wait	VERB	VB	_	0	ROOT	_	_
 2	a	a	DET	DT	_	3	det	_	_
 3	minute	minute	NOUN	NN	_	1	npadvmod	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -241,9 +241,9 @@
 # stage_direction = True
 # text = Wait a minute.
 # time = DAY
-1	Wait	wait	VERB	VB	_	1	ROOT	_	_
-2	a	a	DET	DT	_	3	det	_	_
-3	minute	minute	NOUN	NN	_	1	npadvmod	_	_
+1	Wait	wait	VERB	VB	_	0	ROOT	_	_
+2	a	a	DET	DT	_	3	det	_	ent_type=TIME|ent_id=389|ent_iob=B
+3	minute	minute	NOUN	NN	_	1	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=I
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 43
@@ -259,7 +259,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
-3	got	get	VERB	VBD	_	3	ROOT	_	_
+3	got	get	VERB	VBD	_	0	ROOT	_	_
 4	here	here	ADV	RB	_	3	advmod	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -275,7 +275,7 @@
 # text = You sweep.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	sweep	sweep	VERB	VBP	_	2	ROOT	_	_
+2	sweep	sweep	VERB	VBP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 43
@@ -290,7 +290,7 @@
 # text = I betcha
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	betcha	betcha	VERB	VBP	_	2	ROOT	_	_
+2	betcha	betcha	VERB	VBP	_	0	ROOT	_	_
 
 # line = 43
 # loc = INT
@@ -303,10 +303,10 @@
 # stage_direction = True
 # text = Sal asked you first anyhow..
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	asked	ask	VERB	VBD	_	2	ROOT	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	asked	ask	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
-4	first	first	ADV	RB	_	2	advmod	_	_
+4	first	first	ADV	RB	_	2	advmod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
 5	anyhow	anyhow	ADV	RB	_	2	advmod	_	_
 6	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -322,7 +322,7 @@
 # text = That's right..
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	right	right	ADJ	JJ	_	2	acomp	_	_
 4	..	..	PUNCT	NFP	_	2	punct	_	_
 
@@ -337,7 +337,7 @@
 # stage_direction = True
 # text = Shaddup, Vito..
 # time = DAY
-1	Shaddup	shaddup	PROPN	NNP	_	1	ROOT	_	_
+1	Shaddup	shaddup	PROPN	NNP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	Vito	vito	PROPN	NNP	_	1	npadvmod	_	_
 4	..	..	PUNCT	NFP	_	1	punct	_	_
@@ -355,7 +355,7 @@
 # time = DAY
 1	Fuck	fuck	PROPN	NNP	_	3	compound	_	_
 2	dat	dat	NOUN	NN	_	3	compound	_	_
-3	shit	shit	NOUN	NN	_	3	ROOT	_	_
+3	shit	shit	NOUN	NN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 46
@@ -370,7 +370,7 @@
 # text = I deliver pizzas.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	deliver	deliver	VERB	VBP	_	2	ROOT	_	_
+2	deliver	deliver	VERB	VBP	_	0	ROOT	_	_
 3	pizzas	pizza	NOUN	NNS	_	2	dobj	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -386,7 +386,7 @@
 # text = That's what I get paid for..
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	what	what	NOUN	WP	_	7	pobj	_	_
 4	I	-PRON-	PRON	PRP	_	6	nsubjpass	_	_
 5	get	get	VERB	VBP	_	6	auxpass	_	_
@@ -407,7 +407,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubjpass	_	_
 2	get	get	VERB	VBP	_	3	auxpass	_	_
-3	paid	pay	VERB	VBN	_	3	ROOT	_	_
+3	paid	pay	VERB	VBN	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	do	do	VERB	VB	_	3	xcomp	_	_
 6	what	what	NOUN	WP	_	8	dobj	_	_
@@ -428,7 +428,7 @@
 # time = DAY
 1	What	what	NOUN	WP	_	3	dobj	_	_
 2	we	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	say	say	VERB	VBP	_	3	ROOT	_	_
+3	say	say	VERB	VBP	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 48
@@ -445,8 +445,8 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	hear	hear	VERB	VB	_	4	ROOT	_	_
-5	Sal	sal	PROPN	NNP	_	6	nsubj	_	_
+4	hear	hear	VERB	VB	_	0	ROOT	_	_
+5	Sal	sal	PROPN	NNP	_	6	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	say	say	VERB	VB	_	4	ccomp	_	_
 7	nuthin'	nothing	NOUN	NN	_	6	dobj	_	_
 8	..	..	PUNCT	NFP	_	6	punct	_	_
@@ -461,7 +461,7 @@
 # text = Pino looks at his father.
 # time = DAY
 1	Pino	pino	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	father	father	NOUN	NN	_	3	pobj	_	_
@@ -488,7 +488,7 @@
 10	all	all	DET	DT	_	13	nsubj	_	_
 11	he	-PRON-	PRON	PRP	_	12	nsubj	_	_
 12	gets	get	VERB	VBZ	_	10	relcl	_	_
-13	is	be	VERB	VBZ	_	13	ROOT	_	_
+13	is	be	VERB	VBZ	_	0	ROOT	_	_
 14	an	an	DET	DT	_	16	det	_	_
 15	amused	amused	ADJ	JJ	_	16	amod	_	_
 16	look	look	NOUN	NN	_	13	attr	_	_
@@ -497,7 +497,7 @@
 19	a	a	DET	DT	_	20	det	_	_
 20	smirk	smirk	NOUN	NN	_	16	conj	_	_
 21	from	from	ADP	IN	_	20	prep	_	_
-22	Vito	vito	PROPN	NNP	_	21	pobj	_	_
+22	Vito	vito	PROPN	NNP	_	21	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 23	.	.	PUNCT	.	_	13	punct	_	_
 
 # line = 49
@@ -513,7 +513,7 @@
 # time = DAY
 1	Who	who	NOUN	WP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	working	work	VERB	VBG	_	3	ROOT	_	_
+3	working	work	VERB	VBG	_	0	ROOT	_	_
 4	for	for	ADP	IN	_	3	prep	_	_
 5	who	who	NOUN	WP	_	4	pobj	_	_
 6	?	?	PUNCT	.	_	3	punct	_	_
@@ -529,15 +529,15 @@
 # text = There's a knock on the door and Da Mayor enters.
 # time = DAY
 1	There	there	ADV	EX	_	2	expl	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	knock	knock	NOUN	NN	_	2	attr	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	door	door	NOUN	NN	_	5	pobj	_	_
 8	and	and	CCONJ	CC	_	2	cc	_	_
-9	Da	da	PROPN	NNP	_	10	compound	_	_
-10	Mayor	mayor	PROPN	NNP	_	11	nsubj	_	_
+9	Da	da	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+10	Mayor	mayor	PROPN	NNP	_	11	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 11	enters	enter	VERB	VBZ	_	2	conj	_	_
 12	.	.	PUNCT	.	_	11	punct	_	_
 
@@ -552,7 +552,7 @@
 # stage_direction = True
 # text = Come on in, Mayor..
 # time = DAY
-1	Come	come	VERB	VB	_	1	ROOT	_	_
+1	Come	come	VERB	VB	_	0	ROOT	_	_
 2	on	on	PART	RP	_	1	prt	_	_
 3	in	in	ADP	IN	_	1	advmod	_	_
 4	,	,	PUNCT	,	_	1	punct	_	_
@@ -570,8 +570,8 @@
 # stage_direction = True
 # text = Good morning, gentlemens.
 # time = DAY
-1	Good	good	ADJ	JJ	_	2	amod	_	_
-2	morning	morning	NOUN	NN	_	2	ROOT	_	_
+1	Good	good	ADJ	JJ	_	2	amod	_	ent_type=TIME|ent_id=389|ent_iob=B
+2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	gentlemens	gentlemen	NOUN	NNS	_	2	appos	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -589,12 +589,12 @@
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	scorcher	scorcher	NOUN	NN	_	5	attr	_	_
-8	today	today	NOUN	NN	_	5	npadvmod	_	_
+8	today	today	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
 
 # line = 51
 # loc = INT
@@ -609,7 +609,7 @@
 # time = DAY
 1	,	,	PUNCT	,	_	3	punct	_	_
 2	that	that	DET	DT	_	3	nsubj	_	_
-3	's	be	VERB	VBZ	_	3	ROOT	_	_
+3	's	be	VERB	VBZ	_	0	ROOT	_	_
 4	for	for	ADP	IN	_	3	prep	_	_
 5	sure	sure	ADJ	JJ	_	4	amod	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -625,7 +625,7 @@
 # stage_direction = True
 # text = Need any work done around here?.
 # time = DAY
-1	Need	need	VERB	VB	_	1	ROOT	_	_
+1	Need	need	VERB	VB	_	0	ROOT	_	_
 2	any	any	DET	DT	_	3	det	_	_
 3	work	work	NOUN	NN	_	4	nsubj	_	_
 4	done	do	VERB	VBN	_	1	ccomp	_	_
@@ -643,16 +643,16 @@
 # stage_direction = True
 # text = Sal looks at Pino, who reluctantly gives Da Mayor the broom.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Pino	pino	PROPN	NNP	_	3	pobj	_	_
+4	Pino	pino	PROPN	NNP	_	3	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	who	who	NOUN	WP	_	8	nsubj	_	_
 7	reluctantly	reluctantly	ADV	RB	_	8	advmod	_	_
 8	gives	give	VERB	VBZ	_	4	relcl	_	_
-9	Da	da	PROPN	NNP	_	10	compound	_	_
-10	Mayor	mayor	PROPN	NNP	_	8	dative	_	_
+9	Da	da	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+10	Mayor	mayor	PROPN	NNP	_	8	dative	_	ent_type=PERSON|ent_id=378|ent_iob=I
 11	the	the	DET	DT	_	12	det	_	_
 12	broom	broom	NOUN	NN	_	8	dobj	_	_
 13	.	.	PUNCT	.	_	2	punct	_	_
@@ -670,12 +670,12 @@
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	will	will	VERB	MD	_	3	aux	_	_
-3	be	be	VERB	VB	_	3	ROOT	_	_
+3	be	be	VERB	VB	_	0	ROOT	_	_
 4	the	the	DET	DT	_	6	det	_	_
 5	cleanest	clean	ADJ	JJS	_	6	amod	_	_
 6	sidewalk	sidewalk	NOUN	NN	_	3	attr	_	_
 7	in	in	ADP	IN	_	6	prep	_	_
-8	Brooklyn	brooklyn	PROPN	NNP	_	7	pobj	_	_
+8	Brooklyn	brooklyn	PROPN	NNP	_	7	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 9	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 52
@@ -689,12 +689,12 @@
 # stage_direction = True
 # text = Clean as the Board of Health..
 # time = DAY
-1	Clean	clean	PROPN	NNP	_	1	ROOT	_	_
+1	Clean	clean	PROPN	NNP	_	0	ROOT	_	_
 2	as	as	ADP	IN	_	1	prep	_	_
-3	the	the	DET	DT	_	4	det	_	_
-4	Board	board	PROPN	NNP	_	2	pobj	_	_
-5	of	of	ADP	IN	_	4	prep	_	_
-6	Health	health	PROPN	NNP	_	5	pobj	_	_
+3	the	the	DET	DT	_	4	det	_	ent_type=ORG|ent_id=381|ent_iob=B
+4	Board	board	PROPN	NNP	_	2	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+5	of	of	ADP	IN	_	4	prep	_	ent_type=ORG|ent_id=381|ent_iob=I
+6	Health	health	PROPN	NNP	_	5	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 7	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
@@ -706,10 +706,10 @@
 # stage_direction = True
 # text = Da Mayor almost runs out of the pizzeria in his hurry; soon as he finishes he'll be able to get a bottle.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	almost	almost	ADV	RB	_	4	advmod	_	_
-4	runs	run	VERB	VBZ	_	4	ROOT	_	_
+4	runs	run	VERB	VBZ	_	0	ROOT	_	_
 5	out	out	ADP	IN	_	4	prep	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
 7	the	the	DET	DT	_	8	det	_	_
@@ -748,7 +748,7 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	believe	believe	VERB	VB	_	6	ROOT	_	_
+6	believe	believe	VERB	VB	_	0	ROOT	_	_
 7	this	this	DET	DT	_	8	det	_	_
 8	shit	shit	NOUN	NN	_	6	dobj	_	_
 9	.	.	PUNCT	.	_	6	punct	_	_
@@ -765,7 +765,7 @@
 # text = We runnin' welfare or somethin'?
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	runnin	runnin	VERB	VBP	_	2	ROOT	_	_
+2	runnin	runnin	VERB	VBP	_	0	ROOT	_	_
 3	'	'	PUNCT	''	_	2	punct	_	_
 4	welfare	welfare	NOUN	NN	_	2	dobj	_	_
 5	or	or	CCONJ	CC	_	4	cc	_	_
@@ -786,7 +786,7 @@
 1	Every	every	DET	DT	_	2	det	_	_
 2	day	day	NOUN	NN	_	4	npadvmod	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	give	give	VERB	VBP	_	4	ROOT	_	_
+4	give	give	VERB	VBP	_	0	ROOT	_	_
 5	dat	dat	NOUN	NN	_	6	compound	_	_
 6	bum--	bum--	VERB	VBN	_	4	dobj	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
@@ -802,9 +802,9 @@
 # stage_direction = True
 # text = Da Mayor ain't no bum..
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	ai	be	VERB	VBP	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	ai	be	VERB	VBP	_	0	ROOT	_	_
 4	n't	not	ADV	RB	_	3	neg	_	_
 5	no	no	DET	DT	_	6	det	_	_
 6	bum	bum	NOUN	NN	_	3	attr	_	_
@@ -821,7 +821,7 @@
 # stage_direction = True
 # text = Give dat bum a dollar for sweeping our sidewalk.
 # time = DAY
-1	Give	give	VERB	VBP	_	1	ROOT	_	_
+1	Give	give	VERB	VBP	_	0	ROOT	_	_
 2	dat	dat	NOUN	NN	_	3	compound	_	_
 3	bum	bum	NOUN	NN	_	1	dative	_	_
 4	a	a	DET	DT	_	5	det	_	_
@@ -846,7 +846,7 @@
 1	What	what	NOUN	WP	_	6	pobj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	we	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	pay	pay	VERB	VB	_	4	ROOT	_	_
+4	pay	pay	VERB	VB	_	0	ROOT	_	_
 5	Mookie	mookie	PROPN	NNP	_	4	dobj	_	_
 6	for	for	ADP	IN	_	4	prep	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
@@ -866,7 +866,7 @@
 2	do	do	VERB	VBP	_	5	aux	_	_
 3	n't	not	ADV	RB	_	5	neg	_	_
 4	even	even	ADV	RB	_	5	advmod	_	_
-5	work	work	VERB	VB	_	5	ROOT	_	_
+5	work	work	VERB	VB	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 55
@@ -881,7 +881,7 @@
 # text = I work harder than him
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	work	work	VERB	VBP	_	2	ROOT	_	_
+2	work	work	VERB	VBP	_	0	ROOT	_	_
 3	harder	harder	ADV	RBR	_	2	advmod	_	_
 4	than	than	ADP	IN	_	3	prep	_	_
 5	him	-PRON-	PRON	PRP	_	4	pobj	_	_
@@ -899,7 +899,7 @@
 # time = DAY
 1	and	and	CCONJ	CC	_	3	cc	_	_
 2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	'm	be	VERB	VBP	_	3	ROOT	_	_
+3	'm	be	VERB	VBP	_	0	ROOT	_	_
 4	your	-PRON-	ADJ	PRP$	_	6	poss	_	_
 5	own	own	ADJ	JJ	_	6	amod	_	_
 6	son	son	NOUN	NN	_	3	attr	_	_
@@ -919,7 +919,7 @@
 1	Who	who	NOUN	WP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	work	work	VERB	VB	_	4	ROOT	_	_
+4	work	work	VERB	VB	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 
 # line = 56
@@ -933,16 +933,16 @@
 # stage_direction = True
 # text = Let's see you carry six large pies up six flights of stairs.
 # time = DAY
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	see	see	VERB	VB	_	1	ccomp	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	carry	carry	VERB	VBP	_	3	ccomp	_	_
-6	six	six	NUM	CD	_	8	nummod	_	_
+6	six	six	NUM	CD	_	8	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 7	large	large	ADJ	JJ	_	8	amod	_	_
 8	pies	pie	NOUN	NNS	_	5	dobj	_	_
 9	up	up	ADV	RB	_	5	prt	_	_
-10	six	six	NUM	CD	_	11	nummod	_	_
+10	six	six	NUM	CD	_	11	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 11	flights	flight	NOUN	NNS	_	5	dobj	_	_
 12	of	of	ADP	IN	_	11	prep	_	_
 13	stairs	stair	NOUN	NNS	_	12	pobj	_	_
@@ -960,7 +960,7 @@
 # text = No elevator either and shit..
 # time = DAY
 1	No	no	DET	DT	_	2	det	_	_
-2	elevator	elevator	NOUN	NN	_	2	ROOT	_	_
+2	elevator	elevator	NOUN	NN	_	0	ROOT	_	_
 3	either	either	ADV	RB	_	2	advmod	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	shit	shit	INTJ	UH	_	3	conj	_	_
@@ -977,7 +977,7 @@
 # stage_direction = True
 # text = Both of youse--shaddup.
 # time = DAY
-1	Both	both	DET	DT	_	1	ROOT	_	_
+1	Both	both	DET	DT	_	0	ROOT	_	_
 2	of	of	ADP	IN	_	1	prep	_	_
 3	youse	youse	NOUN	NN	_	2	pobj	_	_
 4	--	--	PUNCT	:	_	1	punct	_	_
@@ -996,7 +996,7 @@
 # text = This is a place of business..
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	place	place	NOUN	NN	_	2	attr	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
@@ -1014,7 +1014,7 @@
 # stage_direction = True
 # text = Tell 'em, Pop..
 # time = DAY
-1	Tell	tell	VERB	VBP	_	1	ROOT	_	_
+1	Tell	tell	VERB	VBP	_	0	ROOT	_	_
 2	'em	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	,	,	PUNCT	,	_	1	punct	_	_
 4	Pop	pop	PROPN	NNP	_	1	npadvmod	_	_
@@ -1035,7 +1035,7 @@
 2	and	and	CCONJ	CC	_	1	cc	_	_
 3	you	-PRON-	PRON	PRP	_	1	conj	_	_
 4	are	be	VERB	VBP	_	5	aux	_	_
-5	gon	go	VERB	VBG	_	5	ROOT	_	_
+5	gon	go	VERB	VBG	_	0	ROOT	_	_
 6	na	to	PART	TO	_	7	aux	_	_
 7	have	have	VERB	VB	_	5	xcomp	_	_
 8	a	a	DET	DT	_	9	det	_	_
@@ -1053,7 +1053,7 @@
 # stage_direction = True
 # text = Sez who?.
 # time = DAY
-1	Sez	sez	NOUN	NN	_	1	ROOT	_	_
+1	Sez	sez	NOUN	NN	_	0	ROOT	_	_
 2	who	who	NOUN	WP	_	1	det	_	_
 3	?	?	PUNCT	.	_	2	punct	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -1069,7 +1069,7 @@
 # stage_direction = True
 # text = Sez me..
 # time = DAY
-1	Sez	sez	PROPN	NNP	_	1	ROOT	_	_
+1	Sez	sez	PROPN	NNP	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -1084,7 +1084,7 @@
 # stage_direction = True
 # text = Hey!
 # time = DAY
-1	Hey	hey	INTJ	UH	_	1	ROOT	_	_
+1	Hey	hey	INTJ	UH	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 62
@@ -1101,7 +1101,7 @@
 1	What	what	NOUN	WP	_	4	dobj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	say	say	VERB	VB	_	4	ROOT	_	_
+4	say	say	VERB	VB	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -1119,7 +1119,7 @@
 1	Who	who	NOUN	WP	_	4	nsubj	_	_
 2	does	do	VERB	VBZ	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	work	work	VERB	VB	_	4	ROOT	_	_
+4	work	work	VERB	VB	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 
 # line = 63
@@ -1141,7 +1141,7 @@
 6	,	,	PUNCT	,	_	9	punct	_	_
 7	wo	will	VERB	MD	_	9	aux	_	_
 8	n't	not	ADV	RB	_	9	neg	_	_
-9	be	be	VERB	VB	_	9	ROOT	_	_
+9	be	be	VERB	VB	_	0	ROOT	_	_
 10	no	no	DET	DT	_	11	det	_	_
 11	shit	shit	NOUN	NN	_	9	attr	_	_
 12	..	..	PUNCT	.	_	9	punct	_	_
@@ -1157,7 +1157,7 @@
 # stage_direction = True
 # text = Mookie, no cursing in the store..
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	1	ROOT	_	_
+1	Mookie	mookie	PROPN	NNP	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	no	no	DET	DT	_	4	det	_	_
 4	cursing	cursing	NOUN	NN	_	2	intj	_	_
@@ -1177,7 +1177,7 @@
 # stage_direction = True
 # text = Talk to your son..
 # time = DAY
-1	Talk	talk	NOUN	NN	_	1	ROOT	_	_
+1	Talk	talk	NOUN	NN	_	0	ROOT	_	_
 2	to	to	ADP	IN	_	1	prep	_	_
 3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	son	son	NOUN	NN	_	2	pobj	_	_

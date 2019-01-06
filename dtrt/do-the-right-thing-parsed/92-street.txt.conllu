@@ -32,7 +32,7 @@
 23	,	,	PUNCT	,	_	26	punct	_	_
 24	the	the	DET	DT	_	25	det	_	_
 25	water	water	NOUN	NN	_	26	nsubj	_	_
-26	is	be	VERB	VBZ	_	26	ROOT	_	_
+26	is	be	VERB	VBZ	_	0	ROOT	_	_
 27	too	too	ADV	RB	_	28	advmod	_	_
 28	powerful	powerful	ADJ	JJ	_	26	acomp	_	_
 29	,	,	PUNCT	,	_	26	punct	_	_
@@ -44,8 +44,8 @@
 35	the	the	DET	DT	_	36	det	_	_
 36	block	block	NOUN	NN	_	34	pobj	_	_
 37	and	and	CCONJ	CC	_	36	cc	_	_
-38	Da	da	PROPN	NNP	_	39	compound	_	_
-39	Mayor	mayor	PROPN	NNP	_	40	nsubj	_	_
+38	Da	da	PROPN	NNP	_	39	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+39	Mayor	mayor	PROPN	NNP	_	40	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 40	runs	run	VERB	VBZ	_	32	ccomp	_	_
 41	after	after	ADP	IN	_	40	prep	_	_
 42	them	-PRON-	PRON	PRP	_	41	pobj	_	_

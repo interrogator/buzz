@@ -10,7 +10,7 @@
 1	Mother	mother	PROPN	NNP	_	2	compound	_	_
 2	Sister	sister	PROPN	NNP	_	4	nsubj	_	_
 3	is	be	VERB	VBZ	_	4	aux	_	_
-4	sitting	sit	VERB	VBG	_	4	ROOT	_	_
+4	sitting	sit	VERB	VBG	_	0	ROOT	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
 6	her	-PRON-	ADJ	PRP$	_	7	poss	_	_
 7	window	window	NOUN	NN	_	5	pobj	_	_
@@ -27,9 +27,9 @@
 # stage_direction = True
 # text = Da Mayor walks up the stoop with a bunch of fresh-cut flowers in a discarded wine bottle for a vase.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	walks	walk	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 4	up	up	ADP	IN	_	3	prt	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	stoop	stoop	NOUN	NN	_	3	dobj	_	_
@@ -60,14 +60,14 @@
 # stage_direction = True
 # text = Da Mayor holds them out for Mother Sister, who does not acknowledge him at all.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	holds	hold	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	holds	hold	VERB	VBZ	_	0	ROOT	_	_
 4	them	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	out	out	PART	RP	_	3	prt	_	_
 6	for	for	ADP	IN	_	3	prep	_	_
-7	Mother	mother	PROPN	NNP	_	8	compound	_	_
-8	Sister	sister	PROPN	NNP	_	6	pobj	_	_
+7	Mother	mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+8	Sister	sister	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	,	,	PUNCT	,	_	8	punct	_	_
 10	who	who	NOUN	WP	_	13	nsubj	_	_
 11	does	do	VERB	VBZ	_	13	aux	_	_
@@ -87,14 +87,14 @@
 # stage_direction = True
 # text = Da Mayor holds them out for Mother Sister, who does not acknowledge him at all.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	holds	hold	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	holds	hold	VERB	VBZ	_	0	ROOT	_	_
 4	them	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	out	out	PART	RP	_	3	prt	_	_
 6	for	for	ADP	IN	_	3	prep	_	_
-7	Mother	mother	PROPN	NNP	_	8	compound	_	_
-8	Sister	sister	PROPN	NNP	_	6	pobj	_	_
+7	Mother	mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+8	Sister	sister	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 9	,	,	PUNCT	,	_	8	punct	_	_
 10	who	who	NOUN	WP	_	13	nsubj	_	_
 11	does	do	VERB	VBZ	_	13	aux	_	_
@@ -118,7 +118,7 @@
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'd	would	VERB	MD	_	3	aux	_	_
-3	thought	think	VERB	VBN	_	3	ROOT	_	_
+3	thought	think	VERB	VBN	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	might	may	VERB	MD	_	6	aux	_	_
 6	like	like	VERB	VB	_	3	ccomp	_	_
@@ -137,7 +137,7 @@
 # text = I guess not..
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	guess	guess	VERB	VBP	_	2	ROOT	_	_
+2	guess	guess	VERB	VBP	_	0	ROOT	_	_
 3	not	not	ADV	RB	_	2	neg	_	_
 4	..	..	PUNCT	NFP	_	2	punct	_	_
 
@@ -150,9 +150,9 @@
 # stage_direction = True
 # text = Da Mayor takes a seat on the stoop and puts the flowers to his face.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	takes	take	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	takes	take	VERB	VBZ	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	seat	seat	NOUN	NN	_	3	dobj	_	_
 6	on	on	ADP	IN	_	3	prep	_	_
@@ -178,7 +178,7 @@
 # stage_direction = True
 # text = Ain't nuthin' like the smell of fresh flowers.
 # time = DUSK
-1	Ai	be	VERB	VBP	_	1	ROOT	_	_
+1	Ai	be	VERB	VBP	_	0	ROOT	_	_
 2	n't	not	ADV	RB	_	1	neg	_	_
 3	nuthin'	nothing	NOUN	NN	_	1	attr	_	_
 4	like	like	ADP	IN	_	3	prep	_	_
@@ -203,7 +203,7 @@
 1	Do	do	VERB	VB	_	4	aux	_	_
 2	n't	not	ADV	RB	_	4	neg	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	agree	agree	VERB	VB	_	4	ROOT	_	_
+4	agree	agree	VERB	VB	_	0	ROOT	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	Miss	miss	PROPN	NNP	_	8	compound	_	_
 7	Mother	mother	PROPN	NNP	_	8	compound	_	_
@@ -224,7 +224,7 @@
 2	Sister	sister	PROPN	NNP	_	5	nsubj	_	_
 3	does	do	VERB	VBZ	_	5	aux	_	_
 4	not	not	ADV	RB	_	5	neg	_	_
-5	answer	answer	VERB	VB	_	5	ROOT	_	_
+5	answer	answer	VERB	VB	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
@@ -237,7 +237,7 @@
 # text = He puts the flowers down.
 # time = DUSK
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	puts	put	VERB	VBZ	_	2	ROOT	_	_
+2	puts	put	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	flowers	flower	NOUN	NNS	_	2	dobj	_	_
 5	down	down	PART	RP	_	2	prt	_	_
@@ -260,7 +260,7 @@
 4	ya	ya	PRON	PRP	_	6	nsubj	_	_
 5	can	can	VERB	MD	_	6	aux	_	_
 6	smell	smell	VERB	VB	_	7	csubj	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	the	the	DET	DT	_	9	det	_	_
 9	garbage	garbage	NOUN	NN	_	7	attr	_	_
 10	.	.	PUNCT	.	_	7	punct	_	_
@@ -277,7 +277,7 @@
 # text = Stink overpowers everything, especially soft sweet smells like flowers..
 # time = DUSK
 1	Stink	stink	VERB	VB	_	2	nsubj	_	_
-2	overpowers	overpower	NOUN	NNS	_	2	ROOT	_	_
+2	overpowers	overpower	NOUN	NNS	_	0	ROOT	_	_
 3	everything	everything	NOUN	NN	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	especially	especially	ADV	RB	_	6	advmod	_	_
@@ -298,7 +298,7 @@
 # text = He looks up at Mother Sister who immediately turns away.
 # time = DUSK
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	at	at	ADP	IN	_	2	prep	_	_
 5	Mother	mother	PROPN	NNP	_	6	compound	_	_
@@ -328,7 +328,7 @@
 6	,	,	PUNCT	,	_	9	punct	_	_
 7	I	-PRON-	PRON	PRP	_	9	nsubj	_	_
 8	'm	be	VERB	VBP	_	9	aux	_	_
-9	gon	go	VERB	VBG	_	9	ROOT	_	_
+9	gon	go	VERB	VBG	_	0	ROOT	_	_
 10	na	to	PART	TO	_	11	aux	_	_
 11	set	set	VERB	VB	_	9	xcomp	_	_
 12	right	right	ADV	RB	_	13	advmod	_	_
@@ -338,7 +338,7 @@
 16	a	a	DET	DT	_	17	det	_	_
 17	breeze	breeze	NOUN	NN	_	15	dobj	_	_
 18	or	or	CCONJ	CC	_	17	cc	_	_
-19	two	two	NUM	CD	_	17	conj	_	_
+19	two	two	NUM	CD	_	17	conj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 20	,	,	PUNCT	,	_	15	punct	_	_
 21	then	then	ADV	RB	_	22	advmod	_	_
 22	be	be	VERB	VB	_	15	dep	_	_
@@ -356,9 +356,9 @@
 # stage_direction = True
 # text = Da Mayor looks up at the setting sun.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	looks	look	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	looks	look	VERB	VBZ	_	0	ROOT	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	at	at	ADP	IN	_	3	prep	_	_
 6	the	the	DET	DT	_	8	det	_	_
@@ -388,7 +388,7 @@
 9	down	down	PART	RP	_	8	prt	_	_
 10	,	,	PUNCT	,	_	12	punct	_	_
 11	it	-PRON-	PRON	PRP	_	12	nsubj	_	_
-12	's	be	VERB	VBZ	_	12	ROOT	_	_
+12	's	be	VERB	VBZ	_	0	ROOT	_	_
 13	hot	hot	ADJ	JJ	_	12	acomp	_	_
 14	as	as	ADP	IN	_	12	prep	_	_
 15	blazes	blaze	NOUN	NNS	_	14	pobj	_	_
@@ -406,7 +406,7 @@
 # text = Yes Jesus..
 # time = DUSK
 1	Yes	yes	INTJ	UH	_	2	intj	_	_
-2	Jesus	jesus	PROPN	NNP	_	2	ROOT	_	_
+2	Jesus	jesus	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -420,7 +420,7 @@
 # time = DUSK
 1	The	the	DET	DT	_	2	det	_	_
 2	sun	sun	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	an	an	DET	DT	_	8	det	_	_
 5	orange	orange	ADJ	JJ	_	8	amod	_	_
 6	and	and	CCONJ	CC	_	5	cc	_	_

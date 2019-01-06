@@ -8,7 +8,7 @@
 # text = Mookie enters.
 # time = NIGHT
 1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	enters	enter	VERB	VBZ	_	2	ROOT	_	_
+2	enters	enter	VERB	VBZ	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 591
@@ -27,14 +27,14 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	care	care	VERB	VB	_	6	ROOT	_	_
+6	care	care	VERB	VB	_	0	ROOT	_	_
 7	if	if	ADP	IN	_	9	mark	_	_
 8	you	-PRON-	PRON	PRP	_	9	nsubj	_	_
 9	fire	fire	VERB	VBP	_	15	advcl	_	_
 10	me	-PRON-	PRON	PRP	_	9	dobj	_	_
-11	this	this	DET	DT	_	13	det	_	_
-12	exact	exact	ADJ	JJ	_	13	amod	_	_
-13	minute	minute	NOUN	NN	_	9	dobj	_	_
+11	this	this	DET	DT	_	13	det	_	ent_type=TIME|ent_id=389|ent_iob=B
+12	exact	exact	ADJ	JJ	_	13	amod	_	ent_type=TIME|ent_id=389|ent_iob=I
+13	minute	minute	NOUN	NN	_	9	dobj	_	ent_type=TIME|ent_id=389|ent_iob=I
 14	,	,	PUNCT	,	_	15	punct	_	_
 15	leave	leave	VERB	VB	_	6	ccomp	_	_
 16	my	-PRON-	ADJ	PRP$	_	17	poss	_	_
@@ -58,7 +58,7 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	know	know	VERB	VB	_	6	ROOT	_	_
+6	know	know	VERB	VB	_	0	ROOT	_	_
 7	what	what	NOUN	WP	_	11	pobj	_	_
 8	you	-PRON-	PRON	PRP	_	10	nsubj	_	_
 9	're	be	VERB	VBP	_	10	aux	_	_
@@ -89,13 +89,13 @@
 1	Sal	sal	PROPN	NNP	_	4	nsubj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	just	just	ADV	RB	_	4	advmod	_	_
-4	do	do	VERB	VB	_	4	ROOT	_	_
+4	do	do	VERB	VB	_	0	ROOT	_	_
 5	me	-PRON-	PRON	PRP	_	4	dative	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	favor	favor	NOUN	NN	_	4	dobj	_	_
 8	,	,	PUNCT	,	_	4	punct	_	_
 9	leave	leave	VERB	VB	_	4	conj	_	_
-10	Jade	jade	PROPN	NNP	_	9	dobj	_	_
+10	Jade	jade	PROPN	NNP	_	9	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 11	alone	alone	ADJ	JJ	_	9	oprd	_	_
 12	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -113,7 +113,7 @@
 1	Here	here	ADV	RB	_	4	advmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	got	get	VERB	VBD	_	4	ROOT	_	_
+4	got	get	VERB	VBD	_	0	ROOT	_	_
 5	ta	to	PART	TO	_	4	prep	_	_
 6	delivery	delivery	VERB	VB	_	5	pobj	_	_
 7	..	..	PUNCT	.	_	4	punct	_	_
@@ -128,7 +128,7 @@
 # text = Mookie takes the pie and looks at the address.
 # time = NIGHT
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	takes	take	VERB	VBZ	_	2	ROOT	_	_
+2	takes	take	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	pie	pie	NOUN	NN	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	2	cc	_	_
@@ -149,7 +149,7 @@
 # stage_direction = True
 # text = Is this the right name and address?.
 # time = NIGHT
-1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+1	Is	be	VERB	VBZ	_	0	ROOT	_	_
 2	this	this	DET	DT	_	1	nsubj	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	right	right	ADJ	JJ	_	5	amod	_	_
@@ -174,7 +174,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	do	do	VERB	VBP	_	5	aux	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	know	know	VERB	VB	_	5	ROOT	_	_
+5	know	know	VERB	VB	_	0	ROOT	_	_
 6	'	'	PUNCT	''	_	5	punct	_	_
 7	em	-PRON-	PRON	PRP	_	5	intj	_	_
 8	?	?	PUNCT	.	_	5	punct	_	_
@@ -194,5 +194,5 @@
 1	No	no	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	just	just	ADV	RB	_	4	advmod	_	_
-4	checking	check	VERB	VBG	_	4	ROOT	_	_
+4	checking	check	VERB	VBG	_	0	ROOT	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_

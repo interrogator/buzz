@@ -8,13 +8,13 @@
 # text = Sal sits at a table talking to Jade as she finishes her "special" slice.
 # time = DUSK
 1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
+2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	table	table	NOUN	NN	_	3	pobj	_	_
 6	talking	talk	VERB	VBG	_	5	acl	_	_
 7	to	to	ADP	IN	_	6	prep	_	_
-8	Jade	jade	PROPN	NNP	_	7	pobj	_	_
+8	Jade	jade	PROPN	NNP	_	7	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 9	as	as	ADP	IN	_	11	mark	_	_
 10	she	-PRON-	PRON	PRP	_	11	nsubj	_	_
 11	finishes	finish	VERB	VBZ	_	2	advcl	_	_
@@ -39,7 +39,7 @@
 1	Sal	sal	PROPN	NNP	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	that	that	ADJ	WDT	_	4	nsubj	_	_
-4	was	be	VERB	VBD	_	4	ROOT	_	_
+4	was	be	VERB	VBD	_	0	ROOT	_	_
 5	delicious	delicious	ADJ	JJ	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -54,7 +54,7 @@
 # stage_direction = True
 # text = Anytime..
 # time = DUSK
-1	Anytime	anytime	PROPN	NNP	_	1	ROOT	_	_
+1	Anytime	anytime	PROPN	NNP	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # loc = INT
@@ -66,17 +66,17 @@
 # stage_direction = True
 # text = Vito, Pino, and Mookie look on, watching Sal have the time of his life.
 # time = DUSK
-1	Vito	vito	PROPN	NNP	_	7	nsubj	_	_
+1	Vito	vito	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Pino	pino	PROPN	NNP	_	1	conj	_	_
+3	Pino	pino	PROPN	NNP	_	1	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	and	and	CCONJ	CC	_	3	cc	_	_
-6	Mookie	mookie	PROPN	NNP	_	3	conj	_	_
-7	look	look	VERB	VBP	_	7	ROOT	_	_
+6	Mookie	mookie	PROPN	NNP	_	3	conj	_	ent_type=LOC|ent_id=383|ent_iob=B
+7	look	look	VERB	VBP	_	0	ROOT	_	_
 8	on	on	ADV	RB	_	7	prt	_	_
 9	,	,	PUNCT	,	_	7	punct	_	_
 10	watching	watch	VERB	VBG	_	7	advcl	_	_
-11	Sal	sal	PROPN	NNP	_	12	nsubj	_	_
+11	Sal	sal	PROPN	NNP	_	12	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 12	have	have	VERB	VB	_	10	ccomp	_	_
 13	the	the	DET	DT	_	14	det	_	_
 14	time	time	NOUN	NN	_	12	dobj	_	_
@@ -96,7 +96,7 @@
 # stage_direction = True
 # text = Thanks..
 # time = DUSK
-1	Thanks	thank	NOUN	NNS	_	1	ROOT	_	_
+1	Thanks	thank	NOUN	NNS	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
@@ -109,7 +109,7 @@
 # text = Jade gets up and Mookie helps her.
 # time = DUSK
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	gets	get	VERB	VBZ	_	2	ROOT	_	_
+2	gets	get	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	Mookie	mookie	PROPN	NNP	_	6	nsubj	_	_
@@ -130,7 +130,7 @@
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	see	see	VERB	VB	_	3	ROOT	_	_
+3	see	see	VERB	VB	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	out	out	PART	RP	_	3	prt	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -146,7 +146,7 @@
 # stage_direction = True
 # text = See ya around..
 # time = DUSK
-1	See	see	VERB	VBP	_	1	ROOT	_	_
+1	See	see	VERB	VBP	_	0	ROOT	_	_
 2	ya	ya	PRON	PRP	_	1	dobj	_	_
 3	around	around	ADV	RB	_	1	advmod	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -164,7 +164,7 @@
 # time = DUSK
 1	Do	do	VERB	VBP	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	wait	wait	VERB	VB	_	3	ROOT	_	_
+3	wait	wait	VERB	VB	_	0	ROOT	_	_
 4	too	too	ADV	RB	_	5	advmod	_	_
 5	long	long	ADJ	JJ	_	3	advmod	_	_
 6	to	to	PART	TO	_	7	aux	_	_

@@ -8,7 +8,7 @@
 # text = Mookie walks down the block.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	walks	walk	VERB	VBZ	_	2	ROOT	_	_
+2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADP	IN	_	2	prt	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	block	block	NOUN	NN	_	3	pobj	_	_
@@ -26,7 +26,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	streets	street	NOUN	NNS	_	4	nsubjpass	_	_
 3	are	be	VERB	VBP	_	4	auxpass	_	_
-4	filled	fill	VERB	VBN	_	4	ROOT	_	_
+4	filled	fill	VERB	VBN	_	0	ROOT	_	_
 5	with	with	ADP	IN	_	4	prep	_	_
 6	kids	kid	NOUN	NNS	_	7	nsubj	_	_
 7	playing	play	VERB	VBG	_	5	pobj	_	_
@@ -42,7 +42,7 @@
 # text = WE SEE stoop ball, double dutch, hand games, bike-riding, skateboarding, etc.
 # time = DAY
 1	WE	we	PRON	PRP	_	2	nsubj	_	_
-2	SEE	see	VERB	VBP	_	2	ROOT	_	_
+2	SEE	see	VERB	VBP	_	0	ROOT	_	_
 3	stoop	stoop	NOUN	NN	_	4	compound	_	_
 4	ball	ball	NOUN	NN	_	2	dobj	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
@@ -72,8 +72,8 @@
 # time = DAY
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	approaches	approach	VERB	VBZ	_	3	ROOT	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	dobj	_	_
+3	approaches	approach	VERB	VBZ	_	0	ROOT	_	_
+4	Mookie	mookie	PROPN	NNP	_	3	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 5	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
@@ -87,8 +87,8 @@
 # time = DAY
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	approaches	approach	VERB	VBZ	_	3	ROOT	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	dobj	_	_
+3	approaches	approach	VERB	VBZ	_	0	ROOT	_	_
+4	Mookie	mookie	PROPN	NNP	_	3	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 5	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 391
@@ -102,7 +102,7 @@
 # stage_direction = True
 # text = Whaddup.
 # time = DAY
-1	Whaddup	whaddup	PROPN	NNP	_	1	ROOT	_	_
+1	Whaddup	whaddup	PROPN	NNP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 391
@@ -116,7 +116,7 @@
 # stage_direction = True
 # text = Money?.
 # time = DAY
-1	Money	money	NOUN	NN	_	1	ROOT	_	_
+1	Money	money	NOUN	NN	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -133,7 +133,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	was	be	VERB	VBD	_	3	aux	_	_
-3	going	go	VERB	VBG	_	3	ROOT	_	_
+3	going	go	VERB	VBG	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	buy	buy	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
@@ -153,7 +153,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	be	be	VERB	VB	_	3	ROOT	_	_
+3	be	be	VERB	VB	_	0	ROOT	_	_
 4	back	back	ADV	RB	_	3	advmod	_	_
 5	after	after	ADP	IN	_	7	mark	_	_
 6	I	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -187,9 +187,9 @@
 12	knuckles	knuckle	NOUN	NNS	_	15	nmod	_	_
 13	"	"	PUNCT	''	_	15	punct	_	_
 14	rings	ring	VERB	VBZ	_	17	compound	_	_
-15	Radio	radio	NOUN	NN	_	17	compound	_	_
-16	Raheem	raheem	PROPN	NNP	_	8	pobj	_	_
-17	wears	wear	VERB	VBZ	_	18	ROOT	_	_
+15	Radio	radio	NOUN	NN	_	17	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+16	Raheem	raheem	PROPN	NNP	_	8	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+17	wears	wear	VERB	VBZ	_	0	ROOT	_	_
 18	on	on	ADP	IN	_	18	prep	_	_
 19	each	each	DET	DT	_	21	det	_	_
 20	hand	hand	NOUN	NN	_	19	pobj	_	_
@@ -204,7 +204,7 @@
 # stage_direction = True
 # text = Spelled out across the rings are the words "LOVE" on the right hand and "HATE" on the left hand.
 # time = DAY
-1	Spelled	spell	VERB	VBN	_	1	ROOT	_	_
+1	Spelled	spell	VERB	VBN	_	0	ROOT	_	_
 2	out	out	PART	RP	_	1	prt	_	_
 3	across	across	ADP	IN	_	1	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
@@ -213,7 +213,7 @@
 7	the	the	DET	DT	_	10	det	_	_
 8	words	word	NOUN	NNS	_	10	nmod	_	_
 9	"	"	PUNCT	``	_	10	punct	_	_
-10	LOVE	love	PROPN	NNP	_	6	attr	_	_
+10	LOVE	love	PROPN	NNP	_	6	attr	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
 11	"	"	PUNCT	''	_	10	punct	_	_
 12	on	on	ADP	IN	_	10	prep	_	_
 13	the	the	DET	DT	_	15	det	_	_
@@ -221,7 +221,7 @@
 15	hand	hand	NOUN	NN	_	12	pobj	_	_
 16	and	and	CCONJ	CC	_	10	cc	_	_
 17	"	"	PUNCT	``	_	18	punct	_	_
-18	HATE	hate	PROPN	NNP	_	10	conj	_	_
+18	HATE	hate	PROPN	NNP	_	10	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 19	"	"	PUNCT	''	_	18	punct	_	_
 20	on	on	ADP	IN	_	10	prep	_	_
 21	the	the	DET	DT	_	23	det	_	_
@@ -241,7 +241,7 @@
 # text = That's the dope..
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	dope	dope	NOUN	NN	_	2	attr	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -259,7 +259,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
-3	copped	cop	VERB	VBD	_	3	ROOT	_	_
+3	copped	cop	VERB	VBD	_	0	ROOT	_	_
 4	them	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -274,7 +274,7 @@
 # stage_direction = True
 # text = Let me tell you the story of Right-Hand--Left- Hand--the tale of Good and Evil..
 # time = DAY
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	tell	tell	VERB	VB	_	1	ccomp	_	_
 4	you	-PRON-	PRON	PRP	_	3	dative	_	_
@@ -286,7 +286,7 @@
 10	Hand	hand	NOUN	NN	_	7	pobj	_	_
 11	--	--	PUNCT	.	_	10	punct	_	_
 12	Left-	left-	PROPN	NNP	_	13	nummod	_	_
-13	Hand	hand	PROPN	NNP	_	10	appos	_	_
+13	Hand	hand	PROPN	NNP	_	10	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
 14	--	--	PUNCT	:	_	10	punct	_	_
 15	the	the	DET	DT	_	16	det	_	_
 16	tale	tale	NOUN	NN	_	10	appos	_	_
@@ -309,7 +309,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	listening	listen	VERB	VBG	_	3	ROOT	_	_
+3	listening	listen	VERB	VBG	_	0	ROOT	_	_
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # line = 398
@@ -323,7 +323,7 @@
 # stage_direction = True
 # text = HATE!.
 # time = DAY
-1	HATE!.	hate!.	PROPN	NNP	_	1	ROOT	_	_
+1	HATE!.	hate!.	PROPN	NNP	_	0	ROOT	_	_
 
 # loc = EXT
 # parse = (S (NP (PRP He)) (VP (VBZ thrusts) (PRT (RP up)) (NP (PRP$ his) (JJ left) (NN hand))) (. .) (  ))
@@ -335,7 +335,7 @@
 # text = He thrusts up his left hand.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	thrusts	thrust	VERB	VBZ	_	2	ROOT	_	_
+2	thrusts	thrust	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
 5	left	left	ADJ	JJ	_	6	amod	_	_
@@ -354,13 +354,13 @@
 # text = It was with this hand that Brother Cain iced his brother.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	was	be	VERB	VBD	_	2	ROOT	_	_
+2	was	be	VERB	VBD	_	0	ROOT	_	_
 3	with	with	ADP	IN	_	2	prep	_	_
 4	this	this	DET	DT	_	5	det	_	_
 5	hand	hand	NOUN	NN	_	3	pobj	_	_
 6	that	that	ADJ	WDT	_	9	mark	_	_
 7	Brother	brother	PROPN	NNP	_	8	compound	_	_
-8	Cain	cain	PROPN	NNP	_	9	nsubj	_	_
+8	Cain	cain	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 9	iced	ice	VERB	VBD	_	2	ccomp	_	_
 10	his	-PRON-	ADJ	PRP$	_	11	poss	_	_
 11	brother	brother	NOUN	NN	_	9	dobj	_	_
@@ -377,7 +377,7 @@
 # stage_direction = True
 # text = LOVE!.
 # time = DAY
-1	LOVE!.	love!.	PROPN	NNP	_	1	ROOT	_	_
+1	LOVE!.	love!.	PROPN	NNP	_	0	ROOT	_	_
 
 # loc = EXT
 # parse = (S (NP (PRP He)) (VP (VBZ thrusts) (PRT (RP up)) (NP (PRP$ his) (JJ right) (NN hand))) (. .) (  ))
@@ -389,7 +389,7 @@
 # text = He thrusts up his right hand.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	thrusts	thrust	VERB	VBZ	_	2	ROOT	_	_
+2	thrusts	thrust	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
 5	right	right	ADJ	JJ	_	6	amod	_	_
@@ -412,7 +412,7 @@
 3	fingers	finger	NOUN	NNS	_	1	dobj	_	_
 4	,	,	PUNCT	,	_	6	punct	_	_
 5	they	-PRON-	PRON	PRP	_	6	nsubj	_	_
-6	lead	lead	VERB	VBP	_	6	ROOT	_	_
+6	lead	lead	VERB	VBP	_	0	ROOT	_	_
 7	straight	straight	ADV	RB	_	6	advmod	_	_
 8	to	to	ADP	IN	_	6	prep	_	_
 9	the	the	DET	DT	_	10	det	_	_
@@ -434,7 +434,7 @@
 # time = DAY
 1	The	the	DET	DT	_	3	det	_	_
 2	right	right	ADJ	JJ	_	3	amod	_	_
-3	hand	hand	NOUN	NN	_	3	ROOT	_	_
+3	hand	hand	NOUN	NN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 400
@@ -452,8 +452,8 @@
 2	hand	hand	NOUN	NN	_	7	nsubj	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
 4	LOVE!.	love!.	PROPN	NNP	_	3	pobj	_	_
-5	Mookie	mookie	PROPN	NNP	_	2	appos	_	_
-6	is	be	VERB	VBZ	_	7	ROOT	_	_
+5	Mookie	mookie	PROPN	NNP	_	2	appos	_	ent_type=GPE|ent_id=382|ent_iob=I
+6	is	be	VERB	VBZ	_	0	ROOT	_	_
 7	buggin	buggin	NOUN	NN	_	7	acomp	_	_
 8	'	'	PUNCT	''	_	7	punct	_	_
 9	.	.	PUNCT	.	_	7	punct	_	_
@@ -473,7 +473,7 @@
 2	story	story	NOUN	NN	_	5	nsubj	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
 4	Life	life	PROPN	NNP	_	3	pobj	_	_
-5	is	be	VERB	VBZ	_	5	ROOT	_	_
+5	is	be	VERB	VBZ	_	0	ROOT	_	_
 6	this	this	DET	DT	_	5	attr	_	_
 7	....	....	PUNCT	.	_	5	punct	_	_
 
@@ -487,7 +487,7 @@
 # text = He locks his fingers and writhes, cracking the joints.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	locks	lock	VERB	VBZ	_	2	ROOT	_	_
+2	locks	lock	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	fingers	finger	NOUN	NNS	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	4	cc	_	_
@@ -509,7 +509,7 @@
 # stage_direction = True
 # text = STATIC!
 # time = DAY
-1	STATIC	static	NOUN	NN	_	1	ROOT	_	_
+1	STATIC	static	NOUN	NN	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 402
@@ -523,11 +523,11 @@
 # stage_direction = True
 # text = One hand is always fighting the other.
 # time = DAY
-1	One	one	NUM	CD	_	2	nummod	_	_
+1	One	one	NUM	CD	_	2	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 2	hand	hand	NOUN	NN	_	5	nsubj	_	_
 3	is	be	VERB	VBZ	_	5	aux	_	_
 4	always	always	ADV	RB	_	5	advmod	_	_
-5	fighting	fight	VERB	VBG	_	5	ROOT	_	_
+5	fighting	fight	VERB	VBG	_	0	ROOT	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	other	other	ADJ	JJ	_	5	dobj	_	_
 8	.	.	PUNCT	.	_	5	punct	_	_
@@ -544,19 +544,19 @@
 # text = Left Hand Hate is kicking much ass and it looks like Right Hand Love is finished.
 # time = DAY
 1	Left	leave	VERB	VBD	_	5	csubj	_	_
-2	Hand	hand	PROPN	NNP	_	3	compound	_	_
-3	Hate	hate	PROPN	NNP	_	1	dobj	_	_
+2	Hand	hand	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Hate	hate	PROPN	NNP	_	1	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 4	is	be	VERB	VBZ	_	5	aux	_	_
-5	kicking	kick	VERB	VBG	_	5	ROOT	_	_
+5	kicking	kick	VERB	VBG	_	0	ROOT	_	_
 6	much	much	ADJ	JJ	_	7	amod	_	_
 7	ass	ass	NOUN	NN	_	5	dobj	_	_
 8	and	and	CCONJ	CC	_	5	cc	_	_
 9	it	-PRON-	PRON	PRP	_	10	nsubj	_	_
 10	looks	look	VERB	VBZ	_	5	conj	_	_
 11	like	like	ADP	IN	_	16	mark	_	_
-12	Right	right	PROPN	NNP	_	14	compound	_	_
-13	Hand	hand	PROPN	NNP	_	14	compound	_	_
-14	Love	love	PROPN	NNP	_	16	nsubjpass	_	_
+12	Right	right	PROPN	NNP	_	14	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+13	Hand	hand	PROPN	NNP	_	14	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+14	Love	love	PROPN	NNP	_	16	nsubjpass	_	ent_type=ORG|ent_id=381|ent_iob=I
 15	is	be	VERB	VBZ	_	16	auxpass	_	_
 16	finished	finish	VERB	VBN	_	10	advcl	_	_
 17	.	.	PUNCT	.	_	10	punct	_	_
@@ -572,7 +572,7 @@
 # stage_direction = True
 # text = Hold up.
 # time = DAY
-1	Hold	hold	VERB	VB	_	1	ROOT	_	_
+1	Hold	hold	VERB	VB	_	0	ROOT	_	_
 2	up	up	PART	RP	_	1	prt	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -587,7 +587,7 @@
 # stage_direction = True
 # text = Stop the presses!
 # time = DAY
-1	Stop	stop	VERB	VB	_	1	ROOT	_	_
+1	Stop	stop	VERB	VB	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	presses	press	NOUN	NNS	_	1	dobj	_	_
 4	!	!	PUNCT	.	_	1	punct	_	_
@@ -611,8 +611,8 @@
 6	yes	yes	INTJ	UH	_	9	intj	_	_
 7	,	,	PUNCT	,	_	9	punct	_	_
 8	it	-PRON-	PRON	PRP	_	9	nsubj	_	_
-9	's	be	VERB	VBZ	_	9	ROOT	_	_
-10	Love	love	NOUN	NN	_	9	attr	_	_
+9	's	be	VERB	VBZ	_	0	ROOT	_	_
+10	Love	love	NOUN	NN	_	9	attr	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
 11	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 402
@@ -626,9 +626,9 @@
 # stage_direction = True
 # text = Love has won.
 # time = DAY
-1	Love	love	NOUN	NN	_	3	nsubj	_	_
+1	Love	love	NOUN	NN	_	3	nsubj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
 2	has	have	VERB	VBZ	_	3	aux	_	_
-3	won	win	VERB	VBN	_	3	ROOT	_	_
+3	won	win	VERB	VBN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 402
@@ -642,12 +642,12 @@
 # stage_direction = True
 # text = Left Hand Hate KO'ed by Love..
 # time = DAY
-1	Left	leave	VERB	VBD	_	1	ROOT	_	_
-2	Hand	hand	PROPN	NNP	_	3	compound	_	_
-3	Hate	hate	PROPN	NNP	_	4	compound	_	_
+1	Left	leave	VERB	VBD	_	0	ROOT	_	_
+2	Hand	hand	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Hate	hate	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 4	KO'ed	ko'ed	PROPN	NNP	_	1	dobj	_	_
 5	by	by	ADP	IN	_	1	agent	_	_
-6	Love	love	PROPN	NNP	_	5	pobj	_	_
+6	Love	love	PROPN	NNP	_	5	pobj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
 7	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
@@ -671,7 +671,7 @@
 10	he	-PRON-	PRON	PRP	_	13	nsubj	_	_
 11	does	do	VERB	VBZ	_	13	aux	_	_
 12	n't	not	ADV	RB	_	13	neg	_	_
-13	say	say	VERB	VB	_	13	ROOT	_	_
+13	say	say	VERB	VB	_	0	ROOT	_	_
 14	anything	anything	NOUN	NN	_	13	dobj	_	_
 15	.	.	PUNCT	.	_	13	punct	_	_
 
@@ -695,7 +695,7 @@
 7	love	love	VERB	VBP	_	10	advcl	_	_
 8	you	-PRON-	PRON	PRP	_	7	dobj	_	_
 9	I	-PRON-	PRON	PRP	_	10	nsubj	_	_
-10	love	love	VERB	VBP	_	10	ROOT	_	_
+10	love	love	VERB	VBP	_	0	ROOT	_	_
 11	you	-PRON-	PRON	PRP	_	10	dobj	_	_
 12	,	,	PUNCT	,	_	10	punct	_	_
 13	but	but	CCONJ	CC	_	10	cc	_	_
@@ -717,7 +717,7 @@
 # text = I understand..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	understand	understand	VERB	VBP	_	2	ROOT	_	_
+2	understand	understand	VERB	VBP	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 405
@@ -732,7 +732,7 @@
 # text = I love you, my brother..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	love	love	VERB	VBP	_	2	ROOT	_	_
+2	love	love	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	my	-PRON-	ADJ	PRP$	_	6	poss	_	_
@@ -751,7 +751,7 @@
 # text = I love you, Black..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	love	love	VERB	VBP	_	2	ROOT	_	_
+2	love	love	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	Black	black	ADJ	JJ	_	2	npadvmod	_	_

@@ -8,7 +8,7 @@
 # text = Mookie runs up stoop.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	runs	run	VERB	VBZ	_	2	ROOT	_	_
+2	runs	run	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	stoop	stoop	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_

@@ -9,7 +9,7 @@
 # stage_direction = True
 # text = Twenty "D" Duracells.. Twenty "C" Duracells.. D, not C..
 # time = DUSK
-1	Twenty	twenty	NUM	CD	_	12	nmod	_	_
+1	Twenty	twenty	NUM	CD	_	12	nmod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 2	"	"	PUNCT	``	_	12	punct	_	_
 3	D	d	PROPN	NNP	_	12	amod	_	_
 4	"	"	PUNCT	''	_	5	punct	_	_
@@ -19,7 +19,7 @@
 8	"	"	PUNCT	``	_	12	punct	_	_
 9	C	c	PROPN	NNP	_	12	nmod	_	_
 10	"	"	PUNCT	''	_	12	punct	_	_
-11	Duracells	duracells	PROPN	NNP	_	12	ROOT	_	_
+11	Duracells	duracells	PROPN	NNP	_	0	ROOT	_	_
 12	..	..	PUNCT	.	_	12	punct	_	_
 13	D	d	NOUN	NN	_	12	appos	_	_
 14	,	,	PUNCT	,	_	15	punct	_	_
@@ -39,7 +39,7 @@
 # text = C Duracell..
 # time = DUSK
 1	C	c	PROPN	NNP	_	2	compound	_	_
-2	Duracell	duracell	PROPN	NNP	_	2	ROOT	_	_
+2	Duracell	duracell	PROPN	NNP	_	0	ROOT	_	_
 3	..	..	PUNCT	NFP	_	2	punct	_	_
 
 # line = 500
@@ -53,7 +53,7 @@
 # stage_direction = True
 # text = D!
 # time = DUSK
-1	D	d	NOUN	NN	_	1	ROOT	_	_
+1	D	d	NOUN	NN	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 500
@@ -67,7 +67,7 @@
 # stage_direction = True
 # text = D!
 # time = DUSK
-1	D	d	NOUN	NN	_	1	ROOT	_	_
+1	D	d	NOUN	NN	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 500
@@ -81,7 +81,7 @@
 # stage_direction = True
 # text = D!
 # time = DUSK
-1	D	d	NOUN	NN	_	1	ROOT	_	_
+1	D	d	NOUN	NN	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 500
@@ -97,7 +97,7 @@
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	3	nmod	_	_
 2	dumb	dumb	ADJ	JJ	_	3	amod	_	_
-3	motherfucker	motherfucker	NOUN	NN	_	3	ROOT	_	_
+3	motherfucker	motherfucker	NOUN	NN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 500
@@ -111,11 +111,11 @@
 # stage_direction = True
 # text = Learn how to speak English first.
 # time = DUSK
-1	Learn	learn	VERB	VB	_	1	ROOT	_	_
+1	Learn	learn	VERB	VB	_	0	ROOT	_	_
 2	how	how	ADV	WRB	_	4	advmod	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	speak	speak	VERB	VB	_	1	xcomp	_	_
-5	English	english	PROPN	NNP	_	4	dobj	_	_
+5	English	english	PROPN	NNP	_	4	dobj	_	ent_type=LANGUAGE|ent_id=387|ent_iob=B
 6	first	first	ADV	RB	_	4	advmod	_	_
 7	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -130,7 +130,7 @@
 # stage_direction = True
 # text = D..
 # time = DUSK
-1	D	d	PROPN	NNP	_	1	ROOT	_	_
+1	D	d	PROPN	NNP	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 496
@@ -145,8 +145,8 @@
 # text = Radio Raheem points to the D batteries behind the counter.
 # time = DUSK
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	points	point	NOUN	NNS	_	3	ROOT	_	_
+2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	points	point	NOUN	NNS	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	7	det	_	_
 6	D	d	ADJ	JJ	_	7	amod	_	_
@@ -170,7 +170,7 @@
 1	How	how	ADV	WRB	_	2	advmod	_	_
 2	many	many	ADJ	JJ	_	4	dobj	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	say	say	VERB	VBP	_	4	ROOT	_	_
+4	say	say	VERB	VBP	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -187,7 +187,7 @@
 # time = DUSK
 1	Twenty	twenty	PROPN	NNP	_	3	nmod	_	_
 2	!	!	PUNCT	.	_	3	punct	_	_
-3	Motherfucker	motherfucker	PROPN	NNP	_	3	ROOT	_	_
+3	Motherfucker	motherfucker	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 4	!	!	PUNCT	.	_	3	punct	_	_
 
 # line = 502
@@ -201,7 +201,7 @@
 # stage_direction = True
 # text = Twenty!.
 # time = DUSK
-1	Twenty!.	twenty!.	NOUN	NNS	_	1	ROOT	_	_
+1	Twenty!.	twenty!.	NOUN	NNS	_	0	ROOT	_	_
 
 # line = 503
 # loc = INT
@@ -215,7 +215,7 @@
 # text = Motherfucker you..
 # time = DUSK
 1	Motherfucker	motherfucker	PROPN	NNP	_	2	compound	_	_
-2	you	-PRON-	PRON	PRP	_	2	ROOT	_	_
+2	you	-PRON-	PRON	PRP	_	0	ROOT	_	_
 3	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 496
@@ -231,7 +231,7 @@
 # time = DUSK
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	has	have	VERB	VBZ	_	3	ROOT	_	_
+3	has	have	VERB	VBZ	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	laugh	laugh	VERB	VB	_	3	xcomp	_	_
 6	at	at	ADP	IN	_	5	prep	_	_
@@ -250,8 +250,8 @@
 # stage_direction = True
 # text = Motherfucker you.
 # time = DUSK
-1	Motherfucker	motherfucker	PROPN	NNP	_	2	compound	_	_
-2	you	-PRON-	PRON	PRP	_	2	ROOT	_	_
+1	Motherfucker	motherfucker	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	you	-PRON-	PRON	PRP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 504
@@ -266,7 +266,7 @@
 # text = You're alright.
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	alright	alright	ADJ	JJ	_	2	acomp	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -282,7 +282,7 @@
 # text = You're alright.
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	alright	alright	ADJ	JJ	_	2	acomp	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -298,9 +298,9 @@
 # text = Just gimme my twenty Duracells, please..
 # time = DUSK
 1	Just	just	ADV	RB	_	2	advmod	_	_
-2	gimme	gimme	VERB	VB	_	2	ROOT	_	_
+2	gimme	gimme	VERB	VB	_	0	ROOT	_	_
 3	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
-4	twenty	twenty	NUM	CD	_	5	nummod	_	_
+4	twenty	twenty	NUM	CD	_	5	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 5	Duracells	duracells	PROPN	NNP	_	2	dobj	_	_
 6	,	,	PUNCT	,	_	2	punct	_	_
 7	please	please	INTJ	UH	_	2	intj	_	_

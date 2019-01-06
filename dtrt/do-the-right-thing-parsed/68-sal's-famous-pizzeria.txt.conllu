@@ -8,7 +8,7 @@
 # text = Mookie takes Jade by the hand and pulls her out of view from Sal.
 # time = DUSK
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	takes	take	VERB	VBZ	_	2	ROOT	_	_
+2	takes	take	VERB	VBZ	_	0	ROOT	_	_
 3	Jade	jade	PROPN	NNP	_	2	dobj	_	_
 4	by	by	ADP	IN	_	2	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
@@ -39,7 +39,7 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	want	want	VERB	VB	_	6	ROOT	_	_
+6	want	want	VERB	VB	_	0	ROOT	_	_
 7	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
 8	coming	come	VERB	VBG	_	6	ccomp	_	_
 9	in	in	ADV	RB	_	8	prep	_	_
@@ -60,7 +60,7 @@
 # stage_direction = True
 # text = Stop tripping..
 # time = DUSK
-1	Stop	stop	VERB	VB	_	1	ROOT	_	_
+1	Stop	stop	VERB	VB	_	0	ROOT	_	_
 2	tripping	trip	VERB	VBG	_	1	xcomp	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -79,7 +79,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	're	be	VERB	VBP	_	5	aux	_	_
-5	tripping	tripping	ADJ	JJ	_	5	ROOT	_	_
+5	tripping	tripping	ADJ	JJ	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 557
@@ -95,9 +95,9 @@
 # time = DUSK
 1	Do	do	VERB	VB	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	come	come	VERB	VB	_	3	ROOT	_	_
+3	come	come	VERB	VB	_	0	ROOT	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
-5	Sal	sal	PROPN	NNP	_	4	pobj	_	_
+5	Sal	sal	PROPN	NNP	_	4	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	's	's	PART	POS	_	5	case	_	_
 7	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -114,7 +114,7 @@
 # time = DUSK
 1	Alright	alright	INTJ	UH	_	3	intj	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	read	read	VERB	VB	_	3	ROOT	_	_
+3	read	read	VERB	VB	_	0	ROOT	_	_
 4	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	lips	lip	NOUN	NNS	_	3	dobj	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -134,7 +134,7 @@
 2	are	be	VERB	VBP	_	5	auxpass	_	_
 3	you	-PRON-	PRON	PRP	_	2	nsubj	_	_
 4	so	so	ADV	RB	_	5	advmod	_	_
-5	worked	work	VERB	VBD	_	5	ROOT	_	_
+5	worked	work	VERB	VBD	_	0	ROOT	_	_
 6	up	up	PART	RP	_	5	prt	_	_
 7	about	about	ADP	IN	_	5	prep	_	_
 8	?	?	PUNCT	.	_	5	punct	_	_
@@ -151,8 +151,8 @@
 # stage_direction = True
 # text = Over Sal, the way he talks and the way he looks at you..
 # time = DUSK
-1	Over	over	PROPN	NNP	_	1	ROOT	_	_
-2	Sal	sal	PROPN	NNP	_	1	pobj	_	_
+1	Over	over	PROPN	NNP	_	0	ROOT	_	_
+2	Sal	sal	PROPN	NNP	_	1	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	,	,	PUNCT	,	_	1	punct	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	way	way	NOUN	NN	_	1	pobj	_	_
@@ -181,7 +181,7 @@
 1	He	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	's	be	VERB	VBZ	_	4	aux	_	_
 3	just	just	ADV	RB	_	4	advmod	_	_
-4	being	be	VERB	VBG	_	4	ROOT	_	_
+4	being	be	VERB	VBG	_	0	ROOT	_	_
 5	nice	nice	ADJ	JJ	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -196,7 +196,7 @@
 # stage_direction = True
 # text = Nice!.
 # time = DUSK
-1	Nice!.	nice!.	PROPN	NNP	_	1	ROOT	_	_
+1	Nice!.	nice!.	PROPN	NNP	_	0	ROOT	_	_
 
 # line = 562
 # loc = EXT
@@ -210,7 +210,7 @@
 # text = He's completely innocent..
 # time = DUSK
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	completely	completely	ADV	RB	_	4	advmod	_	_
 4	innocent	innocent	ADJ	JJ	_	2	acomp	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -226,7 +226,7 @@
 # stage_direction = True
 # text = Innocent!.
 # time = DUSK
-1	Innocent!.	innocent!.	PROPN	NNPS	_	1	ROOT	_	_
+1	Innocent!.	innocent!.	PROPN	NNPS	_	0	ROOT	_	_
 
 # line = 564
 # loc = EXT
@@ -242,7 +242,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	stutter	stutter	VERB	VB	_	4	ROOT	_	_
+4	stutter	stutter	VERB	VB	_	0	ROOT	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 564
@@ -257,7 +257,7 @@
 # text = You heard me..
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	heard	hear	VERB	VBD	_	2	ROOT	_	_
+2	heard	hear	VERB	VBD	_	0	ROOT	_	_
 3	me	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -274,7 +274,7 @@
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	should	should	VERB	MD	_	3	aux	_	_
-3	see	see	VERB	VB	_	3	ROOT	_	_
+3	see	see	VERB	VB	_	0	ROOT	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	way	way	NOUN	NN	_	3	dobj	_	_
 6	he	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -295,8 +295,8 @@
 # text = All Sal wants to do is hide the salami..
 # time = DUSK
 1	All	all	DET	DT	_	2	det	_	_
-2	Sal	sal	PROPN	NNP	_	3	nsubj	_	_
-3	wants	want	VERB	VBZ	_	3	ROOT	_	_
+2	Sal	sal	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	wants	want	VERB	VBZ	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	do	do	VERB	VB	_	3	xcomp	_	_
 6	is	be	VERB	VBZ	_	7	aux	_	_
@@ -317,7 +317,7 @@
 # text = You are too crude..
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	are	be	VERB	VBP	_	2	ROOT	_	_
+2	are	be	VERB	VBP	_	0	ROOT	_	_
 3	too	too	ADV	RB	_	4	advmod	_	_
 4	crude	crude	ADJ	JJ	_	2	acomp	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -335,7 +335,7 @@
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	might	may	VERB	MD	_	3	aux	_	_
-3	be	be	VERB	VB	_	3	ROOT	_	_
+3	be	be	VERB	VB	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	but	but	CCONJ	CC	_	3	cc	_	_
 6	you	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -356,7 +356,7 @@
 # stage_direction = True
 # text = Stop trying to play big brother.
 # time = DUSK
-1	Stop	stop	VERB	VB	_	1	ROOT	_	_
+1	Stop	stop	VERB	VB	_	0	ROOT	_	_
 2	trying	try	VERB	VBG	_	1	xcomp	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	play	play	VERB	VB	_	2	xcomp	_	_
@@ -376,7 +376,7 @@
 # text = I'm a grown woman.
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	grown	grown	ADJ	JJ	_	5	amod	_	_
 5	woman	woman	NOUN	NN	_	2	attr	_	_
@@ -394,7 +394,7 @@
 # text = You gotta lotta nerve.
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	ta	to	PART	TO	_	4	aux	_	_
 4	lotta	lotta	VERB	VB	_	2	xcomp	_	_
 5	nerve	nerve	NOUN	NN	_	4	dobj	_	_
@@ -416,7 +416,7 @@
 3	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	can	can	VERB	MD	_	6	aux	_	_
 5	hardly	hardly	ADV	RB	_	6	advmod	_	_
-6	pay	pay	VERB	VB	_	6	ROOT	_	_
+6	pay	pay	VERB	VB	_	0	ROOT	_	_
 7	your	-PRON-	ADJ	PRP$	_	8	poss	_	_
 8	rent	rent	NOUN	NN	_	6	dobj	_	_
 9	and	and	CCONJ	CC	_	6	cc	_	_
@@ -442,7 +442,7 @@
 # stage_direction = True
 # text = Come off it..
 # time = DUSK
-1	Come	come	VERB	VB	_	1	ROOT	_	_
+1	Come	come	VERB	VB	_	0	ROOT	_	_
 2	off	off	PART	RP	_	1	prt	_	_
 3	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -459,7 +459,7 @@
 # text = One has nuthin' to do with the other..
 # time = DUSK
 1	One	one	NUM	CD	_	2	nsubj	_	_
-2	has	have	VERB	VBZ	_	2	ROOT	_	_
+2	has	have	VERB	VBZ	_	0	ROOT	_	_
 3	nuthin'	nothing	NOUN	NN	_	2	dobj	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	do	do	VERB	VB	_	3	relcl	_	_
@@ -482,7 +482,7 @@
 1	Oh	oh	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	does	do	VERB	VBZ	_	4	ROOT	_	_
+4	does	do	VERB	VBZ	_	0	ROOT	_	_
 5	n't	not	ADV	RB	_	4	neg	_	_
 6	,	,	PUNCT	,	_	4	punct	_	_
 7	huh	huh	INTJ	UH	_	4	intj	_	_
@@ -500,11 +500,11 @@
 # text = You got your little 250 dollars a week plus tips....
 # time = DUSK
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
-3	your	-PRON-	ADJ	PRP$	_	6	poss	_	_
-4	little	little	ADJ	JJ	_	6	amod	_	_
-5	250	250	NUM	CD	_	6	nummod	_	_
-6	dollars	dollar	NOUN	NNS	_	2	dobj	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
+3	your	-PRON-	ADJ	PRP$	_	6	poss	_	ent_type=MONEY|ent_id=391|ent_iob=B
+4	little	little	ADJ	JJ	_	6	amod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+5	250	250	NUM	CD	_	6	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+6	dollars	dollar	NOUN	NNS	_	2	dobj	_	ent_type=MONEY|ent_id=391|ent_iob=I
 7	a	a	DET	DT	_	8	det	_	_
 8	week	week	NOUN	NN	_	2	npadvmod	_	_
 9	plus	plus	CCONJ	CC	_	2	cc	_	_
@@ -525,7 +525,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 2	'm	be	VERB	VBP	_	4	aux	_	_
 3	getting	get	VERB	VBG	_	4	auxpass	_	_
-4	paid	pay	VERB	VBN	_	4	ROOT	_	_
+4	paid	pay	VERB	VBN	_	0	ROOT	_	_
 5	....	....	PUNCT	.	_	4	punct	_	_
 
 # line = 572
@@ -540,7 +540,7 @@
 # text = ...peanuts..
 # time = DUSK
 1	...	...	PUNCT	:	_	2	punct	_	_
-2	peanuts	peanut	NOUN	NNS	_	2	ROOT	_	_
+2	peanuts	peanut	NOUN	NNS	_	0	ROOT	_	_
 3	..	..	PUNCT	NFP	_	2	punct	_	_
 
 # line = 573
@@ -559,7 +559,7 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	'll	will	VERB	MD	_	6	aux	_	_
 5	be	be	VERB	VB	_	6	aux	_	_
-6	making	make	VERB	VBG	_	6	ROOT	_	_
+6	making	make	VERB	VBG	_	0	ROOT	_	_
 7	a	a	DET	DT	_	8	det	_	_
 8	move	move	NOUN	NN	_	6	dobj	_	_
 9	..	..	PUNCT	.	_	6	punct	_	_
@@ -577,7 +577,7 @@
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	truly	truly	ADV	RB	_	3	advmod	_	_
-3	hope	hope	VERB	VBP	_	3	ROOT	_	_
+3	hope	hope	VERB	VBP	_	0	ROOT	_	_
 4	so	so	ADV	RB	_	3	advmod	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -593,7 +593,7 @@
 # text = I'm tired of supporting a grown man..
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	tired	tired	ADJ	JJ	_	2	acomp	_	_
 4	of	of	ADP	IN	_	3	prep	_	_
 5	supporting	support	VERB	VBG	_	4	pcomp	_	_

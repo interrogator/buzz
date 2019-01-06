@@ -7,10 +7,10 @@
 # stage_direction = True
 # text = Da Mayor has fallen asleep sitting on his stoop.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	has	have	VERB	VBZ	_	4	aux	_	_
-4	fallen	fall	VERB	VBN	_	4	ROOT	_	_
+4	fallen	fall	VERB	VBN	_	0	ROOT	_	_
 5	asleep	asleep	ADJ	JJ	_	4	oprd	_	_
 6	sitting	sit	VERB	VBG	_	4	advcl	_	_
 7	on	on	ADP	IN	_	6	prep	_	_
@@ -30,7 +30,7 @@
 1	His	-PRON-	ADJ	PRP$	_	2	poss	_	_
 2	hands	hand	NOUN	NNS	_	4	nsubj	_	_
 3	loosely	loosely	ADV	RB	_	4	advmod	_	_
-4	hold	hold	VERB	VBP	_	4	ROOT	_	_
+4	hold	hold	VERB	VBP	_	0	ROOT	_	_
 5	a	a	DET	DT	_	8	det	_	_
 6	brown	brown	ADJ	JJ	_	8	amod	_	_
 7	paper	paper	NOUN	NN	_	8	compound	_	_

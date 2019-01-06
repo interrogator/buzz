@@ -7,15 +7,15 @@
 # stage_direction = True
 # text = Da Mayor leads Sal, Vito, and Pino back to his stoop where they watch in horror.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	leads	lead	VERB	VBZ	_	3	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	dobj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	leads	lead	VERB	VBZ	_	0	ROOT	_	_
+4	Sal	sal	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	,	,	PUNCT	,	_	4	punct	_	_
-6	Vito	vito	PROPN	NNP	_	4	conj	_	_
+6	Vito	vito	PROPN	NNP	_	4	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	Pino	pino	PROPN	NNP	_	6	conj	_	_
+9	Pino	pino	PROPN	NNP	_	6	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 10	back	back	ADV	RB	_	9	advmod	_	_
 11	to	to	ADP	IN	_	10	prep	_	_
 12	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
@@ -40,7 +40,7 @@
 # time = NIGHT
 1	There	there	ADV	RB	_	3	advmod	_	_
 2	it	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	goes	go	VERB	VBZ	_	3	ROOT	_	_
+3	goes	go	VERB	VBZ	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 735
@@ -54,7 +54,7 @@
 # stage_direction = True
 # text = Why?.
 # time = NIGHT
-1	Why	why	ADV	WRB	_	1	ROOT	_	_
+1	Why	why	ADV	WRB	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	1	punct	_	_
 
@@ -70,7 +70,7 @@
 # text = You was there.
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	was	be	VERB	VBD	_	2	ROOT	_	_
+2	was	be	VERB	VBD	_	0	ROOT	_	_
 3	there	there	ADV	RB	_	2	advmod	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -85,9 +85,9 @@
 # stage_direction = True
 # text = First white folks they saw.
 # time = NIGHT
-1	First	first	ADJ	JJ	_	3	amod	_	_
+1	First	first	ADJ	JJ	_	3	amod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
 2	white	white	ADJ	JJ	_	3	amod	_	_
-3	folks	folk	NOUN	NNS	_	3	ROOT	_	_
+3	folks	folk	NOUN	NNS	_	0	ROOT	_	_
 4	they	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	saw	see	VERB	VBD	_	3	relcl	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -104,7 +104,7 @@
 # text = You was there..
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	was	be	VERB	VBD	_	2	ROOT	_	_
+2	was	be	VERB	VBD	_	0	ROOT	_	_
 3	there	there	ADV	RB	_	2	advmod	_	_
 4	..	..	PUNCT	NFP	_	2	punct	_	_
 
@@ -119,7 +119,7 @@
 # stage_direction = True
 # text = Fuckin' niggers..
 # time = NIGHT
-1	Fuckin	fuckin	PROPN	NNP	_	3	poss	_	_
+1	Fuckin	fuckin	PROPN	NNP	_	3	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	'	'	PART	POS	_	1	case	_	_
-3	niggers	nigger	NOUN	NNS	_	3	ROOT	_	_
+3	niggers	nigger	NOUN	NNS	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_

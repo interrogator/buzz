@@ -8,11 +8,11 @@
 # text = Officers Ponte and Long are awaiting their orders.
 # time = NIGHT
 1	Officers	officers	PROPN	NNP	_	2	compound	_	_
-2	Ponte	ponte	PROPN	NNP	_	6	nsubj	_	_
+2	Ponte	ponte	PROPN	NNP	_	6	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	and	and	CCONJ	CC	_	2	cc	_	_
 4	Long	long	PROPN	NNP	_	2	conj	_	_
 5	are	be	VERB	VBP	_	6	aux	_	_
-6	awaiting	await	VERB	VBG	_	6	ROOT	_	_
+6	awaiting	await	VERB	VBG	_	0	ROOT	_	_
 7	their	-PRON-	ADJ	PRP$	_	8	poss	_	_
 8	orders	order	NOUN	NNS	_	6	dobj	_	_
 9	.	.	PUNCT	.	_	6	punct	_	_
@@ -29,7 +29,7 @@
 # text = It's almost ready..
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	almost	almost	ADV	RB	_	4	advmod	_	_
 4	ready	ready	ADJ	JJ	_	2	acomp	_	_
 5	..	..	PUNCT	NFP	_	2	punct	_	_
@@ -46,10 +46,10 @@
 # text = What time you closing tonight?.
 # time = NIGHT
 1	What	what	NOUN	WP	_	2	det	_	_
-2	time	time	NOUN	NN	_	2	ROOT	_	_
+2	time	time	NOUN	NN	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	closing	close	VERB	VBG	_	2	relcl	_	_
-5	tonight	tonight	NOUN	NN	_	4	npadvmod	_	_
+5	tonight	tonight	NOUN	NN	_	4	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=B
 6	?	?	PUNCT	.	_	4	punct	_	_
 7	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -64,7 +64,7 @@
 # stage_direction = True
 # text = Ten..
 # time = NIGHT
-1	Ten	ten	NUM	CD	_	1	ROOT	_	_
+1	Ten	ten	NUM	CD	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # loc = INT
@@ -77,7 +77,7 @@
 # text = Sal goes over to the oven, takes out their food and wraps it up.
 # time = NIGHT
 1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	goes	go	VERB	VBZ	_	2	ROOT	_	_
+2	goes	go	VERB	VBZ	_	0	ROOT	_	_
 3	over	over	PART	RP	_	2	prt	_	_
 4	to	to	ADP	IN	_	2	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
@@ -106,7 +106,7 @@
 # time = NIGHT
 1	Here	here	ADV	RB	_	3	advmod	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	go	go	VERB	VBP	_	3	ROOT	_	_
+3	go	go	VERB	VBP	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 649
@@ -123,7 +123,7 @@
 1	What	what	NOUN	WP	_	4	dative	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	we	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	owe	owe	VERB	VB	_	4	ROOT	_	_
+4	owe	owe	VERB	VB	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	?	?	PUNCT	.	_	4	punct	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
@@ -139,9 +139,9 @@
 # stage_direction = True
 # text = Nine-fifty..
 # time = NIGHT
-1	Nine	nine	NUM	CD	_	3	compound	_	_
-2	-	-	PUNCT	HYPH	_	3	punct	_	_
-3	fifty	fifty	NUM	CD	_	3	ROOT	_	_
+1	Nine	nine	NUM	CD	_	3	compound	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+2	-	-	PUNCT	HYPH	_	3	punct	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
+3	fifty	fifty	NUM	CD	_	0	ROOT	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 651
@@ -155,7 +155,7 @@
 # stage_direction = True
 # text = Here..
 # time = NIGHT
-1	Here	here	ADV	RB	_	1	ROOT	_	_
+1	Here	here	ADV	RB	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # line = 652
@@ -169,7 +169,7 @@
 # stage_direction = True
 # text = Thanks.
 # time = NIGHT
-1	Thanks	thank	NOUN	NNS	_	1	ROOT	_	_
+1	Thanks	thank	NOUN	NNS	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 652
@@ -183,7 +183,7 @@
 # stage_direction = True
 # text = Enjoy..
 # time = NIGHT
-1	Enjoy	enjoy	PROPN	NNP	_	1	ROOT	_	_
+1	Enjoy	enjoy	PROPN	NNP	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # line = 653
@@ -199,9 +199,9 @@
 # time = NIGHT
 1	Vito	vito	PROPN	NNP	_	5	nsubj	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Pino	pino	PROPN	NNP	_	1	appos	_	_
+3	Pino	pino	PROPN	NNP	_	1	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	see	see	VERB	VB	_	5	ROOT	_	_
+5	see	see	VERB	VB	_	0	ROOT	_	_
 6	ya	ya	PRON	PRP	_	5	dobj	_	_
 7	later	later	ADV	RB	_	5	advmod	_	_
 8	..	..	PUNCT	.	_	5	punct	_	_
@@ -217,7 +217,7 @@
 # time = NIGHT
 1	The	the	DET	DT	_	2	det	_	_
 2	officers	officer	NOUN	NNS	_	3	nsubj	_	_
-3	leave	leave	VERB	VBP	_	3	ROOT	_	_
+3	leave	leave	VERB	VBP	_	0	ROOT	_	_
 4	just	just	ADV	RB	_	7	advmod	_	_
 5	as	as	ADP	IN	_	7	mark	_	_
 6	Mookie	mookie	PROPN	NNP	_	7	nsubj	_	_
@@ -265,7 +265,7 @@
 28	all	all	ADJ	PDT	_	30	predet	_	_
 29	the	the	DET	DT	_	30	det	_	_
 30	cheese	cheese	NOUN	NN	_	31	nsubj	_	_
-31	ends	end	VERB	VBZ	_	31	ROOT	_	_
+31	ends	end	VERB	VBZ	_	0	ROOT	_	_
 32	up	up	PART	RP	_	31	prt	_	_
 33	on	on	ADP	IN	_	31	prep	_	_
 34	one	one	NUM	CD	_	35	nummod	_	_
@@ -288,7 +288,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	say	say	VERB	VB	_	4	ROOT	_	_
+4	say	say	VERB	VB	_	0	ROOT	_	_
 5	nuthin'	nothing	NOUN	NN	_	4	dobj	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -305,7 +305,7 @@
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	must	must	VERB	MD	_	3	aux	_	_
-3	have	have	VERB	VB	_	3	ROOT	_	_
+3	have	have	VERB	VB	_	0	ROOT	_	_
 4	a	a	DET	DT	_	6	det	_	_
 5	guilty	guilty	ADJ	JJ	_	6	amod	_	_
 6	conscience	conscience	NOUN	NN	_	3	dobj	_	_
@@ -323,7 +323,7 @@
 # text = What are you guilty of?.
 # time = NIGHT
 1	What	what	NOUN	WP	_	2	attr	_	_
-2	are	be	VERB	VBP	_	2	ROOT	_	_
+2	are	be	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	nsubj	_	_
 4	guilty	guilty	ADJ	JJ	_	2	acomp	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
@@ -342,7 +342,7 @@
 # text = I'm not guilty of nuthin'..
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	not	not	ADV	RB	_	2	neg	_	_
 4	guilty	guilty	ADJ	JJ	_	2	acomp	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
@@ -362,7 +362,7 @@
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	must	must	VERB	MD	_	3	aux	_	_
-3	be	be	VERB	VB	_	3	ROOT	_	_
+3	be	be	VERB	VB	_	0	ROOT	_	_
 4	guilty	guilty	ADJ	JJ	_	3	acomp	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
 6	something	something	NOUN	NN	_	5	pobj	_	_
@@ -391,7 +391,7 @@
 # stage_direction = True
 # text = C'mon, Sal..
 # time = NIGHT
-1	C'mon	c'mon	PROPN	NNP	_	1	ROOT	_	_
+1	C'mon	c'mon	PROPN	NNP	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	Sal	sal	PROPN	NNP	_	1	npadvmod	_	_
 4	..	..	PUNCT	NFP	_	1	punct	_	_
@@ -409,7 +409,7 @@
 # time = NIGHT
 1	Where	where	ADV	WRB	_	3	advmod	_	_
 2	we	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	goin'	go	VERB	VBG	_	3	ROOT	_	_
+3	goin'	go	VERB	VBG	_	0	ROOT	_	_
 4	?	?	PUNCT	.	_	3	punct	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -423,16 +423,16 @@
 # text = While Sal laughs at his corny joke, Pino pulls Vito into the back.
 # time = NIGHT
 1	While	while	ADP	IN	_	3	mark	_	_
-2	Sal	sal	PROPN	NNP	_	3	nsubj	_	_
+2	Sal	sal	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	laughs	laugh	VERB	VBZ	_	10	advcl	_	_
 4	at	at	ADP	IN	_	3	prep	_	_
 5	his	-PRON-	ADJ	PRP$	_	7	poss	_	_
 6	corny	corny	NOUN	NN	_	7	amod	_	_
 7	joke	joke	NOUN	NN	_	4	pobj	_	_
 8	,	,	PUNCT	,	_	10	punct	_	_
-9	Pino	pino	NOUN	NN	_	10	nsubj	_	_
-10	pulls	pull	VERB	VBZ	_	10	ROOT	_	_
-11	Vito	vito	PROPN	NNP	_	10	dobj	_	_
+9	Pino	pino	NOUN	NN	_	10	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
+11	Vito	vito	PROPN	NNP	_	10	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 12	into	into	ADP	IN	_	10	prep	_	_
 13	the	the	DET	DT	_	14	det	_	_
 14	back	back	NOUN	NN	_	12	pobj	_	_

@@ -7,7 +7,7 @@
 # stage_direction = True
 # text = POW!
 # time = DAY
-1	POW	pow	PROPN	NNP	_	1	ROOT	_	_
+1	POW	pow	PROPN	NNP	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
@@ -24,7 +24,7 @@
 3	gush	gush	NOUN	NN	_	6	nsubj	_	_
 4	of	of	ADP	IN	_	3	prep	_	_
 5	water	water	NOUN	NN	_	4	pobj	_	_
-6	flies	fly	VERB	VBZ	_	6	ROOT	_	_
+6	flies	fly	VERB	VBZ	_	0	ROOT	_	_
 7	out	out	PART	RP	_	6	prt	_	_
 
 # loc = EXT
@@ -36,7 +36,7 @@
 # stage_direction = True
 # text = RIGHT
 # time = DAY
-1	RIGHT	right	ADV	RB	_	1	ROOT	_	_
+1	RIGHT	right	ADV	RB	_	0	ROOT	_	_
 
 # loc = EXT
 # parse = (PP (IN AT) (NP (DT THE) (NNS CAMERA)) (. .))
@@ -47,9 +47,9 @@
 # stage_direction = True
 # text = AT THE CAMERA.
 # time = DAY
-1	AT	at	ADP	IN	_	1	ROOT	_	_
+1	AT	at	ADP	IN	_	0	ROOT	_	_
 2	THE	the	DET	DT	_	3	det	_	_
-3	CAMERA	camera	NOUN	NNS	_	1	pobj	_	_
+3	CAMERA	camera	NOUN	NNS	_	1	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
@@ -61,10 +61,10 @@
 # stage_direction = True
 # text = Ahmad has just turned on the johnny pump and the white stream of water flies across the street.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	4	nsubj	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	has	have	VERB	VBZ	_	4	aux	_	_
 3	just	just	ADV	RB	_	4	advmod	_	_
-4	turned	turn	VERB	VBN	_	4	ROOT	_	_
+4	turned	turn	VERB	VBN	_	0	ROOT	_	_
 5	on	on	PART	RP	_	4	prt	_	_
 6	the	the	DET	DT	_	8	det	_	_
 7	johnny	johnny	ADJ	JJ	_	8	amod	_	_
@@ -91,7 +91,7 @@
 # text = This attracts all the people of the block.
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	attracts	attract	VERB	VBZ	_	2	ROOT	_	_
+2	attracts	attract	VERB	VBZ	_	0	ROOT	_	_
 3	all	all	ADJ	PDT	_	5	predet	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	people	people	NOUN	NNS	_	2	dobj	_	_
@@ -110,7 +110,7 @@
 # text = It's a chance to cool off and momentarily beat the killer heat.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	chance	chance	NOUN	NN	_	2	attr	_	_
 5	to	to	PART	TO	_	6	aux	_	_
@@ -135,7 +135,7 @@
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	both	both	DET	DT	_	1	appos	_	_
-3	scrape	scrape	VERB	VBP	_	3	ROOT	_	_
+3	scrape	scrape	VERB	VBP	_	0	ROOT	_	_
 4	beer	beer	NOUN	NN	_	5	compound	_	_
 5	cans	can	NOUN	NNS	_	3	dobj	_	_
 6	on	on	ADP	IN	_	3	prep	_	_
@@ -153,7 +153,7 @@
 # text = She stands with caution away from the fire hydrant.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	stands	stand	VERB	VBZ	_	2	ROOT	_	_
+2	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 3	with	with	ADP	IN	_	2	prep	_	_
 4	caution	caution	NOUN	NN	_	3	pobj	_	_
 5	away	away	ADV	RB	_	2	advmod	_	_
@@ -172,10 +172,10 @@
 # stage_direction = True
 # text = Ella does not want to get wet.
 # time = DAY
-1	Ella	ella	PROPN	NNP	_	4	nsubj	_	_
+1	Ella	ella	PROPN	NNP	_	4	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	does	do	VERB	VBZ	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	get	get	VERB	VB	_	4	xcomp	_	_
 7	wet	wet	ADJ	JJ	_	6	acomp	_	_
@@ -193,7 +193,7 @@
 1	They	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	're	be	VERB	VBP	_	4	aux	_	_
 3	still	still	ADV	RB	_	4	advmod	_	_
-4	scraping	scrap	VERB	VBG	_	4	ROOT	_	_
+4	scraping	scrap	VERB	VBG	_	0	ROOT	_	_
 5	away	away	ADV	RB	_	4	advmod	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -212,7 +212,7 @@
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	old	old	ADJ	JJ	_	3	conj	_	_
 6	,	,	PUNCT	,	_	7	punct	_	_
-7	begin	begin	VERB	VB	_	7	ROOT	_	_
+7	begin	begin	VERB	VB	_	0	ROOT	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	get	get	VERB	VB	_	7	xcomp	_	_
 10	in	in	ADP	IN	_	9	prep	_	_
@@ -233,7 +233,7 @@
 # time = DAY
 1	Both	both	DET	DT	_	3	nsubj	_	_
 2	now	now	ADV	RB	_	3	advmod	_	_
-3	have	have	VERB	VBP	_	3	ROOT	_	_
+3	have	have	VERB	VBP	_	0	ROOT	_	_
 4	cans	can	NOUN	NNS	_	8	nsubj	_	_
 5	with	with	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
@@ -258,8 +258,8 @@
 # stage_direction = True
 # text = Punchy bends down behind the hydrant and places the can over the water.
 # time = DAY
-1	Punchy	punchy	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+1	Punchy	punchy	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	behind	behind	ADP	IN	_	2	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
@@ -285,7 +285,7 @@
 1	The	the	DET	DT	_	4	nsubj	_	_
 2	can	can	VERB	MD	_	4	aux	_	_
 3	now	now	ADV	RB	_	4	advmod	_	_
-4	directs	direct	VERB	VBZ	_	4	ROOT	_	_
+4	directs	direct	VERB	VBZ	_	0	ROOT	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	water	water	NOUN	NN	_	4	dobj	_	_
 7	into	into	ADP	IN	_	4	prep	_	_
@@ -302,11 +302,11 @@
 # stage_direction = True
 # text = Ahmad sneaks up behind Ella and picks her up.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	_
-2	sneaks	sneak	VERB	VBZ	_	2	ROOT	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	sneaks	sneak	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	behind	behind	ADP	IN	_	2	prep	_	_
-5	Ella	ella	PROPN	NNP	_	4	pobj	_	_
+5	Ella	ella	PROPN	NNP	_	4	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	picks	pick	VERB	VBZ	_	2	conj	_	_
 8	her	-PRON-	PRON	PRP	_	7	dobj	_	_
@@ -324,7 +324,7 @@
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	kicking	kick	VERB	VBG	_	3	ROOT	_	_
+3	kicking	kick	VERB	VBG	_	0	ROOT	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	screaming	scream	VERB	VBG	_	3	conj	_	_
 6	furiously	furiously	ADV	RB	_	5	advmod	_	_
@@ -340,7 +340,7 @@
 # text = She stands with caution away from the fire hydrant.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	stands	stand	VERB	VBZ	_	2	ROOT	_	_
+2	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 3	with	with	ADP	IN	_	2	prep	_	_
 4	caution	caution	NOUN	NN	_	3	pobj	_	_
 5	away	away	ADV	RB	_	2	advmod	_	_
@@ -359,10 +359,10 @@
 # stage_direction = True
 # text = Ella does not want to get wet.
 # time = DAY
-1	Ella	ella	PROPN	NNP	_	4	nsubj	_	_
+1	Ella	ella	PROPN	NNP	_	4	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
 2	does	do	VERB	VBZ	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	get	get	VERB	VB	_	4	xcomp	_	_
 7	wet	wet	ADJ	JJ	_	6	acomp	_	_
@@ -380,7 +380,7 @@
 1	They	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	're	be	VERB	VBP	_	4	aux	_	_
 3	still	still	ADV	RB	_	4	advmod	_	_
-4	scraping	scrap	VERB	VBG	_	4	ROOT	_	_
+4	scraping	scrap	VERB	VBG	_	0	ROOT	_	_
 5	away	away	ADV	RB	_	4	advmod	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -399,7 +399,7 @@
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	old	old	ADJ	JJ	_	3	conj	_	_
 6	,	,	PUNCT	,	_	7	punct	_	_
-7	begin	begin	VERB	VB	_	7	ROOT	_	_
+7	begin	begin	VERB	VB	_	0	ROOT	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	get	get	VERB	VB	_	7	xcomp	_	_
 10	in	in	ADP	IN	_	9	prep	_	_
@@ -420,7 +420,7 @@
 # time = DAY
 1	Both	both	DET	DT	_	3	nsubj	_	_
 2	now	now	ADV	RB	_	3	advmod	_	_
-3	have	have	VERB	VBP	_	3	ROOT	_	_
+3	have	have	VERB	VBP	_	0	ROOT	_	_
 4	cans	can	NOUN	NNS	_	8	nsubj	_	_
 5	with	with	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
@@ -445,8 +445,8 @@
 # stage_direction = True
 # text = Punchy bends down behind the hydrant and places the can over the water.
 # time = DAY
-1	Punchy	punchy	PROPN	NNP	_	2	nsubj	_	_
-2	bends	bend	VERB	VBZ	_	2	ROOT	_	_
+1	Punchy	punchy	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	behind	behind	ADP	IN	_	2	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
@@ -472,7 +472,7 @@
 1	The	the	DET	DT	_	4	nsubj	_	_
 2	can	can	VERB	MD	_	4	aux	_	_
 3	now	now	ADV	RB	_	4	advmod	_	_
-4	directs	direct	VERB	VBZ	_	4	ROOT	_	_
+4	directs	direct	VERB	VBZ	_	0	ROOT	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	water	water	NOUN	NN	_	4	dobj	_	_
 7	into	into	ADP	IN	_	4	prep	_	_
@@ -489,11 +489,11 @@
 # stage_direction = True
 # text = Ahmad sneaks up behind Ella and picks her up.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	_
-2	sneaks	sneak	VERB	VBZ	_	2	ROOT	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	sneaks	sneak	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	behind	behind	ADP	IN	_	2	prep	_	_
-5	Ella	ella	PROPN	NNP	_	4	pobj	_	_
+5	Ella	ella	PROPN	NNP	_	4	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	picks	pick	VERB	VBZ	_	2	conj	_	_
 8	her	-PRON-	PRON	PRP	_	7	dobj	_	_
@@ -511,7 +511,7 @@
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	kicking	kick	VERB	VBG	_	3	ROOT	_	_
+3	kicking	kick	VERB	VBG	_	0	ROOT	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	screaming	scream	VERB	VBG	_	3	conj	_	_
 6	furiously	furiously	ADV	RB	_	5	advmod	_	_
@@ -526,11 +526,11 @@
 # stage_direction = True
 # text = Ahmad sneaks up behind Ella and picks her up.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	_
-2	sneaks	sneak	VERB	VBZ	_	2	ROOT	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	sneaks	sneak	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	behind	behind	ADP	IN	_	2	prep	_	_
-5	Ella	ella	PROPN	NNP	_	4	pobj	_	_
+5	Ella	ella	PROPN	NNP	_	4	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	picks	pick	VERB	VBZ	_	2	conj	_	_
 8	her	-PRON-	PRON	PRP	_	7	dobj	_	_
@@ -548,7 +548,7 @@
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	kicking	kick	VERB	VBG	_	3	ROOT	_	_
+3	kicking	kick	VERB	VBG	_	0	ROOT	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	screaming	scream	VERB	VBG	_	3	conj	_	_
 6	furiously	furiously	ADV	RB	_	5	advmod	_	_
@@ -565,7 +565,7 @@
 # stage_direction = True
 # text = Ahmad!
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	1	ROOT	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 178
@@ -579,7 +579,7 @@
 # stage_direction = True
 # text = Put me down!
 # time = DAY
-1	Put	put	VERB	VB	_	1	ROOT	_	_
+1	Put	put	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	down	down	PART	RP	_	1	prt	_	_
 4	!	!	PUNCT	.	_	1	punct	_	_
@@ -595,7 +595,7 @@
 # stage_direction = True
 # text = Put me down!
 # time = DAY
-1	Put	put	VERB	VB	_	1	ROOT	_	_
+1	Put	put	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	down	down	PART	RP	_	1	prt	_	_
 4	!	!	PUNCT	.	_	1	punct	_	_
@@ -614,7 +614,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	ca	can	VERB	MD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	get	get	VERB	VB	_	4	ROOT	_	_
+4	get	get	VERB	VB	_	0	ROOT	_	_
 5	wet	wet	ADJ	JJ	_	4	acomp	_	_
 6	!	!	PUNCT	.	_	4	punct	_	_
 
@@ -630,7 +630,7 @@
 # text = I'm not playing!.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	not	not	ADV	RB	_	2	neg	_	_
 4	playing!.	playing!.	PROPN	NNP	_	2	acomp	_	_
 
@@ -643,10 +643,10 @@
 # stage_direction = True
 # text = Ahmad is not having it.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	4	nsubj	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	is	be	VERB	VBZ	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	having	have	VERB	VBG	_	4	ROOT	_	_
+4	having	have	VERB	VBG	_	0	ROOT	_	_
 5	it	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -660,10 +660,10 @@
 # text = He carries a kicking Ella into the middle of the street in direct line of fire.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	carries	carry	VERB	VBZ	_	2	ROOT	_	_
+2	carries	carry	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	kicking	kick	VERB	VBG	_	5	amod	_	_
-5	Ella	ella	PROPN	NNP	_	2	dobj	_	_
+5	Ella	ella	PROPN	NNP	_	2	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 6	into	into	ADP	IN	_	2	prep	_	_
 7	the	the	DET	DT	_	8	det	_	_
 8	middle	middle	NOUN	NN	_	6	pobj	_	_
@@ -688,7 +688,7 @@
 # stage_direction = True
 # text = Yo!.
 # time = DAY
-1	Yo!.	yo!.	PROPN	NNP	_	1	ROOT	_	_
+1	Yo!.	yo!.	PROPN	NNP	_	0	ROOT	_	_
 
 # line = 180
 # loc = EXT
@@ -701,7 +701,7 @@
 # stage_direction = True
 # text = No!.
 # time = DAY
-1	No!.	no!.	PROPN	NNP	_	1	ROOT	_	_
+1	No!.	no!.	PROPN	NNP	_	0	ROOT	_	_
 
 # loc = EXT
 # parse = (S (NP (PRP They)) (DT both) (VP (VP (VBP are) (VP (VBN hit) (PP (IN with) (NP (NP (DT a) (NN blast)) (PP (IN of) (NP (NN water))))))) (CC and) (VP (VBP are) (VP (VBN soaked) (PP (IN to) (NP (DT the) (NN bone)))))) (. .))
@@ -715,7 +715,7 @@
 1	They	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 2	both	both	DET	DT	_	1	appos	_	_
 3	are	be	VERB	VBP	_	4	auxpass	_	_
-4	hit	hit	VERB	VBN	_	4	ROOT	_	_
+4	hit	hit	VERB	VBN	_	0	ROOT	_	_
 5	with	with	ADP	IN	_	4	prep	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	blast	blast	NOUN	NN	_	5	pobj	_	_
@@ -738,11 +738,11 @@
 # stage_direction = True
 # text = Ella starts to punch Ahmad, and chases after him.
 # time = DAY
-1	Ella	ella	PROPN	NNP	_	2	nsubj	_	_
-2	starts	start	VERB	VBZ	_	2	ROOT	_	_
+1	Ella	ella	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+2	starts	start	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	punch	punch	VERB	VB	_	2	xcomp	_	_
-5	Ahmad	ahmad	PROPN	NNP	_	4	dobj	_	_
+5	Ahmad	ahmad	PROPN	NNP	_	4	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	,	,	PUNCT	,	_	2	punct	_	_
 7	and	and	CCONJ	CC	_	2	cc	_	_
 8	chases	chase	VERB	VBZ	_	2	conj	_	_
@@ -760,15 +760,15 @@
 # text = We hear the familiar rap music of Radio Raheem's box.
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	the	the	DET	DT	_	6	det	_	_
 4	familiar	familiar	ADJ	JJ	_	6	amod	_	_
 5	rap	rap	NOUN	NN	_	6	compound	_	_
 6	music	music	NOUN	NN	_	2	dobj	_	_
 7	of	of	ADP	IN	_	6	prep	_	_
-8	Radio	radio	PROPN	NNP	_	9	compound	_	_
-9	Raheem	raheem	PROPN	NNP	_	11	poss	_	_
-10	's	's	PART	POS	_	9	case	_	_
+8	Radio	radio	PROPN	NNP	_	9	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	Raheem	raheem	PROPN	NNP	_	11	poss	_	ent_type=ORG|ent_id=381|ent_iob=I
+10	's	's	PART	POS	_	9	case	_	ent_type=ORG|ent_id=381|ent_iob=I
 11	box	box	NOUN	NN	_	7	pobj	_	_
 12	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -781,9 +781,9 @@
 # stage_direction = True
 # text = Radio Raheem is too cool.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	too	too	ADV	RB	_	5	advmod	_	_
 5	cool	cool	ADJ	JJ	_	3	acomp	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -807,7 +807,7 @@
 8	it	-PRON-	PRON	PRP	_	11	nsubjpass	_	_
 9	could	could	VERB	MD	_	11	aux	_	_
 10	be	be	VERB	VB	_	11	auxpass	_	_
-11	fall	fall	VERB	VB	_	11	ROOT	_	_
+11	fall	fall	VERB	VB	_	0	ROOT	_	_
 12	,	,	PUNCT	,	_	11	punct	_	_
 13	not	not	ADV	RB	_	11	neg	_	_
 14	the	the	DET	DT	_	16	det	_	_
@@ -831,7 +831,7 @@
 2	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 3	could	could	VERB	MD	_	5	aux	_	_
 4	never	never	ADV	RB	_	5	neg	_	_
-5	tell	tell	VERB	VB	_	5	ROOT	_	_
+5	tell	tell	VERB	VB	_	0	ROOT	_	_
 6	it	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	from	from	ADP	IN	_	5	prep	_	_
 8	him	-PRON-	PRON	PRP	_	7	pobj	_	_
@@ -847,7 +847,7 @@
 # text = He's too cool.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	too	too	ADV	RB	_	4	advmod	_	_
 4	cool	cool	ADJ	JJ	_	2	acomp	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -861,13 +861,13 @@
 # stage_direction = True
 # text = Raheem looks at Cee, he wants to get by and he doesn't want to get wet either.
 # time = DAY
-1	Raheem	raheem	DET	DT	_	2	nsubj	_	_
+1	Raheem	raheem	DET	DT	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	looks	look	NOUN	NNS	_	7	ccomp	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Cee	cee	PROPN	NNP	_	3	pobj	_	_
+4	Cee	cee	PROPN	NNP	_	3	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	,	,	PUNCT	,	_	7	punct	_	_
 6	he	-PRON-	PRON	PRP	_	7	nsubj	_	_
-7	wants	want	VERB	VBZ	_	7	ROOT	_	_
+7	wants	want	VERB	VBZ	_	0	ROOT	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	get	get	VERB	VB	_	7	xcomp	_	_
 10	by	by	PART	RP	_	9	advmod	_	_
@@ -900,7 +900,7 @@
 7	,	,	PUNCT	,	_	10	punct	_	_
 8	somebody	somebody	NOUN	NN	_	10	nsubj	_	_
 9	is	be	VERB	VBZ	_	10	aux	_	_
-10	gon	go	VERB	VBG	_	10	ROOT	_	_
+10	gon	go	VERB	VBG	_	0	ROOT	_	_
 11	na	to	PART	TO	_	12	aux	_	_
 12	die	die	VERB	VB	_	10	xcomp	_	_
 13	.	.	PUNCT	.	_	10	punct	_	_
@@ -914,8 +914,8 @@
 # stage_direction = True
 # text = Cee knows this too.
 # time = DAY
-1	Cee	cee	PROPN	NNP	_	2	nsubj	_	_
-2	knows	know	VERB	VBZ	_	2	ROOT	_	_
+1	Cee	cee	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	knows	know	VERB	VBZ	_	0	ROOT	_	_
 3	this	this	DET	DT	_	2	dobj	_	_
 4	too	too	ADV	RB	_	2	advmod	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -929,8 +929,8 @@
 # stage_direction = True
 # text = Cee stands in front of the hydrant, blocking the water so Radio Raheem can pass.
 # time = DAY
-1	Cee	cee	ADJ	JJ	_	2	nsubj	_	_
-2	stands	stand	VERB	VBZ	_	2	ROOT	_	_
+1	Cee	cee	ADJ	JJ	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 3	in	in	ADP	IN	_	2	prep	_	_
 4	front	front	NOUN	NN	_	3	pobj	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
@@ -941,8 +941,8 @@
 10	the	the	DET	DT	_	11	det	_	_
 11	water	water	NOUN	NN	_	9	dobj	_	_
 12	so	so	ADP	IN	_	16	mark	_	_
-13	Radio	radio	PROPN	NNP	_	14	compound	_	_
-14	Raheem	raheem	PROPN	NNP	_	16	nsubj	_	_
+13	Radio	radio	PROPN	NNP	_	14	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+14	Raheem	raheem	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 15	can	can	VERB	MD	_	16	aux	_	_
 16	pass	pass	VERB	VB	_	2	advcl	_	_
 17	.	.	PUNCT	.	_	2	punct	_	_
@@ -958,7 +958,7 @@
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	slowly	slowly	ADV	RB	_	3	advmod	_	_
-3	bops	bop	VERB	VBZ	_	3	ROOT	_	_
+3	bops	bop	VERB	VBZ	_	0	ROOT	_	_
 4	across	across	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	street	street	NOUN	NN	_	4	pobj	_	_
@@ -982,12 +982,12 @@
 3	's	be	VERB	VBZ	_	11	advcl	_	_
 4	clear	clear	ADJ	JJ	_	3	acomp	_	_
 5	,	,	PUNCT	,	_	11	punct	_	_
-6	Cee	cee	ADJ	JJ	_	7	compound	_	_
+6	Cee	cee	ADJ	JJ	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
 7	moves	move	NOUN	NNS	_	11	nsubj	_	_
 8	and	and	CCONJ	CC	_	7	cc	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	water	water	NOUN	NN	_	7	conj	_	_
-11	gushes	gush	VERB	VBZ	_	11	ROOT	_	_
+11	gushes	gush	VERB	VBZ	_	0	ROOT	_	_
 12	out	out	PART	RP	_	11	prt	_	_
 13	again	again	ADV	RB	_	11	advmod	_	_
 14	as	as	ADP	IN	_	16	mark	_	_
@@ -1005,7 +1005,7 @@
 # text = We hear a car horn blowing.
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	car	car	NOUN	NN	_	5	compound	_	_
 5	horn	horn	NOUN	NN	_	6	nsubj	_	_
@@ -1022,7 +1022,7 @@
 # text = People move out of the way as the vehicle speeds through the spray.
 # time = DAY
 1	People	people	NOUN	NNS	_	2	nsubj	_	_
-2	move	move	VERB	VBP	_	2	ROOT	_	_
+2	move	move	VERB	VBP	_	0	ROOT	_	_
 3	out	out	ADP	IN	_	2	prep	_	_
 4	of	of	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
@@ -1049,9 +1049,9 @@
 2	older	old	ADJ	JJR	_	3	amod	_	_
 3	man	man	NOUN	NN	_	7	nsubj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	CHARLIE	charlie	PROPN	NNP	_	3	appos	_	_
+5	CHARLIE	charlie	PROPN	NNP	_	3	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
 6	,	,	PUNCT	,	_	7	punct	_	_
-7	stops	stop	VERB	VBZ	_	7	ROOT	_	_
+7	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 8	his	-PRON-	ADJ	PRP$	_	10	poss	_	_
 9	white	white	ADJ	JJ	_	10	amod	_	_
 10	convertible	convertible	NOUN	NN	_	7	dobj	_	_
@@ -1075,7 +1075,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	'm	be	VERB	VBP	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	playing	play	VERB	VBG	_	4	ROOT	_	_
+4	playing	play	VERB	VBG	_	0	ROOT	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 181
@@ -1091,7 +1091,7 @@
 # time = DAY
 1	There	there	ADV	EX	_	3	expl	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	trouble	trouble	NOUN	NN	_	5	attr	_	_
@@ -1114,7 +1114,7 @@
 # time = DAY
 1	Go	go	VERB	VB	_	3	poss	_	_
 2	'	'	PUNCT	''	_	1	punct	_	_
-3	head	head	NOUN	NN	_	3	ROOT	_	_
+3	head	head	NOUN	NN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 182
@@ -1129,7 +1129,7 @@
 # text = You got it.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -1145,7 +1145,7 @@
 # text = You got it..
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -1161,7 +1161,7 @@
 # text = This is an expensive car..
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	an	an	DET	DT	_	5	det	_	_
 4	expensive	expensive	ADJ	JJ	_	5	amod	_	_
 5	car	car	NOUN	NN	_	2	attr	_	_
@@ -1181,7 +1181,7 @@
 1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	wo	will	VERB	MD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	get	get	VERB	VB	_	4	ROOT	_	_
+4	get	get	VERB	VB	_	0	ROOT	_	_
 5	wet	wet	ADJ	JJ	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -1195,10 +1195,10 @@
 # text = Both Punchy and Cee sit in front of the hydrant once again, blocking the water.
 # time = DAY
 1	Both	both	CCONJ	CC	_	2	preconj	_	_
-2	Punchy	punchy	PROPN	NNP	_	5	nsubj	_	_
+2	Punchy	punchy	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	and	and	CCONJ	CC	_	2	cc	_	_
-4	Cee	cee	PROPN	NNP	_	2	conj	_	_
-5	sit	sit	VERB	VBP	_	5	ROOT	_	_
+4	Cee	cee	PROPN	NNP	_	2	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+5	sit	sit	VERB	VBP	_	0	ROOT	_	_
 6	in	in	ADP	IN	_	5	prep	_	_
 7	front	front	NOUN	NN	_	6	pobj	_	_
 8	of	of	ADP	IN	_	7	prep	_	_
@@ -1224,7 +1224,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	car	car	NOUN	NN	_	4	nsubj	_	_
 3	cautiously	cautiously	ADV	RB	_	4	advmod	_	_
-4	eases	ease	VERB	VBZ	_	4	ROOT	_	_
+4	eases	ease	VERB	VBZ	_	0	ROOT	_	_
 5	forward	forward	ADV	RB	_	4	advmod	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -1237,13 +1237,13 @@
 # stage_direction = True
 # text = Charlie doesn't trust Cee and Punchy at all.
 # time = DAY
-1	Charlie	charlie	PROPN	NNP	_	4	nsubj	_	_
+1	Charlie	charlie	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	does	do	VERB	VBZ	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	trust	trust	VERB	VB	_	4	ROOT	_	_
-5	Cee	cee	PROPN	NNP	_	4	dobj	_	_
+4	trust	trust	VERB	VB	_	0	ROOT	_	_
+5	Cee	cee	PROPN	NNP	_	4	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	and	and	CCONJ	CC	_	5	cc	_	_
-7	Punchy	punchy	PROPN	NNP	_	5	conj	_	_
+7	Punchy	punchy	PROPN	NNP	_	5	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	at	at	ADV	RB	_	9	advmod	_	_
 9	all	all	ADV	RB	_	4	advmod	_	_
 10	.	.	PUNCT	.	_	4	punct	_	_
@@ -1261,7 +1261,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	warning	warn	VERB	VBG	_	3	ROOT	_	_
+3	warning	warn	VERB	VBG	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	..	..	PUNCT	.	_	3	punct	_	_
 
@@ -1278,7 +1278,7 @@
 # time = DAY
 1	C'mon	c'mon	PROPN	NNP	_	4	nsubj	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
-3	Hurry	hurry	VERB	VB	_	4	ROOT	_	_
+3	Hurry	hurry	VERB	VB	_	0	ROOT	_	_
 4	up	up	PART	RP	_	4	prt	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -1296,9 +1296,9 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	ai	be	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	got	get	VERB	VBD	_	4	ROOT	_	_
-5	all	all	DET	DT	_	6	det	_	_
-6	day	day	NOUN	NN	_	4	npadvmod	_	_
+4	got	get	VERB	VBD	_	0	ROOT	_	_
+5	all	all	DET	DT	_	6	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+6	day	day	NOUN	NN	_	4	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
 7	..	..	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -1313,7 +1313,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	people	people	NOUN	NNS	_	4	nsubj	_	_
 3	all	all	DET	DT	_	2	appos	_	_
-4	move	move	VERB	VBP	_	4	ROOT	_	_
+4	move	move	VERB	VBP	_	0	ROOT	_	_
 5	to	to	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	car	car	NOUN	NN	_	5	pobj	_	_
@@ -1337,10 +1337,10 @@
 # stage_direction = True
 # text = Cee and Punchy leap off the hydrant, unleashing a jet blast that flies directly into Charlie's car.
 # time = DAY
-1	Cee	cee	ADJ	JJ	_	4	nsubj	_	_
+1	Cee	cee	ADJ	JJ	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Punchy	punchy	PROPN	NNP	_	1	conj	_	_
-4	leap	leap	VERB	VBP	_	4	ROOT	_	_
+3	Punchy	punchy	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	leap	leap	VERB	VBP	_	0	ROOT	_	_
 5	off	off	PART	RP	_	4	prt	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	hydrant	hydrant	NOUN	NN	_	4	dobj	_	_
@@ -1353,7 +1353,7 @@
 14	flies	fly	VERB	VBZ	_	12	relcl	_	_
 15	directly	directly	ADV	RB	_	14	advmod	_	_
 16	into	into	ADP	IN	_	14	prep	_	_
-17	Charlie	charlie	PROPN	NNP	_	19	poss	_	_
+17	Charlie	charlie	PROPN	NNP	_	19	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 18	's	's	PART	POS	_	17	case	_	_
 19	car	car	NOUN	NN	_	16	pobj	_	_
 20	.	.	PUNCT	.	_	4	punct	_	_
@@ -1371,7 +1371,7 @@
 2	whole	whole	ADJ	JJ	_	3	amod	_	_
 3	block	block	NOUN	NN	_	5	nsubj	_	_
 4	is	be	VERB	VBZ	_	5	aux	_	_
-5	dying	die	VERB	VBG	_	5	ROOT	_	_
+5	dying	die	VERB	VBG	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
@@ -1383,8 +1383,8 @@
 # stage_direction = True
 # text = Charlie pulls his flooded car over to the curb, jumps out, and runs to get hold of Cee and Punchy.
 # time = DAY
-1	Charlie	charlie	PROPN	NNP	_	2	nsubj	_	_
-2	pulls	pull	VERB	VBZ	_	2	ROOT	_	_
+1	Charlie	charlie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 4	flooded	flood	VERB	VBN	_	5	amod	_	_
 5	car	car	NOUN	NN	_	2	dobj	_	_
@@ -1402,9 +1402,9 @@
 17	get	get	VERB	VB	_	15	xcomp	_	_
 18	hold	hold	NOUN	NN	_	17	dobj	_	_
 19	of	of	ADP	IN	_	18	prep	_	_
-20	Cee	cee	ADJ	JJ	_	19	pobj	_	_
+20	Cee	cee	ADJ	JJ	_	19	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 21	and	and	CCONJ	CC	_	20	cc	_	_
-22	Punchy	punchy	PROPN	NNP	_	20	conj	_	_
+22	Punchy	punchy	PROPN	NNP	_	20	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 23	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -1420,7 +1420,7 @@
 2	course	course	ADV	RB	_	5	advmod	_	_
 3	,	,	PUNCT	,	_	5	punct	_	_
 4	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	's	be	VERB	VBZ	_	5	ROOT	_	_
+5	's	be	VERB	VBZ	_	0	ROOT	_	_
 6	slow	slow	ADJ	JJ	_	5	acomp	_	_
 7	,	,	PUNCT	,	_	5	punct	_	_
 8	as	as	ADP	IN	_	11	mark	_	_
@@ -1433,8 +1433,8 @@
 15	and	and	CCONJ	CC	_	11	cc	_	_
 16	make	make	VERB	VB	_	11	conj	_	_
 17	like	like	ADP	IN	_	16	prep	_	_
-18	Carl	carl	PROPN	NNP	_	19	compound	_	_
-19	Lewis	lewis	PROPN	NNP	_	17	pobj	_	_
+18	Carl	carl	PROPN	NNP	_	19	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+19	Lewis	lewis	PROPN	NNP	_	17	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 20	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
@@ -1446,7 +1446,7 @@
 # stage_direction = True
 # text = Charlie, a wet mess, tries to buy some sympathy from the folks; none is to be bought.
 # time = DAY
-1	Charlie	charlie	PROPN	NNP	_	7	nsubj	_	_
+1	Charlie	charlie	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	wet	wet	ADJ	JJ	_	5	amod	_	_
@@ -1462,7 +1462,7 @@
 14	folks	folk	NOUN	NNS	_	12	pobj	_	_
 15	;	;	PUNCT	:	_	17	punct	_	_
 16	none	none	NOUN	NN	_	17	nsubj	_	_
-17	is	be	VERB	VBZ	_	17	ROOT	_	_
+17	is	be	VERB	VBZ	_	0	ROOT	_	_
 18	to	to	PART	TO	_	20	aux	_	_
 19	be	be	VERB	VB	_	20	auxpass	_	_
 20	bought	buy	VERB	VBN	_	17	xcomp	_	_
@@ -1481,7 +1481,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	fucking	fuck	VERB	VBG	_	3	ROOT	_	_
+3	fucking	fuck	VERB	VBG	_	0	ROOT	_	_
 4	soaked	soak	VERB	VBN	_	3	advcl	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -1504,7 +1504,7 @@
 6	fucks	fuck	NOUN	NNS	_	4	dobj	_	_
 7	they	-PRON-	PRON	PRP	_	9	nsubj	_	_
 8	'll	will	VERB	MD	_	9	aux	_	_
-9	be	be	VERB	VB	_	9	ROOT	_	_
+9	be	be	VERB	VB	_	0	ROOT	_	_
 10	sorry	sorry	ADJ	JJ	_	9	acomp	_	_
 11	.	.	PUNCT	.	_	9	punct	_	_
 
@@ -1519,8 +1519,8 @@
 # stage_direction = True
 # text = Cocksucking sonabitches!.
 # time = DAY
-1	Cocksucking	cocksuck	VERB	VBG	_	1	ROOT	_	_
-2	sonabitches!.	sonabitches!.	PROPN	NNP	_	1	punct	_	_
+1	Cocksucking	cocksuck	VERB	VBG	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	sonabitches!.	sonabitches!.	PROPN	NNP	_	1	punct	_	ent_type=ORG|ent_id=381|ent_iob=I
 
 # loc = EXT
 # parse = (S (S (NP (DT The) (NN ranting)) (VP (VBZ continues))) (, ,) (CC and) (S (NP (NNS people)) (VP (VBP laugh) (PP (IN at) (NP (PRP him))))) (. .) (  ))
@@ -1533,7 +1533,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	ranting	ranting	NOUN	NN	_	3	nsubj	_	_
-3	continues	continue	VERB	VBZ	_	3	ROOT	_	_
+3	continues	continue	VERB	VBZ	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	and	and	CCONJ	CC	_	3	cc	_	_
 6	people	people	NOUN	NNS	_	7	nsubj	_	_
@@ -1555,7 +1555,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nmod	_	_
 2	people	people	NOUN	NNS	_	3	nsubj	_	_
-3	make	make	VERB	VBP	_	3	ROOT	_	_
+3	make	make	VERB	VBP	_	0	ROOT	_	_
 4	me	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	sick	sick	ADJ	JJ	_	3	ccomp	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -1572,7 +1572,7 @@
 1	A	a	DET	DT	_	4	det	_	_
 2	cop	cop	NOUN	NN	_	4	compound	_	_
 3	car	car	NOUN	NN	_	4	compound	_	_
-4	screeches	screech	NOUN	NNS	_	4	ROOT	_	_
+4	screeches	screech	NOUN	NNS	_	0	ROOT	_	_
 5	to	to	ADP	IN	_	4	prep	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	halt	halt	NOUN	NN	_	5	pobj	_	_
@@ -1592,14 +1592,14 @@
 # stage_direction = True
 # text = Two officers, LONG and PONTE, get out.
 # time = DAY
-1	Two	two	NUM	CD	_	2	nummod	_	_
+1	Two	two	NUM	CD	_	2	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 2	officers	officer	NOUN	NNS	_	8	nsubj	_	_
 3	,	,	PUNCT	,	_	2	punct	_	_
-4	LONG	long	PROPN	NNP	_	2	advmod	_	_
+4	LONG	long	PROPN	NNP	_	2	advmod	_	ent_type=ORG|ent_id=381|ent_iob=B
 5	and	and	CCONJ	CC	_	4	cc	_	_
-6	PONTE	ponte	PROPN	NNP	_	4	conj	_	_
+6	PONTE	ponte	PROPN	NNP	_	4	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 7	,	,	PUNCT	,	_	8	punct	_	_
-8	get	get	VERB	VB	_	8	ROOT	_	_
+8	get	get	VERB	VB	_	0	ROOT	_	_
 9	out	out	PART	RP	_	8	prt	_	_
 10	.	.	PUNCT	.	_	8	punct	_	_
 
@@ -1617,7 +1617,7 @@
 1	Officers	officers	PROPN	NNPS	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	want	want	VERB	VBP	_	4	ROOT	_	_
+4	want	want	VERB	VBP	_	0	ROOT	_	_
 5	an	an	DET	DT	_	6	det	_	_
 6	arrest	arrest	NOUN	NN	_	7	nsubj	_	_
 7	made	make	VERB	VBN	_	4	ccomp	_	_
@@ -1637,7 +1637,7 @@
 1	Now	now	ADV	RB	_	5	advmod	_	_
 2	..	..	PUNCT	.	_	5	punct	_	_
 3	What	what	NOUN	WP	_	5	nsubj	_	_
-4	happened	happen	VERB	VBD	_	5	ROOT	_	_
+4	happened	happen	VERB	VBD	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	5	punct	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -1652,10 +1652,10 @@
 # stage_direction = True
 # text = Two Black kids soaked me and my car.
 # time = DAY
-1	Two	two	NUM	CD	_	3	nummod	_	_
+1	Two	two	NUM	CD	_	3	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 2	Black	black	ADJ	JJ	_	3	amod	_	_
 3	kids	kid	NOUN	NNS	_	4	nsubj	_	_
-4	soaked	soak	VERB	VBD	_	4	ROOT	_	_
+4	soaked	soak	VERB	VBD	_	0	ROOT	_	_
 5	me	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	and	and	CCONJ	CC	_	5	cc	_	_
 7	my	-PRON-	ADJ	PRP$	_	8	poss	_	_
@@ -1675,7 +1675,7 @@
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	fucking	fucking	ADJ	JJ	_	3	ROOT	_	_
+3	fucking	fucking	ADJ	JJ	_	0	ROOT	_	_
 4	ruined	ruin	VERB	VBN	_	3	dep	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -1691,7 +1691,7 @@
 # text = Where are they?.
 # time = DAY
 1	Where	where	ADV	WRB	_	2	advmod	_	_
-2	are	be	VERB	VBP	_	2	ROOT	_	_
+2	are	be	VERB	VBP	_	0	ROOT	_	_
 3	they	-PRON-	PRON	PRP	_	2	nsubj	_	_
 4	?	?	PUNCT	.	_	2	punct	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -1708,7 +1708,7 @@
 # text = Where are they?
 # time = DAY
 1	Where	where	ADV	WRB	_	2	advmod	_	_
-2	are	be	VERB	VBP	_	2	ROOT	_	_
+2	are	be	VERB	VBP	_	0	ROOT	_	_
 3	they	-PRON-	PRON	PRP	_	2	nsubj	_	_
 4	?	?	PUNCT	.	_	2	punct	_	_
 
@@ -1729,7 +1729,7 @@
 4	fucking	fuck	VERB	VBG	_	3	pobj	_	_
 5	asshole	asshole	NOUN	NN	_	6	compound	_	_
 6	question	question	NOUN	NN	_	4	dobj	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	that	that	DET	DT	_	7	nsubj	_	_
 9	?	?	PUNCT	.	_	7	punct	_	_
 
@@ -1745,7 +1745,7 @@
 # text = They ran the fuck away..
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	ran	run	VERB	VBD	_	2	ROOT	_	_
+2	ran	run	VERB	VBD	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	fuck	fuck	NOUN	NN	_	2	dobj	_	_
 5	away	away	ADV	RB	_	2	advmod	_	_
@@ -1764,7 +1764,7 @@
 # time = DAY
 1	Do	do	VERB	VBP	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	wish	wish	VERB	VB	_	3	ROOT	_	_
+3	wish	wish	VERB	VB	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	file	file	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
@@ -1784,7 +1784,7 @@
 # text = A complaint.
 # time = DAY
 1	A	a	DET	DT	_	2	det	_	_
-2	complaint	complaint	NOUN	NN	_	2	ROOT	_	_
+2	complaint	complaint	NOUN	NN	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 196
@@ -1799,7 +1799,7 @@
 # text = I want those fucks locked under the jail..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	want	want	VERB	VBP	_	2	ROOT	_	_
+2	want	want	VERB	VBP	_	0	ROOT	_	_
 3	those	those	DET	DT	_	4	det	_	_
 4	fucks	fuck	NOUN	NNS	_	5	nsubj	_	_
 5	locked	lock	VERB	VBN	_	2	ccomp	_	_
@@ -1819,7 +1819,7 @@
 # time = DAY
 1	Officer	officer	PROPN	NNP	_	2	compound	_	_
 2	Long	long	PROPN	NNP	_	3	nsubj	_	_
-3	goes	go	VERB	VBZ	_	3	ROOT	_	_
+3	goes	go	VERB	VBZ	_	0	ROOT	_	_
 4	into	into	ADP	IN	_	3	prep	_	_
 5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	car	car	NOUN	NN	_	4	pobj	_	_
@@ -1839,14 +1839,14 @@
 # text = Officer Long turns off the hydrant, then puts the cap back on.
 # time = DAY
 1	Officer	officer	PROPN	NNP	_	2	compound	_	_
-2	Long	long	PROPN	NNP	_	3	nsubj	_	_
+2	Long	long	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	turns	turn	VERB	VBZ	_	9	ccomp	_	_
 4	off	off	PART	RP	_	3	prt	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	hydrant	hydrant	NOUN	NN	_	3	dobj	_	_
 7	,	,	PUNCT	,	_	9	punct	_	_
 8	then	then	ADV	RB	_	9	advmod	_	_
-9	puts	put	VERB	VBZ	_	9	ROOT	_	_
+9	puts	put	VERB	VBZ	_	0	ROOT	_	_
 10	the	the	DET	DT	_	11	det	_	_
 11	cap	cap	NOUN	NN	_	9	dobj	_	_
 12	back	back	ADV	RB	_	13	advmod	_	_
@@ -1868,7 +1868,7 @@
 2	hydrant	hydrant	NOUN	NN	_	5	nsubj	_	_
 3	better	better	ADV	RBR	_	5	advmod	_	_
 4	not	not	ADV	RB	_	5	neg	_	_
-5	come	come	VERB	VB	_	5	ROOT	_	_
+5	come	come	VERB	VB	_	0	ROOT	_	_
 6	back	back	ADV	RB	_	5	advmod	_	_
 7	on	on	ADV	RB	_	5	prep	_	_
 8	or	or	CCONJ	CC	_	5	cc	_	_
@@ -1894,7 +1894,7 @@
 # text = What about my car?
 # time = DAY
 1	What	what	NOUN	WP	_	2	dep	_	_
-2	about	about	ADP	IN	_	2	ROOT	_	_
+2	about	about	ADP	IN	_	0	ROOT	_	_
 3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	car	car	NOUN	NN	_	2	pobj	_	_
 5	?	?	PUNCT	.	_	2	punct	_	_
@@ -1911,7 +1911,7 @@
 # text = I want justice..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	want	want	VERB	VBP	_	2	ROOT	_	_
+2	want	want	VERB	VBP	_	0	ROOT	_	_
 3	justice	justice	NOUN	NN	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -1926,11 +1926,11 @@
 # time = DAY
 1	Officer	officer	PROPN	NNP	_	2	compound	_	_
 2	Long	long	PROPN	NNP	_	3	amod	_	_
-3	sides	side	VERB	VBZ	_	3	ROOT	_	_
+3	sides	side	VERB	VBZ	_	0	ROOT	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	to	to	ADP	IN	_	4	prep	_	_
-6	Da	da	PROPN	NNP	_	7	compound	_	_
-7	Mayor	mayor	PROPN	NNP	_	5	pobj	_	_
+6	Da	da	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+7	Mayor	mayor	PROPN	NNP	_	5	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 8	who	who	NOUN	WP	_	11	nsubjpass	_	_
 9	's	be	VERB	VBZ	_	11	auxpass	_	_
 10	been	be	VERB	VBN	_	11	aux	_	_
@@ -1950,7 +1950,7 @@
 # text = You know anything about this?.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	know	know	VERB	VBP	_	2	ROOT	_	_
+2	know	know	VERB	VBP	_	0	ROOT	_	_
 3	anything	anything	NOUN	NN	_	2	dobj	_	_
 4	about	about	ADP	IN	_	3	prep	_	_
 5	this	this	DET	DT	_	4	pobj	_	_
@@ -1966,9 +1966,9 @@
 # stage_direction = True
 # text = Da Mayor is quiet.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	quiet	quiet	ADJ	JJ	_	3	acomp	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -1984,7 +1984,7 @@
 # text = He knows.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	knows	know	VERB	VBZ	_	2	ROOT	_	_
+2	knows	know	VERB	VBZ	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 200
@@ -1999,7 +1999,7 @@
 # text = He's a witness.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	witness	witness	NOUN	NN	_	2	attr	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -2017,7 +2017,7 @@
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	all	all	DET	DT	_	1	appos	_	_
-3	know	know	VERB	VBP	_	3	ROOT	_	_
+3	know	know	VERB	VBP	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 200
@@ -2032,7 +2032,7 @@
 # text = He saw the whole thing..
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	saw	see	VERB	VBD	_	2	ROOT	_	_
+2	saw	see	VERB	VBD	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	whole	whole	ADJ	JJ	_	5	amod	_	_
 5	thing	thing	NOUN	NN	_	2	dobj	_	_
@@ -2047,13 +2047,13 @@
 # stage_direction = True
 # text = Officer Ponte goes to Da Mayor's other side.
 # time = DAY
-1	Officer	officer	PROPN	NNP	_	2	compound	_	_
-2	Ponte	ponte	PROPN	NNP	_	3	nsubj	_	_
-3	goes	go	VERB	VBZ	_	3	ROOT	_	_
+1	Officer	officer	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Ponte	ponte	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	goes	go	VERB	VBZ	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
-5	Da	da	PROPN	NNP	_	6	compound	_	_
-6	Mayor	mayor	PROPN	NNP	_	9	poss	_	_
-7	's	's	PART	POS	_	6	case	_	_
+5	Da	da	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Mayor	mayor	PROPN	NNP	_	9	poss	_	ent_type=PERSON|ent_id=378|ent_iob=I
+7	's	's	PART	POS	_	6	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
 8	other	other	ADJ	JJ	_	9	amod	_	_
 9	side	side	NOUN	NN	_	4	pobj	_	_
 10	.	.	PUNCT	.	_	3	punct	_	_
@@ -2070,7 +2070,7 @@
 # text = Who were the punks?.
 # time = DAY
 1	Who	who	NOUN	WP	_	2	attr	_	_
-2	were	be	VERB	VBD	_	2	ROOT	_	_
+2	were	be	VERB	VBD	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	punks	punk	NOUN	NNS	_	2	nsubj	_	_
 5	?	?	PUNCT	.	_	2	punct	_	_
@@ -2093,7 +2093,7 @@
 4	tell	tell	VERB	VB	_	1	relcl	_	_
 5	do	do	VERB	VB	_	7	aux	_	_
 6	n't	not	ADV	RB	_	7	neg	_	_
-7	know	know	VERB	VB	_	7	ROOT	_	_
+7	know	know	VERB	VB	_	0	ROOT	_	_
 8	.	.	PUNCT	.	_	7	punct	_	_
 
 # line = 202
@@ -2112,7 +2112,7 @@
 3	know	know	VERB	VBP	_	1	relcl	_	_
 4	wo	will	VERB	MD	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	tell	tell	VERB	VB	_	6	ROOT	_	_
+6	tell	tell	VERB	VB	_	0	ROOT	_	_
 7	..	..	PUNCT	.	_	6	punct	_	_
 
 # line = 203
@@ -2131,14 +2131,14 @@
 3	guy	guy	NOUN	NN	_	7	nsubj	_	_
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 5	Mookie	mookie	PROPN	NNP	_	3	appos	_	_
-6	emerges	emerge	VERB	VBZ	_	7	ROOT	_	_
+6	emerges	emerge	VERB	VBZ	_	0	ROOT	_	_
 7	from	from	ADP	IN	_	7	prep	_	_
 8	the	the	DET	DT	_	10	det	_	_
 9	crowd	crowd	NOUN	NN	_	8	pobj	_	_
 10	and	and	CCONJ	CC	_	7	cc	_	_
 11	leads	lead	VERB	VBZ	_	7	conj	_	_
-12	Da	da	PROPN	NNP	_	14	compound	_	_
-13	Mayor	mayor	PROPN	NNP	_	12	dobj	_	_
+12	Da	da	PROPN	NNP	_	14	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+13	Mayor	mayor	PROPN	NNP	_	12	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 14	away	away	ADV	RB	_	12	advmod	_	_
 15	from	from	ADP	IN	_	15	prep	_	_
 16	the	the	DET	DT	_	18	det	_	_
@@ -2156,7 +2156,7 @@
 # stage_direction = True
 # text = Let's go, Mayor..
 # time = DAY
-1	Let	let	VERB	VB	_	1	ROOT	_	_
+1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	go	go	VERB	VB	_	1	ccomp	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
@@ -2174,7 +2174,7 @@
 # stage_direction = True
 # text = Keep this hydrant off.
 # time = DAY
-1	Keep	keep	VERB	VBP	_	1	ROOT	_	_
+1	Keep	keep	VERB	VBP	_	0	ROOT	_	_
 2	this	this	DET	DT	_	3	nsubj	_	_
 3	hydrant	hydrant	NOUN	NN	_	1	ccomp	_	_
 4	off	off	PART	RP	_	3	prt	_	_
@@ -2196,10 +2196,10 @@
 3	to	to	PART	TO	_	4	aux	_	_
 4	swim	swim	VERB	VB	_	2	xcomp	_	_
 5	,	,	PUNCT	,	_	6	punct	_	_
-6	go	go	VERB	VB	_	6	ROOT	_	_
+6	go	go	VERB	VB	_	0	ROOT	_	_
 7	to	to	ADP	IN	_	6	prep	_	_
-8	Coney	coney	PROPN	NNP	_	9	compound	_	_
-9	Island	island	PROPN	NNP	_	7	pobj	_	_
+8	Coney	coney	PROPN	NNP	_	9	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
+9	Island	island	PROPN	NNP	_	7	pobj	_	ent_type=GPE|ent_id=382|ent_iob=I
 10	..	..	PUNCT	.	_	6	punct	_	_
 
 # line = 206
@@ -2215,7 +2215,7 @@
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	leaving	leave	VERB	VBG	_	3	ROOT	_	_
+3	leaving	leave	VERB	VBG	_	0	ROOT	_	_
 4	?	?	PUNCT	.	_	3	punct	_	_
 
 # line = 206
@@ -2230,7 +2230,7 @@
 # text = What about me?.
 # time = DAY
 1	What	what	NOUN	WP	_	2	dep	_	_
-2	about	about	ADP	IN	_	2	ROOT	_	_
+2	about	about	ADP	IN	_	0	ROOT	_	_
 3	me	-PRON-	PRON	PRP	_	2	pobj	_	_
 4	?	?	PUNCT	.	_	2	punct	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -2247,7 +2247,7 @@
 # text = I suggest you get in your car quick, before these people start to strip it clean..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	suggest	suggest	VERB	VBP	_	2	ROOT	_	_
+2	suggest	suggest	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	get	get	VERB	VBP	_	2	ccomp	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
@@ -2276,15 +2276,15 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	man	man	NOUN	NN	_	3	nsubj	_	_
-3	looks	look	VERB	VBZ	_	3	ROOT	_	_
+3	looks	look	VERB	VBZ	_	0	ROOT	_	_
 4	at	at	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	crowd	crowd	NOUN	NN	_	4	pobj	_	_
 7	of	of	ADP	IN	_	6	prep	_	_
-8	Blacks	blacks	PROPN	NNPS	_	7	pobj	_	_
+8	Blacks	blacks	PROPN	NNPS	_	7	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 9	and	and	CCONJ	CC	_	8	cc	_	_
-10	Puerto	puerto	PROPN	NNP	_	11	compound	_	_
-11	Ricans	ricans	PROPN	NNPS	_	8	conj	_	_
+10	Puerto	puerto	PROPN	NNP	_	11	compound	_	ent_type=NORP|ent_id=379|ent_iob=B
+11	Ricans	ricans	PROPN	NNPS	_	8	conj	_	ent_type=NORP|ent_id=379|ent_iob=I
 12	around	around	ADP	IN	_	6	prep	_	_
 13	him	-PRON-	PRON	PRP	_	12	pobj	_	_
 14	and	and	CCONJ	CC	_	3	cc	_	_
@@ -2311,7 +2311,7 @@
 2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	go	go	VERB	VB	_	1	ccomp	_	_
 4	,	,	PUNCT	,	_	5	punct	_	_
-5	break	break	VERB	VB	_	5	ROOT	_	_
+5	break	break	VERB	VB	_	0	ROOT	_	_
 6	it	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	up	up	PART	RP	_	5	prt	_	_
 8	.	.	PUNCT	.	_	5	punct	_	_
@@ -2327,7 +2327,7 @@
 # stage_direction = True
 # text = Go back to your jobs..
 # time = DAY
-1	Go	go	VERB	VB	_	1	ROOT	_	_
+1	Go	go	VERB	VB	_	0	ROOT	_	_
 2	back	back	ADV	RB	_	1	advmod	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	your	-PRON-	ADJ	PRP$	_	5	poss	_	_
@@ -2346,7 +2346,7 @@
 # text = What jobs?.
 # time = DAY
 1	What	what	NOUN	WP	_	2	det	_	_
-2	jobs	job	NOUN	NNS	_	2	ROOT	_	_
+2	jobs	job	NOUN	NNS	_	0	ROOT	_	_
 3	?	?	PUNCT	.	_	2	punct	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -2361,7 +2361,7 @@
 # time = DAY
 1	Both	both	DET	DT	_	2	det	_	_
 2	cops	cop	NOUN	NNS	_	3	nsubj	_	_
-3	laugh	laugh	VERB	VBP	_	3	ROOT	_	_
+3	laugh	laugh	VERB	VBP	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
@@ -2373,8 +2373,8 @@
 # stage_direction = True
 # text = Charlie drives away, fuming.
 # time = DAY
-1	Charlie	charlie	PROPN	NNP	_	2	nsubj	_	_
-2	drives	drive	VERB	VBZ	_	2	ROOT	_	_
+1	Charlie	charlie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	drives	drive	VERB	VBZ	_	0	ROOT	_	_
 3	away	away	ADV	RB	_	2	advmod	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	fuming	fume	VERB	VBG	_	2	advcl	_	_

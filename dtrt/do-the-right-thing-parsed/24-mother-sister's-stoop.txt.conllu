@@ -8,7 +8,7 @@
 # text = Jade sits down next to Mother Sister on the stoop.
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	sits	sit	VERB	VBZ	_	2	ROOT	_	_
+2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	next	next	ADV	RB	_	2	advmod	_	_
 5	to	to	ADP	IN	_	4	prep	_	_
@@ -33,7 +33,7 @@
 1	Jade	jade	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	're	be	VERB	VBP	_	4	ROOT	_	_
+4	're	be	VERB	VBP	_	0	ROOT	_	_
 5	late	late	ADJ	JJ	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -49,7 +49,7 @@
 # text = I know,
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	know	know	VERB	VBP	_	2	ROOT	_	_
+2	know	know	VERB	VBP	_	0	ROOT	_	_
 3	,	,	PUNCT	,	_	2	punct	_	_
 
 # line = 156
@@ -63,8 +63,8 @@
 # stage_direction = True
 # text = Mother Sister, but I'm here now.
 # time = DAY
-1	Mother	mother	PROPN	NNP	_	2	compound	_	_
-2	Sister	sister	PROPN	NNP	_	2	ROOT	_	_
+1	Mother	mother	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Sister	sister	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	but	but	CCONJ	CC	_	2	cc	_	_
 5	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
@@ -85,7 +85,7 @@
 # text = Where's the stuff?.
 # time = DAY
 1	Where	where	ADV	WRB	_	2	advmod	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	stuff	stuff	NOUN	NN	_	2	nsubj	_	_
 5	?	?	PUNCT	.	_	2	punct	_	_
@@ -102,7 +102,7 @@
 # time = DAY
 1	Mother	mother	PROPN	NNP	_	2	compound	_	_
 2	Sister	sister	PROPN	NNP	_	3	nsubj	_	_
-3	hands	hand	VERB	VBZ	_	3	ROOT	_	_
+3	hands	hand	VERB	VBZ	_	0	ROOT	_	_
 4	her	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	bag	bag	NOUN	NN	_	3	dobj	_	_
@@ -124,7 +124,7 @@
 # stage_direction = True
 # text = Seen your brother, just walked by..
 # time = DAY
-1	Seen	see	VERB	VBN	_	1	ROOT	_	_
+1	Seen	see	VERB	VBN	_	0	ROOT	_	_
 2	your	-PRON-	ADJ	PRP$	_	3	poss	_	_
 3	brother	brother	NOUN	NN	_	1	dobj	_	_
 4	,	,	PUNCT	,	_	1	punct	_	_
@@ -143,15 +143,15 @@
 # text = Jade unwraps a head scarf from around Mother Sister's head and a full head of long black hair falls to her shoulders.
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	unwraps	unwrap	NOUN	NNS	_	2	ROOT	_	_
+2	unwraps	unwrap	NOUN	NNS	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	head	head	NOUN	NN	_	5	compound	_	_
 5	scarf	scarf	NOUN	NN	_	2	dobj	_	_
 6	from	from	ADP	IN	_	5	prep	_	_
 7	around	around	ADP	IN	_	6	prep	_	_
-8	Mother	mother	PROPN	NNP	_	9	compound	_	_
-9	Sister	sister	PROPN	NNP	_	11	poss	_	_
-10	's	's	PART	POS	_	9	case	_	_
+8	Mother	mother	PROPN	NNP	_	9	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+9	Sister	sister	PROPN	NNP	_	11	poss	_	ent_type=PERSON|ent_id=378|ent_iob=I
+10	's	's	PART	POS	_	9	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
 11	head	head	NOUN	NN	_	7	pobj	_	_
 12	and	and	CCONJ	CC	_	5	cc	_	_
 13	a	a	DET	DT	_	15	det	_	_
@@ -180,7 +180,7 @@
 # time = DAY
 1	This	this	DET	DT	_	3	nsubj	_	_
 2	might	may	VERB	MD	_	3	aux	_	_
-3	take	take	VERB	VB	_	3	ROOT	_	_
+3	take	take	VERB	VB	_	0	ROOT	_	_
 4	some	some	DET	DT	_	5	det	_	_
 5	time	time	NOUN	NN	_	3	dobj	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -197,7 +197,7 @@
 # text = I got nowhere to go.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	nowhere	nowhere	ADV	RB	_	2	advmod	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	go	go	VERB	VB	_	2	xcomp	_	_
@@ -217,7 +217,7 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	have	have	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	had	have	VERB	VBN	_	4	ROOT	_	_
+4	had	have	VERB	VBN	_	0	ROOT	_	_
 5	a	a	DET	DT	_	9	det	_	_
 6	good	good	ADJ	JJ	_	9	amod	_	_
 7	sit	sit	NOUN	NN	_	9	compound	_	_
@@ -239,7 +239,7 @@
 # text = Jade begins to part, grease, and comb out Mother Sister's hair.
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	begins	begin	VERB	VBZ	_	2	ROOT	_	_
+2	begins	begin	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	PART	TO	_	2	prep	_	_
 4	part	part	NOUN	NN	_	3	pobj	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
@@ -268,7 +268,7 @@
 1	Tender	tender	PROPN	NNP	_	3	npadvmod	_	_
 2	-	-	PUNCT	HYPH	_	3	punct	_	_
 3	headed	head	VERB	VBN	_	4	amod	_	_
-4	runs	run	NOUN	NNS	_	4	ROOT	_	_
+4	runs	run	NOUN	NNS	_	0	ROOT	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
 6	my	-PRON-	ADJ	PRP$	_	7	poss	_	_
 7	family	family	NOUN	NN	_	5	pobj	_	_
@@ -288,7 +288,7 @@
 1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	tender	tender	NOUN	NN	_	4	dep	_	_
 3	-	-	PUNCT	HYPH	_	4	punct	_	_
-4	headed	head	VERB	VBN	_	4	ROOT	_	_
+4	headed	head	VERB	VBN	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -303,7 +303,7 @@
 # stage_direction = True
 # text = Yeah, me too..
 # time = DAY
-1	Yeah	yeah	INTJ	UH	_	1	ROOT	_	_
+1	Yeah	yeah	INTJ	UH	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	me	-PRON-	PRON	PRP	_	1	npadvmod	_	_
 4	too	too	ADV	RB	_	1	advmod	_	_
@@ -321,7 +321,7 @@
 # text = That's why I don't fool with it.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	why	why	ADV	WRB	_	7	advmod	_	_
 4	I	-PRON-	PRON	PRP	_	7	nsubj	_	_
 5	do	do	VERB	VBP	_	7	aux	_	_
@@ -343,7 +343,7 @@
 # text = Only let you touch it...
 # time = DAY
 1	Only	only	ADV	RB	_	2	advmod	_	_
-2	let	let	VERB	VB	_	2	ROOT	_	_
+2	let	let	VERB	VB	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	touch	touch	VERB	VB	_	2	ccomp	_	_
 5	it	-PRON-	PRON	PRP	_	4	dobj	_	_
@@ -360,7 +360,7 @@
 # stage_direction = True
 # text = Ouch!.
 # time = DAY
-1	Ouch!.	ouch!.	ADJ	WDT	_	1	ROOT	_	_
+1	Ouch!.	ouch!.	ADJ	WDT	_	0	ROOT	_	_
 
 # line = 163
 # loc = EXT
@@ -377,7 +377,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	comb	comb	NOUN	NN	_	5	nsubjpass	_	_
 4	got	get	VERB	VBD	_	5	auxpass	_	_
-5	caught	catch	VERB	VBN	_	5	ROOT	_	_
+5	caught	catch	VERB	VBN	_	0	ROOT	_	_
 6	..	..	PUNCT	NFP	_	5	punct	_	_
 
 # line = 164
@@ -391,7 +391,7 @@
 # stage_direction = True
 # text = Be gentle, child.
 # time = DAY
-1	Be	be	VERB	VBP	_	1	ROOT	_	_
+1	Be	be	VERB	VBP	_	0	ROOT	_	_
 2	gentle	gentle	ADJ	JJ	_	1	acomp	_	_
 3	,	,	PUNCT	,	_	4	punct	_	_
 4	child	child	NOUN	NN	_	1	npadvmod	_	_
@@ -408,9 +408,9 @@
 # stage_direction = True
 # text = Mother Sister is an old woman..
 # time = DAY
-1	Mother	mother	PROPN	NNP	_	2	compound	_	_
-2	Sister	sister	PROPN	NNP	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+1	Mother	mother	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Sister	sister	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	an	an	DET	DT	_	6	det	_	_
 5	old	old	ADJ	JJ	_	6	amod	_	_
 6	woman	woman	NOUN	NN	_	3	attr	_	_
@@ -430,7 +430,7 @@
 1	How	how	ADV	WRB	_	4	advmod	_	_
 2	are	be	VERB	VBP	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	holding	hold	VERB	VBG	_	4	ROOT	_	_
+4	holding	hold	VERB	VBG	_	0	ROOT	_	_
 5	up	up	PART	RP	_	4	prt	_	_
 6	in	in	ADP	IN	_	4	prep	_	_
 7	this	this	DET	DT	_	8	det	_	_
@@ -451,7 +451,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	do	do	VERB	VB	_	3	ROOT	_	_
+3	do	do	VERB	VB	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 
 # line = 167
@@ -468,7 +468,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	know	know	VERB	VB	_	4	ROOT	_	_
+4	know	know	VERB	VB	_	0	ROOT	_	_
 5	why	why	ADV	WRB	_	10	advmod	_	_
 6	you	-PRON-	PRON	PRP	_	10	nsubj	_	_
 7	still	still	ADV	RB	_	10	advmod	_	_
@@ -493,7 +493,7 @@
 # time = DAY
 1	Do	do	VERB	VBP	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
-3	like	like	VERB	VB	_	3	ROOT	_	_
+3	like	like	VERB	VB	_	0	ROOT	_	_
 4	'em	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -511,7 +511,7 @@
 1	A	a	DET	DT	_	2	det	_	_
 2	fan	fan	NOUN	NN	_	4	nsubj	_	_
 3	will	will	VERB	MD	_	4	aux	_	_
-4	do	do	VERB	VB	_	4	ROOT	_	_
+4	do	do	VERB	VB	_	0	ROOT	_	_
 5	..	..	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -523,8 +523,8 @@
 # stage_direction = True
 # text = Da Mayor stands in front of the stoop, he's smiling for days.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	stands	stand	VERB	VBZ	_	12	ccomp	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
 5	front	front	NOUN	NN	_	4	pobj	_	_
@@ -534,9 +534,9 @@
 9	,	,	PUNCT	,	_	12	punct	_	_
 10	he	-PRON-	PRON	PRP	_	12	nsubj	_	_
 11	's	be	VERB	VBZ	_	12	aux	_	_
-12	smiling	smile	VERB	VBG	_	12	ROOT	_	_
+12	smiling	smile	VERB	VBG	_	0	ROOT	_	_
 13	for	for	ADP	IN	_	12	prep	_	_
-14	days	day	NOUN	NNS	_	13	pobj	_	_
+14	days	day	NOUN	NNS	_	13	pobj	_	ent_type=DATE|ent_id=388|ent_iob=B
 15	.	.	PUNCT	.	_	12	punct	_	_
 
 # loc = EXT
@@ -548,8 +548,8 @@
 # stage_direction = True
 # text = Da Mayor stands in front of the stoop, he's smiling for days.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
+1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 3	stands	stand	VERB	VBZ	_	12	ccomp	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
 5	front	front	NOUN	NN	_	4	pobj	_	_
@@ -559,9 +559,9 @@
 9	,	,	PUNCT	,	_	12	punct	_	_
 10	he	-PRON-	PRON	PRP	_	12	nsubj	_	_
 11	's	be	VERB	VBZ	_	12	aux	_	_
-12	smiling	smile	VERB	VBG	_	12	ROOT	_	_
+12	smiling	smile	VERB	VBG	_	0	ROOT	_	_
 13	for	for	ADP	IN	_	12	prep	_	_
-14	days	day	NOUN	NNS	_	13	pobj	_	_
+14	days	day	NOUN	NNS	_	13	pobj	_	ent_type=DATE|ent_id=388|ent_iob=B
 15	.	.	PUNCT	.	_	12	punct	_	_
 
 # line = 169
@@ -578,7 +578,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	know	know	VERB	VB	_	4	ROOT	_	_
+4	know	know	VERB	VB	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	had	have	VERB	VBD	_	4	ccomp	_	_
 7	such	such	ADJ	JJ	_	9	amod	_	_
@@ -600,7 +600,7 @@
 1	Fool	fool	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	there	there	ADV	EX	_	4	expl	_	_
-4	's	be	VERB	VBZ	_	4	ROOT	_	_
+4	's	be	VERB	VBZ	_	0	ROOT	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	lot	lot	NOUN	NN	_	4	attr	_	_
 7	in	in	ADP	IN	_	6	prep	_	_
@@ -626,7 +626,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	'm	be	VERB	VBP	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	stopping	stop	VERB	VBG	_	4	ROOT	_	_
+4	stopping	stop	VERB	VBG	_	0	ROOT	_	_
 5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 171
@@ -641,7 +641,7 @@
 # text = I'm on my way..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	on	on	ADP	IN	_	2	prep	_	_
 4	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	way	way	NOUN	NN	_	3	pobj	_	_
@@ -658,7 +658,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	_
-3	tips	tip	VERB	VBZ	_	3	ROOT	_	_
+3	tips	tip	VERB	VBZ	_	0	ROOT	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	hat	hat	NOUN	NN	_	3	dobj	_	_
 6	and	and	CCONJ	CC	_	3	cc	_	_
@@ -684,11 +684,11 @@
 3	too	too	ADV	RB	_	4	advmod	_	_
 4	cruel	cruel	ADJ	JJ	_	2	acomp	_	_
 5	to	to	ADP	IN	_	4	prep	_	_
-6	Da	da	PROPN	NNP	_	7	compound	_	_
-7	Mayor	mayor	PROPN	NNP	_	5	pobj	_	_
+6	Da	da	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+7	Mayor	mayor	PROPN	NNP	_	5	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	it	-PRON-	PRON	PRP	_	10	nsubj	_	_
-10	is	be	VERB	VBZ	_	10	ROOT	_	_
+10	is	be	VERB	VBZ	_	0	ROOT	_	_
 11	n't	not	ADV	RB	_	10	neg	_	_
 12	right	right	ADJ	JJ	_	10	acomp	_	_
 13	..	..	PUNCT	NFP	_	10	punct	_	_
@@ -707,7 +707,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	'm	be	VERB	VBP	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	studying	study	VERB	VBG	_	4	ROOT	_	_
+4	studying	study	VERB	VBG	_	0	ROOT	_	_
 5	no	no	DET	DT	_	6	det	_	_
 6	Mayor	mayor	PROPN	NNP	_	4	dobj	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
@@ -726,7 +726,7 @@
 1	Besides	besides	ADV	RB	_	4	advmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	he	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	reminds	remind	VERB	VBZ	_	4	ROOT	_	_
+4	reminds	remind	VERB	VBZ	_	0	ROOT	_	_
 5	me	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	of	of	ADP	IN	_	4	prep	_	_
 7	my	-PRON-	ADJ	PRP$	_	10	poss	_	_
@@ -755,7 +755,7 @@
 7	--	--	PUNCT	:	_	6	punct	_	_
 8	Goddamn	goddamn	PROPN	NNP	_	10	npadvmod	_	_
 9	-	-	PUNCT	HYPH	_	10	punct	_	_
-10	bless	bless	VERB	VB	_	10	ROOT	_	_
+10	bless	bless	VERB	VB	_	0	ROOT	_	_
 11	his	-PRON-	ADJ	PRP$	_	12	poss	_	_
 12	soul	soul	NOUN	NN	_	10	dobj	_	_
 13	..	..	PUNCT	.	_	10	punct	_	_
@@ -771,7 +771,7 @@
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	both	both	DET	DT	_	1	appos	_	_
-3	laugh	laugh	VERB	VBP	_	3	ROOT	_	_
+3	laugh	laugh	VERB	VBP	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 174
@@ -785,8 +785,8 @@
 # stage_direction = True
 # text = Number One
 # time = DAY
-1	Number	number	NOUN	NN	_	1	ROOT	_	_
-2	One	one	NUM	CD	_	1	nummod	_	_
+1	Number	number	NOUN	NN	_	0	ROOT	_	_
+2	One	one	NUM	CD	_	1	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 
 # line = 174
 # loc = EXT
@@ -801,7 +801,7 @@
 # time = DAY
 1	:	:	PUNCT	:	_	3	punct	_	_
 2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	got	get	VERB	VBD	_	3	ROOT	_	_
+3	got	get	VERB	VBD	_	0	ROOT	_	_
 4	some	some	DET	DT	_	5	det	_	_
 5	jive	jive	ADJ	JJ	_	3	dobj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
@@ -830,7 +830,7 @@
 1	Every	every	DET	DT	_	2	det	_	_
 2	year	year	NOUN	NN	_	4	npadvmod	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	keep	keep	VERB	VBP	_	4	ROOT	_	_
+4	keep	keep	VERB	VBP	_	0	ROOT	_	_
 5	threatening	threaten	VERB	VBG	_	4	xcomp	_	_
 6	to	to	PART	TO	_	7	aux	_	_
 7	sell	sell	VERB	VB	_	5	xcomp	_	_
@@ -849,10 +849,10 @@
 # text = And move to Long Island....
 # time = DAY
 1	And	and	CCONJ	CC	_	2	cc	_	_
-2	move	move	VERB	VBP	_	2	ROOT	_	_
+2	move	move	VERB	VBP	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
-4	Long	long	PROPN	NNP	_	5	compound	_	_
-5	Island	island	PROPN	NNP	_	3	pobj	_	_
+4	Long	long	PROPN	NNP	_	5	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
+5	Island	island	PROPN	NNP	_	3	pobj	_	ent_type=GPE|ent_id=382|ent_iob=I
 6	....	....	PUNCT	.	_	2	punct	_	_
 
 # line = 176
@@ -867,10 +867,10 @@
 # text = And move to Long Island.
 # time = DAY
 1	And	and	CCONJ	CC	_	2	cc	_	_
-2	move	move	VERB	VBP	_	2	ROOT	_	_
+2	move	move	VERB	VBP	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
-4	Long	long	PROPN	NNP	_	5	compound	_	_
-5	Island	island	PROPN	NNP	_	3	pobj	_	_
+4	Long	long	PROPN	NNP	_	5	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
+5	Island	island	PROPN	NNP	_	3	pobj	_	ent_type=GPE|ent_id=382|ent_iob=I
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 176
@@ -884,8 +884,8 @@
 # stage_direction = True
 # text = Number Two:
 # time = DAY
-1	Number	number	NOUN	NN	_	1	ROOT	_	_
-2	Two	two	NUM	CD	_	1	nummod	_	_
+1	Number	number	NOUN	NN	_	0	ROOT	_	_
+2	Two	two	NUM	CD	_	1	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 3	:	:	PUNCT	:	_	1	punct	_	_
 
 # line = 176
@@ -903,7 +903,7 @@
 2	ex	ex	NUM	CD	_	3	nmod	_	_
 3	-	-	PUNCT	:	_	4	punct	_	_
 4	husband	husband	NOUN	NN	_	5	punct	_	_
-5	lost	lose	VERB	VBD	_	5	ROOT	_	_
+5	lost	lose	VERB	VBD	_	0	ROOT	_	_
 6	all	all	ADJ	PDT	_	8	predet	_	_
 7	my	-PRON-	ADJ	PRP$	_	8	poss	_	_
 8	property	property	NOUN	NN	_	5	dobj	_	_
@@ -941,7 +941,7 @@
 6	,	,	PUNCT	,	_	9	punct	_	_
 7	this	this	DET	DT	_	8	det	_	_
 8	house	house	NOUN	NN	_	9	nsubj	_	_
-9	is	be	VERB	VBZ	_	9	ROOT	_	_
+9	is	be	VERB	VBZ	_	0	ROOT	_	_
 10	it	-PRON-	PRON	PRP	_	9	attr	_	_
 11	,	,	PUNCT	,	_	9	punct	_	_
 12	all	all	DET	DT	_	9	dep	_	_
@@ -961,7 +961,7 @@
 # text = I'm too through with yar people..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	too	too	ADV	RB	_	4	advmod	_	_
 4	through	through	ADP	IN	_	2	prep	_	_
 5	with	with	ADP	IN	_	4	prep	_	_
@@ -980,7 +980,7 @@
 # stage_direction = True
 # text = Whew!.
 # time = DAY
-1	Whew!.	whew!.	PROPN	NNP	_	1	ROOT	_	_
+1	Whew!.	whew!.	PROPN	NNP	_	0	ROOT	_	_
 
 # loc = EXT
 # parse = (S (NP (PRP She)) (VP (VBZ looks) (ADVP (RP up)) (PP (IN at) (NP (DT the) (JJ white) (HYPH -) (JJ hot) (NN sun)))) (. .))
@@ -992,7 +992,7 @@
 # text = She looks up at the white-hot sun.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	at	at	ADP	IN	_	2	prep	_	_
 5	the	the	DET	DT	_	9	det	_	_
@@ -1012,7 +1012,7 @@
 # text = She does the same.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	does	do	VERB	VBZ	_	2	ROOT	_	_
+2	does	do	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	same	same	ADJ	JJ	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -1033,7 +1033,7 @@
 5	,	,	PUNCT	,	_	8	punct	_	_
 6	we	-PRON-	PRON	PRP	_	8	nsubj	_	_
 7	're	be	VERB	VBP	_	8	aux	_	_
-8	gon	go	VERB	VBG	_	8	ROOT	_	_
+8	gon	go	VERB	VBG	_	0	ROOT	_	_
 9	na	to	PART	TO	_	10	aux	_	_
 10	suspend	suspend	VERB	VB	_	8	xcomp	_	_
 11	the	the	DET	DT	_	12	det	_	_
@@ -1061,7 +1061,7 @@
 # time = DAY
 1	People	people	NOUN	NNS	_	3	nsubj	_	_
 2	are	be	VERB	VBP	_	3	aux	_	_
-3	taking	take	VERB	VBG	_	3	ROOT	_	_
+3	taking	take	VERB	VBG	_	0	ROOT	_	_
 4	cold	cold	ADJ	JJ	_	5	amod	_	_
 5	showers	shower	NOUN	NNS	_	3	dobj	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -1075,7 +1075,7 @@
 # stage_direction = True
 # text = Sticking faces in ice-cold, water-filled sinks.
 # time = DAY
-1	Sticking	stick	VERB	VBG	_	1	ROOT	_	_
+1	Sticking	stick	VERB	VBG	_	0	ROOT	_	_
 2	faces	face	NOUN	NNS	_	1	dobj	_	_
 3	in	in	ADP	IN	_	2	prep	_	_
 4	ice	ice	NOUN	NN	_	6	npadvmod	_	_
@@ -1098,7 +1098,7 @@
 # text = Heads stuck in refrigerators.
 # time = DAY
 1	Heads	head	NOUN	NNS	_	2	nsubj	_	_
-2	stuck	stick	VERB	VBD	_	2	ROOT	_	_
+2	stuck	stick	VERB	VBD	_	0	ROOT	_	_
 3	in	in	ADP	IN	_	2	prep	_	_
 4	refrigerators	refrigerator	NOUN	NNS	_	3	pobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -1114,7 +1114,7 @@
 # time = DAY
 1	A	a	DET	DT	_	2	det	_	_
 2	wife	wife	NOUN	NN	_	3	nsubj	_	_
-3	tells	tell	VERB	VBZ	_	3	ROOT	_	_
+3	tells	tell	VERB	VBZ	_	0	ROOT	_	_
 4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	husband	husband	NOUN	NN	_	3	dobj	_	_
 6	,	,	PUNCT	,	_	3	punct	_	_
@@ -1138,7 +1138,7 @@
 # text = It's too hot.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	too	too	ADV	RB	_	4	advmod	_	_
 4	hot	hot	ADJ	JJ	_	2	acomp	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -1154,7 +1154,7 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	kitchen	kitchen	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	closed	close	VERB	VBN	_	3	acomp	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 6	"	"	PUNCT	''	_	3	punct	_	_
@@ -1169,8 +1169,8 @@
 # text = Men downing six-packs of ice-cold brew.
 # time = DAY
 1	Men	man	NOUN	NNS	_	2	nsubj	_	_
-2	downing	down	VERB	VBG	_	2	ROOT	_	_
-3	six	six	NUM	CD	_	5	nummod	_	_
+2	downing	down	VERB	VBG	_	0	ROOT	_	_
+3	six	six	NUM	CD	_	5	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 4	-	-	PUNCT	HYPH	_	5	punct	_	_
 5	packs	pack	NOUN	NNS	_	2	dobj	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
@@ -1190,7 +1190,7 @@
 # text = Faces stuck directly in front of fans.
 # time = DAY
 1	Faces	face	NOUN	NNS	_	2	nsubj	_	_
-2	stuck	stick	VERB	VBD	_	2	ROOT	_	_
+2	stuck	stick	VERB	VBD	_	0	ROOT	_	_
 3	directly	directly	ADV	RB	_	2	advmod	_	_
 4	in	in	ADP	IN	_	2	prep	_	_
 5	front	front	NOUN	NN	_	4	pobj	_	_
@@ -1210,13 +1210,13 @@
 1	A	a	DET	DT	_	3	det	_	_
 2	young	young	ADJ	JJ	_	3	amod	_	_
 3	kid	kid	NOUN	NN	_	4	nsubj	_	_
-4	cracks	crack	NOUN	NNS	_	4	ROOT	_	_
+4	cracks	crack	NOUN	NNS	_	0	ROOT	_	_
 5	an	an	DET	DT	_	6	det	_	_
 6	egg	egg	NOUN	NN	_	4	dobj	_	_
 7	on	on	ADP	IN	_	4	prep	_	_
 8	Sal	sal	PROPN	NNP	_	10	poss	_	_
 9	's	's	PART	POS	_	8	case	_	_
-10	Cadillac	cadillac	PROPN	NNP	_	7	pobj	_	_
+10	Cadillac	cadillac	PROPN	NNP	_	7	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 11	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -1229,7 +1229,7 @@
 # text = The moment the egg hits the car hood it starts to cook.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	moment	moment	NOUN	NN	_	2	ROOT	_	_
+2	moment	moment	NOUN	NN	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	egg	egg	NOUN	NN	_	5	nsubj	_	_
 5	hits	hit	VERB	VBZ	_	2	relcl	_	_
@@ -1253,11 +1253,11 @@
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	kid	kid	NOUN	NN	_	3	nsubj	_	_
-3	looks	look	VERB	VBZ	_	3	ROOT	_	_
+3	looks	look	VERB	VBZ	_	0	ROOT	_	_
 4	directly	directly	ADV	RB	_	3	advmod	_	_
 5	INTO	into	ADP	IN	_	3	prep	_	_
 6	THE	the	DET	DT	_	7	det	_	_
-7	CAMERA	camera	NOUN	NNS	_	5	pobj	_	_
+7	CAMERA	camera	NOUN	NNS	_	5	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 8	and	and	CCONJ	CC	_	5	cc	_	_
 9	smiles	smile	NOUN	NNS	_	5	conj	_	_
 10	,	,	PUNCT	,	_	3	punct	_	_
@@ -1266,7 +1266,7 @@
 13	up	up	PART	RP	_	12	prt	_	_
 14	to	to	PART	TO	_	15	aux	_	_
 15	see	see	VERB	VB	_	12	advcl	_	_
-16	Sal	sal	PROPN	NNP	_	23	nsubj	_	_
+16	Sal	sal	PROPN	NNP	_	23	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 17	,	,	PUNCT	,	_	16	punct	_	_
 18	mad	mad	ADJ	JJ	_	16	amod	_	_
 19	as	as	ADP	IN	_	18	prep	_	_
@@ -1291,7 +1291,7 @@
 2	how	how	ADV	WRB	_	5	advmod	_	_
 3	can	can	VERB	MD	_	5	aux	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	forget	forget	VERB	VB	_	5	ROOT	_	_
+5	forget	forget	VERB	VB	_	0	ROOT	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	papers	paper	NOUN	NNS	_	5	dobj	_	_
 8	,	,	PUNCT	,	_	7	punct	_	_

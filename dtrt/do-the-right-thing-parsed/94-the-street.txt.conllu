@@ -8,14 +8,14 @@
 # text = The CAMERA, FROM HIGH ABOVE, CRANES DOWN ON The Block.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	CAMERA	camera	NOUN	NNS	_	9	nsubj	_	_
+2	CAMERA	camera	NOUN	NNS	_	9	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 3	,	,	PUNCT	,	_	2	punct	_	_
 4	FROM	from	ADP	IN	_	2	prep	_	_
 5	HIGH	high	ADJ	JJ	_	6	amod	_	_
 6	ABOVE	above	ADJ	JJ	_	4	pobj	_	_
 7	,	,	PUNCT	,	_	2	punct	_	_
 8	CRANES	cranes	VERB	VB	_	9	compound	_	_
-9	DOWN	down	PART	RP	_	9	ROOT	_	_
+9	DOWN	down	PART	RP	_	0	ROOT	_	_
 10	ON	on	ADP	IN	_	9	prep	_	_
 11	The	the	DET	DT	_	12	det	_	_
 12	Block	block	PROPN	NNP	_	10	pobj	_	_
@@ -37,7 +37,7 @@
 5	,	,	PUNCT	,	_	8	punct	_	_
 6	broken	broken	ADJ	JJ	_	7	amod	_	_
 7	glass	glass	NOUN	NN	_	8	nsubj	_	_
-8	is	be	VERB	VBZ	_	8	ROOT	_	_
+8	is	be	VERB	VBZ	_	0	ROOT	_	_
 9	everywhere	everywhere	ADV	RB	_	8	advmod	_	_
 10	,	,	PUNCT	,	_	8	punct	_	_
 11	and	and	CCONJ	CC	_	8	cc	_	_
@@ -53,7 +53,7 @@
 21	look	look	VERB	VB	_	18	ccomp	_	_
 22	,	,	PUNCT	,	_	21	punct	_	_
 23	the	the	DET	DT	_	24	det	_	_
-24	morning	morning	NOUN	NN	_	21	npadvmod	_	_
+24	morning	morning	NOUN	NN	_	21	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=B
 25	after	after	ADP	IN	_	24	prep	_	_
 26	an	an	DET	DT	_	27	det	_	_
 27	uprising	uprising	NOUN	NN	_	25	pobj	_	_
@@ -71,9 +71,9 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	CAMERA	camera	NOUN	NNS	_	4	nsubj	_	_
 3	NOW	now	ADV	RB	_	4	advmod	_	_
-4	MOVES	move	VERB	VBZ	_	4	ROOT	_	_
+4	MOVES	move	VERB	VBZ	_	0	ROOT	_	_
 5	IN	in	ADP	IN	_	4	prep	_	_
-6	ON	on	ADP	IN	_	5	pobj	_	_
+6	ON	on	ADP	IN	_	5	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
 
 # loc = EXT
 # parse = (S (NP (NP (DT the) (NNP WE)) (NNP LOVE) (NP (NN storefront))) (SBAR (WHADVP (WRB where)) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ is) (PP (IN in) (NP (NP (PRP$ his) (JJ familiar) (NN place)) (PP (IN behind) (NP (DT the) (NN mike)))))))) (. .) (  ))
@@ -85,13 +85,13 @@
 # text = the WE LOVE storefront where Mister Señor Love Daddy is in his familiar place behind the mike.
 # time = DAY
 1	the	the	DET	DT	_	3	det	_	_
-2	WE	we	PROPN	NNP	_	3	compound	_	_
-3	LOVE	love	PROPN	NNP	_	4	compound	_	_
-4	storefront	storefront	NOUN	NN	_	4	ROOT	_	_
+2	WE	we	PROPN	NNP	_	3	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+3	LOVE	love	PROPN	NNP	_	4	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
+4	storefront	storefront	NOUN	NN	_	0	ROOT	_	_
 5	where	where	ADV	WRB	_	10	advmod	_	_
 6	Mister	mister	PROPN	NNP	_	9	compound	_	_
-7	Señor	señor	PROPN	NNP	_	9	compound	_	_
-8	Love	love	PROPN	NNP	_	9	compound	_	_
+7	Señor	señor	PROPN	NNP	_	9	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+8	Love	love	PROPN	NNP	_	9	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
 9	Daddy	daddy	PROPN	NNP	_	10	nsubj	_	_
 10	is	be	VERB	VBZ	_	4	ccomp	_	_
 11	in	in	ADP	IN	_	10	prep	_	_
@@ -115,7 +115,7 @@
 # text = My people.
 # time = DAY
 1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	people	people	NOUN	NNS	_	2	ROOT	_	_
+2	people	people	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 752
@@ -130,7 +130,7 @@
 # text = My people.
 # time = DAY
 1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	people	people	NOUN	NNS	_	2	ROOT	_	_
+2	people	people	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 752
@@ -147,7 +147,7 @@
 1	What	what	NOUN	WP	_	4	dobj	_	_
 2	can	can	VERB	MD	_	4	aux	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	say	say	VERB	VB	_	4	ROOT	_	_
+4	say	say	VERB	VB	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 
 # line = 752
@@ -161,7 +161,7 @@
 # stage_direction = True
 # text = Say what I can.
 # time = DAY
-1	Say	say	VERB	VB	_	1	ROOT	_	_
+1	Say	say	VERB	VB	_	0	ROOT	_	_
 2	what	what	NOUN	WP	_	4	dobj	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	can	can	VERB	MD	_	1	ccomp	_	_
@@ -179,7 +179,7 @@
 # text = I saw it
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	saw	see	VERB	VBD	_	2	ROOT	_	_
+2	saw	see	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 
 # line = 752
@@ -197,7 +197,7 @@
 2	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 3	did	do	VERB	VBD	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	believe	believe	VERB	VB	_	5	ROOT	_	_
+5	believe	believe	VERB	VB	_	0	ROOT	_	_
 6	it	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -215,7 +215,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	believe	believe	VERB	VB	_	4	ROOT	_	_
+4	believe	believe	VERB	VB	_	0	ROOT	_	_
 5	it	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	what	what	NOUN	WP	_	8	dobj	_	_
 7	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
@@ -235,7 +235,7 @@
 # time = DAY
 1	Are	be	VERB	VBP	_	3	aux	_	_
 2	we	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	live	live	VERB	VB	_	3	xcomp	_	_
 6	together	together	ADV	RB	_	5	advmod	_	_
@@ -255,7 +255,7 @@
 1	Together	together	ADV	RB	_	4	advmod	_	_
 2	are	be	VERB	VBP	_	4	aux	_	_
 3	we	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	gon	go	VERB	VBG	_	4	ROOT	_	_
+4	gon	go	VERB	VBG	_	0	ROOT	_	_
 5	na	to	PART	TO	_	6	aux	_	_
 6	live	live	VERB	VB	_	4	xcomp	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
@@ -272,19 +272,19 @@
 # text = This is ya Mister Señor Love Daddy here on WE LOVE RADIO, 108 FM on your dial, and that's the truth, Ruth..
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	ya	ya	PRON	PRP	_	7	compound	_	_
 4	Mister	mister	PROPN	NNP	_	7	compound	_	_
-5	Señor	señor	PROPN	NNP	_	6	compound	_	_
-6	Love	love	PROPN	NNP	_	7	compound	_	_
+5	Señor	señor	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Love	love	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
 7	Daddy	daddy	NOUN	NN	_	2	attr	_	_
 8	here	here	ADV	RB	_	7	advmod	_	_
 9	on	on	ADP	IN	_	8	prep	_	_
-10	WE	we	PROPN	NNP	_	12	compound	_	_
-11	LOVE	love	PROPN	NNP	_	12	compound	_	_
-12	RADIO	radio	PROPN	NNP	_	9	pobj	_	_
+10	WE	we	PROPN	NNP	_	12	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+11	LOVE	love	PROPN	NNP	_	12	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	RADIO	radio	PROPN	NNP	_	9	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 13	,	,	PUNCT	,	_	12	punct	_	_
-14	108	108	NUM	CD	_	15	nummod	_	_
+14	108	108	NUM	CD	_	15	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 15	FM	fm	PROPN	NNP	_	12	appos	_	_
 16	on	on	ADP	IN	_	15	prep	_	_
 17	your	-PRON-	ADJ	PRP$	_	18	poss	_	_
@@ -296,7 +296,7 @@
 23	the	the	DET	DT	_	24	det	_	_
 24	truth	truth	NOUN	NN	_	22	attr	_	_
 25	,	,	PUNCT	,	_	24	punct	_	_
-26	Ruth	ruth	PROPN	NNP	_	24	appos	_	_
+26	Ruth	ruth	PROPN	NNP	_	24	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
 27	..	..	PUNCT	.	_	26	punct	_	_
 
 # line = 753
@@ -310,9 +310,9 @@
 # stage_direction = True
 # text = Today's weather..
 # time = DAY
-1	Today	today	NOUN	NN	_	3	poss	_	_
+1	Today	today	NOUN	NN	_	3	poss	_	ent_type=DATE|ent_id=388|ent_iob=B
 2	's	's	PART	POS	_	1	case	_	_
-3	weather	weather	NOUN	NN	_	3	ROOT	_	_
+3	weather	weather	NOUN	NN	_	0	ROOT	_	_
 4	..	..	PUNCT	NFP	_	3	punct	_	_
 
 # line = 753
@@ -326,7 +326,7 @@
 # stage_direction = True
 # text = HOT!.
 # time = DAY
-1	HOT!.	hot!.	PROPN	NNP	_	1	ROOT	_	_
+1	HOT!.	hot!.	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
 
 # loc = EXT
 # parse = (S (NP (PRP He)) (VP (VBZ screams) (: :) (SBAR (S (  ) (S (NP (PRP He)) (VP (VBZ screams) (: :) (NP (  ))))))))
@@ -338,7 +338,7 @@
 # text = He screams: He screams:
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	screams	scream	VERB	VBZ	_	2	ROOT	_	_
+2	screams	scream	VERB	VBZ	_	0	ROOT	_	_
 3	:	:	PUNCT	:	_	2	punct	_	_
 4	He	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	screams	scream	VERB	VBZ	_	2	ccomp	_	_
@@ -355,5 +355,5 @@
 # stage_direction = True
 # text = WAKE UP!.
 # time = DAY
-1	WAKE	wake	NOUN	NN	_	1	ROOT	_	_
+1	WAKE	wake	NOUN	NN	_	0	ROOT	_	_
 2	UP!.	up!.	NOUN	NNS	_	1	xcomp	_	_

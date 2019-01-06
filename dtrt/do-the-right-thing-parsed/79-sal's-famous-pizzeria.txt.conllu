@@ -9,11 +9,11 @@
 # time = NIGHT
 1	Vito	vito	PROPN	NNP	_	7	nsubj	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Pino	pino	PROPN	NNP	_	1	conj	_	_
+3	Pino	pino	PROPN	NNP	_	1	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	Mookie	mookie	PROPN	NNP	_	3	conj	_	_
 6	are	be	VERB	VBP	_	7	aux	_	_
-7	cleaning	clean	VERB	VBG	_	7	ROOT	_	_
+7	cleaning	clean	VERB	VBG	_	0	ROOT	_	_
 8	up	up	PART	RP	_	7	prt	_	_
 9	.	.	PUNCT	.	_	7	punct	_	_
 
@@ -32,8 +32,8 @@
 2	,	,	PUNCT	,	_	6	punct	_	_
 3	it	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	's	be	VERB	VBZ	_	6	aux	_	_
-5	almost	almost	ADV	RB	_	6	advmod	_	_
-6	quitting	quit	VERB	VBG	_	6	ROOT	_	_
+5	almost	almost	ADV	RB	_	6	advmod	_	ent_type=TIME|ent_id=389|ent_iob=B
+6	quitting	quit	VERB	VBG	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
 7	time	time	NOUN	NN	_	6	dobj	_	_
 
 # line = 700
@@ -49,7 +49,7 @@
 # time = NIGHT
 1	so	so	ADV	RB	_	3	advmod	_	_
 2	please	please	INTJ	UH	_	3	intj	_	_
-3	start	start	VERB	VB	_	3	ROOT	_	_
+3	start	start	VERB	VB	_	0	ROOT	_	_
 4	counting	count	VERB	VBG	_	3	xcomp	_	_
 5	my	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	pay	pay	NOUN	NN	_	4	dobj	_	_
@@ -67,7 +67,7 @@
 # text = I gotta get paid..
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	ta	to	PART	TO	_	5	aux	_	_
 4	get	get	VERB	VB	_	5	auxpass	_	_
 5	paid	pay	VERB	VBN	_	2	xcomp	_	_
@@ -84,7 +84,7 @@
 # time = NIGHT
 1	Sal	sal	PROPN	NNP	_	3	nsubj	_	_
 2	is	be	VERB	VBZ	_	3	aux	_	_
-3	looking	look	VERB	VBG	_	3	ROOT	_	_
+3	looking	look	VERB	VBG	_	0	ROOT	_	_
 4	into	into	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	7	det	_	_
 6	cash	cash	NOUN	NN	_	7	compound	_	_
@@ -103,10 +103,10 @@
 # text = We did good business today.
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	did	do	VERB	VBD	_	2	ROOT	_	_
+2	did	do	VERB	VBD	_	0	ROOT	_	_
 3	good	good	ADJ	JJ	_	4	amod	_	_
 4	business	business	NOUN	NN	_	2	dobj	_	_
-5	today	today	NOUN	NN	_	2	npadvmod	_	_
+5	today	today	NOUN	NN	_	2	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 701
@@ -121,7 +121,7 @@
 # text = We got a good thing going.
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	good	good	ADJ	JJ	_	5	amod	_	_
 5	thing	thing	NOUN	NN	_	2	dobj	_	_
@@ -145,7 +145,7 @@
 4	family	family	NOUN	NN	_	2	pobj	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
 6	business	business	NOUN	NN	_	5	pobj	_	_
-7	working	work	VERB	VBG	_	7	ROOT	_	_
+7	working	work	VERB	VBG	_	0	ROOT	_	_
 8	together	together	ADV	RB	_	7	advmod	_	_
 9	.	.	PUNCT	.	_	7	punct	_	_
 
@@ -160,18 +160,18 @@
 # stage_direction = True
 # text = One day the both of you will take over...and Mookie, there will always be a place for you at Sal's Famous Pizzeria.
 # time = NIGHT
-1	One	one	NUM	CD	_	2	nummod	_	_
-2	day	day	NOUN	NN	_	8	npadvmod	_	_
+1	One	one	NUM	CD	_	2	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
+2	day	day	NOUN	NN	_	8	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
 3	the	the	DET	DT	_	4	det	_	_
 4	both	both	DET	DT	_	8	nsubj	_	_
 5	of	of	ADP	IN	_	4	prep	_	_
 6	you	-PRON-	PRON	PRP	_	5	pobj	_	_
 7	will	will	VERB	MD	_	8	aux	_	_
-8	take	take	VERB	VB	_	8	ROOT	_	_
+8	take	take	VERB	VB	_	0	ROOT	_	_
 9	over	over	PART	RP	_	8	prt	_	_
 10	...	...	PUNCT	:	_	8	punct	_	_
 11	and	and	CCONJ	CC	_	8	cc	_	_
-12	Mookie	mookie	PROPN	NNP	_	17	npadvmod	_	_
+12	Mookie	mookie	PROPN	NNP	_	17	npadvmod	_	ent_type=LOC|ent_id=383|ent_iob=B
 13	,	,	PUNCT	,	_	17	punct	_	_
 14	there	there	ADV	EX	_	17	expl	_	_
 15	will	will	VERB	MD	_	17	aux	_	_
@@ -203,14 +203,14 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	it	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	should	should	VERB	MD	_	5	aux	_	_
-5	be	be	VERB	VB	_	5	ROOT	_	_
-6	Sal	sal	PROPN	NNP	_	5	attr	_	_
+5	be	be	VERB	VB	_	0	ROOT	_	_
+6	Sal	sal	PROPN	NNP	_	5	attr	_	ent_type=PERSON|ent_id=378|ent_iob=B
 7	's	's	PART	POS	_	6	case	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	Sons	sons	PROPN	NNP	_	11	compound	_	_
-10	Famous	famous	PROPN	NNP	_	11	compound	_	_
-11	Pizzeria	pizzeria	PROPN	NNP	_	6	conj	_	_
-12	..	..	PUNCT	.	_	5	punct	_	_
+9	Sons	sons	PROPN	NNP	_	11	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	Famous	famous	PROPN	NNP	_	11	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+11	Pizzeria	pizzeria	PROPN	NNP	_	6	conj	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	..	..	PUNCT	.	_	5	punct	_	ent_type=ORG|ent_id=381|ent_iob=I
 
 # loc = INT
 # parse = (S (NP (DT All) (CD three)) (VP (NN look) (PP (IN at) (NP (DT each) (JJ other)))) (. .))
@@ -222,8 +222,8 @@
 # text = All three look at each other.
 # time = NIGHT
 1	All	all	DET	DT	_	3	det	_	_
-2	three	three	NUM	CD	_	3	nummod	_	_
-3	look	look	NOUN	NN	_	3	ROOT	_	_
+2	three	three	NUM	CD	_	3	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+3	look	look	NOUN	NN	_	0	ROOT	_	_
 4	at	at	ADP	IN	_	3	prep	_	_
 5	each	each	DET	DT	_	6	det	_	_
 6	other	other	ADJ	JJ	_	4	pobj	_	_
@@ -240,7 +240,7 @@
 # time = NIGHT
 1	The	the	DET	DT	_	2	det	_	_
 2	horror	horror	NOUN	NN	_	3	nsubj	_	_
-3	is	be	VERB	VBZ	_	3	ROOT	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	on	on	ADP	IN	_	3	prep	_	_
 5	their	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	faces	face	NOUN	NNS	_	4	pobj	_	_
@@ -253,12 +253,12 @@
 13	,	,	PUNCT	,	_	3	punct	_	_
 14	slaving	slave	VERB	VBG	_	3	advcl	_	_
 15	in	in	ADP	IN	_	14	prep	_	_
-16	Sal	sal	PROPN	NNP	_	15	pobj	_	_
+16	Sal	sal	PROPN	NNP	_	15	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 17	's	's	PART	POS	_	16	case	_	_
 18	and	and	CCONJ	CC	_	16	cc	_	_
-19	Sons	sons	PROPN	NNP	_	21	compound	_	_
-20	Famous	famous	PROPN	NNP	_	21	compound	_	_
-21	Pizzeria	pizzeria	PROPN	NNP	_	16	conj	_	_
+19	Sons	sons	PROPN	NNP	_	21	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+20	Famous	famous	PROPN	NNP	_	21	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+21	Pizzeria	pizzeria	PROPN	NNP	_	16	conj	_	ent_type=ORG|ent_id=381|ent_iob=I
 22	,	,	PUNCT	,	_	14	punct	_	_
 23	trapped	trap	VERB	VBN	_	14	conj	_	_
 24	for	for	ADP	IN	_	23	prep	_	_
@@ -278,7 +278,7 @@
 # stage_direction = True
 # text = Is this their future?
 # time = NIGHT
-1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+1	Is	be	VERB	VBZ	_	0	ROOT	_	_
 2	this	this	DET	DT	_	1	nsubj	_	_
 3	their	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	future	future	NOUN	NN	_	1	attr	_	_
@@ -294,7 +294,7 @@
 # text = It's a frightening thought.
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	frightening	frightening	ADJ	JJ	_	5	amod	_	_
 5	thought	thought	NOUN	NN	_	2	attr	_	_
@@ -309,15 +309,15 @@
 # stage_direction = True
 # text = Ahmad, Cee, Punchy, and Ella enter.
 # time = NIGHT
-1	Ahmad	ahmad	PROPN	NNP	_	9	nsubj	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Cee	cee	PROPN	NNP	_	1	conj	_	_
+3	Cee	cee	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Punchy	punchy	PROPN	NNP	_	3	conj	_	_
+5	Punchy	punchy	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
-8	Ella	ella	PROPN	NNP	_	5	conj	_	_
-9	enter	enter	VERB	VBP	_	9	ROOT	_	_
+8	Ella	ella	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
+9	enter	enter	VERB	VBP	_	0	ROOT	_	_
 10	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 702
@@ -332,7 +332,7 @@
 # text = We're about to close..
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	about	about	ADP	IN	_	2	acomp	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	close	close	VERB	VB	_	3	xcomp	_	_
@@ -350,8 +350,8 @@
 # text = Just four slices, regular slices.
 # time = NIGHT
 1	Just	just	ADV	RB	_	2	advmod	_	_
-2	four	four	NUM	CD	_	3	nummod	_	_
-3	slices	slice	NOUN	NNS	_	3	ROOT	_	_
+2	four	four	NUM	CD	_	3	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+3	slices	slice	NOUN	NNS	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	regular	regular	ADJ	JJ	_	6	amod	_	_
 6	slices	slice	NOUN	NNS	_	3	appos	_	_
@@ -368,7 +368,7 @@
 # stage_direction = True
 # text = Please.
 # time = NIGHT
-1	Please	please	INTJ	UH	_	1	ROOT	_	_
+1	Please	please	INTJ	UH	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 703
@@ -382,7 +382,7 @@
 # stage_direction = True
 # text = To go!. OK
 # time = NIGHT
-1	To	to	ADP	IN	_	1	ROOT	_	_
+1	To	to	ADP	IN	_	0	ROOT	_	_
 2	go!.	go!.	PROPN	NNP	_	1	pobj	_	_
 3	OK	ok	INTJ	UH	_	1	conj	_	_
 
@@ -400,7 +400,7 @@
 1	,	,	PUNCT	,	_	4	punct	_	_
 2	but	but	CCONJ	CC	_	4	cc	_	_
 3	that	that	DET	DT	_	4	nsubj	_	_
-4	's	be	VERB	VBZ	_	4	ROOT	_	_
+4	's	be	VERB	VBZ	_	0	ROOT	_	_
 5	it	-PRON-	PRON	PRP	_	4	attr	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -417,7 +417,7 @@
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	3	nsubjpass	_	_
 2	's	be	VERB	VBZ	_	3	auxpass	_	_
-3	been	be	VERB	VBN	_	3	ROOT	_	_
+3	been	be	VERB	VBN	_	0	ROOT	_	_
 4	a	a	DET	DT	_	6	det	_	_
 5	long	long	ADJ	JJ	_	6	amod	_	_
 6	day	day	NOUN	NN	_	3	attr	_	_
@@ -433,20 +433,20 @@
 # text = Mookie goes over to the table where Ahmad, Cee, Punchy, and Ella sit.
 # time = NIGHT
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	goes	go	VERB	VBZ	_	2	ROOT	_	_
+2	goes	go	VERB	VBZ	_	0	ROOT	_	_
 3	over	over	PART	RP	_	2	prt	_	_
 4	to	to	ADP	IN	_	2	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	table	table	NOUN	NN	_	4	pobj	_	_
 7	where	where	ADV	WRB	_	16	advmod	_	_
-8	Ahmad	ahmad	PROPN	NNP	_	16	nsubj	_	_
+8	Ahmad	ahmad	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	Cee	cee	PROPN	NNP	_	8	conj	_	_
+10	Cee	cee	PROPN	NNP	_	8	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 11	,	,	PUNCT	,	_	10	punct	_	_
-12	Punchy	punchy	PROPN	NNP	_	10	conj	_	_
+12	Punchy	punchy	PROPN	NNP	_	10	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 13	,	,	PUNCT	,	_	12	punct	_	_
 14	and	and	CCONJ	CC	_	12	cc	_	_
-15	Ella	ella	PROPN	NNP	_	12	conj	_	_
+15	Ella	ella	PROPN	NNP	_	12	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
 16	sit	sit	VERB	VBP	_	6	relcl	_	_
 17	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -464,7 +464,7 @@
 1	Look	look	PROPN	NNP	_	4	advcl	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	want	want	VERB	VBP	_	4	ROOT	_	_
+4	want	want	VERB	VBP	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	7	nsubj	_	_
 6	to	to	PART	TO	_	7	aux	_	_
 7	get	get	VERB	VB	_	4	ccomp	_	_
@@ -488,7 +488,7 @@
 # text = No playing around..
 # time = NIGHT
 1	No	no	DET	DT	_	2	det	_	_
-2	playing	play	VERB	VBG	_	2	ROOT	_	_
+2	playing	play	VERB	VBG	_	0	ROOT	_	_
 3	around	around	ADV	RB	_	2	advmod	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -504,7 +504,7 @@
 # text = You got it..
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	got	get	VERB	VBD	_	2	ROOT	_	_
+2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -519,7 +519,7 @@
 # stage_direction = True
 # text = Good.
 # time = NIGHT
-1	Good	good	ADJ	JJ	_	1	ROOT	_	_
+1	Good	good	ADJ	JJ	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 707
@@ -534,7 +534,7 @@
 # text = No joke.
 # time = NIGHT
 1	No	no	DET	DT	_	2	det	_	_
-2	joke	joke	NOUN	NN	_	2	ROOT	_	_
+2	joke	joke	NOUN	NN	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 707
@@ -551,7 +551,7 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	all	all	DET	DT	_	1	appos	_	_
 3	wanna	wanna	VERB	VBD	_	1	appos	_	_
-4	go	go	VERB	VBP	_	4	ROOT	_	_
+4	go	go	VERB	VBP	_	0	ROOT	_	_
 5	home	home	ADV	RB	_	4	advmod	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -564,7 +564,7 @@
 # stage_direction = True
 # text = OH NO!
 # time = NIGHT
-1	OH	oh	PROPN	NNP	_	1	ROOT	_	_
+1	OH	oh	PROPN	NNP	_	0	ROOT	_	_
 2	NO	no	INTJ	UH	_	1	intj	_	_
 3	!	!	PUNCT	.	_	2	punct	_	_
 
@@ -578,7 +578,7 @@
 # text = We hear the dum-dum-dum of Radio Raheem's box.
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hear	hear	VERB	VBP	_	2	ROOT	_	_
+2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	the	the	DET	DT	_	8	det	_	_
 4	dum	dum	NOUN	NN	_	6	compound	_	_
 5	-	-	PUNCT	HYPH	_	6	punct	_	_
@@ -586,9 +586,9 @@
 7	-	-	PUNCT	HYPH	_	8	punct	_	_
 8	dum	dum	NOUN	NN	_	2	dobj	_	_
 9	of	of	ADP	IN	_	8	prep	_	_
-10	Radio	radio	PROPN	NNP	_	11	compound	_	_
-11	Raheem	raheem	PROPN	NNP	_	13	poss	_	_
-12	's	's	PART	POS	_	11	case	_	_
+10	Radio	radio	PROPN	NNP	_	11	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+11	Raheem	raheem	PROPN	NNP	_	13	poss	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	's	's	PART	POS	_	11	case	_	ent_type=ORG|ent_id=381|ent_iob=I
 13	box	box	NOUN	NN	_	9	pobj	_	_
 14	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -610,13 +610,13 @@
 7	the	the	DET	DT	_	8	det	_	_
 8	door	door	NOUN	NN	_	6	pobj	_	_
 9	,	,	PUNCT	,	_	16	punct	_	_
-10	Buggin	buggin	PROPN	NNP	_	15	nmod	_	_
+10	Buggin	buggin	PROPN	NNP	_	15	nmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 11	'	'	PUNCT	''	_	10	case	_	_
 12	Out	out	ADV	RB	_	10	prep	_	_
 13	and	and	CCONJ	CC	_	12	cc	_	_
-14	Radio	radio	PROPN	NNP	_	15	compound	_	_
-15	Raheem	raheem	PROPN	NNP	_	16	nsubj	_	_
-16	are	be	VERB	VBP	_	16	ROOT	_	_
+14	Radio	radio	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
+15	Raheem	raheem	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+16	are	be	VERB	VBP	_	0	ROOT	_	_
 17	inside	inside	ADV	RB	_	16	advmod	_	_
 18	already	already	ADV	RB	_	16	advmod	_	_
 19	.	.	PUNCT	.	_	16	punct	_	_
@@ -633,7 +633,7 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	have	have	VERB	VBP	_	4	aux	_	_
 3	never	never	ADV	RB	_	4	neg	_	_
-4	heard	hear	VERB	VBN	_	4	ROOT	_	_
+4	heard	hear	VERB	VBN	_	0	ROOT	_	_
 5	the	the	DET	DT	_	7	det	_	_
 6	rap	rap	NOUN	NN	_	7	compound	_	_
 7	music	music	NOUN	NN	_	4	dobj	_	_
@@ -655,7 +655,7 @@
 # text = You have to scream to be heard and that's what they do.
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	have	have	VERB	VBP	_	2	ROOT	_	_
+2	have	have	VERB	VBP	_	0	ROOT	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	scream	scream	VERB	VB	_	2	xcomp	_	_
 5	to	to	PART	TO	_	7	aux	_	_
@@ -683,7 +683,7 @@
 1	What	what	NOUN	WP	_	6	pobj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	tell	tell	VERB	VB	_	4	ROOT	_	_
+4	tell	tell	VERB	VB	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	4	dobj	_	_
 6	'bout	about	ADP	IN	_	4	prep	_	_
 7	dat	dat	NOUN	NN	_	8	compound	_	_
@@ -705,7 +705,7 @@
 1	What	what	NOUN	WP	_	6	pobj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	tell	tell	VERB	VB	_	4	ROOT	_	_
+4	tell	tell	VERB	VB	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	4	dobj	_	_
 6	'bout	about	ADP	IN	_	4	prep	_	_
 7	dem	dem	NOUN	NN	_	8	compound	_	_
@@ -726,7 +726,7 @@
 # time = NIGHT
 1	What	what	NOUN	WP	_	3	dobj	_	_
 2	da	da	INTJ	UH	_	3	nsubj	_	_
-3	fuck	fuck	ADJ	JJ	_	3	ROOT	_	_
+3	fuck	fuck	ADJ	JJ	_	0	ROOT	_	_
 4	!	!	PUNCT	.	_	3	punct	_	_
 
 # line = 710
@@ -740,7 +740,7 @@
 # stage_direction = True
 # text = Are you deaf?.
 # time = NIGHT
-1	Are	be	VERB	VBP	_	1	ROOT	_	_
+1	Are	be	VERB	VBP	_	0	ROOT	_	_
 2	you	-PRON-	PRON	PRP	_	1	nsubj	_	_
 3	deaf	deaf	ADJ	JJ	_	1	acomp	_	_
 4	?	?	PUNCT	.	_	1	punct	_	_
@@ -759,7 +759,7 @@
 # time = NIGHT
 1	No	no	INTJ	UH	_	3	intj	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	are	be	VERB	VBP	_	3	ROOT	_	_
+3	are	be	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
 5	?	?	PUNCT	.	_	3	punct	_	_
 
@@ -775,17 +775,17 @@
 # text = We want some Black people up on the Wall of Fame..
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	want	want	VERB	VBP	_	2	ROOT	_	_
+2	want	want	VERB	VBP	_	0	ROOT	_	_
 3	some	some	DET	DT	_	5	det	_	_
-4	Black	black	ADJ	JJ	_	5	amod	_	_
+4	Black	black	ADJ	JJ	_	5	amod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	people	people	NOUN	NNS	_	2	dobj	_	_
 6	up	up	PART	RP	_	2	prt	_	_
 7	on	on	ADP	IN	_	2	prep	_	_
-8	the	the	DET	DT	_	9	det	_	_
-9	Wall	wall	PROPN	NNP	_	7	pobj	_	_
-10	of	of	ADP	IN	_	9	prep	_	_
-11	Fame	fame	PROPN	NNP	_	10	pobj	_	_
-12	..	..	PUNCT	.	_	2	punct	_	_
+8	the	the	DET	DT	_	9	det	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	Wall	wall	PROPN	NNP	_	7	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+10	of	of	ADP	IN	_	9	prep	_	ent_type=ORG|ent_id=381|ent_iob=I
+11	Fame	fame	PROPN	NNP	_	10	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	..	..	PUNCT	.	_	2	punct	_	ent_type=ORG|ent_id=381|ent_iob=I
 
 # line = 712
 # loc = INT
@@ -798,7 +798,7 @@
 # stage_direction = True
 # text = Turn that JUNGLE MUSIC off.
 # time = NIGHT
-1	Turn	turn	VERB	VBP	_	1	ROOT	_	_
+1	Turn	turn	VERB	VBP	_	0	ROOT	_	_
 2	that	that	ADP	IN	_	4	det	_	_
 3	JUNGLE	jungle	PROPN	NNP	_	4	compound	_	_
 4	MUSIC	music	NOUN	NN	_	1	dobj	_	_
@@ -817,10 +817,10 @@
 # text = We ain't in Africa..
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	ai	be	VERB	VBP	_	2	ROOT	_	_
+2	ai	be	VERB	VBP	_	0	ROOT	_	_
 3	n't	not	ADV	RB	_	2	neg	_	_
 4	in	in	ADP	IN	_	2	prep	_	_
-5	Africa	africa	PROPN	NNP	_	4	pobj	_	_
+5	Africa	africa	PROPN	NNP	_	4	pobj	_	ent_type=LOC|ent_id=383|ent_iob=B
 6	..	..	PUNCT	NFP	_	2	punct	_	_
 
 # loc = INT
@@ -832,19 +832,19 @@
 # stage_direction = True
 # text = Ahmad, Cee, Punchy, and Ella start to dance while Mookie takes a seat, the impartial observer that he is.
 # time = NIGHT
-1	Ahmad	ahmad	PROPN	NNP	_	9	nsubj	_	_
+1	Ahmad	ahmad	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Cee	cee	PROPN	NNP	_	1	conj	_	_
+3	Cee	cee	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Punchy	punchy	PROPN	NNP	_	3	conj	_	_
+5	Punchy	punchy	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
-8	Ella	ella	PROPN	NNP	_	5	conj	_	_
-9	start	start	VERB	VBP	_	9	ROOT	_	_
+8	Ella	ella	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
+9	start	start	VERB	VBP	_	0	ROOT	_	_
 10	to	to	ADP	IN	_	11	aux	_	_
 11	dance	dance	NOUN	NN	_	9	xcomp	_	_
 12	while	while	ADP	IN	_	14	mark	_	_
-13	Mookie	mookie	PROPN	NNP	_	14	nsubj	_	_
+13	Mookie	mookie	PROPN	NNP	_	14	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 14	takes	take	VERB	VBZ	_	9	advcl	_	_
 15	a	a	DET	DT	_	16	det	_	_
 16	seat	seat	NOUN	NN	_	14	dobj	_	_
@@ -870,14 +870,14 @@
 # time = NIGHT
 1	Why	why	ADV	WRB	_	3	advmod	_	_
 2	it	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	got	get	VERB	VBD	_	3	ROOT	_	_
+3	got	get	VERB	VBD	_	0	ROOT	_	_
 4	ta	to	PART	TO	_	5	aux	_	_
 5	be	be	VERB	VB	_	3	xcomp	_	_
 6	about	about	ADP	IN	_	5	prep	_	_
 7	jungle	jungle	NOUN	NN	_	8	compound	_	_
 8	music	music	NOUN	NN	_	6	pobj	_	_
 9	and	and	CCONJ	CC	_	8	cc	_	_
-10	Africa	africa	PROPN	NNP	_	8	conj	_	_
+10	Africa	africa	PROPN	NNP	_	8	conj	_	ent_type=LOC|ent_id=383|ent_iob=B
 11	?	?	PUNCT	.	_	3	punct	_	_
 12	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -893,7 +893,7 @@
 # text = It's about turning that shit off and getting the fuck outta my pizzeria.. Radio Raheem..
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	about	about	ADP	IN	_	2	prep	_	_
 4	turning	turn	VERB	VBG	_	3	pcomp	_	_
 5	that	that	DET	DT	_	6	det	_	_
@@ -907,8 +907,8 @@
 13	my	-PRON-	ADJ	PRP$	_	14	poss	_	_
 14	pizzeria	pizzeria	NOUN	NN	_	12	dobj	_	_
 15	..	..	PUNCT	.	_	2	punct	_	_
-16	Radio	radio	NOUN	NN	_	18	compound	_	_
-17	Raheem	raheem	PROPN	NNP	_	2	attr	_	_
+16	Radio	radio	NOUN	NN	_	18	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+17	Raheem	raheem	PROPN	NNP	_	2	attr	_	ent_type=ORG|ent_id=381|ent_iob=I
 18	..	..	PUNCT	.	_	2	punct	_	_
 
 # line = 716
@@ -922,7 +922,7 @@
 # stage_direction = True
 # text = Fuck you..
 # time = NIGHT
-1	Fuck	fuck	VERB	VBP	_	1	ROOT	_	_
+1	Fuck	fuck	VERB	VBP	_	0	ROOT	_	_
 2	you	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -939,7 +939,7 @@
 # time = NIGHT
 1	What	what	NOUN	WP	_	3	nsubj	_	_
 2	ever	ever	ADV	RB	_	3	advmod	_	_
-3	happened	happen	VERB	VBD	_	3	ROOT	_	_
+3	happened	happen	VERB	VBD	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	nice	nice	ADJ	JJ	_	6	amod	_	_
 6	music	music	NOUN	NN	_	4	pobj	_	_
@@ -963,7 +963,7 @@
 # text = This is music.
 # time = NIGHT
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	music	music	NOUN	NN	_	2	attr	_	_
 4	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -979,7 +979,7 @@
 # text = My music..
 # time = NIGHT
 1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	music	music	NOUN	NN	_	2	ROOT	_	_
+2	music	music	NOUN	NN	_	0	ROOT	_	_
 3	..	..	PUNCT	NFP	_	2	punct	_	_
 
 # line = 719
@@ -994,7 +994,7 @@
 # text = We're closed..
 # time = NIGHT
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	closed	closed	ADJ	JJ	_	2	acomp	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -1010,7 +1010,7 @@
 # text = You're closed alright, till you get some Black people up on that wall..
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	closed	closed	ADJ	JJ	_	2	acomp	_	_
 4	alright	alright	INTJ	UH	_	2	acomp	_	_
 5	,	,	PUNCT	,	_	2	punct	_	_
@@ -1018,7 +1018,7 @@
 7	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
 8	get	get	VERB	VBP	_	2	advcl	_	_
 9	some	some	DET	DT	_	11	det	_	_
-10	Black	black	ADJ	JJ	_	11	amod	_	_
+10	Black	black	ADJ	JJ	_	11	amod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 11	people	people	NOUN	NNS	_	8	dobj	_	_
 12	up	up	PART	RP	_	8	prt	_	_
 13	on	on	ADP	IN	_	8	prep	_	_
@@ -1035,11 +1035,11 @@
 # stage_direction = True
 # text = Sal grabs his Mickey Mantle bat from underneath the counter and brings it down on Radio Raheem's box, again and again and again.
 # time = NIGHT
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	grabs	grab	VERB	VBZ	_	2	ROOT	_	_
+1	Sal	sal	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	grabs	grab	VERB	VBZ	_	0	ROOT	_	_
 3	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
-4	Mickey	mickey	PROPN	NNP	_	5	compound	_	_
-5	Mantle	mantle	PROPN	NNP	_	6	compound	_	_
+4	Mickey	mickey	PROPN	NNP	_	5	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+5	Mantle	mantle	PROPN	NNP	_	6	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
 6	bat	bat	NOUN	NN	_	2	dobj	_	_
 7	from	from	ADP	IN	_	2	prep	_	_
 8	underneath	underneath	ADP	IN	_	7	prep	_	_
@@ -1050,9 +1050,9 @@
 13	it	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	down	down	PART	RP	_	12	prt	_	_
 15	on	on	ADP	IN	_	12	prep	_	_
-16	Radio	radio	PROPN	NNP	_	17	compound	_	_
-17	Raheem	raheem	PROPN	NNP	_	19	poss	_	_
-18	's	's	PART	POS	_	17	case	_	_
+16	Radio	radio	PROPN	NNP	_	17	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+17	Raheem	raheem	PROPN	NNP	_	19	poss	_	ent_type=ORG|ent_id=381|ent_iob=I
+18	's	's	PART	POS	_	17	case	_	ent_type=ORG|ent_id=381|ent_iob=I
 19	box	box	NOUN	NN	_	15	pobj	_	_
 20	,	,	PUNCT	,	_	12	punct	_	_
 21	again	again	ADV	RB	_	12	advmod	_	_
@@ -1073,7 +1073,7 @@
 # time = NIGHT
 1	The	the	DET	DT	_	2	det	_	_
 2	music	music	NOUN	NN	_	3	nsubj	_	_
-3	stops	stop	VERB	VBZ	_	3	ROOT	_	_
+3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = INT
@@ -1085,14 +1085,14 @@
 # stage_direction = True
 # text = Radio Raheem's pride and joy is smashed to smithereens.
 # time = NIGHT
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	4	poss	_	_
-3	's	's	PART	POS	_	2	case	_	_
+1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	Raheem	raheem	PROPN	NNP	_	4	poss	_	ent_type=ORG|ent_id=381|ent_iob=I
+3	's	's	PART	POS	_	2	case	_	ent_type=ORG|ent_id=381|ent_iob=I
 4	pride	pride	NOUN	NN	_	8	nsubjpass	_	_
 5	and	and	CCONJ	CC	_	4	cc	_	_
 6	joy	joy	NOUN	NN	_	4	conj	_	_
 7	is	be	VERB	VBZ	_	8	auxpass	_	_
-8	smashed	smash	VERB	VBN	_	8	ROOT	_	_
+8	smashed	smash	VERB	VBN	_	0	ROOT	_	_
 9	to	to	ADP	IN	_	10	aux	_	_
 10	smithereens	smithereen	NOUN	NNS	_	8	xcomp	_	_
 11	.	.	PUNCT	.	_	8	punct	_	_
@@ -1108,7 +1108,7 @@
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	going	go	VERB	VBG	_	3	ROOT	_	_
+3	going	go	VERB	VBG	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	junkyard	junkyard	ADJ	JJ	_	4	pobj	_	_
@@ -1125,7 +1125,7 @@
 # text = There is an eerie quiet as everyone is frozen, surprised by the suddenness of Sal's action, the swings of his Mickey Mantle bat.
 # time = NIGHT
 1	There	there	ADV	EX	_	2	expl	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	an	an	DET	DT	_	4	det	_	_
 4	eerie	eerie	ADJ	JJ	_	5	amod	_	_
 5	quiet	quiet	NOUN	NN	_	2	acomp	_	_
@@ -1139,7 +1139,7 @@
 13	the	the	DET	DT	_	14	det	_	_
 14	suddenness	suddenness	NOUN	NN	_	12	pobj	_	_
 15	of	of	ADP	IN	_	14	prep	_	_
-16	Sal	sal	PROPN	NNP	_	18	poss	_	_
+16	Sal	sal	PROPN	NNP	_	18	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 17	's	's	PART	POS	_	16	case	_	_
 18	action	action	NOUN	NN	_	15	pobj	_	_
 19	,	,	PUNCT	,	_	2	punct	_	_
@@ -1147,8 +1147,8 @@
 21	swings	swing	NOUN	NNS	_	2	attr	_	_
 22	of	of	ADP	IN	_	21	prep	_	_
 23	his	-PRON-	ADJ	PRP$	_	26	poss	_	_
-24	Mickey	mickey	PROPN	NNP	_	25	compound	_	_
-25	Mantle	mantle	PROPN	NNP	_	26	compound	_	_
+24	Mickey	mickey	PROPN	NNP	_	25	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+25	Mantle	mantle	PROPN	NNP	_	26	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
 26	bat	bat	NOUN	NN	_	22	pobj	_	_
 27	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -1162,10 +1162,10 @@
 # text = All look at Radio Raheem and realize what is about to happen.
 # time = NIGHT
 1	All	all	DET	DT	_	2	nsubj	_	_
-2	look	look	NOUN	NN	_	2	ROOT	_	_
+2	look	look	NOUN	NN	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Radio	radio	PROPN	NNP	_	5	compound	_	_
-5	Raheem	raheem	PROPN	NNP	_	3	pobj	_	_
+4	Radio	radio	PROPN	NNP	_	5	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+5	Raheem	raheem	PROPN	NNP	_	3	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	realize	realize	VERB	VBP	_	2	conj	_	_
 8	what	what	NOUN	WP	_	9	nsubj	_	_
@@ -1186,7 +1186,7 @@
 # time = NIGHT
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	screams	scream	NOUN	NNS	_	3	ROOT	_	_
+3	screams	scream	NOUN	NNS	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	6	punct	_	_
 5	he	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	goes	go	VERB	VBZ	_	3	parataxis	_	_
@@ -1202,14 +1202,14 @@
 # stage_direction = True
 # text = Radio Raheem's pride and joy is smashed to smithereens.
 # time = NIGHT
-1	Radio	radio	PROPN	NNP	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	4	poss	_	_
-3	's	's	PART	POS	_	2	case	_	_
+1	Radio	radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	Raheem	raheem	PROPN	NNP	_	4	poss	_	ent_type=ORG|ent_id=381|ent_iob=I
+3	's	's	PART	POS	_	2	case	_	ent_type=ORG|ent_id=381|ent_iob=I
 4	pride	pride	NOUN	NN	_	8	nsubjpass	_	_
 5	and	and	CCONJ	CC	_	4	cc	_	_
 6	joy	joy	NOUN	NN	_	4	conj	_	_
 7	is	be	VERB	VBZ	_	8	auxpass	_	_
-8	smashed	smash	VERB	VBN	_	8	ROOT	_	_
+8	smashed	smash	VERB	VBN	_	0	ROOT	_	_
 9	to	to	ADP	IN	_	10	aux	_	_
 10	smithereens	smithereen	NOUN	NNS	_	8	xcomp	_	_
 11	.	.	PUNCT	.	_	8	punct	_	_
@@ -1225,7 +1225,7 @@
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	going	go	VERB	VBG	_	3	ROOT	_	_
+3	going	go	VERB	VBG	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	junkyard	junkyard	ADJ	JJ	_	4	pobj	_	_
@@ -1242,7 +1242,7 @@
 # text = There is an eerie quiet as everyone is frozen, surprised by the suddenness of Sal's action, the swings of his Mickey Mantle bat.
 # time = NIGHT
 1	There	there	ADV	EX	_	2	expl	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	an	an	DET	DT	_	4	det	_	_
 4	eerie	eerie	ADJ	JJ	_	5	amod	_	_
 5	quiet	quiet	NOUN	NN	_	2	acomp	_	_
@@ -1256,7 +1256,7 @@
 13	the	the	DET	DT	_	14	det	_	_
 14	suddenness	suddenness	NOUN	NN	_	12	pobj	_	_
 15	of	of	ADP	IN	_	14	prep	_	_
-16	Sal	sal	PROPN	NNP	_	18	poss	_	_
+16	Sal	sal	PROPN	NNP	_	18	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 17	's	's	PART	POS	_	16	case	_	_
 18	action	action	NOUN	NN	_	15	pobj	_	_
 19	,	,	PUNCT	,	_	2	punct	_	_
@@ -1264,8 +1264,8 @@
 21	swings	swing	NOUN	NNS	_	2	attr	_	_
 22	of	of	ADP	IN	_	21	prep	_	_
 23	his	-PRON-	ADJ	PRP$	_	26	poss	_	_
-24	Mickey	mickey	PROPN	NNP	_	25	compound	_	_
-25	Mantle	mantle	PROPN	NNP	_	26	compound	_	_
+24	Mickey	mickey	PROPN	NNP	_	25	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+25	Mantle	mantle	PROPN	NNP	_	26	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
 26	bat	bat	NOUN	NN	_	22	pobj	_	_
 27	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -1279,10 +1279,10 @@
 # text = All look at Radio Raheem and realize what is about to happen.
 # time = NIGHT
 1	All	all	DET	DT	_	2	nsubj	_	_
-2	look	look	NOUN	NN	_	2	ROOT	_	_
+2	look	look	NOUN	NN	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Radio	radio	PROPN	NNP	_	5	compound	_	_
-5	Raheem	raheem	PROPN	NNP	_	3	pobj	_	_
+4	Radio	radio	PROPN	NNP	_	5	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+5	Raheem	raheem	PROPN	NNP	_	3	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	realize	realize	VERB	VBP	_	2	conj	_	_
 8	what	what	NOUN	WP	_	9	nsubj	_	_
@@ -1303,7 +1303,7 @@
 # time = NIGHT
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	screams	scream	NOUN	NNS	_	3	ROOT	_	_
+3	screams	scream	NOUN	NNS	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	6	punct	_	_
 5	he	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	goes	go	VERB	VBZ	_	3	parataxis	_	_
@@ -1319,12 +1319,12 @@
 # stage_direction = True
 # text = Radio Raheem screams, he goes crazy.
 # time = NIGHT
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
 3	screams	scream	NOUN	NNS	_	6	ccomp	_	_
 4	,	,	PUNCT	,	_	6	punct	_	_
 5	he	-PRON-	PRON	PRP	_	6	nsubj	_	_
-6	goes	go	VERB	VBZ	_	6	ROOT	_	_
+6	goes	go	VERB	VBZ	_	0	ROOT	_	_
 7	crazy	crazy	ADJ	JJ	_	6	acomp	_	_
 8	.	.	PUNCT	.	_	6	punct	_	_
 
@@ -1340,7 +1340,7 @@
 # text = My music!.
 # time = NIGHT
 1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	music!.	music!.	PROPN	NNP	_	2	ROOT	_	_
+2	music!.	music!.	PROPN	NNP	_	0	ROOT	_	_
 
 # loc = INT
 # parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VP (VBZ picks) (NP (NNP Sal)) (PP (RP up) (PP (IN from) (PP (IN behind) (NP (DT the) (NN counter)))))) (CC and) (VP (VBZ starts) (S (VP (TO to) (VP (VB choke) (NP (PRP$ his) (NN ass))))))) (. .))
@@ -1353,8 +1353,8 @@
 # time = NIGHT
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	picks	pick	VERB	VBZ	_	3	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	dobj	_	_
+3	picks	pick	VERB	VBZ	_	0	ROOT	_	_
+4	Sal	sal	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	up	up	PART	RP	_	3	prt	_	_
 6	from	from	ADP	IN	_	3	prep	_	_
 7	behind	behind	ADP	IN	_	6	prep	_	_
@@ -1378,7 +1378,7 @@
 # text = Radio Raheem's prized possession--his box, the only thing he owned of value--his box, the one thing that gave him any sense of worth--has been smashed to bits.
 # time = NIGHT
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	5	poss	_	_
+2	Raheem	raheem	PROPN	NNP	_	5	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 3	's	's	PART	POS	_	2	case	_	_
 4	prized	prized	ADJ	JJ	_	5	amod	_	_
 5	possession	possession	NOUN	NN	_	34	nsubjpass	_	_
@@ -1398,7 +1398,7 @@
 19	box	box	NOUN	NN	_	12	appos	_	_
 20	,	,	PUNCT	,	_	19	punct	_	_
 21	the	the	DET	DT	_	23	det	_	_
-22	one	one	NUM	CD	_	23	nummod	_	_
+22	one	one	NUM	CD	_	23	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 23	thing	thing	NOUN	NN	_	19	appos	_	_
 24	that	that	ADJ	WDT	_	25	nsubj	_	_
 25	gave	give	VERB	VBD	_	23	relcl	_	_
@@ -1410,7 +1410,7 @@
 31	--	--	PUNCT	:	_	5	punct	_	_
 32	has	have	VERB	VBZ	_	34	aux	_	_
 33	been	be	VERB	VBN	_	34	auxpass	_	_
-34	smashed	smash	VERB	VBN	_	34	ROOT	_	_
+34	smashed	smash	VERB	VBN	_	0	ROOT	_	_
 35	to	to	ADP	IN	_	34	prep	_	_
 36	bits	bit	NOUN	NNS	_	35	pobj	_	_
 37	.	.	PUNCT	.	_	34	punct	_	_
@@ -1425,15 +1425,15 @@
 # text = (Radio Raheem, like many Black youth, is the victim of materialism and a misplaced sense of values.)
 # time = NIGHT
 1	(	(	PUNCT	-LRB-	_	10	punct	_	_
-2	Radio	radio	NOUN	NN	_	3	compound	_	_
-3	Raheem	raheem	PROPN	NNP	_	10	nsubj	_	_
+2	Radio	radio	NOUN	NN	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+3	Raheem	raheem	PROPN	NNP	_	10	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
 4	,	,	PUNCT	,	_	10	punct	_	_
 5	like	like	ADP	IN	_	10	prep	_	_
 6	many	many	ADJ	JJ	_	8	amod	_	_
-7	Black	black	ADJ	JJ	_	8	amod	_	_
+7	Black	black	ADJ	JJ	_	8	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
 8	youth	youth	NOUN	NN	_	5	pobj	_	_
 9	,	,	PUNCT	,	_	10	punct	_	_
-10	is	be	VERB	VBZ	_	10	ROOT	_	_
+10	is	be	VERB	VBZ	_	0	ROOT	_	_
 11	the	the	DET	DT	_	12	det	_	_
 12	victim	victim	NOUN	NN	_	10	attr	_	_
 13	of	of	ADP	IN	_	12	prep	_	_
@@ -1460,7 +1460,7 @@
 2	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
 3	does	do	VERB	VBZ	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	give	give	VERB	VB	_	5	ROOT	_	_
+5	give	give	VERB	VB	_	0	ROOT	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	fuck	fuck	NOUN	NN	_	5	dobj	_	_
 8	anymore	anymore	ADV	RB	_	5	advmod	_	_
@@ -1477,10 +1477,10 @@
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	make	make	VERB	VB	_	3	xcomp	_	_
-6	Sal	sal	PROPN	NNP	_	7	nsubj	_	_
+6	Sal	sal	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 7	pay	pay	VERB	VB	_	5	ccomp	_	_
 8	with	with	ADP	IN	_	7	prep	_	_
 9	his	-PRON-	ADJ	PRP$	_	10	poss	_	_
@@ -1496,13 +1496,13 @@
 # stage_direction = True
 # text = Vito and Pino jump on Radio Raheem, who only tightens his grip around Sal's neck.
 # time = NIGHT
-1	Vito	vito	PROPN	NNP	_	4	nsubj	_	_
+1	Vito	vito	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Pino	pino	PROPN	NNP	_	1	conj	_	_
-4	jump	jump	NOUN	NN	_	4	ROOT	_	_
+3	Pino	pino	PROPN	NNP	_	1	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
+4	jump	jump	NOUN	NN	_	0	ROOT	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
-6	Radio	radio	PROPN	NNP	_	7	compound	_	_
-7	Raheem	raheem	PROPN	NNP	_	5	pobj	_	_
+6	Radio	radio	PROPN	NNP	_	7	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+7	Raheem	raheem	PROPN	NNP	_	5	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 8	,	,	PUNCT	,	_	7	punct	_	_
 9	who	who	NOUN	WP	_	11	nsubj	_	_
 10	only	only	ADV	RB	_	11	advmod	_	_
@@ -1510,7 +1510,7 @@
 12	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
 13	grip	grip	NOUN	NN	_	11	dobj	_	_
 14	around	around	ADP	IN	_	13	prep	_	_
-15	Sal	sal	PROPN	NNP	_	17	poss	_	_
+15	Sal	sal	PROPN	NNP	_	17	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 16	's	's	PART	POS	_	15	case	_	_
 17	neck	neck	NOUN	NN	_	14	pobj	_	_
 18	.	.	PUNCT	.	_	4	punct	_	_
@@ -1524,10 +1524,10 @@
 # stage_direction = True
 # text = Buggin' Out tries to help his friend.
 # time = NIGHT
-1	Buggin	buggin	PROPN	NNP	_	3	poss	_	_
+1	Buggin	buggin	PROPN	NNP	_	3	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	'	'	PUNCT	''	_	1	punct	_	_
 3	Out	out	PROPN	NNP	_	4	nsubj	_	_
-4	tries	try	VERB	VBZ	_	4	ROOT	_	_
+4	tries	try	VERB	VBZ	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	help	help	VERB	VB	_	4	xcomp	_	_
 7	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
@@ -1545,17 +1545,17 @@
 # time = NIGHT
 1	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
-3	stands	stand	VERB	VBZ	_	3	ROOT	_	_
+3	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	watches	watch	VERB	VBZ	_	3	conj	_	_
 6	as	as	ADP	IN	_	5	prep	_	_
-7	Ahmad	ahmad	PROPN	NNP	_	6	pobj	_	_
+7	Ahmad	ahmad	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 8	,	,	PUNCT	,	_	7	punct	_	_
-9	Cee	cee	PROPN	NNP	_	7	conj	_	_
+9	Cee	cee	PROPN	NNP	_	7	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 10	,	,	PUNCT	,	_	9	punct	_	_
-11	Punchy	punchy	PROPN	NNP	_	9	conj	_	_
+11	Punchy	punchy	PROPN	NNP	_	9	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 12	,	,	PUNCT	,	_	11	punct	_	_
 13	and	and	CCONJ	CC	_	11	cc	_	_
-14	Ella	ella	PROPN	NNP	_	11	conj	_	_
+14	Ella	ella	PROPN	NNP	_	11	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
 15	cheerlead	cheerlead	NOUN	NN	_	3	advmod	_	_
 16	.	.	PUNCT	.	_	3	punct	_	_

@@ -8,10 +8,10 @@
 # text = A 1975 El Dorado pulls up in front of the neighborhood pizzeria--Sal's Famous Pizzeria.
 # time = DAY
 1	A	a	DET	DT	_	4	det	_	_
-2	1975	1975	NUM	CD	_	4	nummod	_	_
-3	El	el	PROPN	NNP	_	4	compound	_	_
-4	Dorado	dorado	PROPN	NNP	_	5	nsubj	_	_
-5	pulls	pull	VERB	VBZ	_	5	ROOT	_	_
+2	1975	1975	NUM	CD	_	4	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
+3	El	el	PROPN	NNP	_	4	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
+4	Dorado	dorado	PROPN	NNP	_	5	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
+5	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
 6	up	up	PART	RP	_	5	prt	_	_
 7	in	in	ADP	IN	_	5	prep	_	_
 8	front	front	NOUN	NN	_	7	pobj	_	_
@@ -20,10 +20,10 @@
 11	neighborhood	neighborhood	NOUN	NN	_	12	compound	_	_
 12	pizzeria	pizzeria	NOUN	NNS	_	9	pobj	_	_
 13	--	--	PUNCT	:	_	8	punct	_	_
-14	Sal	sal	PROPN	NNP	_	17	poss	_	_
-15	's	's	PART	POS	_	14	case	_	_
-16	Famous	famous	PROPN	NNP	_	17	compound	_	_
-17	Pizzeria	pizzeria	PROPN	NNP	_	8	appos	_	_
+14	Sal	sal	PROPN	NNP	_	17	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
+15	's	's	PART	POS	_	14	case	_	ent_type=ORG|ent_id=381|ent_iob=I
+16	Famous	famous	PROPN	NNP	_	17	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+17	Pizzeria	pizzeria	PROPN	NNP	_	8	appos	_	ent_type=ORG|ent_id=381|ent_iob=I
 18	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
@@ -40,11 +40,11 @@
 3	of	of	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	car	car	NOUN	NN	_	3	pobj	_	_
-6	comes	come	VERB	VBZ	_	6	ROOT	_	_
+6	comes	come	VERB	VBZ	_	0	ROOT	_	_
 7	the	the	DET	DT	_	8	det	_	_
 8	owner	owner	NOUN	NN	_	6	nsubj	_	_
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	SAL	sal	PROPN	NNP	_	8	appos	_	_
+10	SAL	sal	PROPN	NNP	_	8	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
 11	,	,	PUNCT	,	_	10	punct	_	_
 12	a	a	DET	DT	_	15	det	_	_
 13	slightly	slightly	ADV	RB	_	14	advmod	_	_
@@ -52,22 +52,22 @@
 15	man	man	NOUN	NN	_	8	appos	_	_
 16	in	in	ADP	IN	_	15	prep	_	_
 17	his	-PRON-	ADJ	PRP$	_	19	poss	_	_
-18	early	early	ADJ	JJ	_	19	amod	_	_
-19	fifties	fifty	NOUN	NNS	_	16	pobj	_	_
+18	early	early	ADJ	JJ	_	19	amod	_	ent_type=DATE|ent_id=388|ent_iob=B
+19	fifties	fifty	NOUN	NNS	_	16	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 20	,	,	PUNCT	,	_	6	punct	_	_
 21	and	and	CCONJ	CC	_	6	cc	_	_
 22	his	-PRON-	ADJ	PRP$	_	24	poss	_	_
-23	two	two	NUM	CD	_	24	nummod	_	_
+23	two	two	NUM	CD	_	24	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 24	sons	son	NOUN	NNS	_	6	conj	_	_
 25	,	,	PUNCT	,	_	24	punct	_	_
-26	PINO	pino	PROPN	NNP	_	24	appos	_	_
+26	PINO	pino	PROPN	NNP	_	24	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
 27	,	,	PUNCT	,	_	26	punct	_	_
-28	22	22	NUM	CD	_	26	conj	_	_
+28	22	22	NUM	CD	_	26	conj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 29	,	,	PUNCT	,	_	26	punct	_	_
 30	and	and	CCONJ	CC	_	26	cc	_	_
-31	VITO	vito	PROPN	NNP	_	26	conj	_	_
+31	VITO	vito	PROPN	NNP	_	26	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
 32	,	,	PUNCT	,	_	31	punct	_	_
-33	20	20	NUM	CD	_	24	appos	_	_
+33	20	20	NUM	CD	_	24	appos	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
 34	.	.	PUNCT	.	_	24	punct	_	_
 
 # loc = EXT
@@ -80,7 +80,7 @@
 # text = It's time for them to go to work at Sal's Famous Pizzeria in the heart of Black Brooklyn.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	time	time	NOUN	NN	_	2	attr	_	_
 4	for	for	ADP	IN	_	7	mark	_	_
 5	them	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -89,16 +89,16 @@
 8	to	to	ADP	IN	_	9	aux	_	_
 9	work	work	NOUN	NN	_	7	advcl	_	_
 10	at	at	ADP	IN	_	9	prep	_	_
-11	Sal	sal	PROPN	NNP	_	14	poss	_	_
-12	's	's	PART	POS	_	11	case	_	_
-13	Famous	famous	PROPN	NNP	_	14	compound	_	_
-14	Pizzeria	pizzeria	PROPN	NNP	_	10	pobj	_	_
+11	Sal	sal	PROPN	NNP	_	14	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
+12	's	's	PART	POS	_	11	case	_	ent_type=ORG|ent_id=381|ent_iob=I
+13	Famous	famous	PROPN	NNP	_	14	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+14	Pizzeria	pizzeria	PROPN	NNP	_	10	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 15	in	in	ADP	IN	_	9	prep	_	_
 16	the	the	DET	DT	_	17	det	_	_
 17	heart	heart	NOUN	NN	_	15	pobj	_	_
 18	of	of	ADP	IN	_	17	prep	_	_
-19	Black	black	PROPN	NNP	_	20	compound	_	_
-20	Brooklyn	brooklyn	PROPN	NNP	_	18	pobj	_	_
+19	Black	black	PROPN	NNP	_	20	compound	_	ent_type=LOC|ent_id=383|ent_iob=B
+20	Brooklyn	brooklyn	PROPN	NNP	_	18	pobj	_	ent_type=LOC|ent_id=383|ent_iob=I
 21	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -110,9 +110,9 @@
 # stage_direction = True
 # text = Sal's sits on the corner of The Block.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	3	nsubj	_	_
+1	Sal	sal	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 2	's	's	PART	POS	_	1	case	_	_
-3	sits	sit	NOUN	NNS	_	3	ROOT	_	_
+3	sits	sit	NOUN	NNS	_	0	ROOT	_	_
 4	on	on	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	corner	corner	NOUN	NN	_	4	pobj	_	_
@@ -131,18 +131,18 @@
 # text = The Block being where this film on the hottest day of the summer takes place.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	Block	block	PROPN	NNP	_	3	nsubj	_	_
-3	being	be	VERB	VBG	_	3	ROOT	_	_
+2	Block	block	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	being	be	VERB	VBG	_	0	ROOT	_	_
 4	where	where	ADV	WRB	_	14	advmod	_	_
 5	this	this	DET	DT	_	6	det	_	_
 6	film	film	NOUN	NN	_	14	nsubj	_	_
 7	on	on	ADP	IN	_	6	prep	_	_
-8	the	the	DET	DT	_	10	det	_	_
-9	hottest	hot	ADJ	JJS	_	10	amod	_	_
-10	day	day	NOUN	NN	_	7	pobj	_	_
-11	of	of	ADP	IN	_	10	prep	_	_
-12	the	the	DET	DT	_	13	det	_	_
-13	summer	summer	NOUN	NN	_	11	pobj	_	_
+8	the	the	DET	DT	_	10	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+9	hottest	hot	ADJ	JJS	_	10	amod	_	ent_type=DATE|ent_id=388|ent_iob=I
+10	day	day	NOUN	NN	_	7	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
+11	of	of	ADP	IN	_	10	prep	_	ent_type=DATE|ent_id=388|ent_iob=I
+12	the	the	DET	DT	_	13	det	_	ent_type=DATE|ent_id=388|ent_iob=I
+13	summer	summer	NOUN	NN	_	11	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 14	takes	take	VERB	VBZ	_	3	ccomp	_	_
 15	place	place	NOUN	NN	_	14	dobj	_	_
 16	.	.	PUNCT	.	_	3	punct	_	_
@@ -157,7 +157,7 @@
 # text = Pino kicks a beer can in his path into the gutter.
 # time = DAY
 1	Pino	pino	NOUN	NN	_	2	nsubj	_	_
-2	kicks	kick	VERB	VBZ	_	2	ROOT	_	_
+2	kicks	kick	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	beer	beer	NOUN	NN	_	2	dobj	_	_
 5	can	can	VERB	MD	_	2	ccomp	_	_
@@ -179,7 +179,7 @@
 # text = Pino kicks a beer can in his path into the gutter.
 # time = DAY
 1	Pino	pino	PROPN	NNP	_	2	nsubj	_	_
-2	kicks	kick	VERB	VBZ	_	2	ROOT	_	_
+2	kicks	kick	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	beer	beer	NOUN	NN	_	2	dobj	_	_
 5	can	can	VERB	MD	_	2	ccomp	_	_
@@ -204,7 +204,7 @@
 # time = DAY
 1	Pino	pino	PROPN	NNP	_	3	nsubj	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	get	get	VERB	VB	_	3	ROOT	_	_
+3	get	get	VERB	VB	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	broom	broom	NOUN	NN	_	3	dobj	_	_
 6	and	and	CCONJ	CC	_	3	cc	_	_
@@ -226,7 +226,7 @@
 # time = DAY
 1	Vito	vito	PROPN	NNP	_	3	nsubj	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
-3	get	get	VERB	VB	_	3	ROOT	_	_
+3	get	get	VERB	VB	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	broom	broom	NOUN	NN	_	3	dobj	_	_
 6	and	and	CCONJ	CC	_	3	cc	_	_
@@ -246,7 +246,7 @@
 # stage_direction = True
 # text = See, Pop.
 # time = DAY
-1	See	see	VERB	VBP	_	1	ROOT	_	_
+1	See	see	VERB	VBP	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
 3	Pop	pop	NOUN	NN	_	1	npadvmod	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
@@ -263,7 +263,7 @@
 # text = That's just what I was talkin' about.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	just	just	ADV	RB	_	4	advmod	_	_
 4	what	what	NOUN	WP	_	6	attr	_	_
 5	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
@@ -289,13 +289,13 @@
 3	time	time	NOUN	NN	_	12	npadvmod	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	tell	tell	VERB	VBP	_	3	relcl	_	_
-6	Pino	pino	PROPN	NNP	_	5	dobj	_	_
+6	Pino	pino	PROPN	NNP	_	5	dobj	_	ent_type=ORG|ent_id=381|ent_iob=B
 7	to	to	PART	TO	_	8	aux	_	_
 8	do	do	VERB	VB	_	5	xcomp	_	_
 9	something	something	NOUN	NN	_	8	dobj	_	_
 10	,	,	PUNCT	,	_	12	punct	_	_
 11	he	-PRON-	PRON	PRP	_	12	nsubj	_	_
-12	gives	give	VERB	VBZ	_	12	ROOT	_	_
+12	gives	give	VERB	VBZ	_	0	ROOT	_	_
 13	it	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	to	to	ADP	IN	_	12	dative	_	_
 15	me	-PRON-	PRON	PRP	_	14	pobj	_	_
@@ -313,7 +313,7 @@
 # text = He's nuts..
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	nuts	nuts	ADJ	JJ	_	2	acomp	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -329,7 +329,7 @@
 # text = The both of youse, shaddup..
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	both	both	DET	DT	_	2	ROOT	_	_
+2	both	both	DET	DT	_	0	ROOT	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
 4	youse	youse	NOUN	NN	_	3	pobj	_	_
 5	,	,	PUNCT	,	_	2	punct	_	_
@@ -347,7 +347,7 @@
 # stage_direction = True
 # text = Tell Pino..
 # time = DAY
-1	Tell	tell	PROPN	NNP	_	1	ROOT	_	_
+1	Tell	tell	PROPN	NNP	_	0	ROOT	_	_
 2	Pino	pino	PROPN	NNP	_	1	dobj	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -362,7 +362,7 @@
 # stage_direction = True
 # text = Get the broom..
 # time = DAY
-1	Get	get	VERB	VBP	_	1	ROOT	_	_
+1	Get	get	VERB	VBP	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	broom	broom	NOUN	NN	_	1	dobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -381,7 +381,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	ai	be	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	getting	get	VERB	VBG	_	4	ROOT	_	_
+4	getting	get	VERB	VBG	_	0	ROOT	_	_
 5	shit	shit	NOUN	NN	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -396,7 +396,7 @@
 # stage_direction = True
 # text = Hey!
 # time = DAY
-1	Hey	hey	INTJ	UH	_	1	ROOT	_	_
+1	Hey	hey	INTJ	UH	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 23
@@ -410,7 +410,7 @@
 # stage_direction = True
 # text = Watch it..
 # time = DAY
-1	Watch	watch	VERB	VB	_	1	ROOT	_	_
+1	Watch	watch	VERB	VB	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	..	..	PUNCT	.	_	1	punct	_	_
 
@@ -428,7 +428,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	want	want	VERB	VB	_	4	ROOT	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	come	come	VERB	VB	_	4	xcomp	_	_
 7	to	to	PART	TO	_	8	aux	_	_
@@ -448,7 +448,7 @@
 # text = I hate this freakin' place..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	hate	hate	VERB	VBP	_	2	ROOT	_	_
+2	hate	hate	VERB	VBP	_	0	ROOT	_	_
 3	this	this	DET	DT	_	4	det	_	_
 4	freakin	freakin	NOUN	NN	_	6	poss	_	_
 5	'	'	PUNCT	``	_	4	case	_	_
@@ -468,7 +468,7 @@
 # time = DAY
 1	Can	can	VERB	MD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	do	do	VERB	VB	_	3	ROOT	_	_
+3	do	do	VERB	VB	_	0	ROOT	_	_
 4	better	good	ADJ	JJR	_	3	advmod	_	_
 5	?	?	PUNCT	.	_	3	punct	_	_
 
@@ -483,7 +483,7 @@
 # stage_direction = True
 # text = C'mere..
 # time = DAY
-1	C'mere	c'mere	ADV	RB	_	1	ROOT	_	_
+1	C'mere	c'mere	ADV	RB	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # loc = EXT
@@ -496,7 +496,7 @@
 # text = Pino is now silent.
 # time = DAY
 1	Pino	pino	PROPN	NNP	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	now	now	ADV	RB	_	2	advmod	_	_
 4	silent	silent	ADJ	JJ	_	2	acomp	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -511,7 +511,7 @@
 # text = Sal walks over to him.
 # time = DAY
 1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
-2	walks	walk	VERB	VBZ	_	2	ROOT	_	_
+2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	over	over	ADV	RB	_	2	prt	_	_
 4	to	to	ADP	IN	_	2	prep	_	_
 5	him	-PRON-	PRON	PRP	_	4	pobj	_	_
@@ -530,7 +530,7 @@
 # time = DAY
 1	Can	can	VERB	MD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	do	do	VERB	VB	_	3	ROOT	_	_
+3	do	do	VERB	VB	_	0	ROOT	_	_
 4	better	good	ADJ	JJR	_	3	advmod	_	_
 5	?	?	PUNCT	.	_	3	punct	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
@@ -547,7 +547,7 @@
 # text = the head)
 # time = DAY
 1	the	the	DET	DT	_	2	det	_	_
-2	head	head	NOUN	NN	_	2	ROOT	_	_
+2	head	head	NOUN	NN	_	0	ROOT	_	_
 3	)	)	PUNCT	-RRB-	_	2	punct	_	_
 
 # line = 26
@@ -564,7 +564,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	think	think	VERB	VB	_	4	ROOT	_	_
+4	think	think	VERB	VB	_	0	ROOT	_	_
 5	so	so	ADV	RB	_	4	advmod	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -580,7 +580,7 @@
 # text = This is a respectable business.
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	5	det	_	_
 4	respectable	respectable	ADJ	JJ	_	5	amod	_	_
 5	business	business	NOUN	NN	_	2	attr	_	_
@@ -598,7 +598,7 @@
 # text = Nuthin' wrong with it.
 # time = DAY
 1	Nuthin'	nothing	NOUN	NN	_	2	nsubj	_	_
-2	wrong	wrong	ADJ	JJ	_	2	ROOT	_	_
+2	wrong	wrong	ADJ	JJ	_	0	ROOT	_	_
 3	with	with	ADP	IN	_	2	prep	_	_
 4	it	-PRON-	PRON	PRP	_	3	pobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
@@ -614,7 +614,7 @@
 # stage_direction = True
 # text = Get dat broom..
 # time = DAY
-1	Get	get	VERB	VB	_	1	ROOT	_	_
+1	Get	get	VERB	VB	_	0	ROOT	_	_
 2	dat	dat	NOUN	NN	_	3	compound	_	_
 3	broom	broom	NOUN	NN	_	1	dobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -630,7 +630,7 @@
 # stage_direction = True
 # text = Tell Vito..
 # time = DAY
-1	Tell	tell	PROPN	NNP	_	1	ROOT	_	_
+1	Tell	tell	PROPN	NNP	_	0	ROOT	_	_
 2	Vito	vito	PROPN	NNP	_	1	dobj	_	_
 3	..	..	PUNCT	NFP	_	1	punct	_	_
 
@@ -646,7 +646,7 @@
 # text = Pop asked you..
 # time = DAY
 1	Pop	pop	NOUN	NN	_	2	nsubj	_	_
-2	asked	ask	VERB	VBD	_	2	ROOT	_	_
+2	asked	ask	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_
 
@@ -663,9 +663,9 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	kill	kill	VERB	VB	_	3	xcomp	_	_
 6	somebody	somebody	NOUN	NN	_	5	dobj	_	_
-7	today	today	NOUN	NN	_	5	npadvmod	_	_
+7	today	today	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
 8	..	..	PUNCT	.	_	3	punct	_	_

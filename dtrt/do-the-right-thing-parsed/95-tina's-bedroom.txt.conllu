@@ -14,15 +14,15 @@
 5	her	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	bed	bed	NOUN	NN	_	4	pobj	_	_
 7	;	;	PUNCT	:	_	9	punct	_	_
-8	Tina	tina	PROPN	NNP	_	9	nsubj	_	_
-9	sleeps	sleep	VERB	VBZ	_	9	ROOT	_	_
+8	Tina	tina	PROPN	NNP	_	9	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+9	sleeps	sleep	VERB	VBZ	_	0	ROOT	_	_
 10	by	by	ADP	IN	_	9	prep	_	_
 11	his	-PRON-	ADJ	PRP$	_	12	poss	_	_
 12	side	side	NOUN	NN	_	10	pobj	_	_
 13	and	and	CCONJ	CC	_	12	cc	_	_
 14	their	-PRON-	ADJ	PRP$	_	15	poss	_	_
 15	son	son	NOUN	NN	_	12	conj	_	_
-16	Hector	hector	PROPN	NNP	_	15	appos	_	_
+16	Hector	hector	PROPN	NNP	_	15	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
 17	is	be	VERB	VBZ	_	9	ccomp	_	_
 18	between	between	ADP	IN	_	17	prep	_	_
 19	them	-PRON-	PRON	PRP	_	18	pobj	_	_
@@ -40,8 +40,8 @@
 # text = WAKE UP!.
 # time = DAY
 # voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
-1	WAKE	wake	PROPN	NNP	_	2	aux	_	_
-2	UP!.	up!.	NOUN	NNS	_	2	ROOT	_	_
+1	WAKE	wake	PROPN	NNP	_	2	aux	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	UP!.	up!.	NOUN	NNS	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=I
 
 # line = 756
 # loc = INT
@@ -54,7 +54,7 @@
 # stage_direction = True
 # text = Fuck!
 # time = DAY
-1	Fuck	fuck	PROPN	NNP	_	1	ROOT	_	_
+1	Fuck	fuck	PROPN	NNP	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 756
@@ -68,8 +68,8 @@
 # stage_direction = True
 # text = My money!.
 # time = DAY
-1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	money!.	money!.	NOUN	NNS	_	2	ROOT	_	_
+1	My	-PRON-	ADJ	PRP$	_	2	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
+2	money!.	money!.	NOUN	NNS	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=I
 
 # line = 757
 # loc = INT
@@ -85,7 +85,7 @@
 1	Where	where	ADV	WRB	_	4	advmod	_	_
 2	are	be	VERB	VBP	_	4	aux	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	going	go	VERB	VBG	_	4	ROOT	_	_
+4	going	go	VERB	VBG	_	0	ROOT	_	_
 5	?	?	PUNCT	.	_	4	punct	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -101,7 +101,7 @@
 # text = To get my money..
 # time = DAY
 1	To	to	PART	TO	_	2	aux	_	_
-2	get	get	VERB	VB	_	2	ROOT	_	_
+2	get	get	VERB	VB	_	0	ROOT	_	_
 3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
 4	money	money	NOUN	NN	_	2	dobj	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -121,7 +121,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	must	must	VERB	MD	_	5	aux	_	_
-5	think	think	VERB	VB	_	5	ROOT	_	_
+5	think	think	VERB	VB	_	0	ROOT	_	_
 6	I	-PRON-	PRON	PRP	_	7	nsubj	_	_
 7	'm	be	VERB	VBP	_	5	ccomp	_	_
 8	stupid	stupid	ADJ	JJ	_	7	acomp	_	_
@@ -142,7 +142,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	're	be	VERB	VBP	_	3	aux	_	_
-3	gon	go	VERB	VBG	_	3	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	run	run	VERB	VB	_	3	xcomp	_	_
 6	outta	outta	NOUN	NN	_	5	dobj	_	_
@@ -163,13 +163,13 @@
 2	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 3	wo	will	VERB	MD	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	see	see	VERB	VB	_	5	ROOT	_	_
+5	see	see	VERB	VB	_	0	ROOT	_	_
 6	your	-PRON-	ADJ	PRP$	_	8	poss	_	_
 7	black	black	ADJ	JJ	_	8	amod	_	_
 8	ass	ass	NOUN	NN	_	5	dobj	_	_
 9	for	for	ADP	IN	_	5	prep	_	_
-10	another	another	DET	DT	_	11	det	_	_
-11	week	week	NOUN	NN	_	9	pobj	_	_
+10	another	another	DET	DT	_	11	det	_	ent_type=DATE|ent_id=388|ent_iob=B
+11	week	week	NOUN	NN	_	9	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
 12	..	..	PUNCT	NFP	_	5	punct	_	_
 
 # line = 760
@@ -186,7 +186,7 @@
 1	Tina	tina	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	's	be	VERB	VBZ	_	4	ROOT	_	_
+4	's	be	VERB	VBZ	_	0	ROOT	_	_
 5	not	not	ADV	RB	_	4	neg	_	_
 6	like	like	ADP	IN	_	4	prep	_	_
 7	that	that	DET	DT	_	6	pobj	_	_
@@ -203,7 +203,7 @@
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
 2	is	be	VERB	VBZ	_	3	aux	_	_
-3	putting	put	VERB	VBG	_	3	ROOT	_	_
+3	putting	put	VERB	VBG	_	0	ROOT	_	_
 4	on	on	PART	RP	_	3	prt	_	_
 5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
 6	clothes	clothe	NOUN	NNS	_	3	dobj	_	_
@@ -223,7 +223,7 @@
 1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	care	care	VERB	VB	_	4	ROOT	_	_
+4	care	care	VERB	VB	_	0	ROOT	_	_
 5	about	about	ADP	IN	_	4	prep	_	_
 6	me	-PRON-	PRON	PRP	_	5	pobj	_	_
 7	and	and	CCONJ	CC	_	4	cc	_	_
@@ -252,7 +252,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	'll	will	VERB	MD	_	5	aux	_	_
-5	be	be	VERB	VB	_	5	ROOT	_	_
+5	be	be	VERB	VB	_	0	ROOT	_	_
 6	right	right	ADV	RB	_	7	advmod	_	_
 7	back	back	ADV	RB	_	5	advmod	_	_
 8	..	..	PUNCT	.	_	5	punct	_	_
@@ -268,7 +268,7 @@
 # stage_direction = True
 # text = Be a man..
 # time = DAY
-1	Be	be	VERB	VBP	_	1	ROOT	_	_
+1	Be	be	VERB	VBP	_	0	ROOT	_	_
 2	a	a	DET	DT	_	3	det	_	_
 3	man	man	NOUN	NN	_	1	attr	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -285,7 +285,7 @@
 # text = I am a man..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	am	be	VERB	VBP	_	2	ROOT	_	_
+2	am	be	VERB	VBP	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	man	man	NOUN	NN	_	2	attr	_	_
 5	..	..	PUNCT	.	_	2	punct	_	_
@@ -301,7 +301,7 @@
 # stage_direction = True
 # text = Act like one then.
 # time = DAY
-1	Act	act	PROPN	NNP	_	1	ROOT	_	_
+1	Act	act	PROPN	NNP	_	0	ROOT	_	_
 2	like	like	ADP	IN	_	1	prep	_	_
 3	one	one	NUM	CD	_	2	pobj	_	_
 4	then	then	ADV	RB	_	1	advmod	_	_
@@ -318,7 +318,7 @@
 # stage_direction = True
 # text = Be a man..
 # time = DAY
-1	Be	be	VERB	VB	_	1	ROOT	_	_
+1	Be	be	VERB	VB	_	0	ROOT	_	_
 2	a	a	DET	DT	_	3	det	_	_
 3	man	man	NOUN	NN	_	1	attr	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -334,7 +334,7 @@
 # stage_direction = True
 # text = Later..
 # time = DAY
-1	Later	later	ADV	RBR	_	1	ROOT	_	_
+1	Later	later	ADV	RBR	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 767
@@ -349,7 +349,7 @@
 # text = You're to the curb.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	're	be	VERB	VBP	_	2	ROOT	_	_
+2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	curb	curb	NOUN	NN	_	3	pobj	_	_
@@ -368,7 +368,7 @@
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	better	good	ADJ	JJR	_	3	advmod	_	_
-3	step	step	VERB	VBP	_	3	ROOT	_	_
+3	step	step	VERB	VBP	_	0	ROOT	_	_
 4	off	off	PART	RP	_	3	prt	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -383,7 +383,7 @@
 # stage_direction = True
 # text = Get a life..
 # time = DAY
-1	Get	get	VERB	VB	_	1	ROOT	_	_
+1	Get	get	VERB	VB	_	0	ROOT	_	_
 2	a	a	DET	DT	_	3	det	_	_
 3	life	life	NOUN	NN	_	1	dobj	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -398,5 +398,5 @@
 # text = Mookie leaves.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	leaves	leaf	NOUN	NNS	_	2	ROOT	_	_
+2	leaves	leaf	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_

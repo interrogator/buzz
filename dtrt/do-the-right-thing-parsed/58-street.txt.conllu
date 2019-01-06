@@ -10,9 +10,9 @@
 1	Buggin	buggin	PROPN	NNP	_	3	poss	_	_
 2	'	'	PUNCT	''	_	1	case	_	_
 3	Out	out	ADV	RB	_	4	nsubj	_	_
-4	has	have	VERB	VBZ	_	4	ROOT	_	_
-5	one	one	NUM	CD	_	6	nummod	_	_
-6	foot	foot	NOUN	NN	_	4	dobj	_	_
+4	has	have	VERB	VBZ	_	0	ROOT	_	_
+5	one	one	NUM	CD	_	6	nummod	_	ent_type=QUANTITY|ent_id=392|ent_iob=B
+6	foot	foot	NOUN	NN	_	4	dobj	_	ent_type=QUANTITY|ent_id=392|ent_iob=I
 7	up	up	PART	RP	_	6	prt	_	_
 8	on	on	ADP	IN	_	4	prep	_	_
 9	a	a	DET	DT	_	11	det	_	_
@@ -24,8 +24,8 @@
 15	clean	clean	VERB	VB	_	13	xcomp	_	_
 16	his	-PRON-	ADJ	PRP$	_	19	poss	_	_
 17	soiled	soiled	ADJ	JJ	_	19	amod	_	_
-18	Air	air	PROPN	NNP	_	19	compound	_	_
-19	Jordan	jordan	PROPN	NNP	_	15	dobj	_	_
+18	Air	air	PROPN	NNP	_	19	compound	_	ent_type=LOC|ent_id=383|ent_iob=B
+19	Jordan	jordan	PROPN	NNP	_	15	dobj	_	ent_type=LOC|ent_id=383|ent_iob=I
 20	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -40,12 +40,12 @@
 1	Jade	jade	PROPN	NNP	_	4	nsubj	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
 3	Mookie	mookie	PROPN	NNP	_	1	conj	_	_
-4	walk	walk	VERB	VB	_	4	ROOT	_	_
+4	walk	walk	VERB	VB	_	0	ROOT	_	_
 5	up	up	ADV	RB	_	4	prt	_	_
 6	to	to	ADP	IN	_	4	prep	_	_
-7	Buggin	buggin	PROPN	NNP	_	6	pobj	_	_
-8	'	'	PUNCT	''	_	9	punct	_	_
-9	Out	out	ADV	RB	_	4	advmod	_	_
+7	Buggin	buggin	PROPN	NNP	_	6	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+8	'	'	PUNCT	''	_	9	punct	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+9	Out	out	ADV	RB	_	4	advmod	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
 10	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 457
@@ -60,7 +60,7 @@
 # text = It's so nice to see a family hanging out together..
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	so	so	ADV	RB	_	4	advmod	_	_
 4	nice	nice	ADJ	JJ	_	2	acomp	_	_
 5	to	to	PART	TO	_	6	aux	_	_
@@ -86,7 +86,7 @@
 1	We	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	're	be	VERB	VBP	_	4	aux	_	_
 3	not	not	ADV	RB	_	4	neg	_	_
-4	hanging	hang	VERB	VBG	_	4	ROOT	_	_
+4	hanging	hang	VERB	VBG	_	0	ROOT	_	_
 5	out	out	PART	RP	_	4	prt	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -104,7 +104,7 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 2	'm	be	VERB	VBP	_	4	aux	_	_
 3	being	be	VERB	VBG	_	4	auxpass	_	_
-4	escorted	escort	VERB	VBN	_	4	ROOT	_	_
+4	escorted	escort	VERB	VBN	_	0	ROOT	_	_
 5	back	back	ADV	RB	_	4	advmod	_	_
 6	to	to	ADP	IN	_	5	prep	_	_
 7	work	work	NOUN	NN	_	6	pobj	_	_
@@ -122,7 +122,7 @@
 # text = That's not even true.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	2	ROOT	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	not	not	ADV	RB	_	2	neg	_	_
 4	even	even	ADV	RB	_	5	advmod	_	_
 5	true	true	ADJ	JJ	_	2	acomp	_	_
@@ -141,7 +141,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
-3	want	want	VERB	VBP	_	3	ROOT	_	_
+3	want	want	VERB	VBP	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	slice	slice	NOUN	NN	_	3	dobj	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -162,7 +162,7 @@
 3	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	know	know	VERB	VB	_	6	ROOT	_	_
+6	know	know	VERB	VB	_	0	ROOT	_	_
 7	this	this	DET	DT	_	6	dobj	_	_
 8	,	,	PUNCT	,	_	6	punct	_	_
 9	but	but	CCONJ	CC	_	6	cc	_	_
@@ -172,11 +172,11 @@
 13	a	a	DET	DT	_	14	det	_	_
 14	boycott	boycott	NOUN	NN	_	12	dobj	_	_
 15	of	of	ADP	IN	_	14	prep	_	_
-16	Sal	sal	PROPN	NNP	_	19	poss	_	_
-17	's	's	PART	POS	_	16	case	_	_
-18	Famous	famous	PROPN	NNP	_	19	compound	_	_
-19	Pizzeria	pizzeria	PROPN	NNP	_	15	pobj	_	_
-20	..	..	PUNCT	.	_	12	punct	_	_
+16	Sal	sal	PROPN	NNP	_	19	poss	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
+17	's	's	PART	POS	_	16	case	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+18	Famous	famous	PROPN	NNP	_	19	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+19	Pizzeria	pizzeria	PROPN	NNP	_	15	pobj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+20	..	..	PUNCT	.	_	12	punct	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
 
 # line = 461
 # loc = EXT
@@ -192,7 +192,7 @@
 1	What	what	NOUN	WP	_	4	dobj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	he	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	do	do	VERB	VB	_	4	ROOT	_	_
+4	do	do	VERB	VB	_	0	ROOT	_	_
 5	this	this	DET	DT	_	6	det	_	_
 6	time	time	NOUN	NN	_	4	npadvmod	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
@@ -212,15 +212,15 @@
 1	Y'know	y'know	PROPN	NNP	_	4	nmod	_	_
 2	all	all	ADJ	PDT	_	4	predet	_	_
 3	those	those	DET	DT	_	4	det	_	_
-4	pictures	picture	NOUN	NNS	_	4	ROOT	_	_
+4	pictures	picture	NOUN	NNS	_	0	ROOT	_	_
 5	he	-PRON-	PRON	PRP	_	7	nsubj	_	_
 6	has	have	VERB	VBZ	_	7	aux	_	_
 7	hanging	hang	VERB	VBG	_	4	relcl	_	_
 8	on	on	ADP	IN	_	7	prep	_	_
-9	the	the	DET	DT	_	10	det	_	_
-10	Wall	wall	PROPN	NNP	_	8	pobj	_	_
-11	of	of	ADP	IN	_	10	prep	_	_
-12	Fame	fame	PROPN	NNP	_	11	pobj	_	_
+9	the	the	DET	DT	_	10	det	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	Wall	wall	PROPN	NNP	_	8	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+11	of	of	ADP	IN	_	10	prep	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	Fame	fame	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
 13	?	?	PUNCT	.	_	4	punct	_	_
 14	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -235,7 +235,7 @@
 # stage_direction = True
 # text = So?.
 # time = DAY
-1	So	so	ADV	RB	_	1	ROOT	_	_
+1	So	so	ADV	RB	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -252,7 +252,7 @@
 # time = DAY
 1	Have	have	VERB	VBP	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	noticed	notice	VERB	VBN	_	3	ROOT	_	_
+3	noticed	notice	VERB	VBN	_	0	ROOT	_	_
 4	something	something	NOUN	NN	_	3	dobj	_	_
 5	about	about	ADP	IN	_	4	prep	_	_
 6	them	-PRON-	PRON	PRP	_	5	pobj	_	_
@@ -270,7 +270,7 @@
 # stage_direction = True
 # text = No..
 # time = DAY
-1	No	no	INTJ	UH	_	1	ROOT	_	_
+1	No	no	INTJ	UH	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 466
@@ -287,7 +287,7 @@
 1	Yo	yo	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	'm	be	VERB	VBP	_	4	ROOT	_	_
+4	'm	be	VERB	VBP	_	0	ROOT	_	_
 5	gone	go	VERB	VBN	_	4	acomp	_	_
 6	..	..	PUNCT	.	_	4	punct	_	_
 
@@ -304,7 +304,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'll	will	VERB	MD	_	3	aux	_	_
-3	see	see	VERB	VB	_	3	ROOT	_	_
+3	see	see	VERB	VB	_	0	ROOT	_	_
 4	ya	ya	PRON	PRP	_	3	dobj	_	_
 5	there	there	ADV	RB	_	4	advmod	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -320,7 +320,7 @@
 # stage_direction = True
 # text = Peace..
 # time = DAY
-1	Peace	peace	NOUN	NN	_	1	ROOT	_	_
+1	Peace	peace	NOUN	NN	_	0	ROOT	_	_
 2	..	..	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
@@ -333,7 +333,7 @@
 # text = Mookie leaves.
 # time = DAY
 1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	leaves	leaf	NOUN	NNS	_	2	ROOT	_	_
+2	leaves	leaf	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 469
@@ -353,9 +353,9 @@
 4	of	of	ADP	IN	_	3	prep	_	_
 5	those	those	DET	DT	_	6	det	_	_
 6	pictures	picture	NOUN	NNS	_	4	pobj	_	_
-7	is	be	VERB	VBZ	_	7	ROOT	_	_
+7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	somebody	somebody	NOUN	NN	_	7	attr	_	_
-9	Italian	italian	ADJ	JJ	_	8	amod	_	_
+9	Italian	italian	ADJ	JJ	_	8	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
 10	..	..	PUNCT	.	_	7	punct	_	_
 
 # line = 470
@@ -369,7 +369,7 @@
 # stage_direction = True
 # text = And?.
 # time = DAY
-1	And	and	CCONJ	CC	_	1	ROOT	_	_
+1	And	and	CCONJ	CC	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -389,9 +389,9 @@
 3	--	--	PUNCT	:	_	2	punct	_	_
 4	we	-PRON-	PRON	PRP	_	2	appos	_	_
 5	--	--	PUNCT	:	_	6	punct	_	_
-6	want	want	VERB	VBP	_	6	ROOT	_	_
+6	want	want	VERB	VBP	_	0	ROOT	_	_
 7	some	some	DET	DT	_	9	det	_	_
-8	Black	black	ADJ	JJ	_	9	amod	_	_
+8	Black	black	ADJ	JJ	_	9	amod	_	ent_type=PERSON|ent_id=378|ent_iob=B
 9	people	people	NOUN	NNS	_	10	nsubj	_	_
 10	up	up	ADV	RB	_	6	prt	_	_
 11	..	..	PUNCT	.	_	6	punct	_	_
@@ -409,8 +409,8 @@
 # time = DAY
 1	Did	do	VERB	VBD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	ask	ask	VERB	VB	_	3	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	dobj	_	_
+3	ask	ask	VERB	VB	_	0	ROOT	_	_
+4	Sal	sal	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 5	?	?	PUNCT	.	_	3	punct	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -428,7 +428,7 @@
 1	Yeah	yeah	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	asked	ask	VERB	VBD	_	4	ROOT	_	_
+4	asked	ask	VERB	VBD	_	0	ROOT	_	_
 5	him	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -452,11 +452,11 @@
 7	there	there	ADV	RB	_	4	advmod	_	_
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	nobody	nobody	NOUN	NN	_	10	nsubj	_	_
-10	spending	spend	VERB	VBG	_	10	ROOT	_	_
+10	spending	spend	VERB	VBG	_	0	ROOT	_	_
 11	good	good	ADJ	JJ	_	12	amod	_	_
 12	money	money	NOUN	NN	_	10	dobj	_	_
 13	in	in	ADP	IN	_	10	prep	_	_
-14	Sal	sal	PROPN	NNP	_	13	pobj	_	_
+14	Sal	sal	PROPN	NNP	_	13	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 15	's	's	PART	POS	_	14	case	_	_
 16	.	.	PUNCT	.	_	10	punct	_	_
 
@@ -473,7 +473,7 @@
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	should	should	VERB	MD	_	3	aux	_	_
-3	get	get	VERB	VB	_	3	ROOT	_	_
+3	get	get	VERB	VB	_	0	ROOT	_	_
 4	no	no	DET	DT	_	5	det	_	_
 5	mo	mo	NOUN	NN	_	7	poss	_	_
 6	'	'	PUNCT	''	_	5	case	_	_
@@ -485,7 +485,7 @@
 12	he	-PRON-	PRON	PRP	_	13	nsubj	_	_
 13	puts	put	VERB	VBZ	_	3	advcl	_	_
 14	some	some	DET	DT	_	15	det	_	_
-15	Black	black	PROPN	NNP	_	16	nsubj	_	_
+15	Black	black	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 16	faces	face	VERB	VBZ	_	13	dobj	_	_
 17	up	up	PART	RP	_	16	prt	_	_
 18	on	on	ADP	IN	_	16	prep	_	_
@@ -504,10 +504,10 @@
 # text = Jade looks at Buggin'
 # time = DAY
 1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Buggin	buggin	PROPN	NNP	_	3	pobj	_	_
-5	'	'	PUNCT	''	_	2	punct	_	_
+4	Buggin	buggin	PROPN	NNP	_	3	pobj	_	ent_type=EVENT|ent_id=385|ent_iob=B
+5	'	'	PUNCT	''	_	2	punct	_	ent_type=EVENT|ent_id=385|ent_iob=I
 
 # loc = EXT
 # parse = (ADVP (RB Out) (IN like) (`` ") (SQ (VBP Are) (NP (PRP you)) (ADJP (JJ serious)) (. ?)) ('' ") (  ))
@@ -521,7 +521,7 @@
 1	Out	out	ADV	RB	_	4	advmod	_	_
 2	like	like	ADP	IN	_	4	intj	_	_
 3	"	"	PUNCT	``	_	4	punct	_	_
-4	Are	be	VERB	VBP	_	4	ROOT	_	_
+4	Are	be	VERB	VBP	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 6	serious	serious	ADJ	JJ	_	4	acomp	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
@@ -538,7 +538,7 @@
 # stage_direction = True
 # text = Buggin'
 # time = DAY
-1	Buggin	buggin	PROPN	NNP	_	1	ROOT	_	_
+1	Buggin	buggin	PROPN	NNP	_	0	ROOT	_	_
 2	'	'	PUNCT	''	_	1	punct	_	_
 
 # line = 474
@@ -557,7 +557,7 @@
 3	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
 5	n't	not	ADV	RB	_	6	neg	_	_
-6	mean	mean	VERB	VB	_	6	ROOT	_	_
+6	mean	mean	VERB	VB	_	0	ROOT	_	_
 7	to	to	PART	TO	_	8	aux	_	_
 8	be	be	VERB	VB	_	6	xcomp	_	_
 9	disrespectful	disrespectful	ADJ	JJ	_	8	acomp	_	_
@@ -594,7 +594,7 @@
 5	words	word	NOUN	NNS	_	3	pobj	_	_
 6	,	,	PUNCT	,	_	8	punct	_	_
 7	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
-8	are	be	VERB	VBP	_	8	ROOT	_	_
+8	are	be	VERB	VBP	_	0	ROOT	_	_
 9	not	not	ADV	RB	_	8	neg	_	_
 10	down	down	ADV	RB	_	8	advmod	_	_
 11	..	..	PUNCT	.	_	8	punct	_	_
@@ -611,7 +611,7 @@
 # text = I'm down, but for a worthwhile cause..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	down	down	ADV	RB	_	2	advmod	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	but	but	CCONJ	CC	_	2	cc	_	_
@@ -636,7 +636,7 @@
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	still	still	ADV	RB	_	5	advmod	_	_
-5	love	love	VERB	VBP	_	5	ROOT	_	_
+5	love	love	VERB	VBP	_	0	ROOT	_	_
 6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
 7	..	..	PUNCT	.	_	5	punct	_	_
 
@@ -653,7 +653,7 @@
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	still	still	ADV	RB	_	3	advmod	_	_
-3	love	love	VERB	VBP	_	3	ROOT	_	_
+3	love	love	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	too	too	ADV	RB	_	3	advmod	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_

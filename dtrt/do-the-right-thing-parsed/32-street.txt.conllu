@@ -10,7 +10,7 @@
 1	Vito	vito	PROPN	NNP	_	4	nsubj	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
 3	Mookie	mookie	PROPN	NNP	_	1	conj	_	_
-4	see	see	VERB	VB	_	4	ROOT	_	_
+4	see	see	VERB	VB	_	0	ROOT	_	_
 5	Buggin	buggin	PROPN	NNP	_	4	dobj	_	_
 6	'	'	PUNCT	''	_	7	punct	_	_
 7	Out	out	ADV	RB	_	4	ccomp	_	_
@@ -19,7 +19,7 @@
 10	way	way	NOUN	NN	_	8	pobj	_	_
 11	back	back	ADV	RB	_	10	advmod	_	_
 12	to	to	ADP	IN	_	11	prep	_	_
-13	Sal	sal	PROPN	NNP	_	12	pobj	_	_
+13	Sal	sal	PROPN	NNP	_	12	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 14	's	's	PART	POS	_	13	case	_	_
 15	.	.	PUNCT	.	_	4	punct	_	_
 
@@ -34,7 +34,7 @@
 # stage_direction = True
 # text = You the man..
 # time = DAY
-1	You	-PRON-	PRON	PRP	_	1	ROOT	_	_
+1	You	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	man	man	NOUN	NN	_	1	appos	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -50,7 +50,7 @@
 # stage_direction = True
 # text = You the man..
 # time = DAY
-1	You	-PRON-	PRON	PRP	_	1	ROOT	_	_
+1	You	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	man	man	NOUN	NN	_	1	appos	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
@@ -68,7 +68,7 @@
 # time = DAY
 1	No	no	INTJ	UH	_	3	intj	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	you	-PRON-	PRON	PRP	_	3	ROOT	_	_
+3	you	-PRON-	PRON	PRP	_	0	ROOT	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	man	man	NOUN	NN	_	3	appos	_	_
 6	..	..	PUNCT	.	_	3	punct	_	_
@@ -84,7 +84,7 @@
 # stage_direction = True
 # text = No.
 # time = DAY
-1	No	no	INTJ	UH	_	1	ROOT	_	_
+1	No	no	INTJ	UH	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 241
@@ -99,7 +99,7 @@
 # text = I'm just a struggling Black man trying to keep my dick hard in a cruel and harsh world..
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	'm	be	VERB	VBP	_	2	ROOT	_	_
+2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	just	just	ADV	RB	_	7	advmod	_	_
 4	a	a	DET	DT	_	7	det	_	_
 5	struggling	struggling	ADJ	JJ	_	7	amod	_	_
@@ -131,7 +131,7 @@
 1	Buggin	buggin	PROPN	NNP	_	3	poss	_	_
 2	'	'	PUNCT	''	_	1	case	_	_
 3	Out	out	NOUN	NN	_	4	nsubj	_	_
-4	gives	give	VERB	VBZ	_	4	ROOT	_	_
+4	gives	give	VERB	VBZ	_	0	ROOT	_	_
 5	Mookie	mookie	PROPN	NNP	_	4	dative	_	_
 6	five	five	NUM	CD	_	4	dobj	_	_
 7	and	and	CCONJ	CC	_	4	cc	_	_
@@ -139,7 +139,7 @@
 9	menacing	menacing	ADJ	JJ	_	10	nsubj	_	_
 10	look	look	NOUN	NN	_	4	conj	_	_
 11	at	at	ADP	IN	_	10	prep	_	_
-12	Vito	vito	PROPN	NNP	_	11	pobj	_	_
+12	Vito	vito	PROPN	NNP	_	11	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
 13	.	.	PUNCT	.	_	10	punct	_	_
 
 # line = 242
@@ -154,6 +154,6 @@
 # text = Vito is down..
 # time = DAY
 1	Vito	vito	PROPN	NNP	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	2	ROOT	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	ADV	RB	_	2	advmod	_	_
 4	..	..	PUNCT	.	_	2	punct	_	_

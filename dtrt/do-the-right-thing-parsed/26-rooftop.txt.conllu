@@ -7,10 +7,10 @@
 # stage_direction = True
 # text = Cee and Punchy look down from a roof on all the havoc and confusion they've started.
 # time = DAY
-1	Cee	cee	ADJ	JJ	_	4	nsubj	_	_
+1	Cee	cee	ADJ	JJ	_	4	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Punchy	punchy	PROPN	NNP	_	1	conj	_	_
-4	look	look	VERB	VBP	_	4	ROOT	_	_
+3	Punchy	punchy	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	look	look	VERB	VBP	_	0	ROOT	_	_
 5	down	down	PART	RP	_	4	prt	_	_
 6	from	from	ADP	IN	_	4	prep	_	_
 7	a	a	DET	DT	_	8	det	_	_
@@ -36,5 +36,5 @@
 # text = Both laugh.
 # time = DAY
 1	Both	both	DET	DT	_	2	det	_	_
-2	laugh	laugh	NOUN	NN	_	2	ROOT	_	_
+2	laugh	laugh	NOUN	NN	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_

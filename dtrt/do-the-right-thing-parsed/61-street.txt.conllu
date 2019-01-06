@@ -10,7 +10,7 @@
 1	Radio	radio	NOUN	NN	_	2	compound	_	_
 2	Raheem	raheem	PROPN	NNP	_	4	nsubj	_	_
 3	is	be	VERB	VBZ	_	4	aux	_	_
-4	walking	walk	VERB	VBG	_	4	ROOT	_	_
+4	walking	walk	VERB	VBG	_	0	ROOT	_	_
 5	down	down	PART	RP	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	block	block	NOUN	NN	_	5	pobj	_	_
@@ -36,7 +36,7 @@
 # stage_direction = True
 # text = AHA!
 # time = DUSK
-1	AHA	aha	INTJ	UH	_	1	ROOT	_	_
+1	AHA	aha	INTJ	UH	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
@@ -57,7 +57,7 @@
 7	the	the	DET	DT	_	9	det	_	_
 8	rap	rap	NOUN	NN	_	9	compound	_	_
 9	song	song	NOUN	NN	_	10	nsubj	_	_
-10	begins	begin	VERB	VBZ	_	10	ROOT	_	_
+10	begins	begin	VERB	VBZ	_	0	ROOT	_	_
 11	to	to	PART	TO	_	12	aux	_	_
 12	drag	drag	VERB	VB	_	10	xcomp	_	_
 13	and	and	CCONJ	CC	_	10	cc	_	_
@@ -76,7 +76,7 @@
 # text = He looks at his box and presses the battery level indicator.
 # time = DUSK
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	2	ROOT	_	_
+2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
 5	box	box	NOUN	NN	_	3	pobj	_	_
@@ -101,7 +101,7 @@
 2	needle	needle	NOUN	NN	_	5	nsubj	_	_
 3	does	do	VERB	VBZ	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	move	move	VERB	VB	_	5	ROOT	_	_
+5	move	move	VERB	VB	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
@@ -116,6 +116,6 @@
 1	His	-PRON-	ADJ	PRP$	_	2	poss	_	_
 2	batteries	battery	NOUN	NNS	_	4	nsubj	_	_
 3	have	have	VERB	VBP	_	4	aux	_	_
-4	had	have	VERB	VBN	_	4	ROOT	_	_
+4	had	have	VERB	VBN	_	0	ROOT	_	_
 5	it	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	.	.	PUNCT	.	_	4	punct	_	_

@@ -14,10 +14,10 @@
 5	and	and	CCONJ	CC	_	4	cc	_	_
 6	a	a	DET	DT	_	10	det	_	_
 7	fine	fine	ADJ	JJ	_	10	amod	_	_
-8	Puerto	puerto	ADJ	JJ	_	9	amod	_	_
-9	Rican	rican	ADJ	JJ	_	10	amod	_	_
+8	Puerto	puerto	ADJ	JJ	_	9	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
+9	Rican	rican	ADJ	JJ	_	10	amod	_	ent_type=NORP|ent_id=379|ent_iob=I
 10	sister	sister	NOUN	NN	_	4	conj	_	_
-11	answers	answer	VERB	VBZ	_	11	ROOT	_	_
+11	answers	answer	VERB	VBZ	_	0	ROOT	_	_
 12	the	the	DET	DT	_	13	det	_	_
 13	door	door	NOUN	NN	_	11	dobj	_	_
 14	.	.	PUNCT	.	_	11	punct	_	_
@@ -33,12 +33,12 @@
 # stage_direction = True
 # text = Delivery from Sal's Famous Pizzeria..
 # time = NIGHT
-1	Delivery	delivery	NOUN	NN	_	1	ROOT	_	_
+1	Delivery	delivery	NOUN	NN	_	0	ROOT	_	_
 2	from	from	ADP	IN	_	1	prep	_	_
-3	Sal	sal	PROPN	NNP	_	6	poss	_	_
-4	's	's	PART	POS	_	3	case	_	_
-5	Famous	famous	PROPN	NNP	_	6	compound	_	_
-6	Pizzeria	pizzeria	PROPN	NNP	_	2	pobj	_	_
+3	Sal	sal	PROPN	NNP	_	6	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	's	's	PART	POS	_	3	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
+5	Famous	famous	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
+6	Pizzeria	pizzeria	PROPN	NNP	_	2	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
 7	..	..	PUNCT	.	_	1	punct	_	_
 
 # line = 599
@@ -53,7 +53,7 @@
 # text = What took you so long?
 # time = NIGHT
 1	What	what	NOUN	WP	_	2	nsubj	_	_
-2	took	take	VERB	VBD	_	2	ROOT	_	_
+2	took	take	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	so	so	ADV	RB	_	5	advmod	_	_
 5	long	long	ADV	RB	_	2	advmod	_	_
@@ -70,7 +70,7 @@
 # stage_direction = True
 # text = Is it hot?.
 # time = NIGHT
-1	Is	be	VERB	VBZ	_	1	ROOT	_	_
+1	Is	be	VERB	VBZ	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	nsubj	_	_
 3	hot	hot	ADJ	JJ	_	1	acomp	_	_
 4	?	?	PUNCT	.	_	1	punct	_	_
@@ -87,7 +87,7 @@
 # stage_direction = True
 # text = Hot.
 # time = NIGHT
-1	Hot	hot	ADJ	JJ	_	1	ROOT	_	_
+1	Hot	hot	ADJ	JJ	_	0	ROOT	_	_
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 600
@@ -101,7 +101,7 @@
 # stage_direction = True
 # text = Hot..
 # time = NIGHT
-1	Hot	hot	ADJ	JJ	_	1	ROOT	_	_
+1	Hot	hot	ADJ	JJ	_	0	ROOT	_	_
 2	..	..	PUNCT	NFP	_	1	punct	_	_
 
 # line = 601
@@ -115,7 +115,7 @@
 # stage_direction = True
 # text = Come in then..
 # time = NIGHT
-1	Come	come	VERB	VBP	_	1	ROOT	_	_
+1	Come	come	VERB	VBP	_	0	ROOT	_	_
 2	in	in	PART	RP	_	1	prt	_	_
 3	then	then	ADV	RB	_	1	advmod	_	_
 4	..	..	PUNCT	.	_	1	punct	_	_
