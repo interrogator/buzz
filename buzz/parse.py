@@ -116,6 +116,24 @@ class Parser(object):
         norm = str(word).strip().replace('\t', '').replace('\n', '')
         return Phony(norm) if wrap else norm
 
+    @staticmethod
+    def _make_misc_field(word):
+        if not word.ent_type_ and not word.sentiment:
+            return '_'
+        formatters = dict(typ=word.ent_type_,
+                          num=word.ent_type,
+                          iob=word.ent_iob_)
+        ent = 'ent_type={typ}|ent_id={num}|ent_iob={iob}'.format(**formatters)
+        if not word.sentiment:
+            return ent
+        return ent + '|sentiment={}'.format(word.sentiment)
+
+    @staticmethod
+    def _get_governor_id(word):
+        if word.i == word.head.i:
+            return '0'
+        return str(word.head.i - word.sent[0].i + 1)
+
     def spacy_parse(self):
         abspath = os.path.abspath(os.getcwd())
         fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
@@ -169,21 +187,19 @@ class Parser(object):
                     ntokens += 1
                     if word.is_space:
                         continue
-                    if word.head is word:
-                        head_idx = 0
-                    else:
-                        head_idx = word.head.i - sent[0].i + 1
+                    governor = self._get_governor_id(word)
                     word_text = self.normalise_word(str(word))
+                    named_ent = self._make_misc_field(word)
                     parts = [str(word_index),
                              word_text,
                              word.lemma_,
                              word.pos_,
                              word.tag_,
                              '_',
-                             str(head_idx),
+                             governor,
                              word.dep_,
                              '_',
-                             '_']
+                             named_ent]
                     line = '\t'.join(parts)
                     sent_parts.append(line)
                     word_index += 1
