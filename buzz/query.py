@@ -964,8 +964,8 @@ def depgrep_compile(depgrep_string, df=False, case_sensitive=False):
     Parses (and tokenizes, if necessary) a depgrep search string into a
     lambda function.
     """
-    no_index = df.drop(['file', 's', 'i'], axis=1, errors='ignore').reset_index()
-    parser = _build_depgrep_parser(df=no_index, case_sensitive=case_sensitive)
+    # df = df.drop(['file', 's', 'i'], axis=1, errors='ignore').reset_index()
+    parser = _build_depgrep_parser(df=df, case_sensitive=case_sensitive)
     if isinstance(depgrep_string, bytes):
         depgrep_string = depgrep_string.decode()
     return list(parser.parseString(depgrep_string, parseAll=True))[0]
