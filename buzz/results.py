@@ -22,7 +22,7 @@ def resize_by_window_size(df, window):
 
 def apply_conc(line, allwords, window):
     middle, n = line['_match'], line['_n']
-    start = n - window[0]
+    start = max(n - window[0], 0)
     end = min(n+window[1], len(allwords)-1)
     left = ' '.join(allwords[start:n])[-window[0]:]
     right = ' '.join(allwords[n+1:end])[:window[1]]
