@@ -1,7 +1,7 @@
 # buzz: python corpus linguistics
 
 <!--- Don't edit the version line below manually. Let bump2version do it for you. -->
-> Version 1.0.4
+> Version 1.0.5
 
 > buzz is a linguistics tool for parsing and then exploring plain or metadata-rich text.
 
