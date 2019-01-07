@@ -32,14 +32,14 @@ def make_meta_dict_from_sent(text):
 
 
 def get_metadata(stripped,
-                 plain,
+                 original,
                  sent_offsets,
                  first_line=False,
                  has_fmeta=False):
     """
     Take offsets and get a speaker ID or metadata from them
     """
-    if not stripped and not plain:
+    if not stripped and not original:
         return dict()
 
     # are we getting file or regular metadata?
@@ -47,23 +47,14 @@ def get_metadata(stripped,
         start, end = sent_offsets
     else:
         start = 0
-        # if there's newline, stop there, or else it's just the end of the text
-        try:
-            end = stripped.index('\n')
-        except:
-            end = len(stripped) - 1
-    # get everything before this text
-    cut_old_text = stripped[:start]
-    # count which line the sent must be on from the old text
+
+    # get all stripped text before the start of the sent we want
+    cut_old_text = stripped[:start].strip()
+    # count how many newlines are in the preceding text
     line_index = cut_old_text.count('\n')
     if has_fmeta and not first_line:
         line_index += 1
     if first_line:
         line_index = 0
-    # lookup this text
-    # todo: fix this try, it should not occur
-    try:
-        text_with_meta = plain.splitlines()[line_index]
-    except IndexError:
-        return dict()
+    text_with_meta = original.splitlines()[line_index]
     return make_meta_dict_from_sent(text_with_meta)

@@ -60,6 +60,9 @@ def _tabview(self, window='auto', **kwargs):
     elif type(self) == Concordance:
         df = self
         reference = self.reference
+    else:
+        df = self
+        reference = self.reference
 
     is_conc = type(df) == Concordance
 
@@ -99,7 +102,6 @@ def _tabview(self, window='auto', **kwargs):
         view_style['align_right'] = aligns
     if 'trunc_left' not in kwargs:
         view_style['trunc_left'] = truncs
-
     view(pd.DataFrame(df), **view_style)
 
 
