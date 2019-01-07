@@ -539,7 +539,7 @@ class LoadedCorpus(pd.DataFrame, Corpus):
     _internal_names = pd.DataFrame._internal_names
     _internal_names_set = set(_internal_names)
 
-    _metadata = ['reference', 'just', 'skip', 'storage']
+    _metadata = ['reference', 'just', 'skip', 'storage', '_metadata_path']
     reference = None
     storage = dict()
     extra = []
