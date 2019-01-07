@@ -95,6 +95,8 @@ def make_csv(raw_lines, fname, meta, subcorpus=None, lt=True):
     Take one CONLL-U file and add all metadata to each row
     Return: str (CSV data) and list of dicts (sent level metadata)
     """
+    fname = os.path.basename(os.path.splitext(fname)[0])
+    fname = fname if not subcorpus else '{}/{}'.format(subcorpus, fname)
     meta_dicts = list()
     sents = raw_lines.strip() + '\n'
     # make list of sentences
