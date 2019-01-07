@@ -100,8 +100,6 @@ def _tabview(self, window='auto', **kwargs):
     if 'trunc_left' not in kwargs:
         view_style['trunc_left'] = truncs
 
-    print('VIEW STYLE', view_style)
-
     view(pd.DataFrame(df), **view_style)
 
 
