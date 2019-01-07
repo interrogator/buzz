@@ -144,7 +144,16 @@ class Searcher(object):
             bool_ix = self.number_query(piece, self.target, self.query)['w']
         # anything else
         else:
-            bool_ix = piece[self.target].str.contains(self.query, case=self.case_sensitive, regex=self.regex)
+            if isinstance(self.query, (list, set)):
+                values = set(self.query)
+                if not self.case_sensitive:
+                    values = {i.lower() for i in values}
+                    strings = piece[self.target].astype(str).str.lower()
+                else:
+                    strings = piece[self.target].astype(str)
+                bool_ix = strings.isin(values)
+            else:
+                bool_ix = piece[self.target].str.contains(self.query, case=self.case_sensitive, regex=self.regex)
             # invert if we want to
             if self.inverse:
                 bool_ix = ~bool_ix
@@ -189,7 +198,8 @@ class Searcher(object):
             case_sensitive=False,
             load=True,
             regex=True,
-            inverse=False):
+            inverse=False,
+            **kwargs):
 
         from .classes import File
 
@@ -202,11 +212,11 @@ class Searcher(object):
         self.case_sensitive = case_sensitive
         self.query = query
 
-        reg = query.startswith('/') and query.endswith('/')
-        sim = query.startswith(('"', "'")) and query.endswith(('"', "'"))
-
-        if sim or reg:
-            self.query = self.query[1:-1]
+        if isinstance(query, str):
+            reg = query.startswith('/') and query.endswith('/')
+            sim = query.startswith(('"', "'")) and query.endswith(('"', "'"))
+            if sim or reg:
+                self.query = self.query[1:-1]
 
         if regex is not True:
             regex = True if reg else False
