@@ -95,7 +95,7 @@ def make_csv(raw_lines, fname, meta, subcorpus=None, lt=True):
     Take one CONLL-U file and add all metadata to each row
     Return: str (CSV data) and list of dicts (sent level metadata)
     """
-    fname = os.path.basename(os.path.splitext(fname)[0])
+    fname = os.path.basename(fname)
     fname = fname if not subcorpus else '{}/{}'.format(subcorpus, fname)
     meta_dicts = list()
     sents = raw_lines.strip() + '\n'
@@ -138,7 +138,6 @@ def _to_df(corpus,
     # metadata that applies filewide
     file_meta = dict(f=corpus.name)
 
-    # try to parse years
     subcorpus = corpus.container.name if type(corpus.container) == Subcorpus else None
     file_meta['subcorpus'] = subcorpus
 

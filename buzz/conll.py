@@ -61,5 +61,9 @@ def get_metadata(stripped,
     if first_line:
         line_index = 0
     # lookup this text
-    text_with_meta = plain.splitlines()[line_index]
+    # todo: fix this try, it should not occur
+    try:
+        text_with_meta = plain.splitlines()[line_index]
+    except IndexError:
+        return dict()
     return make_meta_dict_from_sent(text_with_meta)
