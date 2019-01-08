@@ -19,9 +19,12 @@ def _get_widths(df, is_conc, window):
     aligns = [True] * tot
     truncs = [False] * tot
     widths = [5]
-
+    if not is_conc:
+        widths = [20] * len(df.index.names)
     for i, col_name in enumerate(df.columns):
-        if is_conc and col_name == 'left':
+        if not is_conc:
+            widths.append(8)
+        elif is_conc and col_name == 'left':
             widths.append(window[0])
             truncs[i+len(df.index.names)] = True
         elif is_conc and col_name == 'right':
@@ -96,7 +99,8 @@ def _tabview(self, window='auto', **kwargs):
     aligns, truncs, widths = _get_widths(df, is_conc, window)
 
     view_style = dict(column_widths=widths,
-                      reference=reference)
+                      reference=reference,
+                      df=df)
 
     if 'align_right' not in kwargs:
         view_style['align_right'] = aligns
