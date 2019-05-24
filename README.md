@@ -37,7 +37,7 @@ We can use buzz to model and parse this corpus.
 from buzz import Corpus
 corpus = Corpus('sopranos')
 parsed = corpus.parse()
-# if you don't need constitency parses, you can speed things up with:
+# if you don't need constituency parses, you can speed things up with:
 parsed = corpus.parse(cons_parser=None)
 ```
 
