@@ -5,7 +5,7 @@ from io import StringIO
 import pandas as pd
 from nltk.tree import ParentedTree
 
-from .constants import CONLL_COLUMNS, DTYPES
+from .constants import CONLL_COLUMNS, DTYPES, LONG_NAMES
 
 
 def _get_tqdm():
@@ -250,3 +250,11 @@ def timestring(text):
     from time import localtime, strftime
     thetime = strftime("%H:%M:%S", localtime())
     print('%s: %s' % (thetime, text.lstrip()))
+
+
+def _get_short_name_from_long_name(longname):
+    revers = dict()
+    for k, vs in LONG_NAMES.items():
+        for v in vs:
+            revers[v] = k
+    return revers.get(longname, longname)

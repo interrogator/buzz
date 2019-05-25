@@ -2,14 +2,14 @@ import json
 import os
 import re
 
-from abc import ABC, abstractmethod
 from collections import MutableSequence
 from functools import total_ordering
 import pandas as pd
 
 from .search import Searcher
 from .parse import Parser
-from .constants import CONLL_COLUMNS, LONG_NAMES
+from .constants import CONLL_COLUMNS
+from .slice import Just, Skip, See
 
 from .utils import (_to_df,
                     _get_nlp,
@@ -283,48 +283,6 @@ class Corpus(MutableSequence):
         else:
             self.is_parsed = self.files[0].name.endswith(('conll', 'conllu'))
 
-    def search(self, target, query, *args, **kwargs):
-        """
-        Search for a linguistic feature
-        """
-        return Searcher(self).run(target, query, *args, **kwargs)
-
-    def words(self, query, *args, **kwargs):
-        """
-        Search corpus for words
-        """
-        return Searcher(Searcher(self)).run('d', query, *args, **kwargs)
-
-    def lemmata(self, query, *args, **kwargs):
-        """
-        Search corpus for lemmata
-        """
-        return Searcher(Searcher(self)).run('l', query, *args, **kwargs)
-
-    def pos(self, query, *args, **kwargs):
-        """
-        Search corpus for POS tag
-        """
-        return Searcher(Searcher(self)).run('p', query, *args, **kwargs)
-
-    def roles(self, query, *args, **kwargs):
-        """
-        Search corpus for dependency role
-        """
-        return Searcher(Searcher(self)).run('f', query, *args, **kwargs)
-
-    def deps(self, query, *args, **kwargs):
-        """
-        Search dependencies
-        """
-        return Searcher(Searcher(self)).run('d', query, *args, **kwargs)
-
-    def trees(self, query, *args, **kwargs):
-        """
-        Search parse trees
-        """
-        return Searcher(Searcher(self)).run('t', query, *args, **kwargs)
-
     def tree_once(self, df):
         """
         Get just each tree once --- can try to optimise
@@ -481,90 +439,6 @@ class File(Corpus):
         return '{} ({}, {})>'.format(*form)
 
 
-def get_short_name_from_long_name(longname):
-    revers = dict()
-    for k, vs in LONG_NAMES.items():
-        for v in vs:
-            revers[v] = k
-    return revers.get(longname, longname)
-
-
-class Value(object):
-
-    def __init__(self, df, column, inverse=False):
-        self._df = df
-        self.column = column
-        self.inverse = inverse
-
-    def __call__(self, entry):
-        entry = entry.lower()
-        series = self._df[self.column].astype(str).str.lower()
-        bool_ix = series == entry
-        if self.inverse:
-            return self._df[~bool_ix]
-        return self._df[bool_ix]
-
-    def __getattr__(self, entry):
-        return self.__call__(entry)
-
-
-class Grouper(object):
-
-    def __init__(self, corpus, value_mode=False):
-        self.corpus = corpus
-        self.value_mode = value_mode
-
-    def __call__(self, attr):
-        if attr in {'file', 's', 'i'}:
-            if self.value_mode:
-                kwa = dict(self.corpus.get_level_values(attr))
-            else:
-                kwa = dict(level=[attr])
-        else:
-            if self.value_mode:
-                kwa = dict(self.corpus[attr])
-            else:
-                kwa = dict(by=[attr])
-        return self.corpus.groupby(**kwa)
-
-    def __getattr__(self, attr):
-        if attr == 'values':
-            return Grouper(self.corpus, value_mode=True)
-        return self(attr)
-
-    def sentences(self):
-        return self.corpus.groupby(level=['file', 's'])
-
-
-class Slice(ABC):
-
-    def __init__(self, df):
-        self._df = df
-        self._valid = list(df.columns)
-
-    def __getattr__(self, col):
-        short = get_short_name_from_long_name(col)
-        if short not in self._valid:
-            raise ValueError(f'Invalid name: {col}')
-        return self._grab(short)
-
-    @abstractmethod
-    def _grab(self, colname, *args):
-        raise NotImplementedError()
-
-@pd.api.extensions.register_dataframe_accessor('just')
-class Just(Slice):
-
-    def _grab(self, colname, *args):
-        return Value(self._df, colname)
-
-@pd.api.extensions.register_dataframe_accessor('skip')
-class Skip(Slice):
-
-    def _grab(self, colname, *args):
-        return Value(self._df, colname, inverse=True)
-
-
 class LoadedCorpus(pd.DataFrame, Corpus):
     """
     A corpus in memory
@@ -594,6 +468,34 @@ class LoadedCorpus(pd.DataFrame, Corpus):
 
     def load(self, *args, **kwargs):
         return self
+
+
+class Grouper(object):
+
+    def __init__(self, corpus, value_mode=False):
+        self.corpus = corpus
+        self.value_mode = value_mode
+
+    def __call__(self, attr):
+        if attr in {'file', 's', 'i'}:
+            if self.value_mode:
+                kwa = dict(self.corpus.get_level_values(attr))
+            else:
+                kwa = dict(level=[attr])
+        else:
+            if self.value_mode:
+                kwa = dict(self.corpus[attr])
+            else:
+                kwa = dict(by=[attr])
+        return self.corpus.groupby(**kwa)
+
+    def __getattr__(self, attr):
+        if attr == 'values':
+            return Grouper(self.corpus, value_mode=True)
+        return self(attr)
+
+    def sentences(self):
+        return self.corpus.groupby(level=['file', 's'])
 
 
 class Results(pd.Series, LoadedCorpus):
