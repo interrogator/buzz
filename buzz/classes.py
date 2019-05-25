@@ -1,15 +1,26 @@
+import json
 import os
+import re
+
+from abc import ABC, abstractmethod
+from collections import MutableSequence
+from functools import total_ordering
+import pandas as pd
+
 from .search import Searcher
 from .parse import Parser
 from .constants import CONLL_COLUMNS, LONG_NAMES
-from collections import MutableSequence
-from .utils import _to_df, _get_nlp, _strip_metadata, _set_best_data_types, _get_tqdm, _tqdm_close, _tqdm_update
+
+from .utils import (_to_df,
+                    _get_nlp,
+                    _strip_metadata,
+                    _set_best_data_types,
+                    _get_tqdm,
+                    _tqdm_close,
+                    _tqdm_update)
 from .views import _tabview, _table
 from .keys import _keywords
-import pandas as pd
-import re
-from functools import total_ordering
-import json
+
 
 tqdm = _get_tqdm()
 
@@ -480,28 +491,21 @@ def get_short_name_from_long_name(longname):
 
 class Value(object):
 
-    def __init__(self, corpus, column, inverse=False):
-        self.corpus = corpus
-        self.column = get_short_name_from_long_name(column)
+    def __init__(self, df, column, inverse=False):
+        self._df = df
+        self.column = column
         self.inverse = inverse
-        self.all = set(self.corpus[self.column].unique())
 
     def __call__(self, entry):
-        bool_ix = self.corpus[self.column].astype(object).str.lower() == entry.lower()
-        return self.corpus[bool_ix] if not self.inverse else self.corpus[~bool_ix]
+        entry = entry.lower()
+        series = self._df[self.column].astype(str).str.lower()
+        bool_ix = series == entry
+        if self.inverse:
+            return self._df[~bool_ix]
+        return self._df[bool_ix]
 
     def __getattr__(self, entry):
-        return Value(self.corpus, self.column)(entry=entry)
-
-
-class Slicer(object):
-
-    def __init__(self, corpus, inverse=False):
-        self.corpus = corpus
-        self.inverse = inverse
-
-    def __getattr__(self, attrib):
-        return Value(self.corpus, attrib, inverse=self.inverse)
+        return self.__call__(entry)
 
 
 class Grouper(object):
@@ -511,7 +515,7 @@ class Grouper(object):
         self.value_mode = value_mode
 
     def __call__(self, attr):
-        if attr in ['file', 's', 'i']:
+        if attr in {'file', 's', 'i'}:
             if self.value_mode:
                 kwa = dict(self.corpus.get_level_values(attr))
             else:
@@ -532,6 +536,35 @@ class Grouper(object):
         return self.corpus.groupby(level=['file', 's'])
 
 
+class Slice(ABC):
+
+    def __init__(self, df):
+        self._df = df
+        self._valid = list(df.columns)
+
+    def __getattr__(self, col):
+        short = get_short_name_from_long_name(col)
+        if short not in self._valid:
+            raise ValueError(f'Invalid name: {col}')
+        return self._grab(short)
+
+    @abstractmethod
+    def _grab(self, colname, *args):
+        raise NotImplementedError()
+
+@pd.api.extensions.register_dataframe_accessor('just')
+class Just(Slice):
+
+    def _grab(self, colname, *args):
+        return Value(self._df, colname)
+
+@pd.api.extensions.register_dataframe_accessor('skip')
+class Skip(Slice):
+
+    def _grab(self, colname, *args):
+        return Value(self._df, colname, inverse=True)
+
+
 class LoadedCorpus(pd.DataFrame, Corpus):
     """
     A corpus in memory
@@ -539,7 +572,7 @@ class LoadedCorpus(pd.DataFrame, Corpus):
     _internal_names = pd.DataFrame._internal_names
     _internal_names_set = set(_internal_names)
 
-    _metadata = ['reference', 'just', 'skip', 'storage', '_metadata_path']
+    _metadata = ['reference', 'storage', '_metadata_path']
     reference = None
     storage = dict()
     extra = []
@@ -555,12 +588,6 @@ class LoadedCorpus(pd.DataFrame, Corpus):
             elif os.path.isdir(data):
                 data = Corpus(data).load()
         super().__init__(data, **kwargs)
-        # ???
-        LoadedCorpus.reference = self
-
-        self.just = Slicer(self)
-        self.skip = Slicer(self, inverse=True)
-        self.by = Grouper(self)
 
     def __len__(self):
         return self.shape[0]
