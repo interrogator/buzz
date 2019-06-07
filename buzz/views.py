@@ -4,10 +4,10 @@ or as concordance lines, or as figures...
 """
 import pandas as pd
 import numpy as np
-from .utils import auto_window
+from .utils import _auto_window
 
 
-def make_match_col(df, show):
+def _make_match_col(df, show):
     if len(show) == 1:
         return df[show[0]]
     cats = [df[i].astype(str) for i in show[1:]]
@@ -49,8 +49,11 @@ def _tabview(self, window='auto', **kwargs):
     """
     # import here so it isnt required dependency
     from tabview import view
-    from .classes import Corpus, Results, Concordance, Frequencies
+    from .corpus import Corpus
+    from .conc import Concordance
+    from .dataset import Dataset
 
+    #todo
     if isinstance(self, Results):
         df = self._df()
         reference = self.reference
@@ -87,7 +90,7 @@ def _tabview(self, window='auto', **kwargs):
     if isinstance(window, int):
         window = [window, window]
     elif window == 'auto':
-        window = auto_window()
+        window = _auto_window()
     else:
         window = list(window)
 
@@ -109,12 +112,11 @@ def _tabview(self, window='auto', **kwargs):
     view(pd.DataFrame(df), **view_style)
 
 
-def lingres(ser, index):
+def _lingres(ser, index):
     """
     Appliable stats calculation
     """
     from scipy.stats import linregress
-
     ix = ['_slope', '_intercept', '_r', '_p', '_stderr']
     return pd.Series(linregress(index, ser.values), index=ix)
 
@@ -144,7 +146,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
                 df.index = df.index.astype(object)
             except:
                 pass
-        stats = df.apply(lingres, axis=0, index=n_column)
+        stats = df.apply(_lingres, axis=0, index=n_column)
         df = df.append(stats)
         df = df.replace([np.inf, -np.inf], 0.0)
 
@@ -192,7 +194,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
     return df
 
 
-def df_denom(col, df=False):
+def_ df_denom(col, df=False):
     """
     Don't know
     """
@@ -202,9 +204,9 @@ def df_denom(col, df=False):
         return 100.0
 
 
-def uncomma(row, df, df_show_col, gram_ix):
+def _uncomma(row, df, df_show_col, gram_ix):
     n = row.name
-    gramsize = str(row[gram_ix]).count(',')+1
+    gramsize = str(row[gram_ix]).count(',') + 1
     try:
         rel = df[n:n+gramsize, df_show_col]
         # todo: if df_show_col is list, do slash sep
@@ -214,9 +216,9 @@ def uncomma(row, df, df_show_col, gram_ix):
         return ''
 
 
-def make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
+def _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
 
-    from .classes import LoadedCorpus, Results
+    from .dataset import Dataset
 
     # default case, use self...
     if relative is True:
@@ -230,15 +232,17 @@ def make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
                                         aggfunc=sum)
         df = df.T * 100.0 / relative.sum(axis=1)
         df = df.T
+
     # if it is results, let us try to table it
-    elif isinstance(relative, (Results, LoadedCorpus)):
+    elif isinstance(relative, Dataset):
         relative = relative.table(subcorpora=subcorpora).sum(axis=1)
         df = df.T * 100.0 / relative
         df = df.T
 
     # if the user passed in some random df, try to work with it
+    # todo: delete
     elif isinstance(relative, pd.DataFrame):
-        df = df.apply(df_denom, axis=0, df=relative)
+        df = df.apply(_df_denom, axis=0, df=relative)
 
     if sort:
         ks = kwargs.get('keep_stats', False)
@@ -271,7 +275,7 @@ def _table(self,
     """
     Generate a result table view from Results, or a Results-like DataFrame
     """
-    from .classes import Frequencies
+    from .table import Table
     # we need access to reference corpus for freq calculation
     if hasattr(self, '_df'):
         df, reference = self._df(), self.reference.copy()
@@ -301,7 +305,7 @@ def _table(self,
     comma_ix = '_gram' in list(df.columns) and df._gram.values[0] is not False
     # if everything is very simple, add _match column
     if all(i in df.columns for i in show) and ngram is False and not comma_ix:
-        df['_match'] = make_match_col(df, show)
+        df['_match'] = _make_match_col(df, show)
     else:
         # make a minimal df for formatting
         # this bit of the code is performace critical, so it's really evil
@@ -309,7 +313,7 @@ def _table(self,
             # map column to position
             raise NotImplementedError
         elif comma_ix:
-            df['_match'] = df.apply(uncomma,
+            df['_match'] = df.apply(_uncomma,
                                     axis=1,
                                     raw=True,
                                     df=reference.values,
@@ -343,8 +347,8 @@ def _table(self,
         rap = kwargs.get('remove_above_p', False)
         df = _sort(df, by=sort, keep_stats=ks, remove_above_p=rap)
     else:
-        reference['_match'] = make_match_col(reference, show)
-        df = make_relative_df(df, relative, reference, subcorpora, sort, **kwargs)
+        reference['_match'] = _make_match_col(reference, show)
+        df = _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs)
 
     df.fillna(0, inplace=True)
 
@@ -354,4 +358,4 @@ def _table(self,
     except:
         pass
 
-    return Frequencies(df, reference=reference)
+    return Table(df, reference=reference)

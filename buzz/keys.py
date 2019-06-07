@@ -1,7 +1,8 @@
-from __future__ import print_function
 from collections import Counter
+
 import pandas as pd
 from .views import make_match_col
+from .dictionaries.bnc import _get_bnc
 
 
 def log_likelihood_measure(word_in_ref, word_in_target, ref_sum, target_sum):
@@ -57,7 +58,6 @@ def _get_reference_corpus(self, reference_corpus):
         if len(show) > 1:
             msg = 'Cannot do multiple show values with BNC reference reference corpus'
             raise NotImplementedError(msg)
-        from buzz.dictionaries.bnc import _get_bnc
         return df, _get_bnc()
     if isinstance(reference_corpus, (pd.Series, pd.DataFrame)):
         return df, reference_corpus
@@ -74,8 +74,10 @@ def _keywords(self,
               only_open_class=True,
               **kwargs):
 
-    from .classes import Frequencies, Corpus, File, Results
-    freq_calculated = type(self) == Frequencies
+    from .corpus import Corpus
+    from .file import File
+    from .table import Table
+    freq_calculated = type(self) == Table
     df, reference_corpus = _get_reference_corpus(self, reference_corpus)
 
     measures = dict(ll=log_likelihood_measure, pd=perc_diff_measure)

@@ -12,7 +12,9 @@ class Searcher(object):
     """
     def __init__(self, corpus):
         # really hate this code...
-        from .classes import File, Results, Corpus
+        from .file import File
+        from .corpus import Corpus
+        from .dataset import Dataset
         self.corpus = corpus
         # if we can't bring corpus into memory, we will use files
         if type(corpus) == Corpus and self.corpus.too_large_for_memory:
@@ -25,7 +27,7 @@ class Searcher(object):
             self.corpus = corpus.load()
             self.reference = self.corpus  # .copy()
         # if it's results, use the reference of that
-        elif type(corpus) == Results:
+        elif type(corpus) == Dataset:
             self.corpus = corpus._df()
             self.reference = corpus.reference
         # if it's just a dataframe, we can guess...
@@ -163,12 +165,11 @@ class Searcher(object):
         """
         Run query over dependencies
         """
-        from .classes import LoadedCorpus, Results
-        # get the full dataframe
-        if type(self.corpus) == Results:
-            df = self._df()
-        elif type(self.corpus) == LoadedCorpus:
-            df = self.corpus
+        from .dataset import Dataset
+
+        # todo: get the full dataframe
+        raise NotImplementedError()
+        df = self.corpus
 
         # create progress bar
         if self.corpus.is_loaded():

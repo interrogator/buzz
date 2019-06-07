@@ -121,7 +121,7 @@ class Skip(Slice):
 @pd.api.extensions.register_dataframe_accessor('see')
 class See(Slice):
     """
-    results.view.lemma.by.speaker: make table
+    results.see.lemma.by.speaker: make table
     """
     def _grab(self, colname):
         return Interim(self._df, colname)
@@ -130,8 +130,8 @@ class See(Slice):
 @pd.api.extensions.register_dataframe_accessor('find')
 class Find(Slice):
     """
-    corpus.search('l', regex)
-    corpus.search.lemmata(regex)
+    corpus.find('l', regex)
+    corpus.find.lemmata(regex)
     """
     def _grab(self, target):
         return Finder(self._df, target)

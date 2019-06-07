@@ -4,7 +4,7 @@ import argparse
 from .classes import Corpus
 
 """
-A script to parse using corpkit
+A script to parse using buzz
 
 :Example:
 

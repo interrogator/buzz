@@ -1,26 +1,11 @@
 import pandas as pd
+from .conc import Concordance
 from .constants import CONLL_COLUMNS
-from .views import make_match_col
-
-"""
-Search results are DataFrame like objects
-"""
+from .views import _make_match_col
+from .utils import _auto_window
 
 
-def resize_by_window_size(df, window):
-    df.is_copy = False
-    if isinstance(window, int):
-        df['left'] = df['left'].str.rjust(window)
-        df['right'] = df['right'].str.ljust(window)
-        df['match'] = df['match'].str.ljust(df['match'].str.len().max())
-    else:
-        df['left'] = df['left'].str.rjust(window[0])
-        df['right'] = df['right'].str.ljust(window[-1])
-        df['match'] = df['match'].str.ljust(df['match'].str.len().max())
-    return df
-
-
-def apply_conc(line, allwords, window):
+def _apply_conc(line, allwords, window):
     middle, n = line['_match'], line['_n']
     start = max(n - window[0], 0)
     end = min(n+window[1], len(allwords)-1)
@@ -42,8 +27,7 @@ def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs
     n = max(n, len(df))
 
     if window == 'auto':
-        from .utils import auto_window
-        window = auto_window()
+        window = _auto_window()
     if isinstance(window, int):
         window = [window, window]
 
@@ -54,7 +38,7 @@ def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs
     except ValueError:
         ix = ['file', 's', 'i']
         df = pd.DataFrame(df).drop(ix, axis=1, errors='ignore').reset_index()
-    finished = df.apply(apply_conc, axis=1, allwords=reference['w'].values, window=window)
+    finished = df.apply(_apply_conc, axis=1, allwords=reference['w'].values, window=window)
 
     finished.columns = ['left', 'match', 'right']
     finished = finished[['left', 'match', 'right']]
@@ -70,5 +54,4 @@ def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs
     except:
         pass
 
-    from .classes import Concordance
-    return Concordance(finished, reference)
+    return Concordance(finished)

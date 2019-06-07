@@ -1,15 +1,21 @@
 import re
 import os
+import shlex
+import shutil
 
 from io import StringIO
+
 import pandas as pd
 from nltk.tree import ParentedTree
+from tqdm import tqdm, tqdm_notebook
 
-from .constants import CONLL_COLUMNS, DTYPES, LONG_NAMES
+from .constants import DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
 
 
 def _get_tqdm():
-    from tqdm import tqdm, tqdm_notebook
+    """
+    Get either the IPython or regular version of tqdm
+    """
     try:
         if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
             return tqdm_notebook
@@ -18,24 +24,42 @@ def _get_tqdm():
     return tqdm
 
 
+def _tree_once(df):
+    """
+    Get each parse tree once, probably so we can run nltk.ParentedTree on them
+    """
+    return df['parse'][df.index.get_level_values('i')==1]
+
+
 def _tqdm_update(tqdm):
+    """
+    Try to update tqdm, or do nothing
+    """
     if tqdm is not None:
         tqdm.update(1)
 
 
 def _tqdm_close(tqdm):
+    """
+    Try to close tqdm, or do nothing
+    """
     if tqdm is not None:
         tqdm.close()
 
 
-def auto_window():
-    import shutil
+def _auto_window():
+    """
+    Get concordance left and right optimal size
+    """
     columns = shutil.get_terminal_size().columns
     size = (columns / 2) * 0.60
     return [int(size), int(size)]
 
 
 def _set_best_data_types(df):
+    """
+    Make DF have the best possible column data types
+    """
     for c in list(df.columns):
         if c == 'g' or df[c].dtype.name.startswith('date'):
             continue
@@ -51,6 +75,9 @@ def _set_best_data_types(df):
 
 
 def _make_tree(tree):
+    """
+    Try to make a tree from this string, or return None
+    """
     try:
         return ParentedTree.fromstring(tree)
     except:
@@ -58,13 +85,13 @@ def _make_tree(tree):
 
 
 def _get_nlp(language='english'):
-    try:
-        import spacy
-    except ImportError:
-        raise NotImplementedError('spaCy not installed')
-
+    """
+    Get spaCy
+    """
+    import spacy
     langs = dict(english='en', german='de')
     lang = langs.get(language, language)
+    
     try:
         return spacy.load(lang)
     except OSError:
@@ -74,6 +101,9 @@ def _get_nlp(language='english'):
 
 
 def _strip_metadata(text):
+    """
+    Remove metadata html from a string
+    """
     from .constants import MAX_SPEAKERNAME_SIZE
     idregex = re.compile(r'(^[A-Za-z0-9-_]{,%d}?):' % MAX_SPEAKERNAME_SIZE, re.MULTILINE)
     text = re.sub(idregex, '', text)
@@ -83,6 +113,9 @@ def _strip_metadata(text):
 
 
 def cast(text):
+    """
+    Attempt to get object from JSON string, or return the string
+    """
     import json
     try:
         return json.loads(text)
@@ -90,7 +123,7 @@ def cast(text):
         return text
 
 
-def make_csv(raw_lines, fname, meta, subcorpus=None, lt=True):
+def _make_csv(raw_lines, fname, meta, subcorpus=None, lt=True):
     """
     Take one CONLL-U file and add all metadata to each row
     Return: str (CSV data) and list of dicts (sent level metadata)
@@ -131,19 +164,19 @@ def _to_df(corpus,
         pd.DataFrame: 3d array representation of file data
 
     """
-    from .classes import Subcorpus
+    from .corpus import Subcorpus
     with open(corpus.path, 'r') as fo:
         data = fo.read().strip('\n')
 
     # metadata that applies filewide
     file_meta = dict(f=corpus.name)
 
-    subcorpus = corpus.container.name if type(corpus.container) == Subcorpus else None
+    subcorpus = None
     file_meta['subcorpus'] = subcorpus
 
     cname = corpus.path.split('.')[0].split('/', 1)[-1]
 
-    data, metadata = make_csv(data, cname, file_meta, subcorpus=corpus.container.name, lt=load_trees)
+    data, metadata = _make_csv(data, cname, file_meta, subcorpus=corpus.container.name, lt=load_trees)
     data = StringIO(data)
 
     col_names = ['file', 's', 'i', 'w', 'l', 'x', 'p', 'm', 'g', 'f', 'e', 'o']
@@ -196,65 +229,66 @@ def _to_df(corpus,
     return df
 
 
-def saferead(path):
-    """
-    Read a file with detect encoding
-
-    Returns:
-        text and its encoding
-    """
-    import chardet
-    import sys
-    if sys.version_info.major == 3:
-        enc = 'utf-8'
-        try:
-            with open(path, 'r', encoding=enc) as fo:
-                data = fo.read()
-        except:
-            with open(path, 'rb') as fo:
-                data = fo.read().decode('utf-8', errors='ignore')
-        return data, enc
-    else:
-        with open(path, 'r') as fo:
-            data = fo.read()
-        try:
-            enc = 'utf-8'
-            data = data.decode(enc)
-        except UnicodeDecodeError:
-            enc = chardet.detect(data)['encoding']
-            data = data.decode(enc, errors='ignore')
-        return data, enc
-
-
-def partition(lst, n):
-    """
-    Divide a lst or dataframe into n chunks
-    """
-    from .classes import Corpus
-    if isinstance(lst, pd.DataFrame):
-        import numpy as np
-        return np.array_split(lst, n)
-    if isinstance(lst, Corpus):
-        lst = lst.filepaths
-    q, r = divmod(len(lst), n)
-    indices = [q*i + min(i, r) for i in range(n+1)]
-    chunks = [lst[indices[i]:indices[i+1]] for i in range(n)]
-    divved = [i for i in chunks if len(i)]
-    return divved
-
-
-def timestring(text):
-    """
-    Print with time prepended
-    """
-    from time import localtime, strftime
-    thetime = strftime("%H:%M:%S", localtime())
-    print('%s: %s' % (thetime, text.lstrip()))
-
-
 def _get_short_name_from_long_name(longname):
     revers = dict()
     for k, vs in LONG_NAMES.items():
         for v in vs:
             revers[v] = k
     return revers.get(longname, longname)
+
+
+def _make_meta_dict_from_sent(text):
+    from .utils import cast
+    metad = dict()
+    if '<metadata' in text:
+        relevant = text.strip().rstrip('>').rsplit('<metadata ', 1)
+        try:
+            shxed = shlex.split(relevant[-1])
+        except:
+            shxed = relevant[-1].split("' ")
+        for m in shxed:
+            try:
+                k, v = m.split('=', 1)
+                v = v.replace(u"\u2018", "'").replace(u"\u2019", "'")
+                v = v.strip("'").strip('"')
+                metad[k] = cast(v)
+            except ValueError:
+                continue
+    # speaker seg part
+    regex = r'(^[a-zA-Z0-9-_]{,%d}?):..+' % MAX_SPEAKERNAME_SIZE
+    speaker_regex = re.compile(regex)
+    match = re.search(speaker_regex, text)
+    if not match:
+        return metad
+    speaker = match.group(1)
+    metad['speaker'] = speaker
+    return metad
+
+
+def _get_metadata(stripped,
+                 original,
+                 sent_offsets,
+                 first_line=False,
+                 has_fmeta=False):
+    """
+    Take offsets and get a speaker ID or metadata from them
+    """
+    if not stripped and not original:
+        return dict()
+
+    # are we getting file or regular metadata?
+    if not first_line:
+        start, end = sent_offsets
+    else:
+        start = 0
+
+    # get all stripped text before the start of the sent we want
+    cut_old_text = stripped[:start].strip()
+    # count how many newlines are in the preceding text
+    line_index = cut_old_text.count('\n')
+    if has_fmeta and not first_line:
+        line_index += 1
+    if first_line:
+        line_index = 0
+    text_with_meta = original.splitlines()[line_index]
+    return _make_meta_dict_from_sent(text_with_meta)
