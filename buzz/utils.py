@@ -50,7 +50,7 @@ def _set_best_data_types(df):
     return df
 
 
-def maketree(tree):
+def _make_tree(tree):
     try:
         return ParentedTree.fromstring(tree)
     except:

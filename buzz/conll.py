@@ -3,7 +3,7 @@ import re
 from .constants import MAX_SPEAKERNAME_SIZE
 
 
-def make_meta_dict_from_sent(text):
+def _make_meta_dict_from_sent(text):
     from .utils import cast
     metad = dict()
     if '<metadata' in text:
@@ -31,7 +31,7 @@ def make_meta_dict_from_sent(text):
     return metad
 
 
-def get_metadata(stripped,
+def _get_metadata(stripped,
                  original,
                  sent_offsets,
                  first_line=False,
@@ -57,4 +57,4 @@ def get_metadata(stripped,
     if first_line:
         line_index = 0
     text_with_meta = original.splitlines()[line_index]
-    return make_meta_dict_from_sent(text_with_meta)
+    return _make_meta_dict_from_sent(text_with_meta)

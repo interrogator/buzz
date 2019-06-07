@@ -1,10 +1,12 @@
 import json
 import os
+import psutil
 import re
 
 from collections import MutableSequence
 from functools import total_ordering
 import pandas as pd
+from nltk.tree import ParentedTree
 
 from .search import Searcher
 from .parse import Parser
@@ -17,7 +19,8 @@ from .utils import (_to_df,
                     _set_best_data_types,
                     _get_tqdm,
                     _tqdm_close,
-                    _tqdm_update)
+                    _tqdm_update,
+                    _make_tree)
 from .views import _tabview, _table
 from .keys import _keywords
 
@@ -96,16 +99,25 @@ class Corpus(MutableSequence):
         self._metadata_path = os.path.join(self.path, '.metadata.json')
 
     def is_loaded(self):
+        """
+        Return whether or not the corpus is loaded in memory
+        """
         return type(self) == LoadedCorpus
 
     @property
     def metadata(self):
+        """
+        Metadata dict for this corpus. Generate if it's not there
+        """
         if not os.path.isfile(self._metadata_path):
             return self._generate_metadata()
         with open(self._metadata_path, 'r') as fo:
             return json.load(fo)
 
     def _generate_metadata(self):
+        """
+        Create, store and return the metadata for this corpus
+        """
         meta = dict(language='english',
                     parser='spacy',
                     cons_parser='benepar',
@@ -117,10 +129,15 @@ class Corpus(MutableSequence):
                     ntokens=-1,
                     nfiles=len(self.files),
                     desc='')
-        self.add_metadata(meta)
+        self.add_metadata(**meta)
         return meta
 
-    def add_metadata(self, value):
+    def add_metadata(self, **pairs):
+        """
+        Add key-value pairs to metadata for this corpus
+
+        Return the complete metadata dict
+        """
         must_exist = {'name',
                       'desc',
                       'parsed',
@@ -131,31 +148,47 @@ class Corpus(MutableSequence):
                       'parser',
                       'cons_parser'}
         if not all(i in value for i in must_exist):
-            not_there = must_exist - value.keys()
+            not_there = must_exist - pairs.keys()
             raise ValueError('Fields must exist: {}'.format(not_there))
         with open(self._metadata_path, 'w') as fo:
-            json.dump(value, fo, sort_keys=True, indent=4, separators=(',', ': '))
+            json.dump(pairs, fo, sort_keys=True, indent=4, separators=(',', ': '))
         return self.metadata
 
     def concordance(self, target='w', query='.*', show=['w'], subcorpora='file', **kwargs):
+        """
+        Run a search and generate a concordancce over the result. Ideally however, the user does a
+        search and then concordances the Results object.
+        """
         results = Searcher(self).run(target, query, **kwargs)
         return results.conc(show=show, subcorpora=subcorpora, **kwargs)
 
     def conc(self, *args, **kwargs):
+        """
+        Backward-compatible name, same as `concordance`
+        """
         return self.concordance(*args, **kwargs)
 
     def _check_if_too_large(self, passed_in):
+        """
+        Return a judgement of whether or not this corpus can be stored safely in memory
+        """
         if passed_in is False:
             return False
-        size = sum(os.path.getsize(os.path.join(dirpath, filename)) for dirpath, dirnames, filenames in os.walk('.') for filename in filenames)
-        import psutil
+        size = sum(os.path.getsize(os.path.join(dirpath, filename))
+            for dirpath, dirnames, filenames in os.walk('.') for filename in filenames)
         free_mem = psutil.virtual_memory().free
         return size * 10 > free_mem
 
-    def table(self, *args, **kwargs):
-        return _table(self, *args, **kwargs)
+    def table(self, subcorpora='default', show=['w'], *args, **kwargs):
+        """
+        Turn this corpus into a matrix, with subcorpora as rows and show as columns
+        """
+        return _table(self, subcorpora, show, *args, **kwargs)
 
     def keywords(self, *args, **kwargs):
+        """
+        Get table of keywords for this corpus
+        """
         return _keywords(self, *args, **kwargs)
 
     def __repr__(self):
@@ -170,11 +203,15 @@ class Corpus(MutableSequence):
         return '{} ({}{}): {} subcorpora, {} files>'.format(*form)
 
     def tabview(self, *args, **kwargs):
+        """
+        Interactively explore the corpus with tabview
+        """
         return _tabview(self, *args, **kwargs)
 
     def _understand_input(self, input_data):
         """
-        Figure out what was passed in and process it correctly
+        `Corpus()` accepts path to dir, path to file, list of files, or buzz objects. Figure out
+        what was passed in to `Corpus()` and process it correctly, determining path, filelist, etc.
         """
         if isinstance(input_data, str):
             input_data = os.path.expanduser(input_data)
@@ -204,9 +241,15 @@ class Corpus(MutableSequence):
         self.filepaths = Contents([i.path for i in self.files])
 
     def _prepare_spacy(self, language='en'):
+        """
+        Load NLP analysis component
+        """
         self.nlp = _get_nlp(language=language)
 
     def spacy(self, language='en', **kwargs):
+        """
+        Get spacy's model of the Corpus
+        """
         return self.load(spacy=True, language=language, **kwargs)
 
     def __len__(self):
@@ -214,7 +257,7 @@ class Corpus(MutableSequence):
 
     def __getitem__(self, i):
         """
-        Customise what indexing/loopup does for Corpus objects
+        Customise what indexing/lookup does for Corpus objects
         """
         to_iter = self.list
         if isinstance(i, str):
@@ -243,14 +286,14 @@ class Corpus(MutableSequence):
 
     def __getattr__(self, name):
         """
-        Attribute style access to subcorpora/files, preferring former
+        Attribute style access to subcorpora/files, preferring subcorpora when available
         """
         if self.subcorpora:
             return next((i for i in self.subcorpora if i.name == name), None)
         gen = (i for i in self.files if os.path.splitext(i.name)[0] == name)
         return next(gen, None)
 
-    def get_container(self, subcorpus_path, corpus_path):
+    def _get_container(self, subcorpus_path, corpus_path):
         if os.path.samefile(subcorpus_path, corpus_path):
             return self
         else:
@@ -267,7 +310,7 @@ class Corpus(MutableSequence):
                 if not filename.endswith(('conll', 'conllu', 'txt')):
                     continue
                 fpath = os.path.join(root, filename)
-                container = self.get_container(root, self.path)
+                container = self._get_container(root, self.path)
                 fpath = File(fpath, root=self.path, container=container)
                 files.append(fpath)
             for directory in dirnames:
@@ -291,15 +334,20 @@ class Corpus(MutableSequence):
 
     def load(self, spacy=False, combine=False, load_trees=False, **kwargs):
         """
-        Load a Corpus into memory
+        Load a Corpus into memory.
+
+        spacy: also load the spacy model
+        combine:
         """
+
+        # progress indicator
         kwa = dict(ncols=120,
                    unit='file',
                    desc='Loading',
                    total=len(self))
-
         t = tqdm(**kwa) if len(self) > 1 else None
 
+        # load each file and add to list, indicating progress
         loaded = list()
         for file in self.files:
             if not combine:
@@ -311,18 +359,18 @@ class Corpus(MutableSequence):
             _tqdm_update(t)
         _tqdm_close(t)
 
+        # 
         if combine and not self.nlp:
             self._prepare_spacy()
             loaded = _strip_metadata('\n'.join(loaded))
             return self.nlp(loaded)
 
+        # for parsed corpora, we merge each file contents into one huge dataframe as LoadedCorpus
         if self.is_parsed:
             df = pd.concat(loaded, sort=False)
             if load_trees:
                 tree_once = self.tree_once(df)
                 if isinstance(tree_once.values[0], str):
-                    from nltk.tree import ParentedTree
-                    from .utils import maketree
                     df['parse'] = tree_once.apply(maketree)
 
             df = df.drop('_n', axis=1, errors='ignore')
@@ -330,13 +378,18 @@ class Corpus(MutableSequence):
             df['_n'] = range(len(df))
             df = df[col_order + ['_n']]
             df = _set_best_data_types(df)
-            return LoadedCorpus(self.order_columns(df))
+            return LoadedCorpus(self._order_columns(df))
+        # for unparsed corpora, we give a dict of {path: text}
         else:
             from collections import OrderedDict
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
     @staticmethod
-    def order_columns(df):
+    def _order_columns(df):
+        """
+        Put Corpus columns in best possible order. This means, follow CONLL-U, then metadata.
+        At the end we add _n, a helper column that is just a range index
+        """
         proper_order = CONLL_COLUMNS[1:]
         fixed = [i for i in proper_order if i in list(df.columns)]
         met = list(sorted([i for i in list(df.columns) if i not in proper_order]))
@@ -371,6 +424,9 @@ class Corpus(MutableSequence):
 
 
 def _tree_once(df):
+    """
+    Get each parse tree once, probably so we can run nltk.ParentedTree on them
+    """
     return df['parse'][df.index.get_level_values('i')==1]
 
 
@@ -406,11 +462,17 @@ class File(Corpus):
         return not self == other
 
     def to_df(self, **kwargs):
+        """
+        If parsed, return the dataframe with CONLL columns
+        """
         if not self.is_parsed:
             raise NotImplementedError('Needs to be parsed.')
         return _to_df(self, **kwargs)
 
     def load(self, spacy=False, language='en', **kwargs):
+        """
+        Load into memory, optionally with spacy model included
+        """
         if spacy:
             self.nlp = _get_nlp(language=language)
         if self.is_parsed and not spacy:
@@ -431,7 +493,12 @@ class File(Corpus):
         return self.nlp(text)
 
     def read(self, **kwargs):
-        return open(self.path, 'r').read()
+        """
+        Get the file contents as string
+        """
+        with open(self.path, 'r') as fo:
+            data = fo.read()
+        return data
 
     def __repr__(self):
         parsed = 'parsed' if self.is_parsed else 'unparsed'
@@ -576,7 +643,7 @@ class Results(pd.Series, LoadedCorpus):
 
 class Frequencies(pd.DataFrame):
     """
-    A corpus in memory
+    A dataframe of absolute or relative frequencies
     """
     _internal_names = pd.DataFrame._internal_names + ['reference']
     _internal_names_set = set(_internal_names)
@@ -604,7 +671,7 @@ class Frequencies(pd.DataFrame):
 
 class Concordance(pd.DataFrame):
     """
-    A corpus in memory
+    A dataframe holding left, match and right columns, plus optional metadata
     """
     _internal_names = pd.DataFrame._internal_names + ['reference']
     _internal_names_set = set(_internal_names)

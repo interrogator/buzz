@@ -3,7 +3,7 @@ import shutil
 import fnmatch
 
 from .utils import _strip_metadata, _get_tqdm, _tqdm_close, _tqdm_update
-from .conll import get_metadata
+from .conll import _get_metadata
 
 import nltk
 
@@ -147,7 +147,7 @@ class Parser(object):
                 plain = fo.read().strip()
             stripped_data = _strip_metadata(plain)
             doc = self.nlp(stripped_data)
-            file_meta = get_metadata(stripped_data,
+            file_meta = _get_metadata(stripped_data,
                                      plain,
                                      False,
                                      first_line=True)
@@ -172,7 +172,7 @@ class Parser(object):
                     parse = parse.replace('\n', ' ')
                     sent_meta['parse'] = parse
 
-                extra_meta = get_metadata(stripped_data,
+                extra_meta = _get_metadata(stripped_data,
                                           plain,
                                           (sent.start_char, sent.end_char),
                                           first_line=False,
@@ -256,7 +256,7 @@ class Parser(object):
 
             for ix, sent in df.groupby(level='s'):
                 offsets = (sent['start'].values[0], sent['end'].values[0])
-                metad = get_metadata(stripped, raw, offsets)
+                metad = _get_metadata(stripped, raw, offsets)
                 output = '# sent_id = %d\n# sent_len = %d\n# parser = features\n' % (ix, len(sent))
                 for k, v in sorted(metad.items()):
                     output += '# %s = %s\n' % (k, v)

@@ -258,35 +258,6 @@ def make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
     return df
 
 
-class Frequencies(pd.DataFrame):
-    """
-    A corpus in memory
-    """
-    _internal_names = pd.DataFrame._internal_names + ['reference']
-    _internal_names_set = set(_internal_names)
-
-    _metadata = ['reference', 'path', 'name']
-
-    @property
-    def _constructor(self, **kwargs):
-        return Frequencies
-
-    def keywords(self, *args, **kwargs):
-        from .utils import _keywords
-        return _keywords(self, *args, **kwargs)
-
-    def __init__(self, data=False, reference=None, **kwargs):
-        super().__init__(data, **kwargs)
-        self.reference = reference if reference is not None else data.copy()
-
-    def tabview(self, *args, **kwargs):
-        return _tabview(self, *args, **kwargs)
-
-    def sort(self, *args, **kwargs):
-        from .views import _sort
-        return _sort(self, *args, **kwargs)
-
-
 def _table(self,
            subcorpora='default',
            show=['w'],
@@ -300,8 +271,8 @@ def _table(self,
     """
     Generate a result table view from Results, or a Results-like DataFrame
     """
+    from .classes import Frequencies
     # we need access to reference corpus for freq calculation
-    #  from classes import Corpus, File, Frequencies, Concordance, Results
     if hasattr(self, '_df'):
         df, reference = self._df(), self.reference.copy()
     else:
