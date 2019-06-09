@@ -9,7 +9,7 @@ setup(name='buzz',
       zip_safe=False,
       packages=['buzz'],
       scripts=['buzz/parse'],
-
+      setup_requires=['cython', 'numpy'],
       package_data={'buzz': ['*.sh',
                              'buzz/*.sh',
                              '*.p',
