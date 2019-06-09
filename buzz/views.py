@@ -194,7 +194,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
     return df
 
 
-def_ df_denom(col, df=False):
+def _df_denom(col, df=False):
     """
     Don't know
     """

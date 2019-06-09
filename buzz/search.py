@@ -3,7 +3,7 @@ from nltk.tgrep import tgrep_compile
 
 from .query import depgrep_compile
 
-from .utils import maketree, _get_tqdm, _tqdm_update, _tqdm_close
+from .utils import _make_tree, _get_tqdm, _tqdm_update, _tqdm_close
 
 
 class Searcher(object):

@@ -2,7 +2,6 @@ import os
 
 import pandas as pd
 
-from .corpus import Corpus
 from .slice import Just, Skip, See
 from .views import _tabview
 
@@ -25,6 +24,7 @@ class Dataset(pd.DataFrame):
             if os.path.isfile(data):
                 data = File(data).load()
             elif os.path.isdir(data):
+                from .corpus import Corpus
                 data = Corpus(data).load()
         super().__init__(data, **kwargs)
 

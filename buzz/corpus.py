@@ -98,8 +98,7 @@ class Corpus(MutableSequence):
               parser: str = 'spacy',
               cons_parser: str = 'benepar',
               language: str = 'english',
-              multiprocess: bool = False,
-              **kwargs) -> Corpus:
+              **kwargs):
         """
         Parse a plaintext corpus
         """
@@ -107,7 +106,7 @@ class Corpus(MutableSequence):
         if os.path.isdir(parsed_path) or self.path.endswith(('-parsed', 'conll', 'conllu')):
             raise ValueError('Corpus is already parsed.')
         self.parser = Parser(self, parser=parser, cons_parser=cons_parser, language=language)
-        return self.parser.run(self, multiprocess=multiprocess, **kwargs)
+        return self.parser.run(self, **kwargs)
 
     def load(self, spacy: bool = False, combine: bool = False, load_trees: bool = False, **kwargs):
         """
