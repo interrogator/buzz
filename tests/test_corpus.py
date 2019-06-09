@@ -88,6 +88,19 @@ class TestCorpus(unittest.TestCase):
         # todo
         pass
 
+    def test_conc(self):
+        self.loaded = self.parsed.load()
+        book = self.loaded.just.lemmata.book
+        conc = book.conc(show=['w', 'p'])
+        self.assertTrue(all(i in conc.columns for i in ['left', 'match', 'right']))
+        self.assertTrue(conc.iloc[0, 0].endswith('A major theme in the'))
+        self.assertTrue(conc.iloc[0, 1].endswith('book/NN'))
+        self.assertTrue(conc.iloc[0, 2].startswith('is abandonment followed by fostering'))
+
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
