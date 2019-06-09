@@ -64,8 +64,3 @@ class File(Corpus):
         with open(self.path, 'r') as fo:
             data = fo.read()
         return data
-
-    def __repr__(self):
-        parsed = 'parsed' if self.is_parsed else 'unparsed'
-        rep = super().__repr__().rstrip('>')
-        return f'{rep} ({self.no_ext}, {parsed})>'

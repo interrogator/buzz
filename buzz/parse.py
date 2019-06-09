@@ -27,7 +27,7 @@ class Phony(object):
         return str(self.word)
 
 
-class Parser(object):
+class Parser:
     """
     Create an object that can parse a Corpus.
     """
@@ -38,13 +38,6 @@ class Parser(object):
         self.language = language
         self.ntokens = -1
         self.nsents = -1
-        super(Parser, self).__init__()
-
-    def unimplemented(self):
-        """
-        For things not yet done
-        """
-        raise NotImplementedError
 
     def spacy_prepare(self):
         self.nlp = _get_nlp()
@@ -119,7 +112,7 @@ class Parser(object):
         ntokens = 0
         nsents = 0
         t = tqdm(**kwa) if len(fs) > 1 else None
-        for file_num, path in enumerate(fs, start=1):
+        for file_num, path in enumerate(sorted(fs), start=1):
 
             with open(path, 'r') as fo:
                 plain = fo.read().strip()
@@ -187,8 +180,11 @@ class Parser(object):
                 output.append('\n'.join(sent_parts))
 
             output = '\n\n'.join(output).strip() + '\n'
+
             outpath = path.replace(self.corpus_name, self.corpus_name + '-parsed')
             outpath = outpath.rstrip('.') + '.conllu'
+            os.makedirs(os.path.split(outpath)[0], exist_ok=True)
+            self.made_new_dir = True
 
             with open(outpath, 'w') as fo:
                 fo.write(output)
@@ -203,7 +199,6 @@ class Parser(object):
         return dict(language=self.language,
                     parser=self.parser,
                     cons_parser=self.cons_parser,
-                    copula_head=self.copula_head,
                     path=self.parsed_path,
                     name=self.corpus_name,
                     parsed=True,
@@ -212,7 +207,7 @@ class Parser(object):
                     nfiles=len(self.plain_corpus.files),
                     desc=description)
 
-    def run(self, corpus, out_dir: str = '.'):
+    def run(self, corpus):
         """
         Run the parsing pipeline
 
@@ -224,23 +219,16 @@ class Parser(object):
         """
         from .corpus import Corpus
         self.plain_corpus = corpus
+        assert not corpus.is_parsed
         self.trees = bool(self.cons_parser)
         self.corpus_name = corpus.name
 
         # name for final corpus folder
         self.parsed_name = corpus.name + '-parsed'
-        # dir to put parsed corpus in
-        self.out_dir = out_dir
-        # full path to final parsed corpus
-        self.parsed_path = os.path.join(self.out_dir, self.parsed_name)
+        self.parsed_path = corpus.path + '-parsed'
 
         if os.path.isdir(self.parsed_path):
             raise OSError(f'Path already exists: {self.parsed_path}')
-
-        os.makedirs(self.out_dir, exist_ok=True)
-        shutil.copytree(self.plain_corpus.path, self.parsed_path,
-                        ignore=shutil.ignore_patterns('*.*'))
-        self.made_new_dir = True
 
         try:
             prepared = self.prepare_parser()
@@ -254,5 +242,5 @@ class Parser(object):
 
         parsed = Corpus(self.parsed_path)
         metadata = self._make_metadata(None)
-        parsed.add_metadata(metadata)
+        parsed.add_metadata(**metadata)
         return parsed

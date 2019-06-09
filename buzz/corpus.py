@@ -1,3 +1,4 @@
+import json
 import os
 from collections import MutableSequence
 
@@ -20,7 +21,6 @@ from .utils import (_to_df,
 tqdm = _get_tqdm()
 
 
-
 class Corpus(MutableSequence):
     """
     Model a collection of plain text or CONLL-U files.
@@ -36,42 +36,45 @@ class Corpus(MutableSequence):
             raise ValueError(f'Not a valid path: {path}')
         self.path = path
         self._metadata_path = os.path.join(self.path, '.metadata.json')
-        self.name = os.path.basename(path)
+        self.filename = os.path.basename(path)
+        self.name = os.path.splitext(self.filename)[0]
         self.subcorpora, self.files, self.is_parsed = self._get_subcorpora_and_files()
         self.filepaths = Contents([i.path for i in self.files])
         self.nlp = None
+        self.iterable = self.subcorpora if self.subcorpora else self.files
 
     def __len__(self):
-        return len(self.list)
+        return len(self.iterable)
+
+    def __lt__(self, other):
+        if not isinstance(other, self.__class__):
+            raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
+        return self.name < other.name
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
+        return self.path < other.path
+
+    def __repr__(self):
+        parsed = 'parsed' if self.is_parsed else 'unparsed'
+        form = [super().__repr__().rstrip('>'), self.path, parsed]
+        return '{} ({}, {})>'.format(*form)
 
     def __getitem__(self, i):
         """
         Customise what indexing/loopup does for Corpus objects
         """
-        to_iter = self.list
-        if isinstance(i, str):
-            # dict style lookup of files when there are no subcorpora
-            return next((s for s in to_iter if s.name.split('.', 1)[0] == i), None)
-        # allow user to pass in a regular expression and get all matching names
-        try:
-            pattern_type = re._pattern_type
-        except:
-            pattern_type = re.Pattern
-        if isinstance(i, pattern_type):
-            return Corpus([s for s in to_iter if re.search(i, s.name.split('.', 1)[0])], path=self.path, name=self.name)
-        # normal indexing and slicing
-        if isinstance(i, slice):
-            return Corpus(to_iter[i], path=self.path, name=self.name)
-        return to_iter[i]
+        return self.iterable[i]
 
     def __delitem__(self, i):
-        del self.list[i]
+        del self.iterable[i]
 
     def __setitem__(self, i, v):
-        self.list[i] = v
+        self.iterable[i] = v
 
     def insert(self, i, v):
-        self.list.insert(i, v)
+        self.iterable.insert(i, v)
 
     def __getattr__(self, name):
         """
@@ -132,7 +135,7 @@ class Corpus(MutableSequence):
                       'language',
                       'parser',
                       'cons_parser'}
-        if not all(i in value for i in must_exist):
+        if not all(i in pairs for i in must_exist):
             not_there = must_exist - pairs.keys()
             raise ValueError('Fields must exist: {}'.format(not_there))
         with open(self._metadata_path, 'w') as fo:
@@ -233,6 +236,7 @@ class Corpus(MutableSequence):
         """
         Helper to set subcorpora and files
         """
+        from .file import File
         subcorpora = list()
         files = list()
         for root, dirnames, filenames in os.walk(self.path):

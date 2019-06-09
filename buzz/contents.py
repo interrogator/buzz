@@ -13,34 +13,54 @@ class Contents(MutableSequence):
         return str(self.list)
 
     def __len__(self):
-        if not self.list:
-            return 0
         return len(self.list)
 
     def __bool__(self):
         return True if self.list else False
 
-    def __getattr__(self, name):
+    @staticmethod
+    def _no_ext_name(name):
+        """
+        Get name without extension
+        """
+        return name.rsplit('.', 1)[0]
+
+    @staticmethod
+    def _try_to_get_same(name):
+        return next((i for i in self.list if self._no_ext_name(i.name) == attr), None)     
+
+    def __getattr__(self, attr):
         """
         Attribute style access to subcorpora/files, preferring former
         """
-        return next((i for i in self.list if i.no_ext == name), None)
+        found = self._try_to_get_same(attr)
+        if found:
+            return found
+        raise AttributeError(f'No attribute: {attr}')
 
     def __getitem__(self, i):
-        to_iter = self.list
-        if isinstance(i, str):
-            # dict style lookup of files when there are no subcorpora
-            return next((s for s in to_iter if s.name.rsplit('.', 1)[0] == i), None)
+        """
+        dict style lookup of files
+        """
+        if isinstance(i, int):
+            return self.list[i]
 
-        from .corpus import Corpus
+        if isinstance(i, str):
+            found = self._try_to_get_same(i)
+            if found:
+                return found
+            raise KeyError(f'No such file: {i}')
+
         # allow user to pass in a regular expression and get all matching names
         if isinstance(i, re._pattern_type):
-            it = [s for s in to_iter if re.search(i, s.name.split('.', 1)[0])]
-            return Corpus(it, path=self.path, name=self.name)
+            matches = [s for s in self.list if re.search(i, self._no_ext_name(s.name))]
+            return Contents(matches)
+
         # normal indexing and slicing
         if isinstance(i, slice):
-            return Corpus(to_iter[i], path=self.path, name=self.name)
-        return to_iter[i]
+            return Contents(self.list[i])
+
+        return Contents(self.list[i])
 
     def __delitem__(self, i):
         del self.list[i]
