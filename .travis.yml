@@ -10,9 +10,7 @@ jobs:
   include:
     - stage: build
       script:
-        - pip install cython
-        - pip install numpy
-        - python setup.py install
+        - pip install cython && pip install numpy && python setup.py install
     - stage: static-checks
       script:
         - flake8 .
