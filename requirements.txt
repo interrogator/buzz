@@ -3,7 +3,7 @@ numpy
 nltk
 bllipparser
 scipy
-tensorflow==1.12.0
+tensorflow
 spacy
 pandas
 tqdm
