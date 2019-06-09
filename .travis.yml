@@ -10,7 +10,9 @@ jobs:
   include:
     - stage: build
       script:
-        - pip install cython && pip install numpy && python setup.py install
+        - python setup.py install
+        - pip install benepar
+        - pip install benepar[cpu]
     - stage: static-checks
       script:
         - flake8 .
