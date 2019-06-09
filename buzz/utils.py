@@ -123,13 +123,12 @@ def cast(text):
         return text
 
 
-def _make_csv(raw_lines, fname, meta, subcorpus=None, lt=True):
+def _make_csv(raw_lines, fname, meta, lt=True):
     """
     Take one CONLL-U file and add all metadata to each row
     Return: str (CSV data) and list of dicts (sent level metadata)
     """
     fname = os.path.basename(fname)
-    fname = fname if not subcorpus else '{}/{}'.format(subcorpus, fname)
     meta_dicts = list()
     sents = raw_lines.strip() + '\n'
     # make list of sentences
@@ -140,7 +139,7 @@ def _make_csv(raw_lines, fname, meta, subcorpus=None, lt=True):
     csvdat = list()
     for s, (metastring, one, text) in enumerate(splut, start=1):
         text = one + text
-        metadata = dict() if not subcorpus else dict(subcorpus=subcorpus)
+        metadata = dict()
         for key, value in re.findall('^# (.*?) = (.*?)$', metastring, re.MULTILINE):
             metadata[key.strip()] = cast(value.strip())
         text = '\n'.join('{}\t{}\t{}'.format(fname, s, line) for line in text.splitlines())
@@ -176,7 +175,7 @@ def _to_df(corpus,
 
     cname = corpus.path.split('.')[0].split('/', 1)[-1]
 
-    data, metadata = _make_csv(data, cname, file_meta, subcorpus=corpus.container.name, lt=load_trees)
+    data, metadata = _make_csv(data, cname, file_meta, lt=load_trees)
     data = StringIO(data)
 
     col_names = ['file', 's', 'i', 'w', 'l', 'x', 'p', 'm', 'g', 'f', 'e', 'o']

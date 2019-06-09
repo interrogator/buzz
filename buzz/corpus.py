@@ -4,6 +4,7 @@ from collections import MutableSequence
 
 import pandas as pd
 
+from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .parse import Parser
 from .dataset import Dataset
@@ -75,12 +76,6 @@ class Corpus(MutableSequence):
 
     def insert(self, i, v):
         self.iterable.insert(i, v)
-
-    def __getattr__(self, name):
-        """
-        Attribute style access to subcorpora/files, preferring former
-        """
-        return getattr(self.iterable, name)
 
     def is_loaded(self):
         """

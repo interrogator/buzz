@@ -18,16 +18,8 @@ class Contents(MutableSequence):
     def __bool__(self):
         return True if self.list else False
 
-    @staticmethod
-    def _no_ext_name(name):
-        """
-        Get name without extension
-        """
-        return name.rsplit('.', 1)[0]
-
-    @staticmethod
-    def _try_to_get_same(name):
-        return next((i for i in self.list if self._no_ext_name(i.name) == attr), None)     
+    def _try_to_get_same(self, name):
+        return next((i for i in self.list if self.name == attr), None)     
 
     def __getattr__(self, attr):
         """
