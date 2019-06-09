@@ -36,6 +36,7 @@ class Parser:
         self.language = language
         self.ntokens = -1
         self.nsents = -1
+        self._made_new_dir = False
 
     def spacy_prepare(self):
         self.nlp = _get_nlp()
@@ -182,7 +183,7 @@ class Parser:
             outpath = path.replace(self.corpus_name, self.corpus_name + '-parsed')
             outpath = outpath.rstrip('.') + '.conllu'
             os.makedirs(os.path.split(outpath)[0], exist_ok=True)
-            self.made_new_dir = True
+            self._made_new_dir = True
 
             with open(outpath, 'w') as fo:
                 fo.write(output)
@@ -234,7 +235,7 @@ class Parser:
                 raise ValueError('Error in preparation...')
             self.spacy_parse()
         except Exception:
-            if self.made_new_dir:
+            if self._made_new_dir:
                 shutil.rmtree(self.parsed_path)
             raise
 
