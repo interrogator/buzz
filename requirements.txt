@@ -1,12 +1,16 @@
 cython
+numpy
 nltk
 bllipparser
 scipy
-benepar
-benepar[cpu]
-tensorflow==1.12.0
+tensorflow
 spacy
 pandas
 tqdm
 pyparsing
 https://github.com/interrogator/tabview/archive/master.zip
+# just needed for test/ci:
+flake8
+coverage
+mypy
+codecov

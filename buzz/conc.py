@@ -1,60 +1,49 @@
 import pandas as pd
+
 from .constants import CONLL_COLUMNS
-from .views import make_match_col
-
-"""
-Search results are DataFrame like objects
-"""
+from .views import _make_match_col, _tabview
+from .utils import _auto_window
 
 
-def resize_by_window_size(df, window):
-    df.is_copy = False
-    if isinstance(window, int):
-        df['left'] = df['left'].str.rjust(window)
-        df['right'] = df['right'].str.ljust(window)
-        df['match'] = df['match'].str.ljust(df['match'].str.len().max())
-    else:
-        df['left'] = df['left'].str.rjust(window[0])
-        df['right'] = df['right'].str.ljust(window[-1])
-        df['match'] = df['match'].str.ljust(df['match'].str.len().max())
-    return df
+class Concordance(pd.DataFrame):
+    """
+    A dataframe holding left, match and right columns, plus optional metadata
+    """
+    def view(self, *args, **kwargs):
+        return _tabview(self, *args, **kwargs)
 
 
-def apply_conc(line, allwords, window):
+def _apply_conc(line, allwords, window):
     middle, n = line['_match'], line['_n']
     start = max(n - window[0], 0)
-    end = min(n+window[1], len(allwords)-1)
+    end = min(n + window[1], len(allwords) - 1)
     left = ' '.join(allwords[start:n])[-window[0]:]
-    right = ' '.join(allwords[n+1:end])[:window[1]]
+    right = ' '.join(allwords[n + 1:end])[:window[1]]
     series = pd.Series([left, middle, right])
     series.names = ['left', 'match', 'right']
     return series
 
 
-def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs):
+def _concordance(df, reference, show=['w'], n=100, window='auto', metadata=True, **kwargs):
     """
     Generate a concordance
     """
-    df = self._df()
-    reference = self.reference
-
     # max number of lines
     n = max(n, len(df))
 
     if window == 'auto':
-        from .utils import auto_window
-        window = auto_window()
+        window = _auto_window()
     if isinstance(window, int):
         window = [window, window]
 
-    df['_match'] = make_match_col(df, show)
+    df['_match'] = _make_match_col(df, show)
 
     try:
         df = pd.DataFrame(df).reset_index()
     except ValueError:
         ix = ['file', 's', 'i']
         df = pd.DataFrame(df).drop(ix, axis=1, errors='ignore').reset_index()
-    finished = df.apply(apply_conc, axis=1, allwords=reference['w'].values, window=window)
+    finished = df.apply(_apply_conc, axis=1, allwords=reference['w'].values, window=window)
 
     finished.columns = ['left', 'match', 'right']
     finished = finished[['left', 'match', 'right']]
@@ -67,8 +56,7 @@ def _concordance(self, show=['w'], n=100, window='auto', metadata=True, **kwargs
         finished = pd.concat([finished, met_df], axis=1, sort=False)
     try:
         finished = finished.drop(['_match', '_n', 'sent_len', 'parse'], axis=1, errors='ignore')
-    except:
+    except Exception:  # todo: why?
         pass
 
-    from .classes import Concordance
-    return Concordance(finished, reference)
+    return Concordance(finished)

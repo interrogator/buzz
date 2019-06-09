@@ -4,11 +4,11 @@ import argparse
 from .classes import Corpus
 
 """
-A script to parse using corpkit
+A script to parse using buzz
 
 :Example:
 
-$ parse junglebook --speaker-segmentation True
+$ parse junglebook --cons-parser bllip
 
 """
 
@@ -21,35 +21,15 @@ parser.add_argument('-l', '--language',
                     required=False,
                     help='Language of the corpus')
 
-parser.add_argument('-w', '--workers',
-                    dest='multiprocess',
+parser.add_argument('-p', '--cons_parser',
                     nargs='?',
-                    default=1,
-                    type=int,
-                    required=False,
-                    help='Parse with parallel processing')
-
-parser.add_argument('-p', '--parser',
-                    nargs='?',
-                    default='spacy',
+                    default='benepar',
                     type=str,
                     required=False,
-                    choices=['corenlp', 'spacy', 'features'],
-                    help='Parser to use (corenlp/spacy)')
+                    choices=['bllip', 'benepar'],
+                    help='Constituency parser to use (bllip/benepar)')
 
-parser.add_argument('-s', '--speaker-segmentation',
-                    dest='speaker_segmentation',
-                    default=False,
-                    action='store_true',
-                    help='Does the corpus contain speaker names?')
-
-parser.add_argument('-metadata', '--metadata',
-                    dest='metadata',
-                    default=False,
-                    action='store_true',
-                    help='Does the corpus contain xml metadata?')
-
-parser.add_argument('path', help='Directory or file to parse')
+parser.add_argument('path', help='Directory containing files to parse')
 
 kwargs = vars(parser.parse_args())
 

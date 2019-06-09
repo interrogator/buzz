@@ -92,12 +92,8 @@ class Slice(ABC):
         raise NotImplementedError()
 
     def _validate(self):
+        # todo: ensure correct type?
         return
-        # todo: fix circular import
-        #ok_for = (LoadedCorpus, Results)
-        #if not isinstance(self._df, ok_for):
-        #    error = f'.{self.__name__} accessor only for: {ok_for}'
-        #    raise AttributeError(error)
 
 
 @pd.api.extensions.register_dataframe_accessor('just')
@@ -109,6 +105,7 @@ class Just(Slice):
     def _grab(self, colname, *args):
         return Filter(self._df, colname)
 
+
 @pd.api.extensions.register_dataframe_accessor('skip')
 class Skip(Slice):
     """
@@ -118,10 +115,11 @@ class Skip(Slice):
     def _grab(self, colname, *args):
         return Filter(self._df, colname, inverse=True)
 
+
 @pd.api.extensions.register_dataframe_accessor('see')
 class See(Slice):
     """
-    results.view.lemma.by.speaker: make table
+    results.see.lemma.by.speaker: make table
     """
     def _grab(self, colname):
         return Interim(self._df, colname)
@@ -130,9 +128,8 @@ class See(Slice):
 @pd.api.extensions.register_dataframe_accessor('find')
 class Find(Slice):
     """
-    corpus.search('l', regex)
-    corpus.search.lemmata(regex)
+    corpus.find('l', regex)
+    corpus.find.lemmata(regex)
     """
     def _grab(self, target):
         return Finder(self._df, target)
-

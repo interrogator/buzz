@@ -3,7 +3,7 @@ from nltk.tgrep import tgrep_compile
 
 from .query import depgrep_compile
 
-from .utils import maketree, _get_tqdm, _tqdm_update, _tqdm_close
+from .utils import _make_tree, _get_tqdm, _tqdm_update, _tqdm_close
 
 
 class Searcher(object):
@@ -12,7 +12,9 @@ class Searcher(object):
     """
     def __init__(self, corpus):
         # really hate this code...
-        from .classes import File, Results, Corpus
+        from .file import File
+        from .corpus import Corpus
+        from .dataset import Dataset
         self.corpus = corpus
         # if we can't bring corpus into memory, we will use files
         if type(corpus) == Corpus and self.corpus.too_large_for_memory:
@@ -25,7 +27,7 @@ class Searcher(object):
             self.corpus = corpus.load()
             self.reference = self.corpus  # .copy()
         # if it's results, use the reference of that
-        elif type(corpus) == Results:
+        elif type(corpus) == Dataset:
             self.corpus = corpus._df()
             self.reference = corpus.reference
         # if it's just a dataframe, we can guess...
@@ -48,7 +50,7 @@ class Searcher(object):
 
         tree_once = self.corpus.tree_once()
         if isinstance(tree_once.values[0], str):
-            tree_once = tree_once.apply(maketree)
+            tree_once = tree_once.apply(_make_tree)
 
         ser = list()
         six = list()
@@ -76,9 +78,9 @@ class Searcher(object):
                     first = tree[position].treepositions('leaves')[0]
                     first = position + first
                     pos = root_positions.index(first)
-                    form = ','.join([str(x) for x in range(pos+1, pos+size+1)])
+                    form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
                     ser.append(form)
-                    six.append(n+pos)
+                    six.append(n + pos)
             if self.corpus.is_loaded():
                 running_count += match_count
                 kwa = dict(results=format(running_count, ','))
@@ -99,7 +101,7 @@ class Searcher(object):
         op_no_negation = op.lstrip('!')
         try:
             x = float(x)
-        except:
+        except Exception:  # todo: why?
             pass
         if op_no_negation in {'=', '=='}:
             crit = df[target] == x
@@ -153,7 +155,8 @@ class Searcher(object):
                     strings = piece[self.target].astype(str)
                 bool_ix = strings.isin(values)
             else:
-                bool_ix = piece[self.target].str.contains(self.query, case=self.case_sensitive, regex=self.regex)
+                kwa = dict(self.query, case=self.case_sensitive, regex=self.regex)
+                bool_ix = piece[self.target].str.contains(**kwa)
             # invert if we want to
             if self.inverse:
                 bool_ix = ~bool_ix
@@ -163,12 +166,9 @@ class Searcher(object):
         """
         Run query over dependencies
         """
-        from .classes import LoadedCorpus, Results
-        # get the full dataframe
-        if type(self.corpus) == Results:
-            df = self._df()
-        elif type(self.corpus) == LoadedCorpus:
-            df = self.corpus
+        # todo: get the full dataframe
+        raise NotImplementedError()
+        df = self.corpus
 
         # create progress bar
         if self.corpus.is_loaded():
@@ -185,7 +185,7 @@ class Searcher(object):
 
         try:
             matches = matches.fillna(False)
-        except:
+        except Exception:  # todo: why?
             pass
 
         bools = [bool(i) for i in matches.values]
@@ -201,7 +201,7 @@ class Searcher(object):
             inverse=False,
             **kwargs):
 
-        from .classes import File
+        from .file import File
 
         if target.startswith('t') and inverse:
             raise NotImplementedError('Cannot do this yet')
@@ -247,12 +247,12 @@ class Searcher(object):
             _tqdm_update(t)
         _tqdm_close(t)
 
-        from .classes import Results
+        from .table import Table
         if not results:
             print('No results, sorry.')
-            results = Results()
+            results = Table()
         else:
             results = pd.concat(results, sort=False)
-            results = Results(results)
+            results = Table(results)
         results.reference = self.reference
         return results

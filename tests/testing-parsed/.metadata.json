@@ -1,0 +1,12 @@
+{
+    "cons_parser": "benepar",
+    "desc": null,
+    "language": "english",
+    "name": "data",
+    "nfiles": 3,
+    "nsents": 12,
+    "ntokens": 332,
+    "parsed": true,
+    "parser": "spacy",
+    "path": "tests/data-parsed"
+}

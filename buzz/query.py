@@ -76,6 +76,9 @@ predicates must always pass the value of these arguments on.  The
 top-level predicate (constructed by `_tgrep_exprs_action`) binds the
 macro definitions to `m` and initialises `l` to an empty dictionary.
 """
+
+# flake8: noqa
+
 import pandas as pd
 import functools
 import pyparsing
@@ -197,22 +200,7 @@ def _immediately_after(node, df, positions):
             return []
 
 
-def row_attr(node, attr=False, cs=False):
-    """
-    Gets the string value of a given parse tree node, for comparison
-    using the tgrep node literal predicates.
-    """
-    if isinstance(node, pd.Series):
-        nd = str(node[attr])
-    else:
-        nd = str(node)
-    if cs:
-        return nd
-    else:
-        return nd.lower()
-
-
-def np_attr(node, pos, cs):
+def _np_attr(node, pos, cs):
     if isinstance(node, str):
         return node if cs else node.lower()
     return node[pos] if cs else node[pos].lower()
@@ -279,24 +267,24 @@ def _tgrep_node_action(_s, _l, tokens, cols, case_sensitive=False):
             if not case_sensitive:
                 node_lit = node_lit.lower()
             node_lit = node_lit.split(',')
-            return (lambda s: lambda n, m=None, l=None: any(np_attr(n, pos, cs=case_sensitive) == x for x in s))(node_lit)
+            return (lambda s: lambda n, m=None, l=None: any(_np_attr(n, pos, cs=case_sensitive) == x for x in s))(node_lit)
 
         # if it's slashes, it's a regex
         elif tokens[0].startswith('/'):
             assert tokens[0].endswith('/')
             node_lit = tokens[0][1:-1]
             if not case_sensitive:
-                return (lambda r: lambda n, m=None, l=None: r.search(np_attr(n, pos, cs=case_sensitive)))(re.compile(node_lit, re.IGNORECASE))
+                return (lambda r: lambda n, m=None, l=None: r.search(_np_attr(n, pos, cs=case_sensitive)))(re.compile(node_lit, re.IGNORECASE))
             else:
-                return (lambda r: lambda n, m=None, l=None: r.search(np_attr(n, pos, cs=case_sensitive)))(re.compile(node_lit))
+                return (lambda r: lambda n, m=None, l=None: r.search(_np_attr(n, pos, cs=case_sensitive)))(re.compile(node_lit))
 
         elif tokens[0].startswith('i@'):
             node_func = _tgrep_node_action(_s, _l, [tokens[0][2:].lower()], cols, case_sensitive=case_sensitive)
             return (lambda f: lambda n, m=None, l=None:
-                    f(np_attr(n, pos, cs=case_sensitive).lower()))(node_func)
+                    f(_np_attr(n, pos, cs=case_sensitive).lower()))(node_func)
         else:
             return (lambda s: lambda n, m=None, l=None:
-                    np_attr(n, pos, cs=case_sensitive) == s)(tokens[0])
+                    _np_attr(n, pos, cs=case_sensitive) == s)(tokens[0])
 
 
 def _tgrep_parens_action(_s, _l, tokens):
@@ -463,7 +451,7 @@ def _tgrep_relation_action(_s, _l, tokens, df):
         elif operator[:2] == '->' and operator[2:].isdigit():
             idx = int(operator[1:])
             # capture the index parameter
-            retval = (lambda i: lambda n, m=None, l=None: (0 <= i < len(dependents(n, df)) and
+            retval = (lambda i: lambda n, m=None, l=None: (0 <= i < len(dependents(n, df, positions)) and
                                                            predicate(n[i], m, l)))(idx - 1)
         # A <-N B      A is the Nth child of B (the first child is >1).
         elif operator[:2] == '<-' and operator[2:].isdigit():
@@ -492,8 +480,8 @@ def _tgrep_relation_action(_s, _l, tokens, df):
             idx = int(operator[2:])
             # capture the index parameter
             retval = (lambda i: lambda n, m=None, l=None: (has_dependent(n, df) and
-                                                           0 <= (i + len(dependents(n, df))) < len(dependents(n, df)) and
-                                                           predicate(n[i + len(dependents(n, df))], m, l)))(idx)
+                                                           0 <= (i + len(dependents(n, df, positions))) < len(dependents(n, df, positions)) and
+                                                           predicate(n[i + len(dependents(n, df, positions))], m, l)))(idx)
         # A >-N B     A is the N th-to-last child of B (the last child is >-1).
         elif operator.endswith('-<-') and operator[0].isdigit():
             idx = -int(operator[0])
