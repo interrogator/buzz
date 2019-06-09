@@ -41,6 +41,48 @@ class Corpus(MutableSequence):
         self.filepaths = Contents([i.path for i in self.files])
         self.nlp = None
 
+    def __len__(self):
+        return len(self.list)
+
+    def __getitem__(self, i):
+        """
+        Customise what indexing/loopup does for Corpus objects
+        """
+        to_iter = self.list
+        if isinstance(i, str):
+            # dict style lookup of files when there are no subcorpora
+            return next((s for s in to_iter if s.name.split('.', 1)[0] == i), None)
+        # allow user to pass in a regular expression and get all matching names
+        try:
+            pattern_type = re._pattern_type
+        except:
+            pattern_type = re.Pattern
+        if isinstance(i, pattern_type):
+            return Corpus([s for s in to_iter if re.search(i, s.name.split('.', 1)[0])], path=self.path, name=self.name)
+        # normal indexing and slicing
+        if isinstance(i, slice):
+            return Corpus(to_iter[i], path=self.path, name=self.name)
+        return to_iter[i]
+
+    def __delitem__(self, i):
+        del self.list[i]
+
+    def __setitem__(self, i, v):
+        self.list[i] = v
+
+    def insert(self, i, v):
+        self.list.insert(i, v)
+
+    def __getattr__(self, name):
+        """
+        Attribute style access to subcorpora/files, preferring former
+        """
+        if self.subcorpora:
+            return next((i for i in self.subcorpora if i.name == name), None)
+        gen = (i for i in self.files if os.path.splitext(i.name)[0] == name)
+        return next(gen, None)
+
+
     def is_loaded(self):
         """
         Return whether or not the corpus is loaded in memory
