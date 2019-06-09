@@ -30,7 +30,7 @@ class File(Corpus):
 
     def load(self, spacy=False, language='en', **kwargs):
         """
-        For parsed dataset, get dataframe or spacy object 
+        For parsed dataset, get dataframe or spacy object
         """
         if spacy:
             self.nlp = _get_nlp(language=language)

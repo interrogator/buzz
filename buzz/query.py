@@ -76,6 +76,9 @@ predicates must always pass the value of these arguments on.  The
 top-level predicate (constructed by `_tgrep_exprs_action`) binds the
 macro definitions to `m` and initialises `l` to an empty dictionary.
 """
+
+# flake8: noqa
+
 import pandas as pd
 import functools
 import pyparsing
@@ -448,7 +451,7 @@ def _tgrep_relation_action(_s, _l, tokens, df):
         elif operator[:2] == '->' and operator[2:].isdigit():
             idx = int(operator[1:])
             # capture the index parameter
-            retval = (lambda i: lambda n, m=None, l=None: (0 <= i < len(dependents(n, df)) and
+            retval = (lambda i: lambda n, m=None, l=None: (0 <= i < len(dependents(n, df, positions)) and
                                                            predicate(n[i], m, l)))(idx - 1)
         # A <-N B      A is the Nth child of B (the first child is >1).
         elif operator[:2] == '<-' and operator[2:].isdigit():
@@ -477,8 +480,8 @@ def _tgrep_relation_action(_s, _l, tokens, df):
             idx = int(operator[2:])
             # capture the index parameter
             retval = (lambda i: lambda n, m=None, l=None: (has_dependent(n, df) and
-                                                           0 <= (i + len(dependents(n, df))) < len(dependents(n, df)) and
-                                                           predicate(n[i + len(dependents(n, df))], m, l)))(idx)
+                                                           0 <= (i + len(dependents(n, df, positions))) < len(dependents(n, df, positions)) and
+                                                           predicate(n[i + len(dependents(n, df, positions))], m, l)))(idx)
         # A >-N B     A is the N th-to-last child of B (the last child is >-1).
         elif operator.endswith('-<-') and operator[0].isdigit():
             idx = -int(operator[0])

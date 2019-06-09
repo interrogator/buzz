@@ -50,7 +50,7 @@ class Searcher(object):
 
         tree_once = self.corpus.tree_once()
         if isinstance(tree_once.values[0], str):
-            tree_once = tree_once.apply(maketree)
+            tree_once = tree_once.apply(_make_tree)
 
         ser = list()
         six = list()
@@ -78,9 +78,9 @@ class Searcher(object):
                     first = tree[position].treepositions('leaves')[0]
                     first = position + first
                     pos = root_positions.index(first)
-                    form = ','.join([str(x) for x in range(pos+1, pos+size+1)])
+                    form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
                     ser.append(form)
-                    six.append(n+pos)
+                    six.append(n + pos)
             if self.corpus.is_loaded():
                 running_count += match_count
                 kwa = dict(results=format(running_count, ','))
@@ -101,7 +101,7 @@ class Searcher(object):
         op_no_negation = op.lstrip('!')
         try:
             x = float(x)
-        except:
+        except Exception:  # todo: why?
             pass
         if op_no_negation in {'=', '=='}:
             crit = df[target] == x
@@ -155,7 +155,8 @@ class Searcher(object):
                     strings = piece[self.target].astype(str)
                 bool_ix = strings.isin(values)
             else:
-                bool_ix = piece[self.target].str.contains(self.query, case=self.case_sensitive, regex=self.regex)
+                kwa = dict(self.query, case=self.case_sensitive, regex=self.regex)
+                bool_ix = piece[self.target].str.contains(**kwa)
             # invert if we want to
             if self.inverse:
                 bool_ix = ~bool_ix
@@ -165,8 +166,6 @@ class Searcher(object):
         """
         Run query over dependencies
         """
-        from .dataset import Dataset
-
         # todo: get the full dataframe
         raise NotImplementedError()
         df = self.corpus
@@ -186,7 +185,7 @@ class Searcher(object):
 
         try:
             matches = matches.fillna(False)
-        except:
+        except Exception:  # todo: why?
             pass
 
         bools = [bool(i) for i in matches.values]
@@ -202,7 +201,7 @@ class Searcher(object):
             inverse=False,
             **kwargs):
 
-        from .classes import File
+        from .file import File
 
         if target.startswith('t') and inverse:
             raise NotImplementedError('Cannot do this yet')

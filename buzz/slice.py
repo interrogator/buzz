@@ -105,6 +105,7 @@ class Just(Slice):
     def _grab(self, colname, *args):
         return Filter(self._df, colname)
 
+
 @pd.api.extensions.register_dataframe_accessor('skip')
 class Skip(Slice):
     """
@@ -113,6 +114,7 @@ class Skip(Slice):
 
     def _grab(self, colname, *args):
         return Filter(self._df, colname, inverse=True)
+
 
 @pd.api.extensions.register_dataframe_accessor('see')
 class See(Slice):
@@ -131,4 +133,3 @@ class Find(Slice):
     """
     def _grab(self, target):
         return Finder(self._df, target)
-

@@ -1,8 +1,6 @@
-import os
 import shutil
 import unittest
 
-from unittest.mock import ANY, Mock, mock_open, patch
 from buzz.corpus import Corpus
 from buzz.contents import Contents
 from buzz.dataset import Dataset
@@ -68,8 +66,8 @@ class TestCorpus(unittest.TestCase):
         self.loaded = self.parsed.load()
         self.assertIsInstance(self.loaded, Dataset)
         self.assertEqual(len(self.loaded), TOTAL_TOKENS)
-        expect =  ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'annotated',
-                   'field', 'parse', 'sent_id', 'sent_len', 'speaker', 'text', '_n']
+        expect = ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'annotated',
+                  'field', 'parse', 'sent_id', 'sent_len', 'speaker', 'text', '_n']
         self.assertTrue(all(i in self.loaded.columns for i in expect))
 
     def test_just_skip(self):
@@ -82,7 +80,7 @@ class TestCorpus(unittest.TestCase):
         for fsi in BOOK_IX:
             self.assertTrue(fsi in indices)
         nobook = self.loaded.skip.lemmata.book
-        self.assertEqual(len(nobook), TOTAL_TOKENS-len(book))
+        self.assertEqual(len(nobook), TOTAL_TOKENS - len(book))
 
     def test_search(self):
         # todo
@@ -96,10 +94,6 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(conc.iloc[0, 0].endswith('A major theme in the'))
         self.assertTrue(conc.iloc[0, 1].endswith('book/NN'))
         self.assertTrue(conc.iloc[0, 2].startswith('is abandonment followed by fostering'))
-
-
-
-
 
 
 if __name__ == '__main__':

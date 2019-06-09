@@ -16,9 +16,9 @@ class Concordance(pd.DataFrame):
 def _apply_conc(line, allwords, window):
     middle, n = line['_match'], line['_n']
     start = max(n - window[0], 0)
-    end = min(n+window[1], len(allwords)-1)
+    end = min(n + window[1], len(allwords) - 1)
     left = ' '.join(allwords[start:n])[-window[0]:]
-    right = ' '.join(allwords[n+1:end])[:window[1]]
+    right = ' '.join(allwords[n + 1:end])[:window[1]]
     series = pd.Series([left, middle, right])
     series.names = ['left', 'match', 'right']
     return series
@@ -56,7 +56,7 @@ def _concordance(df, reference, show=['w'], n=100, window='auto', metadata=True,
         finished = pd.concat([finished, met_df], axis=1, sort=False)
     try:
         finished = finished.drop(['_match', '_n', 'sent_len', 'parse'], axis=1, errors='ignore')
-    except:
+    except Exception:  # todo: why?
         pass
 
     return Concordance(finished)

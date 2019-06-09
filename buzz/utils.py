@@ -17,9 +17,10 @@ def _get_tqdm():
     Get either the IPython or regular version of tqdm
     """
     try:
-        if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':
+        if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':  # noqa: F821
             return tqdm_notebook
-    except:
+        return tqdm
+    except NameError:
         pass
     return tqdm
 
@@ -28,7 +29,7 @@ def _tree_once(df):
     """
     Get each parse tree once, probably so we can run nltk.ParentedTree on them
     """
-    return df['parse'][df.index.get_level_values('i')==1]
+    return df['parse'][df.index.get_level_values('i') == 1]
 
 
 def _tqdm_update(tqdm):
@@ -80,7 +81,7 @@ def _make_tree(tree):
     """
     try:
         return ParentedTree.fromstring(tree)
-    except:
+    except Exception:
         return
 
 
@@ -91,7 +92,7 @@ def _get_nlp(language='english'):
     import spacy
     langs = dict(english='en', german='de')
     lang = langs.get(language, language)
-    
+
     try:
         return spacy.load(lang)
     except OSError:
@@ -109,7 +110,7 @@ def _strip_metadata(text):
     text = re.sub(idregex, '', text)
     text = re.sub('<metadata.*?>', '', text)
     text = '\n'.join([i.strip() for i in text.splitlines()])
-    return re.sub('\n\s*\n', '\n', text)
+    return re.sub(r'\n\s*\n', '\n', text)
 
 
 def cast(text):
@@ -119,7 +120,7 @@ def cast(text):
     import json
     try:
         return json.loads(text)
-    except:
+    except Exception:
         return text
 
 
@@ -163,7 +164,6 @@ def _to_df(corpus,
         pd.DataFrame: 3d array representation of file data
 
     """
-    from .corpus import Subcorpus
     with open(corpus.path, 'r') as fo:
         data = fo.read().strip('\n')
 
@@ -243,7 +243,7 @@ def _make_meta_dict_from_sent(text):
         relevant = text.strip().rstrip('>').rsplit('<metadata ', 1)
         try:
             shxed = shlex.split(relevant[-1])
-        except:
+        except Exception:  # what is it?
             shxed = relevant[-1].split("' ")
         for m in shxed:
             try:
@@ -265,10 +265,10 @@ def _make_meta_dict_from_sent(text):
 
 
 def _get_metadata(stripped,
-                 original,
-                 sent_offsets,
-                 first_line=False,
-                 has_fmeta=False):
+                  original,
+                  sent_offsets,
+                  first_line=False,
+                  has_fmeta=False):
     """
     Take offsets and get a speaker ID or metadata from them
     """

@@ -10,10 +10,12 @@ jobs:
   include:
     - stage: build
       script:
+        - pip install cython
+        - pip install numpy
         - python setup.py install
     - stage: static-checks
       script:
-        - flake8 buzz/ tests/
+        - flake8 .
     - stage: test
       script:
         - coverage run -m unittest

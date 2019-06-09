@@ -8,8 +8,7 @@ from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .parse import Parser
 from .dataset import Dataset
-from .utils import (_to_df,
-                    _get_nlp,
+from .utils import (_get_nlp,
                     _strip_metadata,
                     _set_best_data_types,
                     _get_tqdm,
@@ -144,7 +143,7 @@ class Corpus(MutableSequence):
         if os.path.isdir(parsed_path) or self.path.endswith(('-parsed', 'conll', 'conllu')):
             raise ValueError('Corpus is already parsed.')
         self.parser = Parser(self, parser=parser, cons_parser=cons_parser, language=language)
-        return self.parser.run(self, **kwargs)
+        return self.parser.run(self)
 
     def load(self, spacy: bool = False, combine: bool = False, load_trees: bool = False, **kwargs):
         """
@@ -243,11 +242,9 @@ class Corpus(MutableSequence):
         return subcorpora, files, is_parsed
 
 
-
 class Subcorpus(Corpus):
     """
     Simply a renamed Corpus, fancy indeed!
     """
     def __init__(self, path, **kwargs):
         super().__init__(path, **kwargs)
-

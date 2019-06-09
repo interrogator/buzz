@@ -4,6 +4,8 @@ or as concordance lines, or as figures...
 """
 import pandas as pd
 import numpy as np
+from tabview import view
+
 from .utils import _auto_window
 
 
@@ -26,15 +28,15 @@ def _get_widths(df, is_conc, window):
             widths.append(8)
         elif is_conc and col_name == 'left':
             widths.append(window[0])
-            truncs[i+len(df.index.names)] = True
+            truncs[i + len(df.index.names)] = True
         elif is_conc and col_name == 'right':
             widths.append(window[1])
-            aligns[i+len(df.index.names)] = False
+            aligns[i + len(df.index.names)] = False
         elif is_conc and col_name == 'match':
             mx = df[col_name].astype(str).str.len().max() + 1
             mx = min(15, mx)
             widths.append(mx)
-            aligns[i+len(df.index.names)] = False
+            aligns[i + len(df.index.names)] = False
         elif is_conc:
             mx = df[col_name].astype(str).str.len().max() + 1
             if mx > 10:
@@ -43,33 +45,11 @@ def _get_widths(df, is_conc, window):
     return aligns, truncs, widths
 
 
-def _tabview(self, window='auto', **kwargs):
+def _tabview(df, reference, window='auto', **kwargs):
     """
     Show concordance in interactive cli view
     """
-    # import here so it isnt required dependency
-    from tabview import view
-    from .corpus import Corpus
     from .conc import Concordance
-    from .dataset import Dataset
-
-    #todo
-    if isinstance(self, Results):
-        df = self._df()
-        reference = self.reference
-    elif type(self) == Frequencies:
-        df = self.copy()
-        reference = self.reference
-    elif type(self) == Corpus:
-        df = self.load()
-        reference = df.copy()
-    elif type(self) == Concordance:
-        df = self
-        reference = self.reference
-    else:
-        df = self
-        reference = self.reference
-
     is_conc = type(df) == Concordance
 
     # needs review
@@ -141,10 +121,10 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
         # quick fix: do not have categorical index, because we might want to do regression on them
         try:
             df.index = df.index.astype(int)
-        except:
+        except Exception:
             try:
                 df.index = df.index.astype(object)
-            except:
+            except Exception:
                 pass
         stats = df.apply(_lingres, axis=0, index=n_column)
         df = df.append(stats)
@@ -159,7 +139,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
         df = df[list(df.sum().sort_values(ascending=ascending).index)]
 
     elif by == 'reverse':
-        df = df.loc[::,::-1]
+        df = df.loc[::, ::-1]
 
     # sort by slope etc., or search by subcorpus name
     if by in stat_field or by not in options:
@@ -208,11 +188,11 @@ def _uncomma(row, df, df_show_col, gram_ix):
     n = row.name
     gramsize = str(row[gram_ix]).count(',') + 1
     try:
-        rel = df[n:n+gramsize, df_show_col]
+        rel = df[n:n + gramsize, df_show_col]
         # todo: if df_show_col is list, do slash sep
         form = ' '.join(rel)
         return form
-    except:
+    except Exception:  # todo: why?
         return ''
 
 
@@ -324,7 +304,7 @@ def _table(self,
     if not preserve_case:
         try:
             df['_match'] = df['_match'].astype(str).str.lower()
-        except:
+        except Exception:  # todo: why?
             pass
 
     # if only showing top n, cut down to this number?
@@ -355,7 +335,7 @@ def _table(self,
     # remove column name if there
     try:
         del df.columns.name
-    except:
+    except Exception:  # todo: why?
         pass
 
     return Table(df, reference=reference)

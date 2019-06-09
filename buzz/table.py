@@ -2,6 +2,7 @@ import pandas as pd
 
 from .views import _tabview, _sort
 
+
 class Table(pd.DataFrame):
     """
     A dataframe with numerical datapoints

@@ -1,3 +1,5 @@
+# flake8: noqa
+
 import re
 with open('una.txt', 'r') as fo:
     data = fo.read()

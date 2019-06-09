@@ -1,7 +1,9 @@
+# flake8: noqa
+
 from collections import Counter
 
 import pandas as pd
-from .views import make_match_col
+from .views import _make_match_col
 
 
 def log_likelihood_measure(word_in_ref, word_in_target, ref_sum, target_sum):
@@ -86,7 +88,7 @@ def _keywords(self,
         df = df[df['p'].str.startswith(('N', 'V', 'J', 'A'))]
     rs, ts = reference.shape[0] if not reference_corpus else reference.sum(), df.shape[0]
 
-    form_match = make_match_col(df, show)
+    form_match = _make_match_col(df, show)
 
     if not freq_calculated:
         df = df.table(subcorpora=subcorpora,

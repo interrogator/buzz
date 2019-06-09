@@ -1,11 +1,9 @@
 import os
 import shutil
-import fnmatch
 
 from .utils import _strip_metadata, _get_tqdm, _tqdm_close, _tqdm_update, _get_metadata, _get_nlp
 
 import nltk
-import spacy
 
 tqdm = _get_tqdm()
 
@@ -116,7 +114,7 @@ class Parser:
 
             with open(path, 'r') as fo:
                 plain = fo.read().strip()
-            
+
             stripped_data = _strip_metadata(plain)
             doc = self.nlp(stripped_data)
             file_meta = _get_metadata(stripped_data, plain, False, first_line=True)
@@ -142,10 +140,10 @@ class Parser:
                     sent_meta['parse'] = parse
 
                 extra_meta = _get_metadata(stripped_data,
-                                          plain,
-                                          (sent.start_char, sent.end_char),
-                                          first_line=False,
-                                          has_fmeta=has_file_meta)
+                                           plain,
+                                           (sent.start_char, sent.end_char),
+                                           first_line=False,
+                                           has_fmeta=has_file_meta)
 
                 all_meta = {**file_meta, **sent_meta, **extra_meta}
 
@@ -157,11 +155,11 @@ class Parser:
                     ntokens += 1
                     if word.is_space:
                         continue
-                    
+
                     governor = self._get_governor_id(word)
                     word_text = self.normalise_word(str(word))
                     named_ent = self._make_misc_field(word)
-                    
+
                     parts = [str(word_index),
                              word_text,
                              word.lemma_,
@@ -235,7 +233,7 @@ class Parser:
             if not prepared:
                 raise ValueError('Error in preparation...')
             self.spacy_parse()
-        except:
+        except Exception:
             if self.made_new_dir:
                 shutil.rmtree(self.parsed_path)
             raise

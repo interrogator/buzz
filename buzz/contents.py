@@ -19,7 +19,7 @@ class Contents(MutableSequence):
         return True if self.list else False
 
     def _try_to_get_same(self, name):
-        return next((i for i in self.list if self.name == attr), None)     
+        return next((i for i in self.list if self.name == name), None)
 
     def __getattr__(self, attr):
         """

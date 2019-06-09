@@ -3,8 +3,10 @@ import os
 import pandas as pd
 
 from .conc import _concordance
-from .slice import Just, Skip, See
+from .search import Searcher
+from .slice import Just, Skip, See  # noqa: F401
 from .views import _tabview
+
 
 class Dataset(pd.DataFrame):
     """
@@ -23,6 +25,7 @@ class Dataset(pd.DataFrame):
     def __init__(self, data, reference=None, **kwargs):
         if isinstance(data, str):
             if os.path.isfile(data):
+                from .file import File
                 data = File(data).load()
                 reference = data
             elif os.path.isdir(data):
@@ -45,7 +48,7 @@ class Dataset(pd.DataFrame):
         searcher = Searcher(self)
         return searcher.run('t', query, **kwargs)
 
-    def depgrep(self, *args, **kwargs):
+    def depgrep(self, query, **kwargs):
         """
         Search dependencies using depgrep
         """
