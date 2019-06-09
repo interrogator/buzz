@@ -91,9 +91,11 @@ class TestCorpus(unittest.TestCase):
         book = self.loaded.just.lemmata.book
         conc = book.conc(show=['w', 'p'])
         self.assertTrue(all(i in conc.columns for i in ['left', 'match', 'right']))
-        self.assertTrue(conc.iloc[0, 0].endswith('A major theme in the'))
-        self.assertTrue(conc.iloc[0, 1].endswith('book/NN'))
-        self.assertTrue(conc.iloc[0, 2].startswith('is abandonment followed by fostering'))
+        left, match, right = 'A major theme in the', 'book/NN', 'is abandonment followed by fostering'
+        self.assertTrue(conc.iloc[0, 0].endswith(left))
+        self.assertTrue(conc.iloc[0, 1].endswith(match))
+        # can we use iloc here reliably? speaker can move to be next to match...
+        self.assertTrue(conc['right'][0].strip().startswith(right), right)
 
 
 if __name__ == '__main__':
