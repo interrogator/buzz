@@ -1,7 +1,6 @@
 import re
 from collections import MutableSequence
 
-from .corpus import Corpus
 
 class Contents(MutableSequence):
     """
@@ -32,6 +31,8 @@ class Contents(MutableSequence):
         if isinstance(i, str):
             # dict style lookup of files when there are no subcorpora
             return next((s for s in to_iter if s.name.rsplit('.', 1)[0] == i), None)
+
+        from .corpus import Corpus
         # allow user to pass in a regular expression and get all matching names
         if isinstance(i, re._pattern_type):
             it = [s for s in to_iter if re.search(i, s.name.split('.', 1)[0])]

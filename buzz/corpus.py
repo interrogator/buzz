@@ -3,6 +3,7 @@ from collections import MutableSequence
 
 import pandas as pd
 
+from .contents import Contents
 from .parse import Parser
 from .dataset import Dataset
 from .utils import (_to_df,
@@ -28,6 +29,8 @@ class Corpus(MutableSequence):
         """
         Initialise the corpus, deteremine if parsed, hook up methods
         """
+        self.files = Contents()
+        self.subcorpora = Contents()
         path = os.path.expanduser(path)
         if not os.path.isdir(path):
             raise ValueError(f'Not a valid path: {path}')
