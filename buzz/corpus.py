@@ -133,7 +133,7 @@ class Corpus(MutableSequence):
 
     def parse(self,
               parser: str = 'spacy',
-              cons_parser: str = 'benepar',
+              cons_parser: str = 'bllip',
               language: str = 'english',
               **kwargs):
         """

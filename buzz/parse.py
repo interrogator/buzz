@@ -29,7 +29,7 @@ class Parser:
     """
     Create an object that can parse a Corpus.
     """
-    def __init__(self, corpus, parser='spacy', cons_parser='benepar', language='english'):
+    def __init__(self, corpus, parser='spacy', cons_parser='bllip', language='english'):
         self.corpus = corpus
         self.parser = parser
         self.cons_parser = cons_parser
