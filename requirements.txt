@@ -10,3 +10,8 @@ pandas
 tqdm
 pyparsing
 https://github.com/interrogator/tabview/archive/master.zip
+# just needed for test/ci:
+flake8
+coverage
+mypy
+codecov
