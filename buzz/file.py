@@ -10,18 +10,12 @@ class File(Corpus):
 
     def __init__(self, path, **kwargs):
         self.path = path
-        self.name = os.path.basename(path)
-        self.no_ext, self._ext = os.path.splitext(os.path.basename(self.name))
+        self.filename = os.path.basename(path)
+        self.name = self.filename.split('.txt')[0]
         self.files = None
         self.subcorpora = None
         self.nlp = None
-        self.is_parsed = self.name.strip().endswith(('.conll', '.conllu'))
-
-    def __eq__(self, other):
-        self.name == getattr(other, 'name', other)
-
-    def __lt__(self, other):
-        self.name < getattr(other, 'name', other)
+        self.is_parsed = self.filename.endswith(('.conll', '.conllu'))
 
     def __ne__(self, other):
         return not self == other

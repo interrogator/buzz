@@ -37,7 +37,7 @@ class Corpus(MutableSequence):
         self.path = path
         self._metadata_path = os.path.join(self.path, '.metadata.json')
         self.filename = os.path.basename(path)
-        self.name = os.path.splitext(self.filename)[0]
+        self.name = self.filename
         self.subcorpora, self.files, self.is_parsed = self._get_subcorpora_and_files()
         self.filepaths = Contents([i.path for i in self.files])
         self.nlp = None
@@ -54,7 +54,7 @@ class Corpus(MutableSequence):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
-        return self.path < other.path
+        return self.path == other.path
 
     def __repr__(self):
         parsed = 'parsed' if self.is_parsed else 'unparsed'
@@ -80,11 +80,7 @@ class Corpus(MutableSequence):
         """
         Attribute style access to subcorpora/files, preferring former
         """
-        if self.subcorpora:
-            return next((i for i in self.subcorpora if i.name == name), None)
-        gen = (i for i in self.files if os.path.splitext(i.name)[0] == name)
-        return next(gen, None)
-
+        return getattr(self.iterable, name)
 
     def is_loaded(self):
         """
@@ -109,7 +105,6 @@ class Corpus(MutableSequence):
         meta = dict(language='english',
                     parser='spacy',
                     cons_parser='benepar',
-                    copula_head=True,
                     path=self.path,
                     name=self.name,
                     parsed=self.is_parsed,
@@ -254,10 +249,7 @@ class Corpus(MutableSequence):
                 subcorpora.append(directory)
         subcorpora = Contents(list(sorted(subcorpora)))
         files = Contents(list(sorted(files)))
-        if not files:
-            is_parsed = self.name.endswith('-parsed')
-        else:
-            is_parsed = files[0].name.endswith(('conll', 'conllu'))
+        is_parsed = self.name.endswith('-parsed')
         return subcorpora, files, is_parsed
 
 
