@@ -197,12 +197,6 @@ class Corpus(MutableSequence):
             from collections import OrderedDict
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
-    def _prepare_spacy(self, language='en'):
-        """
-        Load NLP analysis component
-        """
-        
-
     def spacy(self, language='en', **kwargs):
         """
         Get spacy's model of the Corpus
