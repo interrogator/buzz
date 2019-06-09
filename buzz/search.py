@@ -247,10 +247,10 @@ class Searcher(object):
             _tqdm_update(t)
         _tqdm_close(t)
 
-        from .classes import Results
+        from .table import Table
         if not results:
             print('No results, sorry.')
-            results = Results()
+            results = Table()
         else:
             results = pd.concat(results, sort=False)
             results = Results(results)
