@@ -253,6 +253,6 @@ class Searcher(object):
             results = Table()
         else:
             results = pd.concat(results, sort=False)
-            results = Results(results)
+            results = Table(results)
         results.reference = self.reference
         return results
