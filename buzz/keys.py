@@ -2,7 +2,6 @@ from collections import Counter
 
 import pandas as pd
 from .views import make_match_col
-from .dictionaries.bnc import _get_bnc
 
 
 def log_likelihood_measure(word_in_ref, word_in_target, ref_sum, target_sum):

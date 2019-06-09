@@ -190,7 +190,8 @@ class Corpus(MutableSequence):
             df['_n'] = range(len(df))
             df = df[col_order + ['_n']]
             df = _set_best_data_types(df)
-            return Dataset(self._order_columns(df))
+            fixed = self._order_columns(df)
+            return Dataset(fixed, reference=fixed)
         # for unparsed corpora, we give a dict of {path: text}
         else:
             from collections import OrderedDict

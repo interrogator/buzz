@@ -1,0 +1,192 @@
+# annotated = yeah
+# field = value
+# parse = (S (X (_SP  )) (NP (NP (DT A) (JJ major) (NN theme)) (PP (IN in) (NP (DT the) (NN book)))) (VP (VBZ is) (NP (NP (NN abandonment)) (VP (VBN followed) (IN by) (NP (VBG fostering) (, ,) (PP (IN as) (PP (IN in) (NP (NP (DT the) (NN life)) (PP (IN of) (NP (NNP Mowgli)))))) (, ,) (S (VP (VBG echoing) (NP (NP (NNP Kipling) (POS 's)) (JJ own) (NN childhood)))))))) (. .) (_SP  ))
+# sent_id = 1
+# sent_len = 27
+# speaker = NARRATOR
+# text = A major theme in the book is abandonment followed by fostering, as in the life of Mowgli, echoing Kipling's own childhood.
+1	A	a	DET	DT	_	4	det	_	_
+2	major	major	ADJ	JJ	_	4	amod	_	_
+3	theme	theme	NOUN	NN	_	10	nsubjpass	_	_
+4	in	in	ADP	IN	_	4	prep	_	_
+5	the	the	DET	DT	_	7	det	_	_
+6	book	book	NOUN	NN	_	5	pobj	_	_
+7	is	be	VERB	VBZ	_	10	auxpass	_	_
+8	abandonment	abandonment	NOUN	NN	_	10	advmod	_	_
+9	followed	follow	VERB	VBN	_	0	ROOT	_	_
+10	by	by	ADP	IN	_	10	agent	_	_
+11	fostering	foster	VERB	VBG	_	11	pcomp	_	_
+12	,	,	PUNCT	,	_	10	punct	_	_
+13	as	as	ADP	IN	_	10	prep	_	_
+14	in	in	ADP	IN	_	14	prep	_	_
+15	the	the	DET	DT	_	17	det	_	_
+16	life	life	NOUN	NN	_	15	pobj	_	_
+17	of	of	ADP	IN	_	17	prep	_	_
+18	Mowgli	Mowgli	PROPN	NNP	_	18	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
+19	,	,	PUNCT	,	_	10	punct	_	_
+20	echoing	echo	VERB	VBG	_	10	advcl	_	_
+21	Kipling	Kipling	PROPN	NNP	_	25	poss	_	ent_type=GPE|ent_id=384|ent_iob=B
+22	's	's	PART	POS	_	22	case	_	_
+23	own	own	ADJ	JJ	_	25	amod	_	_
+24	childhood	childhood	NOUN	NN	_	21	dobj	_	_
+25	.	.	PUNCT	.	_	10	punct	_	_
+
+# annotated = yeah
+# field = value
+# parse = (S (NP (DT The) (NN theme)) (VP (VBZ is) (VP (VBN echoed) (PP (IN in) (NP (NP (DT the) (NN triumph)) (PP (IN of) (NP (NP (NNS protagonists)) (PP (VBG including) (NP (NP (NNP Rikki)) (HYPH -) (NP (NP (NNP Tikki)) (HYPH -) (NP (NNP Tavi))) (CC and) (NP (DT The) (NNP White) (NNP Seal)))))) (PP (PP (IN over) (NP (PRP$ their) (NNS enemies))) (, ,) (CONJP (RB as) (RB well) (IN as)) (NP (NNP Mowgli) (POS 's))))))) (. .))
+# sent_id = 2
+# sent_len = 29
+# speaker = NARRATOR
+# text = The theme is echoed in the triumph of protagonists including Rikki-Tikki-Tavi and The White Seal over their enemies, as well as Mowgli's.
+1	The	the	DET	DT	_	2	det	_	_
+2	theme	theme	NOUN	NN	_	4	nsubjpass	_	_
+3	is	be	VERB	VBZ	_	4	auxpass	_	_
+4	echoed	echo	VERB	VBN	_	0	ROOT	_	_
+5	in	in	ADP	IN	_	4	prep	_	_
+6	the	the	DET	DT	_	7	det	_	_
+7	triumph	triumph	NOUN	NN	_	5	pobj	_	_
+8	of	of	ADP	IN	_	7	prep	_	_
+9	protagonists	protagonist	NOUN	NNS	_	8	pobj	_	_
+10	including	include	VERB	VBG	_	9	prep	_	_
+11	Rikki	Rikki	PROPN	NNP	_	15	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+12	-	-	PUNCT	HYPH	_	15	punct	_	ent_type=ORG|ent_id=383|ent_iob=I
+13	Tikki	Tikki	PROPN	NNP	_	15	compound	_	ent_type=ORG|ent_id=383|ent_iob=I
+14	-	-	PUNCT	HYPH	_	15	punct	_	ent_type=ORG|ent_id=383|ent_iob=I
+15	Tavi	Tavi	PROPN	NNP	_	10	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
+16	and	and	CCONJ	CC	_	15	cc	_	_
+17	The	the	DET	DT	_	19	det	_	ent_type=ORG|ent_id=383|ent_iob=B
+18	White	White	PROPN	NNP	_	19	compound	_	ent_type=ORG|ent_id=383|ent_iob=I
+19	Seal	Seal	PROPN	NNP	_	15	conj	_	ent_type=ORG|ent_id=383|ent_iob=I
+20	over	over	ADP	IN	_	19	prep	_	_
+21	their	-PRON-	DET	PRP$	_	22	poss	_	_
+22	enemies	enemy	NOUN	NNS	_	20	pobj	_	_
+23	,	,	PUNCT	,	_	4	punct	_	_
+24	as	as	ADV	RB	_	26	advmod	_	_
+25	well	well	ADV	RB	_	26	advmod	_	_
+26	as	as	ADP	IN	_	4	cc	_	_
+27	Mowgli	Mowgli	PROPN	NNP	_	4	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+28	's	's	PART	POS	_	27	case	_	_
+29	.	.	PUNCT	.	_	4	punct	_	_
+
+# annotated = yeah
+# parse = (S (S (NP (DT Another) (JJ important) (NN theme)) (VP (VBZ is) (PP (IN of) (NP (NN law) (CC and) (NN freedom))))) (: ;) (S (NP (DT the) (NNS stories)) (VP (VBP are) (RB not) (PP (PP (IN about) (NP (NN animal) (NN behaviour))) (, ,) (ADJP (ADVP (RB still) (JJR less)) (PP (IN about) (NP (NP (DT the) (JJ Darwinian) (NN struggle)) (PP (IN for) (NP (NN survival)))))) (, ,) (CC but) (PP (IN about) (NP (NP (JJ human) (NNS archetypes)) (PP (IN in) (NP (NN animal) (NN form)))))))) (. .) (_SP  ))
+# sent_id = 3
+# sent_len = 35
+# text = Another important theme is of law and freedom; the stories are not about animal behaviour, still less about the Darwinian struggle for survival, but about human archetypes in animal form.
+1	Another	another	DET	DT	_	3	det	_	_
+2	important	important	ADJ	JJ	_	3	amod	_	_
+3	theme	theme	NOUN	NN	_	4	nsubj	_	_
+4	is	be	VERB	VBZ	_	12	ccomp	_	_
+5	of	of	ADP	IN	_	4	prep	_	_
+6	law	law	NOUN	NN	_	5	pobj	_	_
+7	and	and	CCONJ	CC	_	6	cc	_	_
+8	freedom	freedom	NOUN	NN	_	6	conj	_	_
+9	;	;	PUNCT	:	_	12	punct	_	_
+10	the	the	DET	DT	_	11	det	_	_
+11	stories	story	NOUN	NNS	_	12	nsubj	_	_
+12	are	be	VERB	VBP	_	0	ROOT	_	_
+13	not	not	ADV	RB	_	12	neg	_	_
+14	about	about	ADP	IN	_	12	prep	_	_
+15	animal	animal	NOUN	NN	_	16	compound	_	_
+16	behaviour	behaviour	NOUN	NN	_	14	pobj	_	_
+17	,	,	PUNCT	,	_	16	punct	_	_
+18	still	still	ADV	RB	_	19	advmod	_	_
+19	less	less	ADJ	JJR	_	12	acomp	_	_
+20	about	about	ADP	IN	_	19	prep	_	_
+21	the	the	DET	DT	_	23	det	_	_
+22	Darwinian	darwinian	ADJ	JJ	_	23	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
+23	struggle	struggle	NOUN	NN	_	20	pobj	_	_
+24	for	for	ADP	IN	_	23	prep	_	_
+25	survival	survival	NOUN	NN	_	24	pobj	_	_
+26	,	,	PUNCT	,	_	19	punct	_	_
+27	but	but	CCONJ	CC	_	19	cc	_	_
+28	about	about	ADP	IN	_	19	conj	_	_
+29	human	human	ADJ	JJ	_	30	amod	_	_
+30	archetypes	archetype	NOUN	NNS	_	28	pobj	_	_
+31	in	in	ADP	IN	_	30	prep	_	_
+32	animal	animal	NOUN	NN	_	33	compound	_	_
+33	form	form	NOUN	NN	_	31	pobj	_	_
+34	.	.	PUNCT	.	_	12	punct	_	_
+
+# annotated = yeah
+# parse = (S (S (NP (PRP They)) (VP (VBP teach) (NP (NP (NN respect)) (PP (IN for) (NP (NP (NN authority)) (, ,) (NP (NN obedience)) (, ,) (CC and) (VP (VBG knowing) (NP (NP (NP (PRP one) (POS 's)) (NN place)) (PP (IN in) (NP (NN society)))) (PP (IN with) (NP (NP (`` ") (DT the) (NN law)) (PP (IN of) (NP (DT the) (NN jungle) ('' "))))))))))) (, ,) (CC but) (S (NP (DT the) (NNS stories)) (ADVP (RB also)) (VP (VBP illustrate) (NP (DT the) (NN freedom) (S (VP (TO to) (VP (VB move) (PP (IN between) (NP (NP (JJ different) (NNS worlds)) (, ,) (PP (JJ such) (IN as) (SBAR (WHADVP (WRB when)) (S (NP (NNP Mowgli)) (VP (VBZ moves) (PP (IN between) (NP (NP (DT the) (NN jungle)) (CC and) (NP (DT the) (NN village)))))))))))))))) (. .))
+# sent_id = 4
+# sent_len = 49
+# text = They teach respect for authority, obedience, and knowing one's place in society with "the law of the jungle", but the stories also illustrate the freedom to move between different worlds, such as when Mowgli moves between the jungle and the village.
+1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	teach	teach	VERB	VBP	_	0	ROOT	_	_
+3	respect	respect	NOUN	NN	_	2	dobj	_	_
+4	for	for	ADP	IN	_	3	prep	_	_
+5	authority	authority	NOUN	NN	_	4	pobj	_	_
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	obedience	obedience	NOUN	NN	_	5	conj	_	_
+8	,	,	PUNCT	,	_	7	punct	_	_
+9	and	and	CCONJ	CC	_	7	cc	_	_
+10	knowing	know	VERB	VBG	_	7	conj	_	_
+11	one	one	PRON	PRP	_	13	poss	_	_
+12	's	's	PART	POS	_	11	case	_	_
+13	place	place	NOUN	NN	_	10	dobj	_	_
+14	in	in	ADP	IN	_	13	prep	_	_
+15	society	society	NOUN	NN	_	14	pobj	_	_
+16	with	with	ADP	IN	_	10	prep	_	_
+17	"	"	PUNCT	``	_	18	punct	_	_
+18	the	the	DET	DT	_	19	det	_	_
+19	law	law	NOUN	NN	_	16	pobj	_	_
+20	of	of	ADP	IN	_	19	prep	_	_
+21	the	the	DET	DT	_	22	det	_	_
+22	jungle	jungle	NOUN	NN	_	20	pobj	_	_
+23	"	"	PUNCT	''	_	16	punct	_	_
+24	,	,	PUNCT	,	_	2	punct	_	_
+25	but	but	CCONJ	CC	_	2	cc	_	_
+26	the	the	DET	DT	_	27	det	_	_
+27	stories	story	NOUN	NNS	_	29	nsubj	_	_
+28	also	also	ADV	RB	_	29	advmod	_	_
+29	illustrate	illustrate	VERB	VBP	_	2	conj	_	_
+30	the	the	DET	DT	_	31	det	_	_
+31	freedom	freedom	NOUN	NN	_	29	dobj	_	_
+32	to	to	PART	TO	_	33	aux	_	_
+33	move	move	VERB	VB	_	31	acl	_	_
+34	between	between	ADP	IN	_	33	prep	_	_
+35	different	different	ADJ	JJ	_	36	amod	_	_
+36	worlds	world	NOUN	NNS	_	34	pobj	_	_
+37	,	,	PUNCT	,	_	36	punct	_	_
+38	such	such	ADJ	JJ	_	39	amod	_	_
+39	as	as	ADP	IN	_	36	prep	_	_
+40	when	when	ADV	WRB	_	42	advmod	_	_
+41	Mowgli	Mowgli	PROPN	NNP	_	42	nsubj	_	ent_type=NORP|ent_id=381|ent_iob=B
+42	moves	move	VERB	VBZ	_	39	pcomp	_	_
+43	between	between	ADP	IN	_	42	prep	_	_
+44	the	the	DET	DT	_	45	det	_	_
+45	jungle	jungle	NOUN	NN	_	43	pobj	_	_
+46	and	and	CCONJ	CC	_	45	cc	_	_
+47	the	the	DET	DT	_	48	det	_	_
+48	village	village	NOUN	NN	_	45	conj	_	_
+49	.	.	PUNCT	.	_	29	punct	_	_
+
+# annotated = yeah
+# parse = (S (NP (NNS Critics)) (VP (VBP have) (ADVP (RB also)) (VP (VBN noted) (NP (NP (DT the) (JJ essential) (UCP (NN wildness) (CC and) (JJ lawless)) (NNS energies)) (PP (IN in) (NP (DT the) (NNS stories)))) (, ,) (S (VP (VBG reflecting) (NP (NP (DT the) (JJ irresponsible) (NN side)) (PP (IN of) (NP (JJ human) (NN nature)))))))) (. .))
+# sent_id = 5
+# sent_len = 22
+# text = Critics have also noted the essential wildness and lawless energies in the stories, reflecting the irresponsible side of human nature.
+1	Critics	critic	NOUN	NNS	_	4	nsubj	_	_
+2	have	have	VERB	VBP	_	4	aux	_	_
+3	also	also	ADV	RB	_	4	advmod	_	_
+4	noted	note	VERB	VBN	_	0	ROOT	_	_
+5	the	the	DET	DT	_	7	det	_	_
+6	essential	essential	ADJ	JJ	_	7	amod	_	_
+7	wildness	wildness	NOUN	NN	_	4	dobj	_	_
+8	and	and	CCONJ	CC	_	7	cc	_	_
+9	lawless	lawless	ADJ	JJ	_	10	amod	_	_
+10	energies	energy	NOUN	NNS	_	7	conj	_	_
+11	in	in	ADP	IN	_	7	prep	_	_
+12	the	the	DET	DT	_	13	det	_	_
+13	stories	story	NOUN	NNS	_	11	pobj	_	_
+14	,	,	PUNCT	,	_	4	punct	_	_
+15	reflecting	reflect	VERB	VBG	_	4	advcl	_	_
+16	the	the	DET	DT	_	18	det	_	_
+17	irresponsible	irresponsible	ADJ	JJ	_	18	amod	_	_
+18	side	side	NOUN	NN	_	15	dobj	_	_
+19	of	of	ADP	IN	_	18	prep	_	_
+20	human	human	ADJ	JJ	_	21	amod	_	_
+21	nature	nature	NOUN	NN	_	19	pobj	_	_
+22	.	.	PUNCT	.	_	4	punct	_	_

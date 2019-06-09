@@ -9,7 +9,7 @@ class Workspace:
     def __init__(self, path_or_corpus):
         if isinstance(path_or_corpus, str):
             path_or_corpus = Corpus(path_or_corpus)
-        self.corpus = corpus
+        self.corpus = corpus.load()
         self.results = OrderedDict()
 
     def search(self, *args, **kwargs):

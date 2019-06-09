@@ -4,7 +4,6 @@ import unittest
 
 from unittest.mock import ANY, Mock, mock_open, patch
 from buzz.corpus import Corpus
-from buzz.constants import CONLL_COLUMNS
 from buzz.contents import Contents
 from buzz.dataset import Dataset
 
@@ -22,8 +21,6 @@ class TestCorpus(unittest.TestCase):
     def setUp(self):
         self.unparsed = Corpus('tests/data')
         self.parsed = Corpus('tests/testing-parsed')
-        self.loaded = self.parsed.load()
-        # super().__init__()
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -55,7 +52,10 @@ class TestCorpus(unittest.TestCase):
     # add slow deco
     def test_parse(self):
         parsed_path = 'tests/data-parsed'
-        shutil.rmtree(parsed_path)
+        try:
+            shutil.rmtree(parsed_path)
+        except FileNotFoundError:
+            pass
         parsed = self.unparsed.parse()
         self.assertEqual(parsed.name, self.unparsed.name + '-parsed')
         self.test_subcorpora_and_files(parsed)
@@ -65,19 +65,23 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(str(parsed).endswith(end), str(parsed))
 
     def test_loaded(self):
+        self.loaded = self.parsed.load()
         self.assertIsInstance(self.loaded, Dataset)
         self.assertEqual(len(self.loaded), TOTAL_TOKENS)
-        self.assertTrue(all(i in self.loaded.columns for i in CONLL_COLUMNS))
+        expect =  ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'annotated',
+                   'field', 'parse', 'sent_id', 'sent_len', 'speaker', 'text', '_n']
+        self.assertTrue(all(i in self.loaded.columns for i in expect))
 
     def test_just_skip(self):
-        book = self.just.lemmata.book
-        regex_book = l.just.lemmata('b..k')
+        self.loaded = self.parsed.load()
+        book = self.loaded.just.lemmata.book
+        regex_book = self.loaded.just.lemmata('b..k')
         self.assertTrue(all(book.index == regex_book.index))
         self.assertEqual(len(book), 3)
         indices = list(book.index)
         for fsi in BOOK_IX:
             self.assertTrue(fsi in indices)
-        nobook = self.skip.lemmata.book
+        nobook = self.loaded.skip.lemmata.book
         self.assertEqual(len(nobook), TOTAL_TOKENS-len(book))
 
     def test_search(self):

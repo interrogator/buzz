@@ -2,6 +2,7 @@ import os
 
 import pandas as pd
 
+from .conc import _concordance
 from .slice import Just, Skip, See
 from .views import _tabview
 
@@ -12,21 +13,24 @@ class Dataset(pd.DataFrame):
     _internal_names = pd.DataFrame._internal_names
     _internal_names_set = set(_internal_names)
 
-    _metadata = ['reference', '_metadata_path']
+    _metadata = ['reference']
     reference = None
 
     @property
     def _constructor(self):
         return Dataset
 
-    def __init__(self, data, **kwargs):
+    def __init__(self, data, reference=None, **kwargs):
         if isinstance(data, str):
             if os.path.isfile(data):
                 data = File(data).load()
+                reference = data
             elif os.path.isdir(data):
                 from .corpus import Corpus
                 data = Corpus(data).load()
+                reference = data
         super().__init__(data, **kwargs)
+        self.reference = reference
 
     def __len__(self):
         """
@@ -34,26 +38,30 @@ class Dataset(pd.DataFrame):
         """
         return self.shape[0]
 
-    def tgrep(self, *args, **kwargs):
+    def tgrep(self, query, **kwargs):
         """
         Search constituency parses using tgrep
         """
-        pass
+        searcher = Searcher(self)
+        return searcher.run('t', query, **kwargs)
 
     def depgrep(self, *args, **kwargs):
         """
-        Search dependenciess using depgrep
+        Search dependencies using depgrep
         """
-        pass
+        searcher = Searcher(self)
+        return searcher.run('d', query, **kwargs)
 
     def conc(self, *args, **kwargs):
         """
         Generate a concordance for each row
         """
-        pass
+        return _concordance(self, self.reference, *args, **kwargs)
 
     def view(self, *args, **kwargs):
         """
         View interactvely with tabview
+
+        todo: reference?
         """
         return _tabview(self, *args, **kwargs)

@@ -92,12 +92,8 @@ class Slice(ABC):
         raise NotImplementedError()
 
     def _validate(self):
+        # todo: ensure correct type?
         return
-        # todo: fix circular import
-        #ok_for = (LoadedCorpus, Results)
-        #if not isinstance(self._df, ok_for):
-        #    error = f'.{self.__name__} accessor only for: {ok_for}'
-        #    raise AttributeError(error)
 
 
 @pd.api.extensions.register_dataframe_accessor('just')
