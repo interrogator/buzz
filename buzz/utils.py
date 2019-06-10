@@ -164,6 +164,8 @@ def _to_df(corpus,
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
     """
+    from .dataset import Dataset
+
     with open(corpus.path, 'r') as fo:
         data = fo.read().strip('\n')
 
@@ -187,7 +189,7 @@ def _to_df(corpus,
     df = metadata.join(df, how='inner')
 
     # fix the column order
-    df = df[[i for i in COLUMN_NAMES[3:] + list(sorted(metadata)) if i in usecols]]
+    df = df[COLUMN_NAMES[3:] + list(sorted(metadata))]
 
     # remove columns whose value was interpeted or for which nothing is ever availablr
     badcols = ['o', 'm']
@@ -198,7 +200,7 @@ def _to_df(corpus,
         df['g'] = df['g'].str.replace('_|^$', '0').astype(int)
     df['g'] = df['g'].astype(int)
     df = df.fillna('_')
-    return _set_best_data_types(df)
+    return Dataset(_set_best_data_types(df))
 
 
 def _get_short_name_from_long_name(longname):

@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import Optional
 
-from .views import _tabview, _sort
+from .views import _tabview, _sort, _simple_relative
 
 
 class Table(pd.DataFrame):
@@ -37,7 +37,5 @@ class Table(pd.DataFrame):
         """
         Give a relative frequency version of this
         """
-        rel = (self.T * 100.0 / self.sum(axis=1)).T
-        if self[list(self.columns)].equals(rel[list(self.columns)]):
-            raise ValueError('This operation did not change the DataFrame. Already relative?')
+        rel = _simple_relative(self)
         return _sort(rel, by=sort) if sort else rel

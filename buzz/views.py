@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from tabview import view
 
-from .utils import _auto_window, _to_df
+from .utils import _auto_window
 
 
 def _make_match_col(df, show):
