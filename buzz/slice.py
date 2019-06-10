@@ -20,7 +20,9 @@ corpus.just.speaker.MOOKIE.skip.xpos.PUNCT.see.lemma.by.wordclass
 """
 
 from abc import ABC, abstractmethod
+
 import pandas as pd
+
 from .utils import _get_short_name_from_long_name
 from .search import Searcher
 
@@ -49,19 +51,24 @@ class Interim(Filter):
     """
     Interim getter
 
-    result.view.column
+    df.see.column
     """
     @property
     def by(self):
         """
-        result.view.x.by.y
+        df.see.x.by.y
         """
         return Interim(self._df, self.column)
 
     def __call__(self, entry=None, *args, **kwargs):
         if not entry:
             return self._df[self.column].value_counts()
-        return self._df.table(self.column, entry, *args, **kwargs)
+        else:
+            entry = _get_short_name_from_long_name(entry)
+        return self._df.table(subcorpora=self.column,
+                              show=entry,
+                              *args,
+                              **kwargs)
 
 
 class Finder(Filter):
@@ -82,14 +89,19 @@ class Slice(ABC):
         self._validate()
 
     def __getattr__(self, col):
+        """
+        <operation:> just, skip, see...
+        gets ATTRIB in df.<operation>.ATTRIB
+        """
         short = _get_short_name_from_long_name(col)
         if short not in self._valid:
             raise ValueError(f'Invalid name: {col}')
+        # use the custom data grabber for this kind of slicer.
         return self._grab(short)
 
     @abstractmethod
     def _grab(self, *args, **kwargs):
-        raise NotImplementedError()
+        raise NotImplementedError()  # noqa
 
     def _validate(self):
         # todo: ensure correct type?
@@ -123,13 +135,3 @@ class See(Slice):
     """
     def _grab(self, colname):
         return Interim(self._df, colname)
-
-
-@pd.api.extensions.register_dataframe_accessor('find')
-class Find(Slice):
-    """
-    corpus.find('l', regex)
-    corpus.find.lemmata(regex)
-    """
-    def _grab(self, target):
-        return Finder(self._df, target)

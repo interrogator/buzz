@@ -20,13 +20,24 @@ class File(Corpus):
     def __ne__(self, other):
         return not self == other
 
-    def to_df(self, **kwargs):
+    def __iter__(self):
+        in_memory = self.load() if self.is_parsed else self.read()
+        return in_memory.__iter__()
+
+    def to_spacy(self, language='en'):
         """
-        If parsed, return the dataframe with CONLL columns
+        get spaCy model of this file
         """
-        if not self.is_parsed:
-            raise NotImplementedError('Needs to be parsed.')
-        return _to_df(self, **kwargs)
+        self.nlp = _get_nlp(language=language)
+        with open(self.path, 'r') as fo:
+            text = fo.read().strip()
+        # get the raw text from conll. horrible idea but no other way
+        if self.is_parsed:
+            pre = '# text = '
+            lines = [i.replace(pre, '').strip() for i in text.splitlines() if i.startswith(pre)]
+            text = ' '.join(i for i in lines)
+            text = text.replace('  ', ' ')
+        return self.nlp(text)
 
     def __len__(self):
         raise NotImplementedError('File has no length')
@@ -34,28 +45,13 @@ class File(Corpus):
     def __bool__(self):
         return True
 
-    def load(self, spacy=False, language='en', **kwargs):
+    def load(self, **kwargs):
         """
         For parsed dataset, get dataframe or spacy object
         """
-        if spacy:
-            self.nlp = _get_nlp(language=language)
-        if self.is_parsed and not spacy:
-            return self.to_df(**kwargs)
-        with open(self.path, 'r') as fo:
-            text = fo.read()
-        # get the raw text from conll
         if self.is_parsed:
-            output = list()
-            for line in text.splitlines():
-                if not line.startswith('# text = '):
-                    continue
-                line = line.replace('# text = ', '')
-                output.append(line)
-            text = '\n'.join(i for i in output)
-        if not spacy:
-            return text
-        return self.nlp(text)
+            return _to_df(self, **kwargs)
+        raise NotImplementedError('Cannot load DataFame from unparsed file. Use file.read()')
 
     def read(self, **kwargs):
         """

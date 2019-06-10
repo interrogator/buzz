@@ -302,10 +302,7 @@ def _table(dataset,
 
     # do casing
     if not preserve_case:
-        try:
-            df['_match'] = df['_match'].astype(str).str.lower()
-        except Exception:  # todo: why?
-            pass
+        df['_match'] = df['_match'].astype(str).str.lower()
 
     # if only showing top n, cut down to this number?
     if top:

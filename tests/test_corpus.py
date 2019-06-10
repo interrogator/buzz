@@ -4,6 +4,7 @@ import unittest
 from buzz.corpus import Corpus
 from buzz.contents import Contents
 from buzz.dataset import Dataset
+from buzz.table import Table
 
 
 TOTAL_TOKENS = 329
@@ -17,9 +18,15 @@ BOOK_IX = [('second', 1, 6), ('space in name', 3, 2), ('space in name', 4, 12)]
 
 class TestCorpus(unittest.TestCase):
 
-    def setUp(self):
-        self.unparsed = Corpus('tests/data')
-        self.parsed = Corpus('tests/testing-parsed')
+    @classmethod
+    def setUpClass(cls):
+        """ get_some_resource() is slow, to avoid calling it for each test use setUpClass()
+            and store the result as class variable
+        """
+        super().setUpClass()
+        cls.unparsed = Corpus('tests/data')
+        cls.parsed = Corpus('tests/testing-parsed')
+        cls.loaded = cls.parsed.load()
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -64,7 +71,6 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(str(parsed).endswith(end), str(parsed))
 
     def test_loaded(self):
-        self.loaded = self.parsed.load()
         self.assertIsInstance(self.loaded, Dataset)
         self.assertEqual(len(self.loaded), TOTAL_TOKENS)
         expect = ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'annotated',
@@ -72,7 +78,6 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(all(i in self.loaded.columns for i in expect))
 
     def test_just_skip(self):
-        self.loaded = self.parsed.load()
         book = self.loaded.just.lemmata.book
         regex_book = self.loaded.just.lemmata('b..k')
         self.assertTrue(all(book.index == regex_book.index))
@@ -88,7 +93,6 @@ class TestCorpus(unittest.TestCase):
         pass
 
     def test_conc(self):
-        self.loaded = self.parsed.load()
         book = self.loaded.just.lemmata.book
         conc = book.conc(show=['w', 'p'])
         self.assertTrue(all(i in conc.columns for i in ['left', 'match', 'right']))
@@ -98,6 +102,20 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(conc.iloc[0, 1].endswith(match))
         # can we use iloc here reliably? speaker can move to be next to match...
         # self.assertTrue(right in conc['right'][0])
+
+    def test_dot_syntax(self):
+        """
+        The kind of ridiculous 'see' method
+
+        Tests for the table itself should stay in test_table
+        """
+        tab = self.loaded.see.pos.by.lemma
+        short = self.loaded.see.l()
+        self.assertIsInstance(tab, Table)
+        self.assertEqual(tab.columns.name, 'l')
+        self.assertEqual(tab.index.name, 'p')
+        self.assertEqual(tab.sum()['the'], 30)
+        self.assertEqual(short['the'], 30)
 
 
 if __name__ == '__main__':
