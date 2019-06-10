@@ -5,7 +5,7 @@ import pandas as pd
 from .conc import _concordance
 from .search import Searcher
 from .slice import Just, Skip, See  # noqa: F401
-from .views import _tabview
+from .views import _table, _tabview
 
 
 class Dataset(pd.DataFrame):
@@ -60,6 +60,9 @@ class Dataset(pd.DataFrame):
         Generate a concordance for each row
         """
         return _concordance(self, self.reference, *args, **kwargs)
+
+    def table(self, *args, **kwargs):
+        return _table(self, *args, **kwargs)
 
     def view(self, *args, **kwargs):
         """

@@ -262,9 +262,6 @@ def _table(self,
     else:
         df, reference = self, self.copy()
 
-    if relative is True:
-        relative = reference.copy()
-
     # user needs something to have as columns
     if subcorpora == 'default' or subcorpora is False:
         subcorpora = 'file'
@@ -333,9 +330,6 @@ def _table(self,
     df.fillna(0, inplace=True)
 
     # remove column name if there
-    try:
-        del df.columns.name
-    except Exception:  # todo: why?
-        pass
+    df.columns.name = '/'.join(show)
 
     return Table(df, reference=reference)
