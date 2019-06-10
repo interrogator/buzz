@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/interrogator/buzz.svg?branch=master)](https://travis-ci.org/interrogator/buzz)
+[![codecov.io](https://codecov.io/gh/interrogator/buzz/branch/master/graph/badge.svg)](https://codecov.io/gh/interrogator/buzz)
+
 # buzz: python corpus linguistics
 
 <!--- Don't edit the version line below manually. Let bump2version do it for you. -->
