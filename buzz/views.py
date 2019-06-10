@@ -50,6 +50,7 @@ def _tabview(df, reference, window='auto', **kwargs):
     Show concordance in interactive cli view
     """
     from .conc import Concordance
+
     is_conc = type(df) == Concordance
 
     # needs review
@@ -81,9 +82,7 @@ def _tabview(df, reference, window='auto', **kwargs):
 
     aligns, truncs, widths = _get_widths(df, is_conc, window)
 
-    view_style = dict(column_widths=widths,
-                      reference=reference,
-                      df=df)
+    view_style = dict(column_widths=widths, reference=reference, df=df)
 
     if 'align_right' not in kwargs:
         view_style['align_right'] = aligns
@@ -97,6 +96,7 @@ def _lingres(ser, index):
     Appliable stats calculation
     """
     from scipy.stats import linregress
+
     ix = ['_slope', '_intercept', '_r', '_p', '_stderr']
     return pd.Series(linregress(index, ser.values), index=ix)
 
@@ -188,7 +188,7 @@ def _uncomma(row, df, df_show_col, gram_ix):
     n = row.name
     gramsize = str(row[gram_ix]).count(',') + 1
     try:
-        rel = df[n:n + gramsize, df_show_col]
+        rel = df[n : n + gramsize, df_show_col]
         # todo: if df_show_col is list, do slash sep
         form = ' '.join(rel)
         return form
@@ -212,10 +212,9 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=
         df = _simple_relative(df)
     # if using reference corpus
     elif relative.shape == reference.shape:
-        relative = relative.pivot_table(index=subcorpora,
-                                        columns='_match',
-                                        values='_count',
-                                        aggfunc=sum)
+        relative = relative.pivot_table(
+            index=subcorpora, columns='_match', values='_count', aggfunc=sum
+        )
         df = df.T * 100.0 / relative.sum(axis=1)
         df = df.T
 
@@ -237,9 +236,11 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=
     # recast to int if possible
     # todo: add dtype check, or only do when
     try:
-        if isinstance(df, pd.DataFrame) and \
-                df.dtypes.all() == float and \
-                df.applymap(lambda x: x.is_integer()).all().all():
+        if (
+            isinstance(df, pd.DataFrame)
+            and df.dtypes.all() == float
+            and df.applymap(lambda x: x.is_integer()).all().all()
+        ):
             df = df.astype(int)
     except AttributeError:
         pass
@@ -247,21 +248,24 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=
     return df
 
 
-def _table(dataset,
-           subcorpora='default',
-           show=['w'],
-           preserve_case=False,
-           sort='total',
-           relative=None,
-           ngram=False,
-           df=False,
-           top=-1,
-           remove_above_p=False,
-           **kwargs):
+def _table(
+    dataset,
+    subcorpora='default',
+    show=['w'],
+    preserve_case=False,
+    sort='total',
+    relative=None,
+    ngram=False,
+    df=False,
+    top=-1,
+    remove_above_p=False,
+    **kwargs
+):
     """
     Generate a result table view from Results, or a Results-like DataFrame
     """
     from .table import Table
+
     # we need access to reference corpus for freq calculation
     df, reference = dataset, dataset.reference
 
@@ -296,12 +300,14 @@ def _table(dataset,
             # map column to position
             raise NotImplementedError
         elif comma_ix:
-            df['_match'] = df.apply(_uncomma,
-                                    axis=1,
-                                    raw=True,
-                                    df=reference.values,
-                                    df_show_col=list(reference.columns).index(show[0]),
-                                    gram_ix=list(df.columns).index('_gram'))
+            df['_match'] = df.apply(
+                _uncomma,
+                axis=1,
+                raw=True,
+                df=reference.values,
+                df_show_col=list(reference.columns).index(show[0]),
+                gram_ix=list(df.columns).index('_gram'),
+            )
 
     # do casing
     if not preserve_case:
@@ -314,10 +320,7 @@ def _table(dataset,
 
     df['_count'] = 1
 
-    df = df.pivot_table(index=subcorpora,
-                        columns='_match',
-                        values='_count',
-                        aggfunc=sum)
+    df = df.pivot_table(index=subcorpora, columns='_match', values='_count', aggfunc=sum)
 
     df.fillna(0, inplace=True)
 

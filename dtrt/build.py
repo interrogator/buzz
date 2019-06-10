@@ -15,6 +15,7 @@ CAMERA_TECH = {'ZOOM', 'PAN', 'FADE IN', 'CAMERA', 'DOLLY', 'HIGH ANGLE', 'LOW A
 
 START_OF_DIRECTION = '^[a-zA-Z0-9"\'].*[a-z]'
 
+
 def dict_to_meta(d):
     out = '<metadata '
     for k, v in d.items():
@@ -26,13 +27,12 @@ def dict_to_meta(d):
         out += piece
     return out.strip() + '>'
 
+
 def parse_loc(text, scene_number):
     loc, setting = text.split(': ', 1)
     setting, time = setting.rsplit('--', 1)
-    return dict(time=time.strip(),
-                loc=loc,
-                setting=setting.strip(),
-                scene=scene_number)
+    return dict(time=time.strip(), loc=loc, setting=setting.strip(), scene=scene_number)
+
 
 def get_dialogue(dialogue, meta):
     """
@@ -59,7 +59,7 @@ def get_dialogue(dialogue, meta):
     strung = str()
     for i, line in text_lines:
         strung += line.strip() + ' '
-        direction = directions.get(i+1)
+        direction = directions.get(i + 1)
         if direction:
             meta['direction'] = direction
             metas = dict_to_meta(meta)
@@ -76,6 +76,7 @@ def get_dialogue(dialogue, meta):
         metas = ''
     return '{}. {}'.format(strung.replace('  ', ' '), metas)
 
+
 def parse_section(shot, meta, line_number):
     meta = meta.copy()
     before_dialogue = shot.split('                    ', 1)[0]
@@ -89,8 +90,8 @@ def parse_section(shot, meta, line_number):
     meta['stage_direction'] = True
     line_meta = dict_to_meta(meta)
 
-    #sections = before_dialogue.strip().split('\n\n')
-    #if len(sections) > 1:
+    # sections = before_dialogue.strip().split('\n\n')
+    # if len(sections) > 1:
     #    raise ValueError('HUH? sections', sections)
 
     direction = [i for i in before_dialogue.splitlines() if i and re.search(START_OF_DIRECTION, i)]
@@ -127,6 +128,7 @@ def parse_section(shot, meta, line_number):
 
     return direction, text, leftover
 
+
 def parse_scene(text, number, line_number):
     """
     Give back all text correctly formatted, and the line
@@ -145,6 +147,7 @@ def parse_scene(text, number, line_number):
             line_number += 1
     return '\n'.join(out_text), line_number
 
+
 def normalise_data(text):
     text = re.sub('\n\n+', '\n\n', text)
     text = text.splitlines()
@@ -153,11 +156,13 @@ def normalise_data(text):
     text = '\n'.join(text)
     return text.split('CUT TO:', 3)[-1].lstrip('\n')
 
+
 def make_filename(line, num):
     num = str(num).zfill(2)
     name = line.lower().replace(' ', '-')
     filename = '{}-{}.txt'.format(num, name)
     return filename
+
 
 def get_scenes(text):
     """
@@ -172,6 +177,7 @@ def get_scenes(text):
             count += 1
         scenes[title] += line + '\n'
     return scenes
+
 
 def main():
     line_number = 1
@@ -191,4 +197,6 @@ def main():
         fpath = 'do-the-right-thing/{}'.format(scene_name.lower())
         with open(fpath, 'w') as fo:
             fo.write(text.strip() + '\n')
+
+
 main()

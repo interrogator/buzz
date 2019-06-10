@@ -90,6 +90,7 @@ def _get_nlp(language='english'):
     Get spaCy
     """
     import spacy
+
     langs = dict(english='en', german='de')
     lang = langs.get(language, language)
 
@@ -97,6 +98,7 @@ def _get_nlp(language='english'):
         return spacy.load(lang)
     except OSError:
         from spacy.cli import download
+
         download(lang)
         return spacy.load(lang)
 
@@ -106,6 +108,7 @@ def _strip_metadata(text):
     Remove metadata html from a string
     """
     from .constants import MAX_SPEAKERNAME_SIZE
+
     idregex = re.compile(r'(^[A-Za-z0-9-_]{,%d}?):' % MAX_SPEAKERNAME_SIZE, re.MULTILINE)
     text = re.sub(idregex, '', text)
     text = re.sub('<metadata.*?>', '', text)
@@ -118,6 +121,7 @@ def cast(text):
     Attempt to get object from JSON string, or return the string
     """
     import json
+
     try:
         return json.loads(text)
     except Exception:
@@ -157,10 +161,12 @@ def _make_csv(raw_lines, fname):
     return '\n'.join(csvdat), meta_dicts
 
 
-def _to_df(corpus,
-           load_trees: bool = True,
-           subcorpus: Optional[str] = None,
-           usecols: List[str] = COLUMN_NAMES):
+def _to_df(
+    corpus,
+    load_trees: bool = True,
+    subcorpus: Optional[str] = None,
+    usecols: List[str] = COLUMN_NAMES,
+):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
     """
@@ -171,16 +177,18 @@ def _to_df(corpus,
 
     data, metadata = _make_csv(data, corpus.name)
 
-    df = pd.read_csv(StringIO(data),
-                     sep='\t',
-                     header=None,
-                     names=usecols,
-                     quoting=3,
-                     memory_map=True,
-                     index_col=['file', 's', 'i'],
-                     engine='c',
-                     na_filter=False,
-                     usecols=usecols)
+    df = pd.read_csv(
+        StringIO(data),
+        sep='\t',
+        header=None,
+        names=usecols,
+        quoting=3,
+        memory_map=True,
+        index_col=['file', 's', 'i'],
+        engine='c',
+        na_filter=False,
+        usecols=usecols,
+    )
 
     # make a dataframe containing sentence level metadata, then join it to main df
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
@@ -213,6 +221,7 @@ def _get_short_name_from_long_name(longname):
 
 def _make_meta_dict_from_sent(text):
     from .utils import cast
+
     metad = dict()
     if '<metadata' in text:
         relevant = text.strip().rstrip('>').rsplit('<metadata ', 1)
@@ -239,11 +248,7 @@ def _make_meta_dict_from_sent(text):
     return metad
 
 
-def _get_metadata(stripped,
-                  original,
-                  sent_offsets,
-                  first_line=False,
-                  has_fmeta=False):
+def _get_metadata(stripped, original, sent_offsets, first_line=False, has_fmeta=False):
     """
     Take offsets and get a speaker ID or metadata from them
     """

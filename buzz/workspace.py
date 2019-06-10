@@ -6,6 +6,7 @@ class Workspace:
     """
     Idea: store the corpus once to save memory here, keeping all searches to just indices
     """
+
     def __init__(self, path_or_corpus):
         if isinstance(path_or_corpus, str):
             path_or_corpus = Corpus(path_or_corpus)

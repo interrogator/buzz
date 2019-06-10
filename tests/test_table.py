@@ -6,9 +6,7 @@ from buzz.table import Table
 
 TOTAL_TOKENS = 329
 
-STRUCTURE = dict(first='one',
-                 second='second',
-                 third='space in name')
+STRUCTURE = dict(first='one', second='second', third='space in name')
 
 BOOK_IX = [('second', 1, 6), ('space in name', 3, 2), ('space in name', 4, 12)]
 
@@ -17,7 +15,6 @@ LOADED = Corpus('tests/testing-parsed').load()
 
 
 class TestTable(unittest.TestCase):
-
     def test_loaded_corpus_table(self):
         tab = LOADED.table()
         self.assertIsInstance(tab, Table)

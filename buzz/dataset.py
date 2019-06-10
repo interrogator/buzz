@@ -12,6 +12,7 @@ class Dataset(pd.DataFrame):
     """
     A corpus or corpus subset in memory
     """
+
     _internal_names = pd.DataFrame._internal_names
     _internal_names_set = set(_internal_names)
 
@@ -26,10 +27,12 @@ class Dataset(pd.DataFrame):
         if isinstance(data, str):
             if os.path.isfile(data):
                 from .file import File
+
                 data = File(data).load()
                 reference = data
             elif os.path.isdir(data):
                 from .corpus import Corpus
+
                 data = Corpus(data).load()
                 reference = data
         super().__init__(data, **kwargs)

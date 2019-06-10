@@ -31,6 +31,7 @@ class Filter(object):
     """
     Filterer for DF like objects
     """
+
     def __init__(self, df, column, inverse=False):
         self._df = df
         self.column = column
@@ -53,6 +54,7 @@ class Interim(Filter):
 
     df.see.column
     """
+
     @property
     def by(self):
         """
@@ -65,10 +67,7 @@ class Interim(Filter):
             return self._df[self.column].value_counts()
         else:
             entry = _get_short_name_from_long_name(entry)
-        return self._df.table(subcorpora=self.column,
-                              show=entry,
-                              *args,
-                              **kwargs)
+        return self._df.table(subcorpora=self.column, show=entry, *args, **kwargs)
 
 
 class Finder(Filter):
@@ -77,12 +76,12 @@ class Finder(Filter):
 
     corpus.find.lemmata('^[abc]')
     """
+
     def __call__(self, *args, **kwargs):
         return Searcher(self._df).run(self.column, *args, **kwargs)
 
 
 class Slice(ABC):
-
     def __init__(self, df):
         self._df = df
         self._valid = list(self._df.columns)
@@ -133,5 +132,6 @@ class See(Slice):
     """
     results.see.lemma.by.speaker: make table
     """
+
     def _grab(self, colname):
         return Interim(self._df, colname)

@@ -12,6 +12,7 @@ class Phony(object):
     """
     shitty object that overrides the str.decode method in bllip, currently broken
     """
+
     def __init__(self, word):
         self.word = Parser.normalise_word(word)
 
@@ -29,6 +30,7 @@ class Parser:
     """
     Create an object that can parse a Corpus.
     """
+
     def __init__(self, corpus, parser='spacy', cons_parser='bllip', language='english'):
         self.corpus = corpus
         self.parser = parser
@@ -51,6 +53,7 @@ class Parser:
     def prepare_bllip(self):
         print('Loading constituency parser...')
         from nltk.parse import BllipParser
+
         try:
             model_dir = nltk.data.find('models/bllip_wsj_no_aux').path
         except LookupError:
@@ -62,6 +65,7 @@ class Parser:
 
     def prepare_benepar(self):
         from benepar.spacy_plugin import BeneparComponent
+
         langs = dict(english='en', german='de')
         lang = langs.get(self.language)
         ben_file = 'benepar_{}'.format(lang)
@@ -69,6 +73,7 @@ class Parser:
             nltk.data.find(ben_file).path
         except LookupError:
             import benepar
+
             benepar.download(ben_file)
         self.nlp.add_pipe(BeneparComponent(ben_file))
         return True
@@ -89,9 +94,7 @@ class Parser:
     def _make_misc_field(word):
         if not word.ent_type_ and not word.sentiment:
             return '_'
-        formatters = dict(typ=word.ent_type_,
-                          num=word.ent_type,
-                          iob=word.ent_iob_)
+        formatters = dict(typ=word.ent_type_, num=word.ent_type, iob=word.ent_iob_)
         ent = 'ent_type={typ}|ent_id={num}|ent_iob={iob}'.format(**formatters)
         if not word.sentiment:
             return ent
@@ -127,9 +130,7 @@ class Parser:
                 word_index = 1
                 sent_parts = list()
                 text = sent.text.strip().replace('\n', ' ')
-                sent_meta = dict(sent_id=str(sent_index),
-                                 text=text,
-                                 sent_len=len(sent))
+                sent_meta = dict(sent_id=str(sent_index), text=text, sent_len=len(sent))
                 if self.trees and self.language.startswith('en'):
                     parse = [self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space]
                     if self.cons_parser == 'bllip':
@@ -140,11 +141,13 @@ class Parser:
                     parse = parse.replace('\n', ' ')
                     sent_meta['parse'] = parse
 
-                extra_meta = _get_metadata(stripped_data,
-                                           plain,
-                                           (sent.start_char, sent.end_char),
-                                           first_line=False,
-                                           has_fmeta=has_file_meta)
+                extra_meta = _get_metadata(
+                    stripped_data,
+                    plain,
+                    (sent.start_char, sent.end_char),
+                    first_line=False,
+                    has_fmeta=has_file_meta,
+                )
 
                 all_meta = {**file_meta, **sent_meta, **extra_meta}
 
@@ -161,16 +164,18 @@ class Parser:
                     word_text = self.normalise_word(str(word))
                     named_ent = self._make_misc_field(word)
 
-                    parts = [str(word_index),
-                             word_text,
-                             word.lemma_,
-                             word.pos_,
-                             word.tag_,
-                             '_',
-                             governor,
-                             word.dep_,
-                             '_',
-                             named_ent]
+                    parts = [
+                        str(word_index),
+                        word_text,
+                        word.lemma_,
+                        word.pos_,
+                        word.tag_,
+                        '_',
+                        governor,
+                        word.dep_,
+                        '_',
+                        named_ent,
+                    ]
 
                     line = '\t'.join(parts)
                     sent_parts.append(line)
@@ -195,16 +200,18 @@ class Parser:
         self.nsents = nsents
 
     def _make_metadata(self, description):
-        return dict(language=self.language,
-                    parser=self.parser,
-                    cons_parser=self.cons_parser,
-                    path=os.path.abspath(self.parsed_path),
-                    name=self.corpus_name,
-                    parsed=True,
-                    nsents=self.nsents,
-                    ntokens=self.ntokens,
-                    nfiles=len(self.plain_corpus.files),
-                    desc=description)
+        return dict(
+            language=self.language,
+            parser=self.parser,
+            cons_parser=self.cons_parser,
+            path=os.path.abspath(self.parsed_path),
+            name=self.corpus_name,
+            parsed=True,
+            nsents=self.nsents,
+            ntokens=self.ntokens,
+            nfiles=len(self.plain_corpus.files),
+            desc=description,
+        )
 
     def run(self, corpus):
         """
@@ -217,6 +224,7 @@ class Parser:
             Corpus: parsed corpus
         """
         from .corpus import Corpus
+
         self.plain_corpus = corpus
         assert not corpus.is_parsed
         self.trees = bool(self.cons_parser)

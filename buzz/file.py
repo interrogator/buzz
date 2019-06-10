@@ -7,7 +7,6 @@ from .utils import _get_nlp, _to_df
 
 @total_ordering
 class File(Corpus):
-
     def __init__(self, path, **kwargs):
         self.path = path
         self.filename = os.path.basename(path)

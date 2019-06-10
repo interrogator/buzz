@@ -7,7 +7,6 @@ from buzz.file import File
 
 
 class TestFile(unittest.TestCase):
-
     def test_load_unequal(self):
         unparsed = File('tests/data/first/one.txt')
         parsed = File('tests/testing-parsed/first/one.txt.conllu')

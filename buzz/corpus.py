@@ -8,12 +8,14 @@ from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .parse import Parser
 from .dataset import Dataset
-from .utils import (_set_best_data_types,
-                    _get_tqdm,
-                    _tqdm_close,
-                    _tqdm_update,
-                    _tree_once,
-                    _make_tree)
+from .utils import (
+    _set_best_data_types,
+    _get_tqdm,
+    _tqdm_close,
+    _tqdm_update,
+    _tree_once,
+    _make_tree,
+)
 
 
 tqdm = _get_tqdm()
@@ -23,6 +25,7 @@ class Corpus(MutableSequence):
     """
     Model a collection of plain text or CONLL-U files.
     """
+
     def __init__(self, path=None):
         """
         Initialise the corpus, deteremine if parsed, hook up methods
@@ -94,16 +97,18 @@ class Corpus(MutableSequence):
         """
         Create, store and return the metadata for this corpus
         """
-        meta = dict(language='english',
-                    parser='spacy',
-                    cons_parser='benepar',
-                    path=self.path,
-                    name=self.name,
-                    parsed=self.is_parsed,
-                    nsents=-1,
-                    ntokens=-1,
-                    nfiles=len(self.files),
-                    desc='')
+        meta = dict(
+            language='english',
+            parser='spacy',
+            cons_parser='benepar',
+            path=self.path,
+            name=self.name,
+            parsed=self.is_parsed,
+            nsents=-1,
+            ntokens=-1,
+            nfiles=len(self.files),
+            desc='',
+        )
         self.add_metadata(**meta)
         return meta
 
@@ -113,15 +118,17 @@ class Corpus(MutableSequence):
 
         Return the complete metadata dict
         """
-        must_exist = {'name',
-                      'desc',
-                      'parsed',
-                      'nfiles',
-                      'nsents',
-                      'path',
-                      'language',
-                      'parser',
-                      'cons_parser'}
+        must_exist = {
+            'name',
+            'desc',
+            'parsed',
+            'nfiles',
+            'nsents',
+            'path',
+            'language',
+            'parser',
+            'cons_parser',
+        }
         if not all(i in pairs for i in must_exist):
             not_there = must_exist - pairs.keys()
             raise ValueError('Fields must exist: {}'.format(not_there))
@@ -129,11 +136,9 @@ class Corpus(MutableSequence):
             json.dump(pairs, fo, sort_keys=True, indent=4, separators=(',', ': '))
         return self.metadata
 
-    def parse(self,
-              parser: str = 'spacy',
-              cons_parser: str = 'bllip',
-              language: str = 'english',
-              **kwargs):
+    def parse(
+        self, parser: str = 'spacy', cons_parser: str = 'bllip', language: str = 'english', **kwargs
+    ):
         """
         Parse a plaintext corpus
         """
@@ -149,10 +154,7 @@ class Corpus(MutableSequence):
         """
 
         # progress indicator
-        kwa = dict(ncols=120,
-                   unit='file',
-                   desc='Loading',
-                   total=len(self))
+        kwa = dict(ncols=120, unit='file', desc='Loading', total=len(self))
         t = tqdm(**kwa) if len(self.files) > 1 else None
 
         # load each file and add to list, indicating progress
@@ -181,6 +183,7 @@ class Corpus(MutableSequence):
         # for unparsed corpora, we give a dict of {path: text}
         else:
             from collections import OrderedDict
+
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
     def to_spacy(self, language='en', **kwargs):
@@ -211,6 +214,7 @@ class Corpus(MutableSequence):
         Helper to set subcorpora and files
         """
         from .file import File
+
         subcorpora = list()
         files = list()
         for root, dirnames, filenames in os.walk(self.path):
@@ -236,5 +240,6 @@ class Subcorpus(Corpus):
     """
     Simply a renamed Corpus, fancy indeed!
     """
+
     def __init__(self, path, **kwargs):
         super().__init__(path, **kwargs)

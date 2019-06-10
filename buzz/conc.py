@@ -9,6 +9,7 @@ class Concordance(pd.DataFrame):
     """
     A dataframe holding left, match and right columns, plus optional metadata
     """
+
     def view(self, *args, **kwargs):
         return _tabview(self, *args, **kwargs)
 
@@ -17,8 +18,8 @@ def _apply_conc(line, allwords, window):
     middle, n = line['_match'], line['_n']
     start = max(n - window[0], 0)
     end = min(n + window[1], len(allwords) - 1)
-    left = ' '.join(allwords[start:n])[-window[0]:]
-    right = ' '.join(allwords[n + 1:end])[:window[1]]
+    left = ' '.join(allwords[start:n])[-window[0] :]
+    right = ' '.join(allwords[n + 1 : end])[: window[1]]
     series = pd.Series([left, middle, right])
     series.names = ['left', 'match', 'right']
     return series

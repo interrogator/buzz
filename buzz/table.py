@@ -8,6 +8,7 @@ class Table(pd.DataFrame):
     """
     A dataframe with numerical datapoints
     """
+
     _internal_names = pd.DataFrame._internal_names + ['reference']
     _internal_names_set = set(_internal_names)
 

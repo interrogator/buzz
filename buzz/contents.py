@@ -6,6 +6,7 @@ class Contents(MutableSequence):
     """
     Holder for ordered collections of files or subcorpora
     """
+
     def __init__(self, data=[]):
         self.list = data
 

@@ -10,11 +10,13 @@ class Searcher(object):
     """
     An engine for searching corpora
     """
+
     def __init__(self, corpus):
         # really hate this code...
         from .file import File
         from .corpus import Corpus
         from .dataset import Dataset
+
         self.corpus = corpus
         # if we can't bring corpus into memory, we will use files
         if type(corpus) == Corpus and self.corpus.too_large_for_memory:
@@ -57,11 +59,13 @@ class Searcher(object):
 
         if self.corpus.is_loaded():
             running_count = 0
-            t = tqdm(total=len(tree_once),
-                     desc='Searching trees',
-                     position=multiprocess,
-                     ncols=120,
-                     unit='tree')
+            t = tqdm(
+                total=len(tree_once),
+                desc='Searching trees',
+                position=multiprocess,
+                ncols=120,
+                unit='tree',
+            )
 
         # broken
         # should do dropna or whatever on this
@@ -173,9 +177,7 @@ class Searcher(object):
         # create progress bar
         if self.corpus.is_loaded():
             tqdm = _get_tqdm()
-            prog_bar_info = dict(desc='Searching loaded corpus',
-                                 unit='tokens',
-                                 ncols=120)
+            prog_bar_info = dict(desc='Searching loaded corpus', unit='tokens', ncols=120)
             tqdm.pandas(**prog_bar_info)
 
             matches = df.progress_apply(self.query, axis=1)
@@ -191,15 +193,17 @@ class Searcher(object):
         bools = [bool(i) for i in matches.values]
         return bools
 
-    def run(self,
-            target,
-            query=False,
-            multiprocess=False,
-            case_sensitive=False,
-            load=True,
-            regex=True,
-            inverse=False,
-            **kwargs):
+    def run(
+        self,
+        target,
+        query=False,
+        multiprocess=False,
+        case_sensitive=False,
+        load=True,
+        regex=True,
+        inverse=False,
+        **kwargs
+    ):
 
         from .file import File
 
@@ -230,11 +234,13 @@ class Searcher(object):
         usecols = ['file', 's', 'i', target]
 
         tqdm = _get_tqdm()
-        kwa = dict(total=len(self.to_search),
-                   desc='Searching corpus',
-                   position=multiprocess,
-                   ncols=120,
-                   unit='document')
+        kwa = dict(
+            total=len(self.to_search),
+            desc='Searching corpus',
+            position=multiprocess,
+            ncols=120,
+            unit='document',
+        )
         simple = self.target not in {'t', 'd'}
         t = tqdm(**kwa) if len(self.to_search) > 1 and simple else None
 
@@ -248,6 +254,7 @@ class Searcher(object):
         _tqdm_close(t)
 
         from .table import Table
+
         if not results:
             print('No results, sorry.')
             results = Table()

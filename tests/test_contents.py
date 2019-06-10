@@ -7,7 +7,6 @@ from buzz.contents import Contents
 
 
 class TestContents(unittest.TestCase):
-
     def test_contents(self):
         corpus = Corpus('tests/data')
         self.assertEqual(len(corpus.subcorpora), len(corpus.files))

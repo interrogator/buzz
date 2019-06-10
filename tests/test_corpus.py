@@ -9,15 +9,12 @@ from buzz.table import Table
 
 TOTAL_TOKENS = 329
 
-STRUCTURE = dict(first='one',
-                 second='second',
-                 third='space in name')
+STRUCTURE = dict(first='one', second='second', third='space in name')
 
 BOOK_IX = [('second', 1, 6), ('space in name', 3, 2), ('space in name', 4, 12)]
 
 
 class TestCorpus(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         """ get_some_resource() is slow, to avoid calling it for each test use setUpClass()
@@ -73,8 +70,23 @@ class TestCorpus(unittest.TestCase):
     def test_loaded(self):
         self.assertIsInstance(self.loaded, Dataset)
         self.assertEqual(len(self.loaded), TOTAL_TOKENS)
-        expect = ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'annotated',
-                  'field', 'parse', 'sent_id', 'sent_len', 'speaker', 'text', '_n']
+        expect = [
+            'w',
+            'l',
+            'x',
+            'p',
+            'g',
+            'f',
+            'e',
+            'annotated',
+            'field',
+            'parse',
+            'sent_id',
+            'sent_len',
+            'speaker',
+            'text',
+            '_n',
+        ]
         self.assertTrue(all(i in self.loaded.columns for i in expect))
 
     def test_just_skip(self):
