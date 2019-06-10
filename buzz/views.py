@@ -161,7 +161,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
         elif by == 'turbulent':
             std = slopes.abs().sort_values(ascending=False)
             df = df[std.index]
-        if remove_above_p > 0:
+        if remove_above_p is not False and remove_above_p > 0:
             df = df.T
             df = df[df['_p'] <= remove_above_p]
             df = df.T
@@ -196,9 +196,12 @@ def _uncomma(row, df, df_show_col, gram_ix):
         return ''
 
 
-def _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
+def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=False, **kwargs):
 
     from .dataset import Dataset
+
+    if remove_above_p is True:
+        remove_above_p = 0.05
 
     # default case, use self...
     if relative is True:
@@ -226,8 +229,7 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
 
     if sort:
         ks = kwargs.get('keep_stats', False)
-        rap = kwargs.get('remove_above_p', False)
-        df = _sort(df, by=sort, keep_stats=ks, remove_above_p=rap)
+        df = _sort(df, by=sort, keep_stats=ks, remove_above_p=remove_above_p)
 
     # recast to int if possible
     # todo: add dtype check, or only do when
@@ -242,7 +244,7 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs):
     return df
 
 
-def _table(self,
+def _table(dataset,
            subcorpora='default',
            show=['w'],
            preserve_case=False,
@@ -251,16 +253,14 @@ def _table(self,
            ngram=False,
            df=False,
            top=-1,
+           remove_above_p=False,
            **kwargs):
     """
     Generate a result table view from Results, or a Results-like DataFrame
     """
     from .table import Table
     # we need access to reference corpus for freq calculation
-    if hasattr(self, '_df'):
-        df, reference = self._df(), self.reference.copy()
-    else:
-        df, reference = self, self.copy()
+    df, reference = dataset, dataset.reference
 
     # user needs something to have as columns
     if subcorpora == 'default' or subcorpora is False:
@@ -277,6 +277,9 @@ def _table(self,
         if not to_show.startswith(('+', '-')):
             continue
         df[to_show] = reference[to_show[2:]].shift(-int(to_show[1]))
+
+    if remove_above_p is True:
+        remove_above_p = 0.05
 
     # do we have multiword unit information?
     comma_ix = '_gram' in list(df.columns) and df._gram.values[0] is not False
@@ -321,8 +324,7 @@ def _table(self,
     if relative is False or relative is None:
         df = df.astype(int)
         ks = kwargs.get('keep_stats', False)
-        rap = kwargs.get('remove_above_p', False)
-        df = _sort(df, by=sort, keep_stats=ks, remove_above_p=rap)
+        df = _sort(df, by=sort, keep_stats=ks, remove_above_p=remove_above_p)
     else:
         reference['_match'] = _make_match_col(reference, show)
         df = _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs)
