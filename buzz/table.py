@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import Optional
 
 from .views import _tabview, _sort
 
@@ -31,3 +32,12 @@ class Table(pd.DataFrame):
         Visualise this table
         """
         pass
+
+    def relative(self, sort: Optional[str] = 'total'):
+        """
+        Give a relative frequency version of this
+        """
+        rel = (self.T * 100.0 / self.sum(axis=1)).T
+        if self[list(self.columns)].equals(rel[list(self.columns)]):
+            raise ValueError('This operation did not change the DataFrame. Already relative?')
+        return _sort(rel, by=sort) if sort else rel

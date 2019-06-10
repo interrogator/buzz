@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 from tabview import view
 
-from .utils import _auto_window
+from .utils import _auto_window, _to_df
 
 
 def _make_match_col(df, show):
@@ -193,7 +193,11 @@ def _uncomma(row, df, df_show_col, gram_ix):
         form = ' '.join(rel)
         return form
     except Exception:  # todo: why?
-        return ''
+        return str()
+
+
+def _simple_relative(df):
+    return (df.T * 100.0 / df.sum(axis=1)).T
 
 
 def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=False, **kwargs):
@@ -205,8 +209,7 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=
 
     # default case, use self...
     if relative is True:
-        df = df.T * 100.0 / df.sum(axis=1)
-        df = df.T
+        df = _simple_relative(df)
     # if using reference corpus
     elif relative.shape == reference.shape:
         relative = relative.pivot_table(index=subcorpora,

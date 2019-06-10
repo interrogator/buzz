@@ -2,6 +2,8 @@ import numpy as np
 
 CONLL_COLUMNS = ['i', 'w', 'l', 'x', 'p', 'm', 'g', 'f', 'e', 'o']
 
+COLUMN_NAMES = ['file', 's'] + CONLL_COLUMNS
+
 MAX_SPEAKERNAME_SIZE = 40
 
 DTYPES = dict(i=np.int32,

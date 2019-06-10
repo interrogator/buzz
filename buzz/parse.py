@@ -198,7 +198,7 @@ class Parser:
         return dict(language=self.language,
                     parser=self.parser,
                     cons_parser=self.cons_parser,
-                    path=self.parsed_path,
+                    path=os.path.abspath(self.parsed_path),
                     name=self.corpus_name,
                     parsed=True,
                     nsents=self.nsents,

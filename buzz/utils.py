@@ -2,14 +2,14 @@ import re
 import os
 import shlex
 import shutil
-
+from typing import Optional, List
 from io import StringIO
 
 import pandas as pd
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
+from .constants import DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE, COLUMN_NAMES
 
 
 def _get_tqdm():
@@ -124,73 +124,55 @@ def cast(text):
         return text
 
 
-def _make_csv(raw_lines, fname, meta, lt=True):
+def _make_csv(raw_lines, fname):
     """
-    Take one CONLL-U file and add all metadata to each row
-    Return: str (CSV data) and list of dicts (sent level metadata)
-    """
-    fname = os.path.basename(fname)
-    meta_dicts = list()
-    sents = raw_lines.strip() + '\n'
-    # make list of sentences
-    sents = sents.strip().split('\n\n')
-    # split into metadata and csv
-    splut = [re.split('\n([0-9])', s, 1) for s in sents]
-    meta_dicts = list()
-    csvdat = list()
-    for s, (metastring, one, text) in enumerate(splut, start=1):
-        text = one + text
-        metadata = dict()
-        for key, value in re.findall('^# (.*?) = (.*?)$', metastring, re.MULTILINE):
-            metadata[key.strip()] = cast(value.strip())
-        text = '\n'.join('{}\t{}\t{}'.format(fname, s, line) for line in text.splitlines())
-        csvdat.append(text)
-        meta_dicts.append(metadata)
+    Turn raw CONLL-U file data into something pandas' CSV reader can easily and quickly read.
 
+    The main thing to do is to add the [file, sent#, token#] index, and transform the metadata
+    stored as comments into additional columns
+
+    Return: str (CSV data) and list of dicts (metadata for each discovered sentence)
+    """
+    csvdat = list()  # a list of csv strings as we make them
+    meta_dicts = list()  # our sent-level metadata will go in here
+    fname = os.path.basename(fname)
+    # make list of sentence strings
+    sents = raw_lines.strip().split('\n\n')
+    # split into metadata and csv parts by getting first numbered row. probably but not always 1
+    splut = [re.split('\n([0-9])', s, 1) for s in sents]
+    for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
+        text = one + text  # rejoin it as it was
+        sent_meta = dict()
+        # get every metadata row, split into key//value
+        for key, value in re.findall('^# (.*?) = (.*?)$', raw_sent_meta, re.MULTILINE):
+            # turn the string into an object if it's valid json
+            sent_meta[key.strip()] = cast(value.strip())
+        # add the fsi part to every row
+        text = '\n'.join(f'{fname}\t{sent_id}\t{line}' for line in text.splitlines())
+        # add csv and meta to our collection
+        csvdat.append(text)
+        meta_dicts.append(sent_meta)
+
+    # return the csv without the double newline so it can be read all at once. add meta_dicts later.
     return '\n'.join(csvdat), meta_dicts
 
 
 def _to_df(corpus,
-           corpus_name=False,
-           skip_morph=True,
-           add_gov=False,
-           usecols=None,
-           notype=False,
-           load_trees=True):
+           load_trees: bool = True,
+           subcorpus: Optional[str] = None,
+           usecols: List[str] = COLUMN_NAMES):
     """
-    Optimised CONLL-U reader for v2.0 data
-
-    Returns:
-        pd.DataFrame: 3d array representation of file data
-
+    Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
     """
     with open(corpus.path, 'r') as fo:
         data = fo.read().strip('\n')
 
-    # metadata that applies filewide
-    file_meta = dict(f=corpus.name)
+    data, metadata = _make_csv(data, corpus.name)
 
-    subcorpus = None
-    file_meta['subcorpus'] = subcorpus
-
-    cname = corpus.path.split('.')[0].split('/', 1)[-1]
-
-    data, metadata = _make_csv(data, cname, file_meta, lt=load_trees)
-    data = StringIO(data)
-
-    col_names = ['file', 's', 'i', 'w', 'l', 'x', 'p', 'm', 'g', 'f', 'e', 'o']
-    if usecols is not None:
-        usecols = list(usecols)
-        for i in ['file', 's', 'i']:
-            if i not in usecols:
-                usecols.append(i)
-
-        col_names = [i for i in col_names if i in usecols]
-
-    df = pd.read_csv(data,
+    df = pd.read_csv(StringIO(data),
                      sep='\t',
                      header=None,
-                     names=col_names,
+                     names=usecols,
                      quoting=3,
                      memory_map=True,
                      index_col=['file', 's', 'i'],
@@ -198,34 +180,25 @@ def _to_df(corpus,
                      na_filter=False,
                      usecols=usecols)
 
-    # make and join the meta df
+    # make a dataframe containing sentence level metadata, then join it to main df
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
     metadata = pd.DataFrame(metadata).T
     metadata.index.name = 's'
     df = metadata.join(df, how='inner')
-    col_order = col_names[3:] + list(sorted(metadata))
-    if usecols is not None:
-        col_order = [i for i in col_order if i in usecols]
-    df = df[col_order]
 
+    # fix the column order
+    df = df[[i for i in COLUMN_NAMES[3:] + list(sorted(metadata)) if i in usecols]]
+
+    # remove columns whose value was interpeted or for which nothing is ever availablr
     badcols = ['o', 'm']
     df = df.drop(badcols, axis=1, errors='ignore')
 
-    # some evil code to handle conll-u files where g col could be a string
-    if 'g' in df.columns:
-        df['g'] = df['g'].fillna(0)
-        if df['g'].dtype in [object, str]:
-            df['g'] = df['g'].str.replace('_|^$', '0').astype(int)
-        df['g'] = df['g'].astype(int)
+    df['g'] = df['g'].fillna(0)
+    if df['g'].dtype in {object, str}:
+        df['g'] = df['g'].str.replace('_|^$', '0').astype(int)
+    df['g'] = df['g'].astype(int)
     df = df.fillna('_')
-
-    if not notype:
-        df = _set_best_data_types(df)
-
-    if add_gov:
-        raise NotImplementedError('Not done yet')
-
-    return df
+    return _set_best_data_types(df)
 
 
 def _get_short_name_from_long_name(longname):

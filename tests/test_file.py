@@ -12,7 +12,7 @@ class TestFile(unittest.TestCase):
         unparsed = File('tests/data/first/one.txt')
         parsed = File('tests/testng-parsed/first/one.txt.conllu')
         self.assertNotEqual(unparsed, parsed)
-        unparsed = unparsed.load()
+        unparsed = unparsed.read()
         parsed = parsed.load()
         # the spacy docs should be very similar for unparsed and parsed version
         # ... though not identical, unfortunately.

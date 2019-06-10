@@ -75,3 +75,9 @@ class TestTable(unittest.TestCase):
         self.assertEqual(list(sig.index), sig_ix)
         # check that all values are below the p threshold
         self.assertTrue((sig.loc['p'] <= 0.05).all(), sig.loc['p'])
+
+    def test_double_rel(self):
+        tab = LOADED.table()
+        with self.assertRaises(ValueError):
+            tab.relative().relative()
+        self.assertTrue(tab.relative().equals(loaded.table(relative=True)))

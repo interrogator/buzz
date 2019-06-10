@@ -8,9 +8,7 @@ from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .parse import Parser
 from .dataset import Dataset
-from .utils import (_get_nlp,
-                    _strip_metadata,
-                    _set_best_data_types,
+from .utils import (_set_best_data_types,
                     _get_tqdm,
                     _tqdm_close,
                     _tqdm_update,
@@ -145,11 +143,9 @@ class Corpus(MutableSequence):
         self.parser = Parser(self, parser=parser, cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
-    def load(self, spacy: bool = False, combine: bool = False, load_trees: bool = False, **kwargs):
+    def load(self, load_trees: bool = False, **kwargs):
         """
         Load a Corpus into memory.
-
-        spacy: also load the spacy model
         """
 
         # progress indicator
@@ -157,24 +153,15 @@ class Corpus(MutableSequence):
                    unit='file',
                    desc='Loading',
                    total=len(self))
-        t = tqdm(**kwa) if len(self) > 1 else None
+        t = tqdm(**kwa) if len(self.files) > 1 else None
 
         # load each file and add to list, indicating progress
         loaded = list()
+        prsd = self.is_parsed
         for file in self.files:
-            if not combine:
-                loaded_file = file.load(spacy=spacy, notype=True, **kwargs)
-                loaded.append(loaded_file)
-            else:
-                loaded.append(file.read())
-
+            loaded.append(file.load(load_trees=load_trees, **kwargs) if prsd else file.read())
             _tqdm_update(t)
         _tqdm_close(t)
-
-        if combine and not self.nlp:
-            self.nlp = _get_nlp(language='en')
-            loaded = _strip_metadata('\n'.join(loaded))
-            return self.nlp(loaded)
 
         # for parsed corpora, we merge each file contents into one huge dataframe as LoadedCorpus
         if self.is_parsed:
@@ -196,11 +183,14 @@ class Corpus(MutableSequence):
             from collections import OrderedDict
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
-    def spacy(self, language='en', **kwargs):
+    def to_spacy(self, language='en', **kwargs):
         """
         Get spacy's model of the Corpus
         """
-        return self.load(spacy=True, language=language, **kwargs)
+        models = list()
+        for file in self.files:
+            models.append(file.to_spacy(language=language))
+        return models
 
     @staticmethod
     def _order_columns(df):

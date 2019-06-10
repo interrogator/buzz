@@ -53,7 +53,7 @@ class File(Corpus):
             return _to_df(self, **kwargs)
         raise NotImplementedError('Cannot load DataFame from unparsed file. Use file.read()')
 
-    def read(self, **kwargs):
+    def read(self):
         """
         Get the file contents as string
         """
