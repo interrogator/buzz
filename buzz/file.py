@@ -28,6 +28,12 @@ class File(Corpus):
             raise NotImplementedError('Needs to be parsed.')
         return _to_df(self, **kwargs)
 
+    def __len__(self):
+        raise NotImplementedError('File has no length')
+
+    def __bool__(self):
+        return True
+
     def load(self, spacy=False, language='en', **kwargs):
         """
         For parsed dataset, get dataframe or spacy object

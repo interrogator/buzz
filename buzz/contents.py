@@ -19,7 +19,7 @@ class Contents(MutableSequence):
         return True if self.list else False
 
     def _try_to_get_same(self, name):
-        return next((i for i in self.list if self.name == name), None)
+        return next((i for i in self.list if i.name == name), None)
 
     def __getattr__(self, attr):
         """
@@ -28,7 +28,7 @@ class Contents(MutableSequence):
         found = self._try_to_get_same(attr)
         if found:
             return found
-        raise AttributeError(f'No attribute: {attr}')
+        raise AttributeError(f'No such attribute: {attr}')
 
     def __getitem__(self, i):
         """
@@ -41,12 +41,11 @@ class Contents(MutableSequence):
             found = self._try_to_get_same(i)
             if found:
                 return found
-            raise KeyError(f'No such file: {i}')
+            raise KeyError(f'No such object: {i}')
 
         # allow user to pass in a regular expression and get all matching names
         if isinstance(i, re._pattern_type):
-            matches = [s for s in self.list if re.search(i, self._no_ext_name(s.name))]
-            return Contents(matches)
+            return Contents([s for s in self.list if re.search(i, s.name)])
 
         # normal indexing and slicing
         if isinstance(i, slice):
@@ -59,6 +58,13 @@ class Contents(MutableSequence):
 
     def __setitem__(self, i, v):
         self.list[i] = v
+
+    def __eq__(self, other):
+        if not isinstance(other, self.__class__):
+            raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
+        if len(self) != len(other):
+            return False
+        return all(a == b for a, b in zip(self, other))
 
     def insert(self, i, v):
         self.list.insert(i, v)

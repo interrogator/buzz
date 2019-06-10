@@ -5,6 +5,7 @@ from buzz.corpus import Corpus
 from buzz.contents import Contents
 from buzz.dataset import Dataset
 
+
 TOTAL_TOKENS = 329
 
 STRUCTURE = dict(first='one',
@@ -97,6 +98,7 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(conc.iloc[0, 1].endswith(match))
         # can we use iloc here reliably? speaker can move to be next to match...
         # self.assertTrue(right in conc['right'][0])
+
 
 
 if __name__ == '__main__':
