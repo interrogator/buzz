@@ -44,7 +44,7 @@ class Contents(MutableSequence):
             raise KeyError(f'No such object: {i}')
 
         # allow user to pass in a regular expression and get all matching names
-        if isinstance(i, re._pattern_type):
+        if isinstance(i, type(re.compile('x'))):
             return Contents([s for s in self.list if re.search(i, s.name)])
 
         # normal indexing and slicing
