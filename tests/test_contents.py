@@ -11,8 +11,10 @@ class TestContents(unittest.TestCase):
         corpus = Corpus('tests/data')
         self.assertEqual(len(corpus.subcorpora), len(corpus.files))
 
-        points = [('subcorpora', 'buzz.corpus.Subcorpus object', Subcorpus, 'first'),
-                  ('files', 'buzz.file.File object', File, 'one')]
+        points = [
+            ('subcorpora', 'buzz.corpus.Subcorpus object', Subcorpus, 'first'),
+            ('files', 'buzz.file.File object', File, 'one'),
+        ]
 
         for name, rep, clas, filename in points:
 

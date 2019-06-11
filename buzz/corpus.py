@@ -21,6 +21,7 @@ from .utils import (
 
 tqdm = _get_tqdm()
 
+
 @total_ordering
 class Corpus(MutableSequence):
     """
