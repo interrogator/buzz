@@ -436,7 +436,7 @@ With a parsed and metadata-rich text, you can find, well, whatever you could pos
 
 ```python
 verbs = dtrt.just.wordclass.VERB.just.setting("SAL'S FAMOUS PIZZERIA").skip.speaker.SAL
-verbs.see.speaker.by.lemma.head().to_html()
+verbs.see.speaker.by.lemma.to_html()
 ```
 
 <table border="1" class="dataframe">
