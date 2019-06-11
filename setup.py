@@ -11,9 +11,6 @@ setup(
     zip_safe=False,
     packages=['buzz'],
     scripts=['buzz/parse'],
-    package_data={
-        'buzz': ['*.sh', 'buzz/*.sh', '*.p', 'dictionaries/*.p', '*.py', 'dictionaries/*.py']
-    },
     author_email='mcddjx@gmail.com',
     license='MIT',
     keywords=['corpus', 'linguistics', 'nlp'],
@@ -22,6 +19,7 @@ setup(
         'bllipparser',
         'scipy',
         'cython',
+        'depgrep',
         # 'benepar',
         # 'benepar[cpu]',
         'tensorflow>=1.12.1',

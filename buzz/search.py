@@ -1,7 +1,7 @@
 import pandas as pd
 from nltk.tgrep import tgrep_compile
 
-from .query import depgrep_compile
+from depgrep import depgrep_compile
 
 from .utils import _make_tree, _get_tqdm, _tqdm_update, _tqdm_close, _tree_once
 
@@ -109,7 +109,7 @@ class Searcher(object):
         df = piece.drop(['_n', 'file', 's', 'i'], axis=1, errors='ignore')
         df['_n'] = range(len(df))
         df = df.reset_index()
-        # comppile the query against this dataframe
+        # compile the query against this dataframe
         self.query = depgrep_compile(self.query, df=df, case_sensitive=self.case_sensitive)
         # run the query, returning a boolean index
         bool_ix = self.depgrep(piece)
