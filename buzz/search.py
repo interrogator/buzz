@@ -80,19 +80,19 @@ class Searcher(object):
         # df of _gram
         return pd.Series(indices_to_keep)
 
-    def depgrep(self, df):
+    def depgrep(self, df, positions):
         """
         Run query over dependencies
         """
         # create progress bar
-        if isinstance(df, pd.DataFrame):
+        if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             prog_bar_info = dict(desc='Searching loaded corpus', unit='tokens', ncols=120)
             tqdm.pandas(**prog_bar_info)
-            matches = df.progress_apply(self.query, axis=1)
+            matches = df.progress_apply(self.query, axis=1, raw=True)
         # when corpus is not loaded, no progress bar?
         else:
-            matches = df.apply(self.query, axis=1)
+            matches = df.apply(self.query, axis=1, raw=True)
 
         try:
             matches = matches.fillna(False)
@@ -108,11 +108,15 @@ class Searcher(object):
         # make multiindex and add an _n column, then remove old index
         df = piece.drop(['_n', 'file', 's', 'i'], axis=1, errors='ignore')
         df['_n'] = range(len(df))
-        df = df.reset_index()
+        df = df.reset_index(level=df.index.names)
+        positions = {y: x for x, y in enumerate(list(df.columns))}
+        values = df.values
         # compile the query against this dataframe
-        self.query = depgrep_compile(self.query, df=df, case_sensitive=self.case_sensitive)
+        self.query = depgrep_compile(
+            self.query, values=values, positions=positions, case_sensitive=self.case_sensitive
+        )
         # run the query, returning a boolean index
-        bool_ix = self.depgrep(piece)
+        bool_ix = self.depgrep(df, positions)
         # get just the lines matching the bool ix
         return bool_ix
 
