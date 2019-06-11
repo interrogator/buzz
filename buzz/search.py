@@ -42,7 +42,7 @@ class Searcher(object):
             tree_once = tree_once.apply(_make_tree)
 
         # results go here
-        gram_column_strings, indices_to_keep = list(), list()
+        gram_column_strings, indices_to_keep = list(), dict()
 
         # progbar when possible
         if isinstance(self.corpus, pd.DataFrame):
@@ -64,12 +64,11 @@ class Searcher(object):
                     first = tree[position].treepositions('leaves')[0]
                     first = position + first
                     pos = root_positions.index(first)
-                    # construct how the _gram looks
+                    gram = list()
                     form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
-                    gram_column_strings.append(form)
-                    # make index of this match and remember it
-                    index_of_this_match = (n[0], n[1], pos + 1)
-                    indices_to_keep.append(index_of_this_match)
+
+                    for x in range(pos + 1, pos + size + 1):
+                        indices_to_keep[(n[0], n[1], x)] = form
 
             # progress bar stuff for df
             if isinstance(self.corpus, pd.DataFrame):
@@ -80,9 +79,8 @@ class Searcher(object):
 
         _tqdm_close(t)
 
-        df = df.loc[indices_to_keep]  # .copy() ?
-        df['_gram'] = gram_column_strings
-        return df['_gram']
+        # df of _gram
+        return pd.Series(indices_to_keep)
 
     def depgrep(self, df):
         """
@@ -162,7 +160,7 @@ class Searcher(object):
             _tqdm_update(t)
         _tqdm_close(t)
 
-        results = Dataset() if not results else Dataset(pd.concat(results, sort=False))
+        results = Dataset(pd.concat(results, sort=False)) if results else Dataset(pd.DataFrame())
         # if we already had reference corpus, it can stay...
         results.reference = self.reference
         return results
