@@ -18,6 +18,7 @@ class Searcher(object):
         from .file import File
         from .corpus import Corpus
         from .dataset import Dataset
+
         self.corpus = corpus
         if type(corpus) == Corpus:
             self.to_search = self.corpus.files
@@ -47,12 +48,7 @@ class Searcher(object):
         if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             running_count = 0
-            t = tqdm(
-                total=len(tree_once),
-                desc='Searching trees',
-                ncols=120,
-                unit='tree',
-            )
+            t = tqdm(total=len(tree_once), desc='Searching trees', ncols=120, unit='tree')
 
         for n, tree in tree_once.iteritems():
             if not tree:
@@ -72,7 +68,7 @@ class Searcher(object):
                     form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
                     gram_column_strings.append(form)
                     # make index of this match and remember it
-                    index_of_this_match = (n[0], n[1], pos+1)
+                    index_of_this_match = (n[0], n[1], pos + 1)
                     indices_to_keep.append(index_of_this_match)
 
             # progress bar stuff for df
@@ -84,7 +80,7 @@ class Searcher(object):
 
         _tqdm_close(t)
 
-        df = df.loc[indices_to_keep]  #.copy()
+        df = df.loc[indices_to_keep]  # .copy() ?
         df['_gram'] = gram_column_strings
         return df['_gram']
 
@@ -146,12 +142,7 @@ class Searcher(object):
 
         # progbar stuff
         tqdm = _get_tqdm()
-        kwa = dict(
-            total=len(self.to_search),
-            desc='Searching corpus',
-            ncols=120,
-            unit='document',
-        )
+        kwa = dict(total=len(self.to_search), desc='Searching corpus', ncols=120, unit='document')
         t = tqdm(**kwa) if len(self.to_search) > 1 else None
 
         # iterate over searchable bits, doing query with progbar

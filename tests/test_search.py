@@ -4,7 +4,6 @@ from buzz.corpus import Corpus
 
 
 class TestSearch(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         """ get_some_resource() is slow, to avoid calling it for each test use setUpClass()
