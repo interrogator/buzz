@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 
 from buzz.corpus import Corpus
 from buzz.table import Table
@@ -72,3 +73,12 @@ class TestTable(unittest.TestCase):
         self.assertEqual(list(sig.index), sig_ix)
         # check that all values are below the p threshold
         self.assertTrue((sig.loc['p'] <= 0.05).all(), sig.loc['p'])
+
+    def test_tabview(self):
+        with patch('buzz.views.view', side_effect=ValueError('Boom!')):
+            tab = LOADED.table()
+            with self.assertRaises(ValueError):
+                tab.view()
+            conc = LOADED.just.lemmata.book.conc()
+            with self.assertRaises(ValueError):
+                conc.view()

@@ -23,7 +23,7 @@ class Table(pd.DataFrame):
         return Table
 
     def view(self, *args, **kwargs):
-        return _tabview(self, *args, **kwargs)
+        return _tabview(self, self.reference, *args, **kwargs)
 
     def sort(self, *args, **kwargs):
         return _sort(self, *args, **kwargs)

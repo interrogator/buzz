@@ -27,10 +27,9 @@ class TestSearch(unittest.TestCase):
         self.assertEqual(len(sup), 28)
         self.assertEqual(len(res), 25)
         self.assertTrue((res.x == 'NOUN').all())
-        ix = list(res.index)
         # let us check this manually
         # get all rows whose lemma is 'the'
-        the = self.loaded[self.loaded.l == 'the']
+        the = self.loaded[self.loaded['l'] == 'the']
         count = 0
         # iterate over rows, get governor of the, lookup this row.
         # if row is a noun, check that its index is in our results
@@ -41,5 +40,3 @@ class TestSearch(unittest.TestCase):
                 self.assertTrue(gov.name in res.index)
                 count += 1
         self.assertEqual(count, len(res))
-
-
