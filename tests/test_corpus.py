@@ -1,5 +1,6 @@
 import shutil
 import unittest
+from unittest.mock import patch
 
 from spacy.tokens.doc import Doc
 
@@ -143,6 +144,15 @@ class TestCorpus(unittest.TestCase):
         spac = self.unparsed.to_spacy()
         self.assertIsInstance(spac, list)
         self.assertTrue(all(isinstance(i, Doc) for i in spac))
+
+    def test_dataset(self):
+        d = Dataset(self.parsed.path)
+        f = Dataset(self.parsed.files[0].path)
+        self.assertTrue(d.equals(self.loaded))
+        self.assertTrue(f.equals(self.parsed.files[0].load()))
+        with patch('buzz.views.view', side_effect=ValueError('Boom!')):
+            with self.assertRaises(ValueError):
+                self.loaded.view()
 
 
 if __name__ == '__main__':

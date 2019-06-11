@@ -70,7 +70,5 @@ class Dataset(pd.DataFrame):
     def view(self, *args, **kwargs):
         """
         View interactvely with tabview
-
-        todo: reference?
         """
-        return _tabview(self, *args, **kwargs)
+        return _tabview(self, reference=self.reference, *args, **kwargs)
