@@ -8,7 +8,7 @@ nav:
     - Modelling and parsing corpora: corpus.md
     - Exploring parsed datasets: dataset.md
     - Generating tables: table.md
-    - Grammatical querying: depgrep.md
+    - Grammatical querying: query.md
     - Concordancing: cond.md
     - Working with pandas: pandas.md
     - About: about.md
