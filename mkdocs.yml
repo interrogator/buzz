@@ -1,0 +1,4 @@
+site_name: buzz docs
+
+theme:
+    name: readthedocs
