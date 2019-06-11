@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/interrogator/buzz.svg?branch=master)](https://travis-ci.org/interrogator/buzz)
 [![codecov.io](https://codecov.io/gh/interrogator/buzz/branch/master/graph/badge.svg)](https://codecov.io/gh/interrogator/buzz)
-[![readthedocs](https://readthedocs.org/projects/buzz/badge/?version=latest)](https://readthedocs.org/projects/buzz)
+[![readthedocs](https://readthedocs.org/projects/buzz/badge/?version=latest)](https://buzz.readthedocs.io/en/latest/)
 [![PyPI version](https://badge.fury.io/py/buzz.svg)](https://badge.fury.io/py/buzz)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
