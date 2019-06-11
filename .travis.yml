@@ -16,6 +16,7 @@ jobs:
     - stage: static-checks
       script:
         - flake8 .
+        - black . --skip-string-normalization --line-length=100 --check
     - stage: test
       script:
         - coverage run -m unittest
