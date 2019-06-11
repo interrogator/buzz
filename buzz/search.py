@@ -42,7 +42,7 @@ class Searcher(object):
             tree_once = tree_once.apply(_make_tree)
 
         # results go here
-        gram_column_strings, indices_to_keep = list(), dict()
+        indices_to_keep = dict()
 
         # progbar when possible
         if isinstance(self.corpus, pd.DataFrame):
@@ -64,9 +64,7 @@ class Searcher(object):
                     first = tree[position].treepositions('leaves')[0]
                     first = position + first
                     pos = root_positions.index(first)
-                    gram = list()
                     form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
-
                     for x in range(pos + 1, pos + size + 1):
                         indices_to_keep[(n[0], n[1], x)] = form
 
