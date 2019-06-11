@@ -1,6 +1,8 @@
 import shutil
 import unittest
 
+from spacy.tokens.doc import Doc
+
 from buzz.corpus import Corpus
 from buzz.contents import Contents
 from buzz.dataset import Dataset
@@ -128,6 +130,19 @@ class TestCorpus(unittest.TestCase):
         self.assertEqual(tab.index.name, 'p')
         self.assertEqual(tab.sum()['the'], 30)
         self.assertEqual(short['the'], 30)
+
+    def test_no_path(self):
+        with self.assertRaises(FileNotFoundError):
+            Corpus('no/exist/dir')
+
+    def test_bad_compare(self):
+        with self.assertRaises(TypeError):
+            self.unparsed == 'a string'
+
+    def test_spacy(self):
+        spac = self.unparsed.to_spacy()
+        self.assertIsInstance(spac, list)
+        self.assertTrue(all(isinstance(i, Doc) for i in spac))
 
 
 if __name__ == '__main__':

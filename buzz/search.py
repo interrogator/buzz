@@ -47,7 +47,7 @@ class Searcher(object):
         if isinstance(self.query, (str, bool)):
             self.query = tgrep_compile(self.query)
 
-        if self.corpus.is_loaded():
+        if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
 
         tree_once = self.corpus.tree_once()
@@ -57,7 +57,7 @@ class Searcher(object):
         ser = list()
         six = list()
 
-        if self.corpus.is_loaded():
+        if isinstance(self.corpus, pd.DataFrame):
             running_count = 0
             t = tqdm(
                 total=len(tree_once),
@@ -85,13 +85,13 @@ class Searcher(object):
                     form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
                     ser.append(form)
                     six.append(n + pos)
-            if self.corpus.is_loaded():
+            if isinstance(self.corpus, pd.DataFrame):
                 running_count += match_count
                 kwa = dict(results=format(running_count, ','))
                 t.set_postfix(**kwa)
                 t.update()
 
-        if self.corpus.is_loaded():
+        if isinstance(self.corpus, pd.DataFrame):
             t.close()
 
         df = df.iloc[six].copy()
@@ -175,7 +175,7 @@ class Searcher(object):
         df = self.corpus
 
         # create progress bar
-        if self.corpus.is_loaded():
+        if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             prog_bar_info = dict(desc='Searching loaded corpus', unit='tokens', ncols=120)
             tqdm.pandas(**prog_bar_info)

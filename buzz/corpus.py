@@ -1,6 +1,7 @@
 import json
 import os
 from collections import MutableSequence
+from functools import total_ordering
 
 import pandas as pd
 
@@ -20,7 +21,7 @@ from .utils import (
 
 tqdm = _get_tqdm()
 
-
+@total_ordering
 class Corpus(MutableSequence):
     """
     Model a collection of plain text or CONLL-U files.
@@ -34,7 +35,7 @@ class Corpus(MutableSequence):
         self.subcorpora = Contents()
         path = os.path.expanduser(path)
         if not os.path.isdir(path):
-            raise ValueError(f'Not a valid path: {path}')
+            raise FileNotFoundError(f'Not a valid path: {path}')
         self.path = path
         self._metadata_path = os.path.join(self.path, '.metadata.json')
         self.filename = os.path.basename(path)
@@ -49,12 +50,12 @@ class Corpus(MutableSequence):
 
     def __lt__(self, other):
         if not isinstance(other, self.__class__):
-            raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
+            raise TypeError(f'Not same class: {self.__class__} vs {other.__class__}')
         return self.name < other.name
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
-            raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
+            raise TypeError(f'Not same class: {self.__class__} vs {other.__class__}')
         return self.path == other.path
 
     def __repr__(self):
@@ -76,12 +77,6 @@ class Corpus(MutableSequence):
 
     def insert(self, i, v):
         self.iterable.insert(i, v)
-
-    def is_loaded(self):
-        """
-        Return whether or not the corpus is loaded in memory
-        """
-        return type(self) == Dataset
 
     @property
     def metadata(self):
@@ -220,6 +215,8 @@ class Corpus(MutableSequence):
         for root, dirnames, filenames in os.walk(self.path):
             for filename in sorted(filenames):
                 if not filename.endswith(('conll', 'conllu', 'txt')):
+                    continue
+                if filename.startswith('.'):
                     continue
                 fpath = os.path.join(root, filename)
                 fpath = File(fpath)

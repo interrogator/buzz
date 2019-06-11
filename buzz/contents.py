@@ -35,8 +35,6 @@ class Contents(MutableSequence):
         """
         dict style lookup of files
         """
-        if isinstance(i, int):
-            return self.list[i]
 
         if isinstance(i, str):
             found = self._try_to_get_same(i)
@@ -52,7 +50,8 @@ class Contents(MutableSequence):
         if isinstance(i, slice):
             return Contents(self.list[i])
 
-        return Contents(self.list[i])
+        # for int and potentially anything else?
+        return self.list[i]
 
     def __delitem__(self, i):
         del self.list[i]
@@ -62,10 +61,12 @@ class Contents(MutableSequence):
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
-            raise TypeError(f'Not same class: {self.__class__} vs {self.__class__}')
+            raise TypeError(f'Not same class: {self.__class__} vs {other.__class__}')
         if len(self) != len(other):
             return False
         return all(a == b for a, b in zip(self, other))
 
     def insert(self, i, v):
+        if self and not isinstance(v, self[0].__class__):
+            raise TypeError(f'Not same class: {self[0].__class__} vs {v.__class__}')
         self.list.insert(i, v)
