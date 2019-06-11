@@ -72,3 +72,10 @@ class Dataset(pd.DataFrame):
         View interactvely with tabview
         """
         return _tabview(self, reference=self.reference, *args, **kwargs)
+
+    def sentences(self):
+        """
+        Get unique sentences
+        """
+        bool_ix = self.index.get_level_values('i') == 1
+        return self[bool_ix]

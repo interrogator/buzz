@@ -2,3 +2,11 @@ site_name: buzz docs
 
 theme:
     name: readthedocs
+
+nav:
+    - Home: index.md
+    - Modelling and parsing corpora: corpus.md
+    - Exploring parsed datasets: dataset.md
+    - Generating tables: table.md
+    - Grammatical querying: depgrep.md
+    - About: about.md
