@@ -7,4 +7,5 @@
 - [Generating tables](/table)
 - [Grammatical querying](/query)
 - [Concordancing](/conc)
+- [Working with pandas](/pandas)
 - [About the tool](/about)
