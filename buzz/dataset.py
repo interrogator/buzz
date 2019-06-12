@@ -28,10 +28,12 @@ class Dataset(pd.DataFrame):
         if isinstance(data, str):
             if os.path.isfile(data):
                 from .file import File
+
                 data = File(data).load(load_trees=load_trees)
                 reference = data
             elif os.path.isdir(data):
                 from .corpus import Corpus
+
                 data = Corpus(data).load(load_trees=load_trees)
                 reference = data
 
