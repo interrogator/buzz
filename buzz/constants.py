@@ -33,16 +33,16 @@ DTYPES = dict(
 )
 
 LONG_NAMES = dict(
-    file={'corpus'},
-    s={'sentence'},
-    i={'index'},
-    w={'word', 'words', 'token'},
+    file={'files'},
+    s={'sentence', 'sentences'},
+    i={'index', 'indices'},
+    w={'word', 'words', 'token', 'tokens'},
     l={'lemma', 'lemmas', 'lemmata'},  # noqa: E741
     x={'language_specific', 'localpos', 'class', 'xpos', 'wordclass', 'wordclasses'},
-    p={'pos', 'partofspeech'},
+    p={'pos', 'partofspeech', 'tag', 'tags'},
     m={'morph', 'morphology'},
     g={'governor', 'governors', 'gov', 'govs'},
-    f={'function', 'funct', 'functions', 'role', 'roles', 'link'},
+    f={'function', 'funct', 'functions', 'role', 'roles', 'link', 'links'},
     e={'extra'},
     o={'other'},
     speaker={'speaker', 'speakers'},

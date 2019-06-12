@@ -178,6 +178,10 @@ class TestCorpus(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.loaded.view()
 
+    def test_just_index(self):
+        just_two = self.parsed.just.sentences('^2$')
+        self.assertTrue((just_two.index.get_level_values('s') == 2).all())
+
 
 if __name__ == '__main__':
     unittest.main()
