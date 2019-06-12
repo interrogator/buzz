@@ -49,7 +49,9 @@ class File(Corpus):
         For parsed dataset, get dataframe or spacy object
         """
         if self.is_parsed:
-            return _to_df(self, **kwargs)
+            df = _to_df(self, **kwargs)
+            df['_n'] = range(len(df))
+            return df
         raise NotImplementedError('Cannot load DataFame from unparsed file. Use file.read()')
 
     def read(self):

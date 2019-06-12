@@ -160,9 +160,8 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(all(isinstance(i, Doc) for i in spac))
 
     def test_dataset(self):
-        d = Dataset(self.parsed.path)
-        f = Dataset(self.parsed.files[0].path)
-        print('DHSPRD', d.shape, self.loaded.shape)
+        d = Dataset(self.parsed.path, load_trees=True)
+        f = Dataset(self.parsed.files[0].path, load_trees=True)
         self.assertTrue(d.equals(self.loaded))
         self.assertTrue(f.equals(self.parsed.files[0].load()))
         with patch('buzz.views.view', side_effect=ValueError('Boom!')):

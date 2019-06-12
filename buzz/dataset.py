@@ -23,18 +23,18 @@ class Dataset(pd.DataFrame):
     def _constructor(self):
         return Dataset
 
-    def __init__(self, data, reference=None, **kwargs):
+    def __init__(self, data, reference=None, load_trees=False, **kwargs):
+
         if isinstance(data, str):
             if os.path.isfile(data):
                 from .file import File
-
-                data = File(data).load()
+                data = File(data).load(load_trees=load_trees)
                 reference = data
             elif os.path.isdir(data):
                 from .corpus import Corpus
-
-                data = Corpus(data).load()
+                data = Corpus(data).load(load_trees=load_trees)
                 reference = data
+
         super().__init__(data, **kwargs)
         self.reference = reference
 
