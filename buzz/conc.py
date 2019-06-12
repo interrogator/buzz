@@ -53,11 +53,7 @@ def _concordance(data_in, reference, show=['w'], n=100, window='auto', metadata=
 
     data_in['_match'] = _make_match_col(data_in, show)
 
-    try:
-        df = pd.DataFrame(data_in).reset_index()
-    except ValueError:
-        ix = ['file', 's', 'i']
-        df = pd.DataFrame(df).drop(ix, axis=1, errors='ignore').reset_index()
+    df = pd.DataFrame(data_in).reset_index()
     finished = df.apply(_apply_conc, axis=1, allwords=reference['w'].values, window=window)
 
     finished.columns = ['left', 'match', 'right']
@@ -69,9 +65,6 @@ def _concordance(data_in, reference, show=['w'], n=100, window='auto', metadata=
     if metadata is True:
         met_df = df[met]
         finished = pd.concat([finished, met_df], axis=1, sort=False)
-    try:
-        finished = finished.drop(['_match', '_n', 'sent_len', 'parse'], axis=1, errors='ignore')
-    except Exception:  # todo: why?
-        pass
+    finished = finished.drop(['_match', '_n', 'sent_len', 'parse'], axis=1, errors='ignore')
 
     return Concordance(finished, reference=data_in)

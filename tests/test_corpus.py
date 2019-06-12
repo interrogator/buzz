@@ -1,3 +1,4 @@
+from collections import OrderedDict
 import shutil
 import unittest
 from unittest.mock import patch
@@ -8,6 +9,7 @@ from buzz.corpus import Corpus
 from buzz.contents import Contents
 from buzz.dataset import Dataset
 from buzz.table import Table
+from nltk.tree import ParentedTree
 
 
 TOTAL_TOKENS = 329
@@ -25,8 +27,20 @@ class TestCorpus(unittest.TestCase):
         """
         super().setUpClass()
         cls.unparsed = Corpus('tests/data')
+        cls.loaded_plain = cls.unparsed.load()
         cls.parsed = Corpus('tests/testing-parsed')
-        cls.loaded = cls.parsed.load()
+        cls.loaded = cls.parsed.load(load_trees=True)
+        cls.loaded_no_tree = cls.parsed.load(load_trees=False)
+
+    def test_trees(self):
+        self.assertIsInstance(self.loaded['parse'].iloc[0], ParentedTree)
+        self.assertIsInstance(self.loaded_no_tree['parse'].iloc[0], str)
+
+    def test_load_plain(self):
+        self.assertIsInstance(self.loaded_plain, OrderedDict)
+        for i, (path, data) in enumerate(self.loaded_plain.items()):
+            self.assertEqual(self.unparsed.files[i].path, path)
+            self.assertEqual(self.unparsed.files[i].read(), data)
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -148,6 +162,7 @@ class TestCorpus(unittest.TestCase):
     def test_dataset(self):
         d = Dataset(self.parsed.path)
         f = Dataset(self.parsed.files[0].path)
+        print('DHSPRD', d.shape, self.loaded.shape)
         self.assertTrue(d.equals(self.loaded))
         self.assertTrue(f.equals(self.parsed.files[0].load()))
         with patch('buzz.views.view', side_effect=ValueError('Boom!')):

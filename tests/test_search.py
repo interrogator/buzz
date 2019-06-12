@@ -13,6 +13,19 @@ class TestSearch(unittest.TestCase):
         cls.parsed = Corpus('tests/testing-parsed')
         cls.loaded = cls.parsed.load()
 
+    def test_non_loaded(self):
+        # todo: find out why .equals isn't the same.
+        res = self.parsed.tgrep('NN < /book/')
+        lres = self.loaded.tgrep('NN < /book/')
+        self.assertEqual(len(res), 3)
+        self.assertTrue(list(res.index) == list(lres.index))
+        self.assertTrue(list(res._n) == list(lres._n))
+        res = self.parsed.depgrep('l/book/')
+        lres = self.loaded.depgrep('l/book/')
+        self.assertEqual(len(res), 3)
+        self.assertTrue(list(res.index) == list(lres.index))
+        self.assertTrue(list(res._n) == list(lres._n))
+
     def test_tgrep(self):
         res = self.loaded.tgrep('NN < /book/')
         self.assertEqual(len(res), 3)

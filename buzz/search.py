@@ -24,9 +24,9 @@ class Searcher(object):
             self.to_search = self.corpus.files
             self.reference = None
         elif type(corpus) == File:
-            self.to_search = [self.load()]
-            self.corpus = self.load()
-            self.reference = self.corpus.refence
+            self.corpus = self.corpus.load()
+            self.to_search = [self.corpus]
+            self.reference = self.corpus.reference
         # if it's results, use the reference of that
         elif type(corpus) == Dataset:
             self.to_search = [self.corpus]
@@ -45,6 +45,7 @@ class Searcher(object):
         indices_to_keep = dict()
 
         # progbar when possible
+        t = None
         if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             running_count = 0
@@ -101,7 +102,7 @@ class Searcher(object):
 
         return [bool(i) for i in matches.values]
 
-    def _depgrep_iteration(self, piece):
+    def _depgrep_iteration(self, piece, query):
         """
         depgrep over one piece of data, returning the matching lines
         """
@@ -113,7 +114,7 @@ class Searcher(object):
         values = df.values
         # compile the query against this dataframe
         self.query = depgrep_compile(
-            self.query, values=values, positions=positions, case_sensitive=self.case_sensitive
+            query, values=values, positions=positions, case_sensitive=self.case_sensitive
         )
         # run the query, returning a boolean index
         bool_ix = self.depgrep(df, positions)
@@ -146,12 +147,15 @@ class Searcher(object):
         t = tqdm(**kwa) if len(self.to_search) > 1 else None
 
         # iterate over searchable bits, doing query with progbar
+        n = 0
         for piece in self.to_search:
             if isinstance(piece, File):
                 piece = piece.load()
+                piece['_n'] = list(range(n, len(piece) + n))
+                n += len(piece)
             # do the dep or tree searches and make a reduced dataset containing just matches
             if self.target == 'd':
-                res = piece[self._depgrep_iteration(piece)]
+                res = piece[self._depgrep_iteration(piece, query)]
             elif self.target == 't':
                 gram_ser = self._tgrep_iteration(piece)
                 res = piece.loc[gram_ser.index]

@@ -7,8 +7,9 @@ import pandas as pd
 
 from .constants import CONLL_COLUMNS
 from .contents import Contents
-from .parse import Parser
 from .dataset import Dataset
+from .search import Searcher
+from .parse import Parser
 from .utils import (
     _set_best_data_types,
     _get_tqdm,
@@ -78,6 +79,20 @@ class Corpus(MutableSequence):
 
     def insert(self, i, v):
         self.iterable.insert(i, v)
+
+    def tgrep(self, query, **kwargs):
+        """
+        Search constituency parses using tgrep
+        """
+        searcher = Searcher(self)
+        return searcher.run('t', query, **kwargs)
+
+    def depgrep(self, query, **kwargs):
+        """
+        Search dependencies using depgrep
+        """
+        searcher = Searcher(self)
+        return searcher.run('d', query, **kwargs)
 
     @property
     def metadata(self):
