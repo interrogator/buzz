@@ -6,6 +6,7 @@ from unittest.mock import patch
 from spacy.tokens.doc import Doc
 
 from buzz.corpus import Corpus
+from buzz.constants import LONG_NAMES
 from buzz.contents import Contents
 from buzz.dataset import Dataset
 from buzz.table import Table
@@ -117,9 +118,18 @@ class TestCorpus(unittest.TestCase):
         nobook = self.loaded.skip.lemmata.book
         self.assertEqual(len(nobook), TOTAL_TOKENS - len(book))
 
-    def test_search(self):
-        # todo
-        pass
+    def test_all_slice_names(self):
+        """
+        Test that all slice names work and produce same result as column name
+        """
+        for col, set_of_names in LONG_NAMES.items():
+            if col not in list(self.loaded.columns):
+                continue
+            every_match = getattr(self.loaded.just, col)('.*')
+            self.assertEqual(len(every_match), len(self.loaded))
+            for name in set_of_names:
+                res = getattr(self.loaded.just, name)('.*')
+                self.assertEqual(len(res), len(every_match))
 
     def test_conc(self):
         book = self.loaded.just.lemmata.book

@@ -39,7 +39,7 @@ def _apply_conc(line, allwords, window):
     return series
 
 
-def _concordance(data_in, reference, show=['w'], n=100, window='auto', metadata=True, **kwargs):
+def _concordance(data_in, reference, show=['w'], n=100, window='auto', metadata=True):
     """
     Generate a concordance
     """

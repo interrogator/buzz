@@ -33,19 +33,41 @@ class Filter(object):
     """
 
     def __init__(self, df, column, inverse=False):
-        self._df = df
         self.column = column
         self.inverse = inverse
+        self._df = df
 
-    def __call__(self, entry, *args, **kwargs):
-        strung = self._df[self.column].astype(str)
-        bool_ix = strung.str.match(entry, *args, **kwargs)
+    def __call__(self, entry, case=True, exact_match=False, *args, **kwargs):
+        """
+        Accepts pd.series.str.contains kwargs: case, regex, etc.
+
+        exact_match: match whole word, or just part of it
+        """
+        if self.column in self._df.columns:
+            strung = self._df[self.column].astype(str)
+        else:
+            index_data = self._df.index.get_level_values(self.column).astype(str)
+            strung = pd.Series(index_data, index=self._df.index)
+
+        if not case:
+            strung = strung.str.lower()
+            entry = entry.lower()
+
+        # get the correct method --- if user wants exact match
+        search_method = strung.str.match if exact_match else strung.str.contains
+        if not kwargs.get('regex') and exact_match:
+            bool_ix = strung == entry
+        else:
+            bool_ix = search_method(entry, *args, **kwargs)
         if self.inverse:
             bool_ix = ~bool_ix
         return self._df[bool_ix]
 
     def __getattr__(self, entry):
-        return self.__call__(entry)
+        """
+        data.just/skip.column.<entry> 
+        """
+        return self.__call__(entry, regex=False, exact_match=True)
 
 
 class Interim(Filter):
@@ -84,7 +106,7 @@ class Finder(Filter):
 class Slice(ABC):
     def __init__(self, df):
         self._df = df
-        self._valid = list(self._df.columns)
+        self._valid = list(self._df.columns) + list(self._df.index.names)
         self._validate()
 
     def __getattr__(self, col):
