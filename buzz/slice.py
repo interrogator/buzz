@@ -65,7 +65,7 @@ class Filter(object):
 
     def __getattr__(self, entry):
         """
-        data.just/skip.column.<entry> 
+        data.just/skip.column.<entry>
         """
         return self.__call__(entry, regex=False, exact_match=True)
 
