@@ -1,6 +1,10 @@
 import re
 from collections import MutableSequence
 
+import pandas as pd
+
+from .utils import _order_df_columns
+
 
 class Contents(MutableSequence):
     """
@@ -70,3 +74,11 @@ class Contents(MutableSequence):
         if self and not isinstance(v, self[0].__class__):
             raise TypeError(f'Not same class: {self[0].__class__} vs {v.__class__}')
         self.list.insert(i, v)
+
+    def load(self, **kwargs):
+        loaded = []
+        for piece in self:
+            loaded.append(piece.load(**kwargs))
+        df = pd.concat(loaded)
+        df['_n'] = range(len(df))
+        return _order_df_columns(df)

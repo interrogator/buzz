@@ -23,7 +23,7 @@ You can also use any metadata features that were included in your original texts
 | sentence # | `s`, `sentence` | 
 | word  | `w`, `word`, `words`            |
 | lemma | `l`, `lemma`, `lemmas`, `lemmata` |
-| speaker | `speaker`
+| speaker | `speaker` | 
 
 
 ## Dataset.just
@@ -121,6 +121,11 @@ dtrt.just.wordclass('NOUN')
 # if you wanted to use pos rather than wordclass
 dtrt.just.pos('^N')
 ```
+
+Using the bracket syntax, you can pass in some keyword arguments:
+
+* `case`: case sensitivity (default True)
+
 
 Because Datasets are subclasses of pandas DataFrames, we could also do this using pandas syntax:
 
@@ -524,4 +529,4 @@ verbs.see.speaker.by.lemma.to_html()
   </tbody>
 </table>
 
-This is really just the basics, however. If you want to do more advanced kinds of frequency calculations, you'll want to use the `Dataset.table()` method, with documentation available [here](/table).
+This is really just the basics, however. If you want to do more advanced kinds of frequency calculations, you'll want to use the `Dataset.table()` method, with documentation available [here](/en/latest/table).

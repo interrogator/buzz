@@ -179,7 +179,7 @@ class TestCorpus(unittest.TestCase):
                 self.loaded.view()
 
     def test_just_index(self):
-        just_two = self.parsed.just.sentences('^2$')
+        just_two = self.loaded.just.sentences('^2$')
         self.assertTrue((just_two.index.get_level_values('s') == 2).all())
 
 

@@ -174,16 +174,6 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
     return df
 
 
-def _df_denom(col, df=False):
-    """
-    Don't know
-    """
-    try:
-        return col * 100.0 / df[col.name]
-    except KeyError:
-        return 100.0
-
-
 def _uncomma(row, df, df_show_col, gram_ix):
     n = row.name
     gramsize = str(row[gram_ix]).count(',') + 1
@@ -196,13 +186,17 @@ def _uncomma(row, df, df_show_col, gram_ix):
         return str()
 
 
-def _simple_relative(df):
+def _simple_relative(df, denom=None):
+    denom = denom if denom is not None else df
     return (df.T * 100.0 / df.sum(axis=1)).T
 
 
-def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=False, **kwargs):
+def _make_relative_df(df, relative, reference, subcorpora, show, sort, remove_above_p, **kwargs):
 
     from .dataset import Dataset
+
+    if relative is False:
+        return df
 
     if remove_above_p is True:
         remove_above_p = 0.05
@@ -210,24 +204,16 @@ def _make_relative_df(df, relative, reference, subcorpora, sort, remove_above_p=
     # default case, use self...
     if relative is True:
         df = _simple_relative(df)
-    # if using reference corpus
+
+    # if user passed in the reference corpus as relative, table it
     elif relative.shape == reference.shape:
-        relative = relative.pivot_table(
-            index=subcorpora, columns='_match', values='_count', aggfunc=sum
-        )
-        df = df.T * 100.0 / relative.sum(axis=1)
-        df = df.T
+        relative = relative.table(subcorpora=subcorpora, show=show)
+        df = _simple_relative(df, relative)
 
     # if it is results, let us try to table it
     elif isinstance(relative, Dataset):
-        relative = relative.table(subcorpora=subcorpora).sum(axis=1)
-        df = df.T * 100.0 / relative
-        df = df.T
-
-    # if the user passed in some random df, try to work with it
-    # todo: delete
-    elif isinstance(relative, pd.DataFrame):
-        df = df.apply(_df_denom, axis=0, df=relative)
+        relative = relative.table(subcorpora=subcorpora)
+        df = _simple_relative(df, relative)
 
     if sort:
         ks = kwargs.get('keep_stats', False)
@@ -259,6 +245,7 @@ def _table(
     df=False,
     top=-1,
     remove_above_p=False,
+    multiindex_columns=False,
     **kwargs
 ):
     """
@@ -330,11 +317,17 @@ def _table(
         df = _sort(df, by=sort, keep_stats=ks, remove_above_p=remove_above_p)
     else:
         reference['_match'] = _make_match_col(reference, show)
-        df = _make_relative_df(df, relative, reference, subcorpora, sort, **kwargs)
+        df = _make_relative_df(
+            df, relative, reference, subcorpora, show, sort, remove_above_p, **kwargs
+        )
 
     df.fillna(0, inplace=True)
 
-    # remove column name if there
-    df.columns.name = '/'.join(show)
+    # make columns into multiindex if the user wants
+    if multiindex_columns and len(show) > 1:
+        df.columns = [i.split('/') for i in df.columns.names]
+        df.columns.names = df.columns.names[0].split('/')
+    else:
+        df.columns.name = '/'.join(show)
 
     return Table(df, reference=reference)

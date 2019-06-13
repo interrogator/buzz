@@ -161,6 +161,14 @@ def _make_csv(raw_lines, fname):
     return '\n'.join(csvdat), meta_dicts
 
 
+def _order_df_columns(df, metadata=None):
+    if metadata is None:
+        metadata = [i for i in list(df.columns) if i not in COLUMN_NAMES]
+    good_names = [i for i in COLUMN_NAMES if i in df.columns]
+    df = df[good_names + list(sorted(metadata))]
+    return df
+
+
 def _to_df(
     corpus,
     load_trees: bool = True,
@@ -197,7 +205,7 @@ def _to_df(
     df = metadata.join(df, how='inner')
 
     # fix the column order
-    df = df[COLUMN_NAMES[3:] + list(sorted(metadata))]
+    df = _order_df_columns(df, metadata)
 
     # remove columns whose value was interpeted or for which nothing is ever availablr
     badcols = ['o', 'm']
