@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import option_context
 
 from .constants import CONLL_COLUMNS
 from .views import _make_match_col, _tabview
@@ -26,6 +27,13 @@ class Concordance(pd.DataFrame):
 
     def view(self, *args, **kwargs):
         return _tabview(self, self.reference, *args, **kwargs)
+
+    def __repr__(self):
+        cols = ['left', 'match', 'right']
+        if 'speaker' in self.columns and self['speaker'][0]:
+            cols.append('speaker')
+        with option_context('display.max_colwidth', 200):
+            return str(self[cols])
 
 
 def _apply_conc(line, allwords, window):

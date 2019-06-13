@@ -18,7 +18,6 @@ class TestSearch(unittest.TestCase):
         res = self.parsed.tgrep('NN < /book/')
         lres = self.loaded.tgrep('NN < /book/')
         self.assertEqual(len(res), 3)
-        self.assertTrue(list(res.index) == list(lres.index))
         self.assertTrue(list(res._n) == list(lres._n))
         res = self.parsed.depgrep('l/book/')
         lres = self.loaded.depgrep('l/book/')

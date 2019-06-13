@@ -62,6 +62,8 @@ print(parsed.files[0].read())
 
 ## Load corpus into memory
 
+To load an entire corpus:
+
 ```python
 loaded = parsed.load()
 print(loaded)
@@ -173,6 +175,14 @@ print(loaded.iloc[0:8, 0:6].to_html())
 
 All metadata attributes are available for each token in the text.
 
+If you want to load parts of a corpus, you can select the needed parts from the `subcorpora` or `files` attributes:
+
+```python
+parsed.files[:5].load()
+# load all files whose name matches a regex
+import re
+parsed.files[re.compile('pizzeria$')].load() 
+```
 
 ```python
 print(loaded.head(1).T.to_html())
