@@ -39,7 +39,9 @@ def _apply_conc(line, allwords, window):
     return series
 
 
-def _concordance(data_in, reference, show=['w'], n=100, window='auto', metadata=True):
+def _concordance(
+    data_in, reference, show=['w'], n=100, window='auto', metadata=True, preserve_case=True
+):
     """
     Generate a concordance
     """
@@ -51,7 +53,7 @@ def _concordance(data_in, reference, show=['w'], n=100, window='auto', metadata=
     if isinstance(window, int):
         window = [window, window]
 
-    data_in['_match'] = _make_match_col(data_in, show)
+    data_in['_match'] = _make_match_col(data_in, show, preserve_case=preserve_case)
 
     df = pd.DataFrame(data_in).reset_index()
     finished = df.apply(_apply_conc, axis=1, allwords=reference['w'].values, window=window)

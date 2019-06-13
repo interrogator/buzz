@@ -79,5 +79,10 @@ class Dataset(pd.DataFrame):
         """
         Get unique sentences
         """
-        bool_ix = self.index.get_level_values('i') == 1
-        return self[bool_ix]
+        return self[self.index.get_level_values('i') == 1]
+
+    def square(self, n=10):
+        """
+        Our version of .head() restricts both rows and columns
+        """
+        return self.iloc[:n, :n]

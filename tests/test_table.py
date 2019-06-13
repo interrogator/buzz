@@ -19,7 +19,7 @@ class TestTable(unittest.TestCase):
     def test_loaded_corpus_table(self):
         tab = LOADED.table()
         self.assertIsInstance(tab, Table)
-        self.assertEqual(tab.shape, (3, 167))
+        self.assertEqual(tab.shape, (3, 168))
         self.assertEqual(tab.index.name, 'file')
         self.assertEqual(tab.columns.name, 'w')
 

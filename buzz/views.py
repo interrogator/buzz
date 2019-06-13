@@ -9,11 +9,17 @@ from tabview import view
 from .utils import _auto_window
 
 
-def _make_match_col(df, show):
+def _make_match_col(df, show, preserve_case):
+    for s in show:
+        if s in df.index.names and s not in df.columns:
+            df[s] = df.index.get_level_values(s)
     if len(show) == 1:
-        return df[show[0]]
+        made = df[show[0]].astype(str)
     cats = [df[i].astype(str) for i in show[1:]]
-    return df[show[0]].str.cat(others=cats, sep='/').str.rstrip('/')
+    made = df[show[0]].str.cat(others=cats, sep='/').str.rstrip('/')
+    if not preserve_case:
+        made = made.str.lower()
+    return made
 
 
 def _get_widths(df, is_conc, window):
@@ -186,66 +192,23 @@ def _uncomma(row, df, df_show_col, gram_ix):
         return str()
 
 
-def _simple_relative(df, denom=None):
+def _relativise(df, denom=None):
     denom = denom if denom is not None else df
-    return (df.T * 100.0 / df.sum(axis=1)).T
-
-
-def _make_relative_df(df, relative, reference, subcorpora, show, sort, remove_above_p, **kwargs):
-
-    from .dataset import Dataset
-
-    if relative is False:
-        return df
-
-    if remove_above_p is True:
-        remove_above_p = 0.05
-
-    # default case, use self...
-    if relative is True:
-        df = _simple_relative(df)
-
-    # if user passed in the reference corpus as relative, table it
-    elif relative.shape == reference.shape:
-        relative = relative.table(subcorpora=subcorpora, show=show)
-        df = _simple_relative(df, relative)
-
-    # if it is results, let us try to table it
-    elif isinstance(relative, Dataset):
-        relative = relative.table(subcorpora=subcorpora)
-        df = _simple_relative(df, relative)
-
-    if sort:
-        ks = kwargs.get('keep_stats', False)
-        df = _sort(df, by=sort, keep_stats=ks, remove_above_p=remove_above_p)
-
-    # recast to int if possible
-    # todo: add dtype check, or only do when
-    try:
-        if (
-            isinstance(df, pd.DataFrame)
-            and df.dtypes.all() == float
-            and df.applymap(lambda x: x.is_integer()).all().all()
-        ):
-            df = df.astype(int)
-    except AttributeError:
-        pass
-
-    return df
+    if not isinstance(denom, pd.Series):
+        denom = denom.sum(axis=1)
+    return (df.T * 100.0 / denom).T
 
 
 def _table(
     dataset,
-    subcorpora='default',
+    subcorpora=['file'],
     show=['w'],
     preserve_case=False,
     sort='total',
-    relative=None,
-    ngram=False,
-    df=False,
-    top=-1,
+    relative=False,
     remove_above_p=False,
     multiindex_columns=False,
+    keep_stats=False,
     **kwargs
 ):
     """
@@ -255,10 +218,6 @@ def _table(
 
     # we need access to reference corpus for freq calculation
     df, reference = dataset, dataset.reference
-
-    # user needs something to have as columns
-    if subcorpora == 'default' or subcorpora is False:
-        subcorpora = 'file'
 
     # show and subcorpora must always be a list
     if not isinstance(show, list):
@@ -275,59 +234,30 @@ def _table(
     if remove_above_p is True:
         remove_above_p = 0.05
 
-    # do we have multiword unit information?
-    comma_ix = '_gram' in list(df.columns) and df._gram.values[0] is not False
-    # if everything is very simple, add _match column
-    if all(i in df.columns for i in show) and ngram is False and not comma_ix:
-        df['_match'] = _make_match_col(df, show)
-    else:
-        # make a minimal df for formatting
-        # this bit of the code is performace critical, so it's really evil
-        if ngram:
-            # map column to position
-            raise NotImplementedError
-        elif comma_ix:
-            df['_match'] = df.apply(
-                _uncomma,
-                axis=1,
-                raw=True,
-                df=reference.values,
-                df_show_col=list(reference.columns).index(show[0]),
-                gram_ix=list(df.columns).index('_gram'),
-            )
+    # make a column representing the 'show' info
+    df['_match'] = _make_match_col(df, show, preserve_case)
 
-    # do casing
-    if not preserve_case:
-        df['_match'] = df['_match'].astype(str).str.lower()
-
-    # if only showing top n, cut down to this number?
-    if top:
-        tops = df['_match'].str.lower().value_counts().head(top)
-        df = df[df['_match'].isin(set(tops.index))]
-
+    # need a column of ones for summing, yuck
     df['_count'] = 1
 
+    # make the matrix
     df = df.pivot_table(index=subcorpora, columns='_match', values='_count', aggfunc=sum)
+    df = df.fillna(0)
+    # make table now so we can relative/sort
+    df = Table(df, reference=reference)
 
-    df.fillna(0, inplace=True)
+    # relative frequency if user wants that
+    df = df.relative(relative) if relative is not False else df.astype(int)
 
-    if relative is False or relative is None:
-        df = df.astype(int)
-        ks = kwargs.get('keep_stats', False)
-        df = _sort(df, by=sort, keep_stats=ks, remove_above_p=remove_above_p)
-    else:
-        reference['_match'] = _make_match_col(reference, show)
-        df = _make_relative_df(
-            df, relative, reference, subcorpora, show, sort, remove_above_p, **kwargs
-        )
+    # sort if the user wants that
+    if sort:
+        df = df.sort(by=sort, keep_stats=keep_stats, remove_above_p=remove_above_p)
 
-    df.fillna(0, inplace=True)
-
-    # make columns into multiindex if the user wants
+    # make columns into multiindex if the user wants that
     if multiindex_columns and len(show) > 1:
         df.columns = [i.split('/') for i in df.columns.names]
         df.columns.names = df.columns.names[0].split('/')
     else:
         df.columns.name = '/'.join(show)
 
-    return Table(df, reference=reference)
+    return df
