@@ -50,17 +50,25 @@ class Filter(object):
             strung = pd.Series(index_data, index=self._df.index)
 
         if not case:
+            if isinstance(entry, (set, list)):
+                entry = {i.lower() for i in entry}
+            else:
+                entry = entry.lower()
             strung = strung.str.lower()
-            entry = entry.lower()
 
-        # get the correct method --- if user wants exact match
-        search_method = strung.str.match if exact_match else strung.str.contains
-        if not kwargs.get('regex') and exact_match:
-            bool_ix = strung == entry
+        if isinstance(entry, (set, list)):
+            bool_ix = strung.isin(entry)
         else:
-            bool_ix = search_method(entry, *args, **kwargs)
+            # get the correct method --- if user wants exact match
+            search_method = strung.str.match if exact_match else strung.str.contains
+            if not kwargs.get('regex') and exact_match:
+                bool_ix = strung == entry
+            else:
+                bool_ix = search_method(entry, *args, **kwargs)
+
         if self.inverse:
             bool_ix = ~bool_ix
+
         return self._df[bool_ix]
 
     def __getattr__(self, entry):
