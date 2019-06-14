@@ -107,6 +107,8 @@ def parse_section(shot, meta, line_number):
     while speak_info:
         if speak_info in {'CONT\'D)', 'MORE'}:
             speak_info = None
+        meta['voice_over'] = True
+        meta['off_screen'] = True
         speech_type = dict(vo='voice-over', os='off-screen')
         speak_info = speech_type.get(speak_info.lower(), speak_info.lower())
         break
@@ -117,8 +119,6 @@ def parse_section(shot, meta, line_number):
         leftover = ''
 
     meta['speaker'] = speaker.split(' (')[0]
-    if speak_info:
-        meta['voice-delivery'] = speech_type
     meta['line'] = line_number
     text = get_dialogue(dialogue, meta)
     meta.pop('direction', None)
