@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (NNP Mookie)) (VP (VBZ runs) (PP (RP up) (NP (NN stoop)))) (. .))
+# parse = (S (NP (JJ Mookie)) (VP (VBZ runs) (PP (IN up) (NP (NN stoop)))) (. .))
 # scene = 44
 # sent_id = 1
 # sent_len = 5
@@ -7,8 +7,8 @@
 # stage_direction = True
 # text = Mookie runs up stoop.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	runs	run	VERB	VBZ	_	0	ROOT	_	_
-3	up	up	PART	RP	_	2	prt	_	_
+3	up	up	ADP	IN	_	2	prt	_	_
 4	stoop	stoop	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_

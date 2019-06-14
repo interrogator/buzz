@@ -1,5 +1,5 @@
 Mookie rings the bell and a fine Puerto Rican sister answers the door. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true">
-Delivery from Sal's Famous Pizzeria.. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="MOOKIE" line="598"> <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="MOOKIE" line="598">
-What took you so long? Is it hot?. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="TINA" line="599"> <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="TINA" line="599">
-Hot. Hot.. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="MOOKIE" line="600"> <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="MOOKIE" line="600">
-Come in then.. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="TINA" line="601"> <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="TINA" line="601">
+Delivery from Sal's Famous Pizzeria. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="MOOKIE" line="598">
+What took you so long? Is it hot? <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="TINA" line="599">
+Hot. Hot. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="MOOKIE" line="600">
+Come in then. <metadata time="NIGHT" loc="INT" setting="HALLWAY" scene="72" stage_direction="true" speaker="TINA" line="601">

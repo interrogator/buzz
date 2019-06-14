@@ -1,5 +1,5 @@
 # loc = INT
-# parse = (S (NP (JJ Cee) (CC and) (NNP Punchy)) (VP (VBP look) (RP down) (PP (IN from) (NP (DT a) (NN roof))) (PP (IN on) (NP (NP (PDT all) (DT the) (NN havoc) (CC and) (NN confusion)) (SBAR (S (NP (PRP they)) (VP (VB 've) (VP (VBN started)))))))) (. .))
+# parse = (S (NP (NNP Cee) (CC and) (NNP Punchy)) (VP (VBP look) (RP down) (PP (IN from) (NP (DT a) (NN roof))) (PP (IN on) (NP (NP (PDT all) (DT the) (NN havoc) (CC and) (NN confusion)) (SBAR (S (NP (PRP they)) (VP (VB 've) (VP (VBN started)))))))) (. .))
 # scene = 26
 # sent_id = 1
 # sent_len = 18
@@ -7,16 +7,16 @@
 # stage_direction = True
 # text = Cee and Punchy look down from a roof on all the havoc and confusion they've started.
 # time = DAY
-1	Cee	cee	ADJ	JJ	_	4	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
+1	Cee	Cee	PROPN	NNP	_	4	nsubj	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Punchy	punchy	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Punchy	Punchy	PROPN	NNP	_	1	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
 4	look	look	VERB	VBP	_	0	ROOT	_	_
 5	down	down	PART	RP	_	4	prt	_	_
 6	from	from	ADP	IN	_	4	prep	_	_
 7	a	a	DET	DT	_	8	det	_	_
 8	roof	roof	NOUN	NN	_	6	pobj	_	_
 9	on	on	ADP	IN	_	8	prep	_	_
-10	all	all	ADJ	PDT	_	12	predet	_	_
+10	all	all	DET	PDT	_	12	predet	_	_
 11	the	the	DET	DT	_	12	det	_	_
 12	havoc	havoc	NOUN	NN	_	9	pobj	_	_
 13	and	and	CCONJ	CC	_	12	cc	_	_
@@ -27,7 +27,7 @@
 18	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = INT
-# parse = (S (NP (DT Both)) (VP (NN laugh)) (. .))
+# parse = (S (NP (DT Both)) (VP (VBP laugh)) (. .))
 # scene = 26
 # sent_id = 2
 # sent_len = 3
@@ -35,6 +35,6 @@
 # stage_direction = True
 # text = Both laugh.
 # time = DAY
-1	Both	both	DET	DT	_	2	det	_	_
-2	laugh	laugh	NOUN	NN	_	0	ROOT	_	_
+1	Both	both	DET	DT	_	2	nsubj	_	_
+2	laugh	laugh	VERB	VBP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_

@@ -7,9 +7,9 @@
 # stage_direction = True
 # text = Tina watches Mookie watch her.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
+1	Tina	Tina	PROPN	NNP	_	2	nsubj	_	_
 2	watches	watch	VERB	VBZ	_	0	ROOT	_	_
-3	Mookie	mookie	PROPN	NNP	_	4	nsubj	_	_
+3	Mookie	Mookie	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	watch	watch	VERB	VB	_	2	ccomp	_	_
 5	her	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
@@ -34,7 +34,7 @@
 9	the	the	DET	DT	_	10	det	_	_
 10	pizza	pizza	NOUN	NN	_	8	dobj	_	_
 11	from	from	ADP	IN	_	8	prep	_	_
-12	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
+12	his	-PRON-	DET	PRP$	_	13	poss	_	_
 13	hands	hand	NOUN	NNS	_	11	pobj	_	_
 14	and	and	CCONJ	CC	_	8	cc	_	_
 15	puts	put	VERB	VBZ	_	8	conj	_	_
@@ -45,7 +45,7 @@
 20	.	.	PUNCT	.	_	8	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NN Mookie)) (VP (VP (VBZ grabs) (NP (PRP her))) (CC and) (VP (VBZ starts) (S (VP (TO to) (VP (VB kiss)))))) (. .))
+# parse = (S (NP (JJ Mookie)) (VP (VP (VBZ grabs) (NP (PRP her))) (CC and) (VP (VBZ starts) (S (VP (TO to) (VP (VB kiss)))))) (. .))
 # scene = 73
 # sent_id = 3
 # sent_len = 8
@@ -53,7 +53,7 @@
 # stage_direction = True
 # text = Mookie grabs her and starts to kiss.
 # time = NIGHT
-1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	grabs	grab	VERB	VBZ	_	0	ROOT	_	_
 3	her	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
@@ -71,9 +71,9 @@
 # stage_direction = True
 # text = Tina is Mookie's woman, the one he's been on the phone with earlier.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Tina	Tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	Mookie	mookie	PROPN	NNP	_	5	poss	_	ent_type=GPE|ent_id=382|ent_iob=B
+3	Mookie	Mookie	PROPN	NNP	_	5	poss	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	's	's	PART	POS	_	3	case	_	_
 5	woman	woman	NOUN	NN	_	2	attr	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
@@ -90,10 +90,10 @@
 17	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (PRP We)) (VP (VB 've) (VP (VP (VBN heard) (NP (DT the) (NN voice))) (CC and) (VP (ADVP (RB now)) (VB SEE) (NP (DT the) (NN person))))) (. .) (  ))
+# parse = (S (NP (PRP We)) (VP (VB 've) (VP (VP (VBN heard) (NP (DT the) (NN voice))) (CC and) (VP (ADVP (RB now)) (VB SEE) (NP (DT the) (NN person))))) (. .) (_SP  ))
 # scene = 73
 # sent_id = 5
-# sent_len = 12
+# sent_len = 11
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = We've heard the voice and now SEE the person.
@@ -105,29 +105,29 @@
 5	voice	voice	NOUN	NN	_	3	dobj	_	_
 6	and	and	CCONJ	CC	_	3	cc	_	_
 7	now	now	ADV	RB	_	8	advmod	_	_
-8	SEE	see	VERB	VB	_	3	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
+8	SEE	see	VERB	VB	_	3	conj	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	person	person	NOUN	NN	_	8	dobj	_	_
 11	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 602
 # loc = INT
-# parse = (S (NP (NNP Tina)) (, ,) (SBAR (S (NP (PRP you)) (VP (VBP are) (ADJP (RB too) (JJ slick))))) (NFP ..) (  ))
+# parse = (S (NP (NNP Tina)) (, ,) (SBAR (S (NP (PRP you)) (VP (VBP are) (ADJP (RB too) (JJ slick))))) (. .) (_SP  ))
 # scene = 73
 # sent_id = 6
-# sent_len = 8
+# sent_len = 7
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = Tina, you are too slick..
+# text = Tina, you are too slick.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	4	npadvmod	_	_
+1	Tina	Tina	PROPN	NNP	_	4	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	are	be	VERB	VBP	_	0	ROOT	_	_
 5	too	too	ADV	RB	_	6	advmod	_	_
 6	slick	slick	ADJ	JJ	_	4	acomp	_	_
-7	..	..	PUNCT	NFP	_	4	punct	_	_
+7	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 603
 # loc = INT
@@ -153,14 +153,14 @@
 
 # line = 603
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (VBP have) (RB n't) (VP (VBN seen) (NP (PRP you)) (PP (IN in) (NP (DT a) (NN week))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP have) (RB n't) (VP (VBN seen) (NP (PRP you)) (PP (IN in) (NP (DT a) (NN week))))) (. .) (_SP  ))
 # scene = 73
 # sent_id = 8
-# sent_len = 10
+# sent_len = 9
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = I haven't seen you in a week..
+# text = I haven't seen you in a week.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	have	have	VERB	VBP	_	4	aux	_	_
@@ -168,20 +168,20 @@
 4	seen	see	VERB	VBN	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	dobj	_	_
 6	in	in	ADP	IN	_	4	prep	_	_
-7	a	a	DET	DT	_	8	det	_	ent_type=DATE|ent_id=388|ent_iob=B
-8	week	week	NOUN	NN	_	6	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
-9	..	..	PUNCT	.	_	4	punct	_	_
+7	a	a	DET	DT	_	8	det	_	ent_type=DATE|ent_id=391|ent_iob=B
+8	week	week	NOUN	NN	_	6	pobj	_	ent_type=DATE|ent_id=391|ent_iob=I
+9	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 604
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (VB 've) (VP (VBN been) (VP (VP (VBG working) (ADVP (RB hard))) (, ,) (VP (VBG getting) (VP (VBN paid)))))) (NFP ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VB 've) (VP (VBN been) (VP (VP (VBG working) (ADVP (RB hard))) (, ,) (VP (VBG getting) (VP (VBN paid)))))) (. .) (_SP  ))
 # scene = 73
 # sent_id = 9
-# sent_len = 10
+# sent_len = 9
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = I've been working hard, getting paid..
+# text = I've been working hard, getting paid.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	've	have	VERB	VB	_	4	aux	_	_
@@ -191,7 +191,7 @@
 6	,	,	PUNCT	,	_	4	punct	_	_
 7	getting	get	VERB	VBG	_	8	auxpass	_	_
 8	paid	pay	VERB	VBN	_	4	advcl	_	_
-9	..	..	PUNCT	NFP	_	4	punct	_	_
+9	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 605
 # loc = INT
@@ -213,97 +213,84 @@
 
 # line = 605
 # loc = INT
-# parse = (NP (DT The) (NNP Häagen-) (NNP Dazs) (NN butter) (NN pecan) (. ?) (. .) (  ))
+# parse = (FRAG (DT The) (NNP Häagen-) (NNP Dazs) (NN butter) (JJ pecan) (. ?) (_SP  ) (UH Shit) (. !))
 # scene = 73
 # sent_id = 11
 # sent_len = 8
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = The Häagen- Dazs butter pecan?.
+# text = The Häagen- Dazs butter pecan?  Shit!
 # time = NIGHT
 1	The	the	DET	DT	_	5	det	_	_
-2	Häagen-	häagen-	PROPN	NNP	_	5	compound	_	_
-3	Dazs	dazs	PROPN	NNP	_	4	compound	_	_
+2	Häagen-	Häagen-	PROPN	NNP	_	5	nmod	_	_
+3	Dazs	Dazs	PROPN	NNP	_	5	compound	_	_
 4	butter	butter	NOUN	NN	_	5	compound	_	_
-5	pecan	pecan	NOUN	NN	_	0	ROOT	_	_
+5	pecan	pecan	ADJ	JJ	_	0	ROOT	_	_
 6	?	?	PUNCT	.	_	5	punct	_	_
-7	.	.	PUNCT	.	_	5	punct	_	_
+7	Shit	shit	INTJ	UH	_	5	npadvmod	_	_
+8	!	!	PUNCT	.	_	5	punct	_	_
 
 # line = 606
 # loc = INT
-# parse = (INTJ (NNP Shit) (. !))
+# parse = (S (NP (PRP I)) (VP (VBD forgot)) (. .) (_SP  ))
 # scene = 73
 # sent_id = 12
-# sent_len = 2
+# sent_len = 3
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = Shit!
-# time = NIGHT
-1	Shit	shit	PROPN	NNP	_	0	ROOT	_	_
-2	!	!	PUNCT	.	_	1	punct	_	_
-
-# line = 606
-# loc = INT
-# parse = (S (NP (PRP I)) (VP (VBD forgot)) (NFP ..) (  ))
-# scene = 73
-# sent_id = 13
-# sent_len = 4
-# setting = TINA'S APARTMENT
-# speaker = MOOKIE
-# stage_direction = True
-# text = I forgot..
+# text = I forgot.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	forgot	forget	VERB	VBD	_	0	ROOT	_	_
-3	..	..	PUNCT	NFP	_	2	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 607
 # loc = INT
-# parse = (S (NP (PRP$ Your) (NN memory)) (VP (VBZ is) (ADVP (RB really)) (VP (VBG getting) (ADJP (JJ bad)))) (. ..) (  ))
+# parse = (S (NP (PRP$ Your) (NN memory)) (VP (VBZ is) (ADVP (RB really)) (VP (VBG getting) (ADJP (JJ bad)))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 14
-# sent_len = 8
+# sent_id = 13
+# sent_len = 7
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = Your memory is really getting bad..
+# text = Your memory is really getting bad.
 # time = NIGHT
-1	Your	-PRON-	ADJ	PRP$	_	2	poss	_	_
+1	Your	-PRON-	DET	PRP$	_	2	poss	_	_
 2	memory	memory	NOUN	NN	_	5	nsubj	_	_
 3	is	be	VERB	VBZ	_	5	aux	_	_
 4	really	really	ADV	RB	_	5	advmod	_	_
 5	getting	get	VERB	VBG	_	0	ROOT	_	_
 6	bad	bad	ADJ	JJ	_	5	acomp	_	_
-7	..	..	PUNCT	.	_	5	punct	_	_
+7	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 608
 # loc = INT
-# parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBD forgot)) (. ..) (  ))
+# parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBD forgot)) (. .) (_SP  ))
 # scene = 73
-# sent_id = 15
-# sent_len = 5
+# sent_id = 14
+# sent_len = 4
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = I just forgot..
+# text = I just forgot.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
 3	forgot	forget	VERB	VBD	_	0	ROOT	_	_
-4	..	..	PUNCT	.	_	3	punct	_	_
+4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 609
 # loc = INT
-# parse = (S (CC And) (NP (PRP I)) (ADVP (RB really)) (VP (VBD wanted) (NP (DT some) (NN ice) (NN cream)) (ADVP (RB too))) (NFP ..) (  ))
+# parse = (S (CC And) (NP (PRP I)) (ADVP (RB really)) (VP (VBD wanted) (NP (DT some) (NN ice) (NN cream)) (ADVP (RB too))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 16
-# sent_len = 10
+# sent_id = 15
+# sent_len = 9
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = And I really wanted some ice cream too..
+# text = And I really wanted some ice cream too.
 # time = NIGHT
 1	And	and	CCONJ	CC	_	4	cc	_	_
 2	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
@@ -313,18 +300,18 @@
 6	ice	ice	NOUN	NN	_	7	compound	_	_
 7	cream	cream	NOUN	NN	_	4	dobj	_	_
 8	too	too	ADV	RB	_	4	advmod	_	_
-9	..	..	PUNCT	NFP	_	4	punct	_	_
+9	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 610
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (MD can) (VP (VP (VB run) (ADVP (RP out))) (CC and) (VP (VB get) (NP (PRP it))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (MD can) (VP (VP (VB run) (ADVP (RP out))) (CC and) (VP (VB get) (NP (PRP it))))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 17
-# sent_len = 9
+# sent_id = 16
+# sent_len = 8
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = I can run out and get it..
+# text = I can run out and get it.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	can	can	VERB	MD	_	3	aux	_	_
@@ -333,7 +320,21 @@
 5	and	and	CCONJ	CC	_	3	cc	_	_
 6	get	get	VERB	VB	_	3	conj	_	_
 7	it	-PRON-	PRON	PRP	_	6	dobj	_	_
-8	..	..	PUNCT	.	_	3	punct	_	_
+8	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 611
+# loc = INT
+# parse = (INTJ (UH No) (. !))
+# scene = 73
+# sent_id = 17
+# sent_len = 2
+# setting = TINA'S APARTMENT
+# speaker = TINA
+# stage_direction = True
+# text = No!
+# time = NIGHT
+1	No	no	INTJ	UH	_	0	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 611
 # loc = INT
@@ -351,84 +352,69 @@
 
 # line = 611
 # loc = INT
-# parse = (INTJ (UH No) (. !))
+# parse = (S (NP (PRP You)) (VP (MD wo) (RB n't) (VP (VB come) (ADVP (RB back)) (ADVP (RB either)))) (. .) (_SP  ))
 # scene = 73
 # sent_id = 19
-# sent_len = 2
+# sent_len = 7
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = No!
-# time = NIGHT
-1	No	no	INTJ	UH	_	0	ROOT	_	_
-2	!	!	PUNCT	.	_	1	punct	_	_
-
-# line = 611
-# loc = INT
-# parse = (S (NP (PRP You)) (VP (MD wo) (RB n't) (VP (VB come) (ADVP (RB back)) (ADVP (RB either)))) (. ..) (  ))
-# scene = 73
-# sent_id = 20
-# sent_len = 8
-# setting = TINA'S APARTMENT
-# speaker = TINA
-# stage_direction = True
-# text = You won't come back either..
+# text = You won't come back either.
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	4	nsubj	_	_
-2	wo	will	VERB	MD	_	4	aux	_	_
+2	wo	will	AUX	MD	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
 4	come	come	VERB	VB	_	0	ROOT	_	_
 5	back	back	ADV	RB	_	4	advmod	_	_
 6	either	either	ADV	RB	_	4	advmod	_	_
-7	..	..	PUNCT	.	_	4	punct	_	_
+7	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 612
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (MD ca) (RB n't) (VP (VB be) (VP (VBG staying) (ADVP (RB long)) (ADVP (RB anyway))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (MD ca) (RB n't) (VP (VB be) (VP (VBG staying) (ADVP (RB long)) (ADVP (RB anyway))))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 21
-# sent_len = 9
+# sent_id = 20
+# sent_len = 8
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = I can't be staying long anyway..
+# text = I can't be staying long anyway.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
-2	ca	can	VERB	MD	_	5	aux	_	_
+2	ca	can	AUX	MD	_	5	aux	_	_
 3	n't	not	ADV	RB	_	5	neg	_	_
 4	be	be	VERB	VB	_	5	aux	_	_
 5	staying	stay	VERB	VBG	_	0	ROOT	_	_
 6	long	long	ADV	RB	_	5	advmod	_	_
 7	anyway	anyway	ADV	RB	_	5	advmod	_	_
-8	..	..	PUNCT	.	_	5	punct	_	_
+8	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 613
 # loc = INT
-# parse = (FRAG (WHNP (WRB How) (JJ long)) (ADVP (RB then)) (. ?) (. .) (  ))
+# parse = (FRAG (WHNP (WRB How) (RB long)) (ADVP (RB then)) (. ?) (_SP  ))
 # scene = 73
-# sent_id = 22
-# sent_len = 6
+# sent_id = 21
+# sent_len = 4
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = How long then?.
+# text = How long then?
 # time = NIGHT
 1	How	how	ADV	WRB	_	2	advmod	_	_
-2	long	long	ADJ	JJ	_	0	ROOT	_	_
-3	then	then	ADV	RB	_	2	advmod	_	_
-4	?	?	PUNCT	.	_	2	punct	_	_
-5	.	.	PUNCT	.	_	2	punct	_	_
+2	long	long	ADV	RB	_	3	advmod	_	_
+3	then	then	ADV	RB	_	0	ROOT	_	_
+4	?	?	PUNCT	.	_	3	punct	_	_
 
 # line = 614
 # loc = INT
-# parse = (ADJP (RB Long) (RB enough) (SBAR (SBAR (IN for) (S (NP (PRP us)) (VP (TO to) (VP (VB do) (DT the) (JJ nasty))))) (. ..) (  )))
+# parse = (ADJP (RB Long) (RB enough) (SBAR (IN for) (S (NP (PRP us)) (VP (TO to) (VP (VB do) (NP (DT the) (JJ nasty)))))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 23
-# sent_len = 10
+# sent_id = 22
+# sent_len = 9
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = Long enough for us to do the nasty..
+# text = Long enough for us to do the nasty.
 # time = NIGHT
 1	Long	long	ADV	RB	_	2	advmod	_	_
 2	enough	enough	ADV	RB	_	0	ROOT	_	_
@@ -438,13 +424,13 @@
 6	do	do	VERB	VB	_	2	advcl	_	_
 7	the	the	DET	DT	_	8	det	_	_
 8	nasty	nasty	ADJ	JJ	_	6	dobj	_	_
-9	..	..	PUNCT	.	_	2	punct	_	_
+9	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 615
 # loc = INT
 # parse = (S (NP (DT That)) (VP (VBZ 's) (ADVP (RB out))) (. .))
 # scene = 73
-# sent_id = 24
+# sent_id = 23
 # sent_len = 4
 # setting = TINA'S APARTMENT
 # speaker = TINA
@@ -460,7 +446,7 @@
 # loc = INT
 # parse = (INTJ (UH No) (. !))
 # scene = 73
-# sent_id = 25
+# sent_id = 24
 # sent_len = 2
 # setting = TINA'S APARTMENT
 # speaker = TINA
@@ -474,7 +460,7 @@
 # loc = INT
 # parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (RB too) (JJ hot))) (. !))
 # scene = 73
-# sent_id = 26
+# sent_id = 25
 # sent_len = 5
 # setting = TINA'S APARTMENT
 # speaker = TINA
@@ -489,14 +475,14 @@
 
 # line = 615
 # loc = INT
-# parse = (S (NP (PRP You)) (VP (VBP think) (SBAR (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VB let) (S (NP (PRP you)) (VP (VP (VB get) (NP (DT some))) (, ,) (VP (VBN put) (PRT (RP on)) (NP (PRP$ your) (NNS clothes))) (, ,) (ADVP (RB then)) (VP (VP (VB run) (PP (NN outta) (NP (RB here)))) (CC and) (VP (ADVP (RB never)) (VB see) (NP (PRP you)) (ADVP (RB again)) (PP (IN in) (SBAR (WHNP (WP who)) (S (VP (VBZ knows) (ADVP (WRB when)))))))))))))))))) (. ?) (. .) (  ))
+# parse = (S (NP (PRP You)) (VP (VBP think) (SBAR (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VB let) (S (NP (PRP you)) (VP (VP (VB get) (NP (DT some))) (, ,) (VP (VBN put) (PRT (IN on)) (NP (PRP$ your) (NNS clothes))) (, ,) (ADVP (RB then)) (VP (VP (VB run) (PP (NN outta) (NP (RB here)))) (CC and) (VP (ADVP (RB never)) (VB see) (NP (PRP you)) (ADVP (RB again)) (PP (IN in) (SBAR (WHNP (WP who)) (S (VP (VBZ knows) (ADVP (WRB when)))))))))))))))))) (. ?) (_SP  ))
 # scene = 73
-# sent_id = 27
-# sent_len = 32
+# sent_id = 26
+# sent_len = 30
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = You think I'm gonna let you get some, put on your clothes, then run outta here and never see you again in who knows when?.
+# text = You think I'm gonna let you get some, put on your clothes, then run outta here and never see you again in who knows when?
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	think	think	VERB	VBP	_	0	ROOT	_	_
@@ -508,10 +494,10 @@
 8	you	-PRON-	PRON	PRP	_	9	nsubj	_	_
 9	get	get	VERB	VB	_	7	ccomp	_	_
 10	some	some	DET	DT	_	9	dobj	_	_
-11	,	,	PUNCT	,	_	7	punct	_	_
-12	put	put	VERB	VBN	_	7	dep	_	_
-13	on	on	PART	RP	_	12	prep	_	_
-14	your	-PRON-	ADJ	PRP$	_	15	poss	_	_
+11	,	,	PUNCT	,	_	12	punct	_	_
+12	put	put	VERB	VBN	_	2	conj	_	_
+13	on	on	ADP	IN	_	12	prt	_	_
+14	your	-PRON-	DET	PRP$	_	15	poss	_	_
 15	clothes	clothe	NOUN	NNS	_	12	dobj	_	_
 16	,	,	PUNCT	,	_	12	punct	_	_
 17	then	then	ADV	RB	_	12	advmod	_	_
@@ -524,186 +510,183 @@
 24	you	-PRON-	PRON	PRP	_	23	dobj	_	_
 25	again	again	ADV	RB	_	23	advmod	_	_
 26	in	in	ADP	IN	_	23	prep	_	_
-27	who	who	NOUN	WP	_	28	nsubj	_	_
+27	who	who	PRON	WP	_	28	nsubj	_	_
 28	knows	know	VERB	VBZ	_	26	pcomp	_	_
 29	when	when	ADV	WRB	_	28	advmod	_	_
 30	?	?	PUNCT	.	_	2	punct	_	_
-31	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 616
 # loc = INT
-# parse = (S (NP (DT A) (NN quickie)) (VP (VBZ is) (ADJP (JJ good)) (ADVP (ADVP (RB every) (RB once)) (PP (IN in) (NP (DT a) (JJ blue) (NN moon))))) (. ..) (  ))
+# parse = (S (NP (DT A) (NN quickie)) (VP (VBZ is) (ADJP (JJ good)) (ADVP (ADVP (DT every) (RB once)) (PP (IN in) (NP (DT a) (JJ blue) (NN moon))))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 28
-# sent_len = 12
+# sent_id = 27
+# sent_len = 11
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = A quickie is good every once in a blue moon..
+# text = A quickie is good every once in a blue moon.
 # time = NIGHT
 1	A	a	DET	DT	_	2	det	_	_
 2	quickie	quickie	NOUN	NN	_	3	nsubj	_	_
 3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	good	good	ADJ	JJ	_	3	acomp	_	_
-5	every	every	ADV	RB	_	6	advmod	_	_
+5	every	every	DET	DT	_	6	advmod	_	_
 6	once	once	ADV	RB	_	3	advmod	_	_
 7	in	in	ADP	IN	_	6	prep	_	_
 8	a	a	DET	DT	_	10	det	_	_
 9	blue	blue	ADJ	JJ	_	10	amod	_	_
 10	moon	moon	NOUN	NN	_	7	pobj	_	_
-11	..	..	PUNCT	.	_	3	punct	_	_
+11	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 617
 # loc = INT
-# parse = (NP (NP (PRP You)) (NP (NP (NP (DT a) (JJ blue)) (HYPH -) (NP (NN moon) (NN fool))) (. ..) (  )))
+# parse = (NP (NP (PRP You)) (NP (NP (DT a) (JJ blue)) (HYPH -) (NP (NN moon) (NN fool))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 29
-# sent_len = 8
+# sent_id = 28
+# sent_len = 7
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = You a blue-moon fool..
+# text = You a blue-moon fool.
 # time = NIGHT
-1	You	-PRON-	PRON	PRP	_	6	nmod	_	_
+1	You	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	a	a	DET	DT	_	6	det	_	_
 3	blue	blue	ADJ	JJ	_	5	amod	_	_
 4	-	-	PUNCT	HYPH	_	5	punct	_	_
 5	moon	moon	NOUN	NN	_	6	compound	_	_
-6	fool	fool	NOUN	NN	_	0	ROOT	_	_
-7	..	..	PUNCT	.	_	6	punct	_	_
+6	fool	fool	NOUN	NN	_	1	appos	_	_
+7	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 618
 # loc = INT
-# parse = (S (ADVP (RB Then)) (NP (PRP we)) (VP (MD 'll) (VP (VB do) (NP (NP (NN something)) (ADJP (RB else))))) (NFP ..) (  ))
+# parse = (S (ADVP (RB Then)) (NP (PRP we)) (VP (MD 'll) (VP (VB do) (NP (NP (NN something)) (ADJP (RB else))))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 30
-# sent_len = 8
+# sent_id = 29
+# sent_len = 7
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = Then we'll do something else..
+# text = Then we'll do something else.
 # time = NIGHT
 1	Then	then	ADV	RB	_	4	advmod	_	_
 2	we	-PRON-	PRON	PRP	_	4	nsubj	_	_
-3	'll	will	VERB	MD	_	4	aux	_	_
+3	'll	will	AUX	MD	_	4	aux	_	_
 4	do	do	VERB	VB	_	0	ROOT	_	_
 5	something	something	NOUN	NN	_	4	dobj	_	_
 6	else	else	ADV	RB	_	5	advmod	_	_
-7	..	..	PUNCT	NFP	_	4	punct	_	_
+7	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 619
 # loc = INT
-# parse = (FRAG (WHNP (WP What)) (RB else) (. ?) (. .) (  ))
+# parse = (S (NP (WHNP (WP What)) (RB else)) (. ?) (_SP  ) (VP (VB Trust) (NP (PRP me))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 31
-# sent_len = 5
+# sent_id = 30
+# sent_len = 6
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = What else?.
+# text = What else?  Trust me.
 # time = NIGHT
-1	What	what	NOUN	WP	_	0	ROOT	_	_
+1	What	what	PRON	WP	_	5	pobj	_	_
 2	else	else	ADV	RB	_	1	advmod	_	_
-3	?	?	PUNCT	.	_	1	punct	_	_
-4	.	.	PUNCT	.	_	3	punct	_	_
-
-# line = 620
-# loc = INT
-# parse = (S (VP (NNP Trust) (NP (PRP me))) (. ..) (  ))
-# scene = 73
-# sent_id = 32
-# sent_len = 4
-# setting = TINA'S APARTMENT
-# speaker = MOOKIE
-# stage_direction = True
-# text = Trust me..
-# time = NIGHT
-1	Trust	trust	PROPN	NNP	_	0	ROOT	_	_
-2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
-3	..	..	PUNCT	.	_	1	punct	_	_
+3	?	?	PUNCT	.	_	5	punct	_	_
+4	Trust	trust	VERB	VB	_	0	ROOT	_	_
+5	me	-PRON-	PRON	PRP	_	5	dobj	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 621
 # loc = INT
-# parse = (S (VP (VBP Trust) (NP (PRP you))) (. ?))
+# parse = (S (VP (VB Trust) (NP (PRP you))) (. ?))
 # scene = 73
-# sent_id = 33
+# sent_id = 31
 # sent_len = 3
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
 # text = Trust you?
 # time = NIGHT
-1	Trust	trust	VERB	VBP	_	0	ROOT	_	_
+1	Trust	trust	VERB	VB	_	0	ROOT	_	_
 2	you	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	?	?	PUNCT	.	_	1	punct	_	_
 
 # line = 621
 # loc = INT
-# parse = (S (PP (IN Because) (IN of) (S (VP (VBG trusting) (NP (PRP you))))) (SBAR (S (NP (PRP we)) (VP (VBP have) (NP (DT a) (NN son))))) (. .))
+# parse = (PP (IN Because) (IN of) (S (VP (VBG trusting) (NP (PRP you)))))
 # scene = 73
-# sent_id = 34
-# sent_len = 9
+# sent_id = 32
+# sent_len = 4
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = Because of trusting you we have a son.
+# text = Because of trusting you
 # time = NIGHT
 1	Because	because	ADP	IN	_	0	ROOT	_	_
 2	of	of	ADP	IN	_	1	pcomp	_	_
 3	trusting	trust	VERB	VBG	_	1	pcomp	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
-5	we	-PRON-	PRON	PRP	_	6	nsubj	_	_
-6	have	have	VERB	VBP	_	3	ccomp	_	_
-7	a	a	DET	DT	_	8	det	_	_
-8	son	son	NOUN	NN	_	6	dobj	_	_
-9	.	.	PUNCT	.	_	6	punct	_	_
 
 # line = 621
 # loc = INT
-# parse = (S (VP (VB Remember) (NP (PRP$ your) (NN son))) (. ?) (. .) (  ))
+# parse = (S (NP (PRP we)) (VP (VBP have) (NP (DT a) (NN son))) (. .))
 # scene = 73
-# sent_id = 35
-# sent_len = 6
+# sent_id = 33
+# sent_len = 5
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = Remember your son?.
+# text = we have a son.
+# time = NIGHT
+1	we	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	have	have	VERB	VBP	_	0	ROOT	_	_
+3	a	a	DET	DT	_	4	det	_	_
+4	son	son	NOUN	NN	_	2	dobj	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
+
+# line = 621
+# loc = INT
+# parse = (S (VP (VB Remember) (NP (PRP$ your) (NN son))) (. ?) (_SP  ))
+# scene = 73
+# sent_id = 34
+# sent_len = 4
+# setting = TINA'S APARTMENT
+# speaker = TINA
+# stage_direction = True
+# text = Remember your son?
 # time = NIGHT
 1	Remember	remember	VERB	VB	_	0	ROOT	_	_
-2	your	-PRON-	ADJ	PRP$	_	3	poss	_	_
+2	your	-PRON-	DET	PRP$	_	3	poss	_	_
 3	son	son	NOUN	NN	_	1	dobj	_	_
 4	?	?	PUNCT	.	_	1	punct	_	_
-5	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 622
 # loc = INT
-# parse = (S (VP (NNP Trust) (NP (PRP me))) (. ..) (  ))
+# parse = (S (VP (VB Trust) (NP (PRP me))) (. .) (_SP  ))
 # scene = 73
-# sent_id = 36
-# sent_len = 4
+# sent_id = 35
+# sent_len = 3
 # setting = TINA'S APARTMENT
 # speaker = MOOKIE
 # stage_direction = True
-# text = Trust me..
+# text = Trust me.
 # time = NIGHT
-1	Trust	trust	PROPN	NNP	_	0	ROOT	_	_
+1	Trust	trust	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	1	dobj	_	_
-3	..	..	PUNCT	.	_	1	punct	_	_
+3	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
 # parse = (S (NP (NNP Mookie)) (VP (VBZ pushes) (NP (NNP Tina)) (ADVP (RB back)) (PP (IN into) (NP (PRP$ her) (NN bedroom)))) (. .))
 # scene = 73
-# sent_id = 37
+# sent_id = 36
 # sent_len = 8
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = Mookie pushes Tina back into her bedroom.
 # time = NIGHT
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	Mookie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	pushes	push	VERB	VBZ	_	0	ROOT	_	_
-3	Tina	tina	PROPN	NNP	_	2	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Tina	Tina	PROPN	NNP	_	2	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	back	back	ADV	RB	_	2	advmod	_	_
 5	into	into	ADP	IN	_	4	prep	_	_
-6	her	-PRON-	ADJ	PRP$	_	7	poss	_	_
+6	her	-PRON-	DET	PRP$	_	7	poss	_	_
 7	bedroom	bedroom	NOUN	NN	_	5	pobj	_	_
 8	.	.	PUNCT	.	_	2	punct	_	_

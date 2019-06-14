@@ -7,17 +7,17 @@
 # stage_direction = True
 # text = Every day on this corner, summer or winter, spring or fall, a small group of men meet.
 # time = DAY
-1	Every	every	DET	DT	_	2	det	_	ent_type=DATE|ent_id=388|ent_iob=B
-2	day	day	NOUN	NN	_	20	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
+1	Every	every	DET	DT	_	2	det	_	ent_type=DATE|ent_id=391|ent_iob=B
+2	day	day	NOUN	NN	_	20	npadvmod	_	ent_type=DATE|ent_id=391|ent_iob=I
 3	on	on	ADP	IN	_	2	prep	_	_
 4	this	this	DET	DT	_	5	det	_	_
 5	corner	corner	NOUN	NN	_	3	pobj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	summer	summer	NOUN	NN	_	5	conj	_	ent_type=DATE|ent_id=388|ent_iob=B
+7	summer	summer	NOUN	NN	_	5	conj	_	ent_type=DATE|ent_id=391|ent_iob=B
 8	or	or	CCONJ	CC	_	7	cc	_	_
-9	winter	winter	NOUN	NN	_	7	conj	_	ent_type=DATE|ent_id=388|ent_iob=B
-10	,	,	PUNCT	,	_	7	punct	_	_
-11	spring	spring	NOUN	NN	_	7	conj	_	ent_type=DATE|ent_id=388|ent_iob=B
+9	winter	winter	NOUN	NN	_	7	conj	_	ent_type=DATE|ent_id=391|ent_iob=B
+10	,	,	PUNCT	,	_	2	punct	_	_
+11	spring	spring	NOUN	NN	_	2	conj	_	ent_type=DATE|ent_id=391|ent_iob=B
 12	or	or	CCONJ	CC	_	11	cc	_	_
 13	fall	fall	NOUN	NN	_	11	conj	_	_
 14	,	,	PUNCT	,	_	20	punct	_	_
@@ -39,31 +39,31 @@
 # text = They have no steady employment, nothing they can speak of; they do, however, have the gift of gab.
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	have	have	VERB	VBP	_	14	ccomp	_	_
+2	have	have	VERB	VBP	_	0	ROOT	_	_
 3	no	no	DET	DT	_	5	det	_	_
 4	steady	steady	ADJ	JJ	_	5	amod	_	_
 5	employment	employment	NOUN	NN	_	2	dobj	_	_
-6	,	,	PUNCT	,	_	2	punct	_	_
-7	nothing	nothing	NOUN	NN	_	2	dep	_	_
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	nothing	nothing	NOUN	NN	_	2	dobj	_	_
 8	they	-PRON-	PRON	PRP	_	10	nsubj	_	_
 9	can	can	VERB	MD	_	10	aux	_	_
 10	speak	speak	VERB	VB	_	7	relcl	_	_
 11	of	of	ADP	IN	_	10	prep	_	_
 12	;	;	PUNCT	:	_	14	punct	_	_
 13	they	-PRON-	PRON	PRP	_	14	nsubj	_	_
-14	do	do	VERB	VBP	_	0	ROOT	_	_
+14	do	do	VERB	VBP	_	18	aux	_	_
 15	,	,	PUNCT	,	_	14	punct	_	_
 16	however	however	ADV	RB	_	14	advmod	_	_
-17	,	,	PUNCT	,	_	18	punct	_	_
-18	have	have	VERB	VBP	_	14	dep	_	_
+17	,	,	PUNCT	,	_	14	punct	_	_
+18	have	have	VERB	VBP	_	2	conj	_	_
 19	the	the	DET	DT	_	20	det	_	_
 20	gift	gift	NOUN	NN	_	18	dobj	_	_
 21	of	of	ADP	IN	_	20	prep	_	_
 22	gab	gab	NOUN	NN	_	21	pobj	_	_
-23	.	.	PUNCT	.	_	14	punct	_	_
+23	.	.	PUNCT	.	_	18	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (DT These) (NN man)) (VP (MD can) (VP (VB talk) (, ,) (VP (VB talk)) (, ,) (CC and) (NN mo) ('' ') (VP (NN talk))))) (, ,) (CC and) (S (SBAR (WHADVP (WRB when)) (S (S (NP (DT a) (NN bottle)) (VP (VBZ is) (VP (VBG going) (ADVP (RB round))))) (CC and) (S (NP (PRP they)) (VP (VBP 're) (VP (VBG feeling) (ADJP (`` ") (JJ nice))))))) (, ,) ('' ") (NP (PRP they)) (VP (VBP get) (ADJP (JJ philosophical)))) (. .))
+# parse = (S (S (NP (DT These) (NN man)) (VP (MD can) (VP (VB talk) (, ,) (VP (VB talk)) (, ,) (CC and) (DT mo) ('' ') (VP (NN talk))))) (, ,) (CC and) (S (SBAR (WHADVP (WRB when)) (S (S (NP (DT a) (NN bottle)) (VP (VBZ is) (VP (VBG going) (ADVP (RB round))))) (CC and) (S (NP (PRP they)) (VP (VBP 're) (VP (VBG feeling) (ADJP (`` ") (JJ nice))))))) (, ,) ('' ") (NP (PRP they)) (VP (VBP get) (ADJP (JJ philosophical)))) (. .))
 # scene = 18
 # sent_id = 3
 # sent_len = 31
@@ -74,32 +74,32 @@
 1	These	these	DET	DT	_	2	det	_	_
 2	man	man	NOUN	NN	_	4	nsubj	_	_
 3	can	can	VERB	MD	_	4	aux	_	_
-4	talk	talk	VERB	VB	_	29	ccomp	_	_
+4	talk	talk	VERB	VB	_	0	ROOT	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	talk	talk	VERB	VB	_	4	conj	_	_
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	mo	mo	NOUN	NN	_	11	poss	_	_
-10	'	'	PUNCT	''	_	9	punct	_	_
+9	mo	mo	DET	DT	_	11	poss	_	_
+10	'	'	PUNCT	''	_	11	punct	_	_
 11	talk	talk	NOUN	NN	_	6	conj	_	_
-12	,	,	PUNCT	,	_	11	punct	_	_
-13	and	and	CCONJ	CC	_	6	cc	_	_
+12	,	,	PUNCT	,	_	4	punct	_	_
+13	and	and	CCONJ	CC	_	4	cc	_	_
 14	when	when	ADV	WRB	_	18	advmod	_	_
 15	a	a	DET	DT	_	16	det	_	_
 16	bottle	bottle	NOUN	NN	_	18	nsubj	_	_
 17	is	be	VERB	VBZ	_	18	aux	_	_
-18	going	go	VERB	VBG	_	6	conj	_	_
-19	round	round	ADV	RB	_	18	advmod	_	_
+18	going	go	VERB	VBG	_	29	advcl	_	_
+19	round	round	ADV	RB	_	18	acomp	_	_
 20	and	and	CCONJ	CC	_	18	cc	_	_
 21	they	-PRON-	PRON	PRP	_	23	nsubj	_	_
 22	're	be	VERB	VBP	_	23	aux	_	_
 23	feeling	feel	VERB	VBG	_	18	conj	_	_
-24	"	"	PUNCT	``	_	23	punct	_	_
+24	"	"	PUNCT	``	_	25	punct	_	_
 25	nice	nice	ADJ	JJ	_	23	acomp	_	_
-26	,	,	PUNCT	,	_	4	punct	_	_
+26	,	,	PUNCT	,	_	29	punct	_	_
 27	"	"	PUNCT	''	_	29	punct	_	_
 28	they	-PRON-	PRON	PRP	_	29	nsubj	_	_
-29	get	get	VERB	VBP	_	0	ROOT	_	_
+29	get	get	VERB	VBP	_	4	conj	_	_
 30	philosophical	philosophical	ADJ	JJ	_	29	acomp	_	_
 31	.	.	PUNCT	.	_	29	punct	_	_
 
@@ -125,8 +125,8 @@
 11	with	with	ADP	IN	_	3	prep	_	_
 12	solutions	solution	NOUN	NNS	_	11	pobj	_	_
 13	to	to	ADP	IN	_	12	prep	_	_
-14	all	all	ADJ	PDT	_	16	predet	_	_
-15	its	-PRON-	ADJ	PRP$	_	16	poss	_	_
+14	all	all	DET	PDT	_	16	det	_	_
+15	its	-PRON-	DET	PRP$	_	16	poss	_	_
 16	ills	ill	NOUN	NNS	_	13	pobj	_	_
 17	;	;	PUNCT	:	_	3	punct	_	_
 18	like	like	ADP	IN	_	3	prep	_	_
@@ -136,11 +136,11 @@
 22	homeless	homeless	ADJ	JJ	_	19	conj	_	_
 23	,	,	PUNCT	,	_	22	punct	_	_
 24	and	and	CCONJ	CC	_	22	cc	_	_
-25	AIDS	aids	PROPN	NNP	_	22	conj	_	_
+25	AIDS	AIDS	PROPN	NNP	_	22	conj	_	_
 26	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP They)) (VP (VBP 're) (VP (VBN called) (S (NP (NP (DT the) (NNP Corner) (NNPS Men)) (: :) (NP (NP (NNP SWEET) (NNP DICK) (NNP WILLIE)) (, ,) (NP (NNP COCONUT) (NNP SID)) (, ,) (CC and) (NP (NNP ML))))))) (. .))
+# parse = (S (NP (PRP They)) (VP (VBP 're) (VP (VBN called) (S (NP (NP (DT the) (NNP Corner) (NNPS Men)) (: :) (NP (NP (NNP SWEET) (NNP DICK) (VBP WILLIE)) (, ,) (NP (NNP COCONUT) (NN SID)) (, ,) (CC and) (NP (NNP ML))))))) (. .))
 # scene = 18
 # sent_id = 5
 # sent_len = 17
@@ -151,32 +151,32 @@
 1	They	-PRON-	PRON	PRP	_	3	nsubjpass	_	_
 2	're	be	VERB	VBP	_	3	auxpass	_	_
 3	called	call	VERB	VBN	_	0	ROOT	_	_
-4	the	the	DET	DT	_	6	det	_	ent_type=LOC|ent_id=383|ent_iob=B
-5	Corner	corner	PROPN	NNP	_	6	compound	_	ent_type=LOC|ent_id=383|ent_iob=I
-6	Men	men	PROPN	NNPS	_	3	oprd	_	ent_type=LOC|ent_id=383|ent_iob=I
-7	:	:	PUNCT	:	_	3	punct	_	_
-8	SWEET	sweet	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-9	DICK	dick	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-10	WILLIE	willie	PROPN	NNP	_	3	oprd	_	_
+4	the	the	DET	DT	_	6	det	_	_
+5	Corner	Corner	PROPN	NNP	_	6	compound	_	_
+6	Men	Men	PROPN	NNPS	_	3	oprd	_	_
+7	:	:	PUNCT	:	_	6	punct	_	_
+8	SWEET	SWEET	PROPN	NNP	_	10	amod	_	_
+9	DICK	DICK	PROPN	NNP	_	10	compound	_	_
+10	WILLIE	willie	VERB	VBP	_	12	nsubj	_	_
 11	,	,	PUNCT	,	_	10	punct	_	_
-12	COCONUT	coconut	PROPN	NNP	_	13	compound	_	_
-13	SID	sid	PROPN	NNP	_	10	conj	_	_
-14	,	,	PUNCT	,	_	13	punct	_	_
-15	and	and	CCONJ	CC	_	13	cc	_	_
-16	ML	ml	PROPN	NNP	_	13	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-17	.	.	PUNCT	.	_	3	punct	_	_
+12	COCONUT	COCONUT	PROPN	NNP	_	3	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
+13	SID	sid	NOUN	NN	_	12	dobj	_	ent_type=ORG|ent_id=383|ent_iob=I
+14	,	,	PUNCT	,	_	12	punct	_	_
+15	and	and	CCONJ	CC	_	12	cc	_	_
+16	ML	ML	PROPN	NNP	_	12	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
+17	.	.	PUNCT	.	_	12	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (DT All) (CD three)) (VP (VBP are) (VP (VBG sitting) (IN in) (NP (NP (VBG folding) (NNS chairs)) (PP (RP up) (PP (IN against) (NP (NP (DT a) (NN wall)) (PP (IN in) (NP (DT the) (NN shade))))))))) (. .) (  ))
+# parse = (S (NP (DT All) (CD three)) (VP (VBP are) (VP (VBG sitting) (IN in) (NP (NP (VBG folding) (NNS chairs)) (PP (RP up) (PP (IN against) (NP (NP (DT a) (NN wall)) (PP (IN in) (NP (DT the) (NN shade))))))))) (. .) (_SP  ))
 # scene = 18
 # sent_id = 6
-# sent_len = 16
+# sent_len = 15
 # setting = STREET CORNER
 # stage_direction = True
 # text = All three are sitting in folding chairs up against a wall in the shade.
 # time = DAY
 1	All	all	DET	DT	_	2	det	_	_
-2	three	three	NUM	CD	_	4	nsubj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+2	three	three	NUM	CD	_	4	nsubj	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 3	are	be	VERB	VBP	_	4	aux	_	_
 4	sitting	sit	VERB	VBG	_	0	ROOT	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
@@ -193,14 +193,14 @@
 
 # line = 98
 # loc = EXT
-# parse = (S (NP (NP (DT The) (NN way)) (SBAR (S (NP (PRP I)) (VP (VBP see) (NP (PRP it)))))) (, ,) (SBAR (IN if) (S (NP (DT this) (JJ hot) (NN weather)) (VP (VBZ continues)))) (, ,) (S (NP (PRP it)) (VP (MD will) (ADVP (RB surely)) (VP (VB melt) (NP (DT the) (JJ polar) (NNS caps))))) (CC and) (S (S (NP (NP (DT the) (JJ whole) (JJ wide) (NN world)) (PRN (: --) (NP (DT the) (NNS parts)) (SBAR (WHNP (WDT that)) (S (VP (VBP ai) (RB n't) (VP (NN water) (ADVP (RB already)))))) (: --))) (VP (MD will) (VP (VB be) (VP (VBN flooded))))) (. ..) (NP (  ))))
+# parse = (S (NP (NP (DT The) (NN way)) (SBAR (S (NP (PRP I)) (VP (VBP see) (NP (PRP it)))))) (, ,) (SBAR (IN if) (S (NP (DT this) (JJ hot) (NN weather)) (VP (VBZ continues)))) (, ,) (S (NP (PRP it)) (VP (MD will) (ADVP (RB surely)) (VP (VB melt) (NP (DT the) (JJ polar) (NNS caps))))) (CC and) (S (NP (NP (DT the) (JJ whole) (JJ wide) (NN world)) (PRN (: --) (NP (NP (DT the) (NNS parts)) (SBAR (WHNP (WDT that)) (S (VP (VBP ai) (RB n't) (VP (NN water) (ADVP (RB already))))))) (: --))) (VP (MD will) (VP (VB be) (VP (VBN flooded))))) (. .) (_SP  ))
 # scene = 18
 # sent_id = 7
-# sent_len = 38
+# sent_len = 37
 # setting = STREET CORNER
 # speaker = ML
 # stage_direction = True
-# text = The way I see it, if this hot weather continues, it will surely melt the polar caps and the whole wide world--the parts that ain't water already--will be flooded..
+# text = The way I see it, if this hot weather continues, it will surely melt the polar caps and the whole wide world--the parts that ain't water already--will be flooded.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	way	way	NOUN	NN	_	16	npadvmod	_	_
@@ -217,7 +217,7 @@
 13	it	-PRON-	PRON	PRP	_	16	nsubj	_	_
 14	will	will	VERB	MD	_	16	aux	_	_
 15	surely	surely	ADV	RB	_	16	advmod	_	_
-16	melt	melt	VERB	VB	_	0	ROOT	_	_
+16	melt	melt	VERB	VB	_	36	ccomp	_	_
 17	the	the	DET	DT	_	19	det	_	_
 18	polar	polar	ADJ	JJ	_	19	amod	_	_
 19	caps	cap	NOUN	NNS	_	16	dobj	_	_
@@ -229,16 +229,16 @@
 25	--	--	PUNCT	:	_	24	punct	_	_
 26	the	the	DET	DT	_	27	det	_	_
 27	parts	part	NOUN	NNS	_	24	appos	_	_
-28	that	that	ADJ	WDT	_	31	nsubj	_	_
-29	ai	be	VERB	VBP	_	31	aux	_	_
-30	n't	not	ADV	RB	_	31	neg	_	_
-31	water	water	NOUN	NN	_	27	relcl	_	_
-32	already	already	ADV	RB	_	31	advmod	_	_
-33	--	--	PUNCT	:	_	24	punct	_	_
+28	that	that	DET	WDT	_	29	nsubj	_	_
+29	ai	be	VERB	VBP	_	27	relcl	_	_
+30	n't	not	ADV	RB	_	29	neg	_	_
+31	water	water	NOUN	NN	_	29	attr	_	_
+32	already	already	ADV	RB	_	29	advmod	_	_
+33	--	--	PUNCT	:	_	36	punct	_	_
 34	will	will	VERB	MD	_	36	aux	_	_
 35	be	be	VERB	VB	_	36	auxpass	_	_
-36	flooded	flood	VERB	VBN	_	16	conj	_	_
-37	..	..	PUNCT	.	_	36	punct	_	_
+36	flooded	flood	VERB	VBN	_	0	ROOT	_	_
+37	.	.	PUNCT	.	_	36	punct	_	_
 
 # line = 99
 # loc = EXT
@@ -251,7 +251,7 @@
 # stage_direction = True
 # text = You a dumb-ass simple motherfucker.
 # time = DAY
-1	You	-PRON-	PRON	PRP	_	7	nmod	_	_
+1	You	-PRON-	PRON	PRP	_	7	nsubj	_	_
 2	a	a	DET	DT	_	7	det	_	_
 3	dumb	dumb	ADJ	JJ	_	5	amod	_	_
 4	-	-	PUNCT	HYPH	_	5	punct	_	_
@@ -262,14 +262,14 @@
 
 # line = 99
 # loc = EXT
-# parse = (SBARQ (WHADVP (WRB Where)) (SQ (VBD did) (NP (PRP you)) (VP (VB read) (NP (DT that)))) (. ?) (. .) (  ))
+# parse = (SBARQ (WHADVP (WRB Where)) (SQ (VBD did) (NP (PRP you)) (VP (VB read) (NP (DT that)))) (. ?) (_SP  ))
 # scene = 18
 # sent_id = 9
-# sent_len = 8
+# sent_len = 6
 # setting = STREET CORNER
 # speaker = COCONUT SID
 # stage_direction = True
-# text = Where did you read that?.
+# text = Where did you read that?
 # time = DAY
 1	Where	where	ADV	WRB	_	4	advmod	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
@@ -277,11 +277,10 @@
 4	read	read	VERB	VB	_	0	ROOT	_	_
 5	that	that	DET	DT	_	4	dobj	_	_
 6	?	?	PUNCT	.	_	4	punct	_	_
-7	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 100
 # loc = EXT
-# parse = (S (VP (VBP Do) (RB n't) (VP (VB worry) (PP (IN about) (NP (PRP it))))) (. .))
+# parse = (S (VP (VB Do) (RB n't) (VP (VB worry) (PP (IN about) (NP (PRP it))))) (. .))
 # scene = 18
 # sent_id = 10
 # sent_len = 6
@@ -290,7 +289,7 @@
 # stage_direction = True
 # text = Don't worry about it.
 # time = DAY
-1	Do	do	VERB	VBP	_	3	aux	_	_
+1	Do	do	VERB	VB	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
 3	worry	worry	VERB	VB	_	0	ROOT	_	_
 4	about	about	ADP	IN	_	3	prep	_	_
@@ -299,24 +298,24 @@
 
 # line = 100
 # loc = EXT
-# parse = (S (CC But) (SBAR (WHADVP (WRB when)) (S (S (S (NP (PRP it)) (VP (VBZ happens))) (CC and) (S (NP (PRP I)) (VP (VBP 'm) (PP (IN in) (NP (PRP$ my) (NN boat)))))) (CC and) (S (NP (PRP ya) (JJ black) (NN ass)) (VP (VBZ is) (VP (VBG drowning)))))) (, ,) (VP (VP (VB do) (RB n't) (VP (VB ask) (NP (PRP me)) (S (VP (TO to) (VP (VB throw) (NP (PRP you)) (NP (DT a) (NN lifesaver))))) (ADVP (RB either)))) (. ..) (FRAG (INTJ (  )))))
+# parse = (S (CC But) (SBAR (WHADVP (WRB when)) (S (S (S (NP (PRP it)) (VP (VBZ happens))) (CC and) (S (NP (PRP I)) (VP (VBP 'm) (PP (IN in) (NP (PRP$ my) (NN boat)))))) (CC and) (S (NP (PRP ya) (JJ black) (NN ass)) (VP (VBZ is) (VP (VBG drowning)))))) (, ,) (VP (VB do) (RB n't) (VP (VB ask) (NP (PRP me)) (S (VP (TO to) (VP (VB throw) (NP (PRP you)) (NP (DT a) (NN lifesaver))))) (ADVP (RB either)))) (. .) (_SP  ))
 # scene = 18
 # sent_id = 11
-# sent_len = 29
+# sent_len = 28
 # setting = STREET CORNER
 # speaker = ML
 # stage_direction = True
-# text = But when it happens and I'm in my boat and ya black ass is drowning, don't ask me to throw you a lifesaver either..
+# text = But when it happens and I'm in my boat and ya black ass is drowning, don't ask me to throw you a lifesaver either.
 # time = DAY
-1	But	but	CCONJ	CC	_	20	cc	_	_
+1	But	but	CCONJ	CC	_	7	cc	_	_
 2	when	when	ADV	WRB	_	4	advmod	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	happens	happen	VERB	VBZ	_	20	advcl	_	_
-5	and	and	CCONJ	CC	_	4	cc	_	_
+4	happens	happen	VERB	VBZ	_	7	advcl	_	_
+5	and	and	CCONJ	CC	_	7	cc	_	_
 6	I	-PRON-	PRON	PRP	_	7	nsubj	_	_
-7	'm	be	VERB	VBP	_	4	conj	_	_
+7	'm	be	VERB	VBP	_	0	ROOT	_	_
 8	in	in	ADP	IN	_	7	prep	_	_
-9	my	-PRON-	ADJ	PRP$	_	10	poss	_	_
+9	my	-PRON-	DET	PRP$	_	10	poss	_	_
 10	boat	boat	NOUN	NN	_	8	pobj	_	_
 11	and	and	CCONJ	CC	_	7	cc	_	_
 12	ya	ya	PRON	PRP	_	14	nmod	_	_
@@ -327,7 +326,7 @@
 17	,	,	PUNCT	,	_	20	punct	_	_
 18	do	do	VERB	VB	_	20	aux	_	_
 19	n't	not	ADV	RB	_	20	neg	_	_
-20	ask	ask	VERB	VB	_	0	ROOT	_	_
+20	ask	ask	VERB	VB	_	7	dep	_	_
 21	me	-PRON-	PRON	PRP	_	20	dobj	_	_
 22	to	to	PART	TO	_	23	aux	_	_
 23	throw	throw	VERB	VB	_	20	xcomp	_	_
@@ -335,7 +334,7 @@
 25	a	a	DET	DT	_	26	det	_	_
 26	lifesaver	lifesaver	NOUN	NN	_	23	dobj	_	_
 27	either	either	ADV	RB	_	23	advmod	_	_
-28	..	..	PUNCT	.	_	20	punct	_	_
+28	.	.	PUNCT	.	_	20	punct	_	_
 
 # line = 101
 # loc = EXT
@@ -348,56 +347,55 @@
 # stage_direction = True
 # text = Fool, you're thirty cents away from a quarter.
 # time = DAY
-1	Fool	fool	PROPN	NNP	_	4	npadvmod	_	_
+1	Fool	Fool	PROPN	NNP	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	're	be	VERB	VBP	_	0	ROOT	_	_
-5	thirty	thirty	NUM	CD	_	6	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
-6	cents	cent	NOUN	NNS	_	7	npadvmod	_	ent_type=MONEY|ent_id=391|ent_iob=I
+5	thirty	thirty	NUM	CD	_	6	nummod	_	ent_type=MONEY|ent_id=394|ent_iob=B
+6	cents	cent	NOUN	NNS	_	7	npadvmod	_	ent_type=MONEY|ent_id=394|ent_iob=I
 7	away	away	ADV	RB	_	4	advmod	_	_
 8	from	from	ADP	IN	_	7	prep	_	_
-9	a	a	DET	DT	_	10	det	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-10	quarter	quarter	NOUN	NN	_	8	pobj	_	ent_type=CARDINAL|ent_id=394|ent_iob=I
+9	a	a	DET	DT	_	10	det	_	ent_type=DATE|ent_id=391|ent_iob=B
+10	quarter	quarter	NOUN	NN	_	8	pobj	_	ent_type=DATE|ent_id=391|ent_iob=I
 11	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 101
 # loc = EXT
-# parse = (SBARQ (WHADVP (WRB How)) (S (NP (PRP you)) (VP (VBP gon) (S (VP (TO na) (VP (VB get) (NP (DT a) (NN boat))))))) (. ?) (. .) (  ))
+# parse = (SBARQ (WHADVP (WRB How)) (S (NP (PRP you)) (VP (VBG gon) (S (VP (TO na) (VP (VB get) (NP (DT a) (NN boat))))))) (. ?) (_SP  ))
 # scene = 18
 # sent_id = 13
-# sent_len = 10
+# sent_len = 8
 # setting = STREET CORNER
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
-# text = How you gonna get a boat?.
+# text = How you gonna get a boat?
 # time = DAY
 1	How	how	ADV	WRB	_	3	advmod	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	gon	go	VERB	VBP	_	0	ROOT	_	_
+3	gon	go	VERB	VBG	_	0	ROOT	_	_
 4	na	to	PART	TO	_	5	aux	_	_
 5	get	get	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	boat	boat	NOUN	NN	_	5	dobj	_	_
 8	?	?	PUNCT	.	_	3	punct	_	_
-9	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 102
 # loc = EXT
-# parse = (S (VP (VBP Do) (RB n't) (VP (VB worry) (PP (IN about) (NP (PRP it))))) (. ..) (  ))
+# parse = (S (VP (VB Do) (RB n't) (VP (VB worry) (PP (IN about) (NP (PRP it))))) (. .) (_SP  ))
 # scene = 18
 # sent_id = 14
-# sent_len = 7
+# sent_len = 6
 # setting = STREET CORNER
 # speaker = ML
 # stage_direction = True
-# text = Don't worry about it..
+# text = Don't worry about it.
 # time = DAY
-1	Do	do	VERB	VBP	_	3	aux	_	_
+1	Do	do	VERB	VB	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
 3	worry	worry	VERB	VB	_	0	ROOT	_	_
 4	about	about	ADP	IN	_	3	prep	_	_
 5	it	-PRON-	PRON	PRP	_	4	pobj	_	_
-6	..	..	PUNCT	.	_	3	punct	_	_
+6	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 103
 # loc = EXT
@@ -420,14 +418,14 @@
 
 # line = 103
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VBP eat) (NP (DT the) (NNS holes)) (PP (IN out) (PP (IN of) (NP (NNS donuts))))) (. ..) (  ))
+# parse = (S (NP (PRP You)) (VP (VBP eat) (NP (DT the) (NNS holes)) (PP (IN out) (PP (IN of) (NP (NNS donuts))))) (. .) (_SP  ))
 # scene = 18
 # sent_id = 16
-# sent_len = 9
+# sent_len = 8
 # setting = STREET CORNER
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
-# text = You eat the holes out of donuts..
+# text = You eat the holes out of donuts.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	eat	eat	VERB	VBP	_	0	ROOT	_	_
@@ -436,7 +434,7 @@
 5	out	out	ADP	IN	_	2	prep	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
 7	donuts	donut	NOUN	NNS	_	6	pobj	_	_
-8	..	..	PUNCT	.	_	2	punct	_	_
+8	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 104
 # loc = EXT
@@ -450,48 +448,47 @@
 # text = I'll be back on my feet.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-2	'll	will	VERB	MD	_	3	aux	_	_
+2	'll	will	AUX	MD	_	3	aux	_	_
 3	be	be	VERB	VB	_	0	ROOT	_	_
 4	back	back	ADV	RB	_	3	advmod	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
-6	my	-PRON-	ADJ	PRP$	_	7	poss	_	_
+6	my	-PRON-	DET	PRP$	_	7	poss	_	_
 7	feet	foot	NOUN	NNS	_	5	pobj	_	_
 8	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 104
 # loc = EXT
-# parse = (ADVP (RB Soon) (RB enough) (. ..) (  ))
+# parse = (ADVP (RB Soon) (RB enough) (. .) (_SP  ))
 # scene = 18
 # sent_id = 18
-# sent_len = 4
+# sent_len = 3
 # setting = STREET CORNER
 # speaker = ML
 # stage_direction = True
-# text = Soon enough..
+# text = Soon enough.
 # time = DAY
 1	Soon	soon	ADV	RB	_	2	advmod	_	_
 2	enough	enough	ADV	RB	_	0	ROOT	_	_
-3	..	..	PUNCT	.	_	2	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 105
 # loc = EXT
-# parse = (SBARQ (RB So) (WHADVP (WRB when)) (SQ (VBZ is) (NP (PDT all) (DT this) (NN ice)) (VP (NN suppose) (S (VP (TO to) (VP (VB melt)))))) (. ?) (. .))
+# parse = (SBARQ (CC So) (WHADVP (WRB when)) (SQ (VBZ is) (NP (PDT all) (DT this) (NN ice)) (VP (VB suppose) (S (VP (TO to) (VP (VB melt)))))) (. ?))
 # scene = 18
 # sent_id = 19
-# sent_len = 11
+# sent_len = 10
 # setting = STREET CORNER
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
-# text = So when is all this ice suppose to melt?.
+# text = So when is all this ice suppose to melt?
 # time = DAY
-1	So	so	ADV	RB	_	7	advmod	_	_
+1	So	so	CCONJ	CC	_	7	advmod	_	_
 2	when	when	ADV	WRB	_	3	advmod	_	_
-3	is	be	VERB	VBZ	_	7	advcl	_	_
-4	all	all	ADJ	PDT	_	6	predet	_	_
+3	is	be	VERB	VBZ	_	7	aux	_	_
+4	all	all	DET	PDT	_	6	predet	_	_
 5	this	this	DET	DT	_	6	det	_	_
 6	ice	ice	NOUN	NN	_	7	nsubj	_	_
-7	suppose	suppose	NOUN	NN	_	0	ROOT	_	_
+7	suppose	suppose	VERB	VB	_	0	ROOT	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	melt	melt	VERB	VB	_	7	xcomp	_	_
 10	?	?	PUNCT	.	_	7	punct	_	_
-11	.	.	PUNCT	.	_	7	punct	_	_

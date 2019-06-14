@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (NNP Mookie)) (VP (VBZ stops) (S (VP (TO to) (VP (VB say) (INTJ (UH hello)) (PP (IN to) (NP (NNP MOTHER) (NNP SISTER))))))) (. .))
+# parse = (S (NP (JJ Mookie)) (VP (VBZ stops) (S (VP (TO to) (VP (VB say) (INTJ (UH hello)) (PP (IN to) (NP (NNP MOTHER) (NNP SISTER))))))) (. .))
 # scene = 8
 # sent_id = 1
 # sent_len = 9
@@ -7,14 +7,14 @@
 # stage_direction = True
 # text = Mookie stops to say hello to MOTHER SISTER.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	PART	TO	_	4	aux	_	_
 4	say	say	VERB	VB	_	2	xcomp	_	_
 5	hello	hello	INTJ	UH	_	4	intj	_	_
 6	to	to	ADP	IN	_	4	prep	_	_
-7	MOTHER	mother	PROPN	NNP	_	8	compound	_	_
-8	SISTER	sister	PROPN	NNP	_	6	pobj	_	_
+7	MOTHER	MOTHER	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+8	SISTER	SISTER	PROPN	NNP	_	6	pobj	_	_
 9	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -29,7 +29,7 @@
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	leans	lean	VERB	VBZ	_	0	ROOT	_	_
 3	out	out	PART	RP	_	2	prt	_	_
-4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	her	-PRON-	DET	PRP$	_	5	poss	_	_
 5	window	window	NOUN	NN	_	2	dobj	_	_
 6	on	on	ADP	IN	_	5	prep	_	_
 7	the	the	DET	DT	_	9	det	_	_
@@ -38,10 +38,10 @@
 10	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (PP (IN In) (NP (DT the) (NN summertime))) (, ,) (NP (NP (DT the) (JJ only) (NN time)) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ 's) (RB not) (VP (VBN perched) (PP (IN in) (NP (PRP$ her) (NN window)))))))) (VP (VBZ is) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ 's) (ADJP (JJ asleep)))))) (. .) (  ))
+# parse = (S (PP (IN In) (NP (DT the) (NN summertime))) (, ,) (NP (NP (DT the) (JJ only) (NN time)) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ 's) (RB not) (VP (VBN perched) (PP (IN in) (NP (PRP$ her) (NN window)))))))) (VP (VBZ is) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ 's) (ADJP (JJ asleep)))))) (. .) (_SP  ))
 # scene = 8
 # sent_id = 3
-# sent_len = 22
+# sent_len = 21
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = In the summertime, the only time when she's not perched in her window is when she's asleep.
@@ -59,7 +59,7 @@
 11	not	not	ADV	RB	_	12	neg	_	_
 12	perched	perch	VERB	VBN	_	7	relcl	_	_
 13	in	in	ADP	IN	_	12	prep	_	_
-14	her	-PRON-	ADJ	PRP$	_	15	poss	_	_
+14	her	-PRON-	DET	PRP$	_	15	poss	_	_
 15	window	window	NOUN	NN	_	13	pobj	_	_
 16	is	be	VERB	VBZ	_	0	ROOT	_	_
 17	when	when	ADV	WRB	_	19	advmod	_	_
@@ -70,41 +70,41 @@
 
 # line = 30
 # loc = EXT
-# parse = (FRAG (NP (JJ Good) (NN morning)) (, ,) (NP (NNP Mookie)) (. ..) (  ))
+# parse = (FRAG (NP (JJ Good) (NN morning)) (, ,) (NP (NNP Mookie)) (. .) (_SP  ))
 # scene = 8
 # sent_id = 4
-# sent_len = 6
+# sent_len = 5
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = Good morning, Mookie..
+# text = Good morning, Mookie.
 # time = DAY
-1	Good	good	ADJ	JJ	_	2	amod	_	ent_type=TIME|ent_id=389|ent_iob=B
-2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
+1	Good	good	ADJ	JJ	_	2	amod	_	_
+2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=392|ent_iob=B
 3	,	,	PUNCT	,	_	2	punct	_	_
-4	Mookie	mookie	PROPN	NNP	_	2	npadvmod	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+4	Mookie	Mookie	PROPN	NNP	_	2	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 31
 # loc = EXT
-# parse = (FRAG (NP (JJ Good) (NN morning)) (PP (IN to) (NP (PRP you))) (. ..) (  ))
+# parse = (FRAG (NP (JJ Good) (NN morning)) (PP (IN to) (NP (PRP you))) (. .) (_SP  ))
 # scene = 8
 # sent_id = 5
-# sent_len = 6
+# sent_len = 5
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOOKIE
 # stage_direction = True
-# text = Good morning to you..
+# text = Good morning to you.
 # time = DAY
-1	Good	good	ADJ	JJ	_	2	amod	_	ent_type=TIME|ent_id=389|ent_iob=B
-2	morning	morning	NOUN	NN	_	0	ROOT	_	ent_type=TIME|ent_id=389|ent_iob=I
+1	Good	good	ADJ	JJ	_	2	amod	_	_
+2	morning	morning	NOUN	NN	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	you	-PRON-	PRON	PRP	_	3	pobj	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 32
 # loc = EXT
-# parse = (S (ADVP (RB Now)) (, ,) (NP (NNP Mookie)) (, ,) (VP (VBP do) (RB n't) (VP (VB work) (ADVP (RB too) (RB hard)) (NP (NN today)))) (. .))
+# parse = (S (ADVP (RB Now)) (, ,) (NP (NNP Mookie)) (, ,) (VP (VB do) (RB n't) (VP (VB work) (ADVP (RB too) (JJ hard)) (NP (NN today)))) (. .))
 # scene = 8
 # sent_id = 6
 # sent_len = 11
@@ -115,14 +115,14 @@
 # time = DAY
 1	Now	now	ADV	RB	_	7	advmod	_	_
 2	,	,	PUNCT	,	_	7	punct	_	_
-3	Mookie	mookie	PROPN	NNP	_	7	npadvmod	_	_
+3	Mookie	Mookie	PROPN	NNP	_	7	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	,	,	PUNCT	,	_	7	punct	_	_
-5	do	do	VERB	VBP	_	7	aux	_	_
+5	do	do	VERB	VB	_	7	aux	_	_
 6	n't	not	ADV	RB	_	7	neg	_	_
 7	work	work	VERB	VB	_	0	ROOT	_	_
 8	too	too	ADV	RB	_	9	advmod	_	_
-9	hard	hard	ADV	RB	_	7	advmod	_	_
-10	today	today	NOUN	NN	_	7	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
+9	hard	hard	ADJ	JJ	_	7	advmod	_	_
+10	today	today	NOUN	NN	_	7	npadvmod	_	ent_type=DATE|ent_id=391|ent_iob=B
 11	.	.	PUNCT	.	_	7	punct	_	_
 
 # line = 32
@@ -144,8 +144,8 @@
 6	gon	go	VERB	VBG	_	3	ccomp	_	_
 7	na	to	PART	TO	_	8	aux	_	_
 8	be	be	VERB	VB	_	6	xcomp	_	_
-9	HOT	hot	ADJ	JJ	_	8	acomp	_	ent_type=ORG|ent_id=381|ent_iob=B
-10	as	as	ADP	IN	_	9	prep	_	_
+9	HOT	hot	ADJ	JJ	_	8	attr	_	ent_type=ORG|ent_id=383|ent_iob=B
+10	as	as	ADP	IN	_	8	prep	_	_
 11	the	the	DET	DT	_	12	det	_	_
 12	devil	devil	NOUN	NN	_	10	pobj	_	_
 13	.	.	PUNCT	.	_	3	punct	_	_
@@ -175,14 +175,14 @@
 
 # line = 32
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VBP hear) (NP (PRP me)) (, ,) (INTJ (NN son))) (. ?) (. .) (  ))
+# parse = (S (NP (PRP You)) (VP (VBP hear) (NP (PRP me)) (, ,) (INTJ (NN son))) (. ?) (_SP  ))
 # scene = 8
 # sent_id = 9
-# sent_len = 8
+# sent_len = 6
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = You hear me, son?.
+# text = You hear me, son?
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	hear	hear	VERB	VBP	_	0	ROOT	_	_
@@ -190,7 +190,6 @@
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	son	son	NOUN	NN	_	3	appos	_	_
 6	?	?	PUNCT	.	_	2	punct	_	_
-7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 33
 # loc = EXT
@@ -207,25 +206,25 @@
 2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	ya	ya	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Mother	mother	PROPN	NNP	_	6	compound	_	_
-6	Sister	sister	PROPN	NNP	_	3	conj	_	_
+5	Mother	Mother	PROPN	NNP	_	6	compound	_	_
+6	Sister	Sister	PROPN	NNP	_	3	appos	_	_
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 33
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VP (VBP hear) (NP (PRP you))) (. ..) (  )))
+# parse = (S (NP (PRP I)) (VP (VBP hear) (NP (PRP you))) (. .) (_SP  ))
 # scene = 8
 # sent_id = 11
-# sent_len = 5
+# sent_len = 4
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOOKIE
 # stage_direction = True
-# text = I hear you..
+# text = I hear you.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	hear	hear	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
-4	..	..	PUNCT	.	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 34
 # loc = EXT
@@ -253,7 +252,7 @@
 # text = I'll be watching ya, son.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-2	'll	will	VERB	MD	_	4	aux	_	_
+2	'll	will	AUX	MD	_	4	aux	_	_
 3	be	be	VERB	VB	_	4	aux	_	_
 4	watching	watch	VERB	VBG	_	0	ROOT	_	_
 5	ya	ya	PRON	PRP	_	4	dobj	_	_
@@ -263,17 +262,17 @@
 
 # line = 34
 # loc = EXT
-# parse = (S (NP (NNP Mother) (NNP Sister)) (ADVP (RB always)) (VP (VBZ watches)) (. ..))
+# parse = (S (NP (NNP Mother) (NNP Sister)) (ADVP (RB always)) (VP (VBZ watches)) (. .))
 # scene = 8
 # sent_id = 14
 # sent_len = 5
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = Mother Sister always watches..
+# text = Mother Sister always watches.
 # time = DAY
-1	Mother	mother	PROPN	NNP	_	2	compound	_	_
-2	Sister	sister	PROPN	NNP	_	4	nsubj	_	_
+1	Mother	Mother	PROPN	NNP	_	2	compound	_	_
+2	Sister	Sister	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 3	always	always	ADV	RB	_	4	advmod	_	_
 4	watches	watch	VERB	VBZ	_	0	ROOT	_	_
-5	..	..	PUNCT	.	_	4	punct	_	_
+5	.	.	PUNCT	.	_	4	punct	_	_

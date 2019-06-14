@@ -1,5 +1,5 @@
 # loc = INT
-# parse = (S (NP (NP (DT An) (JJ elderly) (JJ Puerto) (JJ Rican) (NN woman)) (, ,) (NP (NN CARMEN)) (, ,)) (VP (VBZ is) (VP (VBG telling) (PRT (RP off)) (NP (PRP$ her) (NN daughter) (NNP TINA)) (PP (IN in) (NP (NNP Spanish))))) (. .))
+# parse = (S (NP (NP (DT An) (JJ elderly) (JJ Puerto) (JJ Rican) (NN woman)) (, ,) (NP (NNP CARMEN)) (, ,)) (VP (VBZ is) (VP (VBG telling) (PRT (RP off)) (NP (PRP$ her) (NN daughter) (NNP TINA)) (PP (IN in) (NP (NNP Spanish))))) (. .))
 # scene = 17
 # sent_id = 1
 # sent_len = 17
@@ -9,24 +9,24 @@
 # time = DAY
 1	An	an	DET	DT	_	5	det	_	_
 2	elderly	elderly	ADJ	JJ	_	5	amod	_	_
-3	Puerto	puerto	ADJ	JJ	_	4	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
-4	Rican	rican	ADJ	JJ	_	5	amod	_	ent_type=NORP|ent_id=379|ent_iob=I
+3	Puerto	puerto	ADJ	JJ	_	4	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
+4	Rican	rican	ADJ	JJ	_	5	amod	_	ent_type=NORP|ent_id=381|ent_iob=I
 5	woman	woman	NOUN	NN	_	10	nsubj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	CARMEN	carmen	NOUN	NN	_	5	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
+7	CARMEN	CARMEN	PROPN	NNP	_	5	appos	_	ent_type=ORG|ent_id=383|ent_iob=B
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	is	be	VERB	VBZ	_	10	aux	_	_
 10	telling	tell	VERB	VBG	_	0	ROOT	_	_
 11	off	off	PART	RP	_	10	prt	_	_
-12	her	-PRON-	ADJ	PRP$	_	13	poss	_	_
+12	her	-PRON-	DET	PRP$	_	13	poss	_	_
 13	daughter	daughter	NOUN	NN	_	10	dobj	_	_
-14	TINA	tina	PROPN	NNP	_	13	appos	_	ent_type=NORP|ent_id=379|ent_iob=B
+14	TINA	TINA	PROPN	NNP	_	13	appos	_	_
 15	in	in	ADP	IN	_	10	prep	_	_
-16	Spanish	spanish	PROPN	NNP	_	15	pobj	_	ent_type=NORP|ent_id=379|ent_iob=B
+16	Spanish	Spanish	PROPN	NNP	_	15	pobj	_	ent_type=LANGUAGE|ent_id=389|ent_iob=B
 17	.	.	PUNCT	.	_	10	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Tina)) (, ,) (S (VP (VBG having) (VP (VBN heard) (NP (RB enough))))) (, ,) (VP (VBZ closes) (NP (DT the) (NN door)) (PP (IN on) (NP (NP (PRP$ her) (NN mother) (POS 's)) (VBG ranting) (CC and) (NN raving)))) (. .))
+# parse = (S (NP (NNP Tina)) (, ,) (S (VP (VBG having) (VP (VBN heard) (NP (RB enough))))) (, ,) (VP (VBZ closes) (NP (DT the) (NN door)) (PP (IN on) (NP (NP (PRP$ her) (NN mother) (POS 's)) (NN ranting) (CC and) (VBG raving)))) (. .))
 # scene = 17
 # sent_id = 2
 # sent_len = 17
@@ -34,26 +34,26 @@
 # stage_direction = True
 # text = Tina, having heard enough, closes the door on her mother's ranting and raving.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	7	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Tina	Tina	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	7	punct	_	_
 3	having	have	VERB	VBG	_	4	aux	_	_
 4	heard	hear	VERB	VBN	_	7	advcl	_	_
-5	enough	enough	ADV	RB	_	4	advmod	_	_
+5	enough	enough	ADV	RB	_	4	dobj	_	_
 6	,	,	PUNCT	,	_	7	punct	_	_
 7	closes	close	VERB	VBZ	_	0	ROOT	_	_
 8	the	the	DET	DT	_	9	det	_	_
 9	door	door	NOUN	NN	_	7	dobj	_	_
-10	on	on	ADP	IN	_	9	prep	_	_
-11	her	-PRON-	ADJ	PRP$	_	12	poss	_	_
+10	on	on	ADP	IN	_	7	prep	_	_
+11	her	-PRON-	DET	PRP$	_	12	poss	_	_
 12	mother	mother	NOUN	NN	_	14	poss	_	_
 13	's	's	PART	POS	_	12	case	_	_
-14	ranting	rant	VERB	VBG	_	10	pobj	_	_
+14	ranting	ranting	NOUN	NN	_	10	pobj	_	_
 15	and	and	CCONJ	CC	_	14	cc	_	_
-16	raving	raving	NOUN	NN	_	14	conj	_	_
+16	raving	rave	VERB	VBG	_	14	conj	_	_
 17	.	.	PUNCT	.	_	7	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Tina)) (VP (VP (VBZ bends) (ADVP (RP down))) (CC and) (VP (VBZ scoops) (NP (PRP$ her) (NN baby) (NN son) (VB HECTOR)) (RP up) (PP (IN from) (NP (DT the) (NN bed)))) (CC and) (VP (VBZ holds) (NP (PRP him)) (PP (IN for) (NP (JJ dear) (NN life))) (PP (IN to) (NP (PRP$ her) (NNS breasts))))) (. .))
+# parse = (S (NP (NN Tina)) (VP (VP (VBZ bends) (ADVP (RP down))) (CC and) (VP (VBZ scoops) (NP (PRP$ her) (NN baby) (NN son) (NNP HECTOR)) (RP up) (PP (IN from) (NP (DT the) (NN bed)))) (CC and) (VP (VBZ holds) (NP (PRP him)) (PP (IN for) (NP (JJ dear) (NN life))) (PP (IN to) (NP (PRP$ her) (NNS breasts))))) (. .))
 # scene = 17
 # sent_id = 3
 # sent_len = 23
@@ -61,15 +61,15 @@
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Tina	tina	NOUN	NN	_	2	nsubj	_	_
 2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	scoops	scoop	VERB	VBZ	_	2	conj	_	_
-6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+6	her	-PRON-	DET	PRP$	_	8	poss	_	_
 7	baby	baby	NOUN	NN	_	8	compound	_	_
 8	son	son	NOUN	NN	_	5	dobj	_	_
-9	HECTOR	hector	VERB	VB	_	5	dep	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	HECTOR	HECTOR	PROPN	NNP	_	8	appos	_	_
 10	up	up	PART	RP	_	9	prt	_	_
 11	from	from	ADP	IN	_	9	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
@@ -81,15 +81,15 @@
 18	dear	dear	ADJ	JJ	_	19	amod	_	_
 19	life	life	NOUN	NN	_	17	pobj	_	_
 20	to	to	ADP	IN	_	15	prep	_	_
-21	her	-PRON-	ADJ	PRP$	_	22	poss	_	_
+21	her	-PRON-	DET	PRP$	_	22	poss	_	_
 22	breasts	breast	NOUN	NNS	_	20	pobj	_	_
 23	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (PRP She)) (VP (VBZ talks) (PP (IN to) (NP (PRP$ her) (NN son))) (SBAR (IN while) (S (VP (VBG walking) (PP (IN around) (NP (DT the) (NN room))))))) (. .) (  ))
+# parse = (S (NP (PRP She)) (VP (VBZ talks) (PP (IN to) (NP (PRP$ her) (NN son))) (SBAR (IN while) (S (VP (VBG walking) (PP (IN around) (NP (DT the) (NN room))))))) (. .) (_SP  ))
 # scene = 17
 # sent_id = 4
-# sent_len = 12
+# sent_len = 11
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = She talks to her son while walking around the room.
@@ -97,7 +97,7 @@
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	talks	talk	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
-4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	her	-PRON-	DET	PRP$	_	5	poss	_	_
 5	son	son	NOUN	NN	_	3	pobj	_	_
 6	while	while	ADP	IN	_	7	mark	_	_
 7	walking	walk	VERB	VBG	_	2	advcl	_	_
@@ -107,7 +107,7 @@
 11	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Tina)) (VP (VP (VBZ bends) (ADVP (RB down))) (CC and) (VP (VBZ scoops) (NP (PRP$ her) (NN baby) (NN son) (VB HECTOR)) (RP up) (PP (IN from) (NP (DT the) (NN bed)))) (CC and) (VP (VBZ holds) (NP (PRP him)) (PP (IN for) (NP (JJ dear) (NN life))) (PP (IN to) (NP (PRP$ her) (NNS breasts))))) (. .))
+# parse = (S (NP (NN Tina)) (VP (VP (VBZ bends) (ADVP (RP down))) (CC and) (VP (VBZ scoops) (NP (PRP$ her) (NN baby) (NN son) (NNP HECTOR)) (RP up) (PP (IN from) (NP (DT the) (NN bed)))) (CC and) (VP (VBZ holds) (NP (PRP him)) (PP (IN for) (NP (JJ dear) (NN life))) (PP (IN to) (NP (PRP$ her) (NNS breasts))))) (. .))
 # scene = 17
 # sent_id = 5
 # sent_len = 23
@@ -115,15 +115,15 @@
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
+1	Tina	tina	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
-3	down	down	ADV	RB	_	2	prt	_	_
+3	down	down	PART	RP	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	scoops	scoop	VERB	VBZ	_	2	conj	_	_
-6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+6	her	-PRON-	DET	PRP$	_	8	poss	_	_
 7	baby	baby	NOUN	NN	_	8	compound	_	_
 8	son	son	NOUN	NN	_	5	dobj	_	_
-9	HECTOR	hector	VERB	VB	_	5	dep	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	HECTOR	HECTOR	PROPN	NNP	_	8	appos	_	_
 10	up	up	PART	RP	_	9	prt	_	_
 11	from	from	ADP	IN	_	9	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
@@ -135,15 +135,15 @@
 18	dear	dear	ADJ	JJ	_	19	amod	_	_
 19	life	life	NOUN	NN	_	17	pobj	_	_
 20	to	to	ADP	IN	_	15	prep	_	_
-21	her	-PRON-	ADJ	PRP$	_	22	poss	_	_
+21	her	-PRON-	DET	PRP$	_	22	poss	_	_
 22	breasts	breast	NOUN	NNS	_	20	pobj	_	_
 23	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (PRP She)) (VP (VBZ talks) (PP (IN to) (NP (PRP$ her) (NN son))) (SBAR (IN while) (S (VP (VBG walking) (PP (IN around) (NP (DT the) (NN room))))))) (. .) (  ))
+# parse = (S (NP (PRP She)) (VP (VBZ talks) (PP (IN to) (NP (PRP$ her) (NN son))) (SBAR (IN while) (S (VP (VBG walking) (PP (IN around) (NP (DT the) (NN room))))))) (. .) (_SP  ))
 # scene = 17
 # sent_id = 6
-# sent_len = 12
+# sent_len = 11
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = She talks to her son while walking around the room.
@@ -151,7 +151,7 @@
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	talks	talk	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
-4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	her	-PRON-	DET	PRP$	_	5	poss	_	_
 5	son	son	NOUN	NN	_	3	pobj	_	_
 6	while	while	ADP	IN	_	7	mark	_	_
 7	walking	walk	VERB	VBG	_	2	advcl	_	_
@@ -161,7 +161,7 @@
 11	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Tina)) (VP (VP (VBZ bends) (ADVP (RB down))) (CC and) (VP (VBZ scoops) (NP (PRP$ her) (NN baby) (NN son) (VB HECTOR)) (RP up) (PP (IN from) (NP (DT the) (NN bed)))) (CC and) (VP (VBZ holds) (NP (PRP him)) (PP (IN for) (NP (JJ dear) (NN life))) (PP (IN to) (NP (PRP$ her) (NNS breasts))))) (. .))
+# parse = (S (NP (NN Tina)) (VP (VP (VBZ bends) (ADVP (RP down))) (CC and) (VP (VBZ scoops) (NP (PRP$ her) (NN baby) (NN son) (NNP HECTOR)) (RP up) (PP (IN from) (NP (DT the) (NN bed)))) (CC and) (VP (VBZ holds) (NP (PRP him)) (PP (IN for) (NP (JJ dear) (NN life))) (PP (IN to) (NP (PRP$ her) (NNS breasts))))) (. .))
 # scene = 17
 # sent_id = 7
 # sent_len = 23
@@ -169,15 +169,15 @@
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
+1	Tina	tina	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	bends	bend	VERB	VBZ	_	0	ROOT	_	_
-3	down	down	ADV	RB	_	2	prt	_	_
+3	down	down	PART	RP	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	scoops	scoop	VERB	VBZ	_	2	conj	_	_
-6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+6	her	-PRON-	DET	PRP$	_	8	poss	_	_
 7	baby	baby	NOUN	NN	_	8	compound	_	_
 8	son	son	NOUN	NN	_	5	dobj	_	_
-9	HECTOR	hector	VERB	VB	_	5	dep	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	HECTOR	HECTOR	PROPN	NNP	_	8	appos	_	_
 10	up	up	PART	RP	_	9	prt	_	_
 11	from	from	ADP	IN	_	9	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
@@ -189,15 +189,15 @@
 18	dear	dear	ADJ	JJ	_	19	amod	_	_
 19	life	life	NOUN	NN	_	17	pobj	_	_
 20	to	to	ADP	IN	_	15	prep	_	_
-21	her	-PRON-	ADJ	PRP$	_	22	poss	_	_
+21	her	-PRON-	DET	PRP$	_	22	poss	_	_
 22	breasts	breast	NOUN	NNS	_	20	pobj	_	_
 23	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (PRP She)) (VP (VBZ talks) (PP (IN to) (NP (PRP$ her) (NN son))) (SBAR (IN while) (S (VP (VBG walking) (PP (IN around) (NP (DT the) (NN room))))))) (. .) (  ))
+# parse = (S (NP (PRP She)) (VP (VBZ talks) (PP (IN to) (NP (PRP$ her) (NN son))) (SBAR (IN while) (S (VP (VBG walking) (PP (IN around) (NP (DT the) (NN room))))))) (. .) (_SP  ))
 # scene = 17
 # sent_id = 8
-# sent_len = 12
+# sent_len = 11
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = She talks to her son while walking around the room.
@@ -205,7 +205,7 @@
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	talks	talk	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
-4	her	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	her	-PRON-	DET	PRP$	_	5	poss	_	_
 5	son	son	NOUN	NN	_	3	pobj	_	_
 6	while	while	ADP	IN	_	7	mark	_	_
 7	walking	walk	VERB	VBG	_	2	advcl	_	_
@@ -216,7 +216,7 @@
 
 # line = 97
 # loc = INT
-# parse = (S (S (NP (NNP Hector))) (, ,) (S (NP (PRP I)) (VP (MD should) (RB n't) (VP (VB be) (VP (VBG telling) (NP (PRP you)) (NP (DT this)))))))
+# parse = (S (S (NP (NN Hector))) (, ,) (S (NP (PRP I)) (VP (MD should) (RB n't) (VP (VB be) (VP (VBG telling) (NP (PRP you)) (NP (DT this)))))))
 # scene = 17
 # sent_id = 9
 # sent_len = 9
@@ -225,10 +225,10 @@
 # stage_direction = True
 # text = Hector, I shouldn't be telling you this
 # time = DAY
-1	Hector	hector	PROPN	NNP	_	7	npadvmod	_	_
+1	Hector	hector	NOUN	NN	_	7	npadvmod	_	_
 2	,	,	PUNCT	,	_	7	punct	_	_
 3	I	-PRON-	PRON	PRP	_	7	nsubj	_	_
-4	should	should	VERB	MD	_	7	aux	_	_
+4	should	should	AUX	MD	_	7	aux	_	_
 5	n't	not	ADV	RB	_	7	neg	_	_
 6	be	be	VERB	VB	_	7	aux	_	_
 7	telling	tell	VERB	VBG	_	0	ROOT	_	_
@@ -237,7 +237,7 @@
 
 # line = 97
 # loc = INT
-# parse = (S (CC but) (NP (PRP you)) (VP (MD would) (VP (VB find) (PRT (RP out)) (ADVP (RBR sooner) (CC or) (RB later)))) (. .))
+# parse = (S (CC but) (NP (PRP you)) (VP (MD would) (VP (VB find) (PRT (RP out)) (ADVP (RBR sooner) (CC or) (RBR later)))) (. .))
 # scene = 17
 # sent_id = 10
 # sent_len = 9
@@ -253,12 +253,12 @@
 5	out	out	PART	RP	_	4	prt	_	_
 6	sooner	sooner	ADV	RBR	_	4	advmod	_	_
 7	or	or	CCONJ	CC	_	6	cc	_	_
-8	later	later	ADV	RB	_	6	conj	_	_
+8	later	later	ADV	RBR	_	6	conj	_	_
 9	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 97
 # loc = INT
-# parse = (S (NP (DT Ya) (NN father)) (VP (VBP ai) (RB n't) (NP (DT no) (JJ real) (NN father))) (. .))
+# parse = (S (NP (NNP Ya) (NN father)) (VP (VBP ai) (RB n't) (NP (DT no) (JJ real) (NN father))) (. .))
 # scene = 17
 # sent_id = 11
 # sent_len = 8
@@ -267,7 +267,7 @@
 # stage_direction = True
 # text = Ya father ain't no real father.
 # time = DAY
-1	Ya	ya	DET	DT	_	2	compound	_	ent_type=NORP|ent_id=379|ent_iob=B
+1	Ya	Ya	PROPN	NNP	_	2	det	_	_
 2	father	father	NOUN	NN	_	3	nsubj	_	_
 3	ai	be	VERB	VBP	_	0	ROOT	_	_
 4	n't	not	ADV	RB	_	3	neg	_	_
@@ -293,15 +293,15 @@
 4	bum	bum	NOUN	NN	_	2	attr	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	a	a	DET	DT	_	10	det	_	_
-7	two	two	NUM	CD	_	9	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+7	two	two	NUM	CD	_	9	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 8	-	-	PUNCT	HYPH	_	9	punct	_	_
 9	bit	bit	NOUN	NN	_	10	compound	_	_
 10	bum	bum	NOUN	NN	_	4	appos	_	_
 11	in	in	ADP	IN	_	10	prep	_	_
 12	a	a	DET	DT	_	16	det	_	_
-13	hundred	hundred	NUM	CD	_	15	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
-14	-	-	PUNCT	HYPH	_	15	punct	_	ent_type=MONEY|ent_id=391|ent_iob=I
-15	dollar	dollar	NOUN	NN	_	16	compound	_	ent_type=MONEY|ent_id=391|ent_iob=I
+13	hundred	hundred	NUM	CD	_	15	nummod	_	ent_type=MONEY|ent_id=394|ent_iob=B
+14	-	-	PUNCT	HYPH	_	15	punct	_	ent_type=MONEY|ent_id=394|ent_iob=I
+15	dollar	dollar	NOUN	NN	_	16	compound	_	ent_type=MONEY|ent_id=394|ent_iob=I
 16	world	world	NOUN	NN	_	11	pobj	_	_
 17	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -316,7 +316,7 @@
 # stage_direction = True
 # text = Your father is to the curb.
 # time = DAY
-1	Your	-PRON-	ADJ	PRP$	_	2	poss	_	_
+1	Your	-PRON-	DET	PRP$	_	2	poss	_	_
 2	father	father	NOUN	NN	_	3	nsubj	_	_
 3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
@@ -356,20 +356,20 @@
 3	that	that	DET	DT	_	4	nsubj	_	_
 4	look	look	NOUN	NN	_	2	ccomp	_	_
 5	on	on	ADP	IN	_	4	prep	_	_
-6	ya	ya	PRON	PRP	_	5	pobj	_	_
-7	face	face	NOUN	NN	_	4	npadvmod	_	_
+6	ya	ya	PRON	PRP	_	7	compound	_	_
+7	face	face	NOUN	NN	_	5	pobj	_	_
 8	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 97
 # loc = INT
-# parse = (S (NP (PRP You)) (VP (VBP 're) (VP (VBG saying) (SBAR (IN if) (S (NP (PRP he)) (VP (VBZ 's) (NP (PDT such) (DT a) (NN bum)) (WHADVP (WRB why)) (SQ (VBP am) (NP (PRP I)) (PP (IN with) (NP (PRP him))))))))) (. ?))
+# parse = (S (NP (PRP You)) (VP (VBP 're) (VP (VBG saying) (SBAR (IN if) (S (NP (PRP he)) (VP (VBZ 's) (NP (PDT such) (DT a) (NN bum))))))))
 # scene = 17
 # sent_id = 16
-# sent_len = 15
+# sent_len = 9
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = You're saying if he's such a bum why am I with him?
+# text = You're saying if he's such a bum
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	're	be	VERB	VBP	_	3	aux	_	_
@@ -377,21 +377,33 @@
 4	if	if	ADP	IN	_	6	mark	_	_
 5	he	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	's	be	VERB	VBZ	_	3	ccomp	_	_
-7	such	such	ADJ	PDT	_	9	predet	_	_
+7	such	such	DET	PDT	_	9	predet	_	_
 8	a	a	DET	DT	_	9	det	_	_
 9	bum	bum	NOUN	NN	_	6	attr	_	_
-10	why	why	ADV	WRB	_	11	advmod	_	_
-11	am	be	VERB	VBP	_	9	relcl	_	_
-12	I	-PRON-	PRON	PRP	_	11	nsubj	_	_
-13	with	with	ADP	IN	_	11	prep	_	_
-14	him	-PRON-	PRON	PRP	_	13	pobj	_	_
-15	?	?	PUNCT	.	_	3	punct	_	_
+
+# line = 97
+# loc = INT
+# parse = (SBARQ (WHADVP (WRB why)) (SQ (VBP am) (NP (PRP I)) (PP (IN with) (NP (PRP him)))) (. ?))
+# scene = 17
+# sent_id = 17
+# sent_len = 6
+# setting = TINA'S APARTMENT
+# speaker = TINA
+# stage_direction = True
+# text = why am I with him?
+# time = DAY
+1	why	why	ADV	WRB	_	2	advmod	_	_
+2	am	be	VERB	VBP	_	0	ROOT	_	_
+3	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+4	with	with	ADP	IN	_	2	prep	_	_
+5	him	-PRON-	PRON	PRP	_	4	pobj	_	_
+6	?	?	PUNCT	.	_	2	punct	_	_
 
 # line = 97
 # loc = INT
 # parse = (NP (JJ Good) (NN question) (. .))
 # scene = 17
-# sent_id = 17
+# sent_id = 18
 # sent_len = 3
 # setting = TINA'S APARTMENT
 # speaker = TINA
@@ -404,94 +416,70 @@
 
 # line = 97
 # loc = INT
-# parse = (SBAR (UH Like) (S (NP (PRP I)) (VP (VBD said) (ADVP (RB before)))))
+# parse = (S (SBAR (UH Like) (S (NP (PRP I)) (VP (VBD said) (ADVP (RB before))))) (, ,) (NP (PRP you)) (VP (VBP 're) (NP (DT no) (NN dummy))) (. .))
 # scene = 17
-# sent_id = 18
-# sent_len = 4
+# sent_id = 19
+# sent_len = 10
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = Like I said before
+# text = Like I said before, you're no dummy.
 # time = DAY
 1	Like	like	INTJ	UH	_	3	intj	_	_
 2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	said	say	VERB	VBD	_	0	ROOT	_	_
 4	before	before	ADV	RB	_	3	advmod	_	_
+5	,	,	PUNCT	,	_	7	punct	_	_
+6	you	-PRON-	PRON	PRP	_	7	nsubj	_	_
+7	're	be	VERB	VBP	_	3	ccomp	_	_
+8	no	no	DET	DT	_	9	det	_	_
+9	dummy	dummy	NOUN	NN	_	7	acomp	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 97
 # loc = INT
-# parse = (S (, ,) (NP (PRP you)) (VP (VBP 're) (NP (DT no) (NN dummy))) (. .))
-# scene = 17
-# sent_id = 19
-# sent_len = 6
-# setting = TINA'S APARTMENT
-# speaker = TINA
-# stage_direction = True
-# text = , you're no dummy.
-# time = DAY
-1	,	,	PUNCT	,	_	3	punct	_	_
-2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	're	be	VERB	VBP	_	0	ROOT	_	_
-4	no	no	DET	DT	_	5	det	_	_
-5	dummy	dummy	NOUN	NN	_	3	acomp	_	_
-6	.	.	PUNCT	.	_	3	punct	_	_
-
-# line = 97
-# loc = INT
-# parse = (S (NP (PRP He)) (VP (VBD talked) (NP (PRP$ his) (NN way)) (PP (IN into) (NP (PRP$ my) (NNS panties)))))
+# parse = (S (S (NP (PRP He)) (VP (VBD talked) (NP (PRP$ his) (NN way)) (PP (IN into) (NP (PRP$ my) (NNS panties))))) (, ,) (S (NP (PRP I)) (VP (VBD thought) (SBAR (S (S (VP (VBG being) (NP (DT a) (NN mother)))) (VP (MD would) (VP (VP (VB make) (S (NP (PRP me)) (ADJP (JJ happy)))) (, ,) (VP (VB make) (S (NP (PRP me)) (ADJP (JJ whole)))))))))) (. .))
 # scene = 17
 # sent_id = 20
-# sent_len = 7
+# sent_len = 22
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = He talked his way into my panties
+# text = He talked his way into my panties, I thought being a mother would make me happy, make me whole.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	talked	talk	VERB	VBD	_	0	ROOT	_	_
-3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
+2	talked	talk	VERB	VBD	_	10	ccomp	_	_
+3	his	-PRON-	DET	PRP$	_	4	poss	_	_
 4	way	way	NOUN	NN	_	2	dobj	_	_
 5	into	into	ADP	IN	_	2	prep	_	_
-6	my	-PRON-	ADJ	PRP$	_	7	poss	_	_
+6	my	-PRON-	DET	PRP$	_	7	poss	_	_
 7	panties	pantie	NOUN	NNS	_	5	pobj	_	_
+8	,	,	PUNCT	,	_	10	punct	_	_
+9	I	-PRON-	PRON	PRP	_	10	nsubj	_	_
+10	thought	think	VERB	VBD	_	0	ROOT	_	_
+11	being	be	VERB	VBG	_	15	csubj	_	_
+12	a	a	DET	DT	_	13	det	_	_
+13	mother	mother	NOUN	NN	_	11	attr	_	_
+14	would	would	VERB	MD	_	15	aux	_	_
+15	make	make	VERB	VB	_	10	ccomp	_	_
+16	me	-PRON-	PRON	PRP	_	17	nsubj	_	_
+17	happy	happy	ADJ	JJ	_	15	ccomp	_	_
+18	,	,	PUNCT	,	_	19	punct	_	_
+19	make	make	VERB	VB	_	10	conj	_	_
+20	me	-PRON-	PRON	PRP	_	21	nsubj	_	_
+21	whole	whole	ADJ	JJ	_	19	ccomp	_	_
+22	.	.	PUNCT	.	_	10	punct	_	_
 
 # line = 97
 # loc = INT
-# parse = (S (, ,) (NP (PRP I)) (VP (VBD thought) (SBAR (S (S (VP (VBG being) (NP (DT a) (NN mother)))) (VP (MD would) (VP (VP (VB make) (S (NP (PRP me)) (ADJP (JJ happy)))) (, ,) (VP (VB make) (S (NP (PRP me)) (ADJP (JJ whole))))))))) (. .))
+# parse = (S (S (NP (PRP He)) (VP (VBZ 's) (NP (DT a) (NN mistake)))) (, ,) (CC but) (S (NP (PRP you)) (VP (VBP are) (RB not))) (. .) (_SP  ))
 # scene = 17
 # sent_id = 21
-# sent_len = 15
+# sent_len = 10
 # setting = TINA'S APARTMENT
 # speaker = TINA
 # stage_direction = True
-# text = , I thought being a mother would make me happy, make me whole.
-# time = DAY
-1	,	,	PUNCT	,	_	3	punct	_	_
-2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	thought	think	VERB	VBD	_	12	parataxis	_	_
-4	being	be	VERB	VBG	_	8	csubj	_	_
-5	a	a	DET	DT	_	6	det	_	_
-6	mother	mother	NOUN	NN	_	4	attr	_	_
-7	would	would	VERB	MD	_	8	aux	_	_
-8	make	make	VERB	VB	_	3	ccomp	_	_
-9	me	-PRON-	PRON	PRP	_	10	nsubj	_	_
-10	happy	happy	ADJ	JJ	_	8	ccomp	_	_
-11	,	,	PUNCT	,	_	12	punct	_	_
-12	make	make	VERB	VB	_	0	ROOT	_	_
-13	me	-PRON-	PRON	PRP	_	14	nsubj	_	_
-14	whole	whole	ADJ	JJ	_	12	ccomp	_	_
-15	.	.	PUNCT	.	_	12	punct	_	_
-
-# line = 97
-# loc = INT
-# parse = (S (S (NP (PRP He)) (VP (VBZ 's) (NP (DT a) (NN mistake)))) (, ,) (CC but) (S (NP (PRP you)) (VP (VBP are) (RB not))) (NFP ..) (  ))
-# scene = 17
-# sent_id = 22
-# sent_len = 11
-# setting = TINA'S APARTMENT
-# speaker = TINA
-# stage_direction = True
-# text = He's a mistake, but you are not..
+# text = He's a mistake, but you are not.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
@@ -502,39 +490,39 @@
 7	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
 8	are	be	VERB	VBP	_	2	conj	_	_
 9	not	not	ADV	RB	_	8	neg	_	_
-10	..	..	PUNCT	NFP	_	8	punct	_	_
+10	.	.	PUNCT	.	_	8	punct	_	_
 
 # loc = INT
 # parse = (S (NP (NNP Tina)) (VP (VBZ kisses) (NP (PRP$ her) (NN son))) (. .))
 # scene = 17
-# sent_id = 23
+# sent_id = 22
 # sent_len = 5
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = Tina kisses her son.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	_
+1	Tina	Tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	kisses	kiss	VERB	VBZ	_	0	ROOT	_	_
-3	her	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	her	-PRON-	DET	PRP$	_	4	poss	_	_
 4	son	son	NOUN	NN	_	2	dobj	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
 # parse = (S (NP (NNP Tina)) (VP (VP (VBZ is) (ADJP (NP (CD seventeen) (NNS years)) (JJ old))) (, ,) (NP (DT another) (JJ teenage) (NN parent))) (. .))
 # scene = 17
-# sent_id = 24
+# sent_id = 23
 # sent_len = 10
 # setting = TINA'S APARTMENT
 # stage_direction = True
 # text = Tina is seventeen years old, another teenage parent.
 # time = DAY
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Tina	Tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	seventeen	seventeen	NUM	CD	_	4	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
-4	years	year	NOUN	NNS	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=I
-5	old	old	ADJ	JJ	_	2	acomp	_	ent_type=DATE|ent_id=388|ent_iob=I
-6	,	,	PUNCT	,	_	5	punct	_	_
+3	seventeen	seventeen	NUM	CD	_	4	nummod	_	ent_type=DATE|ent_id=391|ent_iob=B
+4	years	year	NOUN	NNS	_	5	npadvmod	_	ent_type=DATE|ent_id=391|ent_iob=I
+5	old	old	ADJ	JJ	_	2	acomp	_	ent_type=DATE|ent_id=391|ent_iob=I
+6	,	,	PUNCT	,	_	2	punct	_	_
 7	another	another	DET	DT	_	9	det	_	_
 8	teenage	teenage	ADJ	JJ	_	9	amod	_	_
-9	parent	parent	NOUN	NN	_	2	attr	_	_
+9	parent	parent	NOUN	NN	_	2	npadvmod	_	_
 10	.	.	PUNCT	.	_	2	punct	_	_

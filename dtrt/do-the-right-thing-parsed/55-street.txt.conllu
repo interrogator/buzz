@@ -1,55 +1,54 @@
 # line = 447
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (, ,) (NP (PRP we)) (VP (VBP need) (NP (PRP$ your) (NN leadership))) (. ..) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (, ,) (NP (PRP we)) (VP (VBP need) (NP (PRP$ your) (NN leadership))) (. .) (_SP  ))
 # scene = 55
 # sent_id = 1
-# sent_len = 9
+# sent_len = 8
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Da Mayor, we need your leadership..
+# text = Da Mayor, we need your leadership.
 # time = DAY
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	5	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	5	npadvmod	_	_
 3	,	,	PUNCT	,	_	5	punct	_	_
 4	we	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	need	need	VERB	VBP	_	0	ROOT	_	_
-6	your	-PRON-	ADJ	PRP$	_	7	poss	_	_
+6	your	-PRON-	DET	PRP$	_	7	poss	_	_
 7	leadership	leadership	NOUN	NN	_	5	dobj	_	_
-8	..	..	PUNCT	.	_	5	punct	_	_
+8	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 448
 # loc = EXT
-# parse = (SBARQ (X (NN Doctor)) (, ,) (WHNP (WP what)) (SQ (VBP are) (NP (PRP you)) (VP (VP (NN talkin)) (`` ') (NN bout))) (. ?) (. .) (  ))
+# parse = (SBARQ (X (NN Doctor)) (, ,) (WHNP (WP what)) (SQ (VBP are) (NP (PRP you)) (VP (VP (IN talkin)) (`` ') (NN bout))) (. ?) (_SP  ))
 # scene = 55
 # sent_id = 2
-# sent_len = 11
+# sent_len = 9
 # setting = STREET
 # speaker = DA MAYOR
 # stage_direction = True
-# text = Doctor, what are you talkin' bout?.
+# text = Doctor, what are you talkin' bout?
 # time = DAY
 1	Doctor	doctor	NOUN	NN	_	4	npadvmod	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
-3	what	what	NOUN	WP	_	4	attr	_	_
+3	what	what	PRON	WP	_	4	attr	_	_
 4	are	be	VERB	VBP	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
-6	talkin	talkin	NOUN	NN	_	8	poss	_	_
-7	'	'	PUNCT	``	_	6	case	_	_
-8	bout	bout	NOUN	NN	_	4	attr	_	_
+6	talkin	talkin	ADP	IN	_	4	attr	_	_
+7	'	'	PUNCT	``	_	8	punct	_	_
+8	bout	bout	NOUN	NN	_	4	acomp	_	_
 9	?	?	PUNCT	.	_	4	punct	_	_
-10	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 449
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG organizing) (NP (NP (DT a) (NN boycott)) (PP (IN of) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG organizing) (NP (NP (DT a) (NN boycott)) (PP (IN of) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)))))) (. .) (_SP  ))
 # scene = 55
 # sent_id = 3
-# sent_len = 12
+# sent_len = 11
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = I'm organizing a boycott of Sal's Famous Pizzeria..
+# text = I'm organizing a boycott of Sal's Famous Pizzeria.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
@@ -57,15 +56,15 @@
 4	a	a	DET	DT	_	5	det	_	_
 5	boycott	boycott	NOUN	NN	_	3	dobj	_	_
 6	of	of	ADP	IN	_	5	prep	_	_
-7	Sal	sal	PROPN	NNP	_	10	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
-8	's	's	PART	POS	_	7	case	_	_
-9	Famous	famous	PROPN	NNP	_	10	compound	_	_
-10	Pizzeria	pizzeria	PROPN	NNP	_	6	pobj	_	_
-11	..	..	PUNCT	.	_	3	punct	_	_
+7	Sal	Sal	PROPN	NNP	_	10	poss	_	ent_type=LOC|ent_id=385|ent_iob=B
+8	's	's	PART	POS	_	7	case	_	ent_type=LOC|ent_id=385|ent_iob=I
+9	Famous	Famous	PROPN	NNP	_	10	compound	_	ent_type=LOC|ent_id=385|ent_iob=I
+10	Pizzeria	Pizzeria	PROPN	NNP	_	6	pobj	_	ent_type=LOC|ent_id=385|ent_iob=I
+11	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 450
 # loc = EXT
-# parse = (S (VP (VBP Keep) (NN walkin) ('' ') (, ,) (NP (NNP Doctor))) (. .))
+# parse = (S (VP (VB Keep) (NN walkin) ('' ') (, ,) (NP (NNP Doctor))) (. .))
 # scene = 55
 # sent_id = 4
 # sent_len = 6
@@ -74,23 +73,23 @@
 # stage_direction = True
 # text = Keep walkin', Doctor.
 # time = DAY
-1	Keep	keep	VERB	VBP	_	0	ROOT	_	_
+1	Keep	keep	VERB	VB	_	0	ROOT	_	_
 2	walkin	walkin	NOUN	NN	_	1	dobj	_	_
-3	'	'	PUNCT	''	_	1	punct	_	_
+3	'	'	PUNCT	''	_	2	punct	_	_
 4	,	,	PUNCT	,	_	1	punct	_	_
-5	Doctor	doctor	PROPN	NNP	_	1	npadvmod	_	_
+5	Doctor	Doctor	PROPN	NNP	_	1	npadvmod	_	_
 6	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 450
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB want) (S (VP (TO to) (VP (VB hear) (NP (NP (NN none)) (PP (IN of) (NP (NP (PRP$ your) (NN foolishness)) (. ..) (  ))))))))))
+# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB want) (S (VP (TO to) (VP (VB hear) (NP (NP (NN none)) (PP (IN of) (NP (PRP$ your) (NN foolishness))))))))) (. .) (_SP  ))
 # scene = 55
 # sent_id = 5
-# sent_len = 12
+# sent_len = 11
 # setting = STREET
 # speaker = DA MAYOR
 # stage_direction = True
-# text = I don't want to hear none of your foolishness..
+# text = I don't want to hear none of your foolishness.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
@@ -100,77 +99,67 @@
 6	hear	hear	VERB	VB	_	4	xcomp	_	_
 7	none	none	NOUN	NN	_	6	dobj	_	_
 8	of	of	ADP	IN	_	7	prep	_	_
-9	your	-PRON-	ADJ	PRP$	_	10	poss	_	_
+9	your	-PRON-	DET	PRP$	_	10	poss	_	_
 10	foolishness	foolishness	NOUN	NN	_	8	pobj	_	_
-11	..	..	PUNCT	.	_	4	punct	_	_
+11	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 451
 # loc = EXT
-# parse = (NP (NNP No!.) (  ))
+# parse = (INTJ (UH No) (. !) (_SP  ))
 # scene = 55
 # sent_id = 6
 # sent_len = 2
 # setting = STREET
 # speaker = ML
 # stage_direction = True
-# text = No!.
+# text = No!
 # time = DAY
-1	No!.	no!.	PROPN	NNP	_	0	ROOT	_	ent_type=EVENT|ent_id=385|ent_iob=B
+1	No	no	INTJ	UH	_	0	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 452
 # loc = EXT
-# parse = (NP (NNP No!.) (  ))
+# parse = (INTJ (UH No) (. !) (_SP  ))
 # scene = 55
 # sent_id = 7
 # sent_len = 2
 # setting = STREET
 # speaker = COCONUT SID
 # stage_direction = True
-# text = No!.
+# text = No!
 # time = DAY
-1	No!.	no!.	PROPN	NNP	_	0	ROOT	_	_
+1	No	no	INTJ	UH	_	0	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 453
 # loc = EXT
-# parse = (INTJ (NNP Hell) (UH no) (. !))
+# parse = (FRAG (INTJ (NN Hell) (UH no)) (. !) (NP (NNP Goddamnit)) (. .))
 # scene = 55
 # sent_id = 8
-# sent_len = 3
+# sent_len = 5
 # setting = STREET
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
-# text = Hell no!
+# text = Hell no! Goddamnit.
 # time = DAY
-1	Hell	hell	PROPN	NNP	_	0	ROOT	_	_
+1	Hell	hell	NOUN	NN	_	0	ROOT	_	_
 2	no	no	INTJ	UH	_	1	intj	_	_
-3	!	!	PUNCT	.	_	1	punct	_	_
-
-# line = 453
-# loc = EXT
-# parse = (NP (NN Goddamnit) (. .))
-# scene = 55
-# sent_id = 9
-# sent_len = 2
-# setting = STREET
-# speaker = SWEET DICK WILLIE
-# stage_direction = True
-# text = Goddamnit.
-# time = DAY
-1	Goddamnit	goddamnit	NOUN	NN	_	0	ROOT	_	_
-2	.	.	PUNCT	.	_	1	punct	_	_
+3	!	!	PUNCT	.	_	4	punct	_	_
+4	Goddamnit	Goddamnit	PROPN	NNP	_	1	dobj	_	_
+5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 453
 # loc = EXT
 # parse = (S (NP (NN Sal)) (VP (VBP ai) (RB n't) (ADVP (RB never)) (VP (VBN done) (NP (PRP me)) (NP (DT no) (NN harm)))) (. .))
 # scene = 55
-# sent_id = 10
+# sent_id = 9
 # sent_len = 9
 # setting = STREET
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
 # text = Sal ain't never done me no harm.
 # time = DAY
-1	Sal	sal	NOUN	NN	_	5	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Sal	sal	NOUN	NN	_	5	nsubj	_	_
 2	ai	be	VERB	VBP	_	5	aux	_	_
 3	n't	not	ADV	RB	_	5	neg	_	_
 4	never	never	ADV	RB	_	5	neg	_	_
@@ -182,31 +171,31 @@
 
 # line = 453
 # loc = EXT
-# parse = (NP (NP (PRP You)) (RB either) (. ..) (  ))
+# parse = (NP (NP (PRP You)) (ADVP (RB either)) (. .) (_SP  ))
 # scene = 55
-# sent_id = 11
-# sent_len = 4
+# sent_id = 10
+# sent_len = 3
 # setting = STREET
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
-# text = You either..
+# text = You either.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	either	either	ADV	RB	_	1	advmod	_	_
-3	..	..	PUNCT	.	_	1	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 454
 # loc = EXT
-# parse = (SQ (MD Would) (NP (PRP you)) (VP (VB like) (S (VP (TO to) (VP (VB sign) (NP (DT a) (NN petition) (S (VP (TO to) (VP (VB boycott) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)))))))))) (. ..) (  ))
+# parse = (SQ (MD Would) (NP (PRP you)) (VP (VB like) (S (VP (TO to) (VP (VB sign) (NP (DT a) (NN petition) (S (VP (TO to) (VP (VB boycott) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)))))))))) (. .) (_SP  ))
 # scene = 55
-# sent_id = 12
-# sent_len = 15
+# sent_id = 11
+# sent_len = 14
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Would you like to sign a petition to boycott Sal's Famous Pizzeria..
+# text = Would you like to sign a petition to boycott Sal's Famous Pizzeria.
 # time = DAY
-1	Would	would	VERB	MD	_	3	aux	_	_
+1	Would	Would	VERB	MD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	like	like	VERB	VB	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
@@ -215,93 +204,65 @@
 7	petition	petition	NOUN	NN	_	5	dobj	_	_
 8	to	to	PART	TO	_	9	aux	_	_
 9	boycott	boycott	VERB	VB	_	7	acl	_	_
-10	Sal	sal	PROPN	NNP	_	13	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
-11	's	's	PART	POS	_	10	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
-12	Famous	famous	PROPN	NNP	_	13	compound	_	_
-13	Pizzeria	pizzeria	PROPN	NNP	_	9	dobj	_	_
-14	..	..	PUNCT	.	_	3	punct	_	_
+10	Sal	Sal	PROPN	NNP	_	13	poss	_	ent_type=LOC|ent_id=385|ent_iob=B
+11	's	's	PART	POS	_	10	case	_	ent_type=LOC|ent_id=385|ent_iob=I
+12	Famous	Famous	PROPN	NNP	_	13	compound	_	ent_type=LOC|ent_id=385|ent_iob=I
+13	Pizzeria	Pizzeria	PROPN	NNP	_	9	dobj	_	ent_type=LOC|ent_id=385|ent_iob=I
+14	.	.	PUNCT	.	_	3	punct	_	_
 
-# line = 447
 # loc = EXT
-# parse = (NP (RB CLOSE) (: --))
+# parse = (NP (NP (NNP CLOSE)) (: --) (NP (NNP AHMAD) (, ,) (NNP CEE) (, ,) (NNP PUNCHY) (, ,) (CC and) (NP (NNP ELLA))))
+# scene = 55
+# sent_id = 12
+# sent_len = 10
+# setting = STREET
+# stage_direction = True
+# text = CLOSE--AHMAD, CEE, PUNCHY, and ELLA
+# time = DAY
+1	CLOSE	CLOSE	PROPN	NNP	_	0	ROOT	_	_
+2	--	--	PUNCT	:	_	1	punct	_	_
+3	AHMAD	AHMAD	PROPN	NNP	_	1	appos	_	ent_type=PERSON|ent_id=380|ent_iob=B
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	CEE	CEE	PROPN	NNP	_	3	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
+6	,	,	PUNCT	,	_	5	punct	_	_
+7	PUNCHY	PUNCHY	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
+8	,	,	PUNCT	,	_	7	punct	_	_
+9	and	and	CCONJ	CC	_	7	cc	_	_
+10	ELLA	ELLA	PROPN	NNP	_	7	conj	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP They)) (VP (VBP DOG) (NP (PRP him)) (PRT (RP out)) (NP (PRN (-LRB- -LRB-) (NP (NNP ADLIB)) (-RRB- -RRB-)) (_SP  ))))
 # scene = 55
 # sent_id = 13
-# sent_len = 2
+# sent_len = 7
 # setting = STREET
-# speaker = BUGGIN' OUT
 # stage_direction = True
-# text = CLOSE--
+# text = They DOG him out (ADLIB)
 # time = DAY
-1	CLOSE	close	ADV	RB	_	0	ROOT	_	_
-2	--	--	PUNCT	:	_	1	punct	_	_
+1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	DOG	dog	VERB	VBP	_	0	ROOT	_	_
+3	him	-PRON-	PRON	PRP	_	2	dobj	_	_
+4	out	out	PART	RP	_	2	prt	_	_
+5	(	(	PUNCT	-LRB-	_	2	punct	_	_
+6	ADLIB	ADLIB	PROPN	NNP	_	2	appos	_	_
+7	)	)	PUNCT	-RRB-	_	2	punct	_	_
 
-# line = 447
+# line = 455
 # loc = EXT
-# parse = (NP (NP (NNP AHMAD)) (, ,) (NP (NNP CEE)) (, ,) (NP (NN PUNCHY)) (, ,) (CC and) (NP (NNP ELLA)))
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB do) (NP (PRP it)) (PP (IN without) (NP (PRP$ your) (NN help))))) (. .))
 # scene = 55
 # sent_id = 14
 # sent_len = 8
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = AHMAD, CEE, PUNCHY, and ELLA
-# time = DAY
-1	AHMAD	ahmad	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	,	,	PUNCT	,	_	1	punct	_	_
-3	CEE	cee	PROPN	NNP	_	1	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-4	,	,	PUNCT	,	_	3	punct	_	_
-5	PUNCHY	punchy	NOUN	NN	_	3	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-6	,	,	PUNCT	,	_	5	punct	_	_
-7	and	and	CCONJ	CC	_	5	cc	_	_
-8	ELLA	ella	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
-
-# line = 447
-# loc = EXT
-# parse = (S (NP (PRP They)) (VP (VBP DOG) (NP (PRP him)) (PRT (RP out))))
-# scene = 55
-# sent_id = 15
-# sent_len = 4
-# setting = STREET
-# speaker = BUGGIN' OUT
-# stage_direction = True
-# text = They DOG him out
-# time = DAY
-1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	DOG	dog	VERB	VBP	_	0	ROOT	_	_
-3	him	-PRON-	PRON	PRP	_	2	dobj	_	_
-4	out	out	PART	RP	_	2	prt	_	_
-
-# line = 447
-# loc = EXT
-# parse = (NP (PRN (-LRB- -LRB-) (NNP ADLIB) (-RRB- -RRB-)) (  ))
-# scene = 55
-# sent_id = 16
-# sent_len = 4
-# setting = STREET
-# speaker = BUGGIN' OUT
-# stage_direction = True
-# text = (ADLIB)
-# time = DAY
-1	(	(	PUNCT	-LRB-	_	2	punct	_	_
-2	ADLIB	adlib	PROPN	NNP	_	0	ROOT	_	_
-3	)	)	PUNCT	-RRB-	_	2	punct	_	_
-
-# line = 455
-# loc = EXT
-# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB do) (NP (PRP it)) (PP (IN without) (NP (PRP$ your) (NN help))))) (. ..))
-# scene = 55
-# sent_id = 17
-# sent_len = 8
-# setting = STREET
-# speaker = BUGGIN' OUT
-# stage_direction = True
-# text = I'll do it without your help..
+# text = I'll do it without your help.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-2	'll	will	VERB	MD	_	3	aux	_	_
+2	'll	will	AUX	MD	_	3	aux	_	_
 3	do	do	VERB	VB	_	0	ROOT	_	_
 4	it	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	without	without	ADP	IN	_	3	prep	_	_
-6	your	-PRON-	ADJ	PRP$	_	7	poss	_	_
+6	your	-PRON-	DET	PRP$	_	7	poss	_	_
 7	help	help	NOUN	NN	_	5	pobj	_	_
-8	..	..	PUNCT	.	_	3	punct	_	_
+8	.	.	PUNCT	.	_	3	punct	_	_

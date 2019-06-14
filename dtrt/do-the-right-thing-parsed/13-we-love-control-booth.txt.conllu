@@ -1,5 +1,5 @@
 # loc = INT
-# parse = (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy)) (VP (VBZ gives) (NP (NNP Radio) (NNP Raheem)) (NP (DT a) (JJ clenched) (HYPH -) (NN fist) (NN salute))) (. .))
+# parse = (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy)) (VP (VBZ gives) (NP (NNP Radio) (NNP Raheem)) (NP (DT a) (VBN clenched) (HYPH -) (NN fist) (NN salute))) (. .))
 # scene = 13
 # sent_id = 1
 # sent_len = 13
@@ -7,15 +7,15 @@
 # stage_direction = True
 # text = Mister Señor Love Daddy gives Radio Raheem a clenched-fist salute.
 # time = DAY
-1	Mister	mister	PROPN	NNP	_	3	compound	_	_
-2	Señor	señor	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	Love	love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Mister	Mister	PROPN	NNP	_	2	compound	_	_
+2	Señor	Señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+3	Love	Love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
 4	Daddy	daddy	NOUN	NN	_	5	nsubj	_	_
 5	gives	give	VERB	VBZ	_	0	ROOT	_	_
-6	Radio	radio	PROPN	NNP	_	7	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-7	Raheem	raheem	PROPN	NNP	_	5	dative	_	ent_type=ORG|ent_id=381|ent_iob=I
+6	Radio	Radio	PROPN	NNP	_	7	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+7	Raheem	Raheem	PROPN	NNP	_	5	dative	_	ent_type=ORG|ent_id=383|ent_iob=I
 8	a	a	DET	DT	_	12	det	_	_
-9	clenched	clenched	ADJ	JJ	_	11	amod	_	_
+9	clenched	clench	VERB	VBN	_	11	amod	_	_
 10	-	-	PUNCT	HYPH	_	11	punct	_	_
 11	fist	fist	NOUN	NN	_	12	compound	_	_
 12	salute	salute	NOUN	NN	_	5	dobj	_	_

@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (DT The) (NNS CAMERA)) (, ,) (PP (IN FROM) (NP (JJ HIGH) (JJ ABOVE))) (, ,) (VP (VB CRANES) (PRT (RP DOWN)) (PP (IN ON) (NP (DT The) (NNP Block)))) (. .))
+# parse = (S (NP (DT The) (NNPS CAMERA)) (, ,) (PP (IN FROM) (NP (NNP HIGH) (NNP ABOVE))) (, ,) (VP (NNP CRANES) (PRT (VBZ DOWN)) (PP (IN ON) (NP (DT The) (NNP Block)))) (. .))
 # scene = 94
 # sent_id = 1
 # sent_len = 13
@@ -8,17 +8,17 @@
 # text = The CAMERA, FROM HIGH ABOVE, CRANES DOWN ON The Block.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	CAMERA	camera	NOUN	NNS	_	9	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
-3	,	,	PUNCT	,	_	2	punct	_	_
-4	FROM	from	ADP	IN	_	2	prep	_	_
-5	HIGH	high	ADJ	JJ	_	6	amod	_	_
-6	ABOVE	above	ADJ	JJ	_	4	pobj	_	_
-7	,	,	PUNCT	,	_	2	punct	_	_
-8	CRANES	cranes	VERB	VB	_	9	compound	_	_
-9	DOWN	down	PART	RP	_	0	ROOT	_	_
+2	CAMERA	CAMERA	PROPN	NNPS	_	9	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=B
+3	,	,	PUNCT	,	_	9	punct	_	_
+4	FROM	from	ADP	IN	_	9	prep	_	_
+5	HIGH	HIGH	PROPN	NNP	_	6	compound	_	_
+6	ABOVE	ABOVE	PROPN	NNP	_	4	pobj	_	_
+7	,	,	PUNCT	,	_	9	punct	_	_
+8	CRANES	CRANES	PROPN	NNP	_	9	nsubj	_	_
+9	DOWN	DOWN	VERB	VBZ	_	0	ROOT	_	_
 10	ON	on	ADP	IN	_	9	prep	_	_
 11	The	the	DET	DT	_	12	det	_	_
-12	Block	block	PROPN	NNP	_	10	pobj	_	_
+12	Block	Block	PROPN	NNP	_	10	pobj	_	_
 13	.	.	PUNCT	.	_	9	punct	_	_
 
 # loc = EXT
@@ -43,65 +43,70 @@
 11	and	and	CCONJ	CC	_	8	cc	_	_
 12	it	-PRON-	PRON	PRP	_	13	nsubj	_	_
 13	looks	look	VERB	VBZ	_	8	conj	_	_
-14	exactly	exactly	ADV	RB	_	18	advmod	_	_
-15	as	as	ADP	IN	_	18	mark	_	_
+14	exactly	exactly	ADV	RB	_	15	advmod	_	_
+15	as	as	ADP	IN	_	13	prep	_	_
 16	how	how	ADV	WRB	_	18	advmod	_	_
 17	one	one	PRON	PRP	_	18	nsubj	_	_
-18	expects	expect	VERB	VBZ	_	13	advcl	_	_
+18	expects	expect	VERB	VBZ	_	15	pcomp	_	_
 19	it	-PRON-	PRON	PRP	_	21	nsubj	_	_
 20	to	to	PART	TO	_	21	aux	_	_
 21	look	look	VERB	VB	_	18	ccomp	_	_
-22	,	,	PUNCT	,	_	21	punct	_	_
-23	the	the	DET	DT	_	24	det	_	_
-24	morning	morning	NOUN	NN	_	21	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=B
+22	,	,	PUNCT	,	_	13	punct	_	_
+23	the	the	DET	DT	_	24	det	_	ent_type=TIME|ent_id=392|ent_iob=B
+24	morning	morning	NOUN	NN	_	13	npadvmod	_	ent_type=TIME|ent_id=392|ent_iob=I
 25	after	after	ADP	IN	_	24	prep	_	_
 26	an	an	DET	DT	_	27	det	_	_
 27	uprising	uprising	NOUN	NN	_	25	pobj	_	_
 28	.	.	PUNCT	.	_	13	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (DT The) (NNS CAMERA)) (ADVP (RB NOW)) (VP (VBZ MOVES) (PP (IN IN) (NP (IN ON)))))
+# parse = (S (NP (DT The) (NNS CAMERA)) (ADVP (RB NOW)) (VP (VBZ MOVES) (PRT (IN IN)) (PP (UH ON) (NP (NP (DT the) (NNP WE) (NNP LOVE) (NP (NN storefront))) (SBAR (WHADVP (WRB where)) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ is) (PP (IN in) (NP (NP (PRP$ his) (JJ familiar) (NN place)) (PP (IN behind) (NP (DT the) (JJ mike))))))))))) (. .) (_SP  ))
 # scene = 94
 # sent_id = 3
-# sent_len = 6
+# sent_len = 24
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # stage_direction = True
-# text = The CAMERA NOW MOVES IN ON
+# text = The CAMERA NOW MOVES IN ON the WE LOVE storefront where Mister Señor Love Daddy is in his familiar place behind the mike.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	CAMERA	camera	NOUN	NNS	_	4	nsubj	_	_
+2	CAMERA	CAMERA	NOUN	NNS	_	4	nsubj	_	_
 3	NOW	now	ADV	RB	_	4	advmod	_	_
 4	MOVES	move	VERB	VBZ	_	0	ROOT	_	_
 5	IN	in	ADP	IN	_	4	prep	_	_
-6	ON	on	ADP	IN	_	5	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
+6	ON	on	INTJ	UH	_	4	prep	_	_
+7	the	the	DET	DT	_	10	det	_	_
+8	WE	WE	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+9	LOVE	LOVE	PROPN	NNP	_	10	compound	_	ent_type=PRODUCT|ent_id=386|ent_iob=B
+10	storefront	storefront	NOUN	NN	_	4	dobj	_	_
+11	where	where	ADV	WRB	_	16	advmod	_	_
+12	Mister	Mister	PROPN	NNP	_	15	compound	_	_
+13	Señor	Señor	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+14	Love	Love	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+15	Daddy	Daddy	PROPN	NNP	_	16	nsubj	_	_
+16	is	be	VERB	VBZ	_	10	relcl	_	_
+17	in	in	ADP	IN	_	16	prep	_	_
+18	his	-PRON-	DET	PRP$	_	20	poss	_	_
+19	familiar	familiar	ADJ	JJ	_	20	amod	_	_
+20	place	place	NOUN	NN	_	17	pobj	_	_
+21	behind	behind	ADP	IN	_	20	prep	_	_
+22	the	the	DET	DT	_	23	det	_	_
+23	mike	mike	ADJ	JJ	_	21	pobj	_	_
+24	.	.	PUNCT	.	_	4	punct	_	_
 
+# line = 752
 # loc = EXT
-# parse = (S (NP (NP (DT the) (NNP WE)) (NNP LOVE) (NP (NN storefront))) (SBAR (WHADVP (WRB where)) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ is) (PP (IN in) (NP (NP (PRP$ his) (JJ familiar) (NN place)) (PP (IN behind) (NP (DT the) (NN mike)))))))) (. .) (  ))
+# parse = (NP (PRP$ My) (NNS people) (. .))
 # scene = 94
 # sent_id = 4
-# sent_len = 19
+# sent_len = 3
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
+# speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = the WE LOVE storefront where Mister Señor Love Daddy is in his familiar place behind the mike.
+# text = My people.
 # time = DAY
-1	the	the	DET	DT	_	3	det	_	_
-2	WE	we	PROPN	NNP	_	3	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
-3	LOVE	love	PROPN	NNP	_	4	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
-4	storefront	storefront	NOUN	NN	_	0	ROOT	_	_
-5	where	where	ADV	WRB	_	10	advmod	_	_
-6	Mister	mister	PROPN	NNP	_	9	compound	_	_
-7	Señor	señor	PROPN	NNP	_	9	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
-8	Love	love	PROPN	NNP	_	9	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
-9	Daddy	daddy	PROPN	NNP	_	10	nsubj	_	_
-10	is	be	VERB	VBZ	_	4	ccomp	_	_
-11	in	in	ADP	IN	_	10	prep	_	_
-12	his	-PRON-	ADJ	PRP$	_	14	poss	_	_
-13	familiar	familiar	ADJ	JJ	_	14	amod	_	_
-14	place	place	NOUN	NN	_	11	pobj	_	_
-15	behind	behind	ADP	IN	_	14	prep	_	_
-16	the	the	DET	DT	_	17	det	_	_
-17	mike	mike	NOUN	NN	_	15	pobj	_	_
-18	.	.	PUNCT	.	_	4	punct	_	_
+1	My	-PRON-	DET	PRP$	_	2	poss	_	_
+2	people	people	NOUN	NNS	_	0	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 752
 # loc = EXT
@@ -114,22 +119,7 @@
 # stage_direction = True
 # text = My people.
 # time = DAY
-1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
-2	people	people	NOUN	NNS	_	0	ROOT	_	_
-3	.	.	PUNCT	.	_	2	punct	_	_
-
-# line = 752
-# loc = EXT
-# parse = (NP (PRP$ My) (NNS people) (. .))
-# scene = 94
-# sent_id = 6
-# sent_len = 3
-# setting = THE STREET--TO INT: RADIO STATION STOREFRONT
-# speaker = MISTER SEÑOR LOVE DADDY
-# stage_direction = True
-# text = My people.
-# time = DAY
-1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
+1	My	-PRON-	DET	PRP$	_	2	poss	_	_
 2	people	people	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -137,14 +127,14 @@
 # loc = EXT
 # parse = (SBARQ (WHNP (WP What)) (SQ (MD can) (NP (PRP I)) (VP (VB say))) (. ?))
 # scene = 94
-# sent_id = 7
+# sent_id = 6
 # sent_len = 5
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
 # text = What can I say?
 # time = DAY
-1	What	what	NOUN	WP	_	4	dobj	_	_
+1	What	what	PRON	WP	_	4	dobj	_	_
 2	can	can	VERB	MD	_	4	aux	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	say	say	VERB	VB	_	0	ROOT	_	_
@@ -154,7 +144,7 @@
 # loc = EXT
 # parse = (S (VP (VB Say) (SBAR (WHNP (WP what)) (S (NP (PRP I)) (VP (MD can))))) (. .))
 # scene = 94
-# sent_id = 8
+# sent_id = 7
 # sent_len = 5
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -162,7 +152,7 @@
 # text = Say what I can.
 # time = DAY
 1	Say	say	VERB	VB	_	0	ROOT	_	_
-2	what	what	NOUN	WP	_	4	dobj	_	_
+2	what	what	PRON	WP	_	4	dobj	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	can	can	VERB	MD	_	1	ccomp	_	_
 5	.	.	PUNCT	.	_	1	punct	_	_
@@ -171,7 +161,7 @@
 # loc = EXT
 # parse = (S (NP (PRP I)) (VP (VBD saw) (NP (PRP it))))
 # scene = 94
-# sent_id = 9
+# sent_id = 8
 # sent_len = 3
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -186,7 +176,7 @@
 # loc = EXT
 # parse = (S (CC but) (NP (PRP I)) (VP (VBD did) (RB n't) (VP (VB believe) (NP (PRP it)))) (. .))
 # scene = 94
-# sent_id = 10
+# sent_id = 9
 # sent_len = 7
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -205,7 +195,7 @@
 # loc = EXT
 # parse = (S (NP (PRP I)) (VP (VBD did) (RB n't) (VP (VB believe) (NP (PRP it)) (SBAR (WHNP (WP what)) (S (NP (PRP I)) (VP (VBD saw)))))) (. .))
 # scene = 94
-# sent_id = 11
+# sent_id = 10
 # sent_len = 9
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -217,7 +207,7 @@
 3	n't	not	ADV	RB	_	4	neg	_	_
 4	believe	believe	VERB	VB	_	0	ROOT	_	_
 5	it	-PRON-	PRON	PRP	_	4	dobj	_	_
-6	what	what	NOUN	WP	_	8	dobj	_	_
+6	what	what	PRON	WP	_	8	dobj	_	_
 7	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
 8	saw	see	VERB	VBD	_	4	ccomp	_	_
 9	.	.	PUNCT	.	_	4	punct	_	_
@@ -226,7 +216,7 @@
 # loc = EXT
 # parse = (SQ (VBP Are) (NP (PRP we)) (VP (VBG gon) (S (VP (TO na) (VP (VB live) (ADVP (RB together)))))) (. ?))
 # scene = 94
-# sent_id = 12
+# sent_id = 11
 # sent_len = 7
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -245,7 +235,7 @@
 # loc = EXT
 # parse = (SQ (ADVP (RB Together)) (VBP are) (NP (PRP we)) (VP (VBG gon) (S (VP (TO na) (VP (VB live))))) (. ?))
 # scene = 94
-# sent_id = 13
+# sent_id = 12
 # sent_len = 7
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -262,32 +252,32 @@
 
 # line = 752
 # loc = EXT
-# parse = (S (S (NP (DT This)) (VP (VBZ is) (NP (NP (PRP ya)) (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy))) (ADVP (RB here)) (PP (IN on) (SBAR (S (NP (NNP WE)) (VP (NNP LOVE) (NP (NNP RADIO)))))))) (, ,) (S (NP (CD 108) (NNP FM)) (PP (IN on) (NP (PRP$ your) (NN dial)))) (, ,) (CC and) (S (NP (DT that)) (VP (VBZ 's) (NP (DT the) (NN truth)) (, ,) (NP (NNP Ruth)))) (. ..) (  ))
+# parse = (S (S (NP (DT This)) (VP (VBZ is) (NP (NNP ya)) (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy) (ADVP (ADVP (RB here)) (PP (IN on) (SBAR (S (NP (NNP WE)) (VP (NNP LOVE) (NP (NNP RADIO))))))))) (, ,) (S (NP (CD 108) (NNP FM)) (PP (IN on) (NP (PRP$ your) (NN dial)))) (, ,) (CC and) (S (NP (DT that)) (VP (VBZ 's) (NP (NP (DT the) (NN truth)) (, ,) (NP (NNP Ruth))))) (. .) (_SP  ))
 # scene = 94
-# sent_id = 14
-# sent_len = 28
+# sent_id = 13
+# sent_len = 27
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = This is ya Mister Señor Love Daddy here on WE LOVE RADIO, 108 FM on your dial, and that's the truth, Ruth..
+# text = This is ya Mister Señor Love Daddy here on WE LOVE RADIO, 108 FM on your dial, and that's the truth, Ruth.
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	ya	ya	PRON	PRP	_	7	compound	_	_
-4	Mister	mister	PROPN	NNP	_	7	compound	_	_
-5	Señor	señor	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-6	Love	love	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-7	Daddy	daddy	NOUN	NN	_	2	attr	_	_
+3	ya	ya	PROPN	NNP	_	7	compound	_	_
+4	Mister	Mister	PROPN	NNP	_	7	compound	_	_
+5	Señor	Señor	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+6	Love	Love	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+7	Daddy	Daddy	PROPN	NNP	_	2	attr	_	_
 8	here	here	ADV	RB	_	7	advmod	_	_
 9	on	on	ADP	IN	_	8	prep	_	_
-10	WE	we	PROPN	NNP	_	12	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-11	LOVE	love	PROPN	NNP	_	12	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-12	RADIO	radio	PROPN	NNP	_	9	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+10	WE	WE	PROPN	NNP	_	12	compound	_	_
+11	LOVE	LOVE	PROPN	NNP	_	12	compound	_	_
+12	RADIO	RADIO	PROPN	NNP	_	9	pobj	_	_
 13	,	,	PUNCT	,	_	12	punct	_	_
-14	108	108	NUM	CD	_	15	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-15	FM	fm	PROPN	NNP	_	12	appos	_	_
+14	108	108	NUM	CD	_	15	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+15	FM	FM	PROPN	NNP	_	12	appos	_	_
 16	on	on	ADP	IN	_	15	prep	_	_
-17	your	-PRON-	ADJ	PRP$	_	18	poss	_	_
+17	your	-PRON-	DET	PRP$	_	18	poss	_	_
 18	dial	dial	NOUN	NN	_	16	pobj	_	_
 19	,	,	PUNCT	,	_	2	punct	_	_
 20	and	and	CCONJ	CC	_	2	cc	_	_
@@ -296,64 +286,50 @@
 23	the	the	DET	DT	_	24	det	_	_
 24	truth	truth	NOUN	NN	_	22	attr	_	_
 25	,	,	PUNCT	,	_	24	punct	_	_
-26	Ruth	ruth	PROPN	NNP	_	24	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
-27	..	..	PUNCT	.	_	26	punct	_	_
+26	Ruth	Ruth	PROPN	NNP	_	24	appos	_	ent_type=PERSON|ent_id=380|ent_iob=B
+27	.	.	PUNCT	.	_	22	punct	_	_
 
 # line = 753
 # loc = EXT
-# parse = (NP (NP (NN Today) (POS 's)) (NN weather) (NFP ..) (  ))
+# parse = (NP (NP (NN Today) (POS 's)) (NN weather) (. ..) (NP (_SP  )))
 # scene = 94
-# sent_id = 15
-# sent_len = 5
+# sent_id = 14
+# sent_len = 4
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
 # text = Today's weather..
 # time = DAY
-1	Today	today	NOUN	NN	_	3	poss	_	ent_type=DATE|ent_id=388|ent_iob=B
+1	Today	today	NOUN	NN	_	3	poss	_	ent_type=DATE|ent_id=391|ent_iob=B
 2	's	's	PART	POS	_	1	case	_	_
 3	weather	weather	NOUN	NN	_	0	ROOT	_	_
-4	..	..	PUNCT	NFP	_	3	punct	_	_
-
-# line = 753
-# loc = EXT
-# parse = (NP (NNP HOT!.) (  ))
-# scene = 94
-# sent_id = 16
-# sent_len = 2
-# setting = THE STREET--TO INT: RADIO STATION STOREFRONT
-# speaker = MISTER SEÑOR LOVE DADDY
-# stage_direction = True
-# text = HOT!.
-# time = DAY
-1	HOT!.	hot!.	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	..	..	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VBZ screams) (: :) (SBAR (S (  ) (S (NP (PRP He)) (VP (VBZ screams) (: :) (NP (  ))))))))
+# parse = (S (NP (PRP He)) (VP (VBZ screams) (: :) (NP (_SP  ))))
 # scene = 94
-# sent_id = 17
-# sent_len = 8
+# sent_id = 15
+# sent_len = 3
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
 # stage_direction = True
-# text = He screams: He screams:
+# text = He screams:
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	screams	scream	VERB	VBZ	_	0	ROOT	_	_
 3	:	:	PUNCT	:	_	2	punct	_	_
-4	He	-PRON-	PRON	PRP	_	6	nsubj	_	_
-5	screams	scream	VERB	VBZ	_	2	ccomp	_	_
-6	:	:	PUNCT	:	_	6	punct	_	_
 
-# line = 754
 # loc = EXT
-# parse = (S (VP (NN WAKE)) (NNS UP!.))
+# parse = (S (NP (PRP He)) (VP (VBZ screams) (: :) (S (_SP  ) (VP (VB WAKE) (PRT (RP UP))))) (. !))
 # scene = 94
-# sent_id = 18
-# sent_len = 2
+# sent_id = 16
+# sent_len = 6
 # setting = THE STREET--TO INT: RADIO STATION STOREFRONT
-# speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = WAKE UP!.
+# text = He screams:  WAKE UP!
 # time = DAY
-1	WAKE	wake	NOUN	NN	_	0	ROOT	_	_
-2	UP!.	up!.	NOUN	NNS	_	1	xcomp	_	_
+1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	screams	scream	VERB	VBZ	_	5	ccomp	_	_
+3	:	:	PUNCT	:	_	2	punct	_	_
+4	WAKE	wake	VERB	VB	_	0	ROOT	_	_
+5	UP	up	PART	RP	_	5	prt	_	_
+6	!	!	PUNCT	.	_	5	punct	_	_

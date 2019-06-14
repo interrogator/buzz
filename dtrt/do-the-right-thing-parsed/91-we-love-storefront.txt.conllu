@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (PRP WE)) (VP (VBP SEE) (NP (NP (DT the) (NN reflection)) (PP (IN of) (NP (NP (DT the) (NN fire)) (PP (IN in) (NP (DT the) (NN storefront) (NN window)))))) (SBAR (IN as) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ looks) (PRT (RP on)))))) (. .))
+# parse = (S (NP (PRP WE)) (VP (VBP SEE) (NP (NP (DT the) (NN reflection)) (PP (IN of) (NP (NP (DT the) (NN fire)) (PP (IN in) (NP (DT the) (NN storefront) (NN window)))))) (SBAR (IN as) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy)) (VP (VBZ looks) (PRT (RP on)))))) (. .))
 # scene = 91
 # sent_id = 1
 # sent_len = 19
@@ -16,13 +16,13 @@
 7	fire	fire	NOUN	NN	_	5	pobj	_	_
 8	in	in	ADP	IN	_	7	prep	_	_
 9	the	the	DET	DT	_	11	det	_	_
-10	storefront	storefront	NOUN	NN	_	11	amod	_	_
+10	storefront	storefront	NOUN	NN	_	11	compound	_	_
 11	window	window	NOUN	NN	_	8	pobj	_	_
 12	as	as	ADP	IN	_	17	mark	_	_
-13	Mister	mister	PROPN	NNP	_	16	compound	_	_
-14	Señor	señor	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-15	Love	love	PROPN	NNP	_	16	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-16	Daddy	daddy	PROPN	NNP	_	17	nsubj	_	_
+13	Mister	Mister	PROPN	NNP	_	16	compound	_	_
+14	Señor	Señor	PROPN	NNP	_	16	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+15	Love	Love	PROPN	NNP	_	16	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+16	Daddy	daddy	NOUN	NN	_	17	nsubj	_	_
 17	looks	look	VERB	VBZ	_	2	advcl	_	_
 18	on	on	PART	RP	_	17	prt	_	_
 19	.	.	PUNCT	.	_	2	punct	_	_

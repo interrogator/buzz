@@ -1,13 +1,13 @@
 # loc = INT
-# parse = (S (NP (NN Mookie)) (VP (VP (VBZ hands) (NP (DT the) (NNS pizzas)) (PRT (RP over))) (CC and) (VP (VBZ takes) (NP (DT the) (NN money))) (CC and) (VP (VBZ counts) (NP (PRP it)))) (. .) (  ))
+# parse = (S (NP (JJ Mookie)) (VP (VP (VBZ hands) (NP (DT the) (NNS pizzas)) (PRT (RP over))) (CC and) (VP (VBZ takes) (NP (DT the) (NN money))) (CC and) (VP (VBZ counts) (NP (PRP it)))) (. .) (_SP  ))
 # scene = 42
 # sent_id = 1
-# sent_len = 14
+# sent_len = 13
 # setting = TENEMENT HALLWAY
 # stage_direction = True
 # text = Mookie hands the pizzas over and takes the money and counts it.
 # time = DAY
-1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	hands	hand	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	pizzas	pizza	NOUN	NNS	_	2	dobj	_	_
@@ -23,14 +23,14 @@
 
 # line = 414
 # loc = INT
-# parse = (INTJ (NNS Thanks) (. ..))
+# parse = (INTJ (NNS Thanks) (. .))
 # scene = 42
 # sent_id = 2
 # sent_len = 2
 # setting = TENEMENT HALLWAY
 # speaker = MOOKIE
 # stage_direction = True
-# text = Thanks..
+# text = Thanks.
 # time = DAY
 1	Thanks	thank	NOUN	NNS	_	0	ROOT	_	_
-2	..	..	PUNCT	.	_	1	punct	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_

@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (DT A) (CD 1975) (NNP El) (NNP Dorado)) (VP (VBZ pulls) (PRT (RP up)) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (NP (DT the) (NN neighborhood) (NNS pizzeria)) (: --) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria))))))) (. .))
+# parse = (S (NP (DT A) (CD 1975) (NNP El) (NNP Dorado)) (VP (VBZ pulls) (PRT (RP up)) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (NP (DT the) (NN neighborhood) (NN pizzeria)) (: --) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria))))))) (. .))
 # scene = 5
 # sent_id = 1
 # sent_len = 18
@@ -8,26 +8,26 @@
 # text = A 1975 El Dorado pulls up in front of the neighborhood pizzeria--Sal's Famous Pizzeria.
 # time = DAY
 1	A	a	DET	DT	_	4	det	_	_
-2	1975	1975	NUM	CD	_	4	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
-3	El	el	PROPN	NNP	_	4	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-4	Dorado	dorado	PROPN	NNP	_	5	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
+2	1975	1975	NUM	CD	_	1	nummod	_	ent_type=DATE|ent_id=391|ent_iob=B
+3	El	El	PROPN	NNP	_	4	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+4	Dorado	Dorado	PROPN	NNP	_	5	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 5	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
-6	up	up	PART	RP	_	5	prt	_	_
+6	up	up	PART	RP	_	5	advmod	_	_
 7	in	in	ADP	IN	_	5	prep	_	_
 8	front	front	NOUN	NN	_	7	pobj	_	_
 9	of	of	ADP	IN	_	8	prep	_	_
 10	the	the	DET	DT	_	12	det	_	_
 11	neighborhood	neighborhood	NOUN	NN	_	12	compound	_	_
-12	pizzeria	pizzeria	NOUN	NNS	_	9	pobj	_	_
-13	--	--	PUNCT	:	_	8	punct	_	_
-14	Sal	sal	PROPN	NNP	_	17	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
-15	's	's	PART	POS	_	14	case	_	ent_type=ORG|ent_id=381|ent_iob=I
-16	Famous	famous	PROPN	NNP	_	17	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-17	Pizzeria	pizzeria	PROPN	NNP	_	8	appos	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	pizzeria	pizzeria	NOUN	NN	_	9	pobj	_	_
+13	--	--	PUNCT	:	_	5	punct	_	_
+14	Sal	Sal	PROPN	NNP	_	17	poss	_	_
+15	's	's	PART	POS	_	14	case	_	_
+16	Famous	Famous	PROPN	NNP	_	17	compound	_	_
+17	Pizzeria	Pizzeria	PROPN	NNP	_	5	npadvmod	_	_
 18	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (SINV (PP (IN From) (PP (IN out) (PP (IN of) (NP (DT the) (NN car))))) (VP (VBZ comes)) (NP (NP (DT the) (NN owner)) (, ,) (NP (NNP SAL)) (, ,) (NP (NP (DT a) (ADJP (RB slightly) (JJ overweight)) (NN man)) (PP (IN in) (NP (PRP$ his) (JJ early) (NNS fifties)))) (, ,) (CC and) (NP (NP (PRP$ his) (CD two) (NNS sons)) (, ,) (NP (NP (NNP PINO)) (, ,) (NP (CD 22)) (, ,) (CC and) (NP (NP (NNP VITO)) (, ,) (NP (CD 20)))))) (. .))
+# parse = (SINV (PP (IN From) (PP (IN out) (PP (IN of) (NP (DT the) (NN car))))) (VP (VBZ comes)) (NP (NP (DT the) (NN owner)) (, ,) (NP (NNP SAL)) (, ,) (NP (NP (DT a) (ADJP (RB slightly) (JJ overweight)) (NN man)) (PP (IN in) (NP (PRP$ his) (JJ early) (NNS fifties)))) (, ,) (CC and) (NP (NP (PRP$ his) (CD two) (NNS sons)) (, ,) (NP (NP (NNP PINO)) (, ,) (NP (CD 22)) (, ,) (CC and) (NP (NP (NNS VITO)) (, ,) (NP (CD 20)))))) (. .))
 # scene = 5
 # sent_id = 2
 # sent_len = 34
@@ -44,31 +44,31 @@
 7	the	the	DET	DT	_	8	det	_	_
 8	owner	owner	NOUN	NN	_	6	nsubj	_	_
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	SAL	sal	PROPN	NNP	_	8	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
+10	SAL	SAL	PROPN	NNP	_	8	appos	_	ent_type=ORG|ent_id=383|ent_iob=B
 11	,	,	PUNCT	,	_	10	punct	_	_
 12	a	a	DET	DT	_	15	det	_	_
 13	slightly	slightly	ADV	RB	_	14	advmod	_	_
 14	overweight	overweight	ADJ	JJ	_	15	amod	_	_
-15	man	man	NOUN	NN	_	8	appos	_	_
+15	man	man	NOUN	NN	_	10	appos	_	_
 16	in	in	ADP	IN	_	15	prep	_	_
-17	his	-PRON-	ADJ	PRP$	_	19	poss	_	_
-18	early	early	ADJ	JJ	_	19	amod	_	ent_type=DATE|ent_id=388|ent_iob=B
-19	fifties	fifty	NOUN	NNS	_	16	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
-20	,	,	PUNCT	,	_	6	punct	_	_
-21	and	and	CCONJ	CC	_	6	cc	_	_
-22	his	-PRON-	ADJ	PRP$	_	24	poss	_	_
-23	two	two	NUM	CD	_	24	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-24	sons	son	NOUN	NNS	_	6	conj	_	_
+17	his	-PRON-	DET	PRP$	_	19	poss	_	_
+18	early	early	ADJ	JJ	_	19	amod	_	_
+19	fifties	fifty	NOUN	NNS	_	16	pobj	_	_
+20	,	,	PUNCT	,	_	8	punct	_	_
+21	and	and	CCONJ	CC	_	8	cc	_	_
+22	his	-PRON-	DET	PRP$	_	24	poss	_	_
+23	two	two	NUM	CD	_	24	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+24	sons	son	NOUN	NNS	_	8	conj	_	_
 25	,	,	PUNCT	,	_	24	punct	_	_
-26	PINO	pino	PROPN	NNP	_	24	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
+26	PINO	PINO	PROPN	NNP	_	24	appos	_	_
 27	,	,	PUNCT	,	_	26	punct	_	_
-28	22	22	NUM	CD	_	26	conj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-29	,	,	PUNCT	,	_	26	punct	_	_
-30	and	and	CCONJ	CC	_	26	cc	_	_
-31	VITO	vito	PROPN	NNP	_	26	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-32	,	,	PUNCT	,	_	31	punct	_	_
-33	20	20	NUM	CD	_	24	appos	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-34	.	.	PUNCT	.	_	24	punct	_	_
+28	22	22	NUM	CD	_	26	conj	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+29	,	,	PUNCT	,	_	28	punct	_	_
+30	and	and	CCONJ	CC	_	28	cc	_	_
+31	VITO	VITO	NOUN	NNS	_	28	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
+32	,	,	PUNCT	,	_	24	punct	_	_
+33	20	20	NUM	CD	_	24	appos	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+34	.	.	PUNCT	.	_	6	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (PRP It)) (VP (VBZ 's) (NP (NP (NN time)) (SBAR (IN for) (S (NP (PRP them)) (VP (TO to) (VP (VB go) (PP (IN to) (NP (NN work))) (PP (IN at) (NP (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)) (PP (IN in) (NP (NP (DT the) (NN heart)) (PP (IN of) (NP (NNP Black) (NNP Brooklyn))))))))))))) (. .))
@@ -86,19 +86,19 @@
 5	them	-PRON-	PRON	PRP	_	7	nsubj	_	_
 6	to	to	PART	TO	_	7	aux	_	_
 7	go	go	VERB	VB	_	3	relcl	_	_
-8	to	to	ADP	IN	_	9	aux	_	_
-9	work	work	NOUN	NN	_	7	advcl	_	_
-10	at	at	ADP	IN	_	9	prep	_	_
-11	Sal	sal	PROPN	NNP	_	14	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
-12	's	's	PART	POS	_	11	case	_	ent_type=ORG|ent_id=381|ent_iob=I
-13	Famous	famous	PROPN	NNP	_	14	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-14	Pizzeria	pizzeria	PROPN	NNP	_	10	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
-15	in	in	ADP	IN	_	9	prep	_	_
+8	to	to	ADP	IN	_	7	prep	_	_
+9	work	work	NOUN	NN	_	8	pobj	_	_
+10	at	at	ADP	IN	_	7	prep	_	_
+11	Sal	Sal	PROPN	NNP	_	14	poss	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+12	's	's	PART	POS	_	11	case	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+13	Famous	Famous	PROPN	NNP	_	14	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+14	Pizzeria	Pizzeria	PROPN	NNP	_	10	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+15	in	in	ADP	IN	_	7	prep	_	_
 16	the	the	DET	DT	_	17	det	_	_
 17	heart	heart	NOUN	NN	_	15	pobj	_	_
 18	of	of	ADP	IN	_	17	prep	_	_
-19	Black	black	PROPN	NNP	_	20	compound	_	ent_type=LOC|ent_id=383|ent_iob=B
-20	Brooklyn	brooklyn	PROPN	NNP	_	18	pobj	_	ent_type=LOC|ent_id=383|ent_iob=I
+19	Black	Black	PROPN	NNP	_	20	compound	_	ent_type=LOC|ent_id=385|ent_iob=B
+20	Brooklyn	Brooklyn	PROPN	NNP	_	18	pobj	_	ent_type=LOC|ent_id=385|ent_iob=I
 21	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -110,15 +110,15 @@
 # stage_direction = True
 # text = Sal's sits on the corner of The Block.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Sal	Sal	PROPN	NNP	_	3	poss	_	ent_type=GPE|ent_id=384|ent_iob=B
 2	's	's	PART	POS	_	1	case	_	_
 3	sits	sit	NOUN	NNS	_	0	ROOT	_	_
 4	on	on	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	corner	corner	NOUN	NN	_	4	pobj	_	_
 7	of	of	ADP	IN	_	6	prep	_	_
-8	The	the	DET	DT	_	9	det	_	_
-9	Block	block	PROPN	NNP	_	7	pobj	_	_
+8	The	the	DET	DT	_	9	det	_	ent_type=ORG|ent_id=383|ent_iob=B
+9	Block	Block	PROPN	NNP	_	7	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
 10	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
@@ -131,78 +131,78 @@
 # text = The Block being where this film on the hottest day of the summer takes place.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	Block	block	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+2	Block	Block	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=B
 3	being	be	VERB	VBG	_	0	ROOT	_	_
 4	where	where	ADV	WRB	_	14	advmod	_	_
 5	this	this	DET	DT	_	6	det	_	_
 6	film	film	NOUN	NN	_	14	nsubj	_	_
 7	on	on	ADP	IN	_	6	prep	_	_
-8	the	the	DET	DT	_	10	det	_	ent_type=DATE|ent_id=388|ent_iob=B
-9	hottest	hot	ADJ	JJS	_	10	amod	_	ent_type=DATE|ent_id=388|ent_iob=I
-10	day	day	NOUN	NN	_	7	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
-11	of	of	ADP	IN	_	10	prep	_	ent_type=DATE|ent_id=388|ent_iob=I
-12	the	the	DET	DT	_	13	det	_	ent_type=DATE|ent_id=388|ent_iob=I
-13	summer	summer	NOUN	NN	_	11	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
+8	the	the	DET	DT	_	10	det	_	ent_type=DATE|ent_id=391|ent_iob=B
+9	hottest	hot	ADJ	JJS	_	10	amod	_	ent_type=DATE|ent_id=391|ent_iob=I
+10	day	day	NOUN	NN	_	7	pobj	_	ent_type=DATE|ent_id=391|ent_iob=I
+11	of	of	ADP	IN	_	10	prep	_	ent_type=DATE|ent_id=391|ent_iob=I
+12	the	the	DET	DT	_	13	det	_	ent_type=DATE|ent_id=391|ent_iob=I
+13	summer	summer	NOUN	NN	_	11	pobj	_	ent_type=DATE|ent_id=391|ent_iob=I
 14	takes	take	VERB	VBZ	_	3	ccomp	_	_
 15	place	place	NOUN	NN	_	14	dobj	_	_
 16	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Pino)) (VP (VBZ kicks) (NP (DT a) (NN beer) (MD can)) (PP (IN in) (NP (NP (PRP$ his) (NN path)) (PP (IN into) (NP (DT the) (NN gutter)))))) (. .) (  ))
+# parse = (S (NP (NN Pino)) (VP (VBZ kicks) (NP (DT a) (NN beer) (MD can)) (PP (IN in) (NP (NP (PRP$ his) (NN path)) (PP (IN into) (NP (DT the) (NN gutter)))))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 6
-# sent_len = 13
+# sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = Pino kicks a beer can in his path into the gutter.
 # time = DAY
-1	Pino	pino	NOUN	NN	_	2	nsubj	_	_
+1	Pino	pino	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	kicks	kick	VERB	VBZ	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	beer	beer	NOUN	NN	_	2	dobj	_	_
-5	can	can	VERB	MD	_	2	ccomp	_	_
+5	can	can	VERB	MD	_	2	dobj	_	_
 6	in	in	ADP	IN	_	2	prep	_	_
-7	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
+7	his	-PRON-	DET	PRP$	_	8	poss	_	_
 8	path	path	NOUN	NN	_	6	pobj	_	_
-9	into	into	ADP	IN	_	2	prep	_	_
+9	into	into	ADP	IN	_	8	prep	_	_
 10	the	the	DET	DT	_	11	det	_	_
 11	gutter	gutter	NOUN	NN	_	9	pobj	_	_
 12	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Pino)) (VP (VBZ kicks) (NP (DT a) (NN beer) (MD can)) (PP (IN in) (NP (NP (PRP$ his) (NN path)) (PP (IN into) (NP (DT the) (NN gutter)))))) (. .) (  ))
+# parse = (S (NP (NN Pino)) (VP (NNS kicks) (NP (DT a) (NN beer) (MD can)) (PP (IN in) (NP (NP (PRP$ his) (NN path)) (PP (IN into) (NP (DT the) (NN gutter)))))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 7
-# sent_len = 13
+# sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = Pino kicks a beer can in his path into the gutter.
 # time = DAY
-1	Pino	pino	PROPN	NNP	_	2	nsubj	_	_
-2	kicks	kick	VERB	VBZ	_	0	ROOT	_	_
+1	Pino	pino	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	kicks	kick	NOUN	NNS	_	0	ROOT	_	_
 3	a	a	DET	DT	_	4	det	_	_
 4	beer	beer	NOUN	NN	_	2	dobj	_	_
-5	can	can	VERB	MD	_	2	ccomp	_	_
+5	can	can	VERB	MD	_	2	dobj	_	_
 6	in	in	ADP	IN	_	2	prep	_	_
-7	his	-PRON-	ADJ	PRP$	_	8	poss	_	_
+7	his	-PRON-	DET	PRP$	_	8	poss	_	_
 8	path	path	NOUN	NN	_	6	pobj	_	_
-9	into	into	ADP	IN	_	2	prep	_	_
+9	into	into	ADP	IN	_	8	prep	_	_
 10	the	the	DET	DT	_	11	det	_	_
 11	gutter	gutter	NOUN	NN	_	9	pobj	_	_
 12	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 15
 # loc = EXT
-# parse = (S (NP (NNP Pino)) (, ,) (VP (VP (VB get) (NP (DT a) (NN broom))) (CC and) (VP (VB sweep) (PP (RP out) (NP (NN front))))) (NFP ..) (  ))
+# parse = (S (NP (NNP Pino)) (, ,) (VP (VB get) (NP (DT a) (NN broom))) (CC and) (VP (VB sweep) (PP (RP out) (NP (NN front)))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 8
-# sent_len = 11
+# sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = Pino, get a broom and sweep out front..
+# text = Pino, get a broom and sweep out front.
 # time = DAY
-1	Pino	pino	PROPN	NNP	_	3	nsubj	_	_
+1	Pino	Pino	PROPN	NNP	_	3	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	3	punct	_	_
 3	get	get	VERB	VB	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
@@ -211,20 +211,20 @@
 7	sweep	sweep	VERB	VB	_	3	conj	_	_
 8	out	out	PART	RP	_	7	prt	_	_
 9	front	front	NOUN	NN	_	7	dobj	_	_
-10	..	..	PUNCT	NFP	_	3	punct	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 16
 # loc = EXT
-# parse = (S (NP (NNP Vito)) (, ,) (VP (VP (VB get) (NP (DT a) (NN broom))) (CC and) (VP (VB sweep) (PP (RP out) (NP (NN front))))) (NFP ..) (  ))
+# parse = (S (NP (NNP Vito)) (, ,) (VP (VP (VB get) (NP (DT a) (NN broom))) (CC and) (VP (VB sweep) (PP (RP out) (NP (NN front))))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 9
-# sent_len = 11
+# sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = PINO
 # stage_direction = True
-# text = Vito, get a broom and sweep out front..
+# text = Vito, get a broom and sweep out front.
 # time = DAY
-1	Vito	vito	PROPN	NNP	_	3	nsubj	_	_
+1	Vito	Vito	PROPN	NNP	_	3	npadvmod	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
 3	get	get	VERB	VB	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
@@ -233,11 +233,11 @@
 7	sweep	sweep	VERB	VB	_	3	conj	_	_
 8	out	out	PART	RP	_	7	prt	_	_
 9	front	front	NOUN	NN	_	7	dobj	_	_
-10	..	..	PUNCT	NFP	_	3	punct	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 17
 # loc = EXT
-# parse = (S (VP (VBP See) (, ,) (NP (NN Pop))) (. .))
+# parse = (S (VP (VB See) (, ,) (NP (NNP Pop))) (. .))
 # scene = 5
 # sent_id = 10
 # sent_len = 4
@@ -246,14 +246,14 @@
 # stage_direction = True
 # text = See, Pop.
 # time = DAY
-1	See	see	VERB	VBP	_	0	ROOT	_	_
+1	See	see	VERB	VB	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Pop	pop	NOUN	NN	_	1	npadvmod	_	_
+3	Pop	Pop	PROPN	NNP	_	1	npadvmod	_	_
 4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 17
 # loc = EXT
-# parse = (S (NP (DT That)) (VP (VBZ 's) (SBAR (ADVP (RB just)) (WHNP (WP what)) (S (NP (PRP I)) (VP (VBD was) (VP (VBG talkin) ('' ') (PP (IN about))))))) (. .))
+# parse = (S (NP (DT That)) (VP (VBZ 's) (SBAR (ADVP (RB just)) (WHNP (WP what)) (S (NP (PRP I)) (VP (VBD was) (VP (NN talkin) ('' ') (PP (IN about))))))) (. .))
 # scene = 5
 # sent_id = 11
 # sent_len = 10
@@ -265,31 +265,31 @@
 1	That	that	DET	DT	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	just	just	ADV	RB	_	4	advmod	_	_
-4	what	what	NOUN	WP	_	6	attr	_	_
+4	what	what	PRON	WP	_	6	attr	_	_
 5	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	was	be	VERB	VBD	_	2	ccomp	_	_
-7	talkin	talkin	VERB	VBG	_	6	attr	_	_
-8	'	'	PUNCT	''	_	7	punct	_	_
-9	about	about	ADP	IN	_	7	prep	_	_
+7	talkin	talkin	NOUN	NN	_	6	attr	_	_
+8	'	'	PUNCT	''	_	9	punct	_	_
+9	about	about	ADP	IN	_	2	prep	_	_
 10	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 17
 # loc = EXT
-# parse = (S (NP (NP (DT Every) (JJ single) (NN time)) (SBAR (S (NP (PRP you)) (VP (VBP tell) (NP (NNP Pino)) (S (VP (TO to) (VP (VB do) (NP (NN something))))))))) (, ,) (NP (PRP he)) (VP (VBZ gives) (NP (PRP it)) (PP (IN to) (NP (PRP me)))) (. ..) (  ))
+# parse = (S (NP (NP (DT Every) (JJ single) (NN time)) (SBAR (S (NP (PRP you)) (VP (VBP tell) (NP (NNP Pino)) (S (VP (TO to) (VP (VB do) (NP (NN something))))))))) (, ,) (NP (PRP he)) (VP (VBZ gives) (NP (PRP it)) (PP (IN to) (NP (PRP me)))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 12
-# sent_len = 17
+# sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = VITO
 # stage_direction = True
-# text = Every single time you tell Pino to do something, he gives it to me..
+# text = Every single time you tell Pino to do something, he gives it to me.
 # time = DAY
 1	Every	every	DET	DT	_	3	det	_	_
 2	single	single	ADJ	JJ	_	3	amod	_	_
-3	time	time	NOUN	NN	_	12	npadvmod	_	_
+3	time	time	NOUN	NN	_	5	npadvmod	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
-5	tell	tell	VERB	VBP	_	3	relcl	_	_
-6	Pino	pino	PROPN	NNP	_	5	dobj	_	ent_type=ORG|ent_id=381|ent_iob=B
+5	tell	tell	VERB	VBP	_	12	ccomp	_	_
+6	Pino	Pino	PROPN	NNP	_	5	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 7	to	to	PART	TO	_	8	aux	_	_
 8	do	do	VERB	VB	_	5	xcomp	_	_
 9	something	something	NOUN	NN	_	8	dobj	_	_
@@ -299,91 +299,91 @@
 13	it	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	to	to	ADP	IN	_	12	dative	_	_
 15	me	-PRON-	PRON	PRP	_	14	pobj	_	_
-16	..	..	PUNCT	.	_	12	punct	_	_
+16	.	.	PUNCT	.	_	12	punct	_	_
 
 # line = 18
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VBZ 's) (ADJP (JJ nuts))) (. ..) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ 's) (ADJP (JJ nuts))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 13
-# sent_len = 5
+# sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = PINO
 # stage_direction = True
-# text = He's nuts..
+# text = He's nuts.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	nuts	nuts	ADJ	JJ	_	2	acomp	_	_
-4	..	..	PUNCT	.	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 19
 # loc = EXT
-# parse = (NP (NP (NP (DT The) (DT both)) (PP (IN of) (NP (NN youse)))) (, ,) (NP (VB shaddup)) (. ..) (  ))
+# parse = (NP (NP (NP (DT The) (DT both)) (PP (IN of) (NP (NN youse)))) (, ,) (NP (NN shaddup)) (. .) (_SP  ))
 # scene = 5
 # sent_id = 14
-# sent_len = 8
+# sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = The both of youse, shaddup..
+# text = The both of youse, shaddup.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	both	both	DET	DT	_	0	ROOT	_	_
+2	both	both	DET	DT	_	6	dep	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
 4	youse	youse	NOUN	NN	_	3	pobj	_	_
-5	,	,	PUNCT	,	_	2	punct	_	_
-6	shaddup	shaddup	VERB	VB	_	2	acl	_	_
-7	..	..	PUNCT	.	_	6	punct	_	_
+5	,	,	PUNCT	,	_	6	punct	_	_
+6	shaddup	shaddup	NOUN	NN	_	0	ROOT	_	_
+7	.	.	PUNCT	.	_	6	punct	_	_
 
 # line = 20
 # loc = EXT
-# parse = (S (VP (NNP Tell) (NP (NNP Pino))) (. ..) (  ))
+# parse = (S (VP (VB Tell) (NP (NNP Pino))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 15
-# sent_len = 4
+# sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = VITO
 # stage_direction = True
-# text = Tell Pino..
+# text = Tell Pino.
 # time = DAY
-1	Tell	tell	PROPN	NNP	_	0	ROOT	_	_
-2	Pino	pino	PROPN	NNP	_	1	dobj	_	_
-3	..	..	PUNCT	.	_	1	punct	_	_
+1	Tell	tell	VERB	VB	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	Pino	Pino	PROPN	NNP	_	1	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=I
+3	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 21
 # loc = EXT
-# parse = (S (VP (VBP Get) (NP (DT the) (NN broom))) (. ..) (  ))
+# parse = (S (VP (VB Get) (NP (DT the) (NN broom))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 16
-# sent_len = 5
+# sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = PINO
 # stage_direction = True
-# text = Get the broom..
+# text = Get the broom.
 # time = DAY
-1	Get	get	VERB	VBP	_	0	ROOT	_	_
+1	Get	Get	VERB	VB	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	broom	broom	NOUN	NN	_	1	dobj	_	_
-4	..	..	PUNCT	.	_	1	punct	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 22
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP ai) (RB n't) (VP (VBG getting) (NP (NN shit)))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP ai) (RB n't) (VP (VBG getting) (NP (NN shit)))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 17
-# sent_len = 7
+# sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = VITO
 # stage_direction = True
-# text = I ain't getting shit..
+# text = I ain't getting shit.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	ai	be	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
 4	getting	get	VERB	VBG	_	0	ROOT	_	_
 5	shit	shit	NOUN	NN	_	4	acomp	_	_
-6	..	..	PUNCT	.	_	4	punct	_	_
+6	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 23
 # loc = EXT
@@ -401,22 +401,22 @@
 
 # line = 23
 # loc = EXT
-# parse = (S (VP (VB Watch) (NP (PRP it))) (. ..) (  ))
+# parse = (S (VP (VB Watch) (NP (PRP it))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 19
-# sent_len = 4
+# sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = Watch it..
+# text = Watch it.
 # time = DAY
 1	Watch	watch	VERB	VB	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
-3	..	..	PUNCT	.	_	1	punct	_	_
+3	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 24
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBD did) (RB n't) (VP (VB want) (S (VP (TO to) (VP (VB come) (PP (TO to) (NP (VB work))) (ADVP (RB anyway))))))) (. .))
+# parse = (S (NP (PRP I)) (VP (VBD did) (RB n't) (VP (VB want) (S (VP (TO to) (VP (VB come) (PP (IN to) (NP (VB work))) (ADVP (RB anyway))))))) (. .))
 # scene = 5
 # sent_id = 20
 # sent_len = 10
@@ -431,33 +431,33 @@
 4	want	want	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	come	come	VERB	VB	_	4	xcomp	_	_
-7	to	to	PART	TO	_	8	aux	_	_
-8	work	work	VERB	VB	_	6	advcl	_	_
-9	anyway	anyway	ADV	RB	_	8	advmod	_	_
+7	to	to	ADP	IN	_	6	prep	_	_
+8	work	work	VERB	VB	_	7	pobj	_	_
+9	anyway	anyway	ADV	RB	_	6	advmod	_	_
 10	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 24
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP hate) (NP (DT this) (ADJP (NN freakin) (`` ')) (NN place))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP hate) (NP (DT this) (NN freakin) ('' ') (NN place))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 21
-# sent_len = 8
+# sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = PINO
 # stage_direction = True
-# text = I hate this freakin' place..
+# text = I hate this freakin' place.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	hate	hate	VERB	VBP	_	0	ROOT	_	_
 3	this	this	DET	DT	_	4	det	_	_
 4	freakin	freakin	NOUN	NN	_	6	poss	_	_
-5	'	'	PUNCT	``	_	4	case	_	_
+5	'	'	PUNCT	''	_	4	case	_	_
 6	place	place	NOUN	NN	_	2	dobj	_	_
-7	..	..	PUNCT	.	_	2	punct	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 25
 # loc = EXT
-# parse = (SQ (MD Can) (NP (PRP you)) (VP (VB do) (ADVP (JJR better))) (. ?))
+# parse = (SQ (MD Can) (NP (PRP you)) (VP (VB do) (ADVP (RBR better))) (. ?))
 # scene = 5
 # sent_id = 22
 # sent_len = 5
@@ -466,28 +466,28 @@
 # stage_direction = True
 # text = Can you do better?
 # time = DAY
-1	Can	can	VERB	MD	_	3	aux	_	_
+1	Can	Can	VERB	MD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	do	do	VERB	VB	_	0	ROOT	_	_
-4	better	good	ADJ	JJR	_	3	advmod	_	_
+4	better	better	ADV	RBR	_	3	advmod	_	_
 5	?	?	PUNCT	.	_	3	punct	_	_
 
 # line = 25
 # loc = EXT
-# parse = (NP (RB C'mere) (NFP ..) (  ))
+# parse = (NP (RB C'mere) (. .) (_SP  ))
 # scene = 5
 # sent_id = 23
-# sent_len = 3
+# sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = C'mere..
+# text = C'mere.
 # time = DAY
 1	C'mere	c'mere	ADV	RB	_	0	ROOT	_	_
-2	..	..	PUNCT	NFP	_	1	punct	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Pino)) (VP (VBZ is) (ADVP (RB now)) (ADJP (JJ silent))) (. .))
+# parse = (S (NP (NN Pino)) (VP (VBZ is) (ADVP (RB now)) (ADJP (JJ silent))) (. .))
 # scene = 5
 # sent_id = 24
 # sent_len = 5
@@ -495,171 +495,87 @@
 # stage_direction = True
 # text = Pino is now silent.
 # time = DAY
-1	Pino	pino	PROPN	NNP	_	2	nsubj	_	_
+1	Pino	pino	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	now	now	ADV	RB	_	2	advmod	_	_
 4	silent	silent	ADJ	JJ	_	2	acomp	_	_
 5	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Sal)) (VP (VBZ walks) (ADVP (RB over)) (PP (IN to) (NP (PRP him)))) (. .) (  ))
+# parse = (S (NP (NN Sal)) (VP (VBZ walks) (ADVP (RP over)) (PP (IN to) (NP (PRP him)))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 25
-# sent_len = 7
+# sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = Sal walks over to him.
 # time = DAY
-1	Sal	sal	PROPN	NNP	_	2	nsubj	_	_
+1	Sal	sal	NOUN	NN	_	2	nsubj	_	_
 2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
-3	over	over	ADV	RB	_	2	prt	_	_
+3	over	over	PART	RP	_	2	prt	_	_
 4	to	to	ADP	IN	_	2	prep	_	_
 5	him	-PRON-	PRON	PRP	_	4	pobj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 26
 # loc = EXT
-# parse = (SQ (MD Can) (NP (PRP you)) (VP (VB do) (ADVP (JJR better))) (. ?) (. .) (  ))
+# parse = (SQ (MD Can) (NP (PRP you)) (VP (VB do) (ADVP (RBR better))) (. ?) (. .) (_SP  ))
 # scene = 5
 # sent_id = 26
-# sent_len = 7
+# sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
 # text = Can you do better?.
 # time = DAY
-1	Can	can	VERB	MD	_	3	aux	_	_
+1	Can	Can	VERB	MD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	do	do	VERB	VB	_	0	ROOT	_	_
-4	better	good	ADJ	JJR	_	3	advmod	_	_
+4	better	better	ADV	RBR	_	3	advmod	_	_
 5	?	?	PUNCT	.	_	3	punct	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_
 
-# line = 26
+# line = 27
 # loc = EXT
-# parse = (NP (DT the) (NN head) (-RRB- -RRB-))
+# parse = (S (VP (VB Tell) (NP (NNP Vito))) (. .) (_SP  ))
 # scene = 5
 # sent_id = 27
 # sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
-# speaker = SAL
-# stage_direction = True
-# text = the head)
-# time = DAY
-1	the	the	DET	DT	_	2	det	_	_
-2	head	head	NOUN	NN	_	0	ROOT	_	_
-3	)	)	PUNCT	-RRB-	_	2	punct	_	_
-
-# line = 26
-# loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBD did) (RB n't) (VP (VB think) (ADVP (RB so)))) (. .))
-# scene = 5
-# sent_id = 28
-# sent_len = 6
-# setting = SAL'S FAMOUS PIZZERIA
-# speaker = SAL
-# stage_direction = True
-# text = I didn't think so.
-# time = DAY
-1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-2	did	do	VERB	VBD	_	4	aux	_	_
-3	n't	not	ADV	RB	_	4	neg	_	_
-4	think	think	VERB	VB	_	0	ROOT	_	_
-5	so	so	ADV	RB	_	4	advmod	_	_
-6	.	.	PUNCT	.	_	4	punct	_	_
-
-# line = 26
-# loc = EXT
-# parse = (S (NP (DT This)) (VP (VBZ is) (NP (DT a) (JJ respectable) (NN business))) (. .))
-# scene = 5
-# sent_id = 29
-# sent_len = 6
-# setting = SAL'S FAMOUS PIZZERIA
-# speaker = SAL
-# stage_direction = True
-# text = This is a respectable business.
-# time = DAY
-1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	a	a	DET	DT	_	5	det	_	_
-4	respectable	respectable	ADJ	JJ	_	5	amod	_	_
-5	business	business	NOUN	NN	_	2	attr	_	_
-6	.	.	PUNCT	.	_	2	punct	_	_
-
-# line = 26
-# loc = EXT
-# parse = (S (NP (NN Nuthin')) (ADJP (JJ wrong) (PP (IN with) (NP (PRP it)))) (. .))
-# scene = 5
-# sent_id = 30
-# sent_len = 5
-# setting = SAL'S FAMOUS PIZZERIA
-# speaker = SAL
-# stage_direction = True
-# text = Nuthin' wrong with it.
-# time = DAY
-1	Nuthin'	nothing	NOUN	NN	_	2	nsubj	_	_
-2	wrong	wrong	ADJ	JJ	_	0	ROOT	_	_
-3	with	with	ADP	IN	_	2	prep	_	_
-4	it	-PRON-	PRON	PRP	_	3	pobj	_	_
-5	.	.	PUNCT	.	_	2	punct	_	_
-
-# line = 26
-# loc = EXT
-# parse = (S (VP (VB Get) (NP (NN dat) (NP (NN broom)))) (. ..) (  ))
-# scene = 5
-# sent_id = 31
-# sent_len = 5
-# setting = SAL'S FAMOUS PIZZERIA
-# speaker = SAL
-# stage_direction = True
-# text = Get dat broom..
-# time = DAY
-1	Get	get	VERB	VB	_	0	ROOT	_	_
-2	dat	dat	NOUN	NN	_	3	compound	_	_
-3	broom	broom	NOUN	NN	_	1	dobj	_	_
-4	..	..	PUNCT	.	_	1	punct	_	_
-
-# line = 27
-# loc = EXT
-# parse = (S (VP (NNP Tell) (NP (NNP Vito))) (NFP ..) (  ))
-# scene = 5
-# sent_id = 32
-# sent_len = 4
-# setting = SAL'S FAMOUS PIZZERIA
 # speaker = PINO
 # stage_direction = True
-# text = Tell Vito..
+# text = Tell Vito.
 # time = DAY
-1	Tell	tell	PROPN	NNP	_	0	ROOT	_	_
-2	Vito	vito	PROPN	NNP	_	1	dobj	_	_
-3	..	..	PUNCT	NFP	_	1	punct	_	_
+1	Tell	tell	VERB	VB	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	Vito	Vito	PROPN	NNP	_	1	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=I
+3	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 28
 # loc = EXT
-# parse = (S (NP (NN Pop)) (VP (VP (VBD asked) (NP (PRP you))) (. ..) (INTJ (  ))))
+# parse = (S (NP (NN Pop)) (VP (VBD asked) (NP (PRP you))) (. .) (_SP  ))
 # scene = 5
-# sent_id = 33
-# sent_len = 5
+# sent_id = 28
+# sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = VITO
 # stage_direction = True
-# text = Pop asked you..
+# text = Pop asked you.
 # time = DAY
 1	Pop	pop	NOUN	NN	_	2	nsubj	_	_
 2	asked	ask	VERB	VBD	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
-4	..	..	PUNCT	.	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 29
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VB kill) (NP (NN somebody)) (NP (NN today))))))) (. ..))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VB kill) (NP (NN somebody)) (NP (NN today))))))) (. .))
 # scene = 5
-# sent_id = 34
+# sent_id = 29
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = I'm gonna kill somebody today..
+# text = I'm gonna kill somebody today.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
@@ -667,5 +583,5 @@
 4	na	to	PART	TO	_	5	aux	_	_
 5	kill	kill	VERB	VB	_	3	xcomp	_	_
 6	somebody	somebody	NOUN	NN	_	5	dobj	_	_
-7	today	today	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
-8	..	..	PUNCT	.	_	3	punct	_	_
+7	today	today	NOUN	NN	_	5	npadvmod	_	ent_type=DATE|ent_id=391|ent_iob=B
+8	.	.	PUNCT	.	_	3	punct	_	_

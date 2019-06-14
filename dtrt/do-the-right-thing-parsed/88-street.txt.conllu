@@ -1,13 +1,13 @@
 # loc = EXT
-# parse = (S (NP (NNP Jade)) (VP (VBZ is) (VP (VBG running) (PP (IN through) (NP (DT the) (NN mob))) (, ,) (S (VP (VBG looking) (PP (IN for) (NP (PRP$ her) (NN brother))))))) (. .) (  ))
+# parse = (S (NP (NNP Jade)) (VP (VBZ is) (VP (VBG running) (PP (IN through) (NP (DT the) (NN mob))) (, ,) (S (VP (VBG looking) (PP (IN for) (NP (PRP$ her) (NN brother))))))) (. .) (_SP  ))
 # scene = 88
 # sent_id = 1
-# sent_len = 13
+# sent_len = 12
 # setting = STREET
 # stage_direction = True
 # text = Jade is running through the mob, looking for her brother.
 # time = NIGHT
-1	Jade	jade	PROPN	NNP	_	3	nsubj	_	_
+1	Jade	Jade	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	3	aux	_	_
 3	running	run	VERB	VBG	_	0	ROOT	_	_
 4	through	through	ADP	IN	_	3	prep	_	_
@@ -16,7 +16,7 @@
 7	,	,	PUNCT	,	_	3	punct	_	_
 8	looking	look	VERB	VBG	_	3	advcl	_	_
 9	for	for	ADP	IN	_	8	prep	_	_
-10	her	-PRON-	ADJ	PRP$	_	11	poss	_	_
+10	her	-PRON-	DET	PRP$	_	11	poss	_	_
 11	brother	brother	NOUN	NN	_	9	pobj	_	_
 12	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -31,21 +31,22 @@
 # stage_direction = True
 # text = Mookie!
 # time = NIGHT
-1	Mookie	mookie	PROPN	NNP	_	0	ROOT	_	_
+1	Mookie	Mookie	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 745
 # loc = EXT
-# parse = (NP (NNP Mookie!.) (  ))
+# parse = (NP (JJ Mookie) (. !) (_SP  ))
 # scene = 88
 # sent_id = 3
 # sent_len = 2
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = Mookie!.
+# text = Mookie!
 # time = NIGHT
-1	Mookie!.	mookie!.	PROPN	NNP	_	0	ROOT	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+1	Mookie	mookie	ADJ	JJ	_	0	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (NNP Mookie)) (VP (VBZ is) (VP (VBG running) (ADVP (RB around)) (PP (IN with) (NP (NP (DT the) (NN rest)) (PP (IN of) (NP (DT the) (NN mob))))))) (. .))
@@ -56,10 +57,10 @@
 # stage_direction = True
 # text = Mookie is running around with the rest of the mob.
 # time = NIGHT
-1	Mookie	mookie	PROPN	NNP	_	3	nsubj	_	_
+1	Mookie	Mookie	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	3	aux	_	_
 3	running	run	VERB	VBG	_	0	ROOT	_	_
-4	around	around	ADV	RB	_	3	prt	_	_
+4	around	around	ADV	RB	_	3	advmod	_	_
 5	with	with	ADP	IN	_	3	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	rest	rest	NOUN	NN	_	5	pobj	_	_
@@ -89,6 +90,6 @@
 10	now	now	ADV	RB	_	11	advmod	_	_
 11	added	add	VERB	VBN	_	0	ROOT	_	_
 12	to	to	ADP	IN	_	11	prep	_	_
-13	the	the	DET	DT	_	14	det	_	ent_type=TIME|ent_id=389|ent_iob=B
-14	night	night	NOUN	NN	_	12	pobj	_	ent_type=TIME|ent_id=389|ent_iob=I
+13	the	the	DET	DT	_	14	det	_	_
+14	night	night	NOUN	NN	_	12	pobj	_	_
 15	.	.	PUNCT	.	_	11	punct	_	_

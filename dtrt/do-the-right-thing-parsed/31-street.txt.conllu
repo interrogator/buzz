@@ -7,29 +7,29 @@
 # stage_direction = True
 # text = On a stoop, a group of Puerto Ricans sits talking, drinking cerveza frío, and playing dominoes.
 # time = DAY
-1	On	on	ADP	IN	_	11	prep	_	_
+1	On	on	ADP	IN	_	10	prep	_	_
 2	a	a	DET	DT	_	3	det	_	_
 3	stoop	stoop	NOUN	NN	_	1	pobj	_	_
-4	,	,	PUNCT	,	_	11	punct	_	_
+4	,	,	PUNCT	,	_	10	punct	_	_
 5	a	a	DET	DT	_	6	det	_	_
 6	group	group	NOUN	NN	_	10	nsubj	_	_
 7	of	of	ADP	IN	_	6	prep	_	_
-8	Puerto	puerto	PROPN	NNP	_	9	compound	_	ent_type=NORP|ent_id=379|ent_iob=B
-9	Ricans	ricans	PROPN	NNP	_	7	pobj	_	ent_type=NORP|ent_id=379|ent_iob=I
-10	sits	sit	VERB	VBZ	_	11	aux	_	_
-11	talking	talk	VERB	VBG	_	0	ROOT	_	_
+8	Puerto	Puerto	PROPN	NNP	_	9	compound	_	ent_type=GPE|ent_id=384|ent_iob=B
+9	Ricans	Ricans	PROPN	NNP	_	7	pobj	_	ent_type=GPE|ent_id=384|ent_iob=I
+10	sits	sit	VERB	VBZ	_	0	ROOT	_	_
+11	talking	talk	VERB	VBG	_	10	xcomp	_	_
 12	,	,	PUNCT	,	_	11	punct	_	_
-13	drinking	drink	VERB	VBG	_	11	advcl	_	_
-14	cerveza	cerveza	NOUN	NN	_	15	compound	_	_
+13	drinking	drink	VERB	VBG	_	11	conj	_	_
+14	cerveza	cerveza	NOUN	NN	_	13	dobj	_	_
 15	frío	frío	NOUN	NN	_	13	dobj	_	_
 16	,	,	PUNCT	,	_	13	punct	_	_
 17	and	and	CCONJ	CC	_	13	cc	_	_
 18	playing	playing	NOUN	NN	_	13	conj	_	_
 19	dominoes	domino	NOUN	NNS	_	18	dobj	_	_
-20	.	.	PUNCT	.	_	11	punct	_	_
+20	.	.	PUNCT	.	_	10	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NP (CD One)) (PP (IN of) (NP (PRP$ their) (NNS cars)))) (VP (VP (VBZ is) (VP (VBN parked) (PP (IN near) (NP (DT the) (NN stoop))))) (, ,) (CC and) (VP (NNS blasts) (NP (NNS salsa) (NN music)))) (. .))
+# parse = (S (NP (NP (CD One)) (PP (IN of) (NP (PRP$ their) (NNS cars)))) (VP (VP (VBZ is) (VP (VBN parked) (PP (IN near) (NP (DT the) (NN stoop))))) (, ,) (CC and) (VP (VBZ blasts) (NP (NN salsa) (NN music)))) (. .))
 # scene = 31
 # sent_id = 2
 # sent_len = 15
@@ -37,9 +37,9 @@
 # stage_direction = True
 # text = One of their cars is parked near the stoop, and blasts salsa music.
 # time = DAY
-1	One	one	NUM	CD	_	6	nsubjpass	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+1	One	one	NUM	CD	_	6	nsubjpass	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 2	of	of	ADP	IN	_	1	prep	_	_
-3	their	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	their	-PRON-	DET	PRP$	_	4	poss	_	_
 4	cars	car	NOUN	NNS	_	2	pobj	_	_
 5	is	be	VERB	VBZ	_	6	auxpass	_	_
 6	parked	park	VERB	VBN	_	0	ROOT	_	_
@@ -48,13 +48,13 @@
 9	stoop	stoop	NOUN	NN	_	7	pobj	_	_
 10	,	,	PUNCT	,	_	6	punct	_	_
 11	and	and	CCONJ	CC	_	6	cc	_	_
-12	blasts	blast	NOUN	NNS	_	13	nsubj	_	_
-13	salsa	salsa	NOUN	NNS	_	6	conj	_	_
-14	music	music	NOUN	NN	_	13	dobj	_	_
-15	.	.	PUNCT	.	_	13	punct	_	_
+12	blasts	blast	VERB	VBZ	_	14	compound	_	_
+13	salsa	salsa	NOUN	NN	_	14	compound	_	_
+14	music	music	NOUN	NN	_	6	conj	_	_
+15	.	.	PUNCT	.	_	6	punct	_	_
 
 # loc = EXT
-# parse = (S (PP (IN As) (ADJP (JJ usual))) (NP (PRP we)) (VP (VBP hear) (NP (NP (NP (DT the) (NN rap) (NN music)) (PP (IN of) (NP (NNP Radio) (NNP Raheem)))) (, ,) (CC but) (PP (IN underneath) (NP (DT the) (NNS salsa) (NN music))))) (. .))
+# parse = (S (PP (IN As) (ADJP (JJ usual))) (NP (PRP we)) (VP (VBP hear) (NP (NP (NP (DT the) (NN rap) (NN music)) (PP (IN of) (NP (NNP Radio) (NNP Raheem)))) (, ,) (CC but) (PP (IN underneath) (NP (DT the) (NN salsa) (NN music))))) (. .))
 # scene = 31
 # sent_id = 3
 # sent_len = 17
@@ -70,18 +70,18 @@
 6	rap	rap	NOUN	NN	_	7	compound	_	_
 7	music	music	NOUN	NN	_	4	dobj	_	_
 8	of	of	ADP	IN	_	7	prep	_	_
-9	Radio	radio	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-10	Raheem	raheem	PROPN	NNP	_	8	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+9	Radio	Radio	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+10	Raheem	Raheem	PROPN	NNP	_	8	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
 11	,	,	PUNCT	,	_	4	punct	_	_
 12	but	but	CCONJ	CC	_	4	cc	_	_
 13	underneath	underneath	ADP	IN	_	4	conj	_	_
 14	the	the	DET	DT	_	16	det	_	_
-15	salsa	salsa	NOUN	NNS	_	16	compound	_	_
+15	salsa	salsa	NOUN	NN	_	16	compound	_	_
 16	music	music	NOUN	NN	_	13	pobj	_	_
 17	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ does) (RB not) (VP (VB like) (S (VP (TO to) (VP (VB be) (VP (VBN bested)))))))) (: ;) (S (S (NP (NP (DT the) (NNS salsa) (NN music)) (PP (IN from) (NP (DT the) (VBN parked) (NN car)))) (VP (VBZ is) (VP (VBG giving) (NP (PRP him)) (NP (NN competition))))) (, ,) (S (NP (DT this)) (VP (VBZ is) (NP (DT no) (JJ good))))) (. .))
+# parse = (S (S (NP (NNP Radio) (NNP Raheem)) (VP (VBZ does) (RB not) (VP (VB like) (S (VP (TO to) (VP (VB be) (VP (VBN bested)))))))) (: ;) (S (S (NP (NP (DT the) (NN salsa) (NN music)) (PP (IN from) (NP (DT the) (VBN parked) (NN car)))) (VP (VBZ is) (VP (VBG giving) (NP (PRP him)) (NP (NN competition))))) (, ,) (S (NP (DT this)) (VP (VBZ is) (NP (DT no) (NN good))))) (. .))
 # scene = 31
 # sent_id = 4
 # sent_len = 26
@@ -89,8 +89,8 @@
 # stage_direction = True
 # text = Radio Raheem does not like to be bested; the salsa music from the parked car is giving him competition, this is no good.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	5	nsubj	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	5	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 3	does	do	VERB	VBZ	_	5	aux	_	_
 4	not	not	ADV	RB	_	5	neg	_	_
 5	like	like	VERB	VB	_	18	ccomp	_	_
@@ -99,7 +99,7 @@
 8	bested	best	VERB	VBN	_	5	xcomp	_	_
 9	;	;	PUNCT	:	_	18	punct	_	_
 10	the	the	DET	DT	_	12	det	_	_
-11	salsa	salsa	NOUN	NNS	_	12	compound	_	_
+11	salsa	salsa	NOUN	NN	_	12	compound	_	_
 12	music	music	NOUN	NN	_	18	nsubj	_	_
 13	from	from	ADP	IN	_	12	prep	_	_
 14	the	the	DET	DT	_	16	det	_	_
@@ -112,12 +112,12 @@
 21	,	,	PUNCT	,	_	23	punct	_	_
 22	this	this	DET	DT	_	23	nsubj	_	_
 23	is	be	VERB	VBZ	_	0	ROOT	_	_
-24	no	no	DET	DT	_	25	neg	_	_
-25	good	good	ADJ	JJ	_	23	acomp	_	_
+24	no	no	DET	DT	_	25	det	_	_
+25	good	good	NOUN	NN	_	23	acomp	_	_
 26	.	.	PUNCT	.	_	23	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VP (VBZ stands) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN stoop)))))) (CC and) (VP (VBZ raises) (NP (PRP$ his) (NN decibel) (NN level)))) (. .))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VBZ stands) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN stoop)))))) (CC and) (VP (VBZ raises) (NP (PRP$ his) (NN decibel) (NN level)))) (. .))
 # scene = 31
 # sent_id = 5
 # sent_len = 14
@@ -125,8 +125,8 @@
 # stage_direction = True
 # text = Radio Raheem stands in front of the stoop and raises his decibel level.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 3	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
 5	front	front	NOUN	NN	_	4	pobj	_	_
@@ -135,7 +135,7 @@
 8	stoop	stoop	NOUN	NN	_	6	pobj	_	_
 9	and	and	CCONJ	CC	_	3	cc	_	_
 10	raises	raise	VERB	VBZ	_	3	conj	_	_
-11	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
+11	his	-PRON-	DET	PRP$	_	13	poss	_	_
 12	decibel	decibel	NOUN	NN	_	13	compound	_	_
 13	level	level	NOUN	NN	_	10	dobj	_	_
 14	.	.	PUNCT	.	_	3	punct	_	_
@@ -150,25 +150,25 @@
 # text = The Puerto Rican men look at him, then begin to yell at him in Spanish.
 # time = DAY
 1	The	the	DET	DT	_	4	det	_	_
-2	Puerto	puerto	ADJ	JJ	_	3	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
-3	Rican	rican	ADJ	JJ	_	4	amod	_	ent_type=NORP|ent_id=379|ent_iob=I
+2	Puerto	puerto	ADJ	JJ	_	3	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
+3	Rican	rican	ADJ	JJ	_	4	amod	_	ent_type=NORP|ent_id=381|ent_iob=I
 4	men	man	NOUN	NNS	_	5	nsubj	_	_
 5	look	look	VERB	VBP	_	0	ROOT	_	_
 6	at	at	ADP	IN	_	5	prep	_	_
 7	him	-PRON-	PRON	PRP	_	6	pobj	_	_
 8	,	,	PUNCT	,	_	5	punct	_	_
-9	then	then	ADV	RB	_	10	advmod	_	_
+9	then	then	ADV	RB	_	5	advmod	_	_
 10	begin	begin	VERB	VB	_	5	dep	_	_
 11	to	to	PART	TO	_	12	aux	_	_
 12	yell	yell	VERB	VB	_	10	xcomp	_	_
 13	at	at	ADP	IN	_	12	prep	_	_
 14	him	-PRON-	PRON	PRP	_	13	pobj	_	_
 15	in	in	ADP	IN	_	12	prep	_	_
-16	Spanish	spanish	PROPN	NNP	_	15	pobj	_	ent_type=LANGUAGE|ent_id=387|ent_iob=B
+16	Spanish	Spanish	PROPN	NNP	_	15	pobj	_	ent_type=LANGUAGE|ent_id=389|ent_iob=B
 17	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (EX There)) (VP (VBZ is) (NP (DT a) (NN standoff)))) (, ,) (S (NP (DT the) (NN rap) (CC and) (NNS salsa)) (VP (VBG clashing) (PP (IN in) (NP (DT a) (JJ deafening) (NN roar))))) (. .))
+# parse = (S (S (NP (EX There)) (VP (VBZ is) (NP (DT a) (NN standoff)))) (, ,) (S (NP (DT the) (NN rap) (CC and) (NN salsa)) (VP (VBG clashing) (PP (IN in) (NP (DT a) (JJ deafening) (NN roar))))) (. .))
 # scene = 31
 # sent_id = 7
 # sent_len = 15
@@ -182,10 +182,10 @@
 4	standoff	standoff	NOUN	NN	_	2	attr	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
 6	the	the	DET	DT	_	7	det	_	_
-7	rap	rap	NOUN	NN	_	4	conj	_	_
+7	rap	rap	NOUN	NN	_	10	nsubj	_	_
 8	and	and	CCONJ	CC	_	7	cc	_	_
-9	salsa	salsa	NOUN	NNS	_	7	conj	_	_
-10	clashing	clash	VERB	VBG	_	7	acl	_	_
+9	salsa	salsa	NOUN	NN	_	7	conj	_	_
+10	clashing	clash	VERB	VBG	_	4	acl	_	_
 11	in	in	ADP	IN	_	10	prep	_	_
 12	a	a	DET	DT	_	14	det	_	_
 13	deafening	deafening	ADJ	JJ	_	14	amod	_	_
@@ -193,7 +193,7 @@
 15	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NP (NP (CD One)) (PP (IN of) (NP (DT the) (NNS men)))) (, ,) (NP (NNP STEVIE)) (, ,)) (VP (VP (VBZ gets) (PP (RP off) (NP (DT the) (NN stoop)))) (CC and) (VP (VBZ goes) (PP (IN to) (NP (DT the) (NN car))))) (. .))
+# parse = (S (NP (NP (NP (CD One)) (PP (IN of) (NP (DT the) (NNS men)))) (, ,) (NP (NNP STEVIE)) (, ,)) (VP (VP (VBZ gets) (PP (IN off) (NP (DT the) (NN stoop)))) (CC and) (VP (VBZ goes) (PP (IN to) (NP (DT the) (NN car))))) (. .))
 # scene = 31
 # sent_id = 8
 # sent_len = 17
@@ -201,17 +201,17 @@
 # stage_direction = True
 # text = One of the men, STEVIE, gets off the stoop and goes to the car.
 # time = DAY
-1	One	one	NUM	CD	_	8	nsubj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+1	One	one	NUM	CD	_	8	nsubj	_	_
 2	of	of	ADP	IN	_	1	prep	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	men	man	NOUN	NNS	_	2	pobj	_	_
-5	,	,	PUNCT	,	_	1	punct	_	_
-6	STEVIE	stevie	PROPN	NNP	_	1	appos	_	ent_type=ORG|ent_id=381|ent_iob=B
+5	,	,	PUNCT	,	_	4	punct	_	_
+6	STEVIE	STEVIE	PROPN	NNP	_	4	appos	_	ent_type=ORG|ent_id=383|ent_iob=B
 7	,	,	PUNCT	,	_	8	punct	_	_
 8	gets	get	VERB	VBZ	_	0	ROOT	_	_
-9	off	off	PART	RP	_	8	prt	_	_
+9	off	off	ADP	IN	_	8	prep	_	_
 10	the	the	DET	DT	_	11	det	_	_
-11	stoop	stoop	NOUN	NN	_	8	dobj	_	_
+11	stoop	stoop	NOUN	NN	_	9	pobj	_	_
 12	and	and	CCONJ	CC	_	8	cc	_	_
 13	goes	go	VERB	VBZ	_	8	conj	_	_
 14	to	to	ADP	IN	_	13	prep	_	_
@@ -228,7 +228,7 @@
 # stage_direction = True
 # text = Stevie turns the car radio off.
 # time = DAY
-1	Stevie	stevie	PROPN	NNP	_	2	nsubj	_	_
+1	Stevie	Stevie	PROPN	NNP	_	2	nsubj	_	_
 2	turns	turn	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	car	car	NOUN	NN	_	5	compound	_	_
@@ -237,7 +237,7 @@
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VP (VP (NNS smiles)) (, ,) (VP (NNS nods))) (, ,) (VP (VBZ turns) (NP (PRP$ his) (NN box)) (PP (IN to) (NP (DT a) (JJ reasonable) (NN listening) (NN level)))) (, ,) (CC and) (VP (VBZ bops) (PP (IN down) (NP (DT the) (NN block))))) (. .))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VP (VBZ smiles)) (, ,) (VP (NNS nods))) (, ,) (VP (VBZ turns) (NP (PRP$ his) (NN box)) (PP (IN to) (NP (DT a) (JJ reasonable) (NN listening) (NN level)))) (, ,) (CC and) (VP (VBZ bops) (PP (IN down) (NP (DT the) (NN block))))) (. .))
 # scene = 31
 # sent_id = 10
 # sent_len = 21
@@ -245,14 +245,14 @@
 # stage_direction = True
 # text = Radio Raheem smiles, nods, turns his box to a reasonable listening level, and bops down the block.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
-3	smiles	smile	NOUN	NNS	_	0	ROOT	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	smiles	smile	VERB	VBZ	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	nods	nod	NOUN	NNS	_	3	npadvmod	_	_
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	turns	turn	VERB	VBZ	_	3	conj	_	_
-8	his	-PRON-	ADJ	PRP$	_	9	poss	_	_
+8	his	-PRON-	DET	PRP$	_	9	poss	_	_
 9	box	box	NOUN	NN	_	7	dobj	_	_
 10	to	to	ADP	IN	_	7	prep	_	_
 11	a	a	DET	DT	_	14	det	_	_
@@ -262,13 +262,13 @@
 15	,	,	PUNCT	,	_	7	punct	_	_
 16	and	and	CCONJ	CC	_	7	cc	_	_
 17	bops	bop	VERB	VBZ	_	7	conj	_	_
-18	down	down	ADP	IN	_	17	prep	_	_
+18	down	down	ADP	IN	_	17	prt	_	_
 19	the	the	DET	DT	_	20	det	_	_
-20	block	block	NOUN	NN	_	18	pobj	_	_
+20	block	block	NOUN	NN	_	17	dobj	_	_
 21	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (JJS loudest)) (. .))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (JJS loudest)) (. .))
 # scene = 31
 # sent_id = 11
 # sent_len = 6
@@ -276,25 +276,25 @@
 # stage_direction = True
 # text = Radio Raheem still the loudest.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	still	still	ADV	RB	_	2	advmod	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	5	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	still	still	ADV	RB	_	5	advmod	_	_
 4	the	the	DET	DT	_	5	det	_	_
-5	loudest	loud	ADJ	JJS	_	2	appos	_	_
-6	.	.	PUNCT	.	_	2	punct	_	_
+5	loudest	loud	ADJ	JJS	_	0	ROOT	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (NP (NP (NN Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (NN king)) (. .) (  ))
+# parse = (NP (NP (NNP Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (NN king)) (. .) (_SP  ))
 # scene = 31
 # sent_id = 12
-# sent_len = 7
+# sent_len = 6
 # setting = STREET
 # stage_direction = True
 # text = Radio Raheem still the king.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	still	still	ADV	RB	_	2	advmod	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	still	still	ADV	RB	_	5	advmod	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	king	king	NOUN	NN	_	2	appos	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
@@ -308,7 +308,7 @@
 # stage_direction = True
 # text = Stevie turns the car radio off.
 # time = DAY
-1	Stevie	stevie	PROPN	NNP	_	2	nsubj	_	_
+1	Stevie	Stevie	PROPN	NNP	_	2	nsubj	_	_
 2	turns	turn	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
 4	car	car	NOUN	NN	_	5	compound	_	_
@@ -317,7 +317,7 @@
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VP (VP (NNS smiles)) (, ,) (VP (NNS nods))) (, ,) (VP (VBZ turns) (NP (PRP$ his) (NN box)) (PP (IN to) (NP (DT a) (JJ reasonable) (NN listening) (NN level)))) (, ,) (CC and) (VP (VBZ bops) (PP (IN down) (NP (DT the) (NN block))))) (. .))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VP (VBZ smiles)) (, ,) (VP (NNS nods))) (, ,) (VP (VBZ turns) (NP (PRP$ his) (NN box)) (PP (IN to) (NP (DT a) (JJ reasonable) (NN listening) (NN level)))) (, ,) (CC and) (VP (VBZ bops) (PP (IN down) (NP (DT the) (NN block))))) (. .))
 # scene = 31
 # sent_id = 14
 # sent_len = 21
@@ -325,14 +325,14 @@
 # stage_direction = True
 # text = Radio Raheem smiles, nods, turns his box to a reasonable listening level, and bops down the block.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	smiles	smile	NOUN	NNS	_	0	ROOT	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	smiles	smile	VERB	VBZ	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
 5	nods	nod	NOUN	NNS	_	3	npadvmod	_	_
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	turns	turn	VERB	VBZ	_	3	conj	_	_
-8	his	-PRON-	ADJ	PRP$	_	9	poss	_	_
+8	his	-PRON-	DET	PRP$	_	9	poss	_	_
 9	box	box	NOUN	NN	_	7	dobj	_	_
 10	to	to	ADP	IN	_	7	prep	_	_
 11	a	a	DET	DT	_	14	det	_	_
@@ -342,13 +342,13 @@
 15	,	,	PUNCT	,	_	7	punct	_	_
 16	and	and	CCONJ	CC	_	7	cc	_	_
 17	bops	bop	VERB	VBZ	_	7	conj	_	_
-18	down	down	ADP	IN	_	17	prep	_	_
+18	down	down	ADP	IN	_	17	prt	_	_
 19	the	the	DET	DT	_	20	det	_	_
-20	block	block	NOUN	NN	_	18	pobj	_	_
+20	block	block	NOUN	NN	_	17	dobj	_	_
 21	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (JJS loudest)) (. .))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (JJS loudest)) (. .))
 # scene = 31
 # sent_id = 15
 # sent_len = 6
@@ -356,49 +356,49 @@
 # stage_direction = True
 # text = Radio Raheem still the loudest.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	still	still	ADV	RB	_	2	advmod	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	5	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	still	still	ADV	RB	_	5	advmod	_	_
 4	the	the	DET	DT	_	5	det	_	_
-5	loudest	loud	ADJ	JJS	_	2	appos	_	_
-6	.	.	PUNCT	.	_	2	punct	_	_
+5	loudest	loud	ADJ	JJS	_	0	ROOT	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (NP (NP (NN Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (NN king)) (. .) (  ))
+# parse = (NP (NP (NNP Radio) (NNP Raheem)) (ADVP (RB still)) (NP (DT the) (NN king)) (. .) (_SP  ))
 # scene = 31
 # sent_id = 16
-# sent_len = 7
+# sent_len = 6
 # setting = STREET
 # stage_direction = True
 # text = Radio Raheem still the king.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	still	still	ADV	RB	_	2	advmod	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	still	still	ADV	RB	_	5	advmod	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	king	king	NOUN	NN	_	2	appos	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 237
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VBD got) (NP (PRP it)) (, ,) (INTJ (UH bro))) (. ..) (  ))
+# parse = (S (NP (PRP You)) (VP (VBD got) (NP (PRP it)) (, ,) (INTJ (JJ bro))) (. .) (_SP  ))
 # scene = 31
 # sent_id = 17
-# sent_len = 7
+# sent_len = 6
 # setting = STREET
 # speaker = STEVIE
 # stage_direction = True
-# text = You got it, bro..
+# text = You got it, bro.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	got	get	VERB	VBD	_	0	ROOT	_	_
 3	it	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
-5	bro	bro	INTJ	UH	_	2	npadvmod	_	_
-6	..	..	PUNCT	.	_	2	punct	_	_
+5	bro	bro	ADJ	JJ	_	2	dep	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (DT The) (NNS men)) (VP (VP (VBP curse) (PP (IN in) (NP (JJ Spanish)))) (CC and) (VP (VB shake) (NP (PRP$ their) (NNS heads)) (PP (IN in) (NP (NN bewilderment)))))) (CC and) (S (NP (NNP Stevie)) (VP (VBZ turns) (NP (DT the) (NNS salsa)) (ADVP (RB back)) (PP (RB on)))) (. .))
+# parse = (S (S (NP (DT The) (NNS men)) (VP (VP (VBP curse) (PP (IN in) (NP (NNP Spanish)))) (CC and) (VP (VB shake) (NP (PRP$ their) (NNS heads)) (PP (IN in) (NP (NN bewilderment)))))) (CC and) (S (NP (NNP Stevie)) (VP (VBZ turns) (NP (DT the) (NN salsa)) (ADVP (RB back)) (PP (RB on)))) (. .))
 # scene = 31
 # sent_id = 18
 # sent_len = 19
@@ -410,18 +410,18 @@
 2	men	man	NOUN	NNS	_	3	nsubj	_	_
 3	curse	curse	VERB	VBP	_	0	ROOT	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
-5	Spanish	spanish	ADJ	JJ	_	4	pobj	_	ent_type=LANGUAGE|ent_id=387|ent_iob=B
+5	Spanish	Spanish	PROPN	NNP	_	4	pobj	_	ent_type=NORP|ent_id=381|ent_iob=B
 6	and	and	CCONJ	CC	_	3	cc	_	_
 7	shake	shake	VERB	VB	_	3	conj	_	_
-8	their	-PRON-	ADJ	PRP$	_	9	poss	_	_
+8	their	-PRON-	DET	PRP$	_	9	poss	_	_
 9	heads	head	NOUN	NNS	_	7	dobj	_	_
 10	in	in	ADP	IN	_	7	prep	_	_
 11	bewilderment	bewilderment	NOUN	NN	_	10	pobj	_	_
-12	and	and	CCONJ	CC	_	7	cc	_	_
-13	Stevie	stevie	PROPN	NNP	_	14	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-14	turns	turn	VERB	VBZ	_	7	conj	_	_
+12	and	and	CCONJ	CC	_	3	cc	_	_
+13	Stevie	Stevie	PROPN	NNP	_	14	nsubj	_	_
+14	turns	turn	VERB	VBZ	_	3	conj	_	_
 15	the	the	DET	DT	_	16	det	_	_
-16	salsa	salsa	NOUN	NNS	_	14	dobj	_	_
+16	salsa	salsa	NOUN	NN	_	14	dobj	_	_
 17	back	back	ADV	RB	_	18	advmod	_	_
-18	on	on	ADV	RB	_	14	prep	_	_
-19	.	.	PUNCT	.	_	3	punct	_	_
+18	on	on	ADV	RB	_	14	advmod	_	_
+19	.	.	PUNCT	.	_	14	punct	_	_

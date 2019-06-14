@@ -1,8 +1,8 @@
 # loc = EXT
-# parse = (S (NP (DT The) (NN mob)) (VP (VBZ moves) (ADVP (RB back)) (PP (IN to) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (NNP Sal) (POS 's)))))) (SBAR (IN as) (S (NP (DT the) (NN fire) (NNS trucks) (CC and) (NNS police)) (, ,) (PP (IN in) (NP (JJ full) (NN riot) (NN gear))) (, ,) (VP (VB pull) (PRT (RP up)) (PP (IN in) (NP (NP (DT the) (NN street)) (PP (IN behind) (NP (PRP them))))))))) (. .) (  ))
+# parse = (S (NP (DT The) (NN mob)) (VP (VBZ moves) (ADVP (RB back)) (PP (IN to) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (NNP Sal) (POS 's)))))) (SBAR (IN as) (S (NP (DT the) (NN fire) (NNS trucks) (CC and) (NNS police)) (, ,) (PP (IN in) (NP (JJ full) (NN riot) (NN gear))) (, ,) (VP (VB pull) (PRT (RP up)) (PP (IN in) (NP (NP (DT the) (NN street)) (PP (IN behind) (NP (PRP them))))))))) (. .) (_SP  ))
 # scene = 89
 # sent_id = 1
-# sent_len = 31
+# sent_len = 30
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = The mob moves back to in front of Sal's as the fire trucks and police, in full riot gear, pull up in the street behind them.
@@ -15,7 +15,7 @@
 6	in	in	ADP	IN	_	3	prep	_	_
 7	front	front	NOUN	NN	_	6	pobj	_	_
 8	of	of	ADP	IN	_	7	prep	_	_
-9	Sal	sal	PROPN	NNP	_	8	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+9	Sal	Sal	PROPN	NNP	_	8	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
 10	's	's	PART	POS	_	9	case	_	_
 11	as	as	ADP	IN	_	3	prep	_	_
 12	the	the	DET	DT	_	14	det	_	_
@@ -29,7 +29,7 @@
 20	riot	riot	NOUN	NN	_	21	compound	_	_
 21	gear	gear	NOUN	NN	_	18	pobj	_	_
 22	,	,	PUNCT	,	_	3	punct	_	_
-23	pull	pull	VERB	VB	_	3	advcl	_	_
+23	pull	pull	VERB	VB	_	3	conj	_	_
 24	up	up	PART	RP	_	23	prt	_	_
 25	in	in	ADP	IN	_	23	prep	_	_
 26	the	the	DET	DT	_	27	det	_	_
@@ -40,6 +40,7 @@
 
 # line = 746
 # loc = EXT
+# off_screen = True
 # parse = (NP (JJ Good) (NNS people) (. .))
 # scene = 89
 # sent_id = 2
@@ -49,13 +50,14 @@
 # stage_direction = True
 # text = Good people.
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	Good	good	ADJ	JJ	_	2	amod	_	_
 2	people	people	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 746
 # loc = EXT
+# off_screen = True
 # parse = (S (INTJ (UH Please)) (VP (VB disperse)) (. .))
 # scene = 89
 # sent_id = 3
@@ -65,48 +67,49 @@
 # stage_direction = True
 # text = Please disperse.
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	Please	please	INTJ	UH	_	2	intj	_	_
 2	disperse	disperse	VERB	VB	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 746
 # loc = EXT
-# parse = (INTJ (INTJ (UH Please)) (VP (VB disperse)) (. ..) (  ))
+# off_screen = True
+# parse = (S (INTJ (UH Please)) (VP (VB disperse)) (. .) (_SP  ))
 # scene = 89
 # sent_id = 4
-# sent_len = 4
+# sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = POLICE LOUDSPEAKER
 # stage_direction = True
-# text = Please disperse..
+# text = Please disperse.
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	Please	please	INTJ	UH	_	2	intj	_	_
 2	disperse	disperse	VERB	VB	_	0	ROOT	_	_
-3	..	..	PUNCT	.	_	2	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (DT The) (NNS firemen)) (VP (VBP rush) (S (VP (TO to) (VP (VB hook) (PRT (RP up)) (NP (PRP$ their) (NNS hoses))))))) (, ,) (S (NP (DT the) (NN police)) (VP (VBP force) (NP (PRP themselves)) (PP (IN between) (NP (NP (DT the) (NN crowd)) (CC and) (NP (NP (DT the) (VBG burning) (NP (NNP Sal) (POS 's))) (NNP Famous) (NNP Pizzeria)))))) (. .) (  ))
+# parse = (S (S (NP (DT The) (NNS firemen)) (VP (NN rush) (S (VP (TO to) (VP (VB hook) (PRT (RP up)) (NP (PRP$ their) (NNS hoses))))))) (, ,) (S (NP (DT the) (NN police)) (VP (VBP force) (NP (PRP themselves)) (PP (IN between) (NP (NP (DT the) (NN crowd)) (CC and) (NP (NP (DT the) (VBG burning) (NP (NNP Sal) (POS 's))) (NNP Famous) (NNP Pizzeria) (. .) (_SP  ) (NP (UH Please)) (VP (VB disperse))))))) (. !))
 # scene = 89
 # sent_id = 5
-# sent_len = 25
+# sent_len = 27
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
-# text = The firemen rush to hook up their hoses, the police force themselves between the crowd and the burning Sal's Famous Pizzeria.
+# text = The firemen rush to hook up their hoses, the police force themselves between the crowd and the burning Sal's Famous Pizzeria.  Please disperse!
 # time = NIGHT
 1	The	the	DET	DT	_	2	det	_	_
 2	firemen	fireman	NOUN	NNS	_	3	nsubj	_	_
-3	rush	rush	VERB	VBP	_	12	ccomp	_	_
+3	rush	rush	NOUN	NN	_	12	ccomp	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	hook	hook	VERB	VB	_	3	xcomp	_	_
 6	up	up	PART	RP	_	5	prt	_	_
-7	their	-PRON-	ADJ	PRP$	_	8	poss	_	_
+7	their	-PRON-	DET	PRP$	_	8	poss	_	_
 8	hoses	hose	NOUN	NNS	_	5	dobj	_	_
 9	,	,	PUNCT	,	_	12	punct	_	_
 10	the	the	DET	DT	_	11	det	_	_
 11	police	police	NOUN	NN	_	12	nsubj	_	_
-12	force	force	VERB	VBP	_	0	ROOT	_	_
+12	force	force	VERB	VBP	_	27	ccomp	_	_
 13	themselves	-PRON-	PRON	PRP	_	12	dobj	_	_
 14	between	between	ADP	IN	_	12	prep	_	_
 15	the	the	DET	DT	_	16	det	_	_
@@ -114,15 +117,19 @@
 17	and	and	CCONJ	CC	_	16	cc	_	_
 18	the	the	DET	DT	_	23	det	_	_
 19	burning	burn	VERB	VBG	_	23	amod	_	_
-20	Sal	sal	PROPN	NNP	_	23	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
-21	's	's	PART	POS	_	20	case	_	_
-22	Famous	famous	PROPN	NNP	_	23	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-23	Pizzeria	pizzeria	PROPN	NNP	_	16	conj	_	ent_type=ORG|ent_id=381|ent_iob=I
+20	Sal	Sal	PROPN	NNP	_	23	poss	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+21	's	's	PART	POS	_	20	case	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+22	Famous	Famous	PROPN	NNP	_	23	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+23	Pizzeria	Pizzeria	PROPN	NNP	_	16	conj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
 24	.	.	PUNCT	.	_	12	punct	_	_
+25	Please	please	INTJ	UH	_	27	intj	_	_
+26	disperse	disperse	VERB	VB	_	0	ROOT	_	_
+27	!	!	PUNCT	.	_	27	punct	_	_
 
 # line = 747
 # loc = EXT
-# parse = (INTJ (INTJ (UH Please)) (VP (NN disperse)) (. !))
+# off_screen = True
+# parse = (INTJ (INTJ (UH Please)) (VP (VB disperse)) (. !) (_SP  ))
 # scene = 89
 # sent_id = 6
 # sent_len = 3
@@ -131,30 +138,15 @@
 # stage_direction = True
 # text = Please disperse!
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	Please	please	INTJ	UH	_	2	intj	_	_
-2	disperse	disperse	NOUN	NN	_	0	ROOT	_	_
+2	disperse	disperse	VERB	VB	_	0	ROOT	_	_
 3	!	!	PUNCT	.	_	2	punct	_	_
-
-# line = 747
-# loc = EXT
-# parse = (INTJ (INTJ (UH Please)) (XX disperse!.) (NP (  )))
-# scene = 89
-# sent_id = 7
-# sent_len = 3
-# setting = SAL'S FAMOUS PIZZERIA
-# speaker = POLICE LOUDSPEAKER
-# stage_direction = True
-# text = Please disperse!.
-# time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
-1	Please	please	INTJ	UH	_	2	intj	_	_
-2	disperse!.	disperse!.	X	XX	_	0	ROOT	_	_
 
 # loc = EXT
 # parse = (S (S (NP (DT The) (NN mob)) (VP (VBZ does) (RB n't) (VP (VB listen)))) (, ,) (S (NP (PRP they)) (VP (MD will) (RB not) (VP (VB be) (VP (VBN moved))))) (. .))
 # scene = 89
-# sent_id = 8
+# sent_id = 7
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
@@ -174,9 +166,9 @@
 12	.	.	PUNCT	.	_	11	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (DT The) (NN mob)) (VP (MD will) (RB not) (VP (VB be) (VP (VBN moved) (SBAR (IN until) (S (NP (PRP they)) (VP (VBP see) (S (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)) (VP (VBP burn) (PP (IN to) (NP (DT the) (NN ground))))))))))) (. .))
+# parse = (S (NP (DT The) (NN mob)) (VP (MD will) (RB not) (VP (VB be) (VP (VBN moved) (SBAR (IN until) (S (NP (PRP they)) (VP (VBP see) (S (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria)) (VP (VB burn) (PP (IN to) (NP (DT the) (NN ground))))))))))) (. .))
 # scene = 89
-# sent_id = 9
+# sent_id = 8
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
@@ -191,21 +183,21 @@
 7	until	until	ADP	IN	_	9	mark	_	_
 8	they	-PRON-	PRON	PRP	_	9	nsubj	_	_
 9	see	see	VERB	VBP	_	6	advcl	_	_
-10	Sal	sal	PROPN	NNP	_	13	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
-11	's	's	PART	POS	_	10	case	_	ent_type=PERSON|ent_id=378|ent_iob=I
-12	Famous	famous	PROPN	NNP	_	13	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-13	Pizzeria	pizzeria	PROPN	NNP	_	14	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
-14	burn	burn	VERB	VBP	_	9	ccomp	_	_
+10	Sal	Sal	PROPN	NNP	_	13	poss	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+11	's	's	PART	POS	_	10	case	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+12	Famous	Famous	PROPN	NNP	_	13	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+13	Pizzeria	Pizzeria	PROPN	NNP	_	14	nsubj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+14	burn	burn	VERB	VB	_	9	ccomp	_	_
 15	to	to	ADP	IN	_	14	prep	_	_
 16	the	the	DET	DT	_	17	det	_	_
 17	ground	ground	NOUN	NN	_	15	pobj	_	_
 18	.	.	PUNCT	.	_	6	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (DT The) (NNS firemen)) (VP (VBP douse) (NP (DT the) (NN pizzeria)) (, ,) (S (VP (VBG trying) (ADVP (RB desperately)) (S (VP (TO to) (VP (VB stop) (NP (DT the) (NN fire)) (PP (IN from) (S (VP (VBG spreading) (PP (IN into) (NP (DT the) (VBG adjoining) (NNS buildings)))))))))))) (. .) (  ))
+# parse = (S (NP (DT The) (NNS firemen)) (VP (VBP douse) (NP (DT the) (NNS pizzeria)) (, ,) (S (VP (VBG trying) (ADVP (RB desperately)) (S (VP (TO to) (VP (VB stop) (NP (DT the) (NN fire)) (PP (IN from) (S (VP (VBG spreading) (PP (IN into) (NP (DT the) (VBG adjoining) (NNS buildings)))))))))))) (. .) (_SP  ))
 # scene = 89
-# sent_id = 10
-# sent_len = 20
+# sent_id = 9
+# sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = The firemen douse the pizzeria, trying desperately to stop the fire from spreading into the adjoining buildings.
@@ -214,7 +206,7 @@
 2	firemen	fireman	NOUN	NNS	_	3	nsubj	_	_
 3	douse	douse	VERB	VBP	_	0	ROOT	_	_
 4	the	the	DET	DT	_	5	det	_	_
-5	pizzeria	pizzeria	NOUN	NN	_	3	dobj	_	_
+5	pizzeria	pizzeria	NOUN	NNS	_	3	dobj	_	_
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	trying	try	VERB	VBG	_	3	advcl	_	_
 8	desperately	desperately	ADV	RB	_	7	advmod	_	_
@@ -232,16 +224,17 @@
 
 # line = 748
 # loc = EXT
+# off_screen = True
 # parse = (S (NP (JJ Good) (NNS people)) (, ,) (NP (PRP we)) (VP (VBP 're) (VP (VBG giving) (NP (PRP you)) (NP (ADJP (CD one) (JJR more)) (NN warning)))) (. .))
 # scene = 89
-# sent_id = 11
+# sent_id = 10
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = POLICE LOUDSPEAKER
 # stage_direction = True
 # text = Good people, we're giving you one more warning.
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	Good	good	ADJ	JJ	_	2	amod	_	_
 2	people	people	NOUN	NNS	_	6	npadvmod	_	_
 3	,	,	PUNCT	,	_	6	punct	_	_
@@ -249,68 +242,69 @@
 5	're	be	VERB	VBP	_	6	aux	_	_
 6	giving	give	VERB	VBG	_	0	ROOT	_	_
 7	you	-PRON-	PRON	PRP	_	6	dative	_	_
-8	one	one	NUM	CD	_	10	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+8	one	one	NUM	CD	_	10	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 9	more	more	ADJ	JJR	_	10	amod	_	_
 10	warning	warning	NOUN	NN	_	6	dobj	_	_
 11	.	.	PUNCT	.	_	6	punct	_	_
 
 # line = 748
 # loc = EXT
-# parse = (S (INTJ (UH Please)) (VP (VB go) (ADVP (RB back) (RB home))) (. ..) (  ))
+# off_screen = True
+# parse = (S (INTJ (UH Please)) (VP (VB go) (ADVP (RB back) (RB home))) (. .) (_SP  ))
 # scene = 89
-# sent_id = 12
-# sent_len = 6
+# sent_id = 11
+# sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = POLICE LOUDSPEAKER
 # stage_direction = True
-# text = Please go back home..
+# text = Please go back home.
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	Please	please	INTJ	UH	_	2	intj	_	_
 2	go	go	VERB	VB	_	0	ROOT	_	_
 3	back	back	ADV	RB	_	4	advmod	_	_
 4	home	home	ADV	RB	_	2	advmod	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 749
 # loc = EXT
-# parse = (S (NP (DT This)) (VP (VBZ is) (NP (PRP$ our) (NN home))) (. ..) (  ))
+# parse = (S (NP (DT This)) (VP (VBZ is) (NP (PRP$ our) (NN home))) (. .) (_SP  ))
 # scene = 89
-# sent_id = 13
-# sent_len = 6
+# sent_id = 12
+# sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = MOOKIE
 # stage_direction = True
-# text = This is our home..
+# text = This is our home.
 # time = NIGHT
 1	This	this	DET	DT	_	2	nsubj	_	_
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	our	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	our	-PRON-	DET	PRP$	_	4	poss	_	_
 4	home	home	NOUN	NN	_	2	attr	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 750
 # loc = EXT
-# parse = (S (NP (DT This)) (VP (VBZ is) (NP (PRP$ our) (NN neighborhood))) (. ..) (  ))
+# parse = (S (NP (DT This)) (VP (VBZ is) (NP (PRP$ our) (NN neighborhood))) (. .) (_SP  ))
 # scene = 89
-# sent_id = 14
-# sent_len = 6
+# sent_id = 13
+# sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = This is our neighborhood..
+# text = This is our neighborhood.
 # time = NIGHT
 1	This	this	DET	DT	_	2	nsubj	_	_
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	our	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	our	-PRON-	DET	PRP$	_	4	poss	_	_
 4	neighborhood	neighborhood	NOUN	NN	_	2	attr	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NP (PRP It))) (VP (MD will) (VP (VB take) (NP (NN force)) (S (VP (TO to) (VP (VB move) (NP (NP (DT this) (NN mass)) (PP (IN of) (NP (NNS people))))))))) (. .) (  ))
+# parse = (S (NP (NP (PRP It))) (VP (MD will) (VP (VB take) (NP (NN force)) (S (VP (TO to) (VP (VB move) (NP (NP (DT this) (NN mass)) (PP (IN of) (NP (NNS people))))))))) (. .) (_SP  ))
 # scene = 89
-# sent_id = 15
-# sent_len = 12
+# sent_id = 14
+# sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = It will take force to move this mass of people.
@@ -320,7 +314,7 @@
 3	take	take	VERB	VB	_	0	ROOT	_	_
 4	force	force	NOUN	NN	_	3	dobj	_	_
 5	to	to	PART	TO	_	6	aux	_	_
-6	move	move	VERB	VB	_	3	xcomp	_	_
+6	move	move	VERB	VB	_	3	advcl	_	_
 7	this	this	DET	DT	_	8	det	_	_
 8	mass	mass	NOUN	NN	_	6	dobj	_	_
 9	of	of	ADP	IN	_	8	prep	_	_
@@ -329,26 +323,28 @@
 
 # line = 751
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VB 've) (VP (VBN had) (NP (PRP$ your) (NNP warning!.) (  )))))
+# off_screen = True
+# parse = (S (NP (PRP You)) (VP (VB 've) (VP (VBN had) (NP (PRP$ your) (NN warning)))) (. !) (_SP  ))
 # scene = 89
-# sent_id = 16
+# sent_id = 15
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = POLICE LOUDSPEAKER
 # stage_direction = True
-# text = You've had your warning!.
+# text = You've had your warning!
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	You	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	've	have	VERB	VB	_	3	aux	_	_
 3	had	have	VERB	VBN	_	0	ROOT	_	_
-4	your	-PRON-	ADJ	PRP$	_	5	poss	_	_
-5	warning!.	warning!.	PROPN	NNP	_	3	dobj	_	_
+4	your	-PRON-	DET	PRP$	_	5	poss	_	_
+5	warning	warning	NOUN	NN	_	3	dobj	_	_
+6	!	!	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (DT The) (NNS hoses)) (VP (VBP are) (VP (VBN turned) (PP (IN on) (NP (DT the) (NN mob))))) (. .))
 # scene = 89
-# sent_id = 17
+# sent_id = 16
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
@@ -364,54 +360,64 @@
 8	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP WE)) (VP (VP (VBP SEE) (NP (NP (NP (NNP Mookie)) (, ,) (NP (NNP Mother) (NNP Sister)) (, ,) (NP (NNP Sweet) (NNP Dick) (NNP Willie)) (, ,) (NP (NNP ML)) (, ,) (NP (NNP Coconut) (NNP Sid)) (, ,) (NP (NNP Jade)) (, ,) (NNP Ahmad) (, ,) (NNP Cee) (, ,) (NNP Punchy) (, ,) (CC and) (NP (NNP Ella))) (, ,) (NP (FW etc) (. .)) (, ,))) (VP (VB go) (ADVP (RP down)) (PP (IN before) (NP (NP (DT the) (JJ powerful) (NN blast)) (PP (IN of) (NP (DT the) (NN firehouse))))))) (. .))
+# parse = (S (NP (PRP WE)) (VP (VBP SEE) (NP (NP (NNP Mookie)) (, ,) (NP (NNP Mother) (NNP Sister)) (, ,) (NP (NNP Sweet) (NNP Dick) (NNP Willie)) (, ,) (NP (NNP ML)) (, ,) (NP (NNP Coconut) (NNP Sid)) (, ,) (NNP Jade) (, ,) (NNP Ahmad) (, ,) (NNP Cee) (, ,) (NNP Punchy) (, ,) (CC and) (NNP Ella)) (, ,) (NP (FW etc))) (. .))
 # scene = 89
-# sent_id = 18
-# sent_len = 40
+# sent_id = 17
+# sent_len = 29
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
-# text = WE SEE Mookie, Mother Sister, Sweet Dick Willie, ML, Coconut Sid, Jade, Ahmad, Cee, Punchy, and Ella, etc., go down before the powerful blast of the firehouse.
+# text = WE SEE Mookie, Mother Sister, Sweet Dick Willie, ML, Coconut Sid, Jade, Ahmad, Cee, Punchy, and Ella, etc.
 # time = NIGHT
 1	WE	we	PRON	PRP	_	2	nsubj	_	_
-2	SEE	see	VERB	VBP	_	31	parataxis	_	_
-3	Mookie	mookie	PROPN	NNP	_	2	dobj	_	_
+2	SEE	see	VERB	VBP	_	0	ROOT	_	_
+3	Mookie	Mookie	PROPN	NNP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Mother	mother	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-6	Sister	sister	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+5	Mother	Mother	PROPN	NNP	_	6	compound	_	_
+6	Sister	Sister	PROPN	NNP	_	3	conj	_	_
 7	,	,	PUNCT	,	_	6	punct	_	_
-8	Sweet	sweet	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-9	Dick	dick	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-10	Willie	willie	PROPN	NNP	_	6	conj	_	_
+8	Sweet	Sweet	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+9	Dick	Dick	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+10	Willie	Willie	PROPN	NNP	_	6	conj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 11	,	,	PUNCT	,	_	10	punct	_	_
-12	ML	ml	PROPN	NNP	_	10	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-13	,	,	PUNCT	,	_	10	punct	_	_
-14	Coconut	coconut	PROPN	NNP	_	15	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
-15	Sid	sid	PROPN	NNP	_	10	conj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+12	ML	ML	PROPN	NNP	_	10	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
+13	,	,	PUNCT	,	_	12	punct	_	_
+14	Coconut	Coconut	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+15	Sid	Sid	PROPN	NNP	_	12	conj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 16	,	,	PUNCT	,	_	15	punct	_	_
-17	Jade	jade	PROPN	NNP	_	15	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
+17	Jade	Jade	PROPN	NNP	_	16	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 18	,	,	PUNCT	,	_	17	punct	_	_
-19	Ahmad	ahmad	PROPN	NNP	_	17	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-20	,	,	PUNCT	,	_	19	punct	_	_
-21	Cee	cee	PROPN	NNP	_	19	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+19	Ahmad	Ahmad	PROPN	NNP	_	17	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+20	,	,	PUNCT	,	_	19	punct	_	ent_type=PERSON|ent_id=380|ent_iob=I
+21	Cee	Cee	PROPN	NNP	_	19	conj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 22	,	,	PUNCT	,	_	21	punct	_	_
-23	Punchy	punchy	PROPN	NNP	_	21	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+23	Punchy	Punchy	PROPN	NNP	_	21	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
 24	,	,	PUNCT	,	_	23	punct	_	_
 25	and	and	CCONJ	CC	_	23	cc	_	_
-26	Ella	ella	PROPN	NNP	_	23	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
+26	Ella	Ella	PROPN	NNP	_	23	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
 27	,	,	PUNCT	,	_	26	punct	_	_
-28	etc	etc	X	FW	_	26	conj	_	_
-29	.	.	PUNCT	.	_	2	punct	_	_
-30	,	,	PUNCT	,	_	2	punct	_	_
-31	go	go	VERB	VB	_	0	ROOT	_	_
-32	down	down	PART	RP	_	31	prt	_	_
-33	before	before	ADP	IN	_	31	prep	_	_
-34	the	the	DET	DT	_	36	det	_	_
-35	powerful	powerful	ADJ	JJ	_	36	amod	_	_
-36	blast	blast	NOUN	NN	_	33	pobj	_	_
-37	of	of	ADP	IN	_	36	prep	_	_
-38	the	the	DET	DT	_	39	det	_	_
-39	firehouse	firehouse	NOUN	NN	_	37	pobj	_	_
-40	.	.	PUNCT	.	_	31	punct	_	_
+28	etc	etc	X	FW	_	29	subtok	_	_
+29	.	.	PUNCT	.	_	26	conj	_	_
+
+# loc = EXT
+# parse = (S (, ,) (VP (VB go) (ADVP (RP down)) (PP (IN before) (NP (NP (DT the) (JJ powerful) (NN blast)) (PP (IN of) (NP (DT the) (NN firehouse)))))) (. .))
+# scene = 89
+# sent_id = 18
+# sent_len = 11
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = , go down before the powerful blast of the firehouse.
+# time = NIGHT
+1	,	,	PUNCT	,	_	2	punct	_	_
+2	go	go	VERB	VB	_	0	ROOT	_	_
+3	down	down	PART	RP	_	2	prt	_	_
+4	before	before	ADP	IN	_	2	prep	_	_
+5	the	the	DET	DT	_	7	det	_	_
+6	powerful	powerful	ADJ	JJ	_	7	amod	_	_
+7	blast	blast	NOUN	NN	_	4	pobj	_	_
+8	of	of	ADP	IN	_	7	prep	_	_
+9	the	the	DET	DT	_	10	det	_	_
+10	firehouse	firehouse	NOUN	NN	_	8	pobj	_	_
+11	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
 # parse = (S (ADVP (RB Now)) (NP (PRP we)) (VP (VB 've) (VP (VBN come) (NP (JJ full) (NN circle)))) (. .))
@@ -427,7 +433,7 @@
 3	've	have	VERB	VB	_	4	aux	_	_
 4	come	come	VERB	VBN	_	0	ROOT	_	_
 5	full	full	ADJ	JJ	_	6	amod	_	_
-6	circle	circle	NOUN	NN	_	4	npadvmod	_	_
+6	circle	circle	NOUN	NN	_	4	dobj	_	_
 7	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -443,11 +449,11 @@
 2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	back	back	ADV	RB	_	2	advmod	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
-5	Montgomery	montgomery	PROPN	NNP	_	4	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
+5	Montgomery	Montgomery	PROPN	NNP	_	4	pobj	_	ent_type=ORG|ent_id=383|ent_iob=B
 6	or	or	CCONJ	CC	_	5	cc	_	_
-7	Birmingham	birmingham	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
+7	Birmingham	Birmingham	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
 8	,	,	PUNCT	,	_	7	punct	_	_
-9	Alabama	alabama	PROPN	NNP	_	7	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
+9	Alabama	Alabama	PROPN	NNP	_	7	appos	_	ent_type=GPE|ent_id=384|ent_iob=B
 10	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
@@ -462,14 +468,14 @@
 1	The	the	DET	DT	_	3	det	_	_
 2	only	only	ADJ	JJ	_	3	amod	_	_
 3	thing	thing	NOUN	NN	_	5	nsubj	_	_
-4	missing	miss	VERB	VBG	_	3	acl	_	_
+4	missing	miss	VERB	VBG	_	3	amod	_	_
 5	is	be	VERB	VBZ	_	0	ROOT	_	_
-6	Sheriff	sheriff	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-7	Bull	bull	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-8	Connor	connor	PROPN	NNP	_	5	attr	_	ent_type=ORG|ent_id=381|ent_iob=I
+6	Sheriff	Sheriff	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+7	Bull	Bull	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=383|ent_iob=I
+8	Connor	Connor	PROPN	NNP	_	5	attr	_	ent_type=ORG|ent_id=383|ent_iob=I
 9	and	and	CCONJ	CC	_	8	cc	_	_
 10	the	the	DET	DT	_	12	det	_	_
-11	German	german	ADJ	JJ	_	12	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
+11	German	german	ADJ	JJ	_	12	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
 12	shepherds	shepherd	NOUN	NNS	_	8	conj	_	_
 13	.	.	PUNCT	.	_	5	punct	_	_
 
@@ -493,7 +499,7 @@
 9	that	that	DET	DT	_	10	nsubj	_	_
 10	's	be	VERB	VBZ	_	3	conj	_	_
 11	exactly	exactly	ADV	RB	_	12	advmod	_	_
-12	what	what	NOUN	WP	_	15	dobj	_	_
+12	what	what	PRON	WP	_	15	dobj	_	_
 13	the	the	DET	DT	_	14	det	_	_
 14	mob	mob	NOUN	NN	_	15	nsubj	_	_
 15	got	get	VERB	VBD	_	10	ccomp	_	_
@@ -508,7 +514,7 @@
 # stage_direction = True
 # text = People are trying to hold on to each other, cars, railings, anything to keep from being swept away.
 # time = NIGHT
-1	People	people	NOUN	NNS	_	3	nsubj	_	_
+1	People	People	NOUN	NNS	_	3	nsubj	_	_
 2	are	be	VERB	VBP	_	3	aux	_	_
 3	trying	try	VERB	VBG	_	0	ROOT	_	_
 4	to	to	PART	TO	_	5	aux	_	_
@@ -517,12 +523,12 @@
 7	to	to	ADP	IN	_	5	prep	_	_
 8	each	each	DET	DT	_	9	det	_	_
 9	other	other	ADJ	JJ	_	7	pobj	_	_
-10	,	,	PUNCT	,	_	9	punct	_	_
-11	cars	car	NOUN	NNS	_	9	conj	_	_
+10	,	,	PUNCT	,	_	13	punct	_	_
+11	cars	car	NOUN	NNS	_	10	pobj	_	_
 12	,	,	PUNCT	,	_	11	punct	_	_
-13	railings	railing	NOUN	NNS	_	11	conj	_	_
+13	railings	railing	NOUN	NNS	_	5	dobj	_	_
 14	,	,	PUNCT	,	_	13	punct	_	_
-15	anything	anything	NOUN	NN	_	13	conj	_	_
+15	anything	anything	NOUN	NN	_	5	dobj	_	_
 16	to	to	PART	TO	_	17	aux	_	_
 17	keep	keep	VERB	VB	_	15	relcl	_	_
 18	from	from	ADP	IN	_	17	prep	_	_

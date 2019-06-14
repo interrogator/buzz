@@ -1,18 +1,18 @@
 # loc = INT
-# parse = (S (NP (NNP Mookie)) (VP (VP (VBZ sits) (NP (NNP Tina)) (PRT (RP down)) (PP (IN on) (NP (PRP$ her) (NN futon) (NN bed)))) (, ,) (VP (VBZ turns) (PRT (RP off)) (NP (DT the) (NNS lights))) (, ,) (CC and) (VP (VBZ turns) (PRT (IN on)) (NP (NP (NNP WE)) (VP (NNP LOVE) (NP (NN RADIO)))) (SBAR (IN as) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ serenades) (NP (PRP them)) (PP (IN with) (NP (JJ slow) (NNS jams)))))))) (. .) (  ))
+# parse = (S (NP (NNP Mookie)) (VP (VP (VBZ sits) (NP (NNP Tina)) (PRT (RP down)) (PP (IN on) (NP (PRP$ her) (NN futon) (NN bed)))) (, ,) (VP (VBZ turns) (PRT (RP off)) (NP (DT the) (NNS lights))) (, ,) (CC and) (VP (VBZ turns) (PRT (IN on)) (NP (NP (NNP WE)) (VP (NNP LOVE) (NP (NNP RADIO)))) (SBAR (IN as) (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy)) (VP (VBZ serenades) (NP (PRP them)) (PP (IN with) (NP (JJ slow) (NNS jams)))))))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 1
-# sent_len = 32
+# sent_len = 31
 # setting = TINA'S BEDROOM
 # stage_direction = True
 # text = Mookie sits Tina down on her futon bed, turns off the lights, and turns on WE LOVE RADIO as Mister Señor Love Daddy serenades them with slow jams.
 # time = NIGHT
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	Mookie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
-3	Tina	tina	PROPN	NNP	_	2	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
+3	Tina	Tina	PROPN	NNP	_	2	dobj	_	ent_type=GPE|ent_id=384|ent_iob=B
 4	down	down	PART	RP	_	2	prt	_	_
 5	on	on	ADP	IN	_	2	prep	_	_
-6	her	-PRON-	ADJ	PRP$	_	8	poss	_	_
+6	her	-PRON-	DET	PRP$	_	8	poss	_	_
 7	futon	futon	NOUN	NN	_	8	compound	_	_
 8	bed	bed	NOUN	NN	_	5	pobj	_	_
 9	,	,	PUNCT	,	_	2	punct	_	_
@@ -24,15 +24,15 @@
 15	and	and	CCONJ	CC	_	10	cc	_	_
 16	turns	turn	VERB	VBZ	_	10	conj	_	_
 17	on	on	ADP	IN	_	16	prep	_	_
-18	WE	we	PROPN	NNP	_	20	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-19	LOVE	love	PROPN	NNP	_	20	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-20	RADIO	radio	NOUN	NN	_	17	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
-21	as	as	ADP	IN	_	26	mark	_	_
-22	Mister	mister	PROPN	NNP	_	25	compound	_	_
-23	Señor	señor	PROPN	NNP	_	24	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
-24	Love	love	PROPN	NNP	_	25	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
-25	Daddy	daddy	PROPN	NNP	_	26	nsubj	_	_
-26	serenades	serenade	VERB	VBZ	_	16	advcl	_	_
+18	WE	WE	PROPN	NNP	_	20	compound	_	_
+19	LOVE	LOVE	PROPN	NNP	_	20	compound	_	_
+20	RADIO	RADIO	PROPN	NNP	_	17	pobj	_	_
+21	as	as	ADP	IN	_	20	prep	_	_
+22	Mister	Mister	PROPN	NNP	_	25	compound	_	_
+23	Señor	Señor	PROPN	NNP	_	25	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+24	Love	Love	PROPN	NNP	_	25	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+25	Daddy	daddy	NOUN	NN	_	21	pobj	_	_
+26	serenades	serenade	VERB	VBZ	_	10	conj	_	_
 27	them	-PRON-	PRON	PRP	_	26	dobj	_	_
 28	with	with	ADP	IN	_	26	prep	_	_
 29	slow	slow	ADJ	JJ	_	30	amod	_	_
@@ -41,14 +41,14 @@
 
 # line = 623
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VB take) (PRT (RP off)) (NP (PRP ya) (NNS clothes))))))) (NFP ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VB take) (PRT (RP off)) (NP (PRP ya) (NNS clothes))))))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 2
-# sent_len = 10
+# sent_len = 9
 # setting = TINA'S BEDROOM
 # speaker = MOOKIE
 # stage_direction = True
-# text = I'm gonna take off ya clothes..
+# text = I'm gonna take off ya clothes.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
@@ -58,20 +58,20 @@
 6	off	off	PART	RP	_	5	prt	_	_
 7	ya	ya	PRON	PRP	_	8	compound	_	_
 8	clothes	clothe	NOUN	NNS	_	5	dobj	_	_
-9	..	..	PUNCT	NFP	_	3	punct	_	_
+9	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 624
 # loc = INT
-# parse = (S (NP (NNP Mookie)) (, ,) (NP (PRP I)) (VP (VP (VBD told) (NP (PRP you)) (ADVP (RB already))) (SBAR (S (NP (NP (PRP it))) (VP (VBZ 's) (ADJP (RB too) (JJ fucking) (JJ hot)) (S (VP (TO to) (VP (VB make) (NP (NN love))))))))) (. ..) (  ))
+# parse = (S (S (NP (NNP Mookie))) (, ,) (NP (PRP I)) (VP (VP (VBD told) (NP (PRP you)) (ADVP (RB already))) (SBAR (S (NP (PRP it)) (VP (VBZ 's) (ADJP (RB too) (JJ fucking) (JJ hot)) (S (VP (TO to) (VP (VB make) (NP (NN love))))))))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 3
-# sent_len = 16
+# sent_len = 15
 # setting = TINA'S BEDROOM
 # speaker = TINA
 # stage_direction = True
-# text = Mookie, I told you already it's too fucking hot to make love..
+# text = Mookie, I told you already it's too fucking hot to make love.
 # time = NIGHT
-1	Mookie	mookie	PROPN	NNP	_	4	npadvmod	_	_
+1	Mookie	Mookie	PROPN	NNP	_	4	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	told	tell	VERB	VBD	_	0	ROOT	_	_
@@ -85,18 +85,18 @@
 12	to	to	PART	TO	_	13	aux	_	_
 13	make	make	VERB	VB	_	8	xcomp	_	_
 14	love	love	NOUN	NN	_	13	dobj	_	_
-15	..	..	PUNCT	.	_	4	punct	_	_
+15	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 625
 # loc = INT
-# parse = (SBARQ (WHADVP (WRB Why)) (S (NP (PRP you)) (VP (VBD got) (S (VP (TO ta) (VP (VB curse)))))) (. ?) (. .) (  ))
+# parse = (SBAR (WHADVP (WRB Why)) (S (NP (PRP you)) (VP (VBD got) (S (VP (TO ta) (VP (VB curse)))))) (. ?) (_SP  ))
 # scene = 74
 # sent_id = 4
-# sent_len = 8
+# sent_len = 6
 # setting = TINA'S BEDROOM
 # speaker = MOOKIE
 # stage_direction = True
-# text = Why you gotta curse?.
+# text = Why you gotta curse?
 # time = NIGHT
 1	Why	why	ADV	WRB	_	3	advmod	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
@@ -104,18 +104,17 @@
 4	ta	to	PART	TO	_	5	aux	_	_
 5	curse	curse	VERB	VB	_	3	xcomp	_	_
 6	?	?	PUNCT	.	_	3	punct	_	_
-7	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 626
 # loc = INT
-# parse = (S (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ sorry)))) (, ,) (CC but) (S (NP (DT no) (NN rawness)) (VP (VBZ is) (VP (VBG jumping) (ADVP (RP off)) (NP (NN tonight))))) (. ..) (  ))
+# parse = (S (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ sorry)))) (, ,) (CC but) (S (NP (DT no) (NN rawness)) (VP (VBZ is) (VP (VBG jumping) (ADVP (RP off)) (NP (NN tonight))))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 5
-# sent_len = 13
+# sent_len = 12
 # setting = TINA'S BEDROOM
 # speaker = TINA
 # stage_direction = True
-# text = I'm sorry, but no rawness is jumping off tonight..
+# text = I'm sorry, but no rawness is jumping off tonight.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	'm	be	VERB	VBP	_	0	ROOT	_	_
@@ -127,23 +126,23 @@
 8	is	be	VERB	VBZ	_	9	aux	_	_
 9	jumping	jump	VERB	VBG	_	2	conj	_	_
 10	off	off	PART	RP	_	9	prt	_	_
-11	tonight	tonight	NOUN	NN	_	9	npadvmod	_	ent_type=TIME|ent_id=389|ent_iob=B
-12	..	..	PUNCT	.	_	9	punct	_	_
+11	tonight	tonight	NOUN	NN	_	9	npadvmod	_	ent_type=TIME|ent_id=392|ent_iob=B
+12	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 627
 # loc = INT
-# parse = (NP (DT No) (NN rawness) (. ..) (  ))
+# parse = (NP (DT No) (NN rawness) (. .) (_SP  ))
 # scene = 74
 # sent_id = 6
-# sent_len = 4
+# sent_len = 3
 # setting = TINA'S BEDROOM
 # speaker = MOOKIE
 # stage_direction = True
-# text = No rawness..
+# text = No rawness.
 # time = NIGHT
 1	No	no	DET	DT	_	2	det	_	_
 2	rawness	rawness	NOUN	NN	_	0	ROOT	_	_
-3	..	..	PUNCT	.	_	2	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
 # parse = (S (NP (PRP He)) (VP (VBZ laughs) (NP (PRP$ his) (JJ sinister) (NN laugh))) (. .))
@@ -156,13 +155,13 @@
 # time = NIGHT
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	laughs	laugh	VERB	VBZ	_	0	ROOT	_	_
-3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
-4	sinister	sinister	ADJ	JJ	_	5	nsubj	_	_
-5	laugh	laugh	NOUN	NN	_	2	ccomp	_	_
+3	his	-PRON-	DET	PRP$	_	5	poss	_	_
+4	sinister	sinister	ADJ	JJ	_	5	amod	_	_
+5	laugh	laugh	NOUN	NN	_	2	dobj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NN Mookie)) (VP (VP (VBZ unsnaps) (NP (PRP$ her) (NN bra))) (, ,) (RB then) (VP (VBZ pulls) (NP (PRP$ her) (NNS panties)) (PRT (RP off)))) (. .))
+# parse = (S (NP (JJ Mookie)) (VP (VP (VBZ unsnaps) (NP (PRP$ her) (NN bra))) (, ,) (RB then) (VP (VBZ pulls) (NP (PRP$ her) (NNS panties)) (PRT (RP off)))) (. .))
 # scene = 74
 # sent_id = 8
 # sent_len = 11
@@ -170,28 +169,28 @@
 # stage_direction = True
 # text = Mookie unsnaps her bra, then pulls her panties off.
 # time = NIGHT
-1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	unsnaps	unsnap	VERB	VBZ	_	7	ccomp	_	_
-3	her	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	her	-PRON-	DET	PRP$	_	4	poss	_	_
 4	bra	bra	NOUN	NN	_	2	dobj	_	_
 5	,	,	PUNCT	,	_	7	punct	_	_
 6	then	then	ADV	RB	_	7	advmod	_	_
 7	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
-8	her	-PRON-	ADJ	PRP$	_	9	poss	_	_
+8	her	-PRON-	DET	PRP$	_	9	poss	_	_
 9	panties	pantie	NOUN	NNS	_	7	dobj	_	_
 10	off	off	PART	RP	_	7	prt	_	_
 11	.	.	PUNCT	.	_	7	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Tina)) (VP (VBZ is) (ADJP (JJ naked)) (PP (IN as) (NP (DT a) (NN jaybird)))) (. .) (  ))
+# parse = (S (NP (NNP Tina)) (VP (VBZ is) (ADJP (JJ naked)) (PP (IN as) (NP (DT a) (NN jaybird)))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 9
-# sent_len = 8
+# sent_len = 7
 # setting = TINA'S BEDROOM
 # stage_direction = True
 # text = Tina is naked as a jaybird.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Tina	Tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	naked	naked	ADJ	JJ	_	2	acomp	_	_
 4	as	as	ADP	IN	_	3	prep	_	_
@@ -200,7 +199,7 @@
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Mookie)) (VP (VP (VBZ unsnaps) (NP (PRP$ her) (NN bra))) (, ,) (RB then) (VP (VBZ pulls) (NP (PRP$ her) (NNS panties)) (PRT (RP off)))) (. .))
+# parse = (S (NP (NNP Mookie)) (VP (VP (NNS unsnaps) (NP (PRP$ her) (NN bra))) (, ,) (RB then) (VP (VBZ pulls) (NP (PRP$ her) (NNS panties)) (PRT (RP off)))) (. .))
 # scene = 74
 # sent_id = 10
 # sent_len = 11
@@ -208,28 +207,28 @@
 # stage_direction = True
 # text = Mookie unsnaps her bra, then pulls her panties off.
 # time = NIGHT
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	unsnaps	unsnap	VERB	VBZ	_	0	ROOT	_	_
-3	her	-PRON-	ADJ	PRP$	_	4	poss	_	_
+1	Mookie	Mookie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	unsnaps	unsnap	NOUN	NNS	_	7	ccomp	_	_
+3	her	-PRON-	DET	PRP$	_	4	poss	_	_
 4	bra	bra	NOUN	NN	_	2	dobj	_	_
-5	,	,	PUNCT	,	_	2	punct	_	_
+5	,	,	PUNCT	,	_	7	punct	_	_
 6	then	then	ADV	RB	_	7	advmod	_	_
-7	pulls	pull	VERB	VBZ	_	2	dep	_	_
-8	her	-PRON-	ADJ	PRP$	_	9	poss	_	_
+7	pulls	pull	VERB	VBZ	_	0	ROOT	_	_
+8	her	-PRON-	DET	PRP$	_	9	poss	_	_
 9	panties	pantie	NOUN	NNS	_	7	dobj	_	_
 10	off	off	PART	RP	_	7	prt	_	_
-11	.	.	PUNCT	.	_	2	punct	_	_
+11	.	.	PUNCT	.	_	7	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Tina)) (VP (VBZ is) (ADJP (JJ naked)) (PP (IN as) (NP (DT a) (NN jaybird)))) (. .) (  ))
+# parse = (S (NP (NNP Tina)) (VP (VBZ is) (ADJP (JJ naked)) (PP (IN as) (NP (DT a) (NN jaybird)))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 11
-# sent_len = 8
+# sent_len = 7
 # setting = TINA'S BEDROOM
 # stage_direction = True
 # text = Tina is naked as a jaybird.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Tina	Tina	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
 3	naked	naked	ADJ	JJ	_	2	acomp	_	_
 4	as	as	ADP	IN	_	3	prep	_	_
@@ -239,21 +238,21 @@
 
 # line = 628
 # loc = INT
-# parse = (S (NP (NNP Tina)) (, ,) (NP (PRP you)) (VP (VBP 're) (VP (VBG sweating))) (. ..) (  ))
+# parse = (S (NP (NNP Tina)) (, ,) (NP (PRP you)) (VP (VBP 're) (VP (VBG sweating))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 12
-# sent_len = 7
+# sent_len = 6
 # setting = TINA'S BEDROOM
 # speaker = MOOKIE
 # stage_direction = True
-# text = Tina, you're sweating..
+# text = Tina, you're sweating.
 # time = NIGHT
-1	Tina	tina	PROPN	NNP	_	5	npadvmod	_	_
+1	Tina	Tina	PROPN	NNP	_	5	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	're	be	VERB	VBP	_	5	aux	_	_
 5	sweating	sweat	VERB	VBG	_	0	ROOT	_	_
-6	..	..	PUNCT	.	_	5	punct	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 629
 # loc = INT
@@ -267,11 +266,11 @@
 # text = Of course I'm sweating.
 # time = NIGHT
 1	Of	of	ADV	RB	_	2	advmod	_	_
-2	course	course	ADV	RB	_	4	advmod	_	_
-3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	'm	be	VERB	VBP	_	0	ROOT	_	_
-5	sweating	sweat	VERB	VBG	_	4	acomp	_	_
-6	.	.	PUNCT	.	_	4	punct	_	_
+2	course	course	ADV	RB	_	5	advmod	_	_
+3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
+4	'm	be	VERB	VBP	_	5	aux	_	_
+5	sweating	sweat	VERB	VBG	_	0	ROOT	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 629
 # loc = INT
@@ -292,45 +291,45 @@
 
 # line = 629
 # loc = INT
-# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ hot)) (, ,) (INTJ (JJ moron)) (, ,) (RB only) (NP (DT a) (CD hundred) (NNS degrees)) (PP (RB in) (NP (RB here)))) (. ..) (  ))
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ hot)) (, ,) (INTJ (NN moron)) (, ,) (QP (RB only) (DT a) (CD hundred)) (NNS degrees) (PP (IN in) (NP (RB here)))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 15
-# sent_len = 14
+# sent_len = 13
 # setting = TINA'S BEDROOM
 # speaker = TINA
 # stage_direction = True
-# text = It's hot, moron, only a hundred degrees in here..
+# text = It's hot, moron, only a hundred degrees in here.
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	hot	hot	ADJ	JJ	_	5	amod	_	_
-4	,	,	PUNCT	,	_	5	punct	_	_
-5	moron	moron	ADJ	JJ	_	2	attr	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	moron	moron	NOUN	NN	_	2	attr	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	only	only	ADV	RB	_	9	advmod	_	_
-8	a	a	DET	DT	_	9	quantmod	_	_
-9	hundred	hundred	NUM	CD	_	10	nummod	_	ent_type=QUANTITY|ent_id=392|ent_iob=B
-10	degrees	degree	NOUN	NNS	_	5	appos	_	ent_type=QUANTITY|ent_id=392|ent_iob=I
-11	in	in	ADV	RB	_	12	advmod	_	_
-12	here	here	ADV	RB	_	10	advmod	_	_
-13	..	..	PUNCT	.	_	2	punct	_	_
+7	only	only	ADV	RB	_	9	advmod	_	ent_type=QUANTITY|ent_id=395|ent_iob=B
+8	a	a	DET	DT	_	9	quantmod	_	ent_type=QUANTITY|ent_id=395|ent_iob=I
+9	hundred	hundred	NUM	CD	_	10	nummod	_	ent_type=QUANTITY|ent_id=395|ent_iob=I
+10	degrees	degree	NOUN	NNS	_	5	appos	_	ent_type=QUANTITY|ent_id=395|ent_iob=I
+11	in	in	ADP	IN	_	2	prep	_	_
+12	here	here	ADV	RB	_	11	pcomp	_	_
+13	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 630
 # loc = INT
-# parse = (S (VP (VBP Lie) (ADVP (RP down)) (, ,) (INTJ (UH please))) (. ..) (  ))
+# parse = (S (VP (VB Lie) (ADVP (RB down)) (, ,) (INTJ (UH please))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 16
-# sent_len = 6
+# sent_len = 5
 # setting = TINA'S BEDROOM
 # speaker = MOOKIE
 # stage_direction = True
-# text = Lie down, please..
+# text = Lie down, please.
 # time = NIGHT
-1	Lie	lie	VERB	VBP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
-2	down	down	PART	RP	_	1	prt	_	_
-3	,	,	PUNCT	,	_	4	punct	_	_
+1	Lie	lie	VERB	VB	_	0	ROOT	_	_
+2	down	down	ADV	RB	_	1	prt	_	_
+3	,	,	PUNCT	,	_	1	punct	_	_
 4	please	please	INTJ	UH	_	1	intj	_	_
-5	..	..	PUNCT	.	_	4	punct	_	_
+5	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
 # parse = (S (NP (PRP He)) (VP (VBZ gets) (PRT (RP up))) (. .))
@@ -347,28 +346,28 @@
 4	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NN Mookie)) (VP (VP (VBZ walks) (PP (IN into) (NP (DT the) (NN kitchen)))) (CC and) (VP (VBZ sees) (S (NP (NP (NN CARMEN)) (, ,) (NP (NP (NNP Tina) (POS 's)) (NN mother)) (, ,)) (S (VP (VBG fixing) (NP (DT some) (NN food)) (PP (IN on) (NP (DT the) (NN stove)))))))) (. .) (  ))
+# parse = (S (NP (JJ Mookie)) (VP (VP (VBZ walks) (PP (IN into) (NP (DT the) (NN kitchen)))) (CC and) (VP (VBZ sees) (S (NP (NP (NNP CARMEN)) (, ,) (NP (NP (NNP Tina) (POS 's)) (NN mother)) (, ,)) (S (VP (VBG fixing) (NP (DT some) (NN food)) (PP (IN on) (NP (DT the) (NN stove)))))))) (. .) (_SP  ))
 # scene = 74
 # sent_id = 18
-# sent_len = 21
+# sent_len = 20
 # setting = TINA'S BEDROOM
 # stage_direction = True
 # text = Mookie walks into the kitchen and sees CARMEN, Tina's mother, fixing some food on the stove.
 # time = NIGHT
-1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
 3	into	into	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	kitchen	kitchen	NOUN	NN	_	3	pobj	_	_
 6	and	and	CCONJ	CC	_	2	cc	_	_
 7	sees	see	VERB	VBZ	_	2	conj	_	_
-8	CARMEN	carmen	NOUN	NN	_	7	dobj	_	ent_type=ORG|ent_id=381|ent_iob=B
+8	CARMEN	CARMEN	PROPN	NNP	_	7	dobj	_	ent_type=ORG|ent_id=383|ent_iob=B
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	Tina	tina	PROPN	NNP	_	12	poss	_	ent_type=GPE|ent_id=382|ent_iob=B
+10	Tina	Tina	PROPN	NNP	_	12	poss	_	ent_type=GPE|ent_id=384|ent_iob=B
 11	's	's	PART	POS	_	10	case	_	_
-12	mother	mother	NOUN	NN	_	7	dobj	_	_
+12	mother	mother	NOUN	NN	_	8	appos	_	_
 13	,	,	PUNCT	,	_	7	punct	_	_
-14	fixing	fix	VERB	VBG	_	7	conj	_	_
+14	fixing	fix	VERB	VBG	_	7	advcl	_	_
 15	some	some	DET	DT	_	16	det	_	_
 16	food	food	NOUN	NN	_	14	dobj	_	_
 17	on	on	ADP	IN	_	14	prep	_	_
@@ -378,66 +377,76 @@
 
 # line = 631
 # loc = INT
-# parse = (FRAG (INTJ (UH Hello)) (, ,) (NP (NNP Mrs.) (NNP Rampolla)) (. ..) (  ))
+# parse = (FRAG (INTJ (UH Hello)) (, ,) (NP (NNP Mrs.) (NNP Rampolla)) (. .) (_SP  ))
 # scene = 74
 # sent_id = 19
-# sent_len = 6
+# sent_len = 5
 # setting = TINA'S BEDROOM
 # speaker = MOOKIE
 # stage_direction = True
-# text = Hello, Mrs. Rampolla..
+# text = Hello, Mrs. Rampolla.
 # time = NIGHT
-1	Hello	hello	INTJ	UH	_	4	intj	_	_
-2	,	,	PUNCT	,	_	4	punct	_	_
-3	Mrs.	mrs.	PROPN	NNP	_	4	compound	_	_
-4	Rampolla	rampolla	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
-5	..	..	PUNCT	.	_	4	punct	_	_
+1	Hello	hello	INTJ	UH	_	0	ROOT	_	_
+2	,	,	PUNCT	,	_	1	punct	_	_
+3	Mrs.	Mrs.	PROPN	NNP	_	4	compound	_	_
+4	Rampolla	Rampolla	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+5	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
-# parse = (S (S (NP (NNP Carmen)) (VP (VBZ stares) (PP (IN at) (NP (PRP him))))) (, ,) (S (NP (PRP it)) (VP (VBZ 's) (NP (NP (DT a) (NN look)) (SBAR (WHNP (WDT that)) (S (VP (MD would) (ADVP (RB definitely)) (VP (VB stop) (NP (NN traffic))))))))) (, ,) (S (NP (PRP she)) (VP (VP (VBZ mutters) (NP (DT some) (JJ Spanish))) (CC and) (VP (VBZ goes) (PP (IN into) (NP (PRP$ her) (NN bedroom))) (, ,) (S (VP (VBG slamming) (NP (DT the) (NN door)) (PP (IN behind) (NP (PRP her)))))))) (. .))
+# parse = (S (NP (NNP Carmen)) (VP (NNS stares) (PP (IN at) (NP (PRP him)))))
 # scene = 74
 # sent_id = 20
-# sent_len = 31
+# sent_len = 4
 # setting = TINA'S BEDROOM
 # stage_direction = True
-# text = Carmen stares at him, it's a look that would definitely stop traffic, she mutters some Spanish and goes into her bedroom, slamming the door behind her.
+# text = Carmen stares at him
 # time = NIGHT
-1	Carmen	carmen	PROPN	NNP	_	2	nsubj	_	_
-2	stares	star	VERB	VBZ	_	7	ccomp	_	_
+1	Carmen	Carmen	PROPN	NNP	_	2	compound	_	_
+2	stares	stare	NOUN	NNS	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
 4	him	-PRON-	PRON	PRP	_	3	pobj	_	_
-5	,	,	PUNCT	,	_	7	punct	_	_
-6	it	-PRON-	PRON	PRP	_	7	nsubj	_	_
-7	's	be	VERB	VBZ	_	17	ccomp	_	_
-8	a	a	DET	DT	_	9	det	_	_
-9	look	look	NOUN	NN	_	7	attr	_	_
-10	that	that	ADJ	WDT	_	13	nsubj	_	_
-11	would	would	VERB	MD	_	13	aux	_	_
-12	definitely	definitely	ADV	RB	_	13	advmod	_	_
-13	stop	stop	VERB	VB	_	9	relcl	_	_
-14	traffic	traffic	NOUN	NN	_	13	dobj	_	_
-15	,	,	PUNCT	,	_	17	punct	_	_
-16	she	-PRON-	PRON	PRP	_	17	nsubj	_	_
-17	mutters	mutter	VERB	VBZ	_	0	ROOT	_	_
-18	some	some	DET	DT	_	19	det	_	_
-19	Spanish	spanish	ADJ	JJ	_	17	dobj	_	ent_type=NORP|ent_id=379|ent_iob=B
-20	and	and	CCONJ	CC	_	17	cc	_	_
-21	goes	go	VERB	VBZ	_	17	conj	_	_
-22	into	into	ADP	IN	_	21	prep	_	_
-23	her	-PRON-	ADJ	PRP$	_	24	poss	_	_
-24	bedroom	bedroom	NOUN	NN	_	22	pobj	_	_
-25	,	,	PUNCT	,	_	21	punct	_	_
-26	slamming	slam	VERB	VBG	_	21	advcl	_	_
-27	the	the	DET	DT	_	28	det	_	_
-28	door	door	NOUN	NN	_	26	dobj	_	_
-29	behind	behind	ADP	IN	_	28	prep	_	_
-30	her	-PRON-	PRON	PRP	_	29	pobj	_	_
-31	.	.	PUNCT	.	_	17	punct	_	_
+
+# loc = INT
+# parse = (S (, ,) (S (NP (PRP it)) (VP (VBZ 's) (NP (NP (DT a) (NN look)) (SBAR (WHNP (WDT that)) (S (VP (MD would) (ADVP (RB definitely)) (VP (VB stop) (NP (NN traffic))))))))) (, ,) (NP (PRP she)) (VP (VP (VBZ mutters) (NP (DT some) (JJ Spanish))) (CC and) (VBZ goes) (PP (IN into) (NP (PRP$ her) (NN bedroom))) (, ,) (S (VP (VBG slamming) (NP (DT the) (NN door)) (PP (IN behind) (NP (PRP her)))))) (. .))
+# scene = 74
+# sent_id = 21
+# sent_len = 27
+# setting = TINA'S BEDROOM
+# stage_direction = True
+# text = , it's a look that would definitely stop traffic, she mutters some Spanish and goes into her bedroom, slamming the door behind her.
+# time = NIGHT
+1	,	,	PUNCT	,	_	3	punct	_	_
+2	it	-PRON-	PRON	PRP	_	3	nsubj	_	_
+3	's	be	VERB	VBZ	_	13	ccomp	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	look	look	NOUN	NN	_	3	attr	_	_
+6	that	that	DET	WDT	_	9	nsubj	_	_
+7	would	would	VERB	MD	_	9	aux	_	_
+8	definitely	definitely	ADV	RB	_	9	advmod	_	_
+9	stop	stop	VERB	VB	_	5	relcl	_	_
+10	traffic	traffic	NOUN	NN	_	9	dobj	_	_
+11	,	,	PUNCT	,	_	13	punct	_	_
+12	she	-PRON-	PRON	PRP	_	13	nsubj	_	_
+13	mutters	mutter	VERB	VBZ	_	0	ROOT	_	_
+14	some	some	DET	DT	_	15	det	_	_
+15	Spanish	spanish	ADJ	JJ	_	13	dobj	_	ent_type=NORP|ent_id=381|ent_iob=B
+16	and	and	CCONJ	CC	_	13	cc	_	_
+17	goes	go	VERB	VBZ	_	13	conj	_	_
+18	into	into	ADP	IN	_	17	prep	_	_
+19	her	-PRON-	DET	PRP$	_	20	poss	_	_
+20	bedroom	bedroom	NOUN	NN	_	18	pobj	_	_
+21	,	,	PUNCT	,	_	17	punct	_	_
+22	slamming	slam	VERB	VBG	_	17	advcl	_	_
+23	the	the	DET	DT	_	24	det	_	_
+24	door	door	NOUN	NN	_	22	dobj	_	_
+25	behind	behind	ADP	IN	_	22	prep	_	_
+26	her	-PRON-	PRON	PRP	_	25	pobj	_	_
+27	.	.	PUNCT	.	_	13	punct	_	_
 
 # loc = INT
 # parse = (S (NP (PRP He)) (VP (VP (VBZ opens) (NP (DT the) (NN refrigerator))) (CC and) (VP (VBZ takes) (PRT (RP out)) (NP (NP (PDT all) (DT the) (NNS trays)) (PP (IN of) (NP (NN ice)))))) (. .))
 # scene = 74
-# sent_id = 21
+# sent_id = 22
 # sent_len = 13
 # setting = TINA'S BEDROOM
 # stage_direction = True
@@ -450,7 +459,7 @@
 5	and	and	CCONJ	CC	_	2	cc	_	_
 6	takes	take	VERB	VBZ	_	2	conj	_	_
 7	out	out	PART	RP	_	6	prt	_	_
-8	all	all	ADJ	PDT	_	10	predet	_	_
+8	all	all	DET	PDT	_	10	predet	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	trays	tray	NOUN	NNS	_	6	dobj	_	_
 11	of	of	ADP	IN	_	10	prep	_	_

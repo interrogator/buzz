@@ -1,19 +1,19 @@
 # loc = INT
-# parse = (S (S (NP (NNP Mookie) (CC and) (NNP Vito)) (VP (ADVP (RB very) (RB quietly)) (VBP walk) (ADVP (RB in)))) (: ;) (S (NP (DT the) (NN man)) (VP (VBZ is) (PP (IN on) (NP (DT the) (NN air))))) (. .) (  ))
+# parse = (S (S (NP (JJ Mookie) (CC and) (NNP Vito)) (VP (ADVP (RB very) (RB quietly)) (VBP walk) (ADVP (RB in)))) (: ;) (S (NP (DT the) (NN man)) (VP (VBZ is) (PP (IN on) (NP (DT the) (NN air))))) (. .) (_SP  ))
 # scene = 30
 # sent_id = 1
-# sent_len = 16
+# sent_len = 15
 # setting = CONTROL BOOTH
 # stage_direction = True
 # text = Mookie and Vito very quietly walk in; the man is on the air.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	6	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	6	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Vito	vito	PROPN	NNP	_	1	conj	_	_
+3	Vito	Vito	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	very	very	ADV	RB	_	5	advmod	_	_
 5	quietly	quietly	ADV	RB	_	6	advmod	_	_
 6	walk	walk	VERB	VBP	_	11	ccomp	_	_
-7	in	in	ADV	RB	_	6	advmod	_	_
+7	in	in	ADV	RB	_	6	prt	_	_
 8	;	;	PUNCT	:	_	11	punct	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	man	man	NOUN	NN	_	11	nsubj	_	_
@@ -25,7 +25,7 @@
 
 # line = 226
 # loc = INT
-# parse = (S (NP (NNPS Peoples)) (, ,) (S (NP (PRP$ my) (NN stomach)) (VP (VBZ 's) (VP (VBN been) (VP (VBG grumbling))))) (CC but) (S (NP (NN help)) (VP (VBZ has) (VP (VBN arrived)))) (. .))
+# parse = (S (NP (NNS Peoples)) (, ,) (S (NP (PRP$ my) (NN stomach)) (VP (VBZ 's) (VP (VBN been) (VP (VBG grumbling))))) (CC but) (S (NP (NN help)) (VP (VBZ has) (VP (VBN arrived)))) (. .))
 # scene = 30
 # sent_id = 2
 # sent_len = 12
@@ -34,9 +34,9 @@
 # stage_direction = True
 # text = Peoples, my stomach's been grumbling but help has arrived.
 # time = DAY
-1	Peoples	peoples	PROPN	NNPS	_	7	npadvmod	_	_
+1	Peoples	people	NOUN	NNS	_	7	dep	_	_
 2	,	,	PUNCT	,	_	7	punct	_	_
-3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	my	-PRON-	DET	PRP$	_	4	poss	_	_
 4	stomach	stomach	NOUN	NN	_	7	nsubjpass	_	_
 5	's	be	VERB	VBZ	_	7	auxpass	_	_
 6	been	be	VERB	VBN	_	7	aux	_	_
@@ -58,61 +58,61 @@
 # stage_direction = True
 # text = My main man Mookie has saved the day, straight from Sal's Famous Pizzeria, down the block.
 # time = DAY
-1	My	-PRON-	ADJ	PRP$	_	3	poss	_	_
+1	My	-PRON-	DET	PRP$	_	3	poss	_	_
 2	main	main	ADJ	JJ	_	3	amod	_	_
-3	man	man	NOUN	NN	_	6	nsubj	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	man	man	NOUN	NN	_	0	ROOT	_	_
+4	Mookie	Mookie	PROPN	NNP	_	6	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 5	has	have	VERB	VBZ	_	6	aux	_	_
-6	saved	save	VERB	VBN	_	0	ROOT	_	_
-7	the	the	DET	DT	_	8	det	_	ent_type=DATE|ent_id=388|ent_iob=B
-8	day	day	NOUN	NN	_	6	dobj	_	ent_type=DATE|ent_id=388|ent_iob=I
-9	,	,	PUNCT	,	_	6	punct	_	_
+6	saved	save	VERB	VBN	_	3	relcl	_	_
+7	the	the	DET	DT	_	8	det	_	ent_type=DATE|ent_id=391|ent_iob=B
+8	day	day	NOUN	NN	_	6	dobj	_	ent_type=DATE|ent_id=391|ent_iob=I
+9	,	,	PUNCT	,	_	3	punct	_	_
 10	straight	straight	ADV	RB	_	11	advmod	_	_
-11	from	from	ADP	IN	_	6	prep	_	_
-12	Sal	sal	PROPN	NNP	_	15	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
-13	's	's	PART	POS	_	12	case	_	ent_type=ORG|ent_id=381|ent_iob=I
-14	Famous	famous	PROPN	NNP	_	15	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-15	Pizzeria	pizzeria	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
-16	,	,	PUNCT	,	_	6	punct	_	_
-17	down	down	ADP	IN	_	6	prep	_	_
+11	from	from	ADP	IN	_	3	prep	_	_
+12	Sal	Sal	PROPN	NNP	_	15	poss	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+13	's	's	PART	POS	_	12	case	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+14	Famous	Famous	PROPN	NNP	_	15	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+15	Pizzeria	Pizzeria	PROPN	NNP	_	11	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+16	,	,	PUNCT	,	_	3	punct	_	_
+17	down	down	ADP	IN	_	3	prep	_	_
 18	the	the	DET	DT	_	19	det	_	_
 19	block	block	NOUN	NN	_	17	pobj	_	_
-20	.	.	PUNCT	.	_	6	punct	_	_
+20	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 226
 # loc = INT
-# parse = (S (VP (VB Come) (ADVP (RP up) (PP (IN to) (NP (DT the) (NN mike)))) (, ,) (NP (NNP Mookie))) (. ..) (  ))
+# parse = (S (VP (VB Come) (ADVP (RP up) (PP (IN to) (NP (DT the) (JJ mike)))) (, ,) (NP (JJ Mookie))) (. .) (_SP  ))
 # scene = 30
 # sent_id = 4
-# sent_len = 9
+# sent_len = 8
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = Come up to the mike, Mookie..
+# text = Come up to the mike, Mookie.
 # time = DAY
 1	Come	come	VERB	VB	_	0	ROOT	_	_
 2	up	up	PART	RP	_	1	prt	_	_
 3	to	to	ADP	IN	_	1	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
-5	mike	mike	NOUN	NN	_	3	pobj	_	_
+5	mike	mike	ADJ	JJ	_	3	pobj	_	_
 6	,	,	PUNCT	,	_	5	punct	_	_
-7	Mookie	mookie	PROPN	NNP	_	5	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
-8	..	..	PUNCT	.	_	1	punct	_	_
+7	Mookie	mookie	ADJ	JJ	_	5	appos	_	ent_type=PERSON|ent_id=380|ent_iob=B
+8	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Mookie)) (VP (VBZ goes) (PP (IN to) (NP (DT the) (NN mike)))) (. .) (  ))
+# parse = (S (NP (NNP Mookie)) (VP (VBZ goes) (PP (IN to) (NP (DT the) (JJ mike)))) (. .) (_SP  ))
 # scene = 30
 # sent_id = 5
-# sent_len = 7
+# sent_len = 6
 # setting = CONTROL BOOTH
 # stage_direction = True
 # text = Mookie goes to the mike.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	Mookie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	goes	go	VERB	VBZ	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
-5	mike	mike	NOUN	NN	_	3	pobj	_	_
+5	mike	mike	ADJ	JJ	_	3	pobj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 227
@@ -126,13 +126,13 @@
 # stage_direction = True
 # text = C'mon, don't be shy.
 # time = DAY
-1	C'mon	c'mon	PROPN	NNP	_	5	npadvmod	_	_
+1	C'mon	C'mon	PROPN	NNP	_	6	nsubjpass	_	_
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	do	do	VERB	VB	_	5	aux	_	_
 4	n't	not	ADV	RB	_	5	neg	_	_
-5	be	be	VERB	VB	_	0	ROOT	_	_
-6	shy	shy	ADJ	JJ	_	5	acomp	_	_
-7	.	.	PUNCT	.	_	5	punct	_	_
+5	be	be	VERB	VB	_	6	auxpass	_	_
+6	shy	shy	ADJ	JJ	_	0	ROOT	_	_
+7	.	.	PUNCT	.	_	6	punct	_	_
 
 # line = 227
 # loc = INT
@@ -145,7 +145,7 @@
 # stage_direction = True
 # text = Mmm, smells good.
 # time = DAY
-1	Mmm	mmm	PROPN	NNP	_	3	nsubj	_	_
+1	Mmm	Mmm	PROPN	NNP	_	3	npadvmod	_	_
 2	,	,	PUNCT	,	_	3	punct	_	_
 3	smells	smell	VERB	VBZ	_	0	ROOT	_	_
 4	good	good	ADJ	JJ	_	3	acomp	_	_
@@ -153,7 +153,7 @@
 
 # line = 227
 # loc = INT
-# parse = (S (NP (DT This)) (VP (VBZ is) (S (NP (PRP ya) (NNP Love) (NN Daddy)) (VP (NN talkin) ('' ') (PP (IN to) (NP (PRP ya))) (, ,) (VB starvin) ('' ') (PP (IN like) (NP (NNP Marvin)))))) (. .))
+# parse = (S (NP (DT This)) (VP (VBZ is) (S (NP (PRP ya) (NNP Love) (NN Daddy)) (VP (NN talkin) ('' ') (PP (IN to) (NP (PRP ya))) (, ,) (NN starvin) (`` ') (PP (IN like) (NP (NNP Marvin)))))) (. .))
 # scene = 30
 # sent_id = 8
 # sent_len = 15
@@ -163,56 +163,56 @@
 # text = This is ya Love Daddy talkin' to ya, starvin' like Marvin.
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
-2	is	be	VERB	VBZ	_	11	ccomp	_	_
-3	ya	ya	PRON	PRP	_	6	compound	_	_
-4	Love	love	PROPN	NNP	_	5	compound	_	_
-5	Daddy	daddy	NOUN	NN	_	6	compound	_	_
-6	talkin	talkin	NOUN	NN	_	2	attr	_	_
-7	'	'	PUNCT	''	_	2	punct	_	_
-8	to	to	ADP	IN	_	2	prep	_	_
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
+3	ya	ya	PRON	PRP	_	2	attr	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=B
+4	Love	Love	PROPN	NNP	_	5	compound	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=I
+5	Daddy	daddy	NOUN	NN	_	6	compound	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=I
+6	talkin	talkin	NOUN	NN	_	2	attr	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=I
+7	'	'	PUNCT	''	_	6	punct	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=I
+8	to	to	ADP	IN	_	6	prep	_	_
 9	ya	ya	PRON	PRP	_	8	pobj	_	_
 10	,	,	PUNCT	,	_	11	punct	_	_
-11	starvin	starvin	VERB	VB	_	0	ROOT	_	_
-12	'	'	PUNCT	''	_	11	punct	_	_
+11	starvin	starvin	NOUN	NN	_	8	pobj	_	_
+12	'	'	PUNCT	``	_	11	punct	_	_
 13	like	like	ADP	IN	_	11	prep	_	_
-14	Marvin	marvin	PROPN	NNP	_	13	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-15	.	.	PUNCT	.	_	11	punct	_	_
+14	Marvin	Marvin	PROPN	NNP	_	13	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+15	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 227
 # loc = INT
-# parse = (S (VP (VB Say) (NP (NN something)) (, ,) (NP (NNP Mookie))) (. ..) (  ))
+# parse = (S (VP (VB Say) (NP (NN something)) (, ,) (NP (NNP Mookie))) (. .) (_SP  ))
 # scene = 30
 # sent_id = 9
-# sent_len = 6
+# sent_len = 5
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = Say something, Mookie..
+# text = Say something, Mookie.
 # time = DAY
 1	Say	say	VERB	VB	_	0	ROOT	_	_
 2	something	something	NOUN	NN	_	1	dobj	_	_
 3	,	,	PUNCT	,	_	2	punct	_	_
-4	Mookie	mookie	PROPN	NNP	_	2	npadvmod	_	_
-5	..	..	PUNCT	.	_	1	punct	_	_
+4	Mookie	Mookie	PROPN	NNP	_	2	appos	_	ent_type=PERSON|ent_id=380|ent_iob=B
+5	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 228
 # loc = INT
-# parse = (S (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy))) (, ,) (NP (PRP I)) (VP (VP (MD 'd) (VP (VB like) (S (VP (TO to) (VP (VB dedicate) (NP (DT the) (JJ next) (NN record)) (PP (IN to) (NP (NP (PRP$ my) (NN heart)) (, ,) (NP (NNP Tina))))))))) (. ..) (FRAG (INTJ (  )))))
+# parse = (S (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy))) (, ,) (NP (PRP I)) (VP (MD 'd) (VP (VB like) (S (VP (TO to) (VP (VB dedicate) (NP (DT the) (JJ next) (NN record)) (PP (IN to) (NP (NP (PRP$ my) (NN heart)) (, ,) (NP (NNP Tina))))))))) (. .) (_SP  ))
 # scene = 30
 # sent_id = 10
-# sent_len = 20
+# sent_len = 19
 # setting = CONTROL BOOTH
 # speaker = MOOKIE
 # stage_direction = True
-# text = Mister Señor Love Daddy, I'd like to dedicate the next record to my heart, Tina..
+# text = Mister Señor Love Daddy, I'd like to dedicate the next record to my heart, Tina.
 # time = DAY
-1	Mister	mister	PROPN	NNP	_	4	compound	_	_
-2	Señor	señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	Love	love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-4	Daddy	daddy	PROPN	NNP	_	8	npadvmod	_	_
+1	Mister	Mister	PROPN	NNP	_	2	compound	_	_
+2	Señor	Señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+3	Love	Love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+4	Daddy	Daddy	PROPN	NNP	_	8	npadvmod	_	_
 5	,	,	PUNCT	,	_	8	punct	_	_
 6	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
-7	'd	would	VERB	MD	_	8	aux	_	_
+7	'd	would	AUX	MD	_	8	aux	_	_
 8	like	like	VERB	VB	_	0	ROOT	_	_
 9	to	to	PART	TO	_	10	aux	_	_
 10	dedicate	dedicate	VERB	VB	_	8	xcomp	_	_
@@ -220,11 +220,11 @@
 12	next	next	ADJ	JJ	_	13	amod	_	_
 13	record	record	NOUN	NN	_	10	dobj	_	_
 14	to	to	ADP	IN	_	10	prep	_	_
-15	my	-PRON-	ADJ	PRP$	_	16	poss	_	_
+15	my	-PRON-	DET	PRP$	_	16	poss	_	_
 16	heart	heart	NOUN	NN	_	14	pobj	_	_
 17	,	,	PUNCT	,	_	16	punct	_	_
-18	Tina	tina	PROPN	NNP	_	16	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
-19	..	..	PUNCT	.	_	18	punct	_	_
+18	Tina	Tina	PROPN	NNP	_	16	appos	_	ent_type=PERSON|ent_id=380|ent_iob=B
+19	.	.	PUNCT	.	_	8	punct	_	_
 
 # line = 229
 # loc = INT
@@ -242,14 +242,14 @@
 
 # line = 229
 # loc = INT
-# parse = (S (VP (VB Let) (S (NP (PRP me)) (VP (VB play) (NP (DT this) (NN record)) (SBAR (IN while) (S (NP (PRP I)) (VP (VBP go) (S (VP (IN to) (VP (NN work) (PP (IN on) (NP (NP (PRP$ my) (NN chicken) (NNP Parmigiana) (NN hero)) (PP (IN with) (NP (NP (JJ extra) (NN cheese)) (CC and) (NP (JJ extra) (NN sauce))))))))))))))) (. ..) (  ))
+# parse = (S (VP (VB Let) (S (NP (PRP me)) (VP (VB play) (NP (DT this) (NN record)) (SBAR (IN while) (S (NP (PRP I)) (VP (VBP go) (S (VP (IN to) (VP (NN work) (PP (PP (IN on) (NP (PRP$ my) (NN chicken) (NNP Parmigiana) (NN hero))) (PP (IN with) (NP (NP (JJ extra) (NN cheese)) (CC and) (NP (JJ extra) (NN sauce)))))))))))))) (. .) (_SP  ))
 # scene = 30
 # sent_id = 12
-# sent_len = 23
+# sent_len = 22
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = Let me play this record while I go to work on my chicken Parmigiana hero with extra cheese and extra sauce..
+# text = Let me play this record while I go to work on my chicken Parmigiana hero with extra cheese and extra sauce.
 # time = DAY
 1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	3	nsubj	_	_
@@ -259,26 +259,26 @@
 6	while	while	ADP	IN	_	8	mark	_	_
 7	I	-PRON-	PRON	PRP	_	8	nsubj	_	_
 8	go	go	VERB	VBP	_	3	advcl	_	_
-9	to	to	ADP	IN	_	10	aux	_	_
-10	work	work	NOUN	NN	_	8	advcl	_	_
+9	to	to	ADP	IN	_	8	prep	_	_
+10	work	work	NOUN	NN	_	9	pobj	_	_
 11	on	on	ADP	IN	_	10	prep	_	_
-12	my	-PRON-	ADJ	PRP$	_	13	poss	_	_
-13	chicken	chicken	NOUN	NN	_	11	pobj	_	_
-14	Parmigiana	parmigiana	PROPN	NNP	_	15	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-15	hero	hero	NOUN	NN	_	13	appos	_	_
+12	my	-PRON-	DET	PRP$	_	15	poss	_	_
+13	chicken	chicken	NOUN	NN	_	14	compound	_	_
+14	Parmigiana	Parmigiana	PROPN	NNP	_	15	compound	_	ent_type=GPE|ent_id=384|ent_iob=B
+15	hero	hero	NOUN	NN	_	11	pobj	_	_
 16	with	with	ADP	IN	_	10	prep	_	_
 17	extra	extra	ADJ	JJ	_	18	amod	_	_
 18	cheese	cheese	NOUN	NN	_	16	pobj	_	_
 19	and	and	CCONJ	CC	_	18	cc	_	_
 20	extra	extra	ADJ	JJ	_	21	amod	_	_
 21	sauce	sauce	NOUN	NN	_	18	conj	_	_
-22	..	..	PUNCT	.	_	1	punct	_	_
+22	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = INT
-# parse = (S (NP (PRP He)) (VP (VBZ hits) (NP (DT the) (NN cart) (NN machine))) (: ...) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ hits) (NP (DT the) (NN cart) (NN machine))) (. ...) (_SP  ))
 # scene = 30
 # sent_id = 13
-# sent_len = 7
+# sent_len = 6
 # setting = CONTROL BOOTH
 # stage_direction = True
 # text = He hits the cart machine...
@@ -288,11 +288,11 @@
 3	the	the	DET	DT	_	5	det	_	_
 4	cart	cart	NOUN	NN	_	5	compound	_	_
 5	machine	machine	NOUN	NN	_	2	dobj	_	_
-6	...	...	PUNCT	:	_	2	punct	_	_
+6	...	...	PUNCT	.	_	2	punct	_	_
 
 # line = 230
 # loc = INT
-# parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBP looove) (NP (PRP you)) (ADVP (RB so) (RB much)) (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy))) (. .))
+# parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBP looove) (NP (PRP you)) (ADVP (RB so) (RB much)) (NP (NNP Mister) (NNP Señor) (NNP Love) (NN Daddy))) (. .))
 # scene = 30
 # sent_id = 14
 # sent_len = 11
@@ -306,38 +306,38 @@
 3	looove	looove	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	so	so	ADV	RB	_	6	advmod	_	_
-6	much	much	ADV	RB	_	3	advmod	_	_
-7	Mister	mister	PROPN	NNP	_	9	compound	_	_
-8	Señor	señor	PROPN	NNP	_	9	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-9	Love	love	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-10	Daddy	daddy	PROPN	NNP	_	3	dobj	_	_
+6	much	much	ADV	RB	_	10	amod	_	_
+7	Mister	Mister	PROPN	NNP	_	8	compound	_	_
+8	Señor	Señor	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+9	Love	Love	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+10	Daddy	daddy	NOUN	NN	_	3	dobj	_	_
 11	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 230
 # loc = INT
-# parse = (S (NP (PRP WE)) (VP (NNP LOVE) (NP (NP (NNP RADIO)) (, ,) (NP (NP (CD 108) (NNP FM)) (. ..) (FRAG (INTJ (  )))))))
+# parse = (S (NP (PRP WE)) (VP (NNP LOVE) (NP (NP (NNP RADIO)) (, ,) (NP (CD 108) (NN FM)))) (. .) (INTJ (_SP  )))
 # scene = 30
 # sent_id = 15
-# sent_len = 8
+# sent_len = 7
 # setting = CONTROL BOOTH
 # speaker = VO
 # stage_direction = True
-# text = WE LOVE RADIO, 108 FM..
+# text = WE LOVE RADIO, 108 FM.
 # time = DAY
-1	WE	we	PRON	PRP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	LOVE	love	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-3	RADIO	radio	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=I
+1	WE	we	PRON	PRP	_	3	compound	_	_
+2	LOVE	LOVE	PROPN	NNP	_	3	compound	_	_
+3	RADIO	RADIO	PROPN	NNP	_	0	ROOT	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	108	108	NUM	CD	_	6	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-6	FM	fm	PROPN	NNP	_	3	appos	_	_
-7	..	..	PUNCT	.	_	3	punct	_	_
+5	108	108	NUM	CD	_	6	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+6	FM	fm	NOUN	NN	_	3	appos	_	_
+7	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 231
 # loc = INT
-# parse = (S (ADVP (RB Here)) (NP (PRP ya)) (VP (VBP are)) (. ..) (  ))
+# parse = (S (ADVP (RB Here)) (NP (PRP ya)) (VP (VBP are)) (. ..) (_SP  ))
 # scene = 30
 # sent_id = 16
-# sent_len = 5
+# sent_len = 4
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
@@ -348,44 +348,11 @@
 3	are	be	VERB	VBP	_	0	ROOT	_	_
 4	..	..	PUNCT	.	_	3	punct	_	_
 
-# line = 231
-# loc = INT
-# parse = (NP (CD twenty) (HYPH -) (NN dollar) (NN bill) (-RRB- -RRB-))
-# scene = 30
-# sent_id = 17
-# sent_len = 5
-# setting = CONTROL BOOTH
-# speaker = MISTER SEÑOR LOVE DADDY
-# stage_direction = True
-# text = twenty-dollar bill)
-# time = DAY
-1	twenty	twenty	NUM	CD	_	3	nummod	_	ent_type=MONEY|ent_id=391|ent_iob=B
-2	-	-	PUNCT	HYPH	_	3	punct	_	ent_type=MONEY|ent_id=391|ent_iob=I
-3	dollar	dollar	NOUN	NN	_	4	compound	_	ent_type=MONEY|ent_id=391|ent_iob=I
-4	bill	bill	NOUN	NN	_	0	ROOT	_	_
-5	)	)	PUNCT	-RRB-	_	4	punct	_	_
-
-# line = 231
-# loc = INT
-# parse = (S (VP (VB Keep) (NP (DT the) (NN change))) (. ..) (  ))
-# scene = 30
-# sent_id = 18
-# sent_len = 5
-# setting = CONTROL BOOTH
-# speaker = MISTER SEÑOR LOVE DADDY
-# stage_direction = True
-# text = Keep the change..
-# time = DAY
-1	Keep	keep	VERB	VB	_	0	ROOT	_	_
-2	the	the	DET	DT	_	3	det	_	_
-3	change	change	NOUN	NN	_	1	dobj	_	_
-4	..	..	PUNCT	.	_	1	punct	_	_
-
 # line = 232
 # loc = INT
-# parse = (S (NP (DT That)) (VP (VBZ 's) (PP (ADVP (JJ right)) (IN on) (NP (NN time)))) (. .))
+# parse = (S (NP (DT That)) (VP (VBZ 's) (PP (ADVP (RB right)) (IN on) (NP (NN time)))) (. .))
 # scene = 30
-# sent_id = 19
+# sent_id = 17
 # sent_len = 6
 # setting = CONTROL BOOTH
 # speaker = MOOKIE
@@ -394,8 +361,8 @@
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
-3	right	right	ADJ	JJ	_	2	acomp	_	_
-4	on	on	ADP	IN	_	3	prep	_	_
+3	right	right	ADV	RB	_	4	advmod	_	_
+4	on	on	ADP	IN	_	2	prep	_	_
 5	time	time	NOUN	NN	_	4	pobj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -403,7 +370,7 @@
 # loc = INT
 # parse = (S (NP (DT This)) (VP (VBZ is) (NP (NP (PRP$ my) (NN friend)) (, ,) (NP (NNP Vito)))) (. .))
 # scene = 30
-# sent_id = 20
+# sent_id = 18
 # sent_len = 7
 # setting = CONTROL BOOTH
 # speaker = MOOKIE
@@ -412,91 +379,91 @@
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	my	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	my	-PRON-	DET	PRP$	_	4	poss	_	_
 4	friend	friend	NOUN	NN	_	2	attr	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
-6	Vito	vito	PROPN	NNP	_	4	appos	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Vito	Vito	PROPN	NNP	_	4	appos	_	_
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 232
 # loc = INT
-# parse = (S (NP (PRP$ His) (NNS pops)) (VP (VP (VBZ is) (NP (NNP Sal))) (NFP ..) (  )))
+# parse = (S (NP (PRP$ His) (NNS pops)) (VP (VBZ is) (NP (NNP Sal))) (. .) (_SP  ))
 # scene = 30
-# sent_id = 21
-# sent_len = 6
+# sent_id = 19
+# sent_len = 5
 # setting = CONTROL BOOTH
 # speaker = MOOKIE
 # stage_direction = True
-# text = His pops is Sal..
+# text = His pops is Sal.
 # time = DAY
-1	His	-PRON-	ADJ	PRP$	_	2	poss	_	_
+1	His	-PRON-	DET	PRP$	_	2	poss	_	_
 2	pops	pop	NOUN	NNS	_	3	nsubj	_	_
 3	is	be	VERB	VBZ	_	0	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	attr	_	ent_type=PERSON|ent_id=378|ent_iob=B
-5	..	..	PUNCT	NFP	_	3	punct	_	_
+4	Sal	Sal	PROPN	NNP	_	3	attr	_	ent_type=GPE|ent_id=384|ent_iob=B
+5	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 233
 # loc = INT
-# parse = (S (VP (VBP Tell) (NP (NP (PRP ya)) (NN father)) (SBAR (S (NP (PRP he)) (VP (VBZ makes) (NP (NP (DT the) (JJS best) (NNS heros)) (PP (IN in) (NP (NNP Brooklyn)))))))) (. ..) (  ))
+# parse = (S (VP (VB Tell) (NP (NP (PRP ya)) (NN father)) (SBAR (S (NP (PRP he)) (VP (VBZ makes) (NP (NP (DT the) (JJS best) (NNS heros)) (PP (IN in) (NP (NNP Brooklyn)))))))) (. .) (_SP  ))
 # scene = 30
-# sent_id = 22
-# sent_len = 12
+# sent_id = 20
+# sent_len = 11
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = Tell ya father he makes the best heros in Brooklyn..
+# text = Tell ya father he makes the best heros in Brooklyn.
 # time = DAY
-1	Tell	tell	VERB	VBP	_	0	ROOT	_	_
+1	Tell	tell	VERB	VB	_	0	ROOT	_	_
 2	ya	ya	PRON	PRP	_	1	dobj	_	_
 3	father	father	NOUN	NN	_	1	dobj	_	_
 4	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	makes	make	VERB	VBZ	_	1	ccomp	_	_
-6	the	the	DET	DT	_	7	det	_	_
+6	the	the	DET	DT	_	8	det	_	_
 7	best	good	ADJ	JJS	_	8	amod	_	_
-8	heros	hero	NOUN	NNS	_	5	advmod	_	_
-9	in	in	ADP	IN	_	5	prep	_	_
-10	Brooklyn	brooklyn	PROPN	NNP	_	9	pobj	_	ent_type=GPE|ent_id=382|ent_iob=B
-11	..	..	PUNCT	.	_	1	punct	_	_
+8	heros	hero	NOUN	NNS	_	5	dobj	_	_
+9	in	in	ADP	IN	_	8	prep	_	_
+10	Brooklyn	Brooklyn	PROPN	NNP	_	9	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
+11	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 234
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB do) (NP (DT that)))) (NFP ..) (  ))
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB do) (NP (DT that)))) (. .) (_SP  ))
 # scene = 30
-# sent_id = 23
-# sent_len = 6
+# sent_id = 21
+# sent_len = 5
 # setting = CONTROL BOOTH
 # speaker = VITO
 # stage_direction = True
-# text = I'll do that..
+# text = I'll do that.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-2	'll	will	VERB	MD	_	3	aux	_	_
+2	'll	will	AUX	MD	_	3	aux	_	_
 3	do	do	VERB	VB	_	0	ROOT	_	_
 4	that	that	DET	DT	_	3	dobj	_	_
-5	..	..	PUNCT	NFP	_	3	punct	_	_
+5	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 235
 # loc = INT
-# parse = (S (NP (PRP We)) (VP (VBP 're) (PP (JJ outta) (NP (RB here)))) (NFP ..) (  ))
+# parse = (S (NP (PRP We)) (VP (VBP 're) (PP (JJ outta) (NP (RB here)))) (. .) (_SP  ))
 # scene = 30
-# sent_id = 24
-# sent_len = 6
+# sent_id = 22
+# sent_len = 5
 # setting = CONTROL BOOTH
 # speaker = MOOKIE
 # stage_direction = True
-# text = We're outta here..
+# text = We're outta here.
 # time = DAY
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	're	be	VERB	VBP	_	0	ROOT	_	_
-3	outta	outta	ADJ	JJ	_	2	attr	_	_
+3	outta	outta	ADJ	JJ	_	2	acomp	_	_
 4	here	here	ADV	RB	_	2	advmod	_	_
-5	..	..	PUNCT	NFP	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 236
 # loc = INT
-# parse = (FRAG (NP (NNS Thanks)) (PP (IN for) (S (VP (VBG stopping) (PRT (RB by))))) (. .))
+# parse = (FRAG (NP (NNS Thanks)) (PP (IN for) (S (VP (VBG stopping) (PRT (RP by))))) (. .))
 # scene = 30
-# sent_id = 25
+# sent_id = 23
 # sent_len = 5
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
@@ -506,24 +473,24 @@
 1	Thanks	thank	NOUN	NNS	_	0	ROOT	_	_
 2	for	for	ADP	IN	_	1	prep	_	_
 3	stopping	stop	VERB	VBG	_	2	pcomp	_	_
-4	by	by	ADV	RB	_	3	prt	_	_
+4	by	by	PART	RP	_	3	prt	_	_
 5	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 236
 # loc = INT
-# parse = (S (NP (PRP WE)) (VP (NNP LOVE) (NP (NP (NNP Radio)) (, ,) (NP (CD 108) (NN FM)))) (. ..))
+# parse = (S (NP (PRP WE)) (VP (NNP LOVE) (NP (NP (NNP Radio)) (, ,) (NP (CD 108) (NN FM)))) (. .))
 # scene = 30
-# sent_id = 26
+# sent_id = 24
 # sent_len = 7
 # setting = CONTROL BOOTH
 # speaker = MISTER SEÑOR LOVE DADDY
 # stage_direction = True
-# text = WE LOVE Radio, 108 FM..
+# text = WE LOVE Radio, 108 FM.
 # time = DAY
-1	WE	we	PRON	PRP	_	2	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	LOVE	love	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-3	Radio	radio	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=381|ent_iob=I
+1	WE	we	PRON	PRP	_	3	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	LOVE	LOVE	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	Radio	Radio	PROPN	NNP	_	0	ROOT	_	ent_type=ORG|ent_id=383|ent_iob=I
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	108	108	NUM	CD	_	6	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+5	108	108	NUM	CD	_	6	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 6	FM	fm	NOUN	NN	_	3	appos	_	_
-7	..	..	PUNCT	.	_	3	punct	_	_
+7	.	.	PUNCT	.	_	3	punct	_	_

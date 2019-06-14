@@ -16,7 +16,7 @@
 7	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = INT
-# parse = (S (NP (DT The) (NNP Mickey) (NNP Mantle) (NN bat)) (VP (VBZ burns)) (. .))
+# parse = (S (NP (DT The) (NNP Mickey) (NNP Mantle) (NN bat)) (VP (NNS burns)) (. .))
 # scene = 93
 # sent_id = 2
 # sent_len = 6
@@ -25,14 +25,14 @@
 # text = The Mickey Mantle bat burns.
 # time = NIGHT
 1	The	the	DET	DT	_	5	det	_	_
-2	Mickey	mickey	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-3	Mantle	mantle	PROPN	NNP	_	5	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
+2	Mickey	Mickey	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+3	Mantle	Mantle	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
 4	bat	bat	NOUN	NN	_	5	compound	_	_
-5	burns	burn	VERB	VBZ	_	0	ROOT	_	_
+5	burns	burn	NOUN	NNS	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NP (NN Radio) (NNP Raheem) (POS 's)) (NN box)) (VP (VBZ has) (VP (VBN melted) (PP (IN into) (NP (NP (DT a) (JJ black) (NN mass)) (PP (IN of) (NP (NN goo))))))) (. .))
+# parse = (S (NP (NP (NNP Radio) (NNP Raheem) (POS 's)) (NN box)) (VP (VBZ has) (VP (VBN melted) (PP (IN into) (NP (NP (DT a) (JJ black) (NN mass)) (PP (IN of) (NP (NN goo))))))) (. .))
 # scene = 93
 # sent_id = 3
 # sent_len = 13
@@ -40,9 +40,9 @@
 # stage_direction = True
 # text = Radio Raheem's box has melted into a black mass of goo.
 # time = NIGHT
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	4	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	's	's	PART	POS	_	2	case	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	4	poss	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	's	's	PART	POS	_	2	case	_	ent_type=ORG|ent_id=383|ent_iob=I
 4	box	box	NOUN	NN	_	6	nsubj	_	_
 5	has	have	VERB	VBZ	_	6	aux	_	_
 6	melted	melt	VERB	VBN	_	0	ROOT	_	_
@@ -55,7 +55,7 @@
 13	.	.	PUNCT	.	_	6	punct	_	_
 
 # loc = INT
-# parse = (S (SBAR (IN As) (S (NP (PRP WE)) (VP (VBP MOVE) (PP (IN IN) (NP (NN TIGHTER))) (PP (IN ON) (NP (DT the) (VBN melted) (NN box)))))) (, ,) (NP (PRP we)) (VP (VBP begin) (S (VP (TO to) (VP (VB hear) (NP (NP (DT the) (NN rap) (NN song)) (SBAR (WHNP (WDT that)) (S (NP (PRP we)) (VP (VB 've) (VP (VBN hear) (ADVP (IN throughout))))))))))) (. .))
+# parse = (S (SBAR (IN As) (S (NP (PRP WE)) (VP (VBP MOVE) (PP (IN IN) (NP (NN TIGHTER))) (PP (IN ON) (NP (DT the) (JJ melted) (NN box)))))) (, ,) (NP (PRP we)) (VP (VBP begin) (S (VP (TO to) (VP (VB hear) (NP (NP (DT the) (NN rap) (NN song)) (SBAR (WHNP (WDT that)) (S (NP (PRP we)) (VP (VB 've) (VP (VB hear) (ADVP (IN throughout))))))))))) (. .))
 # scene = 93
 # sent_id = 4
 # sent_len = 23
@@ -70,7 +70,7 @@
 5	TIGHTER	tighter	NOUN	NN	_	4	pobj	_	_
 6	ON	on	ADP	IN	_	3	prep	_	_
 7	the	the	DET	DT	_	9	det	_	_
-8	melted	melt	VERB	VBN	_	9	amod	_	_
+8	melted	melted	ADJ	JJ	_	9	amod	_	_
 9	box	box	NOUN	NN	_	6	pobj	_	_
 10	,	,	PUNCT	,	_	12	punct	_	_
 11	we	-PRON-	PRON	PRP	_	12	nsubj	_	_
@@ -80,15 +80,15 @@
 15	the	the	DET	DT	_	17	det	_	_
 16	rap	rap	NOUN	NN	_	17	compound	_	_
 17	song	song	NOUN	NN	_	14	dobj	_	_
-18	that	that	ADJ	WDT	_	22	pobj	_	_
+18	that	that	DET	WDT	_	22	pobj	_	_
 19	we	-PRON-	PRON	PRP	_	21	nsubj	_	_
 20	've	have	VERB	VB	_	21	aux	_	_
-21	hear	hear	VERB	VBN	_	17	relcl	_	_
+21	hear	hear	VERB	VB	_	17	relcl	_	_
 22	throughout	throughout	ADP	IN	_	21	prep	_	_
 23	.	.	PUNCT	.	_	12	punct	_	_
 
 # loc = INT
-# parse = (S (DT All) (JJ other) (JJ sound) (NNS drops) (SBAR (IN as) (S (NP (DT the) (NN rap) (NN song)) (VP (VBZ gets) (ADJP (RBR louder) (CC and) (RBR louder)) (SBAR (IN until) (S (NP (PRP it)) (VP (VBZ 's) (ADJP (VBG deafening)))))))) (. .))
+# parse = (S (DT All) (JJ other) (NN sound) (NNS drops) (SBAR (IN as) (S (NP (DT the) (NN rap) (NN song)) (VP (VBZ gets) (ADJP (RBR louder) (CC and) (RBR louder)) (SBAR (IN until) (S (NP (PRP it)) (VP (VBZ 's) (ADJP (VBG deafening)))))))) (. .))
 # scene = 93
 # sent_id = 5
 # sent_len = 17
@@ -96,16 +96,16 @@
 # stage_direction = True
 # text = All other sound drops as the rap song gets louder and louder until it's deafening.
 # time = NIGHT
-1	All	all	DET	DT	_	3	det	_	_
-2	other	other	ADJ	JJ	_	3	amod	_	_
-3	sound	sound	ADJ	JJ	_	4	nsubj	_	_
+1	All	all	DET	DT	_	4	det	_	_
+2	other	other	ADJ	JJ	_	4	amod	_	_
+3	sound	sound	NOUN	NN	_	4	compound	_	_
 4	drops	drop	NOUN	NNS	_	0	ROOT	_	_
 5	as	as	ADP	IN	_	9	mark	_	_
 6	the	the	DET	DT	_	8	det	_	_
 7	rap	rap	NOUN	NN	_	8	compound	_	_
 8	song	song	NOUN	NN	_	9	nsubj	_	_
 9	gets	get	VERB	VBZ	_	4	advcl	_	_
-10	louder	louder	ADV	RBR	_	9	advmod	_	_
+10	louder	louder	ADV	RBR	_	9	acomp	_	_
 11	and	and	CCONJ	CC	_	10	cc	_	_
 12	louder	louder	ADV	RBR	_	10	conj	_	_
 13	until	until	ADP	IN	_	16	mark	_	_
@@ -123,7 +123,7 @@
 # stage_direction = True
 # text = Smiley sits up from where he hid during the burning and looting of Sal's Famous Pizzeria.
 # time = NIGHT
-1	Smiley	smiley	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Smiley	Smiley	PROPN	NNP	_	2	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=B
 2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	from	from	ADP	IN	_	2	prep	_	_
@@ -136,14 +136,14 @@
 11	and	and	CCONJ	CC	_	10	cc	_	_
 12	looting	looting	NOUN	NN	_	10	conj	_	_
 13	of	of	ADP	IN	_	10	prep	_	_
-14	Sal	sal	PROPN	NNP	_	17	poss	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
-15	's	's	PART	POS	_	14	case	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
-16	Famous	famous	PROPN	NNP	_	17	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
-17	Pizzeria	pizzeria	PROPN	NNP	_	13	pobj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+14	Sal	Sal	PROPN	NNP	_	17	poss	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
+15	's	's	PART	POS	_	14	case	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+16	Famous	Famous	PROPN	NNP	_	17	compound	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
+17	Pizzeria	Pizzeria	PROPN	NNP	_	13	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
 18	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NNP Smiley)) (VP (VP (VBZ looks) (ADVP (RP around))) (CC and) (VP (VBZ goes) (ADVP (RB directly)) (PP (IN to) (NP (NP (DT the) (VBG smoldering) (NNP Wall)) (PP (IN of) (NP (NNP Fame))))))) (. .))
+# parse = (S (NP (NNP Smiley)) (VP (VP (VBZ looks) (ADVP (RB around))) (CC and) (VP (VBZ goes) (ADVP (RB directly)) (PP (IN to) (NP (NP (DT the) (VBG smoldering) (NNP Wall)) (PP (IN of) (NP (NNP Fame))))))) (. .))
 # scene = 93
 # sent_id = 7
 # sent_len = 13
@@ -151,18 +151,18 @@
 # stage_direction = True
 # text = Smiley looks around and goes directly to the smoldering Wall of Fame.
 # time = NIGHT
-1	Smiley	smiley	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Smiley	Smiley	PROPN	NNP	_	2	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=B
 2	looks	look	VERB	VBZ	_	0	ROOT	_	_
-3	around	around	PART	RP	_	2	advmod	_	_
+3	around	around	ADV	RB	_	2	advmod	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
 5	goes	go	VERB	VBZ	_	2	conj	_	_
 6	directly	directly	ADV	RB	_	5	advmod	_	_
 7	to	to	ADP	IN	_	5	prep	_	_
-8	the	the	DET	DT	_	10	det	_	_
+8	the	the	DET	DT	_	9	det	_	_
 9	smoldering	smolder	VERB	VBG	_	10	amod	_	_
-10	Wall	wall	PROPN	NNP	_	7	pobj	_	_
-11	of	of	ADP	IN	_	10	prep	_	_
-12	Fame	fame	PROPN	NNP	_	11	pobj	_	_
+10	Wall	Wall	PROPN	NNP	_	7	pobj	_	ent_type=ORG|ent_id=383|ent_iob=B
+11	of	of	ADP	IN	_	10	prep	_	ent_type=ORG|ent_id=383|ent_iob=I
+12	Fame	Fame	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
 13	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
@@ -180,7 +180,7 @@
 4	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (NP (NN Smiley)) (VP (VBZ pins) (NP (NP (CD one)) (PP (IN of) (NP (PRP$ his) (NAC (NNP Malcolm) (NNP X) (SYM /) (NNP Martin) (NNP Luther) (NNP King) (, ,) (NNP Jr.) (, ,)) (VBZ cards)))) (PP (IN to) (NP (NP (DT the) (NNP Wall)) (PP (IN of) (NP (NNP Fame)))))) (. .))
+# parse = (S (NP (JJ Smiley)) (VP (VBZ pins) (NP (NP (CD one)) (PP (IN of) (NP (PRP$ his) (NAC (NNP Malcolm) (NNP X) (SYM /) (NNP Martin) (NNP Luther) (NNP King) (, ,) (NNP Jr.) (, ,)) (NNS cards)))) (PP (IN to) (NP (NP (DT the) (NNP Wall)) (PP (IN of) (NP (NNP Fame)))))) (. .))
 # scene = 93
 # sent_id = 9
 # sent_len = 21
@@ -188,26 +188,26 @@
 # stage_direction = True
 # text = Smiley pins one of his Malcolm X/Martin Luther King, Jr., cards to the Wall of Fame.
 # time = NIGHT
-1	Smiley	smiley	NOUN	NN	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Smiley	smiley	ADJ	JJ	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
 2	pins	pin	VERB	VBZ	_	0	ROOT	_	_
-3	one	one	NUM	CD	_	2	dobj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+3	one	one	NUM	CD	_	2	dobj	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 4	of	of	ADP	IN	_	3	prep	_	_
-5	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
-6	Malcolm	malcolm	PROPN	NNP	_	11	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-7	X	x	PROPN	NNP	_	10	nmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
-8	/	/	SYM	SYM	_	10	punct	_	_
-9	Martin	martin	PROPN	NNP	_	10	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-10	Luther	luther	PROPN	NNP	_	11	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-11	King	king	PROPN	NNP	_	13	nmod	_	ent_type=PERSON|ent_id=378|ent_iob=I
+5	his	-PRON-	DET	PRP$	_	15	poss	_	_
+6	Malcolm	Malcolm	PROPN	NNP	_	7	nmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+7	X	X	PROPN	NNP	_	8	subtok	_	ent_type=PERSON|ent_id=380|ent_iob=I
+8	/	/	SYM	SYM	_	9	subtok	_	_
+9	Martin	Martin	PROPN	NNP	_	11	nmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+10	Luther	Luther	PROPN	NNP	_	11	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+11	King	King	PROPN	NNP	_	13	nmod	_	ent_type=PERSON|ent_id=380|ent_iob=I
 12	,	,	PUNCT	,	_	13	punct	_	_
-13	Jr.	jr.	PROPN	NNP	_	4	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-14	,	,	PUNCT	,	_	2	punct	_	_
-15	cards	card	VERB	VBZ	_	2	conj	_	_
+13	Jr.	Jr.	PROPN	NNP	_	15	nmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+14	,	,	PUNCT	,	_	13	punct	_	_
+15	cards	card	NOUN	NNS	_	4	pobj	_	_
 16	to	to	ADP	IN	_	15	prep	_	_
-17	the	the	DET	DT	_	18	det	_	ent_type=ORG|ent_id=381|ent_iob=B
-18	Wall	wall	PROPN	NNP	_	16	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
-19	of	of	ADP	IN	_	18	prep	_	ent_type=ORG|ent_id=381|ent_iob=I
-20	Fame	fame	PROPN	NNP	_	19	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+17	the	the	DET	DT	_	18	det	_	ent_type=ORG|ent_id=383|ent_iob=B
+18	Wall	Wall	PROPN	NNP	_	16	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
+19	of	of	ADP	IN	_	18	prep	_	ent_type=ORG|ent_id=383|ent_iob=I
+20	Fame	Fame	PROPN	NNP	_	19	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
 21	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
@@ -222,42 +222,52 @@
 1	We	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	on	on	ADP	IN	_	2	prep	_	_
-4	Smiley	smiley	PROPN	NNP	_	6	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	Smiley	Smiley	PROPN	NNP	_	6	poss	_	ent_type=ORG|ent_id=383|ent_iob=B
 5	's	's	PART	POS	_	4	case	_	_
 6	face	face	NOUN	NN	_	3	pobj	_	_
 7	and	and	CCONJ	CC	_	2	cc	_	_
-8	a	a	DET	DT	_	9	det	_	_
-9	smile	smile	NOUN	NN	_	11	nsubj	_	_
+8	a	a	DET	DT	_	11	det	_	_
+9	smile	smile	NOUN	NN	_	11	amod	_	_
 10	slowly	slowly	ADV	RB	_	11	advmod	_	_
 11	travels	travel	VERB	VBZ	_	2	conj	_	_
 12	across	across	PART	RP	_	11	prt	_	_
-13	.	.	PUNCT	.	_	11	punct	_	_
+13	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = INT
-# parse = (S (S (NP (PRP It)) (VP (VBZ 's) (NP (NP (DT the) (JJ first) (NN time)) (SBAR (S (NP (NNP Smiley)) (VP (VBZ has) (VP (VBN smiled) (PP (IN in) (NP (NNS years)))))))))) (CC and) (S (NP (NN nobody)) (VP (VBZ is) (ADVP (RB there)) (S (VP (TO to) (VP (VB see) (NP (DT this) (NN event))))))) (. .))
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (NP (NP (DT the) (JJ first) (NN time)) (SBAR (S (NP (NNP Smiley)) (VP (VBZ has) (VP (VBN smiled) (PP (IN in) (NP (NNS years))))))))))
 # scene = 93
 # sent_id = 11
-# sent_len = 19
+# sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
-# text = It's the first time Smiley has smiled in years and nobody is there to see this event.
+# text = It's the first time Smiley has smiled in years
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	5	det	_	_
-4	first	first	ADJ	JJ	_	5	amod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
+4	first	first	ADJ	JJ	_	5	amod	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
 5	time	time	NOUN	NN	_	2	attr	_	_
-6	Smiley	smiley	PROPN	NNP	_	8	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+6	Smiley	Smiley	PROPN	NNP	_	8	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=B
 7	has	have	VERB	VBZ	_	8	aux	_	_
 8	smiled	smile	VERB	VBN	_	5	relcl	_	_
 9	in	in	ADP	IN	_	8	prep	_	_
-10	years	year	NOUN	NNS	_	9	pobj	_	ent_type=DATE|ent_id=388|ent_iob=B
-11	and	and	CCONJ	CC	_	8	cc	_	_
-12	nobody	nobody	NOUN	NN	_	13	nsubj	_	_
-13	is	be	VERB	VBZ	_	8	conj	_	_
-14	there	there	ADV	RB	_	13	advmod	_	_
-15	to	to	PART	TO	_	16	aux	_	_
-16	see	see	VERB	VB	_	13	advcl	_	_
-17	this	this	DET	DT	_	18	det	_	_
-18	event	event	NOUN	NN	_	16	dobj	_	_
-19	.	.	PUNCT	.	_	13	punct	_	_
+10	years	year	NOUN	NNS	_	9	pobj	_	ent_type=DATE|ent_id=391|ent_iob=B
+
+# loc = INT
+# parse = (S (CC and) (NP (NN nobody)) (VP (VBZ is) (ADVP (RB there)) (S (VP (TO to) (VP (VB see) (NP (DT this) (NN event)))))) (. .))
+# scene = 93
+# sent_id = 12
+# sent_len = 9
+# setting = SAL'S FAMOUS PIZZERIA
+# stage_direction = True
+# text = and nobody is there to see this event.
+# time = NIGHT
+1	and	and	CCONJ	CC	_	3	cc	_	_
+2	nobody	nobody	NOUN	NN	_	3	nsubj	_	_
+3	is	be	VERB	VBZ	_	0	ROOT	_	_
+4	there	there	ADV	RB	_	3	advmod	_	_
+5	to	to	PART	TO	_	6	aux	_	_
+6	see	see	VERB	VB	_	3	advcl	_	_
+7	this	this	DET	DT	_	8	det	_	_
+8	event	event	NOUN	NN	_	6	dobj	_	_
+9	.	.	PUNCT	.	_	3	punct	_	_

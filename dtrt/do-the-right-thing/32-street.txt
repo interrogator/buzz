@@ -1,7 +1,7 @@
 Vito and Mookie see Buggin' Out on their way back to Sal's. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true">
-You the man.. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="238"> <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="238">
-You the man.. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="BUGGIN' OUT" line="239"> <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="BUGGIN' OUT" line="239">
-No, you the man.. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="240"> <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="240">
-No. I'm just a struggling Black man trying to keep my dick hard in a cruel and harsh world.. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="BUGGIN' OUT" line="241"> <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="BUGGIN' OUT" line="241">
+You the man. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="238">
+You the man. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="BUGGIN' OUT" line="239">
+No, you the man. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="240">
+No. I'm just a struggling Black man trying to keep my dick hard in a cruel and harsh world. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="BUGGIN' OUT" line="241">
 Buggin' Out gives Mookie five and a menacing look at Vito. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true">
-Vito is down.. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="242"> <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="242">
+Vito is down. <metadata time="DAY" loc="EXT" setting="STREET" scene="32" stage_direction="true" speaker="MOOKIE" line="242">

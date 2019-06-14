@@ -11,10 +11,10 @@
 2	people	people	NOUN	NNS	_	3	nsubj	_	_
 3	rush	rush	VERB	VBP	_	0	ROOT	_	_
 4	into	into	ADP	IN	_	3	prep	_	_
-5	Sal	sal	PROPN	NNP	_	8	poss	_	ent_type=ORG|ent_id=381|ent_iob=B
-6	's	's	PART	POS	_	5	case	_	ent_type=ORG|ent_id=381|ent_iob=I
-7	Famous	famous	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-8	Pizzeria	pizzeria	PROPN	NNP	_	4	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+5	Sal	Sal	PROPN	NNP	_	8	poss	_	ent_type=LOC|ent_id=385|ent_iob=B
+6	's	's	PART	POS	_	5	case	_	ent_type=LOC|ent_id=385|ent_iob=I
+7	Famous	Famous	PROPN	NNP	_	8	compound	_	ent_type=LOC|ent_id=385|ent_iob=I
+8	Pizzeria	Pizzeria	PROPN	NNP	_	4	pobj	_	ent_type=LOC|ent_id=385|ent_iob=I
 9	,	,	PUNCT	,	_	3	punct	_	_
 10	tearing	tear	VERB	VBG	_	3	advcl	_	_
 11	it	-PRON-	PRON	PRP	_	10	dobj	_	_
@@ -38,7 +38,7 @@
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = INT
-# parse = (S (S (NP (PRP WE)) (VP (VBP SEE) (NP (JJ only) (NNS coins)))) (, ,) (S (NP (NNP Sal)) (VP (VBZ has) (NP (DT the) (NN paper)))) (. .))
+# parse = (S (S (NP (PRP WE)) (VP (VBP SEE) (NP (RB only) (NNS coins)))) (, ,) (S (NP (NNP Sal)) (VP (VBZ has) (NP (DT the) (NN paper)))) (. .))
 # scene = 81
 # sent_id = 3
 # sent_len = 10
@@ -47,11 +47,11 @@
 # text = WE SEE only coins, Sal has the paper.
 # time = NIGHT
 1	WE	we	PRON	PRP	_	2	nsubj	_	_
-2	SEE	see	VERB	VBP	_	7	ccomp	_	ent_type=ORG|ent_id=381|ent_iob=B
-3	only	only	ADJ	JJ	_	4	advmod	_	_
+2	SEE	see	VERB	VBP	_	7	ccomp	_	_
+3	only	only	ADV	RB	_	4	advmod	_	_
 4	coins	coin	NOUN	NNS	_	2	dobj	_	_
 5	,	,	PUNCT	,	_	7	punct	_	_
-6	Sal	sal	PROPN	NNP	_	7	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	Sal	Sal	PROPN	NNP	_	7	nsubj	_	ent_type=GPE|ent_id=384|ent_iob=B
 7	has	have	VERB	VBZ	_	0	ROOT	_	_
 8	the	the	DET	DT	_	9	det	_	_
 9	paper	paper	NOUN	NN	_	7	dobj	_	_

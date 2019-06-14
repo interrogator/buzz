@@ -1,24 +1,24 @@
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ leads) (NP (NNP Sal) (, ,) (NNP Vito) (, ,) (CC and) (NNP Pino)) (ADVP (RB back) (PP (IN to) (NP (NP (PRP$ his) (NN stoop)) (SBAR (WHADVP (WRB where)) (S (NP (PRP they)) (VP (VBP watch) (PP (IN in) (NP (NN horror)))))))))) (. .) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ leads) (NP (NNP Sal) (, ,) (NNP Vito) (, ,) (CC and) (VB Pino)) (ADVP (RB back) (PP (IN to) (NP (NP (PRP$ his) (NN stoop)) (SBAR (WHADVP (WRB where)) (S (NP (PRP they)) (VP (VBP watch) (PP (IN in) (NP (NN horror)))))))))) (. .) (_SP  ))
 # scene = 82
 # sent_id = 1
-# sent_len = 20
+# sent_len = 19
 # setting = DA MAYOR'S STOOP
 # stage_direction = True
 # text = Da Mayor leads Sal, Vito, and Pino back to his stoop where they watch in horror.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	leads	lead	VERB	VBZ	_	0	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-5	,	,	PUNCT	,	_	4	punct	_	_
-6	Vito	vito	PROPN	NNP	_	4	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	Sal	Sal	PROPN	NNP	_	3	dobj	_	ent_type=GPE|ent_id=384|ent_iob=B
+5	,	,	PUNCT	,	_	4	punct	_	ent_type=GPE|ent_id=384|ent_iob=I
+6	Vito	Vito	PROPN	NNP	_	4	conj	_	ent_type=GPE|ent_id=384|ent_iob=I
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	Pino	pino	PROPN	NNP	_	6	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-10	back	back	ADV	RB	_	9	advmod	_	_
+9	Pino	pino	VERB	VB	_	6	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
+10	back	back	ADV	RB	_	3	advmod	_	_
 11	to	to	ADP	IN	_	10	prep	_	_
-12	his	-PRON-	ADJ	PRP$	_	13	poss	_	_
+12	his	-PRON-	DET	PRP$	_	13	poss	_	_
 13	stoop	stoop	NOUN	NN	_	11	pobj	_	_
 14	where	where	ADV	WRB	_	16	advmod	_	_
 15	they	-PRON-	PRON	PRP	_	16	nsubj	_	_
@@ -45,18 +45,17 @@
 
 # line = 735
 # loc = EXT
-# parse = (FRAG (WRB Why) (. ?) (. .) (  ))
+# parse = (FRAG (WRB Why) (. ?) (_SP  ))
 # scene = 82
 # sent_id = 3
-# sent_len = 4
+# sent_len = 2
 # setting = DA MAYOR'S STOOP
 # speaker = SAL
 # stage_direction = True
-# text = Why?.
+# text = Why?
 # time = NIGHT
 1	Why	why	ADV	WRB	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
-3	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 736
 # loc = EXT
@@ -85,7 +84,7 @@
 # stage_direction = True
 # text = First white folks they saw.
 # time = NIGHT
-1	First	first	ADJ	JJ	_	3	amod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
+1	First	first	ADJ	JJ	_	3	amod	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
 2	white	white	ADJ	JJ	_	3	amod	_	_
 3	folks	folk	NOUN	NNS	_	0	ROOT	_	_
 4	they	-PRON-	PRON	PRP	_	5	nsubj	_	_
@@ -94,32 +93,32 @@
 
 # line = 736
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VBD was) (ADVP (RB there))) (NFP ..) (  ))
+# parse = (S (NP (PRP You)) (VP (VBD was) (ADVP (RB there))) (. .) (_SP  ))
 # scene = 82
 # sent_id = 6
-# sent_len = 5
+# sent_len = 4
 # setting = DA MAYOR'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = You was there..
+# text = You was there.
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	was	be	VERB	VBD	_	0	ROOT	_	_
 3	there	there	ADV	RB	_	2	advmod	_	_
-4	..	..	PUNCT	NFP	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 737
 # loc = EXT
-# parse = (S (NP (NNP Fuckin) (POS ')) (NNS niggers) (. ..))
+# parse = (NP (NP (NNP Fuckin) (POS ')) (NNS niggers) (. .))
 # scene = 82
 # sent_id = 7
 # sent_len = 4
 # setting = DA MAYOR'S STOOP
 # speaker = PINO
 # stage_direction = True
-# text = Fuckin' niggers..
+# text = Fuckin' niggers.
 # time = NIGHT
-1	Fuckin	fuckin	PROPN	NNP	_	3	poss	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Fuckin	Fuckin	PROPN	NNP	_	3	poss	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	'	'	PART	POS	_	1	case	_	_
 3	niggers	nigger	NOUN	NNS	_	0	ROOT	_	_
-4	..	..	PUNCT	.	_	3	punct	_	_
+4	.	.	PUNCT	.	_	3	punct	_	_

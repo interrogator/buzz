@@ -1,33 +1,33 @@
 # loc = INT
-# parse = (S (NP (NN Mookie)) (VP (VBZ enters)) (. .) (  ))
+# parse = (S (NP (JJ Mookie)) (VP (NNS enters)) (. .) (_SP  ))
 # scene = 21
 # sent_id = 1
-# sent_len = 4
+# sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
 # stage_direction = True
 # text = Mookie enters.
 # time = DAY
-1	Mookie	mookie	NOUN	NN	_	2	nsubj	_	_
-2	enters	enter	VERB	VBZ	_	0	ROOT	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
+2	enters	enter	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 129
 # loc = INT
-# parse = (S (NP (NNP Mookie)) (, ,) (SBAR (IN if) (S (NP (PRP$ your) (NNS friends)) (VP (MD ca) (RB n't) (VP (VB behave))))) (, ,) (NP (PRP they)) (VP (VBP 're) (RB not) (ADJP (JJ welcome))) (. ..) (  ))
+# parse = (S (NP (NNP Mookie)) (, ,) (SBAR (IN if) (S (NP (PRP$ your) (NNS friends)) (VP (MD ca) (RB n't) (VP (VB behave))))) (, ,) (NP (PRP they)) (VP (VBP 're) (RB not) (ADJP (JJ welcome))) (. .) (_SP  ))
 # scene = 21
 # sent_id = 2
-# sent_len = 15
+# sent_len = 14
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = Mookie, if your friends can't behave, they're not welcome..
+# text = Mookie, if your friends can't behave, they're not welcome.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	11	npadvmod	_	_
+1	Mookie	Mookie	PROPN	NNP	_	11	dep	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	11	punct	_	_
 3	if	if	ADP	IN	_	8	mark	_	_
-4	your	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	your	-PRON-	DET	PRP$	_	5	poss	_	_
 5	friends	friend	NOUN	NNS	_	8	nsubj	_	_
-6	ca	can	VERB	MD	_	8	aux	_	_
+6	ca	can	AUX	MD	_	8	aux	_	_
 7	n't	not	ADV	RB	_	8	neg	_	_
 8	behave	behave	VERB	VB	_	11	advcl	_	_
 9	,	,	PUNCT	,	_	11	punct	_	_
@@ -35,18 +35,18 @@
 11	're	be	VERB	VBP	_	0	ROOT	_	_
 12	not	not	ADV	RB	_	11	neg	_	_
 13	welcome	welcome	ADJ	JJ	_	11	acomp	_	_
-14	..	..	PUNCT	.	_	11	punct	_	_
+14	.	.	PUNCT	.	_	11	punct	_	_
 
 # line = 130
 # loc = INT
-# parse = (S (NP (PRP I)) (VP (VBD got) (NP (NP (DT no) (NN say)) (PP (IN over) (NP (NNS people))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBD got) (NP (NP (DT no) (NN say)) (PP (IN over) (NP (NNS people))))) (. .) (_SP  ))
 # scene = 21
 # sent_id = 3
-# sent_len = 8
+# sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = MOOKIE
 # stage_direction = True
-# text = I got no say over people..
+# text = I got no say over people.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	got	get	VERB	VBD	_	0	ROOT	_	_
@@ -54,64 +54,64 @@
 4	say	say	NOUN	NN	_	2	dobj	_	_
 5	over	over	ADP	IN	_	4	prep	_	_
 6	people	people	NOUN	NNS	_	5	pobj	_	_
-7	..	..	PUNCT	.	_	2	punct	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 131
 # loc = INT
-# parse = (S (NP (PRP You)) (VP (VBP talk) (PP (IN to) (NP (PRP 'em)))) (. ..) (  ))
+# parse = (S (NP (PRP You)) (VP (VBP talk) (PP (IN to) (NP (PRP 'em)))) (. .) (_SP  ))
 # scene = 21
 # sent_id = 4
-# sent_len = 6
+# sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = PINO
 # stage_direction = True
-# text = You talk to 'em..
+# text = You talk to 'em.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	talk	talk	VERB	VBP	_	0	ROOT	_	_
 3	to	to	ADP	IN	_	2	prep	_	_
 4	'em	-PRON-	PRON	PRP	_	3	pobj	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 132
 # loc = INT
-# parse = (S (NP (NNS People)) (VP (VBP are) (ADJP (JJ free) (S (VP (TO to) (VP (VB do) (SBAR (WHNP (WP what)) (S (NP (PRP they)) (VP (VBD wanna) (VP (VBP do)))))))))) (. ..) (  ))
+# parse = (S (NP (NNS People)) (VP (VBP are) (ADJP (JJ free) (S (VP (TO to) (VP (VB do) (SBAR (WHNP (WP what)) (S (NP (PRP they)) (VP (MD wanna) (VP (VBP do)))))))))) (. .) (_SP  ))
 # scene = 21
 # sent_id = 5
-# sent_len = 11
+# sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = MOOKIE
 # stage_direction = True
-# text = People are free to do what they wanna do..
+# text = People are free to do what they wanna do.
 # time = DAY
-1	People	people	NOUN	NNS	_	2	nsubj	_	_
+1	People	People	NOUN	NNS	_	2	nsubj	_	_
 2	are	be	VERB	VBP	_	0	ROOT	_	_
 3	free	free	ADJ	JJ	_	2	acomp	_	_
 4	to	to	PART	TO	_	5	aux	_	_
 5	do	do	VERB	VB	_	3	xcomp	_	_
-6	what	what	NOUN	WP	_	8	dobj	_	_
+6	what	what	PRON	WP	_	9	nsubj	_	_
 7	they	-PRON-	PRON	PRP	_	8	nsubj	_	_
-8	wanna	wanna	VERB	VBD	_	9	nsubj	_	_
-9	do	do	VERB	VBP	_	5	ccomp	_	_
-10	..	..	PUNCT	.	_	2	punct	_	_
+8	wanna	wanna	VERB	MD	_	5	ccomp	_	_
+9	do	do	VERB	VBP	_	8	ccomp	_	_
+10	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 133
 # loc = INT
-# parse = (S (S (NP (PRP I)) (VP (VBP know) (, ,) (S (NP (DT this)) (VP (VBZ is) (NP (NNP America)))))) (, ,) (CC but) (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB want) (NP (DT no) (NN trouble))))) (. ..))
+# parse = (S (S (NP (PRP I)) (VP (VBP know) (, ,) (S (NP (DT this)) (VP (VBZ is) (NP (NNP America)))))) (, ,) (CC but) (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB want) (NP (DT no) (NN trouble))))) (. .))
 # scene = 21
 # sent_id = 6
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
 # speaker = SAL
 # stage_direction = True
-# text = I know, this is America, but I don't want no trouble..
+# text = I know, this is America, but I don't want no trouble.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	know	know	VERB	VBP	_	5	parataxis	_	_
 3	,	,	PUNCT	,	_	5	punct	_	_
 4	this	this	DET	DT	_	5	nsubj	_	_
 5	is	be	VERB	VBZ	_	0	ROOT	_	_
-6	America	america	PROPN	NNP	_	5	attr	_	ent_type=GPE|ent_id=382|ent_iob=B
+6	America	America	PROPN	NNP	_	5	attr	_	ent_type=GPE|ent_id=384|ent_iob=B
 7	,	,	PUNCT	,	_	5	punct	_	_
 8	but	but	CCONJ	CC	_	5	cc	_	_
 9	I	-PRON-	PRON	PRP	_	12	nsubj	_	_
@@ -120,4 +120,4 @@
 12	want	want	VERB	VB	_	5	conj	_	_
 13	no	no	DET	DT	_	14	det	_	_
 14	trouble	trouble	NOUN	NN	_	12	dobj	_	_
-15	..	..	PUNCT	.	_	12	punct	_	_
+15	.	.	PUNCT	.	_	12	punct	_	_

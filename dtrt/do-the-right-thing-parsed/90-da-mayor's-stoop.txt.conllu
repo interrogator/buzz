@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (NP (NNP Da) (NNP Mayor)) (, ,) (NP (NNP Sal) (, ,) (NNP Vito)) (, ,) (CC and) (NP (NN Pino))) (VP (NN watch) (PP (IN in) (NP (NN disbelief)))) (. .))
+# parse = (S (NP (NP (NNP Da) (NNP Mayor)) (, ,) (NP (NNP Sal) (, ,) (NNP Vito)) (, ,) (CC and) (NP (NNP Pino))) (VP (NN watch) (PP (IN in) (NP (NN disbelief)))) (. .))
 # scene = 90
 # sent_id = 1
 # sent_len = 13
@@ -7,25 +7,25 @@
 # stage_direction = True
 # text = Da Mayor, Sal, Vito, and Pino watch in disbelief.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	10	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	10	nsubj	_	_
 3	,	,	PUNCT	,	_	2	punct	_	_
-4	Sal	sal	PROPN	NNP	_	2	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-5	,	,	PUNCT	,	_	4	punct	_	_
-6	Vito	vito	PROPN	NNP	_	4	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	Sal	Sal	PROPN	NNP	_	2	npadvmod	_	ent_type=GPE|ent_id=384|ent_iob=B
+5	,	,	PUNCT	,	_	4	punct	_	ent_type=GPE|ent_id=384|ent_iob=I
+6	Vito	Vito	PROPN	NNP	_	4	conj	_	ent_type=GPE|ent_id=384|ent_iob=I
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	Pino	pino	NOUN	NN	_	6	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
+9	Pino	Pino	PROPN	NNP	_	6	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
 10	watch	watch	NOUN	NN	_	0	ROOT	_	_
 11	in	in	ADP	IN	_	10	prep	_	_
 12	disbelief	disbelief	NOUN	NN	_	11	pobj	_	_
 13	.	.	PUNCT	.	_	10	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NP (PRP It))) (VP (VBZ 's) (ADJP (JJ unbelievable)) (SBAR (WHNP (WP what)) (S (VP (VBZ is) (VP (VBG happening) (PP (IN before) (NP (PRP$ their) (NNS eyes)))))))) (. .) (  ))
+# parse = (S (NP (NP (PRP It))) (VP (VBZ 's) (ADJP (JJ unbelievable)) (SBAR (WHNP (WP what)) (S (VP (VBZ is) (VP (VBG happening) (PP (IN before) (NP (PRP$ their) (NNS eyes)))))))) (. .) (_SP  ))
 # scene = 90
 # sent_id = 2
-# sent_len = 11
+# sent_len = 10
 # setting = DA MAYOR'S STOOP
 # stage_direction = True
 # text = It's unbelievable what is happening before their eyes.
@@ -33,11 +33,11 @@
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	unbelievable	unbelievable	ADJ	JJ	_	2	acomp	_	_
-4	what	what	NOUN	WP	_	6	nsubj	_	_
+4	what	what	PRON	WP	_	6	nsubj	_	_
 5	is	be	VERB	VBZ	_	6	aux	_	_
 6	happening	happen	VERB	VBG	_	2	ccomp	_	_
 7	before	before	ADP	IN	_	6	prep	_	_
-8	their	-PRON-	ADJ	PRP$	_	9	poss	_	_
+8	their	-PRON-	DET	PRP$	_	9	poss	_	_
 9	eyes	eye	NOUN	NNS	_	7	pobj	_	_
 10	.	.	PUNCT	.	_	2	punct	_	_
 
@@ -50,23 +50,23 @@
 # stage_direction = True
 # text = People are screaming, kids and women are not being spared from the brute force of the firehoses either.
 # time = NIGHT
-1	People	people	NOUN	NNS	_	3	nsubj	_	_
+1	People	People	NOUN	NNS	_	3	nsubj	_	_
 2	are	be	VERB	VBP	_	3	aux	_	_
-3	screaming	scream	VERB	VBG	_	0	ROOT	_	_
-4	,	,	PUNCT	,	_	3	punct	_	_
+3	screaming	scream	VERB	VBG	_	11	ccomp	_	_
+4	,	,	PUNCT	,	_	11	punct	_	_
 5	kids	kid	NOUN	NNS	_	11	nsubjpass	_	_
 6	and	and	CCONJ	CC	_	5	cc	_	_
 7	women	woman	NOUN	NNS	_	5	conj	_	_
 8	are	be	VERB	VBP	_	11	aux	_	_
 9	not	not	ADV	RB	_	11	neg	_	_
 10	being	be	VERB	VBG	_	11	auxpass	_	_
-11	spared	spar	VERB	VBN	_	3	conj	_	_
+11	spared	spare	VERB	VBN	_	0	ROOT	_	_
 12	from	from	ADP	IN	_	11	prep	_	_
 13	the	the	DET	DT	_	15	det	_	_
 14	brute	brute	ADJ	JJ	_	15	amod	_	_
 15	force	force	NOUN	NN	_	12	pobj	_	_
 16	of	of	ADP	IN	_	15	prep	_	_
 17	the	the	DET	DT	_	18	det	_	_
-18	firehoses	firehos	NOUN	NNS	_	16	pobj	_	_
+18	firehoses	firehose	NOUN	NNS	_	16	pobj	_	_
 19	either	either	ADV	RB	_	11	advmod	_	_
 20	.	.	PUNCT	.	_	11	punct	_	_

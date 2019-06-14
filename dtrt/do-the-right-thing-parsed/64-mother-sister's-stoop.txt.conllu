@@ -7,19 +7,19 @@
 # stage_direction = True
 # text = Mother Sister is sitting in her window as usual.
 # time = DUSK
-1	Mother	mother	PROPN	NNP	_	2	compound	_	_
-2	Sister	sister	PROPN	NNP	_	4	nsubj	_	_
+1	Mother	Mother	PROPN	NNP	_	2	compound	_	_
+2	Sister	Sister	PROPN	NNP	_	4	nsubj	_	_
 3	is	be	VERB	VBZ	_	4	aux	_	_
 4	sitting	sit	VERB	VBG	_	0	ROOT	_	_
 5	in	in	ADP	IN	_	4	prep	_	_
-6	her	-PRON-	ADJ	PRP$	_	7	poss	_	_
+6	her	-PRON-	DET	PRP$	_	7	poss	_	_
 7	window	window	NOUN	NN	_	5	pobj	_	_
 8	as	as	ADP	IN	_	4	prep	_	_
 9	usual	usual	ADJ	JJ	_	8	amod	_	_
 10	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ walks) (PP (IN up) (NP (DT the) (NN stoop))) (PP (IN with) (NP (NP (NP (DT a) (NN bunch)) (PP (IN of) (NP (RB fresh)))) (HYPH -) (NP (NP (VBN cut) (NNS flowers)) (PP (IN in) (NP (NP (DT a) (VBN discarded) (NN wine) (NN bottle)) (PP (IN for) (NP (DT a) (NN vase))))))))) (. .))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ walks) (PP (RP up) (NP (DT the) (NN stoop))) (PP (IN with) (NP (NP (NP (DT a) (NN bunch)) (PP (IN of) (NP (JJ fresh)))) (HYPH -) (NP (NP (VBN cut) (NNS flowers)) (PP (IN in) (NP (NP (DT a) (VBN discarded) (NN wine) (NN bottle)) (PP (IN for) (NP (DT a) (NN vase))))))))) (. .))
 # scene = 64
 # sent_id = 2
 # sent_len = 23
@@ -27,49 +27,49 @@
 # stage_direction = True
 # text = Da Mayor walks up the stoop with a bunch of fresh-cut flowers in a discarded wine bottle for a vase.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	walks	walk	VERB	VBZ	_	0	ROOT	_	_
-4	up	up	ADP	IN	_	3	prt	_	_
+4	up	up	PART	RP	_	3	prt	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	stoop	stoop	NOUN	NN	_	3	dobj	_	_
 7	with	with	ADP	IN	_	3	prep	_	_
 8	a	a	DET	DT	_	9	det	_	_
 9	bunch	bunch	NOUN	NN	_	7	pobj	_	_
 10	of	of	ADP	IN	_	9	prep	_	_
-11	fresh	fresh	ADV	RB	_	13	amod	_	_
+11	fresh	fresh	ADJ	JJ	_	13	amod	_	_
 12	-	-	PUNCT	HYPH	_	13	punct	_	_
 13	cut	cut	VERB	VBN	_	14	amod	_	_
 14	flowers	flower	NOUN	NNS	_	10	pobj	_	_
-15	in	in	ADP	IN	_	9	prep	_	_
+15	in	in	ADP	IN	_	3	prep	_	_
 16	a	a	DET	DT	_	19	det	_	_
 17	discarded	discard	VERB	VBN	_	19	amod	_	_
 18	wine	wine	NOUN	NN	_	19	compound	_	_
 19	bottle	bottle	NOUN	NN	_	15	pobj	_	_
-20	for	for	ADP	IN	_	9	prep	_	_
+20	for	for	ADP	IN	_	3	prep	_	_
 21	a	a	DET	DT	_	22	det	_	_
 22	vase	vase	NOUN	NN	_	20	pobj	_	_
 23	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ holds) (NP (PRP them)) (PRT (RP out)) (PP (IN for) (NP (NP (NNP Mother) (NNP Sister)) (, ,) (SBAR (WHNP (WP who)) (S (VP (VBZ does) (RB not) (VP (VB acknowledge) (NP (PRP him)) (ADVP (RB at) (RB all))))))))) (. .) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ holds) (NP (PRP them)) (PRT (RP out)) (PP (IN for) (NP (NP (NNP Mother) (NNP Sister)) (, ,) (SBAR (WHNP (WP who)) (S (VP (VBZ does) (RB not) (VP (VB acknowledge) (NP (PRP him)) (ADVP (RB at) (RB all))))))))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 3
-# sent_len = 18
+# sent_len = 17
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = Da Mayor holds them out for Mother Sister, who does not acknowledge him at all.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	holds	hold	VERB	VBZ	_	0	ROOT	_	_
 4	them	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	out	out	PART	RP	_	3	prt	_	_
 6	for	for	ADP	IN	_	3	prep	_	_
-7	Mother	mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-8	Sister	sister	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+7	Mother	Mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+8	Sister	Sister	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	who	who	NOUN	WP	_	13	nsubj	_	_
+10	who	who	PRON	WP	_	13	nsubj	_	_
 11	does	do	VERB	VBZ	_	13	aux	_	_
 12	not	not	ADV	RB	_	13	neg	_	_
 13	acknowledge	acknowledge	VERB	VB	_	8	relcl	_	_
@@ -79,24 +79,24 @@
 17	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ holds) (NP (PRP them)) (PRT (RP out)) (PP (IN for) (NP (NP (NNP Mother) (NNP Sister)) (, ,) (SBAR (WHNP (WP who)) (S (VP (VBZ does) (RB not) (VP (VB acknowledge) (NP (PRP him)) (ADVP (RB at) (RB all))))))))) (. .) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ holds) (NP (PRP them)) (PRT (RP out)) (PP (IN for) (NP (NP (NNP Mother) (NNP Sister)) (, ,) (SBAR (WHNP (WP who)) (S (VP (VBZ does) (RB not) (VP (VB acknowledge) (NP (PRP him)) (ADVP (RB at) (RB all))))))))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 4
-# sent_len = 18
+# sent_len = 17
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = Da Mayor holds them out for Mother Sister, who does not acknowledge him at all.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 3	holds	hold	VERB	VBZ	_	0	ROOT	_	_
 4	them	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	out	out	PART	RP	_	3	prt	_	_
 6	for	for	ADP	IN	_	3	prep	_	_
-7	Mother	mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-8	Sister	sister	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+7	Mother	Mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+8	Sister	Sister	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 9	,	,	PUNCT	,	_	8	punct	_	_
-10	who	who	NOUN	WP	_	13	nsubj	_	_
+10	who	who	PRON	WP	_	13	nsubj	_	_
 11	does	do	VERB	VBZ	_	13	aux	_	_
 12	not	not	ADV	RB	_	13	neg	_	_
 13	acknowledge	acknowledge	VERB	VB	_	8	relcl	_	_
@@ -117,7 +117,7 @@
 # text = I'd thought you might like these...
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-2	'd	would	VERB	MD	_	3	aux	_	_
+2	'd	would	AUX	MD	_	3	aux	_	_
 3	thought	think	VERB	VBN	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 5	might	may	VERB	MD	_	6	aux	_	_
@@ -127,31 +127,31 @@
 
 # line = 505
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP guess) (RB not)) (NFP ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP guess) (RB not)) (. .) (_SP  ))
 # scene = 64
 # sent_id = 6
-# sent_len = 5
+# sent_len = 4
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = I guess not..
+# text = I guess not.
 # time = DUSK
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	guess	guess	VERB	VBP	_	0	ROOT	_	_
 3	not	not	ADV	RB	_	2	neg	_	_
-4	..	..	PUNCT	NFP	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ takes) (NP (NP (DT a) (NN seat)) (PP (IN on) (NP (DT the) (NN stoop))))) (CC and) (VP (VBZ puts) (NP (DT the) (NNS flowers)) (PP (IN to) (NP (PRP$ his) (NN face))))) (. .) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VP (VBZ takes) (NP (NP (DT a) (NN seat)) (PP (IN on) (NP (DT the) (NN stoop))))) (CC and) (VP (VBZ puts) (NP (DT the) (NNS flowers)) (PP (IN to) (NP (PRP$ his) (NN face))))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 7
-# sent_len = 17
+# sent_len = 16
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = Da Mayor takes a seat on the stoop and puts the flowers to his face.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	takes	take	VERB	VBZ	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	seat	seat	NOUN	NN	_	3	dobj	_	_
@@ -163,13 +163,13 @@
 11	the	the	DET	DT	_	12	det	_	_
 12	flowers	flower	NOUN	NNS	_	10	dobj	_	_
 13	to	to	ADP	IN	_	10	prep	_	_
-14	his	-PRON-	ADJ	PRP$	_	15	poss	_	_
+14	his	-PRON-	DET	PRP$	_	15	poss	_	_
 15	face	face	NOUN	NN	_	13	pobj	_	_
 16	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 506
 # loc = EXT
-# parse = (S (NP (VBP Ai)) (RB n't) (NN nuthin') (VP (IN like) (NP (NP (DT the) (NN smell)) (PP (IN of) (NP (JJ fresh) (NNS flowers))))) (. .))
+# parse = (S (NP (VBP Ai)) (RB n't) (JJ nuthin') (VP (IN like) (NP (NP (DT the) (NN smell)) (PP (IN of) (NP (JJ fresh) (NNS flowers))))) (. .))
 # scene = 64
 # sent_id = 8
 # sent_len = 10
@@ -178,38 +178,37 @@
 # stage_direction = True
 # text = Ain't nuthin' like the smell of fresh flowers.
 # time = DUSK
-1	Ai	be	VERB	VBP	_	0	ROOT	_	_
-2	n't	not	ADV	RB	_	1	neg	_	_
-3	nuthin'	nothing	NOUN	NN	_	1	attr	_	_
+1	Ai	be	VERB	VBP	_	3	dep	_	_
+2	n't	not	ADV	RB	_	3	neg	_	_
+3	nuthin'	nothing	ADJ	JJ	_	0	ROOT	_	_
 4	like	like	ADP	IN	_	3	prep	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	smell	smell	NOUN	NN	_	4	pobj	_	_
 7	of	of	ADP	IN	_	6	prep	_	_
 8	fresh	fresh	ADJ	JJ	_	9	amod	_	_
 9	flowers	flower	NOUN	NNS	_	7	pobj	_	_
-10	.	.	PUNCT	.	_	1	punct	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 506
 # loc = EXT
-# parse = (SQ (VB Do) (RB n't) (NP (PRP you)) (VP (VB agree) (, ,) (NP (NNP Miss) (NNP Mother) (NNP Sister))) (. ?) (. .) (  ))
+# parse = (SQ (VB Do) (RB n't) (NP (PRP you)) (VP (VB agree) (, ,) (NP (NNP Miss) (NNP Mother) (NNP Sister))) (. ?) (_SP  ))
 # scene = 64
 # sent_id = 9
-# sent_len = 11
+# sent_len = 9
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = Don't you agree, Miss Mother Sister?.
+# text = Don't you agree, Miss Mother Sister?
 # time = DUSK
 1	Do	do	VERB	VB	_	4	aux	_	_
 2	n't	not	ADV	RB	_	4	neg	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	agree	agree	VERB	VB	_	0	ROOT	_	_
 5	,	,	PUNCT	,	_	4	punct	_	_
-6	Miss	miss	PROPN	NNP	_	8	compound	_	_
-7	Mother	mother	PROPN	NNP	_	8	compound	_	_
-8	Sister	sister	PROPN	NNP	_	4	npadvmod	_	_
-9	?	?	PUNCT	.	_	4	punct	_	_
-10	.	.	PUNCT	.	_	4	punct	_	_
+6	Miss	Miss	PROPN	NNP	_	8	compound	_	_
+7	Mother	Mother	PROPN	NNP	_	8	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+8	Sister	Sister	PROPN	NNP	_	4	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=I
+9	?	?	PUNCT	.	_	8	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (NNP Mother) (NNP Sister)) (VP (VBZ does) (RB not) (VP (VB answer))) (. .))
@@ -220,18 +219,18 @@
 # stage_direction = True
 # text = Mother Sister does not answer.
 # time = DUSK
-1	Mother	mother	PROPN	NNP	_	2	compound	_	_
-2	Sister	sister	PROPN	NNP	_	5	nsubj	_	_
+1	Mother	Mother	PROPN	NNP	_	2	compound	_	_
+2	Sister	Sister	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 3	does	do	VERB	VBZ	_	5	aux	_	_
 4	not	not	ADV	RB	_	5	neg	_	_
 5	answer	answer	VERB	VB	_	0	ROOT	_	_
 6	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VBZ puts) (NP (DT the) (NNS flowers)) (ADVP (RP down))) (. .) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ puts) (NP (DT the) (NNS flowers)) (ADVP (RP down))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 11
-# sent_len = 7
+# sent_len = 6
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = He puts the flowers down.
@@ -254,12 +253,12 @@
 # stage_direction = True
 # text = Summertime, all ya can smell is the garbage.
 # time = DUSK
-1	Summertime	summertime	PROPN	NNP	_	6	intj	_	_
-2	,	,	PUNCT	,	_	6	punct	_	_
-3	all	all	DET	DT	_	4	predet	_	_
+1	Summertime	Summertime	PROPN	NNP	_	7	dep	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	,	,	PUNCT	,	_	7	punct	_	_
+3	all	all	DET	DT	_	7	nsubj	_	_
 4	ya	ya	PRON	PRP	_	6	nsubj	_	_
 5	can	can	VERB	MD	_	6	aux	_	_
-6	smell	smell	VERB	VB	_	7	csubj	_	_
+6	smell	smell	VERB	VB	_	3	relcl	_	_
 7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	the	the	DET	DT	_	9	det	_	_
 9	garbage	garbage	NOUN	NN	_	7	attr	_	_
@@ -267,32 +266,32 @@
 
 # line = 507
 # loc = EXT
-# parse = (S (NP (VB Stink)) (VP (NNS overpowers) (NP (NP (NP (NN everything)) (, ,) (NP (RB especially) (NP (JJ soft) (JJ sweet) (NNS smells)))) (PP (IN like) (NP (NNS flowers))))) (. ..) (  ))
+# parse = (S (NP (VB Stink)) (VP (NNS overpowers) (NP (NP (NP (NN everything)) (, ,) (NP (RB especially) (NP (JJ soft) (JJ sweet) (VBZ smells)))) (PP (IN like) (NP (NNS flowers))))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 13
-# sent_len = 12
+# sent_len = 11
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = Stink overpowers everything, especially soft sweet smells like flowers..
+# text = Stink overpowers everything, especially soft sweet smells like flowers.
 # time = DUSK
 1	Stink	stink	VERB	VB	_	2	nsubj	_	_
 2	overpowers	overpower	NOUN	NNS	_	0	ROOT	_	_
 3	everything	everything	NOUN	NN	_	2	dobj	_	_
-4	,	,	PUNCT	,	_	2	punct	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
 5	especially	especially	ADV	RB	_	6	advmod	_	_
 6	soft	soft	ADJ	JJ	_	8	amod	_	_
 7	sweet	sweet	ADJ	JJ	_	8	amod	_	_
-8	smells	smell	NOUN	NNS	_	2	appos	_	_
+8	smells	smell	VERB	VBZ	_	3	appos	_	_
 9	like	like	ADP	IN	_	8	prep	_	_
 10	flowers	flower	NOUN	NNS	_	9	pobj	_	_
-11	..	..	PUNCT	.	_	2	punct	_	_
+11	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VBZ looks) (PRT (RP up)) (PP (IN at) (NP (NP (NNP Mother) (NNP Sister)) (SBAR (WHNP (WP who)) (S (ADVP (RB immediately)) (VP (VBZ turns) (ADVP (RB away)))))))) (. .) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ looks) (PRT (RP up)) (PP (IN at) (NP (NP (NNP Mother) (NNP Sister)) (SBAR (WHNP (WP who)) (S (ADVP (RB immediately)) (VP (VBZ turns) (ADVP (RB away)))))))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 14
-# sent_len = 12
+# sent_len = 11
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = He looks up at Mother Sister who immediately turns away.
@@ -301,9 +300,9 @@
 2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	at	at	ADP	IN	_	2	prep	_	_
-5	Mother	mother	PROPN	NNP	_	6	compound	_	_
-6	Sister	sister	PROPN	NNP	_	4	pobj	_	_
-7	who	who	NOUN	WP	_	9	nsubj	_	_
+5	Mother	Mother	PROPN	NNP	_	6	compound	_	_
+6	Sister	Sister	PROPN	NNP	_	4	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+7	who	who	PRON	WP	_	9	nsubj	_	_
 8	immediately	immediately	ADV	RB	_	9	advmod	_	_
 9	turns	turn	VERB	VBZ	_	6	relcl	_	_
 10	away	away	ADV	RB	_	9	advmod	_	_
@@ -311,14 +310,14 @@
 
 # line = 508
 # loc = EXT
-# parse = (S (SBAR (IN If) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB mind))))) (, ,) (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VP (VB set) (ADVP (RB right) (RB here))) (, ,) (VP (VB catch) (NP (DT a) (NN breeze) (QP (CC or) (CD two)))) (, ,) (ADVP (RB then)) (VP (VB be) (PP (IN on) (NP (PRP$ my) (NN way))))))))) (NFP ..) (  ))
+# parse = (S (SBAR (IN If) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB mind))))) (, ,) (NP (PRP I)) (VP (VBP 'm) (VP (VBG gon) (S (VP (TO na) (VP (VP (VB set) (ADVP (RB right) (RB here))) (, ,) (VP (VB catch) (NP (DT a) (NN breeze) (QP (CC or) (CD two)))) (, ,) (ADVP (RB then)) (VP (VB be) (PP (IN on) (NP (PRP$ my) (NN way))))))))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 15
-# sent_len = 27
+# sent_len = 26
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = If you don't mind, I'm gonna set right here, catch a breeze or two, then be on my way..
+# text = If you don't mind, I'm gonna set right here, catch a breeze or two, then be on my way.
 # time = DUSK
 1	If	if	ADP	IN	_	5	mark	_	_
 2	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
@@ -334,35 +333,35 @@
 12	right	right	ADV	RB	_	13	advmod	_	_
 13	here	here	ADV	RB	_	11	advmod	_	_
 14	,	,	PUNCT	,	_	11	punct	_	_
-15	catch	catch	VERB	VB	_	11	conj	_	_
+15	catch	catch	VERB	VB	_	11	dep	_	_
 16	a	a	DET	DT	_	17	det	_	_
 17	breeze	breeze	NOUN	NN	_	15	dobj	_	_
-18	or	or	CCONJ	CC	_	17	cc	_	_
-19	two	two	NUM	CD	_	17	conj	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+18	or	or	CCONJ	CC	_	15	cc	_	_
+19	two	two	NUM	CD	_	15	conj	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 20	,	,	PUNCT	,	_	15	punct	_	_
 21	then	then	ADV	RB	_	22	advmod	_	_
-22	be	be	VERB	VB	_	15	dep	_	_
+22	be	be	VERB	VB	_	11	dep	_	_
 23	on	on	ADP	IN	_	22	prep	_	_
-24	my	-PRON-	ADJ	PRP$	_	25	poss	_	_
+24	my	-PRON-	DET	PRP$	_	25	poss	_	_
 25	way	way	NOUN	NN	_	23	pobj	_	_
-26	..	..	PUNCT	NFP	_	22	punct	_	_
+26	.	.	PUNCT	.	_	9	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ looks) (PRT (RP up)) (PP (IN at) (NP (DT the) (NN setting) (NN sun)))) (. .) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ looks) (PRT (RP up)) (PP (IN at) (NP (DT the) (VBG setting) (NN sun)))) (. .) (_SP  ))
 # scene = 64
 # sent_id = 16
-# sent_len = 10
+# sent_len = 9
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = Da Mayor looks up at the setting sun.
 # time = DUSK
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	looks	look	VERB	VBZ	_	0	ROOT	_	_
 4	up	up	PART	RP	_	3	prt	_	_
 5	at	at	ADP	IN	_	3	prep	_	_
 6	the	the	DET	DT	_	8	det	_	_
-7	setting	setting	NOUN	NN	_	8	compound	_	_
+7	setting	set	VERB	VBG	_	8	amod	_	_
 8	sun	sun	NOUN	NN	_	5	pobj	_	_
 9	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -379,35 +378,35 @@
 # time = DUSK
 1	Thank	thank	VERB	VBP	_	8	advcl	_	_
 2	the	the	DET	DT	_	3	det	_	_
-3	Lord	lord	PROPN	NNP	_	1	dobj	_	_
+3	Lord	Lord	PROPN	NNP	_	1	dobj	_	_
 4	,	,	PUNCT	,	_	8	punct	_	_
 5	the	the	DET	DT	_	6	det	_	_
 6	sun	sun	NOUN	NN	_	8	nsubj	_	_
 7	is	be	VERB	VBZ	_	8	aux	_	_
 8	going	go	VERB	VBG	_	12	ccomp	_	_
-9	down	down	PART	RP	_	8	prt	_	_
+9	down	down	PART	RP	_	8	advmod	_	_
 10	,	,	PUNCT	,	_	12	punct	_	_
 11	it	-PRON-	PRON	PRP	_	12	nsubj	_	_
 12	's	be	VERB	VBZ	_	0	ROOT	_	_
 13	hot	hot	ADJ	JJ	_	12	acomp	_	_
-14	as	as	ADP	IN	_	12	prep	_	_
+14	as	as	ADP	IN	_	13	prep	_	_
 15	blazes	blaze	NOUN	NNS	_	14	pobj	_	_
 16	.	.	PUNCT	.	_	12	punct	_	_
 
 # line = 509
 # loc = EXT
-# parse = (FRAG (UH Yes) (NP (NNP Jesus)) (. ..) (  ))
+# parse = (FRAG (UH Yes) (NNP Jesus) (. .) (_SP  ))
 # scene = 64
 # sent_id = 18
-# sent_len = 4
+# sent_len = 3
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = Yes Jesus..
+# text = Yes Jesus.
 # time = DUSK
 1	Yes	yes	INTJ	UH	_	2	intj	_	_
-2	Jesus	jesus	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	..	..	PUNCT	.	_	2	punct	_	_
+2	Jesus	Jesus	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (DT The) (NN sun)) (VP (VBZ is) (NP (DT an) (ADJP (JJ orange) (CC and) (JJ purple)) (NN glaze))) (. .))

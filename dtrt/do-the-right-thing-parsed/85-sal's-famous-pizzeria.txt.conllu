@@ -11,9 +11,9 @@
 2	photos	photo	NOUN	NNS	_	9	nsubj	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
 4	famous	famous	ADJ	JJ	_	7	amod	_	_
-5	Italian	italian	PROPN	NNP	_	7	compound	_	ent_type=NORP|ent_id=379|ent_iob=B
-6	-	-	PUNCT	HYPH	_	7	punct	_	_
-7	Americans	americans	PROPN	NNPS	_	3	pobj	_	_
+5	Italian	Italian	PROPN	NNP	_	7	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
+6	-	-	PUNCT	HYPH	_	7	punct	_	ent_type=NORP|ent_id=381|ent_iob=I
+7	Americans	Americans	PROPN	NNPS	_	3	pobj	_	ent_type=NORP|ent_id=381|ent_iob=I
 8	are	be	VERB	VBP	_	9	aux	_	_
 9	burning	burn	VERB	VBG	_	0	ROOT	_	_
 10	.	.	PUNCT	.	_	9	punct	_	_

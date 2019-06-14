@@ -29,7 +29,7 @@
 20	.	.	PUNCT	.	_	9	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Ahmad) (, ,) (NNP Cee) (, ,) (NNP Punchy) (, ,) (CC and) (NNP Ella)) (VP (NN dance) (PP (IN on) (NP (DT the) (NN roof))) (PP (IN around) (NP (NP (DT a) (NN box)) (SBAR (WHNP (WDT that)) (S (VP (VBZ is) (VP (VBN turned) (PP (IN into) (NP (NNP WE) (VP (NNP LOVE))))))))))) (. .))
+# parse = (S (NP (NNP Ahmad) (, ,) (NNP Cee) (, ,) (NNP Punchy) (, ,) (CC and) (NNP Ella)) (VP (VBP dance) (PP (IN on) (NP (DT the) (NN roof))) (PP (IN around) (NP (NP (DT a) (NN box)) (SBAR (WHNP (WDT that)) (S (VP (VBZ is) (VP (VBN turned) (PP (IN into) (NP (NNP WE) (VP (NNP LOVE))))))))))) (. .))
 # scene = 60
 # sent_id = 2
 # sent_len = 22
@@ -37,27 +37,27 @@
 # stage_direction = True
 # text = Ahmad, Cee, Punchy, and Ella dance on the roof around a box that is turned into WE LOVE.
 # time = DUSK
-1	Ahmad	ahmad	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	,	,	PUNCT	,	_	1	punct	_	_
-3	Cee	cee	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Ahmad	Ahmad	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	,	,	PUNCT	,	_	1	punct	_	ent_type=PERSON|ent_id=380|ent_iob=I
+3	Cee	Cee	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Punchy	punchy	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+5	Punchy	Punchy	PROPN	NNP	_	3	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
-8	Ella	ella	PROPN	NNP	_	9	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
-9	dance	dance	NOUN	NN	_	5	conj	_	_
+8	Ella	Ella	PROPN	NNP	_	5	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+9	dance	dance	VERB	VBP	_	0	ROOT	_	_
 10	on	on	ADP	IN	_	9	prep	_	_
 11	the	the	DET	DT	_	12	det	_	_
 12	roof	roof	NOUN	NN	_	10	pobj	_	_
 13	around	around	ADP	IN	_	9	prep	_	_
 14	a	a	DET	DT	_	15	det	_	_
 15	box	box	NOUN	NN	_	13	pobj	_	_
-16	that	that	ADJ	WDT	_	18	nsubjpass	_	_
+16	that	that	DET	WDT	_	18	nsubjpass	_	_
 17	is	be	VERB	VBZ	_	18	auxpass	_	_
 18	turned	turn	VERB	VBN	_	15	relcl	_	_
 19	into	into	ADP	IN	_	18	prep	_	_
-20	WE	we	PROPN	NNP	_	21	compound	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
-21	LOVE	love	PROPN	NNP	_	19	pobj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=I
+20	WE	WE	PROPN	NNP	_	21	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+21	LOVE	LOVE	PROPN	NNP	_	19	pobj	_	_
 22	.	.	PUNCT	.	_	9	punct	_	_
 
 # loc = EXT
@@ -70,7 +70,7 @@
 # text = Each one is trying to come up with some new moves, a new dance, and a name for it.
 # time = DUSK
 1	Each	each	DET	DT	_	2	det	_	_
-2	one	one	NOUN	NN	_	4	nsubj	_	_
+2	one	one	NOUN	NN	_	4	nsubj	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 3	is	be	VERB	VBZ	_	4	aux	_	_
 4	trying	try	VERB	VBG	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_

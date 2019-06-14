@@ -1,11 +1,11 @@
 Mookie walks down the block with pizza box in hand when he sees Da Mayor sitting on his stoop. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true">
-Mookie.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="134"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="134">
-Gotta go.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="135"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="135">
-C'mere, Doctor.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="136"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="136">
+Mookie. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="134">
+Gotta go. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="135">
+C'mere, Doctor. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="136">
 Mookie turns around and goes back. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true">
-Doctor, this is Da Mayor talkin'.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="137"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="137">
-OK. OK.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="138"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="138">
-Doctor, always try to do the right thing.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="139"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="139">
-That's it?. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="140"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="140">
-That's it.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="141"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="141">
-I got it.. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="142"> <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="142">
+Doctor, this is Da Mayor talkin'. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="137">
+OK. OK. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="138">
+Doctor, always try to do the right thing. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="139">
+That's it? <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="140">
+That's it. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="DA MAYOR" line="141">
+I got it. <metadata time="DAY" loc="EXT" setting="STREET" scene="22" stage_direction="true" speaker="MOOKIE" line="142">

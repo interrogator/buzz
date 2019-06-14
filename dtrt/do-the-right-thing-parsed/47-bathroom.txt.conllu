@@ -1,5 +1,5 @@
 # loc = INT
-# parse = (S (S (NP (NNP Mookie)) (VP (VP (VBZ turns) (PP (IN on) (NP (DT the) (NN shower)))) (CC and) (VP (NNS screams)))) (: ;) (S (NP (DT the) (NN water)) (VP (VBZ is) (ADJP (NN ice) (JJ cold)))) (. .))
+# parse = (S (S (NP (JJ Mookie)) (VP (VP (VBZ turns) (PP (IN on) (NP (DT the) (NN shower)))) (CC and) (VP (NNS screams)))) (: ;) (S (NP (DT the) (NN water)) (VP (VBZ is) (ADJP (NN ice) (JJ cold)))) (. .))
 # scene = 47
 # sent_id = 1
 # sent_len = 14
@@ -7,7 +7,7 @@
 # stage_direction = True
 # text = Mookie turns on the shower and screams; the water is ice cold.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	turns	turn	VERB	VBZ	_	11	ccomp	_	_
 3	on	on	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_

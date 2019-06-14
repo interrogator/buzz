@@ -22,252 +22,264 @@
 13	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP They)) (VP (VBP are) (NP (NP (JJ CEE)) (, ,) (NP (NN PUNCHY)) (, ,) (CC and) (NP (NP (DT the) (JJ lone) (NN female)) (, ,) (NP (NNP ELLA))))) (. .) (  ))
+# parse = (S (NP (PRP They)) (VP (VBP are) (NP (NP (NNP CEE)) (, ,) (NP (NNP PUNCHY)) (, ,) (CC and) (NP (NP (DT the) (JJ lone) (NN female)) (, ,) (NP (NN ELLA))))) (. .) (_SP  ))
 # scene = 11
 # sent_id = 2
-# sent_len = 14
+# sent_len = 13
 # setting = STOOP
 # stage_direction = True
 # text = They are CEE, PUNCHY, and the lone female, ELLA.
 # time = DAY
 1	They	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	are	be	VERB	VBP	_	0	ROOT	_	_
-3	CEE	cee	ADJ	JJ	_	2	attr	_	ent_type=ORG|ent_id=381|ent_iob=B
+3	CEE	CEE	PROPN	NNP	_	2	attr	_	ent_type=ORG|ent_id=383|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	PUNCHY	punchy	NOUN	NN	_	3	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
+5	PUNCHY	PUNCHY	PROPN	NNP	_	3	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
 8	the	the	DET	DT	_	10	det	_	_
 9	lone	lone	ADJ	JJ	_	10	amod	_	_
 10	female	female	NOUN	NN	_	5	conj	_	_
 11	,	,	PUNCT	,	_	10	punct	_	_
-12	ELLA	ella	PROPN	NNP	_	10	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
+12	ELLA	ella	NOUN	NN	_	10	appos	_	_
 13	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 66
 # loc = EXT
-# parse = (SBARQ (WHNP (WP What)) (SQ (VP (VBZ 's) (VP (VBG keeping) (NP (PRP him))))) (. ?) (. .) (  ))
+# parse = (SBARQ (WHNP (WP What)) (SQ (VP (VBZ 's) (VP (VBG keeping) (NP (PRP him))))) (. ?) (_SP  ))
 # scene = 11
 # sent_id = 3
-# sent_len = 7
+# sent_len = 5
 # setting = STOOP
 # speaker = ELLA
 # stage_direction = True
-# text = What's keeping him?.
+# text = What's keeping him?
 # time = DAY
-1	What	what	NOUN	WP	_	3	nsubj	_	_
+1	What	what	PRON	WP	_	3	nsubj	_	_
 2	's	be	VERB	VBZ	_	3	aux	_	_
 3	keeping	keep	VERB	VBG	_	0	ROOT	_	_
 4	him	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	?	?	PUNCT	.	_	3	punct	_	_
-6	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 67
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VBP call) (NP (PRP him)) (, ,) (ADVP (RB then))) (NFP ..) (  ))
+# parse = (S (NP (PRP You)) (VP (VBP call) (NP (PRP him)) (, ,) (ADVP (RB then))) (. .) (_SP  ))
 # scene = 11
 # sent_id = 4
-# sent_len = 7
+# sent_len = 6
 # setting = STOOP
 # speaker = PUNCHY
 # stage_direction = True
-# text = You call him, then..
+# text = You call him, then.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	call	call	VERB	VBP	_	0	ROOT	_	_
 3	him	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
 5	then	then	ADV	RB	_	2	advmod	_	_
-6	..	..	PUNCT	NFP	_	2	punct	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Ella)) (VP (VP (VBZ stands) (ADVP (RP up))) (CC and) (VP (VBZ yells))) (. .) (  ))
+# parse = (S (NP (NNP Ella)) (VP (VP (VBZ stands) (ADVP (RP up))) (CC and) (VP (NNS yells))) (. .) (_SP  ))
 # scene = 11
 # sent_id = 5
-# sent_len = 7
+# sent_len = 6
 # setting = STOOP
 # stage_direction = True
 # text = Ella stands up and yells.
 # time = DAY
-1	Ella	ella	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Ella	Ella	PROPN	NNP	_	2	nsubj	_	_
 2	stands	stand	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	and	and	CCONJ	CC	_	2	cc	_	_
-5	yells	yell	VERB	VBZ	_	2	conj	_	_
+5	yells	yell	NOUN	NNS	_	2	conj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 68
 # loc = EXT
-# parse = (S (INTJ (NNP Yo)) (, ,) (NNP Ahmad!.) (  ) (NP (PRP I)) (VP (VBD coulda) (VP (VBN done) (NP (NN dat)))) (. ..) (  ))
+# parse = (FRAG (NNP Yo) (, ,) (NNP Ahmad) (. !) (_SP  ))
 # scene = 11
 # sent_id = 6
-# sent_len = 10
-# setting = STOOP
-# speaker = ELLA
-# stage_direction = True
-# text = Yo, Ahmad!. I coulda done dat..
-# time = DAY
-1	Yo	yo	PROPN	NNP	_	7	npadvmod	_	_
-2	,	,	PUNCT	,	_	7	punct	_	_
-3	Ahmad!.	ahmad!.	PROPN	NNP	_	6	nmod	_	_
-4	I	-PRON-	PRON	PRP	_	6	compound	_	_
-5	coulda	coulda	VERB	VBD	_	7	nsubj	_	_
-6	done	do	VERB	VBN	_	0	ROOT	_	_
-7	dat	dat	NOUN	NN	_	7	dobj	_	_
-8	..	..	PUNCT	.	_	7	punct	_	_
-
-# line = 70
-# loc = EXT
-# parse = (NP (INTJ (NNP Yo)) (, ,) (NNP Ahmad!.) (  ))
-# scene = 11
-# sent_id = 7
 # sent_len = 4
 # setting = STOOP
 # speaker = ELLA
 # stage_direction = True
-# text = Yo, Ahmad!.
+# text = Yo, Ahmad!
 # time = DAY
-1	Yo	yo	PROPN	NNP	_	0	ROOT	_	_
-2	,	,	PUNCT	,	_	1	punct	_	_
-3	Ahmad!.	ahmad!.	PROPN	NNP	_	2	intj	_	_
+1	Yo	Yo	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	,	,	PUNCT	,	_	3	punct	_	_
+3	Ahmad	Ahmad	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+4	!	!	PUNCT	.	_	3	punct	_	_
 
+# line = 69
 # loc = EXT
-# parse = (S (NP (PRP She)) (VP (VP (VBZ looks) (ADVP (RP up)) (PP (IN into) (NP (PRP$ his) (NN window)))) (, ,) (RB then) (VP (VBZ sits) (ADVP (RP down)))) (. .) (  ))
+# parse = (S (NP (PRP I)) (VP (VBD coulda) (VP (VBN done) (NP (NN dat)))) (. .) (_SP  ))
+# scene = 11
+# sent_id = 7
+# sent_len = 5
+# setting = STOOP
+# speaker = PUNCHY
+# stage_direction = True
+# text = I coulda done dat.
+# time = DAY
+1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	coulda	coulda	VERB	VBD	_	3	nsubj	_	_
+3	done	do	VERB	VBN	_	0	ROOT	_	_
+4	dat	dat	NOUN	NN	_	3	dobj	_	_
+5	.	.	PUNCT	.	_	3	punct	_	_
+
+# line = 70
+# loc = EXT
+# parse = (FRAG (NNP Yo) (, ,) (NNP Ahmad) (. !) (_SP  ))
 # scene = 11
 # sent_id = 8
-# sent_len = 12
+# sent_len = 4
+# setting = STOOP
+# speaker = ELLA
+# stage_direction = True
+# text = Yo, Ahmad!
+# time = DAY
+1	Yo	Yo	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	,	,	PUNCT	,	_	3	punct	_	_
+3	Ahmad	Ahmad	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+4	!	!	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP She)) (VP (VP (VBZ looks) (ADVP (RP up)) (PP (IN into) (NP (PRP$ his) (NN window)))) (, ,) (RB then) (VP (VBZ sits) (ADVP (RP down)))) (. .) (_SP  ))
+# scene = 11
+# sent_id = 9
+# sent_len = 11
 # setting = STOOP
 # stage_direction = True
 # text = She looks up into his window, then sits down.
 # time = DAY
 1	She	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	looks	look	VERB	VBZ	_	0	ROOT	_	_
+2	looks	look	VERB	VBZ	_	9	ccomp	_	_
 3	up	up	PART	RP	_	2	prt	_	_
 4	into	into	ADP	IN	_	2	prep	_	_
-5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+5	his	-PRON-	DET	PRP$	_	6	poss	_	_
 6	window	window	NOUN	NN	_	4	pobj	_	_
-7	,	,	PUNCT	,	_	2	punct	_	_
+7	,	,	PUNCT	,	_	9	punct	_	_
 8	then	then	ADV	RB	_	9	advmod	_	_
-9	sits	sit	VERB	VBZ	_	2	dep	_	_
-10	down	down	PART	RP	_	9	advmod	_	_
-11	.	.	PUNCT	.	_	2	punct	_	_
+9	sits	sit	VERB	VBZ	_	0	ROOT	_	_
+10	down	down	PART	RP	_	9	prt	_	_
+11	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 71
 # loc = EXT
-# parse = (S (NP (NNP Punchy)) (, ,) (SBAR (IN if) (S (NP (PRP ya)) (VP (VBP want) (S (VP (TO to) (VP (VB do) (NP (ADJP (DT some) (RBR more)) (NN screaming)))))))) (, ,) (VP (VB be) (NP (PRP$ my) (NN guest))) (. .))
+# parse = (S (NP (NNP Punchy)) (, ,) (SBAR (IN if) (S (NP (PRP ya)) (VP (VBP want) (S (VP (TO to) (VP (VB do) (NP (ADJP (DT some) (JJR more)) (JJ screaming)))))))) (, ,) (VP (VB be) (NP (PRP$ my) (NN guest))) (. .))
 # scene = 11
-# sent_id = 9
+# sent_id = 10
 # sent_len = 15
 # setting = STOOP
 # speaker = ELLA
 # stage_direction = True
 # text = Punchy, if ya want to do some more screaming, be my guest.
 # time = DAY
-1	Punchy	punchy	PROPN	NNP	_	12	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Punchy	Punchy	PROPN	NNP	_	12	nsubj	_	ent_type=GPE|ent_id=384|ent_iob=B
 2	,	,	PUNCT	,	_	12	punct	_	_
 3	if	if	ADP	IN	_	5	mark	_	_
 4	ya	ya	PRON	PRP	_	5	nsubj	_	_
 5	want	want	VERB	VBP	_	12	advcl	_	_
 6	to	to	PART	TO	_	7	aux	_	_
 7	do	do	VERB	VB	_	5	xcomp	_	_
-8	some	some	DET	DT	_	10	det	_	_
-9	more	more	ADV	RBR	_	10	advmod	_	_
-10	screaming	screaming	NOUN	NN	_	7	dobj	_	_
+8	some	some	DET	DT	_	10	nsubj	_	_
+9	more	more	ADJ	JJR	_	10	advmod	_	_
+10	screaming	screaming	ADJ	JJ	_	7	dobj	_	_
 11	,	,	PUNCT	,	_	12	punct	_	_
 12	be	be	VERB	VB	_	0	ROOT	_	_
-13	my	-PRON-	ADJ	PRP$	_	14	poss	_	_
+13	my	-PRON-	DET	PRP$	_	14	poss	_	_
 14	guest	guest	NOUN	NN	_	12	attr	_	_
 15	.	.	PUNCT	.	_	12	punct	_	_
 
 # line = 71
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP 'm) (ADVP (RB too)) (ADVP (IN through))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (ADVP (RB too)) (ADVP (RB through))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 10
-# sent_len = 6
+# sent_id = 11
+# sent_len = 5
 # setting = STOOP
 # speaker = ELLA
 # stage_direction = True
-# text = I'm too through..
+# text = I'm too through.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	'm	be	VERB	VBP	_	0	ROOT	_	_
 3	too	too	ADV	RB	_	4	advmod	_	_
-4	through	through	ADP	IN	_	2	advmod	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+4	through	through	ADV	RB	_	2	advmod	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (DT The) (NN door)) (VP (VBZ swings) (ADJP (JJ open)) (PP (IN at) (NP (NP (DT the) (NN top)) (PP (IN of) (NP (DT the) (NN stoop))))))) (CC and) (S (NP (NNP AHMAD)) (VP (VBZ appears))) (. .) (  ))
+# parse = (S (S (NP (DT The) (NN door)) (VP (VBZ swings) (ADJP (JJ open)) (PP (IN at) (NP (NP (DT the) (NN top)) (PP (IN of) (NP (DT the) (NN stoop))))))) (CC and) (S (NP (NNP AHMAD)) (VP (VBZ appears))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 11
-# sent_len = 15
+# sent_id = 12
+# sent_len = 14
 # setting = STOOP
 # stage_direction = True
 # text = The door swings open at the top of the stoop and AHMAD appears.
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	door	door	NOUN	NN	_	3	nsubj	_	_
-3	swings	swing	VERB	VBZ	_	0	ROOT	_	_
-4	open	open	ADJ	JJ	_	3	amod	_	_
+3	swings	swing	VERB	VBZ	_	13	ccomp	_	_
+4	open	open	ADJ	JJ	_	3	advmod	_	_
 5	at	at	ADP	IN	_	3	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	top	top	NOUN	NN	_	5	pobj	_	_
 8	of	of	ADP	IN	_	7	prep	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	stoop	stoop	NOUN	NN	_	8	pobj	_	_
-11	and	and	CCONJ	CC	_	3	cc	_	_
-12	AHMAD	ahmad	PROPN	NNP	_	13	nsubj	_	ent_type=GPE|ent_id=382|ent_iob=B
-13	appears	appear	VERB	VBZ	_	3	conj	_	_
+11	and	and	CCONJ	CC	_	10	cc	_	_
+12	AHMAD	AHMAD	PROPN	NNP	_	10	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+13	appears	appear	VERB	VBZ	_	0	ROOT	_	_
 14	.	.	PUNCT	.	_	13	punct	_	_
 
 # line = 72
 # loc = EXT
-# parse = (SBARQ (WHNP (WP Who)) (SQ (VP (VBZ 's) (VP (VBG yelling) (NP (PRP$ my) (NN name))))) (. ?) (. .) (  ))
-# scene = 11
-# sent_id = 12
-# sent_len = 8
-# setting = STOOP
-# speaker = AHMAD
-# stage_direction = True
-# text = Who's yelling my name?.
-# time = DAY
-1	Who	who	NOUN	WP	_	3	nsubj	_	_
-2	's	be	VERB	VBZ	_	3	aux	_	_
-3	yelling	yell	VERB	VBG	_	0	ROOT	_	_
-4	my	-PRON-	ADJ	PRP$	_	5	poss	_	_
-5	name	name	NOUN	NN	_	3	dobj	_	_
-6	?	?	PUNCT	.	_	3	punct	_	_
-7	.	.	PUNCT	.	_	3	punct	_	_
-
-# line = 73
-# loc = EXT
-# parse = (S (NP (NNP Punchy)) (VP (VP (VBD told) (NP (PRP me)) (S (VP (TO to)))) (. ..) (FRAG (INTJ (  )))))
+# parse = (SBARQ (WHNP (WP Who)) (SQ (VBZ 's) (VP (VBG yelling) (NP (PRP$ my) (NN name)))) (. ?) (_SP  ))
 # scene = 11
 # sent_id = 13
 # sent_len = 6
 # setting = STOOP
+# speaker = AHMAD
+# stage_direction = True
+# text = Who's yelling my name?
+# time = DAY
+1	Who	who	PRON	WP	_	3	nsubj	_	_
+2	's	be	VERB	VBZ	_	3	aux	_	_
+3	yelling	yell	VERB	VBG	_	0	ROOT	_	_
+4	my	-PRON-	DET	PRP$	_	5	poss	_	_
+5	name	name	NOUN	NN	_	3	dobj	_	_
+6	?	?	PUNCT	.	_	3	punct	_	_
+
+# line = 73
+# loc = EXT
+# parse = (S (NP (NNP Punchy)) (VP (VBD told) (NP (PRP me)) (S (VP (TO to)))) (. .) (_SP  ))
+# scene = 11
+# sent_id = 14
+# sent_len = 5
+# setting = STOOP
 # speaker = ELLA
 # stage_direction = True
-# text = Punchy told me to..
+# text = Punchy told me to.
 # time = DAY
-1	Punchy	punchy	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Punchy	Punchy	PROPN	NNP	_	2	nsubj	_	ent_type=GPE|ent_id=384|ent_iob=B
 2	told	tell	VERB	VBD	_	0	ROOT	_	_
 3	me	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	to	to	PART	TO	_	2	prep	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 74
 # loc = EXT
-# parse = (S (S (VP (VBP Do) (RB n't) (VP (VB listen) (PP (IN to) (NP (PRP him)))))) (, ,) (S (NP (PRP it)) (VP (MD will) (VP (VB get) (S (NP (PRP ya)) (PP (IN in) (NP (NN trouble))))))) (NFP ..) (  ))
+# parse = (S (S (VP (VB Do) (RB n't) (VP (VB listen) (PP (IN to) (NP (PRP him)))))) (, ,) (S (NP (PRP it)) (VP (MD will) (VP (VB get) (S (NP (PRP ya)) (PP (IN in) (NP (NN trouble))))))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 14
-# sent_len = 14
+# sent_id = 15
+# sent_len = 13
 # setting = STOOP
 # speaker = AHMAD
 # stage_direction = True
-# text = Don't listen to him, it will get ya in trouble..
+# text = Don't listen to him, it will get ya in trouble.
 # time = DAY
-1	Do	do	VERB	VBP	_	3	aux	_	_
+1	Do	do	VERB	VB	_	3	aux	_	_
 2	n't	not	ADV	RB	_	3	neg	_	_
 3	listen	listen	VERB	VB	_	9	advcl	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
@@ -279,35 +291,35 @@
 10	ya	ya	PRON	PRP	_	9	dobj	_	_
 11	in	in	ADP	IN	_	9	prep	_	_
 12	trouble	trouble	NOUN	NN	_	11	pobj	_	_
-13	..	..	PUNCT	NFP	_	9	punct	_	_
+13	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 75
 # loc = EXT
-# parse = (S (VP (VBD Heard) (NP (IN that)) (, ,) (NP (NNP Punchy))) (NFP ..) (INTJ (  )))
+# parse = (S (VP (VBD Heard) (NP (IN that)) (, ,) (NP (NNP Punchy))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 15
-# sent_len = 6
+# sent_id = 16
+# sent_len = 5
 # setting = STOOP
 # speaker = ELLA
 # stage_direction = True
-# text = Heard that, Punchy..
+# text = Heard that, Punchy.
 # time = DAY
-1	Heard	hear	VERB	VBD	_	0	ROOT	_	_
+1	Heard	hear	VERB	VBD	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	that	that	ADP	IN	_	1	dobj	_	_
 3	,	,	PUNCT	,	_	1	punct	_	_
-4	Punchy	punchy	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
-5	..	..	PUNCT	NFP	_	1	punct	_	_
+4	Punchy	Punchy	PROPN	NNP	_	1	npadvmod	_	ent_type=GPE|ent_id=384|ent_iob=B
+5	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Ahmad)) (VP (VBZ sits) (PRT (RP down)) (PP (IN with) (NP (PRP them)))) (. .) (  ))
+# parse = (S (NP (NNP Ahmad)) (VP (VBZ sits) (PRT (RP down)) (PP (IN with) (NP (PRP them)))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 16
-# sent_len = 7
+# sent_id = 17
+# sent_len = 6
 # setting = STOOP
 # stage_direction = True
 # text = Ahmad sits down with them.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Ahmad	Ahmad	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	sits	sit	VERB	VBZ	_	0	ROOT	_	_
 3	down	down	PART	RP	_	2	prt	_	_
 4	with	with	ADP	IN	_	2	prep	_	_
@@ -316,16 +328,16 @@
 
 # line = 76
 # loc = EXT
-# parse = (S (NP (NNP Ella)) (, ,) (S (NP (PRP you)) (VP (VBP have) (NP (DT a) (NN brain)))) (, ,) (VP (VB use) (NP (PRP it))) (. ..) (  ))
+# parse = (S (NP (NNP Ella)) (, ,) (S (NP (PRP you)) (VP (VBP have) (NP (DT a) (NN brain)))) (, ,) (VP (VB use) (NP (PRP it))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 17
-# sent_len = 11
+# sent_id = 18
+# sent_len = 10
 # setting = STOOP
 # speaker = AHMAD
 # stage_direction = True
-# text = Ella, you have a brain, use it..
+# text = Ella, you have a brain, use it.
 # time = DAY
-1	Ella	ella	PROPN	NNP	_	4	npadvmod	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Ella	Ella	PROPN	NNP	_	4	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	have	have	VERB	VBP	_	0	ROOT	_	_
@@ -334,12 +346,12 @@
 7	,	,	PUNCT	,	_	4	punct	_	_
 8	use	use	VERB	VB	_	4	conj	_	_
 9	it	-PRON-	PRON	PRP	_	8	dobj	_	_
-10	..	..	PUNCT	.	_	8	punct	_	_
+10	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
-# parse = (S (PP (IN In) (NP (DT the) (NNP BG))) (, ,) (NP (PRP we)) (VP (VBP hear) (NP (NP (DT the) (NN dum) (PRN (HYPH -) (NN dum) (HYPH -)) (NN dum)) (PP (IN of) (NP (DT a) (JJ giant) (NN box))))) (. .))
+# parse = (S (PP (IN In) (NP (DT the) (NN BG))) (, ,) (NP (PRP we)) (VP (VBP hear) (NP (NP (DT the) (JJ dum) (PRN (HYPH -) (NN dum) (HYPH -)) (NN dum)) (PP (IN of) (NP (DT a) (JJ giant) (NN box))))) (. .))
 # scene = 11
-# sent_id = 18
+# sent_id = 19
 # sent_len = 17
 # setting = STOOP
 # stage_direction = True
@@ -347,13 +359,13 @@
 # time = DAY
 1	In	in	ADP	IN	_	6	prep	_	_
 2	the	the	DET	DT	_	3	det	_	_
-3	BG	bg	PROPN	NNP	_	1	pobj	_	ent_type=ORG|ent_id=381|ent_iob=B
+3	BG	bg	NOUN	NN	_	1	pobj	_	ent_type=ORG|ent_id=383|ent_iob=B
 4	,	,	PUNCT	,	_	6	punct	_	_
 5	we	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	hear	hear	VERB	VBP	_	0	ROOT	_	_
 7	the	the	DET	DT	_	12	det	_	_
-8	dum	dum	NOUN	NN	_	10	compound	_	_
-9	-	-	PUNCT	HYPH	_	10	punct	_	_
+8	dum	dum	ADJ	JJ	_	12	compound	_	_
+9	-	-	PUNCT	HYPH	_	12	punct	_	_
 10	dum	dum	NOUN	NN	_	12	compound	_	_
 11	-	-	PUNCT	HYPH	_	12	punct	_	_
 12	dum	dum	NOUN	NN	_	6	dobj	_	_
@@ -366,7 +378,7 @@
 # loc = EXT
 # parse = (S (NP (DT The) (NN sound)) (VP (VBZ gets) (ADJP (RBR louder)) (SBAR (IN as) (S (NP (DT the) (NN box)) (VP (VBZ gets) (ADJP (JJR closer)))))) (. .))
 # scene = 11
-# sent_id = 19
+# sent_id = 20
 # sent_len = 10
 # setting = STOOP
 # stage_direction = True
@@ -375,7 +387,7 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	sound	sound	NOUN	NN	_	3	nsubj	_	_
 3	gets	get	VERB	VBZ	_	0	ROOT	_	_
-4	louder	louder	ADV	RBR	_	3	advmod	_	_
+4	louder	louder	ADV	RBR	_	3	acomp	_	_
 5	as	as	ADP	IN	_	8	mark	_	_
 6	the	the	DET	DT	_	7	det	_	_
 7	box	box	NOUN	NN	_	8	nsubj	_	_
@@ -386,7 +398,7 @@
 # loc = EXT
 # parse = (S (NP (DT The) (NNS youths)) (VP (VP (VBP look) (PP (IN down) (NP (DT the) (NN block)))) (CC and) (VP (VB see) (S (NP (DT a) (JJ tall) (JJ young) (NN man)) (VP (VBG coming) (PP (IN towards) (NP (PRP them))))))) (. .))
 # scene = 11
-# sent_id = 20
+# sent_id = 21
 # sent_len = 16
 # setting = STOOP
 # stage_direction = True
@@ -410,9 +422,9 @@
 16	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (PRP He)) (VP (VBZ has) (NP (DT a) (ADJP (RB very) (JJ distinct)) (NN walk)))) (, ,) (S (NP (PRP it)) (VP (VBZ 's) (PP (ADVP (JJR more)) (IN like) (NP (DT a) (NN bop))))) (. .))
+# parse = (S (S (NP (PRP He)) (VP (VBZ has) (NP (DT a) (ADJP (RB very) (JJ distinct)) (NN walk)))) (, ,) (S (NP (PRP it)) (VP (VBZ 's) (PP (ADVP (RBR more)) (IN like) (NP (DT a) (NN bop))))) (. .))
 # scene = 11
-# sent_id = 21
+# sent_id = 22
 # sent_len = 14
 # setting = STOOP
 # stage_direction = True
@@ -427,7 +439,7 @@
 7	,	,	PUNCT	,	_	9	punct	_	_
 8	it	-PRON-	PRON	PRP	_	9	nsubj	_	_
 9	's	be	VERB	VBZ	_	0	ROOT	_	_
-10	more	more	ADJ	JJR	_	11	advmod	_	_
+10	more	more	ADV	RBR	_	11	advmod	_	_
 11	like	like	ADP	IN	_	9	prep	_	_
 12	a	a	DET	DT	_	13	det	_	_
 13	bop	bop	NOUN	NN	_	11	pobj	_	_
@@ -436,7 +448,7 @@
 # loc = EXT
 # parse = (S (NP (DT This)) (VP (VBZ is) (NP (NNP RADIO) (NNP RAHEEM))) (. .))
 # scene = 11
-# sent_id = 22
+# sent_id = 23
 # sent_len = 5
 # setting = STOOP
 # stage_direction = True
@@ -444,14 +456,14 @@
 # time = DAY
 1	This	this	DET	DT	_	2	nsubj	_	_
 2	is	be	VERB	VBZ	_	0	ROOT	_	_
-3	RADIO	radio	PROPN	NNP	_	4	compound	_	_
-4	RAHEEM	raheem	PROPN	NNP	_	2	attr	_	_
+3	RADIO	RADIO	PROPN	NNP	_	4	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+4	RAHEEM	RAHEEM	PROPN	NNP	_	2	attr	_	ent_type=ORG|ent_id=383|ent_iob=I
 5	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
 # parse = (S (S (NP (NP (DT The) (NN size)) (PP (IN of) (NP (PRP$ his) (NN box)))) (VP (VBZ is) (ADJP (JJ tremendous)))) (CC and) (S (NP (PRP one)) (VP (VBZ has) (S (VP (TO to) (VP (VB think) (, ,) (WHADVP (WRB how)) (SQ (VBZ does) (NP (PRP he)) (VP (VB carry) (NP (NP (NN something)) (WDT that) (JJ big)) (PRT (RB around)) (PP (IN with) (NP (PRP him)))))))))) (. ?))
 # scene = 11
-# sent_id = 23
+# sent_id = 24
 # sent_len = 24
 # setting = STOOP
 # stage_direction = True
@@ -460,9 +472,9 @@
 1	The	the	DET	DT	_	2	det	_	_
 2	size	size	NOUN	NN	_	6	nsubj	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
-4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	his	-PRON-	DET	PRP$	_	5	poss	_	_
 5	box	box	NOUN	NN	_	3	pobj	_	_
-6	is	be	VERB	VBZ	_	0	ROOT	_	_
+6	is	be	VERB	VBZ	_	17	ccomp	_	_
 7	tremendous	tremendous	ADJ	JJ	_	6	acomp	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
 9	one	one	PRON	PRP	_	10	nsubj	_	_
@@ -473,19 +485,19 @@
 14	how	how	ADV	WRB	_	17	advmod	_	_
 15	does	do	VERB	VBZ	_	17	aux	_	_
 16	he	-PRON-	PRON	PRP	_	17	nsubj	_	_
-17	carry	carry	VERB	VB	_	12	ccomp	_	_
+17	carry	carry	VERB	VB	_	0	ROOT	_	_
 18	something	something	NOUN	NN	_	17	dobj	_	_
-19	that	that	ADJ	WDT	_	20	advmod	_	_
+19	that	that	DET	WDT	_	20	nsubj	_	_
 20	big	big	ADJ	JJ	_	18	relcl	_	_
-21	around	around	ADV	RB	_	17	advmod	_	_
-22	with	with	ADP	IN	_	17	prep	_	_
+21	around	around	ADV	RB	_	20	advmod	_	_
+22	with	with	ADP	IN	_	20	prep	_	_
 23	him	-PRON-	PRON	PRP	_	22	pobj	_	_
-24	?	?	PUNCT	.	_	10	punct	_	_
+24	?	?	PUNCT	.	_	17	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (PRP It)) (VP (MD must) (VP (VB weigh) (NP (DT a) (NN ton))))) (, ,) (CC and) (S (NP (PRP it)) (VP (VBZ seems) (SBAR (IN like) (S (NP (DT the) (NN sidewalk)) (VP (VBZ shakes) (SBAR (IN as) (S (NP (DT the) (NN rap) (NN music)) (VP (VBZ blares) (PRT (RP out)))))))))) (. .))
+# parse = (S (S (NP (PRP It)) (VP (MD must) (VP (VB weigh) (NP (DT a) (NN ton))))) (, ,) (CC and) (S (NP (PRP it)) (VP (VBZ seems) (SBAR (IN like) (S (NP (DT the) (NN sidewalk)) (VP (NNS shakes) (SBAR (IN as) (S (NP (DT the) (NN rap) (NN music)) (VP (VBZ blares) (PRT (RP out)))))))))) (. .))
 # scene = 11
-# sent_id = 24
+# sent_id = 25
 # sent_len = 20
 # setting = STOOP
 # stage_direction = True
@@ -494,8 +506,8 @@
 1	It	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	must	must	VERB	MD	_	3	aux	_	_
 3	weigh	weigh	VERB	VB	_	0	ROOT	_	_
-4	a	a	DET	DT	_	5	det	_	ent_type=QUANTITY|ent_id=392|ent_iob=B
-5	ton	ton	NOUN	NN	_	3	dobj	_	ent_type=QUANTITY|ent_id=392|ent_iob=I
+4	a	a	DET	DT	_	5	det	_	_
+5	ton	ton	NOUN	NN	_	3	dobj	_	_
 6	,	,	PUNCT	,	_	3	punct	_	_
 7	and	and	CCONJ	CC	_	3	cc	_	_
 8	it	-PRON-	PRON	PRP	_	9	nsubj	_	_
@@ -503,19 +515,19 @@
 10	like	like	ADP	IN	_	9	prep	_	_
 11	the	the	DET	DT	_	13	det	_	_
 12	sidewalk	sidewalk	NOUN	NN	_	13	compound	_	_
-13	shakes	shake	VERB	VBZ	_	10	pobj	_	_
-14	as	as	ADP	IN	_	9	prep	_	_
-15	the	the	DET	DT	_	18	det	_	_
-16	rap	rap	NOUN	NN	_	18	compound	_	_
-17	music	music	NOUN	NN	_	18	compound	_	_
-18	blares	blare	VERB	VBZ	_	14	pobj	_	_
-19	out	out	PART	RP	_	9	prt	_	_
+13	shakes	shake	NOUN	NNS	_	10	pobj	_	_
+14	as	as	ADP	IN	_	18	mark	_	_
+15	the	the	DET	DT	_	17	det	_	_
+16	rap	rap	NOUN	NN	_	17	compound	_	_
+17	music	music	NOUN	NN	_	18	nsubj	_	_
+18	blares	blare	VERB	VBZ	_	13	advcl	_	_
+19	out	out	PART	RP	_	18	prt	_	_
 20	.	.	PUNCT	.	_	9	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NP (DT The) (NN song)) (SBAR (S (NP (PRP we)) (VP (VBP hear))))) (VP (VBZ is) (NP (NP (DT the) (JJ only) (CD one)) (SBAR (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ plays)))))) (. .))
+# parse = (S (NP (NP (DT The) (NN song)) (SBAR (S (NP (PRP we)) (VP (VBP hear))))) (VP (VBZ is) (NP (NP (DT the) (JJ only) (CD one)) (SBAR (S (NP (NNP Radio) (NNP Raheem)) (VP (VBZ plays)))))) (. .))
 # scene = 11
-# sent_id = 25
+# sent_id = 26
 # sent_len = 12
 # setting = STOOP
 # stage_direction = True
@@ -526,92 +538,48 @@
 3	we	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	hear	hear	VERB	VBP	_	2	relcl	_	_
 5	is	be	VERB	VBZ	_	0	ROOT	_	_
-6	the	the	DET	DT	_	11	det	_	_
+6	the	the	DET	DT	_	10	det	_	_
 7	only	only	ADJ	JJ	_	8	amod	_	_
-8	one	one	NUM	CD	_	11	nummod	_	_
-9	Radio	radio	NOUN	NN	_	10	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-10	Raheem	raheem	PROPN	NNP	_	11	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
-11	plays	play	VERB	VBZ	_	5	attr	_	_
+8	one	one	NUM	CD	_	10	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+9	Radio	Radio	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+10	Raheem	Raheem	PROPN	NNP	_	11	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+11	plays	play	VERB	VBZ	_	5	ccomp	_	_
 12	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VP (VBZ stops) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN group)))))) (, ,) (VP (VBZ looks) (PP (IN at) (NP (PRP them)))) (, ,) (CC and) (VP (VBZ turns) (PRT (RP down)) (NP (DT the) (NN volume)))) (. .))
-# scene = 11
-# sent_id = 26
-# sent_len = 19
-# setting = STOOP
-# stage_direction = True
-# text = Radio Raheem stops in front of the group, looks at them, and turns down the volume.
-# time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
-3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
-4	in	in	ADP	IN	_	3	prep	_	_
-5	front	front	NOUN	NN	_	4	pobj	_	_
-6	of	of	ADP	IN	_	5	prep	_	_
-7	the	the	DET	DT	_	8	det	_	_
-8	group	group	NOUN	NN	_	6	pobj	_	_
-9	,	,	PUNCT	,	_	3	punct	_	_
-10	looks	look	VERB	VBZ	_	3	conj	_	_
-11	at	at	ADP	IN	_	10	prep	_	_
-12	them	-PRON-	PRON	PRP	_	11	pobj	_	_
-13	,	,	PUNCT	,	_	10	punct	_	_
-14	and	and	CCONJ	CC	_	10	cc	_	_
-15	turns	turn	VERB	VBZ	_	10	conj	_	_
-16	down	down	PART	RP	_	15	prt	_	_
-17	the	the	DET	DT	_	18	det	_	_
-18	volume	volume	NOUN	NN	_	15	dobj	_	_
-19	.	.	PUNCT	.	_	3	punct	_	_
-
-# loc = EXT
-# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ quiet)) (ADVP (RB again))) (. .) (  ))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VBZ stops) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN group)))))) (, ,) (VP (VBZ looks) (PP (IN at) (NP (PRP them)))) (, ,) (CC and) (VP (VBZ turns) (PRT (RP down)) (NP (DT the) (NN volume)))) (. .))
 # scene = 11
 # sent_id = 27
-# sent_len = 6
+# sent_len = 19
 # setting = STOOP
 # stage_direction = True
-# text = It's quiet again.
+# text = Radio Raheem stops in front of the group, looks at them, and turns down the volume.
 # time = DAY
-1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	's	be	VERB	VBZ	_	0	ROOT	_	_
-3	quiet	quiet	ADJ	JJ	_	2	acomp	_	_
-4	again	again	ADV	RB	_	2	advmod	_	_
-5	.	.	PUNCT	.	_	2	punct	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
+4	in	in	ADP	IN	_	3	prep	_	_
+5	front	front	NOUN	NN	_	4	pobj	_	_
+6	of	of	ADP	IN	_	5	prep	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	group	group	NOUN	NN	_	6	pobj	_	_
+9	,	,	PUNCT	,	_	3	punct	_	_
+10	looks	look	VERB	VBZ	_	3	conj	_	_
+11	at	at	ADP	IN	_	10	prep	_	_
+12	them	-PRON-	PRON	PRP	_	11	pobj	_	_
+13	,	,	PUNCT	,	_	10	punct	_	_
+14	and	and	CCONJ	CC	_	10	cc	_	_
+15	turns	turn	VERB	VBZ	_	10	conj	_	_
+16	down	down	PART	RP	_	15	prt	_	_
+17	the	the	DET	DT	_	18	det	_	_
+18	volume	volume	NOUN	NN	_	15	dobj	_	_
+19	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VBZ stops) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN group)))))) (, ,) (VP (VBZ looks) (PP (IN at) (NP (PRP them)))) (, ,) (CC and) (VP (VBZ turns) (PRT (RP down)) (NP (DT the) (NN volume)))) (. .))
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ quiet)) (ADVP (RB again))) (. .) (_SP  ))
 # scene = 11
 # sent_id = 28
-# sent_len = 19
-# setting = STOOP
-# stage_direction = True
-# text = Radio Raheem stops in front of the group, looks at them, and turns down the volume.
-# time = DAY
-1	Radio	radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
-3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
-4	in	in	ADP	IN	_	3	prep	_	_
-5	front	front	NOUN	NN	_	4	pobj	_	_
-6	of	of	ADP	IN	_	5	prep	_	_
-7	the	the	DET	DT	_	8	det	_	_
-8	group	group	NOUN	NN	_	6	pobj	_	_
-9	,	,	PUNCT	,	_	3	punct	_	_
-10	looks	look	VERB	VBZ	_	3	conj	_	_
-11	at	at	ADP	IN	_	10	prep	_	_
-12	them	-PRON-	PRON	PRP	_	11	pobj	_	_
-13	,	,	PUNCT	,	_	10	punct	_	_
-14	and	and	CCONJ	CC	_	10	cc	_	_
-15	turns	turn	VERB	VBZ	_	10	conj	_	_
-16	down	down	PART	RP	_	15	prt	_	_
-17	the	the	DET	DT	_	18	det	_	_
-18	volume	volume	NOUN	NN	_	15	dobj	_	_
-19	.	.	PUNCT	.	_	3	punct	_	_
-
-# loc = EXT
-# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ quiet)) (ADVP (RB again))) (. .) (  ))
-# scene = 11
-# sent_id = 29
-# sent_len = 6
+# sent_len = 5
 # setting = STOOP
 # stage_direction = True
 # text = It's quiet again.
@@ -625,14 +593,14 @@
 # loc = EXT
 # parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VBZ stops) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN group)))))) (, ,) (VP (VBZ looks) (PP (IN at) (NP (PRP them)))) (, ,) (CC and) (VP (VBZ turns) (PRT (RP down)) (NP (DT the) (NN volume)))) (. .))
 # scene = 11
-# sent_id = 30
+# sent_id = 29
 # sent_len = 19
 # setting = STOOP
 # stage_direction = True
 # text = Radio Raheem stops in front of the group, looks at them, and turns down the volume.
 # time = DAY
-1	Radio	radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=I
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 4	in	in	ADP	IN	_	3	prep	_	_
 5	front	front	NOUN	NN	_	4	pobj	_	_
@@ -652,10 +620,54 @@
 19	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ quiet)) (ADVP (RB again))) (. .) (  ))
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ quiet)) (ADVP (RB again))) (. .) (_SP  ))
+# scene = 11
+# sent_id = 30
+# sent_len = 5
+# setting = STOOP
+# stage_direction = True
+# text = It's quiet again.
+# time = DAY
+1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
+2	's	be	VERB	VBZ	_	0	ROOT	_	_
+3	quiet	quiet	ADJ	JJ	_	2	acomp	_	_
+4	again	again	ADV	RB	_	2	advmod	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VBZ stops) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (NN group)))))) (, ,) (VP (VBZ looks) (PP (IN at) (NP (PRP them)))) (, ,) (CC and) (VP (VBZ turns) (PRT (RP down)) (NP (DT the) (NN volume)))) (. .))
 # scene = 11
 # sent_id = 31
-# sent_len = 6
+# sent_len = 19
+# setting = STOOP
+# stage_direction = True
+# text = Radio Raheem stops in front of the group, looks at them, and turns down the volume.
+# time = DAY
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
+4	in	in	ADP	IN	_	3	prep	_	_
+5	front	front	NOUN	NN	_	4	pobj	_	_
+6	of	of	ADP	IN	_	5	prep	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	group	group	NOUN	NN	_	6	pobj	_	_
+9	,	,	PUNCT	,	_	3	punct	_	_
+10	looks	look	VERB	VBZ	_	3	conj	_	_
+11	at	at	ADP	IN	_	10	prep	_	_
+12	them	-PRON-	PRON	PRP	_	11	pobj	_	_
+13	,	,	PUNCT	,	_	10	punct	_	_
+14	and	and	CCONJ	CC	_	10	cc	_	_
+15	turns	turn	VERB	VBZ	_	10	conj	_	_
+16	down	down	PART	RP	_	15	prt	_	_
+17	the	the	DET	DT	_	18	det	_	_
+18	volume	volume	NOUN	NN	_	15	dobj	_	_
+19	.	.	PUNCT	.	_	3	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (ADJP (JJ quiet)) (ADVP (RB again))) (. .) (_SP  ))
+# scene = 11
+# sent_id = 32
+# sent_len = 5
 # setting = STOOP
 # stage_direction = True
 # text = It's quiet again.
@@ -668,105 +680,105 @@
 
 # line = 77
 # loc = EXT
-# parse = (NP (NP (NN Peace)) (, ,) (PRP y') (NP (DT all)) (. ..) (NP (  )))
+# parse = (NP (NP (NN Peace)) (, ,) (PRP y') (NP (DT all) (. .) (_SP  ) (NN Peace)) (, ,) (NP (NNP Radio) (NNP Raheem)) (. .) (_SP  ))
 # scene = 11
-# sent_id = 32
-# sent_len = 6
+# sent_id = 33
+# sent_len = 10
 # setting = STOOP
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = Peace, y'all..
+# text = Peace, y'all.  Peace, Radio Raheem.
 # time = DAY
 1	Peace	peace	NOUN	NN	_	0	ROOT	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	y'	-PRON-	PRON	PRP	_	1	intj	_	_
-4	all	all	DET	DT	_	3	appos	_	_
-5	..	..	PUNCT	.	_	1	punct	_	_
+3	y'	-PRON-	PRON	PRP	_	1	npadvmod	_	_
+4	all	all	DET	DT	_	1	appos	_	_
+5	.	.	PUNCT	.	_	4	punct	_	_
+6	Peace	peace	NOUN	NN	_	1	conj	_	_
+7	,	,	PUNCT	,	_	7	punct	_	_
+8	Radio	Radio	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+9	Raheem	Raheem	PROPN	NNP	_	1	npadvmod	_	ent_type=ORG|ent_id=383|ent_iob=I
+10	.	.	PUNCT	.	_	1	punct	_	_
 
-# line = 78
+# line = 79
 # loc = EXT
-# parse = (NP (NP (NN Peace)) (, ,) (NP (NN Radio) (NNP Raheem)) (. ..) (NP (NP (  ) (NN Peace)) (. ..) (NP (  ))))
+# parse = (NP (NN Peace) (. .) (_SP  ))
 # scene = 11
-# sent_id = 33
-# sent_len = 9
+# sent_id = 34
+# sent_len = 2
 # setting = STOOP
-# speaker = ELLA
+# speaker = CEE
 # stage_direction = True
-# text = Peace, Radio Raheem.. Peace..
+# text = Peace.
 # time = DAY
 1	Peace	peace	NOUN	NN	_	0	ROOT	_	_
-2	,	,	PUNCT	,	_	1	punct	_	_
-3	Radio	radio	NOUN	NN	_	4	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-4	Raheem	raheem	PROPN	NNP	_	1	conj	_	ent_type=ORG|ent_id=381|ent_iob=I
-5	..	..	PUNCT	.	_	4	punct	_	_
-6	Peace	peace	NOUN	NN	_	4	conj	_	ent_type=ORG|ent_id=381|ent_iob=I
-7	..	..	PUNCT	.	_	1	punct	_	ent_type=ORG|ent_id=381|ent_iob=I
+2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 80
 # loc = EXT
-# parse = (NP (NP (PRP You)) (NP (NP (NP (DT the) (NN man)) (, ,) (NP (NNP Radio) (NNP Raheem))) (. ..) (NP (  ))))
+# parse = (NP (NP (PRP You)) (NP (NP (DT the) (NN man)) (, ,) (NP (NNP Radio) (NNP Raheem))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 34
-# sent_len = 8
+# sent_id = 35
+# sent_len = 7
 # setting = STOOP
 # speaker = PUNCHY
 # stage_direction = True
-# text = You the man, Radio Raheem..
+# text = You the man, Radio Raheem.
 # time = DAY
 1	You	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	man	man	NOUN	NN	_	1	appos	_	_
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Radio	radio	PROPN	NNP	_	6	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-6	Raheem	raheem	PROPN	NNP	_	3	appos	_	ent_type=ORG|ent_id=381|ent_iob=I
-7	..	..	PUNCT	.	_	1	punct	_	_
+5	Radio	Radio	PROPN	NNP	_	6	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+6	Raheem	Raheem	PROPN	NNP	_	3	appos	_	ent_type=ORG|ent_id=383|ent_iob=I
+7	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 81
 # loc = EXT
-# parse = (S (NP (PRP It)) (VP (VP (VBZ 's) (NP (PRP$ your) (NN world))) (. ..) (  )))
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (NP (PRP$ your) (NN world))) (. .) (_SP  ))
 # scene = 11
-# sent_id = 35
-# sent_len = 6
+# sent_id = 36
+# sent_len = 5
 # setting = STOOP
 # speaker = AHMAD
 # stage_direction = True
-# text = It's your world..
+# text = It's your world.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
-3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	your	-PRON-	DET	PRP$	_	4	poss	_	_
 4	world	world	NOUN	NN	_	2	attr	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 82
 # loc = EXT
-# parse = (PP (IN In) (NP (DT a) (JJ big) (NN way)) (NFP ..) (  ))
+# parse = (PP (IN In) (NP (DT a) (JJ big) (NN way)) (. .) (_SP  ))
 # scene = 11
-# sent_id = 36
-# sent_len = 6
+# sent_id = 37
+# sent_len = 5
 # setting = STOOP
 # speaker = CEE
 # stage_direction = True
-# text = In a big way..
+# text = In a big way.
 # time = DAY
 1	In	in	ADP	IN	_	0	ROOT	_	_
 2	a	a	DET	DT	_	4	det	_	_
 3	big	big	ADJ	JJ	_	4	amod	_	_
 4	way	way	NOUN	NN	_	1	pobj	_	_
-5	..	..	PUNCT	NFP	_	1	punct	_	_
+5	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VP (NNS nods)) (CC and) (VP (VBZ turns) (PRT (RP up))) (NP (DT the) (NN volume))) (. .))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VP (VBZ nods)) (CC and) (VP (VBZ turns) (PRT (RP up))) (NP (DT the) (NN volume))) (. .))
 # scene = 11
-# sent_id = 37
+# sent_id = 38
 # sent_len = 9
 # setting = STOOP
 # stage_direction = True
 # text = Radio Raheem nods and turns up the volume.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
-3	nods	nod	NOUN	NNS	_	0	ROOT	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	compound	_	ent_type=ORG|ent_id=383|ent_iob=I
+3	nods	nod	VERB	VBZ	_	0	ROOT	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	turns	turn	VERB	VBZ	_	3	conj	_	_
 6	up	up	PART	RP	_	5	prt	_	_
@@ -775,10 +787,10 @@
 9	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (ADVP (NP (NN Way)) (RB up) (. .) (  ))
+# parse = (ADVP (NP (NN Way)) (RB up) (. .) (_SP  ))
 # scene = 11
-# sent_id = 38
-# sent_len = 4
+# sent_id = 39
+# sent_len = 3
 # setting = STOOP
 # stage_direction = True
 # text = Way up.
@@ -791,28 +803,28 @@
 # loc = EXT
 # parse = (NP (PRP$ My) (NNS people) (. .))
 # scene = 11
-# sent_id = 39
+# sent_id = 40
 # sent_len = 3
 # setting = STOOP
 # speaker = AHMAD
 # stage_direction = True
 # text = My people.
 # time = DAY
-1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
+1	My	-PRON-	DET	PRP$	_	2	poss	_	_
 2	people	people	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 83
 # loc = EXT
-# parse = (NP (PRP$ My) (NNS people) (. ..))
+# parse = (NP (PRP$ My) (NNS people) (. .))
 # scene = 11
-# sent_id = 40
+# sent_id = 41
 # sent_len = 3
 # setting = STOOP
 # speaker = AHMAD
 # stage_direction = True
-# text = My people..
+# text = My people.
 # time = DAY
-1	My	-PRON-	ADJ	PRP$	_	2	poss	_	_
+1	My	-PRON-	DET	PRP$	_	2	poss	_	_
 2	people	people	NOUN	NNS	_	0	ROOT	_	_
-3	..	..	PUNCT	.	_	2	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_

@@ -1,13 +1,12 @@
 {
     "cons_parser": "benepar",
-    "copula_head": true,
     "desc": null,
     "language": "english",
     "name": "do-the-right-thing",
     "nfiles": 98,
-    "nsents": 1930,
-    "ntokens": 19020,
+    "nsents": 1963,
+    "ntokens": 18777,
     "parsed": true,
     "parser": "spacy",
-    "path": "./do-the-right-thing-parsed"
+    "path": "/home/dannio/work/buzz/dtrt/do-the-right-thing-parsed"
 }

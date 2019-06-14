@@ -1,15 +1,15 @@
 # loc = EXT
-# parse = (S (NP (NNP Vito) (CC and) (NNP Mookie)) (VP (VBP walk) (PP (IN down) (NP (DT the) (NN block)))) (. .) (  ))
+# parse = (S (NP (NNP Vito) (CC and) (NNP Mookie)) (VP (VBP walk) (PP (IN down) (NP (DT the) (NN block)))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 1
-# sent_len = 9
+# sent_len = 8
 # setting = STREET
 # stage_direction = True
 # text = Vito and Mookie walk down the block.
 # time = DAY
-1	Vito	vito	PROPN	NNP	_	4	nsubj	_	_
+1	Vito	Vito	PROPN	NNP	_	4	nsubj	_	_
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Mookie	mookie	PROPN	NNP	_	1	conj	_	_
+3	Mookie	Mookie	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	walk	walk	VERB	VBP	_	0	ROOT	_	_
 5	down	down	ADP	IN	_	4	prep	_	_
 6	the	the	DET	DT	_	7	det	_	_
@@ -18,158 +18,157 @@
 
 # line = 216
 # loc = EXT
-# parse = (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ is) (ADJP (JJ cool))) (. ..) (  ))
+# parse = (S (NP (NNP Mister) (NNP Señor) (NNP Love) (NNP Daddy)) (VP (VBZ is) (ADJP (JJ cool))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 2
-# sent_len = 8
+# sent_len = 7
 # setting = STREET
 # speaker = VITO
 # stage_direction = True
-# text = Mister Señor Love Daddy is cool..
+# text = Mister Señor Love Daddy is cool.
 # time = DAY
-1	Mister	mister	PROPN	NNP	_	4	compound	_	_
-2	Señor	señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	Love	love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-4	Daddy	daddy	PROPN	NNP	_	5	nsubj	_	_
+1	Mister	Mister	PROPN	NNP	_	4	compound	_	_
+2	Señor	Señor	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+3	Love	Love	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+4	Daddy	Daddy	PROPN	NNP	_	5	nsubj	_	_
 5	is	be	VERB	VBZ	_	0	ROOT	_	_
 6	cool	cool	ADJ	JJ	_	5	acomp	_	_
-7	..	..	PUNCT	.	_	5	punct	_	_
+7	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 217
 # loc = EXT
-# parse = (FRAG (S (INTJ (NNP Ya)) (VP (IN like) (NP (PRP him)))) (, ,) (INTJ (UH huh)) (. ?) (. .) (  ))
+# parse = (FRAG (S (INTJ (NNP Ya)) (VP (IN like) (NP (PRP him)))) (, ,) (INTJ (JJ huh)) (. ?) (_SP  ))
 # scene = 28
 # sent_id = 3
-# sent_len = 8
+# sent_len = 6
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = Ya like him, huh?.
+# text = Ya like him, huh?
 # time = DAY
-1	Ya	ya	PROPN	NNP	_	5	dep	_	_
+1	Ya	Ya	PROPN	NNP	_	0	ROOT	_	_
 2	like	like	ADP	IN	_	1	prep	_	_
 3	him	-PRON-	PRON	PRP	_	2	pobj	_	_
-4	,	,	PUNCT	,	_	5	punct	_	_
-5	huh	huh	INTJ	UH	_	0	ROOT	_	_
+4	,	,	PUNCT	,	_	1	punct	_	_
+5	huh	huh	ADJ	JJ	_	1	intj	_	_
 6	?	?	PUNCT	.	_	5	punct	_	_
-7	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 218
 # loc = EXT
-# parse = (INTJ (UH Yeah) (. ..) (  ))
+# parse = (INTJ (UH Yeah) (. .) (_SP  ))
 # scene = 28
 # sent_id = 4
-# sent_len = 3
+# sent_len = 2
 # setting = STREET
 # speaker = VITO
 # stage_direction = True
-# text = Yeah..
+# text = Yeah.
 # time = DAY
 1	Yeah	yeah	INTJ	UH	_	0	ROOT	_	_
-2	..	..	PUNCT	.	_	1	punct	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 219
 # loc = EXT
-# parse = (NP (NNP Y'know) (, ,) (NNP Vito))
+# parse = (S (S (NNP Y'know) (, ,) (NP (NNP Vito)) (, ,) (NP (PRP I)) (VP (VBP know) (SBAR (S (NP (NNP Pino)) (VP (VBZ is) (NP (PRP ya) (NN brother) (CC and) (NN shit))))))) (, ,) (CC but) (S (NP (NP (DT the) (JJ next) (NN time)) (SBAR (S (NP (PRP he)) (VP (VBZ hits) (NP (PRP ya)))))) (, ,) (NP (NP (DT the) (JJ next) (NN time)) (SBAR (S (NP (PRP he)) (VP (VBZ touches) (NP (PRP ya)))))) (, ,) (NP (PRP you)) (VP (MD should) (ADVP (`` ")) (VP (VB house) (NP (PRP him))))) (. .))
 # scene = 28
 # sent_id = 5
-# sent_len = 3
+# sent_len = 34
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = Y'know, Vito
+# text = Y'know, Vito, I know Pino is ya brother and shit, but the next time he hits ya, the next time he touches ya, you should "house him.
 # time = DAY
-1	Y'know	y'know	PROPN	NNP	_	0	ROOT	_	_
-2	,	,	PUNCT	,	_	1	punct	_	_
-3	Vito	vito	PROPN	NNP	_	1	npadvmod	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Y'know	Y'know	PROPN	NNP	_	6	intj	_	_
+2	,	,	PUNCT	,	_	6	punct	_	_
+3	Vito	Vito	PROPN	NNP	_	6	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+4	,	,	PUNCT	,	_	6	punct	_	_
+5	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
+6	know	know	VERB	VBP	_	0	ROOT	_	_
+7	Pino	Pino	PROPN	NNP	_	8	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+8	is	be	VERB	VBZ	_	6	ccomp	_	_
+9	ya	ya	PRON	PRP	_	10	compound	_	_
+10	brother	brother	NOUN	NN	_	8	attr	_	_
+11	and	and	CCONJ	CC	_	10	cc	_	_
+12	shit	shit	NOUN	NN	_	10	conj	_	_
+13	,	,	PUNCT	,	_	8	punct	_	_
+14	but	but	CCONJ	CC	_	6	cc	_	_
+15	the	the	DET	DT	_	17	det	_	_
+16	next	next	ADJ	JJ	_	17	amod	_	_
+17	time	time	NOUN	NN	_	32	npadvmod	_	_
+18	he	-PRON-	PRON	PRP	_	19	nsubj	_	_
+19	hits	hit	VERB	VBZ	_	17	relcl	_	_
+20	ya	ya	PRON	PRP	_	19	dobj	_	_
+21	,	,	PUNCT	,	_	32	punct	_	_
+22	the	the	DET	DT	_	24	det	_	_
+23	next	next	ADJ	JJ	_	24	amod	_	_
+24	time	time	NOUN	NN	_	32	npadvmod	_	_
+25	he	-PRON-	PRON	PRP	_	26	nsubj	_	_
+26	touches	touch	VERB	VBZ	_	24	relcl	_	_
+27	ya	ya	PRON	PRP	_	26	dobj	_	_
+28	,	,	PUNCT	,	_	32	punct	_	_
+29	you	-PRON-	PRON	PRP	_	32	nsubj	_	_
+30	should	should	VERB	MD	_	32	aux	_	_
+31	"	"	PUNCT	``	_	32	punct	_	_
+32	house	house	VERB	VB	_	6	conj	_	_
+33	him	-PRON-	PRON	PRP	_	32	dobj	_	_
+34	.	.	PUNCT	.	_	32	punct	_	_
 
 # line = 219
 # loc = EXT
-# parse = (S (, ,) (S (NP (PRP I)) (VP (VBP know) (SBAR (S (NP (NN Pino)) (VP (VBZ is) (NP (PRP ya) (NN brother) (CC and) (NN shit))))))) (, ,) (CC but) (S (NP (NP (NP (DT the) (JJ next) (NN time)) (SBAR (S (NP (PRP he)) (VP (VBZ hits) (NP (PRP ya)))))) (, ,) (NP (DT the) (JJ next) (NN time))) (SBAR (S (NP (PRP he)) (VP (VBZ touches) (NP (PRP ya))))) (, ,) (NP (PRP you)) (VP (MD should) (ADVP (`` ")) (VP (VB house) (NP (PRP him))))) (. .) ('' "))
+# parse = (X ('' "))
 # scene = 28
 # sent_id = 6
-# sent_len = 32
+# sent_len = 1
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = , I know Pino is ya brother and shit, but the next time he hits ya, the next time he touches ya, you should "house him."
+# text = "
 # time = DAY
-1	,	,	PUNCT	,	_	3	punct	_	_
-2	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	know	know	VERB	VBP	_	0	ROOT	_	_
-4	Pino	pino	NOUN	NN	_	5	nsubj	_	ent_type=ORG|ent_id=381|ent_iob=B
-5	is	be	VERB	VBZ	_	3	ccomp	_	_
-6	ya	ya	PRON	PRP	_	7	compound	_	_
-7	brother	brother	NOUN	NN	_	5	attr	_	_
-8	and	and	CCONJ	CC	_	7	cc	_	_
-9	shit	shit	NOUN	NN	_	7	conj	_	_
-10	,	,	PUNCT	,	_	5	punct	_	_
-11	but	but	CCONJ	CC	_	5	cc	_	_
-12	the	the	DET	DT	_	14	det	_	_
-13	next	next	ADJ	JJ	_	14	amod	_	_
-14	time	time	NOUN	NN	_	29	npadvmod	_	_
-15	he	-PRON-	PRON	PRP	_	16	nsubj	_	_
-16	hits	hit	VERB	VBZ	_	14	relcl	_	_
-17	ya	ya	PRON	PRP	_	16	dobj	_	_
-18	,	,	PUNCT	,	_	29	punct	_	_
-19	the	the	DET	DT	_	21	det	_	_
-20	next	next	ADJ	JJ	_	21	amod	_	_
-21	time	time	NOUN	NN	_	29	npadvmod	_	_
-22	he	-PRON-	PRON	PRP	_	23	nsubj	_	_
-23	touches	touch	VERB	VBZ	_	21	relcl	_	_
-24	ya	ya	PRON	PRP	_	23	dobj	_	_
-25	,	,	PUNCT	,	_	29	punct	_	_
-26	you	-PRON-	PRON	PRP	_	29	nsubj	_	_
-27	should	should	VERB	MD	_	29	aux	_	_
-28	"	"	PUNCT	``	_	29	punct	_	_
-29	house	house	VERB	VB	_	5	conj	_	_
-30	him	-PRON-	PRON	PRP	_	29	dobj	_	_
-31	.	.	PUNCT	.	_	29	punct	_	_
-32	"	"	PUNCT	''	_	29	punct	_	_
+1	"	"	PUNCT	''	_	0	ROOT	_	_
 
 # line = 219
 # loc = EXT
-# parse = (S (VP (VB Kick) (NP (PRP$ his) (NN ass))) (. ..) (  ))
+# parse = (S (VP (VB Kick) (NP (PRP$ his) (NN ass))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 7
-# sent_len = 5
+# sent_len = 4
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = Kick his ass..
+# text = Kick his ass.
 # time = DAY
-1	Kick	kick	VERB	VB	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
-2	his	-PRON-	ADJ	PRP$	_	3	poss	_	_
+1	Kick	kick	VERB	VB	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	his	-PRON-	DET	PRP$	_	3	poss	_	_
 3	ass	ass	NOUN	NN	_	1	dobj	_	_
-4	..	..	PUNCT	.	_	1	punct	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 220
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB know))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB know))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 8
-# sent_len = 6
+# sent_len = 5
 # setting = STREET
 # speaker = VITO
 # stage_direction = True
-# text = I don't know..
+# text = I don't know.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
 4	know	know	VERB	VB	_	0	ROOT	_	_
-5	..	..	PUNCT	.	_	4	punct	_	_
+5	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 221
 # loc = EXT
-# parse = (S (SBAR (IN If) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB make) (NP (DT a) (NN stand)))))) (, ,) (NP (PRP he)) (VP (VBZ 's) (VP (VBG gon) (S (VP (TO na) (VP (VB be) (VP (VBG beating) (NP (PRP ya)) (PP (IN like) (NP (DT a) (NN egg))) (PP (IN for) (NP (NP (DT the) (NN rest)) (PP (IN of) (NP (PRP$ your) (NN life))))))))))) (. ..) (  ))
+# parse = (S (SBAR (IN If) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB make) (NP (DT a) (NN stand)))))) (, ,) (NP (PRP he)) (VP (VBZ 's) (VP (VBG gon) (S (VP (TO na) (VP (VB be) (VP (VBG beating) (NP (PRP ya)) (PP (IN like) (NP (DT a) (NN egg))) (PP (IN for) (NP (NP (DT the) (NN rest)) (PP (IN of) (NP (PRP$ your) (NN life))))))))))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 9
-# sent_len = 26
+# sent_len = 25
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = If you don't make a stand, he's gonna be beating ya like a egg for the rest of your life..
+# text = If you don't make a stand, he's gonna be beating ya like a egg for the rest of your life.
 # time = DAY
 1	If	if	ADP	IN	_	5	mark	_	_
 2	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
@@ -189,61 +188,60 @@
 16	like	like	ADP	IN	_	14	prep	_	_
 17	a	a	DET	DT	_	18	det	_	_
 18	egg	egg	NOUN	NN	_	16	pobj	_	_
-19	for	for	ADP	IN	_	14	prep	_	_
+19	for	for	ADP	IN	_	18	prep	_	_
 20	the	the	DET	DT	_	21	det	_	_
 21	rest	rest	NOUN	NN	_	19	pobj	_	_
 22	of	of	ADP	IN	_	21	prep	_	_
-23	your	-PRON-	ADJ	PRP$	_	24	poss	_	_
+23	your	-PRON-	DET	PRP$	_	24	poss	_	_
 24	life	life	NOUN	NN	_	22	pobj	_	_
-25	..	..	PUNCT	.	_	11	punct	_	_
+25	.	.	PUNCT	.	_	11	punct	_	_
 
 # line = 222
 # loc = EXT
-# parse = (S (NP (DT That)) (VP (VBZ 's) (SBAR (WHNP (WP what)) (S (NP (PRP you)) (VP (VBP think))))) (. ?) (. .) (  ))
+# parse = (S (NP (DT That)) (VP (VBZ 's) (SBAR (WHNP (WP what)) (S (NP (PRP you)) (VP (VBP think))))) (. ?) (_SP  ))
 # scene = 28
 # sent_id = 10
-# sent_len = 8
+# sent_len = 6
 # setting = STREET
 # speaker = VITO
 # stage_direction = True
-# text = That's what you think?.
+# text = That's what you think?
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
-3	what	what	NOUN	WP	_	5	dobj	_	_
+3	what	what	PRON	WP	_	5	dobj	_	_
 4	you	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	think	think	VERB	VBP	_	2	ccomp	_	_
 6	?	?	PUNCT	.	_	2	punct	_	_
-7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 223
 # loc = EXT
-# parse = (S (NP (DT That)) (VP (VBZ 's) (SBAR (WHNP (WP what)) (S (NP (PRP I)) (VP (VBP think))))) (NFP ..) (  ))
+# parse = (S (NP (DT That)) (VP (VBZ 's) (SBAR (WHNP (WP what)) (S (NP (PRP I)) (VP (VBP think))))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 11
-# sent_len = 7
+# sent_len = 6
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = That's what I think..
+# text = That's what I think.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
-3	what	what	NOUN	WP	_	5	dobj	_	_
+3	what	what	PRON	WP	_	5	dobj	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	think	think	VERB	VBP	_	2	ccomp	_	_
-6	..	..	PUNCT	NFP	_	2	punct	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 224
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB like) (S (VP (TO to) (VP (VB fight)))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB like) (S (VP (TO to) (VP (VB fight)))))) (. .) (_SP  ))
 # scene = 28
 # sent_id = 12
-# sent_len = 8
+# sent_len = 7
 # setting = STREET
 # speaker = VITO
 # stage_direction = True
-# text = I don't like to fight..
+# text = I don't like to fight.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
@@ -251,41 +249,29 @@
 4	like	like	VERB	VB	_	0	ROOT	_	_
 5	to	to	PART	TO	_	6	aux	_	_
 6	fight	fight	VERB	VB	_	4	xcomp	_	_
-7	..	..	PUNCT	.	_	4	punct	_	_
+7	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 225
 # loc = EXT
-# parse = (S (VP (VBP Do) (NP (PRP it)) (NP (DT this) (CD one) (NN time))))
+# parse = (S (S (VP (VB Do) (NP (PRP it)) (NP (DT this) (CD one) (NN time)))) (CC and) (S (NP (PRP he)) (VP (MD 'll) (ADVP (RB never)) (VP (VB touch) (NP (PRP you)) (ADVP (RB again))))) (. .))
 # scene = 28
 # sent_id = 13
-# sent_len = 5
+# sent_len = 13
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = Do it this one time
+# text = Do it this one time and he'll never touch you again.
 # time = DAY
-1	Do	do	VERB	VBP	_	0	ROOT	_	_
+1	Do	Do	VERB	VB	_	0	ROOT	_	_
 2	it	-PRON-	PRON	PRP	_	1	dobj	_	_
 3	this	this	DET	DT	_	5	det	_	_
-4	one	one	NUM	CD	_	5	nummod	_	_
+4	one	one	NUM	CD	_	5	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
 5	time	time	NOUN	NN	_	1	npadvmod	_	_
-
-# line = 225
-# loc = EXT
-# parse = (S (CC and) (NP (PRP he)) (VP (MD 'll) (ADVP (RB never)) (VP (VB touch) (NP (PRP you)) (ADVP (RB again)))) (. ..))
-# scene = 28
-# sent_id = 14
-# sent_len = 8
-# setting = STREET
-# speaker = MOOKIE
-# stage_direction = True
-# text = and he'll never touch you again..
-# time = DAY
-1	and	and	CCONJ	CC	_	5	cc	_	_
-2	he	-PRON-	PRON	PRP	_	5	nsubj	_	_
-3	'll	will	VERB	MD	_	5	aux	_	_
-4	never	never	ADV	RB	_	5	neg	_	_
-5	touch	touch	VERB	VB	_	0	ROOT	_	_
-6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
-7	again	again	ADV	RB	_	5	advmod	_	_
-8	..	..	PUNCT	.	_	5	punct	_	_
+6	and	and	CCONJ	CC	_	1	cc	_	_
+7	he	-PRON-	PRON	PRP	_	10	nsubj	_	_
+8	'll	will	AUX	MD	_	10	aux	_	_
+9	never	never	ADV	RB	_	10	neg	_	_
+10	touch	touch	VERB	VB	_	1	conj	_	_
+11	you	-PRON-	PRON	PRP	_	10	dobj	_	_
+12	again	again	ADV	RB	_	10	advmod	_	_
+13	.	.	PUNCT	.	_	10	punct	_	_

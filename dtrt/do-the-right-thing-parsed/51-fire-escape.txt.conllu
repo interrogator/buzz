@@ -7,14 +7,14 @@
 # stage_direction = True
 # text = Ahmad, Punchy, Cee, and Ella sit on a fire escape, trying to keep still, trying to find a cool spot in the shade.
 # time = DAY
-1	Ahmad	ahmad	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+1	Ahmad	Ahmad	PROPN	NNP	_	9	nsubj	_	ent_type=GPE|ent_id=384|ent_iob=B
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Punchy	punchy	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+3	Punchy	Punchy	PROPN	NNP	_	1	conj	_	ent_type=GPE|ent_id=384|ent_iob=B
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Cee	cee	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+5	Cee	Cee	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 6	,	,	PUNCT	,	_	5	punct	_	_
 7	and	and	CCONJ	CC	_	5	cc	_	_
-8	Ella	ella	PROPN	NNP	_	5	conj	_	ent_type=GPE|ent_id=382|ent_iob=B
+8	Ella	Ella	PROPN	NNP	_	5	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 9	sit	sit	VERB	VBP	_	0	ROOT	_	_
 10	on	on	ADP	IN	_	9	prep	_	_
 11	a	a	DET	DT	_	13	det	_	_

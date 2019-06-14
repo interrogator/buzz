@@ -1,63 +1,83 @@
 # loc = EXT
-# parse = (S (NP (NP (NNP Buggin) ('' ')) (RB Out)) (VP (VP (VBZ has) (NP (NP (CD one) (NN foot)) (PP (RP up) (PP (IN on) (NP (DT a) (NN fire) (NN hydrant)))))) (CC and) (VP (VBZ tries) (S (VP (TO to) (VP (VB clean) (NP (PRP$ his) (JJ soiled) (NNP Air) (NNP Jordan))))))) (. .))
+# parse = (NP (NNP Buggin) ('' '))
 # scene = 58
 # sent_id = 1
-# sent_len = 20
+# sent_len = 2
 # setting = STREET
 # stage_direction = True
-# text = Buggin' Out has one foot up on a fire hydrant and tries to clean his soiled Air Jordan.
+# text = Buggin'
 # time = DAY
-1	Buggin	buggin	PROPN	NNP	_	3	poss	_	_
-2	'	'	PUNCT	''	_	1	case	_	_
-3	Out	out	ADV	RB	_	4	nsubj	_	_
-4	has	have	VERB	VBZ	_	0	ROOT	_	_
-5	one	one	NUM	CD	_	6	nummod	_	ent_type=QUANTITY|ent_id=392|ent_iob=B
-6	foot	foot	NOUN	NN	_	4	dobj	_	ent_type=QUANTITY|ent_id=392|ent_iob=I
-7	up	up	PART	RP	_	6	prt	_	_
-8	on	on	ADP	IN	_	4	prep	_	_
-9	a	a	DET	DT	_	11	det	_	_
-10	fire	fire	NOUN	NN	_	11	compound	_	_
-11	hydrant	hydrant	NOUN	NN	_	8	pobj	_	_
-12	and	and	CCONJ	CC	_	4	cc	_	_
-13	tries	try	VERB	VBZ	_	4	conj	_	_
-14	to	to	PART	TO	_	15	aux	_	_
-15	clean	clean	VERB	VB	_	13	xcomp	_	_
-16	his	-PRON-	ADJ	PRP$	_	19	poss	_	_
-17	soiled	soiled	ADJ	JJ	_	19	amod	_	_
-18	Air	air	PROPN	NNP	_	19	compound	_	ent_type=LOC|ent_id=383|ent_iob=B
-19	Jordan	jordan	PROPN	NNP	_	15	dobj	_	ent_type=LOC|ent_id=383|ent_iob=I
-20	.	.	PUNCT	.	_	4	punct	_	_
+1	Buggin	Buggin	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	'	'	PUNCT	''	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Jade) (CC and) (NNP Mookie)) (VP (VP (VB walk) (PP (RB up) (PP (IN to) (NP (NP (NNP Buggin) ('' ')) (RB Out))))) (. .) (  )))
+# parse = (S (NP (NNP Out)) (VP (VP (VBZ has) (NP (NP (CD one) (NN foot)) (PP (RP up) (PP (IN on) (NP (DT a) (NN fire) (NN hydrant)))))) (CC and) (VP (VBZ tries) (S (VP (TO to) (VP (VB clean) (NP (PRP$ his) (JJ soiled) (NNP Air) (NNP Jordan))))))) (. .))
 # scene = 58
 # sent_id = 2
-# sent_len = 11
+# sent_len = 18
 # setting = STREET
 # stage_direction = True
-# text = Jade and Mookie walk up to Buggin' Out.
+# text = Out has one foot up on a fire hydrant and tries to clean his soiled Air Jordan.
 # time = DAY
-1	Jade	jade	PROPN	NNP	_	4	nsubj	_	_
+1	Out	Out	PROPN	NNP	_	0	ROOT	_	_
+2	has	have	VERB	VBZ	_	1	npadvmod	_	_
+3	one	one	NUM	CD	_	4	nummod	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+4	foot	foot	NOUN	NN	_	2	dobj	_	_
+5	up	up	PART	RP	_	4	prt	_	_
+6	on	on	ADP	IN	_	2	prep	_	_
+7	a	a	DET	DT	_	9	det	_	_
+8	fire	fire	NOUN	NN	_	9	compound	_	_
+9	hydrant	hydrant	NOUN	NN	_	6	pobj	_	_
+10	and	and	CCONJ	CC	_	2	cc	_	_
+11	tries	try	VERB	VBZ	_	2	conj	_	_
+12	to	to	PART	TO	_	13	aux	_	_
+13	clean	clean	VERB	VB	_	11	xcomp	_	_
+14	his	-PRON-	DET	PRP$	_	17	poss	_	_
+15	soiled	soiled	ADJ	JJ	_	17	amod	_	_
+16	Air	Air	PROPN	NNP	_	17	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+17	Jordan	Jordan	PROPN	NNP	_	13	dobj	_	ent_type=ORG|ent_id=383|ent_iob=I
+18	.	.	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Jade) (CC and) (NNP Mookie)) (VP (VBP walk) (PP (IN up) (PP (IN to) (NP (NNP Buggin))))))
+# scene = 58
+# sent_id = 3
+# sent_len = 7
+# setting = STREET
+# stage_direction = True
+# text = Jade and Mookie walk up to Buggin
+# time = DAY
+1	Jade	Jade	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	and	and	CCONJ	CC	_	1	cc	_	_
-3	Mookie	mookie	PROPN	NNP	_	1	conj	_	_
-4	walk	walk	VERB	VB	_	0	ROOT	_	_
-5	up	up	ADV	RB	_	4	prt	_	_
-6	to	to	ADP	IN	_	4	prep	_	_
-7	Buggin	buggin	PROPN	NNP	_	6	pobj	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=B
-8	'	'	PUNCT	''	_	9	punct	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
-9	Out	out	ADV	RB	_	4	advmod	_	ent_type=FAC|ent_id=9191306739292312949|ent_iob=I
-10	.	.	PUNCT	.	_	4	punct	_	_
+3	Mookie	Mookie	PROPN	NNP	_	1	conj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+4	walk	walk	VERB	VBP	_	0	ROOT	_	_
+5	up	up	ADP	IN	_	4	prt	_	_
+6	to	to	ADP	IN	_	5	prep	_	_
+7	Buggin	Buggin	PROPN	NNP	_	6	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+
+# loc = EXT
+# parse = (INTJ ('' ') (NN Out) (. .) (_SP  ))
+# scene = 58
+# sent_id = 4
+# sent_len = 3
+# setting = STREET
+# stage_direction = True
+# text = ' Out.
+# time = DAY
+1	'	'	PUNCT	''	_	2	punct	_	_
+2	Out	out	NOUN	NN	_	0	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 457
 # loc = EXT
-# parse = (S (NP (NP (PRP It))) (VP (VBZ 's) (ADJP (RB so) (JJ nice)) (S (VP (TO to) (VP (VB see) (S (NP (DT a) (NN family)) (VP (VBG hanging) (PRT (RP out)) (ADVP (RB together)))))))) (. ..) (NP (  )))
+# parse = (S (NP (NP (PRP It))) (VP (VBZ 's) (ADJP (RB so) (JJ nice)) (S (VP (TO to) (VP (VB see) (S (NP (DT a) (NN family)) (VP (VBG hanging) (PRT (RP out)) (ADVP (RB together)))))))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 3
-# sent_len = 13
+# sent_id = 5
+# sent_len = 12
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = It's so nice to see a family hanging out together..
+# text = It's so nice to see a family hanging out together.
 # time = DAY
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
@@ -70,13 +90,13 @@
 9	hanging	hang	VERB	VBG	_	6	ccomp	_	_
 10	out	out	PART	RP	_	9	prt	_	_
 11	together	together	ADV	RB	_	9	advmod	_	_
-12	..	..	PUNCT	.	_	2	punct	_	_
+12	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 458
 # loc = EXT
 # parse = (S (NP (PRP We)) (VP (VBP 're) (RB not) (VP (VBG hanging) (PRT (RP out)))) (. .))
 # scene = 58
-# sent_id = 4
+# sent_id = 6
 # sent_len = 6
 # setting = STREET
 # speaker = MOOKIE
@@ -92,14 +112,14 @@
 
 # line = 458
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VP (VBP 'm) (VP (VBG being) (VP (VBN escorted) (ADVP (ADVP (RB back)) (PP (IN to) (NP (NN work))))))) (. ..) (  )))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG being) (VP (VBN escorted) (ADVP (RB back) (PP (IN to) (NP (NN work))))))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 5
-# sent_len = 9
+# sent_id = 7
+# sent_len = 8
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = I'm being escorted back to work..
+# text = I'm being escorted back to work.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	4	nsubjpass	_	_
 2	'm	be	VERB	VBP	_	4	aux	_	_
@@ -108,13 +128,13 @@
 5	back	back	ADV	RB	_	4	advmod	_	_
 6	to	to	ADP	IN	_	5	prep	_	_
 7	work	work	NOUN	NN	_	6	pobj	_	_
-8	..	..	PUNCT	.	_	4	punct	_	_
+8	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 459
 # loc = EXT
 # parse = (S (NP (DT That)) (VP (VBZ 's) (RB not) (ADVP (RB even)) (ADJP (JJ true))) (. .))
 # scene = 58
-# sent_id = 6
+# sent_id = 8
 # sent_len = 6
 # setting = STREET
 # speaker = JADE
@@ -130,34 +150,34 @@
 
 # line = 459
 # loc = EXT
-# parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBP want) (NP (DT a) (NN slice))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBP want) (NP (DT a) (NN slice))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 7
-# sent_len = 7
+# sent_id = 9
+# sent_len = 6
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = I just want a slice..
+# text = I just want a slice.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	just	just	ADV	RB	_	3	advmod	_	_
 3	want	want	VERB	VBP	_	0	ROOT	_	_
 4	a	a	DET	DT	_	5	det	_	_
 5	slice	slice	NOUN	NN	_	3	dobj	_	_
-6	..	..	PUNCT	.	_	3	punct	_	_
+6	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 460
 # loc = EXT
-# parse = (S (NP (NNP Jade)) (, ,) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB know) (NP (DT this))))) (, ,) (CC but) (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG organizing) (NP (NP (DT a) (NN boycott)) (PP (IN of) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria))))))) (. ..) (  ))
+# parse = (S (NP (NNP Jade)) (, ,) (S (NP (PRP you)) (VP (VBP do) (RB n't) (VP (VB know) (NP (DT this))))) (, ,) (CC but) (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG organizing) (NP (NP (DT a) (NN boycott)) (PP (IN of) (NP (NP (NNP Sal) (POS 's)) (NNP Famous) (NNP Pizzeria))))))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 8
-# sent_len = 21
+# sent_id = 10
+# sent_len = 20
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Jade, you don't know this, but I'm organizing a boycott of Sal's Famous Pizzeria..
+# text = Jade, you don't know this, but I'm organizing a boycott of Sal's Famous Pizzeria.
 # time = DAY
-1	Jade	jade	PROPN	NNP	_	6	npadvmod	_	_
+1	Jade	Jade	PROPN	NNP	_	6	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	6	punct	_	_
 3	you	-PRON-	PRON	PRP	_	6	nsubj	_	_
 4	do	do	VERB	VBP	_	6	aux	_	_
@@ -172,180 +192,176 @@
 13	a	a	DET	DT	_	14	det	_	_
 14	boycott	boycott	NOUN	NN	_	12	dobj	_	_
 15	of	of	ADP	IN	_	14	prep	_	_
-16	Sal	sal	PROPN	NNP	_	19	poss	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
-17	's	's	PART	POS	_	16	case	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
-18	Famous	famous	PROPN	NNP	_	19	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
-19	Pizzeria	pizzeria	PROPN	NNP	_	15	pobj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
-20	..	..	PUNCT	.	_	12	punct	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+16	Sal	Sal	PROPN	NNP	_	19	poss	_	ent_type=LOC|ent_id=385|ent_iob=B
+17	's	's	PART	POS	_	16	case	_	ent_type=LOC|ent_id=385|ent_iob=I
+18	Famous	Famous	PROPN	NNP	_	19	compound	_	ent_type=LOC|ent_id=385|ent_iob=I
+19	Pizzeria	Pizzeria	PROPN	NNP	_	15	pobj	_	ent_type=LOC|ent_id=385|ent_iob=I
+20	.	.	PUNCT	.	_	12	punct	_	_
 
 # line = 461
 # loc = EXT
-# parse = (SBARQ (WHNP (WP What)) (SQ (VBD did) (NP (PRP he)) (VP (VB do) (NP (DT this) (NN time)))) (. ?) (. .) (  ))
+# parse = (SBARQ (WHNP (WP What)) (SQ (VBD did) (NP (PRP he)) (VP (VB do) (NP (DT this) (NN time)))) (. ?) (_SP  ))
 # scene = 58
-# sent_id = 9
-# sent_len = 9
+# sent_id = 11
+# sent_len = 7
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = What did he do this time?.
+# text = What did he do this time?
 # time = DAY
-1	What	what	NOUN	WP	_	4	dobj	_	_
+1	What	what	PRON	WP	_	4	dobj	_	_
 2	did	do	VERB	VBD	_	4	aux	_	_
 3	he	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	do	do	VERB	VB	_	0	ROOT	_	_
 5	this	this	DET	DT	_	6	det	_	_
 6	time	time	NOUN	NN	_	4	npadvmod	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
-8	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 462
 # loc = EXT
-# parse = (FRAG (X (NNP Y'know)) (NP (NP (PDT all) (DT those) (NNS pictures)) (SBAR (S (NP (PRP he)) (VP (VBZ has) (VP (VBG hanging) (PP (IN on) (NP (NP (DT the) (NNP Wall)) (PP (IN of) (NP (NNP Fame)))))))))) (. ?) (. .) (  ))
+# parse = (X (X (NN Y'know)) (NP (NP (PDT all) (DT those) (NNS pictures)) (SBAR (S (NP (PRP he)) (VP (VBZ has) (VP (VBG hanging) (PP (IN on) (NP (NP (DT the) (NNP Wall)) (PP (IN of) (NP (NNP Fame)))))))))) (. ?) (_SP  ))
 # scene = 58
-# sent_id = 10
-# sent_len = 15
+# sent_id = 12
+# sent_len = 13
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Y'know all those pictures he has hanging on the Wall of Fame?.
+# text = Y'know all those pictures he has hanging on the Wall of Fame?
 # time = DAY
-1	Y'know	y'know	PROPN	NNP	_	4	nmod	_	_
-2	all	all	ADJ	PDT	_	4	predet	_	_
+1	Y'know	y'know	NOUN	NN	_	0	ROOT	_	_
+2	all	all	DET	PDT	_	4	predet	_	_
 3	those	those	DET	DT	_	4	det	_	_
-4	pictures	picture	NOUN	NNS	_	0	ROOT	_	_
+4	pictures	picture	NOUN	NNS	_	1	pobj	_	_
 5	he	-PRON-	PRON	PRP	_	7	nsubj	_	_
 6	has	have	VERB	VBZ	_	7	aux	_	_
 7	hanging	hang	VERB	VBG	_	4	relcl	_	_
 8	on	on	ADP	IN	_	7	prep	_	_
-9	the	the	DET	DT	_	10	det	_	ent_type=ORG|ent_id=381|ent_iob=B
-10	Wall	wall	PROPN	NNP	_	8	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
-11	of	of	ADP	IN	_	10	prep	_	ent_type=ORG|ent_id=381|ent_iob=I
-12	Fame	fame	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=381|ent_iob=I
+9	the	the	DET	DT	_	10	det	_	ent_type=ORG|ent_id=383|ent_iob=B
+10	Wall	Wall	PROPN	NNP	_	8	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
+11	of	of	ADP	IN	_	10	prep	_	ent_type=ORG|ent_id=383|ent_iob=I
+12	Fame	Fame	PROPN	NNP	_	11	pobj	_	ent_type=ORG|ent_id=383|ent_iob=I
 13	?	?	PUNCT	.	_	4	punct	_	_
-14	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 463
 # loc = EXT
-# parse = (ADVP (RB So) (. ?) (. .) (  ))
+# parse = (ADVP (RB So) (. ?) (_SP  ))
 # scene = 58
-# sent_id = 11
-# sent_len = 4
+# sent_id = 13
+# sent_len = 2
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = So?.
+# text = So?
 # time = DAY
 1	So	so	ADV	RB	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
-3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 464
 # loc = EXT
-# parse = (SQ (VBP Have) (NP (PRP you)) (VP (VBN noticed) (NP (NP (NN something)) (PP (IN about) (NP (PRP them))))) (. ?) (. .) (  ))
+# parse = (SQ (VBP Have) (NP (PRP you)) (VP (VBN noticed) (NP (NP (NN something)) (PP (IN about) (NP (PRP them))))) (. ?) (_SP  ))
 # scene = 58
-# sent_id = 12
-# sent_len = 9
+# sent_id = 14
+# sent_len = 7
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Have you noticed something about them?.
+# text = Have you noticed something about them?
 # time = DAY
-1	Have	have	VERB	VBP	_	3	aux	_	_
+1	Have	Have	VERB	VBP	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	noticed	notice	VERB	VBN	_	0	ROOT	_	_
 4	something	something	NOUN	NN	_	3	dobj	_	_
 5	about	about	ADP	IN	_	4	prep	_	_
 6	them	-PRON-	PRON	PRP	_	5	pobj	_	_
 7	?	?	PUNCT	.	_	3	punct	_	_
-8	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 465
 # loc = EXT
-# parse = (INTJ (UH No) (. ..) (  ))
+# parse = (INTJ (UH No) (NN .) (_SP  ))
 # scene = 58
-# sent_id = 13
-# sent_len = 3
+# sent_id = 15
+# sent_len = 2
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = No..
+# text = No.
 # time = DAY
-1	No	no	INTJ	UH	_	0	ROOT	_	_
-2	..	..	PUNCT	.	_	1	punct	_	_
+1	No	no	INTJ	UH	_	2	subtok	_	_
+2	.	.	NOUN	NN	_	0	ROOT	_	_
 
 # line = 466
 # loc = EXT
-# parse = (S (INTJ (NNP Yo)) (, ,) (NP (PRP I)) (VP (VBP 'm) (VP (VBN gone))) (. ..) (  ))
+# parse = (S (INTJ (NNP Yo)) (, ,) (NP (PRP I)) (VP (VBP 'm) (VP (VBN gone))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 14
-# sent_len = 7
+# sent_id = 16
+# sent_len = 6
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = Yo, I'm gone..
+# text = Yo, I'm gone.
 # time = DAY
-1	Yo	yo	PROPN	NNP	_	4	npadvmod	_	_
-2	,	,	PUNCT	,	_	4	punct	_	_
-3	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-4	'm	be	VERB	VBP	_	0	ROOT	_	_
-5	gone	go	VERB	VBN	_	4	acomp	_	_
-6	..	..	PUNCT	.	_	4	punct	_	_
+1	Yo	Yo	PROPN	NNP	_	5	npadvmod	_	_
+2	,	,	PUNCT	,	_	5	punct	_	_
+3	I	-PRON-	PRON	PRP	_	5	nsubjpass	_	_
+4	'm	be	VERB	VBP	_	5	auxpass	_	_
+5	gone	go	VERB	VBN	_	0	ROOT	_	_
+6	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 467
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB see) (NP (PRP ya)) (ADVP (RB there)))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB see) (NP (PRP ya)) (ADVP (RB there)))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 15
-# sent_len = 7
+# sent_id = 17
+# sent_len = 6
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = I'll see ya there..
+# text = I'll see ya there.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-2	'll	will	VERB	MD	_	3	aux	_	_
+2	'll	will	AUX	MD	_	3	aux	_	_
 3	see	see	VERB	VB	_	0	ROOT	_	_
 4	ya	ya	PRON	PRP	_	3	dobj	_	_
-5	there	there	ADV	RB	_	4	advmod	_	_
-6	..	..	PUNCT	.	_	3	punct	_	_
+5	there	there	ADV	RB	_	3	advmod	_	_
+6	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 468
 # loc = EXT
-# parse = (NP (NN Peace) (. ..) (  ))
+# parse = (NP (NN Peace) (. .) (_SP  ))
 # scene = 58
-# sent_id = 16
-# sent_len = 3
+# sent_id = 18
+# sent_len = 2
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Peace..
+# text = Peace.
 # time = DAY
 1	Peace	peace	NOUN	NN	_	0	ROOT	_	_
-2	..	..	PUNCT	.	_	1	punct	_	_
+2	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NNP Mookie)) (VP (NNS leaves)) (. .) (  ))
+# parse = (S (NP (NNP Mookie)) (VP (NNS leaves)) (. .) (_SP  ))
 # scene = 58
-# sent_id = 17
-# sent_len = 4
+# sent_id = 19
+# sent_len = 3
 # setting = STREET
 # stage_direction = True
 # text = Mookie leaves.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
-2	leaves	leaf	NOUN	NNS	_	0	ROOT	_	_
+1	Mookie	Mookie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	leaves	leave	NOUN	NNS	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 469
 # loc = EXT
-# parse = (S (NP (NP (DT Every) (JJ single) (CD one)) (PP (IN of) (NP (DT those) (NNS pictures)))) (VP (VBZ is) (NP (NP (NN somebody) (ADJP (JJ Italian))) (. ..) (  ))))
+# parse = (S (NP (NP (DT Every) (JJ single) (CD one)) (PP (IN of) (NP (DT those) (NNS pictures)))) (VP (VBZ is) (NP (NN somebody) (ADJP (JJ Italian)))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 18
-# sent_len = 11
+# sent_id = 20
+# sent_len = 10
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Every single one of those pictures is somebody Italian..
+# text = Every single one of those pictures is somebody Italian.
 # time = DAY
 1	Every	every	DET	DT	_	3	det	_	_
 2	single	single	ADJ	JJ	_	3	amod	_	_
@@ -355,34 +371,33 @@
 6	pictures	picture	NOUN	NNS	_	4	pobj	_	_
 7	is	be	VERB	VBZ	_	0	ROOT	_	_
 8	somebody	somebody	NOUN	NN	_	7	attr	_	_
-9	Italian	italian	ADJ	JJ	_	8	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
-10	..	..	PUNCT	.	_	7	punct	_	_
+9	Italian	italian	ADJ	JJ	_	8	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
+10	.	.	PUNCT	.	_	7	punct	_	_
 
 # line = 470
 # loc = EXT
-# parse = (FRAG (CC And) (. ?) (. .) (  ))
+# parse = (FRAG (CC And) (. ?) (_SP  ))
 # scene = 58
-# sent_id = 19
-# sent_len = 4
+# sent_id = 21
+# sent_len = 2
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = And?.
+# text = And?
 # time = DAY
 1	And	and	CCONJ	CC	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
-3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 471
 # loc = EXT
-# parse = (S (CC And) (NP (NP (PRP I)) (PRN (: --) (NP (PRP we)) (: --))) (VP (VBP want) (NP (DT some) (JJ Black) (NNS people)) (X (RB up) (. ..) (  ))))
+# parse = (S (CC And) (NP (NP (PRP I)) (PRN (: --) (NP (PRP we)) (: --))) (VP (VBP want) (NP (DT some) (JJ Black) (NNS people)) (ADVP (RP up))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 20
-# sent_len = 12
+# sent_id = 22
+# sent_len = 11
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = And I--we--want some Black people up..
+# text = And I--we--want some Black people up.
 # time = DAY
 1	And	and	CCONJ	CC	_	6	cc	_	_
 2	I	-PRON-	PRON	PRP	_	6	nsubj	_	_
@@ -391,34 +406,33 @@
 5	--	--	PUNCT	:	_	6	punct	_	_
 6	want	want	VERB	VBP	_	0	ROOT	_	_
 7	some	some	DET	DT	_	9	det	_	_
-8	Black	black	ADJ	JJ	_	9	amod	_	ent_type=PERSON|ent_id=378|ent_iob=B
-9	people	people	NOUN	NNS	_	10	nsubj	_	_
-10	up	up	ADV	RB	_	6	prt	_	_
-11	..	..	PUNCT	.	_	6	punct	_	_
+8	Black	black	ADJ	JJ	_	9	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
+9	people	people	NOUN	NNS	_	6	dobj	_	_
+10	up	up	PART	RP	_	6	prt	_	_
+11	.	.	PUNCT	.	_	6	punct	_	_
 
 # line = 472
 # loc = EXT
-# parse = (SQ (VBD Did) (NP (PRP you)) (VP (VB ask) (NP (NNP Sal))) (. ?) (. .) (  ))
+# parse = (SQ (VBD Did) (NP (PRP you)) (VP (VB ask) (NP (NNP Sal))) (. ?) (_SP  ))
 # scene = 58
-# sent_id = 21
-# sent_len = 7
+# sent_id = 23
+# sent_len = 5
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = Did you ask Sal?.
+# text = Did you ask Sal?
 # time = DAY
 1	Did	do	VERB	VBD	_	3	aux	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	ask	ask	VERB	VB	_	0	ROOT	_	_
-4	Sal	sal	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+4	Sal	Sal	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 5	?	?	PUNCT	.	_	3	punct	_	_
-6	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 473
 # loc = EXT
 # parse = (S (INTJ (UH Yeah)) (, ,) (NP (PRP I)) (VP (VBD asked) (NP (PRP him))) (. .))
 # scene = 58
-# sent_id = 22
+# sent_id = 24
 # sent_len = 6
 # setting = STREET
 # speaker = BUGGIN' OUT
@@ -436,7 +450,7 @@
 # loc = EXT
 # parse = (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB want) (NP (NP (NP (NN nobody)) (PP (IN in) (NP (RB there)))) (, ,) (NP (NP (NN nobody)) (VP (VBG spending) (NP (JJ good) (NN money)) (PP (IN in) (NP (NNP Sal) (POS 's)))))))) (. .))
 # scene = 58
-# sent_id = 23
+# sent_id = 25
 # sent_len = 16
 # setting = STREET
 # speaker = BUGGIN' OUT
@@ -446,37 +460,37 @@
 1	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
 2	do	do	VERB	VBP	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
-4	want	want	VERB	VB	_	10	ccomp	_	_
+4	want	want	VERB	VB	_	0	ROOT	_	_
 5	nobody	nobody	NOUN	NN	_	4	dobj	_	_
 6	in	in	ADP	IN	_	7	advmod	_	_
 7	there	there	ADV	RB	_	4	advmod	_	_
 8	,	,	PUNCT	,	_	10	punct	_	_
 9	nobody	nobody	NOUN	NN	_	10	nsubj	_	_
-10	spending	spend	VERB	VBG	_	0	ROOT	_	_
+10	spending	spend	VERB	VBG	_	4	ccomp	_	_
 11	good	good	ADJ	JJ	_	12	amod	_	_
 12	money	money	NOUN	NN	_	10	dobj	_	_
 13	in	in	ADP	IN	_	10	prep	_	_
-14	Sal	sal	PROPN	NNP	_	13	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-15	's	's	PART	POS	_	14	case	_	_
-16	.	.	PUNCT	.	_	10	punct	_	_
+14	Sal	Sal	PROPN	NNP	_	13	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
+15	's	's	PART	POS	_	14	case	_	ent_type=GPE|ent_id=384|ent_iob=I
+16	.	.	PUNCT	.	_	4	punct	_	_
 
 # line = 473
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (MD should) (VP (VB get) (NP (DT no) (NN mo) ('' ') (NN money)) (PP (IN from) (NP (DT the) (NN community))) (SBAR (IN till) (S (NP (PRP he)) (VP (VBZ puts) (NP (DT some) (NNP Black) (VBZ faces)) (PRT (RP up)) (PP (IN on) (NP (DT that) (VBG motherfucking) (NN wall)))))))) (. ..) (  ))
+# parse = (S (NP (PRP He)) (VP (MD should) (VP (VB get) (NP (DT no) (NN mo) (`` ') (NN money)) (PP (IN from) (NP (DT the) (NN community))) (SBAR (IN till) (S (NP (PRP he)) (VP (VBZ puts) (NP (DT some) (NNP Black) (VBZ faces)) (PRT (RP up)) (PP (IN on) (NP (DT that) (VBG motherfucking) (NN wall)))))))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 24
-# sent_len = 23
+# sent_id = 26
+# sent_len = 22
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = He should get no mo' money from the community till he puts some Black faces up on that motherfucking wall..
+# text = He should get no mo' money from the community till he puts some Black faces up on that motherfucking wall.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	should	should	VERB	MD	_	3	aux	_	_
 3	get	get	VERB	VB	_	0	ROOT	_	_
 4	no	no	DET	DT	_	5	det	_	_
 5	mo	mo	NOUN	NN	_	7	poss	_	_
-6	'	'	PUNCT	''	_	5	case	_	_
+6	'	'	PUNCT	``	_	5	case	_	_
 7	money	money	NOUN	NN	_	3	dobj	_	_
 8	from	from	ADP	IN	_	3	prep	_	_
 9	the	the	DET	DT	_	10	det	_	_
@@ -485,72 +499,60 @@
 12	he	-PRON-	PRON	PRP	_	13	nsubj	_	_
 13	puts	put	VERB	VBZ	_	3	advcl	_	_
 14	some	some	DET	DT	_	15	det	_	_
-15	Black	black	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
-16	faces	face	VERB	VBZ	_	13	dobj	_	_
+15	Black	Black	PROPN	NNP	_	16	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+16	faces	face	VERB	VBZ	_	13	ccomp	_	_
 17	up	up	PART	RP	_	16	prt	_	_
 18	on	on	ADP	IN	_	16	prep	_	_
 19	that	that	DET	DT	_	21	det	_	_
-20	motherfucking	motherfuck	VERB	VBG	_	21	amod	_	_
+20	motherfucking	motherfucke	VERB	VBG	_	21	amod	_	_
 21	wall	wall	NOUN	NN	_	18	pobj	_	_
-22	..	..	PUNCT	.	_	3	punct	_	_
+22	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (NNP Jade)) (VP (VBZ looks) (PP (IN at) (NP (NNP Buggin)))) ('' '))
 # scene = 58
-# sent_id = 25
+# sent_id = 27
 # sent_len = 5
 # setting = STREET
 # stage_direction = True
 # text = Jade looks at Buggin'
 # time = DAY
-1	Jade	jade	PROPN	NNP	_	2	nsubj	_	_
+1	Jade	Jade	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	looks	look	VERB	VBZ	_	0	ROOT	_	_
 3	at	at	ADP	IN	_	2	prep	_	_
-4	Buggin	buggin	PROPN	NNP	_	3	pobj	_	ent_type=EVENT|ent_id=385|ent_iob=B
-5	'	'	PUNCT	''	_	2	punct	_	ent_type=EVENT|ent_id=385|ent_iob=I
+4	Buggin	Buggin	PROPN	NNP	_	3	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
+5	'	'	PUNCT	''	_	2	punct	_	_
 
 # loc = EXT
-# parse = (ADVP (RB Out) (IN like) (`` ") (SQ (VBP Are) (NP (PRP you)) (ADJP (JJ serious)) (. ?)) ('' ") (  ))
+# parse = (SQ (RB Out) (IN like) (`` ") (SQ (VBP Are) (NP (PRP you)) (ADJP (JJ serious)) (. ?)) ('' ") (NP (_SP  ) (NNP Buggin)) ('' '))
 # scene = 58
-# sent_id = 26
-# sent_len = 9
+# sent_id = 28
+# sent_len = 10
 # setting = STREET
 # stage_direction = True
-# text = Out like "Are you serious?"
+# text = Out like "Are you serious?"  Buggin'
 # time = DAY
-1	Out	out	ADV	RB	_	4	advmod	_	_
+1	Out	out	ADV	RB	_	2	advmod	_	_
 2	like	like	ADP	IN	_	4	intj	_	_
 3	"	"	PUNCT	``	_	4	punct	_	_
 4	Are	be	VERB	VBP	_	0	ROOT	_	_
 5	you	-PRON-	PRON	PRP	_	4	nsubj	_	_
 6	serious	serious	ADJ	JJ	_	4	acomp	_	_
 7	?	?	PUNCT	.	_	4	punct	_	_
-8	"	"	PUNCT	''	_	4	punct	_	_
+8	"	"	PUNCT	''	_	10	punct	_	_
+9	Buggin	Buggin	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+10	'	'	PUNCT	''	_	10	punct	_	_
 
 # line = 474
 # loc = EXT
-# parse = (NP (NNP Buggin) ('' '))
+# parse = (S (ADVP (RB Out)) (, ,) (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB mean) (S (VP (TO to) (VP (VB be) (ADJP (JJ disrespectful)))))))) (, ,) (CC but) (S (NP (PRP you)) (VP (MD can) (ADVP (RB really)) (VP (VB direct) (NP (PRP$ your) (NNS energies)) (PP (IN in) (NP (DT a) (ADJP (RBR more) (JJ useful)) (NN way)))))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 27
-# sent_len = 2
+# sent_id = 29
+# sent_len = 23
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = Buggin'
-# time = DAY
-1	Buggin	buggin	PROPN	NNP	_	0	ROOT	_	_
-2	'	'	PUNCT	''	_	1	punct	_	_
-
-# line = 474
-# loc = EXT
-# parse = (S (ADVP (RB Out)) (, ,) (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB mean) (S (VP (TO to) (VP (VB be) (ADJP (JJ disrespectful)))))))) (, ,) (CC but) (S (NP (PRP you)) (VP (MD can) (ADVP (RB really)) (VP (VB direct) (NP (PRP$ your) (NNS energies)) (PP (IN in) (NP (DT a) (ADJP (RBR more) (JJ useful)) (NN way)))))) (. ..) (  ))
-# scene = 58
-# sent_id = 28
-# sent_len = 24
-# setting = STREET
-# speaker = JADE
-# stage_direction = True
-# text = Out, I don't mean to be disrespectful, but you can really direct your energies in a more useful way..
+# text = Out, I don't mean to be disrespectful, but you can really direct your energies in a more useful way.
 # time = DAY
 1	Out	out	ADV	RB	_	6	advmod	_	_
 2	,	,	PUNCT	,	_	6	punct	_	_
@@ -567,25 +569,25 @@
 13	can	can	VERB	MD	_	15	aux	_	_
 14	really	really	ADV	RB	_	15	advmod	_	_
 15	direct	direct	VERB	VB	_	6	conj	_	_
-16	your	-PRON-	ADJ	PRP$	_	17	poss	_	_
+16	your	-PRON-	DET	PRP$	_	17	poss	_	_
 17	energies	energy	NOUN	NNS	_	15	dobj	_	_
 18	in	in	ADP	IN	_	15	prep	_	_
 19	a	a	DET	DT	_	22	det	_	_
 20	more	more	ADV	RBR	_	21	advmod	_	_
 21	useful	useful	ADJ	JJ	_	22	amod	_	_
 22	way	way	NOUN	NN	_	18	pobj	_	_
-23	..	..	PUNCT	.	_	15	punct	_	_
+23	.	.	PUNCT	.	_	15	punct	_	_
 
 # line = 475
 # loc = EXT
-# parse = (S (ADVP (RB So)) (, ,) (PP (IN in) (NP (JJ other) (NNS words))) (, ,) (NP (PRP you)) (VP (VP (VBP are) (RB not) (ADVP (RB down))) (. ..) (FRAG (INTJ (  )))))
+# parse = (S (ADVP (RB So)) (, ,) (PP (IN in) (NP (JJ other) (NNS words))) (, ,) (NP (PRP you)) (VP (VBP are) (RB not) (ADVP (RB down))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 29
-# sent_len = 12
+# sent_id = 30
+# sent_len = 11
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = So, in other words, you are not down..
+# text = So, in other words, you are not down.
 # time = DAY
 1	So	so	ADV	RB	_	8	advmod	_	_
 2	,	,	PUNCT	,	_	8	punct	_	_
@@ -597,18 +599,18 @@
 8	are	be	VERB	VBP	_	0	ROOT	_	_
 9	not	not	ADV	RB	_	8	neg	_	_
 10	down	down	ADV	RB	_	8	advmod	_	_
-11	..	..	PUNCT	.	_	8	punct	_	_
+11	.	.	PUNCT	.	_	8	punct	_	_
 
 # line = 476
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP 'm) (UCP (ADVP (RB down)) (, ,) (CC but) (PP (IN for) (NP (DT a) (JJ worthwhile) (NN cause))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (UCP (ADVP (RB down)) (, ,) (CC but) (PP (IN for) (NP (DT a) (JJ worthwhile) (NN cause))))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 30
-# sent_len = 11
+# sent_id = 31
+# sent_len = 10
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = I'm down, but for a worthwhile cause..
+# text = I'm down, but for a worthwhile cause.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	'm	be	VERB	VBP	_	0	ROOT	_	_
@@ -618,42 +620,42 @@
 6	for	for	ADP	IN	_	2	conj	_	_
 7	a	a	DET	DT	_	9	det	_	_
 8	worthwhile	worthwhile	ADJ	JJ	_	9	amod	_	_
-9	cause	because	NOUN	NN	_	6	pobj	_	_
-10	..	..	PUNCT	.	_	6	punct	_	_
+9	cause	cause	NOUN	NN	_	6	pobj	_	_
+10	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 477
 # loc = EXT
-# parse = (S (NP (NNP Jade)) (, ,) (S (NP (PRP I)) (ADVP (RB still)) (VP (VBP love) (NP (PRP you)))) (. ..) (  ))
+# parse = (S (NP (NNP Jade)) (, ,) (NP (PRP I)) (ADVP (RB still)) (VP (VBP love) (NP (PRP you))) (. .) (_SP  ))
 # scene = 58
-# sent_id = 31
-# sent_len = 8
+# sent_id = 32
+# sent_len = 7
 # setting = STREET
 # speaker = BUGGIN' OUT
 # stage_direction = True
-# text = Jade, I still love you..
+# text = Jade, I still love you.
 # time = DAY
-1	Jade	jade	PROPN	NNP	_	5	npadvmod	_	_
+1	Jade	Jade	PROPN	NNP	_	5	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	,	,	PUNCT	,	_	5	punct	_	_
 3	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 4	still	still	ADV	RB	_	5	advmod	_	_
 5	love	love	VERB	VBP	_	0	ROOT	_	_
 6	you	-PRON-	PRON	PRP	_	5	dobj	_	_
-7	..	..	PUNCT	.	_	5	punct	_	_
+7	.	.	PUNCT	.	_	5	punct	_	_
 
 # line = 478
 # loc = EXT
-# parse = (S (NP (PRP I)) (ADVP (RB still)) (VP (VBP love) (NP (PRP you)) (ADVP (RB too))) (. ..))
+# parse = (S (NP (PRP I)) (ADVP (RB still)) (VP (VBP love) (NP (PRP you)) (ADVP (RB too))) (. .))
 # scene = 58
-# sent_id = 32
+# sent_id = 33
 # sent_len = 6
 # setting = STREET
 # speaker = JADE
 # stage_direction = True
-# text = I still love you too..
+# text = I still love you too.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	still	still	ADV	RB	_	3	advmod	_	_
 3	love	love	VERB	VBP	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	too	too	ADV	RB	_	3	advmod	_	_
-6	..	..	PUNCT	.	_	3	punct	_	_
+6	.	.	PUNCT	.	_	3	punct	_	_

@@ -1,21 +1,21 @@
 # loc = EXT
-# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ is) (VP (VBG walking) (PP (IN by) (NP (NNP Mother) (NNP Sister))) (PP (IN in) (NP (PRP$ her) (NN window))) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ calls) (NP (PRP him))))))) (. .) (  ))
+# parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ is) (VP (VBG walking) (PP (IN by) (NP (NNP Mother) (NNP Sister))) (PP (IN in) (NP (PRP$ her) (NN window))) (SBAR (WHADVP (WRB when)) (S (NP (PRP she)) (VP (VBZ calls) (NP (PRP him))))))) (. .) (_SP  ))
 # scene = 70
 # sent_id = 1
-# sent_len = 16
+# sent_len = 15
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = Da Mayor is walking by Mother Sister in her window when she calls him.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	4	nsubj	_	_
 3	is	be	VERB	VBZ	_	4	aux	_	_
 4	walking	walk	VERB	VBG	_	0	ROOT	_	_
 5	by	by	ADP	IN	_	4	prep	_	_
-6	Mother	mother	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-7	Sister	sister	PROPN	NNP	_	5	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+6	Mother	Mother	PROPN	NNP	_	7	compound	_	_
+7	Sister	Sister	PROPN	NNP	_	5	pobj	_	_
 8	in	in	ADP	IN	_	4	prep	_	_
-9	her	-PRON-	ADJ	PRP$	_	10	poss	_	_
+9	her	-PRON-	DET	PRP$	_	10	poss	_	_
 10	window	window	NOUN	NN	_	8	pobj	_	_
 11	when	when	ADV	WRB	_	13	advmod	_	_
 12	she	-PRON-	PRON	PRP	_	13	nsubj	_	_
@@ -25,24 +25,24 @@
 
 # line = 584
 # loc = EXT
-# parse = (S (S (NP (NNP Mister) (NNP Mayor))) (, ,) (NP (PRP I)) (VP (VBD saw) (SBAR (WHNP (WP what)) (S (NP (PRP you)) (VP (VBD did))))) (. ..) (  ))
+# parse = (S (S (NP (NNP Mister) (NNP Mayor))) (, ,) (NP (PRP I)) (VP (VBD saw) (SBAR (WHNP (WP what)) (S (NP (PRP you)) (VP (VBD did))))) (. .) (_SP  ))
 # scene = 70
 # sent_id = 2
-# sent_len = 10
+# sent_len = 9
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = Mister Mayor, I saw what you did..
+# text = Mister Mayor, I saw what you did.
 # time = NIGHT
-1	Mister	mister	PROPN	NNP	_	2	compound	_	_
-2	Mayor	mayor	PROPN	NNP	_	5	npadvmod	_	_
+1	Mister	Mister	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	5	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
 3	,	,	PUNCT	,	_	5	punct	_	_
 4	I	-PRON-	PRON	PRP	_	5	nsubj	_	_
 5	saw	see	VERB	VBD	_	0	ROOT	_	_
-6	what	what	NOUN	WP	_	8	dobj	_	_
+6	what	what	PRON	WP	_	8	dobj	_	_
 7	you	-PRON-	PRON	PRP	_	8	nsubj	_	_
 8	did	do	VERB	VBD	_	5	ccomp	_	_
-9	..	..	PUNCT	.	_	5	punct	_	_
+9	.	.	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ stops) (CC and) (VBZ looks) (PP (IN at) (NP (PRP her)))) (. .))
@@ -53,8 +53,8 @@
 # stage_direction = True
 # text = Da Mayor stops and looks at her.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	stops	stop	VERB	VBZ	_	0	ROOT	_	_
 4	and	and	CCONJ	CC	_	3	cc	_	_
 5	looks	look	VERB	VBZ	_	3	conj	_	_
@@ -63,30 +63,30 @@
 8	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (DT A) (NN smile)) (VP (VBZ comes) (PP (IN to) (NP (PRP$ his) (NN face))))) (: ;) (S (PP (IN after) (NP (CD eighteen) (NNS years))) (VBZ has) (NP (PRP he)) (ADVP (RB finally)) (VP (VBD broken) (PRT (RP down)) (NP (NP (PRP$ her) (NNS defenses)) (. ?) (FRAG (INTJ (  )))))))
+# parse = (S (S (NP (DT A) (NN smile)) (VP (VBZ comes) (PP (IN to) (NP (PRP$ his) (NN face))))) (: ;) (S (PP (IN after) (NP (CD eighteen) (NNS years))) (VBZ has) (NP (PRP he)) (ADVP (RB finally)) (VP (VBN broken) (PRT (RP down)) (NP (NP (PRP$ her) (NNS defenses)) (. ?) (FRAG (INTJ (_SP  )))))))
 # scene = 70
 # sent_id = 4
-# sent_len = 19
+# sent_len = 18
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = A smile comes to his face; after eighteen years has he finally broken down her defenses?
 # time = NIGHT
 1	A	a	DET	DT	_	2	det	_	_
 2	smile	smile	NOUN	NN	_	3	nsubj	_	_
-3	comes	come	VERB	VBZ	_	0	ROOT	_	_
+3	comes	come	VERB	VBZ	_	14	ccomp	_	_
 4	to	to	ADP	IN	_	3	prep	_	_
-5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+5	his	-PRON-	DET	PRP$	_	6	poss	_	_
 6	face	face	NOUN	NN	_	4	pobj	_	_
-7	;	;	PUNCT	:	_	3	punct	_	_
+7	;	;	PUNCT	:	_	14	punct	_	_
 8	after	after	ADP	IN	_	14	prep	_	_
-9	eighteen	eighteen	NUM	CD	_	10	nummod	_	ent_type=DATE|ent_id=388|ent_iob=B
-10	years	year	NOUN	NNS	_	8	pobj	_	ent_type=DATE|ent_id=388|ent_iob=I
+9	eighteen	eighteen	NUM	CD	_	10	nummod	_	ent_type=DATE|ent_id=391|ent_iob=B
+10	years	year	NOUN	NNS	_	8	pobj	_	ent_type=DATE|ent_id=391|ent_iob=I
 11	has	have	VERB	VBZ	_	14	aux	_	_
 12	he	-PRON-	PRON	PRP	_	14	nsubj	_	_
 13	finally	finally	ADV	RB	_	14	advmod	_	_
-14	broken	break	VERB	VBD	_	3	advcl	_	_
+14	broken	break	VERB	VBN	_	0	ROOT	_	_
 15	down	down	PART	RP	_	14	prt	_	_
-16	her	-PRON-	ADJ	PRP$	_	17	poss	_	_
+16	her	-PRON-	DET	PRP$	_	17	poss	_	_
 17	defenses	defense	NOUN	NNS	_	14	dobj	_	_
 18	?	?	PUNCT	.	_	14	punct	_	_
 
@@ -115,22 +115,22 @@
 
 # line = 585
 # loc = EXT
-# parse = (S (NP (DT That) (NN chile)) (VP (VBZ owes) (NP (PRP you)) (NP (PRP$ his) (NN life))) (. ..) (  ))
+# parse = (S (NP (DT That) (NN chile)) (VP (VBZ owes) (NP (PRP you)) (NP (PRP$ his) (NN life))) (. .) (_SP  ))
 # scene = 70
 # sent_id = 6
-# sent_len = 8
+# sent_len = 7
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = That chile owes you his life..
+# text = That chile owes you his life.
 # time = NIGHT
 1	That	that	DET	DT	_	2	det	_	_
 2	chile	chile	NOUN	NN	_	3	nsubj	_	_
 3	owes	owe	VERB	VBZ	_	0	ROOT	_	_
 4	you	-PRON-	PRON	PRP	_	3	dative	_	_
-5	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+5	his	-PRON-	DET	PRP$	_	6	poss	_	_
 6	life	life	NOUN	NN	_	3	dobj	_	_
-7	..	..	PUNCT	.	_	3	punct	_	_
+7	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 586
 # loc = EXT
@@ -165,8 +165,8 @@
 # text = I saw what was about to happen and I reacted, didn't even think.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
-2	saw	see	VERB	VBD	_	0	ROOT	_	_
-3	what	what	NOUN	WP	_	4	nsubj	_	_
+2	saw	see	VERB	VBD	_	15	ccomp	_	_
+3	what	what	PRON	WP	_	4	nsubj	_	_
 4	was	be	VERB	VBD	_	2	ccomp	_	_
 5	about	about	ADJ	JJ	_	4	acomp	_	_
 6	to	to	PART	TO	_	7	aux	_	_
@@ -174,11 +174,11 @@
 8	and	and	CCONJ	CC	_	2	cc	_	_
 9	I	-PRON-	PRON	PRP	_	10	nsubj	_	_
 10	reacted	react	VERB	VBD	_	2	conj	_	_
-11	,	,	PUNCT	,	_	10	punct	_	_
+11	,	,	PUNCT	,	_	15	punct	_	_
 12	did	do	VERB	VBD	_	15	aux	_	_
 13	n't	not	ADV	RB	_	15	neg	_	_
 14	even	even	ADV	RB	_	15	advmod	_	_
-15	think	think	VERB	VB	_	2	conj	_	_
+15	think	think	VERB	VB	_	0	ROOT	_	_
 16	.	.	PUNCT	.	_	15	punct	_	_
 
 # line = 586
@@ -203,7 +203,7 @@
 9	done	do	VERB	VBN	_	0	ROOT	_	_
 10	it	-PRON-	PRON	PRP	_	9	dobj	_	_
 11	in	in	ADP	IN	_	9	prep	_	_
-12	second	second	ADJ	JJ	_	13	amod	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
+12	second	second	ADJ	JJ	_	13	amod	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
 13	thought	thought	NOUN	NN	_	11	pobj	_	_
 14	.	.	PUNCT	.	_	9	punct	_	_
 
@@ -218,137 +218,116 @@
 # stage_direction = True
 # text = Da Mayor is an old man, haven't run that fast in years.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	an	an	DET	DT	_	6	det	_	_
 5	old	old	ADJ	JJ	_	6	amod	_	_
 6	man	man	NOUN	NN	_	3	attr	_	_
-7	,	,	PUNCT	,	_	3	punct	_	_
+7	,	,	PUNCT	,	_	10	punct	_	_
 8	have	have	VERB	VBP	_	10	aux	_	_
 9	n't	not	ADV	RB	_	10	neg	_	_
 10	run	run	VERB	VBN	_	3	conj	_	_
 11	that	that	ADP	IN	_	12	advmod	_	_
 12	fast	fast	ADV	RB	_	10	advmod	_	_
 13	in	in	ADP	IN	_	10	prep	_	_
-14	years	year	NOUN	NNS	_	13	pobj	_	ent_type=DATE|ent_id=388|ent_iob=B
+14	years	year	NOUN	NNS	_	13	pobj	_	ent_type=DATE|ent_id=391|ent_iob=B
 15	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 586
 # loc = EXT
-# parse = (NP (PRN (-LRB- -LRB-) (NP (JJR MORE)) (-RRB- -RRB-)) (. .) (  ))
+# parse = (NP (PRN (-LRB- -LRB-) (JJR MORE) (-RRB- -RRB-)) (_SP  ))
 # scene = 70
 # sent_id = 11
-# sent_len = 5
+# sent_len = 3
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = (MORE).
+# text = (MORE)
 # time = NIGHT
 1	(	(	PUNCT	-LRB-	_	2	punct	_	_
-2	MORE	more	ADJ	JJR	_	0	ROOT	_	_
+2	MORE	MORE	ADJ	JJR	_	0	ROOT	_	_
 3	)	)	PUNCT	-RRB-	_	2	punct	_	_
-4	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 587
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VP (VBD went) (PP (IN from) (NP (RB first))) (PP (IN to) (NP (NN home))) (PP (IN on) (NP (DT a) (NN bunt) (JJ single)))) (, ,) (VP (VP (VBD scored) (NP (DT the) (VBG winning) (NN run))) (, ,) (NP (NP (DT the) (NN bottom)) (PP (IN of) (NP (DT the) (JJ ninth))))) (, ,) (NP (CD two) (RB out)) (, ,) (S (S (NP (PRP I)) (VP (VBD went) (PP (IN from) (NP (RB first))) (PP (IN to) (NP (NN home))) (PP (IN on) (NP (DT a) (NN bunt) (JJ single))))) (, ,) (VP (VBD scored) (NP (DT the) (VBG winning) (NN run)))) (, ,) (NP (NP (DT the) (NN bottom)) (PP (IN of) (NP (DT the) (JJ ninth)))) (, ,) (NP (NP (CD two)) (PRT (IN out))) (, ,) (NP (NNP August) (CD 1) (, ,) (CD 1939)) (, ,) (NP (NP (NNP Snow) (NNP Hill)) (, ,) (NP (NNP Alabama)))) (NFP ..) (FRAG (INTJ (  ))))
+# off_screen = True
+# parse = (S (NP (PRP I)) (VP (VP (VBD went) (PP (IN from) (NP (RB first))) (PP (IN to) (NP (NN home))) (PP (IN on) (NP (DT a) (NN bunt) (JJ single)))) (, ,) (VP (VP (VBD scored) (NP (DT the) (NN winning) (NN run))) (, ,) (NP (NP (DT the) (NN bottom)) (PP (IN of) (NP (DT the) (JJ ninth))))) (, ,) (NP (CD two) (RB out)) (, ,) (S (S (NP (PRP I)) (VP (VBD went) (PP (IN from) (NP (RB first))) (PP (IN to) (NP (NN home))) (PP (IN on) (NP (DT a) (NN bunt) (JJ single))))) (, ,) (VP (VBD scored) (NP (DT the) (NN winning) (NN run)))) (, ,) (NP (NP (DT the) (NN bottom)) (PP (IN of) (NP (DT the) (JJ ninth)))) (, ,) (NP (CD two) (PRT (IN out))) (, ,) (NP (NNP August) (CD 1) (, ,) (CD 1939)) (, ,) (NP (NP (NP (NNP Snow) (NNP Hill)) (, ,) (NP (NNP Alabama))) (NFP ..) (FRAG (INTJ (_SP  ))))))
 # scene = 70
 # sent_id = 12
-# sent_len = 61
+# sent_len = 60
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
 # text = I went from first to home on a bunt single, scored the winning run, the bottom of the ninth, two out, I went from first to home on a bunt single, scored the winning run, the bottom of the ninth, two out, August 1, 1939, Snow Hill, Alabama..
 # time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
+# voice_over = True
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	went	go	VERB	VBD	_	27	ccomp	_	_
 3	from	from	ADP	IN	_	2	prep	_	_
-4	first	first	ADV	RB	_	3	pcomp	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
-5	to	to	ADP	IN	_	6	aux	_	_
-6	home	home	NOUN	NN	_	2	advcl	_	_
-7	on	on	ADP	IN	_	6	prep	_	_
+4	first	first	ADV	RB	_	3	pcomp	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
+5	to	to	ADP	IN	_	3	prep	_	_
+6	home	home	NOUN	NN	_	5	pobj	_	_
+7	on	on	ADP	IN	_	2	prep	_	_
 8	a	a	DET	DT	_	10	det	_	_
-9	bunt	bunt	NOUN	NN	_	10	compound	_	_
+9	bunt	bunt	NOUN	NN	_	10	amod	_	_
 10	single	single	ADJ	JJ	_	7	pobj	_	_
 11	,	,	PUNCT	,	_	2	punct	_	_
 12	scored	score	VERB	VBD	_	2	conj	_	_
 13	the	the	DET	DT	_	15	det	_	_
-14	winning	win	VERB	VBG	_	15	amod	_	_
+14	winning	winning	NOUN	NN	_	15	amod	_	_
 15	run	run	NOUN	NN	_	12	dobj	_	_
-16	,	,	PUNCT	,	_	15	punct	_	_
+16	,	,	PUNCT	,	_	27	punct	_	_
 17	the	the	DET	DT	_	18	det	_	_
-18	bottom	bottom	NOUN	NN	_	15	appos	_	_
+18	bottom	bottom	NOUN	NN	_	27	npadvmod	_	_
 19	of	of	ADP	IN	_	18	prep	_	_
 20	the	the	DET	DT	_	21	det	_	_
-21	ninth	ninth	ADJ	JJ	_	19	pobj	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
+21	ninth	ninth	ADJ	JJ	_	19	pobj	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
 22	,	,	PUNCT	,	_	18	punct	_	_
-23	two	two	NUM	CD	_	2	dep	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-24	out	out	ADV	RB	_	23	prt	_	_
+23	two	two	NUM	CD	_	18	appos	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+24	out	out	ADV	RB	_	18	advmod	_	_
 25	,	,	PUNCT	,	_	27	punct	_	_
 26	I	-PRON-	PRON	PRP	_	27	nsubj	_	_
 27	went	go	VERB	VBD	_	0	ROOT	_	_
 28	from	from	ADP	IN	_	27	prep	_	_
-29	first	first	ADV	RB	_	28	pcomp	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
-30	to	to	ADP	IN	_	31	aux	_	_
-31	home	home	NOUN	NN	_	27	advcl	_	_
-32	on	on	ADP	IN	_	31	prep	_	_
+29	first	first	ADV	RB	_	28	pcomp	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
+30	to	to	ADP	IN	_	28	prep	_	_
+31	home	home	NOUN	NN	_	30	pobj	_	_
+32	on	on	ADP	IN	_	27	prep	_	_
 33	a	a	DET	DT	_	35	det	_	_
-34	bunt	bunt	NOUN	NN	_	35	compound	_	_
+34	bunt	bunt	NOUN	NN	_	35	amod	_	_
 35	single	single	ADJ	JJ	_	32	pobj	_	_
 36	,	,	PUNCT	,	_	27	punct	_	_
 37	scored	score	VERB	VBD	_	27	conj	_	_
 38	the	the	DET	DT	_	40	det	_	_
-39	winning	win	VERB	VBG	_	40	amod	_	_
+39	winning	winning	NOUN	NN	_	40	amod	_	_
 40	run	run	NOUN	NN	_	37	dobj	_	_
 41	,	,	PUNCT	,	_	40	punct	_	_
 42	the	the	DET	DT	_	43	det	_	_
 43	bottom	bottom	NOUN	NN	_	40	appos	_	_
 44	of	of	ADP	IN	_	43	prep	_	_
 45	the	the	DET	DT	_	46	det	_	_
-46	ninth	ninth	ADJ	JJ	_	44	pobj	_	ent_type=ORDINAL|ent_id=393|ent_iob=B
+46	ninth	ninth	ADJ	JJ	_	44	pobj	_	ent_type=ORDINAL|ent_id=396|ent_iob=B
 47	,	,	PUNCT	,	_	43	punct	_	_
-48	two	two	NUM	CD	_	51	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
-49	out	out	ADP	IN	_	48	prt	_	_
-50	,	,	PUNCT	,	_	48	punct	_	_
-51	August	august	PROPN	NNP	_	37	npadvmod	_	ent_type=DATE|ent_id=388|ent_iob=B
-52	1	1	NUM	CD	_	51	nummod	_	ent_type=DATE|ent_id=388|ent_iob=I
-53	,	,	PUNCT	,	_	51	punct	_	ent_type=DATE|ent_id=388|ent_iob=I
-54	1939	1939	NUM	CD	_	51	appos	_	ent_type=DATE|ent_id=388|ent_iob=I
-55	,	,	PUNCT	,	_	51	punct	_	_
-56	Snow	snow	PROPN	NNP	_	57	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-57	Hill	hill	PROPN	NNP	_	51	appos	_	ent_type=PERSON|ent_id=378|ent_iob=I
+48	two	two	NUM	CD	_	43	appos	_	ent_type=CARDINAL|ent_id=397|ent_iob=B
+49	out	out	ADP	IN	_	48	advmod	_	_
+50	,	,	PUNCT	,	_	43	punct	_	_
+51	August	August	PROPN	NNP	_	43	appos	_	ent_type=DATE|ent_id=391|ent_iob=B
+52	1	1	NUM	CD	_	51	nummod	_	ent_type=DATE|ent_id=391|ent_iob=I
+53	,	,	PUNCT	,	_	51	punct	_	ent_type=DATE|ent_id=391|ent_iob=I
+54	1939	1939	NUM	CD	_	51	nummod	_	ent_type=DATE|ent_id=391|ent_iob=I
+55	,	,	PUNCT	,	_	43	punct	_	_
+56	Snow	Snow	PROPN	NNP	_	57	compound	_	ent_type=GPE|ent_id=384|ent_iob=B
+57	Hill	Hill	PROPN	NNP	_	43	appos	_	ent_type=GPE|ent_id=384|ent_iob=I
 58	,	,	PUNCT	,	_	57	punct	_	_
-59	Alabama	alabama	PROPN	NNP	_	57	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
-60	..	..	PUNCT	NFP	_	27	punct	_	_
-
-# line = 587
-# loc = EXT
-# parse = (S (ADVP (RB Maybe)) (NP (PRP I)) (VP (MD should) (VP (VB be) (ADJP (JJ heroic)) (ADVP (RBR more) (RB often)))) (. ..) (  ))
-# scene = 70
-# sent_id = 13
-# sent_len = 9
-# setting = MOTHER SISTER'S STOOP
-# speaker = DA MAYOR
-# stage_direction = True
-# text = Maybe I should be heroic more often..
-# time = NIGHT
-# voice-delivery = {'vo': 'voice-over', 'os': 'off-screen'}
-1	Maybe	maybe	ADV	RB	_	4	advmod	_	_
-2	I	-PRON-	PRON	PRP	_	4	nsubj	_	_
-3	should	should	VERB	MD	_	4	aux	_	_
-4	be	be	VERB	VB	_	0	ROOT	_	_
-5	heroic	heroic	ADJ	JJ	_	4	acomp	_	_
-6	more	more	ADV	RBR	_	7	advmod	_	_
-7	often	often	ADV	RB	_	4	advmod	_	_
-8	..	..	PUNCT	.	_	4	punct	_	_
+59	Alabama	Alabama	PROPN	NNP	_	57	appos	_	ent_type=GPE|ent_id=384|ent_iob=B
+60	..	..	PUNCT	NFP	_	59	punct	_	_
 
 # line = 588
 # loc = EXT
 # parse = (S (ADVP (RB Maybe)) (NP (PRP you)) (VP (MD should) (RB n't)) (. .))
 # scene = 70
-# sent_id = 14
+# sent_id = 13
 # sent_len = 5
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
@@ -357,7 +336,7 @@
 # time = NIGHT
 1	Maybe	maybe	ADV	RB	_	3	advmod	_	_
 2	you	-PRON-	PRON	PRP	_	3	nsubj	_	_
-3	should	should	VERB	MD	_	0	ROOT	_	_
+3	should	should	AUX	MD	_	0	ROOT	_	_
 4	n't	not	ADV	RB	_	3	neg	_	_
 5	.	.	PUNCT	.	_	3	punct	_	_
 
@@ -365,7 +344,7 @@
 # loc = EXT
 # parse = (S (VP (VB Do) (RB n't) (VP (VB get) (ADJP (JJ happy)))) (. .))
 # scene = 70
-# sent_id = 15
+# sent_id = 14
 # sent_len = 5
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
@@ -382,7 +361,7 @@
 # loc = EXT
 # parse = (S (NP (DT This)) (VP (VBZ changes) (NP (NN nothing)) (PP (IN between) (NP (PRP you) (CC and) (PRP me)))) (. .))
 # scene = 70
-# sent_id = 16
+# sent_id = 15
 # sent_len = 8
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
@@ -400,14 +379,14 @@
 
 # line = 588
 # loc = EXT
-# parse = (S (S (NP (PRP You)) (VP (VBD did) (NP (DT a) (JJ good) (NN thing)))) (CC and) (S (NP (NNP Mother) (NNP Sister)) (VP (VBD wanted) (S (VP (TO to) (VP (VB thank) (NP (PRP you)) (PP (IN for) (NP (PRP it)))))))) (. ..) (  ))
+# parse = (S (S (NP (PRP You)) (VP (VBD did) (NP (DT a) (JJ good) (NN thing)))) (CC and) (S (NP (NNP Mother) (NNP Sister)) (VP (VBD wanted) (S (VP (TO to) (VP (VB thank) (NP (PRP you)) (PP (IN for) (NP (PRP it)))))))) (. .) (_SP  ))
 # scene = 70
-# sent_id = 17
-# sent_len = 16
+# sent_id = 16
+# sent_len = 15
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = You did a good thing and Mother Sister wanted to thank you for it..
+# text = You did a good thing and Mother Sister wanted to thank you for it.
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	did	do	VERB	VBD	_	0	ROOT	_	_
@@ -415,60 +394,60 @@
 4	good	good	ADJ	JJ	_	5	amod	_	_
 5	thing	thing	NOUN	NN	_	2	dobj	_	_
 6	and	and	CCONJ	CC	_	2	cc	_	_
-7	Mother	mother	PROPN	NNP	_	8	compound	_	_
-8	Sister	sister	PROPN	NNP	_	9	nsubj	_	_
+7	Mother	Mother	PROPN	NNP	_	8	compound	_	_
+8	Sister	Sister	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 9	wanted	want	VERB	VBD	_	2	conj	_	_
 10	to	to	PART	TO	_	11	aux	_	_
 11	thank	thank	VERB	VB	_	9	xcomp	_	_
 12	you	-PRON-	PRON	PRP	_	11	dobj	_	_
 13	for	for	ADP	IN	_	11	prep	_	_
 14	it	-PRON-	PRON	PRP	_	13	pobj	_	_
-15	..	..	PUNCT	.	_	9	punct	_	_
+15	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 589
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP thank) (NP (PRP you))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP thank) (NP (PRP you))) (. .) (_SP  ))
 # scene = 70
-# sent_id = 18
-# sent_len = 5
+# sent_id = 17
+# sent_len = 4
 # setting = MOTHER SISTER'S STOOP
 # speaker = DA MAYOR
 # stage_direction = True
-# text = I thank you..
+# text = I thank you.
 # time = NIGHT
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	thank	thank	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
-4	..	..	PUNCT	.	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 590
 # loc = EXT
-# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ welcome))) (. ..) (  ))
+# parse = (S (NP (PRP You)) (VP (VBP 're) (ADJP (JJ welcome))) (. .) (_SP  ))
 # scene = 70
-# sent_id = 19
-# sent_len = 5
+# sent_id = 18
+# sent_len = 4
 # setting = MOTHER SISTER'S STOOP
 # speaker = MOTHER SISTER
 # stage_direction = True
-# text = You're welcome..
+# text = You're welcome.
 # time = NIGHT
 1	You	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	're	be	VERB	VBP	_	0	ROOT	_	_
 3	welcome	welcome	ADJ	JJ	_	2	acomp	_	_
-4	..	..	PUNCT	.	_	2	punct	_	_
+4	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (NNP Da) (NNP Mayor)) (VP (VBZ tips) (NP (PRP$ his) (NN hat))) (. .))
 # scene = 70
-# sent_id = 20
+# sent_id = 19
 # sent_len = 6
 # setting = MOTHER SISTER'S STOOP
 # stage_direction = True
 # text = Da Mayor tips his hat.
 # time = NIGHT
-1	Da	da	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Mayor	mayor	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Da	Da	PROPN	NNP	_	2	compound	_	_
+2	Mayor	Mayor	PROPN	NNP	_	3	nsubj	_	_
 3	tips	tip	VERB	VBZ	_	0	ROOT	_	_
-4	his	-PRON-	ADJ	PRP$	_	5	poss	_	_
+4	his	-PRON-	DET	PRP$	_	5	poss	_	_
 5	hat	hat	NOUN	NN	_	3	dobj	_	_
 6	.	.	PUNCT	.	_	3	punct	_	_

@@ -7,17 +7,17 @@
 # stage_direction = True
 # text = An old, grizzled man stirs in the bed, his sheets are soaked with sweat.
 # time = DAY
-1	An	an	DET	DT	_	6	det	_	_
-2	old	old	ADJ	JJ	_	6	amod	_	_
-3	,	,	PUNCT	,	_	6	punct	_	_
-4	grizzled	grizzle	VERB	VBD	_	6	amod	_	_
-5	man	man	NOUN	NN	_	6	compound	_	_
-6	stirs	stir	VERB	VBZ	_	14	nsubjpass	_	_
+1	An	an	DET	DT	_	5	det	_	_
+2	old	old	ADJ	JJ	_	5	amod	_	_
+3	,	,	PUNCT	,	_	5	punct	_	_
+4	grizzled	grizzle	VERB	VBD	_	5	amod	_	_
+5	man	man	NOUN	NN	_	6	nsubj	_	_
+6	stirs	stir	VERB	VBZ	_	14	advcl	_	_
 7	in	in	ADP	IN	_	6	prep	_	_
 8	the	the	DET	DT	_	9	det	_	_
 9	bed	bed	NOUN	NN	_	7	pobj	_	_
 10	,	,	PUNCT	,	_	14	punct	_	_
-11	his	-PRON-	ADJ	PRP$	_	12	poss	_	_
+11	his	-PRON-	DET	PRP$	_	12	poss	_	_
 12	sheets	sheet	NOUN	NNS	_	14	nsubjpass	_	_
 13	are	be	VERB	VBP	_	14	auxpass	_	_
 14	soaked	soak	VERB	VBN	_	0	ROOT	_	_
@@ -26,10 +26,10 @@
 17	.	.	PUNCT	.	_	14	punct	_	_
 
 # loc = INT
-# parse = (S (NP (PRP He)) (VP (VBZ flings) (NP (PRP them)) (PP (IN off) (NP (PRP$ his) (JJ wet) (NN body)))) (. .) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ flings) (NP (PRP them)) (PP (IN off) (NP (PRP$ his) (JJ wet) (NN body)))) (. .) (_SP  ))
 # scene = 2
 # sent_id = 2
-# sent_len = 9
+# sent_len = 8
 # setting = DA MAYOR'S BEDROOM
 # stage_direction = True
 # text = He flings them off his wet body.
@@ -38,25 +38,25 @@
 2	flings	fling	VERB	VBZ	_	0	ROOT	_	_
 3	them	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	off	off	ADP	IN	_	2	prep	_	_
-5	his	-PRON-	ADJ	PRP$	_	7	poss	_	_
+5	his	-PRON-	DET	PRP$	_	7	poss	_	_
 6	wet	wet	ADJ	JJ	_	7	amod	_	_
 7	body	body	NOUN	NN	_	4	pobj	_	_
 8	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 6
 # loc = INT
-# parse = (S (INTJ (NNP Damn)) (, ,) (NP (PRP it)) (VP (VBZ 's) (ADJP (JJ hot))) (. ..))
+# parse = (S (INTJ (UH Damn)) (, ,) (NP (PRP it)) (VP (VBZ 's) (ADJP (JJ hot))) (. .))
 # scene = 2
 # sent_id = 3
 # sent_len = 6
 # setting = DA MAYOR'S BEDROOM
 # speaker = DA MAYOR
 # stage_direction = True
-# text = Damn, it's hot..
+# text = Damn, it's hot.
 # time = DAY
-1	Damn	damn	PROPN	NNP	_	4	intj	_	_
+1	Damn	damn	INTJ	UH	_	4	intj	_	_
 2	,	,	PUNCT	,	_	4	punct	_	_
 3	it	-PRON-	PRON	PRP	_	4	nsubj	_	_
 4	's	be	VERB	VBZ	_	0	ROOT	_	_
 5	hot	hot	ADJ	JJ	_	4	acomp	_	_
-6	..	..	PUNCT	.	_	4	punct	_	_
+6	.	.	PUNCT	.	_	4	punct	_	_

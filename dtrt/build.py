@@ -69,12 +69,14 @@ def get_dialogue(dialogue, meta):
         re_ordered.append(form_line)
 
     strung = ' '.join(re_ordered).strip()
-    if not strung[-1] == '>':
+    if strung.strip()[-1] != '>' and '<metadata' not in strung:
         meta.pop('direction', None)
         metas = dict_to_meta(meta)
     else:
         metas = ''
-    return '{}. {}'.format(strung.replace('  ', ' '), metas)
+    strung = strung.replace('  ', ' ')
+    return strung.strip()
+    return '{} {}'.format(strung, metas).strip()
 
 
 def parse_section(shot, meta, line_number):
@@ -89,11 +91,6 @@ def parse_section(shot, meta, line_number):
         before_dialogue = re.sub(camera_angle.group(0), '', before_dialogue)
     meta['stage_direction'] = True
     line_meta = dict_to_meta(meta)
-
-    # sections = before_dialogue.strip().split('\n\n')
-    # if len(sections) > 1:
-    #    raise ValueError('HUH? sections', sections)
-
     direction = [i for i in before_dialogue.splitlines() if i and re.search(START_OF_DIRECTION, i)]
     direction = ' '.join(direction).replace('  ', ' ').strip()
     if direction:

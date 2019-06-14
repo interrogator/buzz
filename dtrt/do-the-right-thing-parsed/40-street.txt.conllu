@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (NNP Mookie)) (VP (VBZ walks) (PP (IN down) (NP (DT the) (NN block)))) (. .))
+# parse = (S (NP (JJ Mookie)) (VP (VBZ walks) (PP (IN down) (NP (DT the) (NN block)))) (. .))
 # scene = 40
 # sent_id = 1
 # sent_len = 6
@@ -7,9 +7,9 @@
 # stage_direction = True
 # text = Mookie walks down the block.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	2	nsubj	_	_
+1	Mookie	mookie	ADJ	JJ	_	2	nsubj	_	_
 2	walks	walk	VERB	VBZ	_	0	ROOT	_	_
-3	down	down	ADP	IN	_	2	prt	_	_
+3	down	down	ADP	IN	_	2	prep	_	_
 4	the	the	DET	DT	_	5	det	_	_
 5	block	block	NOUN	NN	_	3	pobj	_	_
 6	.	.	PUNCT	.	_	2	punct	_	_
@@ -28,8 +28,8 @@
 3	are	be	VERB	VBP	_	4	auxpass	_	_
 4	filled	fill	VERB	VBN	_	0	ROOT	_	_
 5	with	with	ADP	IN	_	4	prep	_	_
-6	kids	kid	NOUN	NNS	_	7	nsubj	_	_
-7	playing	play	VERB	VBG	_	5	pobj	_	_
+6	kids	kid	NOUN	NNS	_	7	compound	_	_
+7	playing	play	VERB	VBG	_	5	pcomp	_	_
 8	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
@@ -52,7 +52,7 @@
 9	hand	hand	NOUN	NN	_	10	compound	_	_
 10	games	game	NOUN	NNS	_	7	conj	_	_
 11	,	,	PUNCT	,	_	10	punct	_	_
-12	bike	bike	NOUN	NN	_	14	compound	_	_
+12	bike	bike	NOUN	NN	_	14	npadvmod	_	_
 13	-	-	PUNCT	HYPH	_	14	punct	_	_
 14	riding	riding	NOUN	NN	_	10	conj	_	_
 15	,	,	PUNCT	,	_	14	punct	_	_
@@ -62,33 +62,33 @@
 19	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ approaches) (NP (NNP Mookie))) (. .) (  ))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VBZ approaches) (NP (NNP Mookie))) (. .) (_SP  ))
 # scene = 40
 # sent_id = 4
-# sent_len = 6
+# sent_len = 5
 # setting = STREET
 # stage_direction = True
 # text = Radio Raheem approaches Mookie.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 3	approaches	approach	VERB	VBZ	_	0	ROOT	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
+4	Mookie	Mookie	PROPN	NNP	_	3	dobj	_	ent_type=PRODUCT|ent_id=386|ent_iob=B
 5	.	.	PUNCT	.	_	3	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ approaches) (NP (NNP Mookie))) (. .) (  ))
+# parse = (S (NP (NNP Radio) (NNP Raheem)) (VP (VBZ approaches) (NP (NNP Mookie))) (. .) (_SP  ))
 # scene = 40
 # sent_id = 5
-# sent_len = 6
+# sent_len = 5
 # setting = STREET
 # stage_direction = True
 # text = Radio Raheem approaches Mookie.
 # time = DAY
-1	Radio	radio	NOUN	NN	_	2	compound	_	_
-2	Raheem	raheem	PROPN	NNP	_	3	nsubj	_	_
+1	Radio	Radio	PROPN	NNP	_	2	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+2	Raheem	Raheem	PROPN	NNP	_	3	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 3	approaches	approach	VERB	VBZ	_	0	ROOT	_	_
-4	Mookie	mookie	PROPN	NNP	_	3	dobj	_	ent_type=GPE|ent_id=382|ent_iob=B
+4	Mookie	Mookie	PROPN	NNP	_	3	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 5	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 391
@@ -102,34 +102,33 @@
 # stage_direction = True
 # text = Whaddup.
 # time = DAY
-1	Whaddup	whaddup	PROPN	NNP	_	0	ROOT	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Whaddup	Whaddup	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 391
 # loc = EXT
-# parse = (NP (NN Money) (. ?) (. .) (  ))
+# parse = (NP (NN Money) (. ?) (_SP  ))
 # scene = 40
 # sent_id = 7
-# sent_len = 4
+# sent_len = 2
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = Money?.
+# text = Money?
 # time = DAY
 1	Money	money	NOUN	NN	_	0	ROOT	_	_
 2	?	?	PUNCT	.	_	1	punct	_	_
-3	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 392
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VP (VBD was) (VP (VBG going) (S (VP (TO to) (VP (VB buy) (NP (DT a) (NN slice))))))) (. ..) (  )))
+# parse = (S (NP (PRP I)) (VP (VBD was) (VP (VBG going) (S (VP (TO to) (VP (VB buy) (NP (DT a) (NN slice))))))) (. .) (_SP  ))
 # scene = 40
 # sent_id = 8
-# sent_len = 9
+# sent_len = 8
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = I was going to buy a slice..
+# text = I was going to buy a slice.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	was	be	VERB	VBD	_	3	aux	_	_
@@ -138,21 +137,21 @@
 5	buy	buy	VERB	VB	_	3	xcomp	_	_
 6	a	a	DET	DT	_	7	det	_	_
 7	slice	slice	NOUN	NN	_	5	dobj	_	_
-8	..	..	PUNCT	.	_	3	punct	_	_
+8	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 393
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB be) (ADVP (RB back)) (SBAR (IN after) (S (NP (PRP I)) (VP (VBP make) (NP (DT this) (NN delivery))))))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (MD 'll) (VP (VB be) (ADVP (RB back)) (SBAR (IN after) (S (NP (PRP I)) (VP (VBP make) (NP (DT this) (NN delivery))))))) (. .) (_SP  ))
 # scene = 40
 # sent_id = 9
-# sent_len = 11
+# sent_len = 10
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = I'll be back after I make this delivery..
+# text = I'll be back after I make this delivery.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
-2	'll	will	VERB	MD	_	3	aux	_	_
+2	'll	will	AUX	MD	_	3	aux	_	_
 3	be	be	VERB	VB	_	0	ROOT	_	_
 4	back	back	ADV	RB	_	3	advmod	_	_
 5	after	after	ADP	IN	_	7	mark	_	_
@@ -160,46 +159,56 @@
 7	make	make	VERB	VBP	_	3	advcl	_	_
 8	this	this	DET	DT	_	9	det	_	_
 9	delivery	delivery	NOUN	NN	_	7	dobj	_	_
-10	..	..	PUNCT	.	_	3	punct	_	_
+10	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 394
 # loc = EXT
-# parse = (S (PP (IN On) (NP (DT the) (NN rebound))) (. ..) (NP (  ) (NNP Mookie)) (VP (NNS stares) (PP (IN at) (NP (NP (DT the) (NN gold) (`` ") (NN brass) (NNS knuckles) ('' ") (VBZ rings)) (SBAR (S (NP (NN Radio) (NNP Raheem)) (VP (VBZ wears) (PP (IN on) (NP (DT each) (NN hand))))))))) (. .))
+# parse = (PP (IN On) (NP (DT the) (NN rebound)) (. .) (_SP  ))
 # scene = 40
 # sent_id = 10
-# sent_len = 22
+# sent_len = 4
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = On the rebound.. Mookie stares at the gold "brass knuckles" rings Radio Raheem wears on each hand.
+# text = On the rebound.
 # time = DAY
-1	On	on	ADP	IN	_	18	prep	_	_
+1	On	on	ADP	IN	_	0	ROOT	_	_
 2	the	the	DET	DT	_	3	det	_	_
 3	rebound	rebound	NOUN	NN	_	1	pobj	_	_
-4	..	..	PUNCT	.	_	18	punct	_	_
-5	Mookie	mookie	PROPN	NNP	_	7	compound	_	_
-6	stares	stare	NOUN	NNS	_	18	nsubj	_	_
-7	at	at	ADP	IN	_	7	prep	_	_
-8	the	the	DET	DT	_	10	det	_	_
-9	gold	gold	NOUN	NN	_	15	nmod	_	_
-10	"	"	PUNCT	``	_	15	punct	_	_
-11	brass	brass	NOUN	NN	_	13	compound	_	_
-12	knuckles	knuckle	NOUN	NNS	_	15	nmod	_	_
-13	"	"	PUNCT	''	_	15	punct	_	_
-14	rings	ring	VERB	VBZ	_	17	compound	_	_
-15	Radio	radio	NOUN	NN	_	17	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-16	Raheem	raheem	PROPN	NNP	_	8	pobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
-17	wears	wear	VERB	VBZ	_	0	ROOT	_	_
-18	on	on	ADP	IN	_	18	prep	_	_
-19	each	each	DET	DT	_	21	det	_	_
-20	hand	hand	NOUN	NN	_	19	pobj	_	_
-21	.	.	PUNCT	.	_	18	punct	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (SINV (VP (VBN Spelled) (PRT (RP out)) (PP (IN across) (NP (DT the) (NNS rings)))) (VP (VBP are)) (NP (NP (DT the) (NNS words)) (`` ") (NP (NNP LOVE) (VP ('' ") (PP (IN on) (NP (DT the) (JJ right) (NN hand))))) (CC and) (VP (`` ") (NNP HATE) ('' ") (PP (IN on) (NP (DT the) (JJ left) (NN hand))))) (. .) (  ))
+# parse = (S (NP (NNP Mookie)) (VP (NNS stares) (PP (IN at) (NP (NP (DT the) (NN gold) (`` ") (NN brass) (NNS knuckles) ('' ") (VBZ rings)) (SBAR (S (NP (NNP Radio) (NNP Raheem)) (VP (VBZ wears) (PP (IN on) (NP (DT each) (NN hand))))))))) (. .))
 # scene = 40
 # sent_id = 11
-# sent_len = 25
+# sent_len = 17
+# setting = STREET
+# stage_direction = True
+# text = Mookie stares at the gold "brass knuckles" rings Radio Raheem wears on each hand.
+# time = DAY
+1	Mookie	Mookie	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	stares	stare	NOUN	NNS	_	13	nsubj	_	_
+3	at	at	ADP	IN	_	2	prep	_	_
+4	the	the	DET	DT	_	10	det	_	_
+5	gold	gold	NOUN	NN	_	8	nmod	_	_
+6	"	"	PUNCT	``	_	8	punct	_	_
+7	brass	brass	NOUN	NN	_	8	nmod	_	_
+8	knuckles	knuckle	NOUN	NNS	_	10	nmod	_	_
+9	"	"	PUNCT	''	_	10	punct	_	_
+10	rings	ring	VERB	VBZ	_	12	compound	_	_
+11	Radio	Radio	PROPN	NNP	_	12	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+12	Raheem	Raheem	PROPN	NNP	_	13	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
+13	wears	wear	VERB	VBZ	_	0	ROOT	_	_
+14	on	on	ADP	IN	_	13	prep	_	_
+15	each	each	DET	DT	_	16	det	_	_
+16	hand	hand	NOUN	NN	_	14	pobj	_	_
+17	.	.	PUNCT	.	_	13	punct	_	_
+
+# loc = EXT
+# parse = (SINV (VP (VBN Spelled) (PRT (RP out)) (PP (IN across) (NP (DT the) (NNS rings)))) (VP (VBP are)) (NP (NP (DT the) (NNS words)) (`` ") (NP (NN LOVE) (VP ('' ") (PP (IN on) (NP (DT the) (JJ right) (NN hand))))) (CC and) (VP (`` ") (NN HATE) ('' ") (PP (IN on) (NP (DT the) (JJ left) (NN hand))))) (. .) (_SP  ))
+# scene = 40
+# sent_id = 12
+# sent_len = 24
 # setting = STREET
 # stage_direction = True
 # text = Spelled out across the rings are the words "LOVE" on the right hand and "HATE" on the left hand.
@@ -210,20 +219,20 @@
 4	the	the	DET	DT	_	5	det	_	_
 5	rings	ring	NOUN	NNS	_	3	pobj	_	_
 6	are	be	VERB	VBP	_	1	auxpass	_	_
-7	the	the	DET	DT	_	10	det	_	_
-8	words	word	NOUN	NNS	_	10	nmod	_	_
+7	the	the	DET	DT	_	8	det	_	_
+8	words	word	NOUN	NNS	_	6	attr	_	_
 9	"	"	PUNCT	``	_	10	punct	_	_
-10	LOVE	love	PROPN	NNP	_	6	attr	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
-11	"	"	PUNCT	''	_	10	punct	_	_
-12	on	on	ADP	IN	_	10	prep	_	_
+10	LOVE	love	NOUN	NN	_	8	appos	_	_
+11	"	"	PUNCT	''	_	12	punct	_	_
+12	on	on	ADP	IN	_	8	prep	_	_
 13	the	the	DET	DT	_	15	det	_	_
 14	right	right	ADJ	JJ	_	15	amod	_	_
 15	hand	hand	NOUN	NN	_	12	pobj	_	_
-16	and	and	CCONJ	CC	_	10	cc	_	_
+16	and	and	CCONJ	CC	_	15	cc	_	_
 17	"	"	PUNCT	``	_	18	punct	_	_
-18	HATE	hate	PROPN	NNP	_	10	conj	_	ent_type=ORG|ent_id=381|ent_iob=B
-19	"	"	PUNCT	''	_	18	punct	_	_
-20	on	on	ADP	IN	_	10	prep	_	_
+18	HATE	hate	NOUN	NN	_	15	conj	_	_
+19	"	"	PUNCT	''	_	20	punct	_	_
+20	on	on	ADP	IN	_	8	prep	_	_
 21	the	the	DET	DT	_	23	det	_	_
 22	left	left	ADJ	JJ	_	23	amod	_	_
 23	hand	hand	NOUN	NN	_	20	pobj	_	_
@@ -231,26 +240,26 @@
 
 # line = 395
 # loc = EXT
-# parse = (S (NP (DT That)) (VP (VBZ 's) (NP (DT the) (NN dope))) (. ..) (  ))
+# parse = (S (NP (DT That)) (VP (VBZ 's) (NP (DT the) (NN dope))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 12
-# sent_len = 6
+# sent_id = 13
+# sent_len = 5
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = That's the dope..
+# text = That's the dope.
 # time = DAY
 1	That	that	DET	DT	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
 3	the	the	DET	DT	_	4	det	_	_
 4	dope	dope	NOUN	NN	_	2	attr	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 396
 # loc = EXT
 # parse = (S (NP (PRP I)) (ADVP (RB just)) (VP (VBD copped) (NP (PRP them))) (. .))
 # scene = 40
-# sent_id = 13
+# sent_id = 14
 # sent_len = 5
 # setting = STREET
 # speaker = RADIO RAHEEM
@@ -265,14 +274,14 @@
 
 # line = 396
 # loc = EXT
-# parse = (VP (VP (VB Let) (S (NP (PRP me)) (VP (VB tell) (NP (PRP you)) (NP (NP (DT the) (NN story)) (PP (IN of) (NP (NP (NNP Right)) (HYPH -) (NP (NP (NN Hand)) (PRN (. --) (NP (NNP Left-) (NNP Hand)) (: --)) (NP (NP (DT the) (NN tale)) (PP (IN of) (NP (JJ Good) (CC and) (NNP Evil))))))))))) (. ..) (FRAG (INTJ (  ))))
+# parse = (S (VP (VB Let) (S (NP (PRP me)) (VP (VB tell) (NP (PRP you)) (NP (NP (DT the) (NN story)) (PP (IN of) (NP (NP (NNP Right)) (HYPH -) (NP (NP (NNP Hand)) (PRN (: --) (NP (NNP Left-) (NNP Hand)) (: --)) (NP (NP (DT the) (NN tale)) (PP (IN of) (NP (NNP Good) (CC and) (NNP Evil))))))))))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 14
-# sent_len = 22
+# sent_id = 15
+# sent_len = 21
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = Let me tell you the story of Right-Hand--Left- Hand--the tale of Good and Evil..
+# text = Let me tell you the story of Right-Hand--Left- Hand--the tale of Good and Evil.
 # time = DAY
 1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	me	-PRON-	PRON	PRP	_	3	nsubj	_	_
@@ -281,55 +290,56 @@
 5	the	the	DET	DT	_	6	det	_	_
 6	story	story	NOUN	NN	_	3	dobj	_	_
 7	of	of	ADP	IN	_	6	prep	_	_
-8	Right	right	PROPN	NNP	_	10	compound	_	_
-9	-	-	PUNCT	HYPH	_	10	punct	_	_
-10	Hand	hand	NOUN	NN	_	7	pobj	_	_
-11	--	--	PUNCT	.	_	10	punct	_	_
-12	Left-	left-	PROPN	NNP	_	13	nummod	_	_
-13	Hand	hand	PROPN	NNP	_	10	appos	_	ent_type=GPE|ent_id=382|ent_iob=B
-14	--	--	PUNCT	:	_	10	punct	_	_
+8	Right	Right	PROPN	NNP	_	10	nmod	_	ent_type=ORG|ent_id=383|ent_iob=B
+9	-	-	PUNCT	HYPH	_	10	punct	_	ent_type=ORG|ent_id=383|ent_iob=I
+10	Hand	Hand	PROPN	NNP	_	13	nmod	_	ent_type=ORG|ent_id=383|ent_iob=I
+11	--	--	PUNCT	:	_	10	punct	_	_
+12	Left-	Left-	PROPN	NNP	_	13	compound	_	_
+13	Hand	Hand	PROPN	NNP	_	7	pobj	_	_
+14	--	--	PUNCT	:	_	13	punct	_	_
 15	the	the	DET	DT	_	16	det	_	_
-16	tale	tale	NOUN	NN	_	10	appos	_	_
+16	tale	tale	NOUN	NN	_	13	appos	_	_
 17	of	of	ADP	IN	_	16	prep	_	_
-18	Good	good	ADJ	JJ	_	17	pobj	_	_
-19	and	and	CCONJ	CC	_	18	cc	_	_
-20	Evil	evil	PROPN	NNP	_	18	conj	_	_
-21	..	..	PUNCT	.	_	1	punct	_	_
+18	Good	Good	PROPN	NNP	_	17	pobj	_	ent_type=ORG|ent_id=383|ent_iob=B
+19	and	and	CCONJ	CC	_	18	cc	_	ent_type=ORG|ent_id=383|ent_iob=I
+20	Evil	Evil	PROPN	NNP	_	18	conj	_	ent_type=ORG|ent_id=383|ent_iob=I
+21	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 397
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG listening))) (NFP ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP 'm) (VP (VBG listening))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 15
-# sent_len = 5
+# sent_id = 16
+# sent_len = 4
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = I'm listening..
+# text = I'm listening.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	3	nsubj	_	_
 2	'm	be	VERB	VBP	_	3	aux	_	_
 3	listening	listen	VERB	VBG	_	0	ROOT	_	_
-4	..	..	PUNCT	NFP	_	3	punct	_	_
+4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 398
 # loc = EXT
-# parse = (NP (NNP HATE!.) (  ))
+# parse = (INTJ (VP (NN HATE)) (. !) (_SP  ))
 # scene = 40
-# sent_id = 16
+# sent_id = 17
 # sent_len = 2
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = HATE!.
+# text = HATE!
 # time = DAY
-1	HATE!.	hate!.	PROPN	NNP	_	0	ROOT	_	_
+1	HATE	hate	NOUN	NN	_	0	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VBZ thrusts) (PRT (RP up)) (NP (PRP$ his) (JJ left) (NN hand))) (. .) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ thrusts) (PRT (RP up)) (NP (PRP$ his) (JJ left) (NN hand))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 17
-# sent_len = 8
+# sent_id = 18
+# sent_len = 7
 # setting = STREET
 # stage_direction = True
 # text = He thrusts up his left hand.
@@ -337,7 +347,7 @@
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	thrusts	thrust	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
-4	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+4	his	-PRON-	DET	PRP$	_	6	poss	_	_
 5	left	left	ADJ	JJ	_	6	amod	_	_
 6	hand	hand	NOUN	NN	_	2	dobj	_	_
 7	.	.	PUNCT	.	_	2	punct	_	_
@@ -346,7 +356,7 @@
 # loc = EXT
 # parse = (S (NP (NP (PRP It))) (VP (VBD was) (PP (IN with) (NP (DT this) (NN hand))) (SBAR (WDT that) (S (NP (NNP Brother) (NNP Cain)) (VP (VBD iced) (NP (PRP$ his) (NN brother)))))) (. .))
 # scene = 40
-# sent_id = 18
+# sent_id = 19
 # sent_len = 12
 # setting = STREET
 # speaker = RADIO RAHEEM
@@ -358,32 +368,33 @@
 3	with	with	ADP	IN	_	2	prep	_	_
 4	this	this	DET	DT	_	5	det	_	_
 5	hand	hand	NOUN	NN	_	3	pobj	_	_
-6	that	that	ADJ	WDT	_	9	mark	_	_
-7	Brother	brother	PROPN	NNP	_	8	compound	_	_
-8	Cain	cain	PROPN	NNP	_	9	nsubj	_	ent_type=PERSON|ent_id=378|ent_iob=B
+6	that	that	DET	WDT	_	9	dative	_	_
+7	Brother	Brother	PROPN	NNP	_	8	compound	_	ent_type=ORG|ent_id=383|ent_iob=B
+8	Cain	Cain	PROPN	NNP	_	9	nsubj	_	ent_type=ORG|ent_id=383|ent_iob=I
 9	iced	ice	VERB	VBD	_	2	ccomp	_	_
-10	his	-PRON-	ADJ	PRP$	_	11	poss	_	_
+10	his	-PRON-	DET	PRP$	_	11	poss	_	_
 11	brother	brother	NOUN	NN	_	9	dobj	_	_
 12	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 399
 # loc = EXT
-# parse = (NP (NNP LOVE!.) (  ))
+# parse = (S (VP (NN LOVE)) (. !) (_SP  ))
 # scene = 40
-# sent_id = 19
+# sent_id = 20
 # sent_len = 2
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = LOVE!.
+# text = LOVE!
 # time = DAY
-1	LOVE!.	love!.	PROPN	NNP	_	0	ROOT	_	_
+1	LOVE	love	NOUN	NN	_	0	ROOT	_	_
+2	!	!	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VBZ thrusts) (PRT (RP up)) (NP (PRP$ his) (JJ right) (NN hand))) (. .) (  ))
+# parse = (S (NP (PRP He)) (VP (VBZ thrusts) (PRT (RP up)) (NP (PRP$ his) (JJ right) (NN hand))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 20
-# sent_len = 8
+# sent_id = 21
+# sent_len = 7
 # setting = STREET
 # stage_direction = True
 # text = He thrusts up his right hand.
@@ -391,29 +402,29 @@
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	thrusts	thrust	VERB	VBZ	_	0	ROOT	_	_
 3	up	up	PART	RP	_	2	prt	_	_
-4	his	-PRON-	ADJ	PRP$	_	6	poss	_	_
+4	his	-PRON-	DET	PRP$	_	6	poss	_	_
 5	right	right	ADJ	JJ	_	6	amod	_	_
 6	hand	hand	NOUN	NN	_	2	dobj	_	_
 7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 400
 # loc = EXT
-# parse = (S (S (VP (VBP See) (NP (DT these) (NNS fingers)))) (, ,) (S (NP (PRP they)) (VP (VBP lead) (ADVP (RB straight)) (PP (IN to) (NP (NP (DT the) (NN soul)) (PP (IN of) (NP (NN man))))))) (. .))
+# parse = (S (S (VP (VB See) (NP (DT these) (NNS fingers)))) (, ,) (S (NP (PRP they)) (VP (VBP lead) (ADVP (RB straight)) (PP (IN to) (NP (NP (DT the) (NN soul)) (PP (IN of) (NP (NN man))))))) (. .))
 # scene = 40
-# sent_id = 21
+# sent_id = 22
 # sent_len = 13
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
 # text = See these fingers, they lead straight to the soul of man.
 # time = DAY
-1	See	see	VERB	VBP	_	6	advcl	_	_
+1	See	see	VERB	VB	_	6	advcl	_	_
 2	these	these	DET	DT	_	3	det	_	_
 3	fingers	finger	NOUN	NNS	_	1	dobj	_	_
 4	,	,	PUNCT	,	_	6	punct	_	_
 5	they	-PRON-	PRON	PRP	_	6	nsubj	_	_
 6	lead	lead	VERB	VBP	_	0	ROOT	_	_
-7	straight	straight	ADV	RB	_	6	advmod	_	_
+7	straight	straight	ADV	RB	_	8	advmod	_	_
 8	to	to	ADP	IN	_	6	prep	_	_
 9	the	the	DET	DT	_	10	det	_	_
 10	soul	soul	NOUN	NN	_	8	pobj	_	_
@@ -425,7 +436,7 @@
 # loc = EXT
 # parse = (NP (DT The) (JJ right) (NN hand) (. .))
 # scene = 40
-# sent_id = 22
+# sent_id = 23
 # sent_len = 4
 # setting = STREET
 # speaker = RADIO RAHEEM
@@ -439,56 +450,67 @@
 
 # line = 400
 # loc = EXT
-# parse = (S (NP (NP (DT The) (NN hand)) (PP (IN of) (NP (NNP LOVE!.) (  ) (NNP Mookie)))) (VP (VBZ is) (NP (NN buggin))) ('' ') (. .) (  ))
+# parse = (NP (NP (DT The) (NN hand)) (PP (PP (IN of) (NP (NNP LOVE))) (. !) (NP (_SP  ))))
 # scene = 40
-# sent_id = 23
-# sent_len = 11
+# sent_id = 24
+# sent_len = 5
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = The hand of LOVE!. Mookie is buggin'.
+# text = The hand of LOVE!
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
-2	hand	hand	NOUN	NN	_	7	nsubj	_	_
+2	hand	hand	NOUN	NN	_	0	ROOT	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
-4	LOVE!.	love!.	PROPN	NNP	_	3	pobj	_	_
-5	Mookie	mookie	PROPN	NNP	_	2	appos	_	ent_type=GPE|ent_id=382|ent_iob=I
-6	is	be	VERB	VBZ	_	0	ROOT	_	_
-7	buggin	buggin	NOUN	NN	_	7	acomp	_	_
-8	'	'	PUNCT	''	_	7	punct	_	_
-9	.	.	PUNCT	.	_	7	punct	_	_
+4	LOVE	LOVE	PROPN	NNP	_	3	pobj	_	_
+5	!	!	PUNCT	.	_	2	punct	_	_
+
+# loc = EXT
+# parse = (S (NP (NNP Mookie)) (VP (VBZ is) (NP (NN buggin) ('' '))) (. .) (_SP  ))
+# scene = 40
+# sent_id = 25
+# sent_len = 5
+# setting = STREET
+# stage_direction = True
+# text = Mookie is buggin'.
+# time = DAY
+1	Mookie	Mookie	PROPN	NNP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	is	be	VERB	VBZ	_	0	ROOT	_	_
+3	buggin	buggin	NOUN	NN	_	2	acomp	_	_
+4	'	'	PUNCT	''	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 401
 # loc = EXT
-# parse = (S (NP (NP (DT The) (NN story)) (PP (IN of) (NP (NNP Life)))) (VP (VBZ is) (NP (DT this))) (. ....) (NP (  )))
+# parse = (S (NP (NP (DT The) (NN story)) (PP (IN of) (NP (NNP Life)))) (VP (VP (VBZ is) (NP (DT this))) (. ...) (FRAG (INTJ (_SP  )))))
 # scene = 40
-# sent_id = 24
-# sent_len = 8
+# sent_id = 26
+# sent_len = 7
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = The story of Life is this....
+# text = The story of Life is this...
 # time = DAY
 1	The	the	DET	DT	_	2	det	_	_
 2	story	story	NOUN	NN	_	5	nsubj	_	_
 3	of	of	ADP	IN	_	2	prep	_	_
-4	Life	life	PROPN	NNP	_	3	pobj	_	_
+4	Life	Life	PROPN	NNP	_	3	pobj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 5	is	be	VERB	VBZ	_	0	ROOT	_	_
 6	this	this	DET	DT	_	5	attr	_	_
-7	....	....	PUNCT	.	_	5	punct	_	_
+7	...	...	PUNCT	.	_	5	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (PRP He)) (VP (VP (VBZ locks) (NP (PRP$ his) (NNS fingers))) (CC and) (VP (NNS writhes)) (, ,) (S (VP (VBG cracking) (NP (DT the) (NNS joints))))) (. .) (  ))
+# parse = (S (NP (PRP He)) (VP (VP (VBZ locks) (NP (PRP$ his) (NNS fingers))) (CC and) (VP (NNS writhes)) (, ,) (S (VP (VBG cracking) (NP (DT the) (NNS joints))))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 25
-# sent_len = 12
+# sent_id = 27
+# sent_len = 11
 # setting = STREET
 # stage_direction = True
 # text = He locks his fingers and writhes, cracking the joints.
 # time = DAY
 1	He	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	locks	lock	VERB	VBZ	_	0	ROOT	_	_
-3	his	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	his	-PRON-	DET	PRP$	_	4	poss	_	_
 4	fingers	finger	NOUN	NNS	_	2	dobj	_	_
 5	and	and	CCONJ	CC	_	4	cc	_	_
 6	writhes	writhe	NOUN	NNS	_	4	conj	_	_
@@ -500,30 +522,30 @@
 
 # line = 402
 # loc = EXT
-# parse = (NP (NN STATIC) (. !))
+# parse = (NP (RB STATIC) (. !))
 # scene = 40
-# sent_id = 26
+# sent_id = 28
 # sent_len = 2
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
 # text = STATIC!
 # time = DAY
-1	STATIC	static	NOUN	NN	_	0	ROOT	_	_
+1	STATIC	static	ADV	RB	_	0	ROOT	_	_
 2	!	!	PUNCT	.	_	1	punct	_	_
 
 # line = 402
 # loc = EXT
 # parse = (S (NP (CD One) (NN hand)) (VP (VBZ is) (ADVP (RB always)) (VP (VBG fighting) (NP (DT the) (JJ other)))) (. .))
 # scene = 40
-# sent_id = 27
+# sent_id = 29
 # sent_len = 8
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
 # text = One hand is always fighting the other.
 # time = DAY
-1	One	one	NUM	CD	_	2	nummod	_	ent_type=CARDINAL|ent_id=394|ent_iob=B
+1	One	one	NUM	CD	_	2	nummod	_	_
 2	hand	hand	NOUN	NN	_	5	nsubj	_	_
 3	is	be	VERB	VBZ	_	5	aux	_	_
 4	always	always	ADV	RB	_	5	advmod	_	_
@@ -534,18 +556,18 @@
 
 # line = 402
 # loc = EXT
-# parse = (S (S (NP (VBD Left) (NNP Hand) (NNP Hate)) (VP (VBZ is) (VP (VBG kicking) (NP (JJ much) (NN ass))))) (CC and) (S (NP (PRP it)) (VP (VBZ looks) (SBAR (IN like) (S (NP (NNP Right) (NNP Hand) (NNP Love)) (VP (VBZ is) (VP (VBN finished))))))) (. .))
+# parse = (S (S (NP (NNP Left) (NNP Hand) (NNP Hate)) (VP (VBZ is) (VP (VBG kicking) (NP (JJ much) (NN ass))))) (CC and) (S (NP (PRP it)) (VP (VBZ looks) (SBAR (IN like) (S (NP (NNP Right) (NNP Hand) (NNP Love)) (VP (VBZ is) (VP (VBN finished))))))) (. .))
 # scene = 40
-# sent_id = 28
+# sent_id = 30
 # sent_len = 17
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
 # text = Left Hand Hate is kicking much ass and it looks like Right Hand Love is finished.
 # time = DAY
-1	Left	leave	VERB	VBD	_	5	csubj	_	_
-2	Hand	hand	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	Hate	hate	PROPN	NNP	_	1	dobj	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Left	Left	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	Hand	Hand	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+3	Hate	Hate	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 4	is	be	VERB	VBZ	_	5	aux	_	_
 5	kicking	kick	VERB	VBG	_	0	ROOT	_	_
 6	much	much	ADJ	JJ	_	7	amod	_	_
@@ -554,9 +576,9 @@
 9	it	-PRON-	PRON	PRP	_	10	nsubj	_	_
 10	looks	look	VERB	VBZ	_	5	conj	_	_
 11	like	like	ADP	IN	_	16	mark	_	_
-12	Right	right	PROPN	NNP	_	14	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-13	Hand	hand	PROPN	NNP	_	14	compound	_	ent_type=ORG|ent_id=381|ent_iob=I
-14	Love	love	PROPN	NNP	_	16	nsubjpass	_	ent_type=ORG|ent_id=381|ent_iob=I
+12	Right	Right	PROPN	NNP	_	14	compound	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=B
+13	Hand	Hand	PROPN	NNP	_	14	compound	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=I
+14	Love	Love	PROPN	NNP	_	16	nsubjpass	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=I
 15	is	be	VERB	VBZ	_	16	auxpass	_	_
 16	finished	finish	VERB	VBN	_	10	advcl	_	_
 17	.	.	PUNCT	.	_	10	punct	_	_
@@ -565,7 +587,7 @@
 # loc = EXT
 # parse = (S (VP (VB Hold) (PRT (RP up))) (. .))
 # scene = 40
-# sent_id = 29
+# sent_id = 31
 # sent_len = 3
 # setting = STREET
 # speaker = RADIO RAHEEM
@@ -580,7 +602,7 @@
 # loc = EXT
 # parse = (S (VP (VB Stop) (NP (DT the) (NNS presses))) (. !))
 # scene = 40
-# sent_id = 30
+# sent_id = 32
 # sent_len = 4
 # setting = STREET
 # speaker = RADIO RAHEEM
@@ -596,7 +618,7 @@
 # loc = EXT
 # parse = (S (S (NP (NN Love)) (VP (VBZ is) (VP (VBG coming) (ADVP (RB back))))) (, ,) (INTJ (UH yes)) (, ,) (S (NP (PRP it)) (VP (VBZ 's) (NP (NN Love)))) (. .))
 # scene = 40
-# sent_id = 31
+# sent_id = 33
 # sent_len = 11
 # setting = STREET
 # speaker = RADIO RAHEEM
@@ -612,58 +634,58 @@
 7	,	,	PUNCT	,	_	9	punct	_	_
 8	it	-PRON-	PRON	PRP	_	9	nsubj	_	_
 9	's	be	VERB	VBZ	_	0	ROOT	_	_
-10	Love	love	NOUN	NN	_	9	attr	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+10	Love	love	NOUN	NN	_	9	attr	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=B
 11	.	.	PUNCT	.	_	9	punct	_	_
 
 # line = 402
 # loc = EXT
 # parse = (S (NP (NN Love)) (VP (VBZ has) (VP (VBN won))) (. .))
 # scene = 40
-# sent_id = 32
+# sent_id = 34
 # sent_len = 4
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
 # text = Love has won.
 # time = DAY
-1	Love	love	NOUN	NN	_	3	nsubj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
+1	Love	love	NOUN	NN	_	3	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	has	have	VERB	VBZ	_	3	aux	_	_
 3	won	win	VERB	VBN	_	0	ROOT	_	_
 4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 402
 # loc = EXT
-# parse = (S (NP (VBD Left) (NNP Hand) (NNP Hate)) (VP (NNP KO'ed) (PP (PP (IN by) (NP (NNP Love))) (. ..) (FRAG (INTJ (  ))))))
+# parse = (S (NP (NNP Left) (NNP Hand) (NNP Hate)) (VP (NNS KO'ed) (PP (IN by) (NP (NNP Love)))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 33
-# sent_len = 8
+# sent_id = 35
+# sent_len = 7
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = Left Hand Hate KO'ed by Love..
+# text = Left Hand Hate KO'ed by Love.
 # time = DAY
-1	Left	leave	VERB	VBD	_	0	ROOT	_	_
-2	Hand	hand	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-3	Hate	hate	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-4	KO'ed	ko'ed	PROPN	NNP	_	1	dobj	_	_
-5	by	by	ADP	IN	_	1	agent	_	_
-6	Love	love	PROPN	NNP	_	5	pobj	_	ent_type=WORK_OF_ART|ent_id=386|ent_iob=B
-7	..	..	PUNCT	.	_	1	punct	_	_
+1	Left	Left	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	Hand	Hand	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+3	Hate	Hate	PROPN	NNP	_	4	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
+4	KO'ed	KO'ed	NOUN	NNS	_	1	dobj	_	ent_type=PERSON|ent_id=380|ent_iob=I
+5	by	by	ADP	IN	_	4	prep	_	_
+6	Love	Love	PROPN	NNP	_	5	pobj	_	ent_type=WORK_OF_ART|ent_id=388|ent_iob=B
+7	.	.	PUNCT	.	_	1	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (NNP Mookie)) (VP (VBZ does) (RB n't) (VP (VB know) (SBAR (WHNP (WP what)) (S (VP (TO to) (VP (VB say)))))))) (, ,) (RB so) (S (NP (PRP he)) (VP (VBZ does) (RB n't) (VP (VB say) (NP (NN anything))))) (. .) (  ))
+# parse = (S (S (NP (NNP Mookie)) (VP (VBZ does) (RB n't) (VP (VB know) (SBAR (WHNP (WP what)) (S (VP (TO to) (VP (VB say)))))))) (, ,) (RB so) (S (NP (PRP he)) (VP (VBZ does) (RB n't) (VP (VB say) (NP (NN anything))))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 34
-# sent_len = 16
+# sent_id = 36
+# sent_len = 15
 # setting = STREET
 # stage_direction = True
 # text = Mookie doesn't know what to say, so he doesn't say anything.
 # time = DAY
-1	Mookie	mookie	PROPN	NNP	_	4	nsubj	_	_
+1	Mookie	Mookie	PROPN	NNP	_	4	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
 2	does	do	VERB	VBZ	_	4	aux	_	_
 3	n't	not	ADV	RB	_	4	neg	_	_
 4	know	know	VERB	VB	_	13	ccomp	_	_
-5	what	what	NOUN	WP	_	7	dobj	_	_
+5	what	what	PRON	WP	_	7	dobj	_	_
 6	to	to	PART	TO	_	7	aux	_	_
 7	say	say	VERB	VB	_	4	xcomp	_	_
 8	,	,	PUNCT	,	_	13	punct	_	_
@@ -677,18 +699,18 @@
 
 # line = 403
 # loc = EXT
-# parse = (FRAG (NP (NNP Brother)) (, ,) (NP (NNP Mookie)) (, ,) (SBAR (IN if) (S (NP (PRP I)) (VP (VBP love) (NP (PRP you))))) (NP (PRP I)) (VP (VP (VP (VBP love) (NP (PRP you))) (, ,) (CC but) (SBAR (IN if) (S (NP (PRP I)) (VP (VBP hate) (NP (PRP you)))))) (. ....) (  )))
+# parse = (FRAG (NP (NNP Brother)) (, ,) (NP (NNP Mookie)) (, ,) (SBAR (IN if) (S (NP (PRP I)) (VP (VBP love) (NP (PRP you))))) (NP (PRP I)) (VP (VP (VP (VBP love) (NP (PRP you))) (, ,) (CC but) (SBAR (IN if) (S (NP (PRP I)) (VP (VBP hate) (NP (PRP you)))))) (. ...) (_SP  )))
 # scene = 40
-# sent_id = 35
-# sent_len = 19
+# sent_id = 37
+# sent_len = 18
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = Brother, Mookie, if I love you I love you, but if I hate you....
+# text = Brother, Mookie, if I love you I love you, but if I hate you...
 # time = DAY
-1	Brother	brother	PROPN	NNP	_	10	npadvmod	_	_
+1	Brother	Brother	PROPN	NNP	_	10	npadvmod	_	_
 2	,	,	PUNCT	,	_	1	punct	_	_
-3	Mookie	mookie	PROPN	NNP	_	1	appos	_	_
+3	Mookie	Mookie	PROPN	NNP	_	1	appos	_	ent_type=PERSON|ent_id=380|ent_iob=B
 4	,	,	PUNCT	,	_	10	punct	_	_
 5	if	if	ADP	IN	_	7	mark	_	_
 6	I	-PRON-	PRON	PRP	_	7	nsubj	_	_
@@ -703,56 +725,56 @@
 15	I	-PRON-	PRON	PRP	_	16	nsubj	_	_
 16	hate	hate	VERB	VBP	_	10	conj	_	_
 17	you	-PRON-	PRON	PRP	_	16	dobj	_	_
-18	....	....	PUNCT	.	_	16	punct	_	_
+18	...	...	PUNCT	.	_	16	punct	_	_
 
 # line = 404
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP understand)) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP understand)) (. .) (_SP  ))
 # scene = 40
-# sent_id = 36
-# sent_len = 4
+# sent_id = 38
+# sent_len = 3
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = I understand..
+# text = I understand.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	understand	understand	VERB	VBP	_	0	ROOT	_	_
-3	..	..	PUNCT	.	_	2	punct	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 405
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP love) (NP (NP (PRP you)) (, ,) (NP (PRP$ my) (NN brother)))) (. ..) (  ))
+# parse = (S (NP (PRP I)) (VP (VBP love) (NP (NP (PRP you)) (, ,) (NP (PRP$ my) (NN brother)))) (. .) (_SP  ))
 # scene = 40
-# sent_id = 37
-# sent_len = 8
+# sent_id = 39
+# sent_len = 7
 # setting = STREET
 # speaker = RADIO RAHEEM
 # stage_direction = True
-# text = I love you, my brother..
+# text = I love you, my brother.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	love	love	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
-4	,	,	PUNCT	,	_	2	punct	_	_
-5	my	-PRON-	ADJ	PRP$	_	6	poss	_	_
-6	brother	brother	NOUN	NN	_	2	npadvmod	_	_
-7	..	..	PUNCT	.	_	2	punct	_	_
+4	,	,	PUNCT	,	_	3	punct	_	_
+5	my	-PRON-	DET	PRP$	_	6	poss	_	_
+6	brother	brother	NOUN	NN	_	3	appos	_	_
+7	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 406
 # loc = EXT
-# parse = (S (NP (PRP I)) (VP (VBP love) (NP (NP (PRP you)) (, ,) (NP (JJ Black)))) (. ..))
+# parse = (S (NP (PRP I)) (VP (VBP love) (NP (PRP you)) (, ,) (NP (NNP Black))) (. .))
 # scene = 40
-# sent_id = 38
+# sent_id = 40
 # sent_len = 6
 # setting = STREET
 # speaker = MOOKIE
 # stage_direction = True
-# text = I love you, Black..
+# text = I love you, Black.
 # time = DAY
 1	I	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	love	love	VERB	VBP	_	0	ROOT	_	_
 3	you	-PRON-	PRON	PRP	_	2	dobj	_	_
 4	,	,	PUNCT	,	_	2	punct	_	_
-5	Black	black	ADJ	JJ	_	2	npadvmod	_	_
-6	..	..	PUNCT	.	_	2	punct	_	_
+5	Black	Black	PROPN	NNP	_	2	npadvmod	_	ent_type=PERSON|ent_id=380|ent_iob=B
+6	.	.	PUNCT	.	_	2	punct	_	_

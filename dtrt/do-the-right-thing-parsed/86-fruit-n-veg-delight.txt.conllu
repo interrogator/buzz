@@ -1,5 +1,5 @@
 # loc = EXT
-# parse = (S (NP (DT The) (NN mob)) (ADVP (RB now)) (VP (VBZ moves) (PP (IN across) (NP (DT the) (NN street))) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (JJ Korean) (NN fruit) (CC and) (NN vegetable) (VB stand)))))) (. .))
+# parse = (S (NP (DT The) (NN mob)) (ADVP (RB now)) (VP (VBZ moves) (PP (IN across) (NP (DT the) (NN street))) (PP (IN in) (NP (NP (NN front)) (PP (IN of) (NP (DT the) (JJ Korean) (NN fruit) (CC and) (NN vegetable) (NN stand)))))) (. .))
 # scene = 86
 # sent_id = 1
 # sent_len = 17
@@ -17,33 +17,33 @@
 8	in	in	ADP	IN	_	4	prep	_	_
 9	front	front	NOUN	NN	_	8	pobj	_	_
 10	of	of	ADP	IN	_	9	prep	_	_
-11	the	the	DET	DT	_	13	det	_	_
-12	Korean	korean	ADJ	JJ	_	13	amod	_	ent_type=NORP|ent_id=379|ent_iob=B
+11	the	the	DET	DT	_	16	det	_	_
+12	Korean	korean	ADJ	JJ	_	16	amod	_	ent_type=NORP|ent_id=381|ent_iob=B
 13	fruit	fruit	NOUN	NN	_	16	nmod	_	_
 14	and	and	CCONJ	CC	_	13	cc	_	_
 15	vegetable	vegetable	NOUN	NN	_	13	conj	_	_
-16	stand	stand	VERB	VB	_	10	pobj	_	_
+16	stand	stand	NOUN	NN	_	10	pobj	_	_
 17	.	.	PUNCT	.	_	4	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (NP (NNP Sweet) (NNP Dick) (NNP Willie)) (, ,) (NP (NNP Coconut) (NNP Sid)) (, ,) (CC and) (NP (NNP ML))) (VP (NN stand) (PP (IN at) (NP (NP (DT the) (NN head)) (PP (IN of) (NP (DT the) (NN mob)))))) (. .) (  ))
+# parse = (S (NP (NP (NNP Sweet) (NNP Dick) (NNP Willie)) (, ,) (NP (NNP Coconut) (NNP Sid)) (, ,) (CC and) (NP (NNP ML))) (VP (VBP stand) (PP (IN at) (NP (NP (DT the) (NN head)) (PP (IN of) (NP (DT the) (NN mob)))))) (. .) (_SP  ))
 # scene = 86
 # sent_id = 2
-# sent_len = 18
+# sent_len = 17
 # setting = FRUIT-N-VEG DELIGHT
 # stage_direction = True
 # text = Sweet Dick Willie, Coconut Sid, and ML stand at the head of the mob.
 # time = NIGHT
-1	Sweet	sweet	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Dick	dick	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	Willie	willie	PROPN	NNP	_	10	nsubj	_	_
+1	Sweet	Sweet	PROPN	NNP	_	3	compound	_	_
+2	Dick	Dick	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+3	Willie	Willie	PROPN	NNP	_	10	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 4	,	,	PUNCT	,	_	3	punct	_	_
-5	Coconut	coconut	PROPN	NNP	_	6	compound	_	ent_type=PRODUCT|ent_id=384|ent_iob=B
-6	Sid	sid	PROPN	NNP	_	3	conj	_	ent_type=PRODUCT|ent_id=384|ent_iob=I
+5	Coconut	Coconut	PROPN	NNP	_	6	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
+6	Sid	Sid	PROPN	NNP	_	3	conj	_	ent_type=PERSON|ent_id=380|ent_iob=I
 7	,	,	PUNCT	,	_	6	punct	_	_
 8	and	and	CCONJ	CC	_	6	cc	_	_
-9	ML	ml	PROPN	NNP	_	10	compound	_	ent_type=ORG|ent_id=381|ent_iob=B
-10	stand	stand	NOUN	NN	_	0	ROOT	_	_
+9	ML	ML	PROPN	NNP	_	6	conj	_	ent_type=ORG|ent_id=383|ent_iob=B
+10	stand	stand	VERB	VBP	_	0	ROOT	_	_
 11	at	at	ADP	IN	_	10	prep	_	_
 12	the	the	DET	DT	_	13	det	_	_
 13	head	head	NOUN	NN	_	11	pobj	_	_
@@ -54,20 +54,20 @@
 
 # line = 739
 # loc = EXT
-# parse = (S (NP (PRP It)) (VP (VP (VBZ 's) (NP (PRP$ your) (NN turn))) (. ..) (  )))
+# parse = (S (NP (PRP It)) (VP (VBZ 's) (NP (PRP$ your) (NN turn))) (. .) (_SP  ))
 # scene = 86
 # sent_id = 3
-# sent_len = 6
+# sent_len = 5
 # setting = FRUIT-N-VEG DELIGHT
 # speaker = ML
 # stage_direction = True
-# text = It's your turn..
+# text = It's your turn.
 # time = NIGHT
 1	It	-PRON-	PRON	PRP	_	2	nsubj	_	_
 2	's	be	VERB	VBZ	_	0	ROOT	_	_
-3	your	-PRON-	ADJ	PRP$	_	4	poss	_	_
+3	your	-PRON-	DET	PRP$	_	4	poss	_	_
 4	turn	turn	NOUN	NN	_	2	attr	_	_
-5	..	..	PUNCT	.	_	2	punct	_	_
+5	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
 # parse = (S (NP (PRP He)) (VP (VBZ 's) (ADJP (JJ scared) (PP (IN to) (NP (NN death)))) (, ,) (SBAR (IN as) (S (NP (DT the) (NN mob)) (VP (VBZ is) (VP (VBN poised) (S (VP (TO to) (VP (VB tear) (NP (PRP$ his) (NN place)) (PRT (RP up)) (ADVP (RB too)))))))))) (. .))
@@ -91,17 +91,17 @@
 11	poised	poise	VERB	VBN	_	2	advcl	_	_
 12	to	to	PART	TO	_	13	aux	_	_
 13	tear	tear	VERB	VB	_	11	xcomp	_	_
-14	his	-PRON-	ADJ	PRP$	_	15	poss	_	_
+14	his	-PRON-	DET	PRP$	_	15	poss	_	_
 15	place	place	NOUN	NN	_	13	dobj	_	_
 16	up	up	PART	RP	_	13	prt	_	_
 17	too	too	ADV	RB	_	13	advmod	_	_
 18	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (DT The) (NN clerk)) (VP (ADVP (RB wildly)) (VBZ swings) (NP (DT a) (NN broom)) (S (VP (TO to) (VP (VB hold) (NP (PRP them)) (PRT (RP off)))))) (. .) (  ))
+# parse = (S (NP (DT The) (NN clerk)) (VP (ADVP (RB wildly)) (VBZ swings) (NP (DT a) (NN broom)) (S (VP (TO to) (VP (VB hold) (NP (PRP them)) (PRT (RP off)))))) (. .) (_SP  ))
 # scene = 86
 # sent_id = 5
-# sent_len = 12
+# sent_len = 11
 # setting = FRUIT-N-VEG DELIGHT
 # stage_direction = True
 # text = The clerk wildly swings a broom to hold them off.
@@ -113,7 +113,7 @@
 5	a	a	DET	DT	_	6	det	_	_
 6	broom	broom	NOUN	NN	_	4	dobj	_	_
 7	to	to	PART	TO	_	8	aux	_	_
-8	hold	hold	VERB	VB	_	4	advcl	_	_
+8	hold	hold	VERB	VB	_	6	relcl	_	_
 9	them	-PRON-	PRON	PRP	_	8	dobj	_	_
 10	off	off	PART	RP	_	8	prt	_	_
 11	.	.	PUNCT	.	_	4	punct	_	_
@@ -140,17 +140,17 @@
 11	poised	poise	VERB	VBN	_	2	advcl	_	_
 12	to	to	PART	TO	_	13	aux	_	_
 13	tear	tear	VERB	VB	_	11	xcomp	_	_
-14	his	-PRON-	ADJ	PRP$	_	15	poss	_	_
+14	his	-PRON-	DET	PRP$	_	15	poss	_	_
 15	place	place	NOUN	NN	_	13	dobj	_	_
 16	up	up	PART	RP	_	13	prt	_	_
 17	too	too	ADV	RB	_	13	advmod	_	_
 18	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (NP (DT The) (NN clerk)) (VP (ADVP (RB wildly)) (VBZ swings) (NP (DT a) (NN broom)) (S (VP (TO to) (VP (VB hold) (NP (PRP them)) (PRT (RP off)))))) (. .) (  ))
+# parse = (S (NP (DT The) (NN clerk)) (VP (ADVP (RB wildly)) (VBZ swings) (NP (DT a) (NN broom)) (S (VP (TO to) (VP (VB hold) (NP (PRP them)) (PRT (RP off)))))) (. .) (_SP  ))
 # scene = 86
 # sent_id = 7
-# sent_len = 12
+# sent_len = 11
 # setting = FRUIT-N-VEG DELIGHT
 # stage_direction = True
 # text = The clerk wildly swings a broom to hold them off.
@@ -162,7 +162,7 @@
 5	a	a	DET	DT	_	6	det	_	_
 6	broom	broom	NOUN	NN	_	4	dobj	_	_
 7	to	to	PART	TO	_	8	aux	_	_
-8	hold	hold	VERB	VB	_	4	advcl	_	_
+8	hold	hold	VERB	VB	_	6	relcl	_	_
 9	them	-PRON-	PRON	PRP	_	8	dobj	_	_
 10	off	off	PART	RP	_	8	prt	_	_
 11	.	.	PUNCT	.	_	4	punct	_	_
@@ -210,8 +210,8 @@
 # stage_direction = True
 # text = Me Black.
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
+2	Black	Black	PROPN	NNP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 740
@@ -225,28 +225,28 @@
 # stage_direction = True
 # text = Me Black.
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
+2	Black	Black	PROPN	NNP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 740
 # loc = EXT
-# parse = (NP (NP (PRP Me)) (NP (NP (NNP Black)) (. ..) (  )))
+# parse = (NP (NP (PRP Me)) (NP (JJ Black)) (. .) (_SP  ))
 # scene = 86
 # sent_id = 12
-# sent_len = 4
+# sent_len = 3
 # setting = FRUIT-N-VEG DELIGHT
 # speaker = KOREAN CLERK
 # stage_direction = True
-# text = Me Black..
+# text = Me Black.
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	..	..	PUNCT	.	_	2	punct	_	_
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
+2	Black	black	ADJ	JJ	_	0	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 741
 # loc = EXT
-# parse = (NP (NNP Me) (NNP Black) (. .))
+# parse = (NP (PRP Me) (JJ Black) (. .))
 # scene = 86
 # sent_id = 13
 # sent_len = 3
@@ -255,30 +255,30 @@
 # stage_direction = True
 # text = Me Black.
 # time = NIGHT
-1	Me	me	PROPN	NNP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	0	ROOT	_	_
+1	Me	-PRON-	PRON	PRP	_	2	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=B
+2	Black	black	ADJ	JJ	_	0	ROOT	_	ent_type=PERSON|ent_id=380|ent_iob=I
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 741
 # loc = EXT
-# parse = (NP (NP (PRP Me)) (NP (NP (NNP Black)) (. ..) (  )))
+# parse = (NP (NP (PRP Me)) (NP (JJ Black)) (. .) (_SP  ))
 # scene = 86
 # sent_id = 14
-# sent_len = 4
+# sent_len = 3
 # setting = FRUIT-N-VEG DELIGHT
 # speaker = ML
 # stage_direction = True
-# text = Me Black..
+# text = Me Black.
 # time = NIGHT
-1	Me	-PRON-	PRON	PRP	_	2	compound	_	ent_type=PERSON|ent_id=378|ent_iob=B
-2	Black	black	PROPN	NNP	_	0	ROOT	_	ent_type=PERSON|ent_id=378|ent_iob=I
-3	..	..	PUNCT	.	_	2	punct	_	_
+1	Me	-PRON-	PRON	PRP	_	2	compound	_	_
+2	Black	black	ADJ	JJ	_	0	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
 
 # loc = EXT
-# parse = (S (S (NP (DT The) (NN mob)) (VP (VBZ starts) (S (VP (TO to) (VP (VB laugh)))))) (: ;) (S (NP (PRP they)) (VP (VBP feel) (PP (IN for) (NP (PRP him))))) (. .) (  ))
+# parse = (S (S (NP (DT The) (NN mob)) (VP (VBZ starts) (S (VP (TO to) (VP (VB laugh)))))) (: ;) (S (NP (PRP they)) (VP (VBP feel) (PP (IN for) (NP (PRP him))))) (. .) (_SP  ))
 # scene = 86
 # sent_id = 15
-# sent_len = 12
+# sent_len = 11
 # setting = FRUIT-N-VEG DELIGHT
 # stage_direction = True
 # text = The mob starts to laugh; they feel for him.
@@ -306,7 +306,7 @@
 # stage_direction = True
 # text = Korea man is OK.
 # time = NIGHT
-1	Korea	korea	PROPN	NNP	_	2	compound	_	ent_type=GPE|ent_id=382|ent_iob=B
+1	Korea	Korea	PROPN	NNP	_	2	compound	_	ent_type=GPE|ent_id=384|ent_iob=B
 2	man	man	NOUN	NN	_	3	nsubj	_	_
 3	is	be	VERB	VBZ	_	0	ROOT	_	_
 4	OK	ok	ADJ	JJ	_	3	acomp	_	_
@@ -314,25 +314,25 @@
 
 # line = 742
 # loc = EXT
-# parse = (S (VP (VB Let) (S (NP (PRP 's)) (VP (VB leave) (NP (PRP him)) (ADVP (JJ alone))))) (. ..) (  ))
+# parse = (S (VP (VB Let) (S (NP (PRP 's)) (VP (VB leave) (NP (PRP him)) (ADVP (JJ alone))))) (. .) (_SP  ))
 # scene = 86
 # sent_id = 17
-# sent_len = 7
+# sent_len = 6
 # setting = FRUIT-N-VEG DELIGHT
 # speaker = SWEET DICK WILLIE
 # stage_direction = True
-# text = Let's leave him alone..
+# text = Let's leave him alone.
 # time = NIGHT
 1	Let	let	VERB	VB	_	0	ROOT	_	_
 2	's	-PRON-	PRON	PRP	_	3	nsubj	_	_
 3	leave	leave	VERB	VB	_	1	ccomp	_	_
 4	him	-PRON-	PRON	PRP	_	3	dobj	_	_
 5	alone	alone	ADJ	JJ	_	3	oprd	_	_
-6	..	..	PUNCT	.	_	1	punct	_	_
+6	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 743
 # loc = EXT
-# parse = (NP (NP (PRP Him)) (NP (DT no) (NN white)) (. .))
+# parse = (NP (NP (PRP Him)) (NP (DT no) (JJ white)) (. .))
 # scene = 86
 # sent_id = 18
 # sent_len = 4
@@ -341,26 +341,26 @@
 # stage_direction = True
 # text = Him no white.
 # time = NIGHT
-1	Him	-PRON-	PRON	PRP	_	3	nsubj	_	_
+1	Him	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	no	no	DET	DT	_	3	det	_	_
-3	white	white	NOUN	NN	_	0	ROOT	_	_
-4	.	.	PUNCT	.	_	3	punct	_	_
+3	white	white	ADJ	JJ	_	1	npadvmod	_	_
+4	.	.	PUNCT	.	_	1	punct	_	_
 
 # line = 743
 # loc = EXT
-# parse = (NP (NP (PRP Him)) (NP (DT no) (JJ white)) (NFP ..) (  ))
+# parse = (NP (NP (PRP Him)) (NP (DT no) (JJ white)) (. .) (_SP  ))
 # scene = 86
 # sent_id = 19
-# sent_len = 5
+# sent_len = 4
 # setting = FRUIT-N-VEG DELIGHT
 # speaker = ML
 # stage_direction = True
-# text = Him no white..
+# text = Him no white.
 # time = NIGHT
-1	Him	-PRON-	PRON	PRP	_	3	nsubj	_	_
+1	Him	-PRON-	PRON	PRP	_	0	ROOT	_	_
 2	no	no	DET	DT	_	3	det	_	_
-3	white	white	ADJ	JJ	_	0	ROOT	_	_
-4	..	..	PUNCT	NFP	_	3	punct	_	_
+3	white	white	ADJ	JJ	_	1	dobj	_	_
+4	.	.	PUNCT	.	_	3	punct	_	_
 
 # line = 744
 # loc = EXT
@@ -373,21 +373,21 @@
 # stage_direction = True
 # text = Him Black.
 # time = NIGHT
-1	Him	him	PROPN	NNP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	0	ROOT	_	_
+1	Him	Him	PROPN	NNP	_	2	compound	_	_
+2	Black	Black	PROPN	NNP	_	0	ROOT	_	_
 3	.	.	PUNCT	.	_	2	punct	_	_
 
 # line = 744
 # loc = EXT
-# parse = (NP (PRP Him) (NNP Black) (. ..))
+# parse = (NP (NNP Him) (NNP Black) (. .))
 # scene = 86
 # sent_id = 21
 # sent_len = 3
 # setting = FRUIT-N-VEG DELIGHT
 # speaker = COCONUT SID
 # stage_direction = True
-# text = Him Black..
+# text = Him Black.
 # time = NIGHT
-1	Him	-PRON-	PRON	PRP	_	2	compound	_	_
-2	Black	black	PROPN	NNP	_	0	ROOT	_	_
-3	..	..	PUNCT	.	_	2	punct	_	_
+1	Him	Him	PROPN	NNP	_	2	compound	_	_
+2	Black	Black	PROPN	NNP	_	0	ROOT	_	_
+3	.	.	PUNCT	.	_	2	punct	_	_
