@@ -1,7 +1,8 @@
 import os
 import shutil
+import re
 
-from .utils import _strip_metadata, _get_tqdm, _tqdm_close, _tqdm_update, _get_metadata, _get_nlp
+from .utils import _get_tqdm, _tqdm_close, _tqdm_update, _get_nlp, _make_meta_dict_from_sent
 
 import nltk
 
@@ -106,98 +107,121 @@ class Parser:
             return '0'
         return str(word.head.i - word.sent[0].i + 1)
 
+    @staticmethod
+    def _strip_metadata(plain):
+        return re.sub('<metadata .*>', '', plain)
+
+    @staticmethod
+    def _get_line_with_meta(start, plain, stripped, txt):
+        all_before = stripped[:start]
+        newlines_before = all_before.count('\n')
+        got = plain.splitlines()[newlines_before]
+        return got
+
+    def _process_sent(self, sent_index, sent, file_meta, plain, stripped_data):
+
+        word_index = 1
+        sent_parts = list()
+        text = sent.text.strip().replace('\n', ' ')
+        length = len([i for i in sent if not i.is_space])
+        self.ntokens += length
+        sent_meta = dict(sent_id=str(sent_index), text=text, sent_len=length)
+
+        if self.trees and self.language.startswith('en'):
+            parse = [self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space]
+            if self.cons_parser == 'bllip':
+                parse = self.tree_parser.parse_one(parse)
+                parse = parse[0]._pformat_flat('', ('(', ')'), "").replace('\n', '').strip()
+            else:
+                parse = sent._.parse_string.strip('')
+            parse = parse.replace('\n', ' ')
+            sent_meta['parse'] = parse
+
+        metaline = self._get_line_with_meta(sent.start_char, plain, stripped_data, text)
+
+        extra_meta = _make_meta_dict_from_sent(metaline)
+
+        all_meta = {**file_meta, **sent_meta, **extra_meta}
+
+        for field, value in sorted(all_meta.items()):
+            sent_parts.append('# {} = {}'.format(field, value))
+
+        for word in sent:
+
+            if word.is_space:
+                continue
+
+            governor = self._get_governor_id(word)
+            word_text = self.normalise_word(str(word))
+            named_ent = self._make_misc_field(word)
+
+            parts = [
+                str(word_index),
+                word_text,
+                word.lemma_,
+                word.pos_,
+                word.tag_,
+                '_',
+                governor,
+                word.dep_,
+                '_',
+                named_ent,
+            ]
+
+            line = '\t'.join(parts)
+            sent_parts.append(line)
+            word_index += 1
+
+        return '\n'.join(sent_parts)
+
+    def _process_file(self, path):
+        """
+        spacy: process one file
+        """
+
+        with open(path, 'r') as fo:
+            plain = fo.read().strip()
+
+        has_file_meta = plain.strip().startswith('<metadata')
+
+        if has_file_meta:
+            file_meta = _make_meta_dict_from_sent(plain.strip().splitlines()[0])
+        else:
+            file_meta = dict()
+
+        stripped_data = self._strip_metadata(plain)
+
+        doc = self.nlp(stripped_data)
+
+        output = list()
+        self.nsents += len(list(doc.sents))
+
+        for sent_index, sent in enumerate(doc.sents, start=1):
+            sent_string = self._process_sent(sent_index, sent, file_meta, plain, stripped_data)
+            output.append(sent_string)
+        output = '\n\n'.join(output).strip() + '\n'
+
+        outpath = path.replace(self.corpus_name, self.corpus_name + '-parsed')
+        outpath = outpath.rstrip('.') + '.conllu'
+        os.makedirs(os.path.split(outpath)[0], exist_ok=True)
+        self._made_new_dir = True
+
+        with open(outpath, 'w') as fo:
+            fo.write(output)
+
     def spacy_parse(self):
         abspath = os.path.abspath(os.getcwd())
         fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
         kwa = dict(ncols=120, unit='file', desc='Parsing', total=len(fs))
         t = None
-        ntokens = 0
-        nsents = 0
+        self.ntokens = 0
+        self.nsents = 0
         t = tqdm(**kwa) if len(fs) > 1 else None
-        for file_num, path in enumerate(sorted(fs), start=1):
 
-            with open(path, 'r') as fo:
-                plain = fo.read().strip()
-
-            stripped_data = _strip_metadata(plain)
-            doc = self.nlp(stripped_data)
-            file_meta = _get_metadata(stripped_data, plain, False, first_line=True)
-            has_file_meta = plain.splitlines()[0].strip().startswith('<metadata')
-
-            output = list()
-            nsents += len(list(doc.sents))
-            for sent_index, sent in enumerate(doc.sents, start=1):
-                word_index = 1
-                sent_parts = list()
-                text = sent.text.strip().replace('\n', ' ')
-                sent_meta = dict(sent_id=str(sent_index), text=text, sent_len=len(sent))
-                if self.trees and self.language.startswith('en'):
-                    parse = [self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space]
-                    if self.cons_parser == 'bllip':
-                        parse = self.tree_parser.parse_one(parse)
-                        parse = parse[0]._pformat_flat('', ('(', ')'), "").replace('\n', '').strip()
-                    else:
-                        parse = sent._.parse_string.strip('')
-                    parse = parse.replace('\n', ' ')
-                    sent_meta['parse'] = parse
-
-                extra_meta = _get_metadata(
-                    stripped_data,
-                    plain,
-                    (sent.start_char, sent.end_char),
-                    first_line=False,
-                    has_fmeta=has_file_meta,
-                )
-
-                all_meta = {**file_meta, **sent_meta, **extra_meta}
-
-                for field, value in sorted(all_meta.items()):
-                    sent_parts.append('# {} = {}'.format(field, value))
-
-                for word in sent:
-
-                    ntokens += 1
-                    if word.is_space:
-                        continue
-
-                    governor = self._get_governor_id(word)
-                    word_text = self.normalise_word(str(word))
-                    named_ent = self._make_misc_field(word)
-
-                    parts = [
-                        str(word_index),
-                        word_text,
-                        word.lemma_,
-                        word.pos_,
-                        word.tag_,
-                        '_',
-                        governor,
-                        word.dep_,
-                        '_',
-                        named_ent,
-                    ]
-
-                    line = '\t'.join(parts)
-                    sent_parts.append(line)
-                    word_index += 1
-
-                output.append('\n'.join(sent_parts))
-
-            output = '\n\n'.join(output).strip() + '\n'
-
-            outpath = path.replace(self.corpus_name, self.corpus_name + '-parsed')
-            outpath = outpath.rstrip('.') + '.conllu'
-            os.makedirs(os.path.split(outpath)[0], exist_ok=True)
-            self._made_new_dir = True
-
-            with open(outpath, 'w') as fo:
-                fo.write(output)
-
+        for path in sorted(fs):
+            self._process_file(path)
             _tqdm_update(t)
         _tqdm_close(t)
-
-        self.ntokens = ntokens
-        self.nsents = nsents
 
     def _make_metadata(self, description):
         return dict(
