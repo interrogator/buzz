@@ -1,7 +1,6 @@
 import pandas as pd
-from typing import Optional
 
-from .views import _tabview, _sort, _relativise
+from .views import _tabview, _sort
 
 
 class Table(pd.DataFrame):
