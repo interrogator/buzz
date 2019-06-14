@@ -130,7 +130,7 @@ class Parser:
         text = sent.text.strip(' ').replace('\n', ' ')
         length = len([i for i in sent if not i.is_space])
         self.ntokens += length
-        sent_meta = dict(sent_id=str(sent_index), text=text, sent_len=length)
+        sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=length)
 
         if self.trees and self.language.startswith('en'):
             parse = [self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space]
