@@ -254,28 +254,3 @@ def _make_meta_dict_from_sent(text):
     speaker = match.group(1)
     metad['speaker'] = speaker
     return metad
-
-
-def _get_metadata(stripped, original, sent_offsets, first_line=False, has_fmeta=False):
-    """
-    Take offsets and get a speaker ID or metadata from them
-    """
-    if not stripped and not original:
-        return dict()
-
-    # are we getting file or regular metadata?
-    if not first_line:
-        start, end = sent_offsets
-    else:
-        start = 0
-
-    # get all stripped text before the start of the sent we want
-    cut_old_text = stripped[:start].strip()
-    # count how many newlines are in the preceding text
-    line_index = cut_old_text.count('\n')
-    if has_fmeta and not first_line:
-        line_index += 1
-    if first_line:
-        line_index = 0
-    text_with_meta = original.splitlines()[line_index]
-    return _make_meta_dict_from_sent(text_with_meta)
