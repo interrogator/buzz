@@ -117,13 +117,11 @@ class Parser:
         return '\n'.join(plain)
 
     @staticmethod
-    def _get_line_with_meta(start, plain, stripped, txt):
+    def _get_line_with_meta(start, plain, stripped):
         all_before = stripped[:start]
         newlines_before = all_before.count('\n')
         plain = plain.splitlines()
-        got = plain[newlines_before]
-        assert txt.strip() in got, f'"{txt}" should be in "{got}"'
-        return got
+        return plain[newlines_before]
 
     def _process_sent(self, sent_index, sent, file_meta, plain, stripped_data):
 
@@ -144,7 +142,7 @@ class Parser:
             parse = parse.replace('\n', ' ')
             sent_meta['parse'] = parse
 
-        metaline = self._get_line_with_meta(sent.start_char, plain, stripped_data, text)
+        metaline = self._get_line_with_meta(sent.start_char, plain, stripped_data)
 
         extra_meta = _make_meta_dict_from_sent(metaline)
 
