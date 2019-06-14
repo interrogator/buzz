@@ -2,6 +2,7 @@ import os
 import shutil
 import re
 
+from .constants import MAX_SPEAKERNAME_SIZE
 from .utils import _get_tqdm, _tqdm_close, _tqdm_update, _get_nlp, _make_meta_dict_from_sent
 
 import nltk
@@ -109,20 +110,26 @@ class Parser:
 
     @staticmethod
     def _strip_metadata(plain):
-        return re.sub('<metadata .*>', '', plain)
+        idregex = re.compile(r'^[A-Za-z0-9-_]{1,%d}: ' % MAX_SPEAKERNAME_SIZE)
+        metregex = re.compile('<metadata .*>')
+        plain = plain.splitlines()
+        plain = [re.sub(metregex, '', re.sub(idregex, '', i)) for i in plain]
+        return '\n'.join(plain)
 
     @staticmethod
     def _get_line_with_meta(start, plain, stripped, txt):
         all_before = stripped[:start]
         newlines_before = all_before.count('\n')
-        got = plain.splitlines()[newlines_before]
+        plain = plain.splitlines()
+        got = plain[newlines_before]
+        assert txt.strip() in got, f'"{txt}" should be in "{got}"'
         return got
 
     def _process_sent(self, sent_index, sent, file_meta, plain, stripped_data):
 
         word_index = 1
         sent_parts = list()
-        text = sent.text.strip().replace('\n', ' ')
+        text = sent.text.strip(' ').replace('\n', ' ')
         length = len([i for i in sent if not i.is_space])
         self.ntokens += length
         sent_meta = dict(sent_id=str(sent_index), text=text, sent_len=length)
@@ -133,7 +140,7 @@ class Parser:
                 parse = self.tree_parser.parse_one(parse)
                 parse = parse[0]._pformat_flat('', ('(', ')'), "").replace('\n', '').strip()
             else:
-                parse = sent._.parse_string.strip('')
+                parse = sent._.parse_string.strip(' ')
             parse = parse.replace('\n', ' ')
             sent_meta['parse'] = parse
 
@@ -182,17 +189,19 @@ class Parser:
         with open(path, 'r') as fo:
             plain = fo.read().strip()
 
-        has_file_meta = plain.strip().startswith('<metadata')
+        # break into lines, removing empty
+        plain = [i.strip(' ') for i in plain.splitlines() if i.strip(' ')]
 
-        if has_file_meta:
-            file_meta = _make_meta_dict_from_sent(plain.strip().splitlines()[0])
+        if plain[0].startswith('<metadata'):
+            file_meta = _make_meta_dict_from_sent(plain[0])
+            # remove the metadata line
+            plain = plain[1:]
         else:
             file_meta = dict()
 
+        plain = '\n'.join(plain)
         stripped_data = self._strip_metadata(plain)
-
         doc = self.nlp(stripped_data)
-
         output = list()
         self.nsents += len(list(doc.sents))
 
