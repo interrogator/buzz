@@ -4,8 +4,8 @@
     "language": "english",
     "name": "do-the-right-thing",
     "nfiles": 98,
-    "nsents": 1963,
-    "ntokens": 18777,
+    "nsents": 1959,
+    "ntokens": 17713,
     "parsed": true,
     "parser": "spacy",
     "path": "/home/dannio/work/buzz/dtrt/do-the-right-thing-parsed"
