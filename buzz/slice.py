@@ -100,6 +100,33 @@ class Interim(Filter):
         return self._df.table(subcorpora=self.column, show=entry, *args, **kwargs)
 
 
+class Proto(Filter):
+    """
+    Interim getter
+
+    dataset.prototypical.text.by.speaker
+    """
+
+    @property
+    def by(self):
+        """
+        df.see.x.by.y
+        """
+        return Proto(self._df, self.column)
+
+    @property
+    def showing(self):
+        return Proto(self._df, self.column)
+
+    def __call__(self, show=['w'], top=10, n_top_members=-1, only_correct=True):
+        if not isinstance(show, list):
+            show = [show]
+        show = [_get_short_name_from_long_name(i) for i in show]
+        return self._df.prototypical(
+            self.column, show=show, top=top, n_top_members=n_top_members, only_correct=only_correct
+        )
+
+
 class Finder(Filter):
     """
     Interim for searching
@@ -145,6 +172,16 @@ class Just(Slice):
 
     def _grab(self, colname, *args):
         return Filter(self._df, colname)
+
+
+@pd.api.extensions.register_dataframe_accessor('proto')
+class Prototypical(Slice):
+    """
+    LoadedCorpus.just.speakers.MOOKIE -- filter df
+    """
+
+    def _grab(self, colname, *args):
+        return Proto(self._df, colname)
 
 
 @pd.api.extensions.register_dataframe_accessor('skip')
