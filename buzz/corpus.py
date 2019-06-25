@@ -84,15 +84,13 @@ class Corpus(MutableSequence):
         """
         Search constituency parses using tgrep
         """
-        searcher = Searcher(self)
-        return searcher.run('t', query, **kwargs)
+        return Searcher().run(self, 't', query, **kwargs)
 
     def depgrep(self, query, **kwargs):
         """
         Search dependencies using depgrep
         """
-        searcher = Searcher(self)
-        return searcher.run('d', query, **kwargs)
+        return Searcher().run(self, 'd', query, **kwargs)
 
     @property
     def metadata(self):
