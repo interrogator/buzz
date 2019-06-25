@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 17
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor sits on his stoop and a kid, EDDIE, runs by.  Sonny!
 # time = DAY
@@ -45,6 +46,7 @@
 # sent_id = 3
 # sent_len = 3
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie stops.
 # time = DAY
@@ -369,6 +371,7 @@
 # sent_id = 20
 # sent_len = 6
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = He gives Eddie some money.
 # time = DAY
@@ -418,6 +421,7 @@
 # sent_id = 22
 # sent_len = 18
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie runs down the block just as Ahmad, Cee, Punchy, and Ella pass him.
 # time = DAY
@@ -622,6 +626,7 @@
 # sent_id = 33
 # sent_len = 12
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor stands up from his seat cushion on the stoop.
 # time = DAY
@@ -855,6 +860,7 @@
 # sent_id = 43
 # sent_len = 7
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = The teenagers look at Da Mayor.
 # time = DAY
@@ -889,6 +895,7 @@
 # sent_id = 45
 # sent_len = 13
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor sits back down on his seat cushion on his stoop.
 # time = DAY

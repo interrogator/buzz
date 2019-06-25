@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 10
 # setting = DA MAYOR'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor has fallen asleep sitting on his stoop.
 # time = DAY
@@ -24,6 +25,7 @@
 # sent_id = 2
 # sent_len = 17
 # setting = DA MAYOR'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = His hands loosely hold a brown paper bag that is tightly twisted around a beer can.
 # time = DAY

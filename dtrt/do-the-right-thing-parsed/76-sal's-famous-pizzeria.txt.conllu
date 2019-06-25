@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Officers Ponte and Long are awaiting their orders.
 # time = NIGHT
@@ -72,6 +73,7 @@
 # sent_id = 5
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal goes over to the oven, takes out their food and wraps it up.
 # time = NIGHT
@@ -210,6 +212,7 @@
 # sent_id = 13
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The officers leave just as Mookie enters.
 # time = NIGHT
@@ -427,6 +430,7 @@
 # sent_id = 23
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = While Sal laughs at his corny joke, Pino pulls Vito into the back.
 # time = NIGHT

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 2
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = DAY
@@ -16,6 +17,7 @@
 # sent_id = 2
 # sent_len = 23
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Out is walking down the block when CLIFTON, a yuppie, accidentally bumps into him, stepping on his new sneakers.
 # time = DAY
@@ -49,6 +51,7 @@
 # sent_id = 3
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks at his sneakers.
 # time = DAY
@@ -65,6 +68,7 @@
 # sent_id = 4
 # sent_len = 14
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = There is a big black smudge on his new white unlaced Air Jordans.
 # time = DAY
@@ -89,6 +93,7 @@
 # sent_id = 5
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He runs down the block after Clifton.
 # time = DAY
@@ -107,6 +112,7 @@
 # sent_id = 6
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks at his sneakers.
 # time = DAY
@@ -123,6 +129,7 @@
 # sent_id = 7
 # sent_len = 14
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = There is a big black smudge on his new white unlaced Air Jordans.
 # time = DAY
@@ -147,6 +154,7 @@
 # sent_id = 8
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He runs down the block after Clifton.
 # time = DAY
@@ -165,6 +173,7 @@
 # sent_id = 9
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He runs down the block after Clifton.
 # time = DAY
@@ -197,6 +206,7 @@
 # sent_id = 11
 # sent_len = 4
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Clifton turns around.
 # time = DAY
@@ -366,6 +376,7 @@
 # sent_id = 20
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = This commotion has attracted a crowd, including Ahmad, Cee, Punchy, and Ella.
 # time = DAY
@@ -533,6 +544,7 @@
 # sent_id = 27
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The crowd likes that one and they laugh and egg him on.
 # time = DAY
@@ -642,6 +654,7 @@
 # sent_id = 32
 # sent_len = 3
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = AWWW SHIT!
 # time = DAY
@@ -655,6 +668,7 @@
 # sent_id = 33
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Why did he get Buggin' started?
 # time = DAY
@@ -697,6 +711,7 @@
 # sent_id = 35
 # sent_len = 2
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = DAY
@@ -709,6 +724,7 @@
 # sent_id = 36
 # sent_len = 9
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Out looks down at his marred Air Jordans.
 # time = DAY
@@ -728,6 +744,7 @@
 # sent_id = 37
 # sent_len = 11
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The crowd, smelling blood, wants to see some.
 # time = DAY
@@ -1041,6 +1058,7 @@
 # sent_id = 53
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The crowd gives their approval.
 # time = DAY

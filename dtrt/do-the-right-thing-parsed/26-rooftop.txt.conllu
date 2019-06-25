@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 18
 # setting = ROOFTOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Cee and Punchy look down from a roof on all the havoc and confusion they've started.
 # time = DAY
@@ -32,6 +33,7 @@
 # sent_id = 2
 # sent_len = 3
 # setting = ROOFTOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Both laugh.
 # time = DAY

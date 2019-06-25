@@ -771,6 +771,7 @@
 # sent_id = 41
 # sent_len = 3
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = THE BLOCK.
 # time = NIGHT
@@ -784,6 +785,7 @@
 # sent_id = 42
 # sent_len = 14
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = WE'VE SEEN it at daytime, but now WE SEE it at night.
 # time = NIGHT
@@ -808,6 +810,7 @@
 # sent_id = 43
 # sent_len = 17
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Even though the white-hot sun is gone, nonetheless the heat is still stifling.
 # time = NIGHT
@@ -835,6 +838,7 @@
 # sent_id = 44
 # sent_len = 14
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = And in a peculiar, funny sort of way, it's worse.
 # time = NIGHT
@@ -859,6 +863,7 @@
 # sent_id = 45
 # sent_len = 41
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = You expect it to be hot during the light of day when the sun is beating down on the cement and tar, but at night it should be considerably cooler; well, not tonight, it's hot.
 # time = NIGHT
@@ -910,6 +915,7 @@
 # sent_id = 46
 # sent_len = 47
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = All the residents of The Block: the Corner Men, Mother Sister, Da Mayor, Jade, etc., all the people WE'VE SEEN throughout the day are now coping with the night-time heat, plus it's humid as shit.
 # time = NIGHT
@@ -967,6 +973,7 @@
 # sent_id = 47
 # sent_len = 10
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Everyone is outside, sitting on stoops, on cars
 # time = NIGHT
@@ -987,6 +994,7 @@
 # sent_id = 48
 # sent_len = 15
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = and you know the kids are playing, running up and down the block.
 # time = NIGHT
@@ -1012,6 +1020,7 @@
 # sent_id = 49
 # sent_len = 10
 # setting = STOREROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Now it's the hottest night of the year.
 # time = NIGHT

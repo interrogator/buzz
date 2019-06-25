@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 10
 # setting = HALLWAY
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie rings the bell and a fine Puerto Rican sister
 # time = NIGHT
@@ -24,6 +25,7 @@
 # sent_id = 2
 # sent_len = 4
 # setting = HALLWAY
+# speaker = stage_direction
 # stage_direction = True
 # text = answers the door.
 # time = NIGHT

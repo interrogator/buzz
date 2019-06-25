@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 15
 # setting = MOOKIE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = We hear a key in the door, the lock turns and Mookie enters.
 # time = DAY

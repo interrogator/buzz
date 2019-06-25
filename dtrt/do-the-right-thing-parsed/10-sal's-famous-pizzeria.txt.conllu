@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor sweeps the sidewalk, happy as can be.
 # time = DAY
@@ -25,6 +26,7 @@
 # sent_id = 2
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = As soon as he finishes he can get that money and get that bottle.
 # time = DAY

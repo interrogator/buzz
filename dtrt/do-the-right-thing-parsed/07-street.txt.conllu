@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The Block is beginning to come to life.
 # time = DAY
@@ -23,6 +24,7 @@
 # sent_id = 2
 # sent_len = 32
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Those unlucky souls who have to work this Saturday drag themselves to it, and the kids are out on the street to play in the hot sun all day long.
 # time = DAY

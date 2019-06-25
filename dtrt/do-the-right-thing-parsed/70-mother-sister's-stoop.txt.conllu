@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 15
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor is walking by Mother Sister in her window when she calls him.
 # time = NIGHT
@@ -50,6 +51,7 @@
 # sent_id = 3
 # sent_len = 8
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor stops and looks at her.
 # time = NIGHT
@@ -68,6 +70,7 @@
 # sent_id = 4
 # sent_len = 18
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = A smile comes to his face; after eighteen years has he finally broken down her defenses?
 # time = NIGHT
@@ -442,6 +445,7 @@
 # sent_id = 19
 # sent_len = 6
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor tips his hat.
 # time = NIGHT

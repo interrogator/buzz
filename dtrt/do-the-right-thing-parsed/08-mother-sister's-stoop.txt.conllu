@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie stops to say hello to MOTHER SISTER.
 # time = DAY
@@ -23,6 +24,7 @@
 # sent_id = 2
 # sent_len = 10
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = She leans out her window on the parlor floor.
 # time = DAY
@@ -43,6 +45,7 @@
 # sent_id = 3
 # sent_len = 21
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = In the summertime, the only time when she's not perched in her window is when she's asleep.
 # time = DAY

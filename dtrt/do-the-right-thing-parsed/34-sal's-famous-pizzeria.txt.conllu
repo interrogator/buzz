@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie and Vito enter the shop.
 # time = DAY
@@ -191,6 +192,7 @@
 # sent_id = 11
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito stands frozen in front of his brother.
 # time = DAY
@@ -268,6 +270,7 @@
 # sent_id = 15
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito walks away and Mookie is disgusted.
 # time = DAY

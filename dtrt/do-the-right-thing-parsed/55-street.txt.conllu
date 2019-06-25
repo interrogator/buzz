@@ -216,6 +216,7 @@
 # sent_id = 12
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = CLOSE--AHMAD, CEE, PUNCHY, and ELLA
 # time = DAY
@@ -236,6 +237,7 @@
 # sent_id = 13
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = They DOG him out (ADLIB)
 # time = DAY

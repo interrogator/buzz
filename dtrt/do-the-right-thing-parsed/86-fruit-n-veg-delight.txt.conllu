@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 17
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob now moves across the street in front of the Korean fruit and vegetable stand.
 # time = NIGHT
@@ -31,6 +32,7 @@
 # sent_id = 2
 # sent_len = 17
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = Sweet Dick Willie, Coconut Sid, and ML stand at the head of the mob.
 # time = NIGHT
@@ -75,6 +77,7 @@
 # sent_id = 4
 # sent_len = 18
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = He's scared to death, as the mob is poised to tear his place up too.
 # time = NIGHT
@@ -103,6 +106,7 @@
 # sent_id = 5
 # sent_len = 11
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = The clerk wildly swings a broom to hold them off.
 # time = NIGHT
@@ -124,6 +128,7 @@
 # sent_id = 6
 # sent_len = 18
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = He's scared to death, as the mob is poised to tear his place up too.
 # time = NIGHT
@@ -152,6 +157,7 @@
 # sent_id = 7
 # sent_len = 11
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = The clerk wildly swings a broom to hold them off.
 # time = NIGHT
@@ -280,6 +286,7 @@
 # sent_id = 15
 # sent_len = 11
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob starts to laugh; they feel for him.
 # time = NIGHT

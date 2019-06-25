@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 17
 # setting = DA MAYOR'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = An old, grizzled man stirs in the bed, his sheets are soaked with sweat.
 # time = DAY
@@ -31,6 +32,7 @@
 # sent_id = 2
 # sent_len = 8
 # setting = DA MAYOR'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = He flings them off his wet body.
 # time = DAY

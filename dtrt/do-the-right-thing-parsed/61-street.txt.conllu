@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 19
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem is walking down the block and there is something wrong, something is not quite right.
 # time = DUSK
@@ -33,6 +34,7 @@
 # sent_id = 2
 # sent_len = 2
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = AHA!
 # time = DUSK
@@ -45,6 +47,7 @@
 # sent_id = 3
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = His music is not loud; the rap song begins to drag and finally stops altogether.
 # time = DUSK
@@ -72,6 +75,7 @@
 # sent_id = 4
 # sent_len = 12
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks at his box and presses the battery level indicator.
 # time = DUSK
@@ -94,6 +98,7 @@
 # sent_id = 5
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The needle doesn't move.
 # time = DUSK
@@ -110,6 +115,7 @@
 # sent_id = 6
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = His batteries have had it.
 # time = DUSK

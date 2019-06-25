@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 20
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie jumps out of her bed; Tina sleeps by his side and their son Hector is between them.
 # time = DAY
@@ -200,6 +201,7 @@
 # sent_id = 11
 # sent_len = 7
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie is putting on his clothes.
 # time = DAY
@@ -396,6 +398,7 @@
 # sent_id = 22
 # sent_len = 3
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie leaves.
 # time = DAY

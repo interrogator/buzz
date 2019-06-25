@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = DAY
@@ -16,6 +17,7 @@
 # sent_id = 2
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out sticks his head in and yells:
 # time = DAY
@@ -57,6 +59,7 @@
 # sent_id = 4
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Before Sal and his two sons can answer, Buggin' Out is gone.
 # time = DAY

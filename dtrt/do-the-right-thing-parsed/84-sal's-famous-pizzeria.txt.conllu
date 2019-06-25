@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal's Famous Pizzeria is going up in flames and now it's a carnival.
 # time = NIGHT
@@ -62,6 +63,7 @@
 # sent_id = 4
 # sent_len = 34
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = One might have thought that the elders--who through the years have been broken down, whipped, their spirits crushed, beaten into submission--would be docile, strictly onlookers.
 # time = NIGHT
@@ -106,6 +108,7 @@
 # sent_id = 5
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = That's not true except for Da Mayor.
 # time = NIGHT
@@ -125,6 +128,7 @@
 # sent_id = 6
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The rest of the elders are right up in it with the young people.
 # time = NIGHT

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie enters.
 # time = NIGHT
@@ -124,6 +125,7 @@
 # sent_id = 6
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie takes the pie and looks at the address.
 # time = NIGHT

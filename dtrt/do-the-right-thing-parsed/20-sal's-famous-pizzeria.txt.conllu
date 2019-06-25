@@ -93,6 +93,7 @@
 # sent_id = 6
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = They give each other five.
 # time = DAY

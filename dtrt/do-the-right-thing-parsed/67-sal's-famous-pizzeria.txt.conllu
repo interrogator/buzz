@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 17
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal sits at a table talking to Jade as she finishes her "special" slice.
 # time = DUSK
@@ -63,6 +64,7 @@
 # sent_id = 4
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito, Pino, and Mookie look on, watching Sal have the time of his life.
 # time = DUSK
@@ -105,6 +107,7 @@
 # sent_id = 6
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade gets up and Mookie helps her.
 # time = DUSK

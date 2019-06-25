@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 13
 # setting = WE LOVE RADIO
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie and Vito wave at Mister Señor Love Daddy through the storefront window
 # time = DAY
@@ -27,6 +28,7 @@
 # sent_id = 2
 # sent_len = 6
 # setting = WE LOVE RADIO
+# speaker = stage_direction
 # stage_direction = True
 # text = and he buzzes them in.
 # time = DAY

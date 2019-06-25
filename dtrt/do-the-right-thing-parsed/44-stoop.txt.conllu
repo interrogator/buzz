@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 5
 # setting = STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie runs up stoop.
 # time = DAY

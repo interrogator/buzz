@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 14
 # setting = BATHROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie turns on the shower and screams; the water is ice cold.
 # time = DAY

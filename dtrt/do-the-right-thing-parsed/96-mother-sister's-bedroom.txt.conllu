@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 19
 # setting = MOTHER SISTER'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor wakes up in Mother Sister's big brass bed (she was born in it).
 # time = DAY
@@ -33,6 +34,7 @@
 # sent_id = 2
 # sent_len = 24
 # setting = MOTHER SISTER'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = At first he has no idea where he's at, then sees Mother Sister sitting down across the room smiling at him.
 # time = DAY
@@ -153,6 +155,7 @@
 # sent_id = 8
 # sent_len = 11
 # setting = MOTHER SISTER'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor gets up out of her big brass bed.
 # time = DAY
@@ -244,6 +247,7 @@
 # sent_id = 13
 # sent_len = 18
 # setting = MOTHER SISTER'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor and Mother Sister both look out the parlor window to see THE BLOCK and Mookie.
 # time = DAY

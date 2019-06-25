@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal takes a seat at one of the tables.
 # time = DAY
@@ -40,6 +41,7 @@
 # sent_id = 3
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino sits down next to his father.
 # time = DAY
@@ -351,6 +353,7 @@
 # sent_id = 17
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino is quiet.
 # time = DAY

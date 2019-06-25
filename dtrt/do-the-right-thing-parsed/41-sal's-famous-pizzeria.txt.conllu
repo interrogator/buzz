@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem enters Sal's with music blaring.
 # time = DAY
@@ -137,6 +138,7 @@
 # sent_id = 8
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal grabs his Mickey Mantle bat from underneath the counter.
 # time = DAY
@@ -158,6 +160,7 @@
 # sent_id = 9
 # sent_len = 24
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Everyone, Sal, Vito, Pino, Radio Raheem, and the customers are poised for something to jump off, STATIC.
 # time = DAY
@@ -192,6 +195,7 @@
 # sent_id = 10
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He smiles and turns off the beat.
 # time = DAY
@@ -210,6 +214,7 @@
 # sent_id = 11
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He smiles and turns off the beat.
 # time = DAY
@@ -246,6 +251,7 @@
 # sent_id = 13
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal puts Mickey Mantle back into its place.
 # time = DAY
@@ -265,6 +271,7 @@
 # sent_id = 14
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal puts Mickey Mantle back into its place.
 # time = DAY

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 16
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade sits in a chair directly in front of an air conditioner going full blast.
 # time = DAY

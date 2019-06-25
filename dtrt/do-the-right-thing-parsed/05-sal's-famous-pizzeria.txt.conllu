@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = A 1975 El Dorado pulls up in front of the neighborhood pizzeria--Sal's Famous Pizzeria.
 # time = DAY
@@ -32,6 +33,7 @@
 # sent_id = 2
 # sent_len = 34
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = From out of the car comes the owner, SAL, a slightly overweight man in his early fifties, and his two sons, PINO, 22, and VITO, 20.
 # time = DAY
@@ -76,6 +78,7 @@
 # sent_id = 3
 # sent_len = 21
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's time for them to go to work at Sal's Famous Pizzeria in the heart of Black Brooklyn.
 # time = DAY
@@ -107,6 +110,7 @@
 # sent_id = 4
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal's sits on the corner of The Block.
 # time = DAY
@@ -127,6 +131,7 @@
 # sent_id = 5
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The Block being where this film on the hottest day of the summer takes place.
 # time = DAY
@@ -153,6 +158,7 @@
 # sent_id = 6
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino kicks a beer can in his path into the gutter.
 # time = DAY
@@ -175,6 +181,7 @@
 # sent_id = 7
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino kicks a beer can in his path into the gutter.
 # time = DAY
@@ -492,6 +499,7 @@
 # sent_id = 24
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino is now silent.
 # time = DAY
@@ -507,6 +515,7 @@
 # sent_id = 25
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal walks over to him.
 # time = DAY

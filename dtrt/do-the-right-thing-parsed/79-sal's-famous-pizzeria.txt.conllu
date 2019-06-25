@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito, Pino and Mookie are cleaning up.
 # time = NIGHT
@@ -67,6 +68,7 @@
 # sent_id = 4
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal is looking into the cash register.
 # time = NIGHT
@@ -206,6 +208,7 @@
 # sent_id = 10
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = All three look at each other.
 # time = NIGHT
@@ -223,6 +226,7 @@
 # sent_id = 11
 # sent_len = 30
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The horror is on their faces, with the prospect of working, slaving in Sal's and Sons Famous Pizzeria, trapped for the rest of their lives.
 # time = NIGHT
@@ -263,6 +267,7 @@
 # sent_id = 12
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Is this their future?
 # time = NIGHT
@@ -278,6 +283,7 @@
 # sent_id = 13
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's a frightening thought.
 # time = NIGHT
@@ -294,6 +300,7 @@
 # sent_id = 14
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Ahmad, Cee, Punchy, and Ella enter.
 # time = NIGHT
@@ -418,6 +425,7 @@
 # sent_id = 21
 # sent_len = 17
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie goes over to the table where Ahmad, Cee, Punchy, and Ella sit.
 # time = NIGHT
@@ -550,6 +558,7 @@
 # sent_id = 28
 # sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = OH NO!
 # time = NIGHT
@@ -563,6 +572,7 @@
 # sent_id = 29
 # sent_len = 14
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = We hear the dum-dum-dum of Radio Raheem's box.
 # time = NIGHT
@@ -587,6 +597,7 @@
 # sent_id = 30
 # sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = As everyone turns their heads to the door, Buggin' Out and Radio Raheem are inside already.
 # time = NIGHT
@@ -616,6 +627,7 @@
 # sent_id = 31
 # sent_len = 14
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = We have never heard the rap music as loud as it is now.
 # time = NIGHT
@@ -640,6 +652,7 @@
 # sent_id = 32
 # sent_len = 14
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = You have to scream to be heard and that's what they do.
 # time = NIGHT
@@ -815,6 +828,7 @@
 # sent_id = 41
 # sent_len = 24
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Ahmad, Cee, Punchy, and Ella start to dance while Mookie takes a seat, the impartial observer that he is.
 # time = NIGHT
@@ -1028,6 +1042,7 @@
 # sent_id = 51
 # sent_len = 26
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal grabs his Mickey Mantle bat from underneath the counter and brings it down on Radio Raheem's box, again and again and again.
 # time = NIGHT
@@ -1064,6 +1079,7 @@
 # sent_id = 52
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The music stops.
 # time = NIGHT
@@ -1078,6 +1094,7 @@
 # sent_id = 53
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem's pride and joy is smashed to smithereens.
 # time = NIGHT
@@ -1099,6 +1116,7 @@
 # sent_id = 54
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's going to the junkyard quick.
 # time = NIGHT
@@ -1117,6 +1135,7 @@
 # sent_id = 55
 # sent_len = 27
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = There is an eerie quiet as everyone is frozen, surprised by the suddenness of Sal's action, the swings of his Mickey Mantle bat.
 # time = NIGHT
@@ -1154,6 +1173,7 @@
 # sent_id = 56
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = All look at Radio Raheem and realize what is about to happen.
 # time = NIGHT
@@ -1177,6 +1197,7 @@
 # sent_id = 57
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem screams, he goes crazy.
 # time = NIGHT
@@ -1195,6 +1216,7 @@
 # sent_id = 58
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem's pride and joy is smashed to smithereens.
 # time = NIGHT
@@ -1216,6 +1238,7 @@
 # sent_id = 59
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's going to the junkyard quick.
 # time = NIGHT
@@ -1234,6 +1257,7 @@
 # sent_id = 60
 # sent_len = 27
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = There is an eerie quiet as everyone is frozen, surprised by the suddenness of Sal's action, the swings of his Mickey Mantle bat.
 # time = NIGHT
@@ -1271,6 +1295,7 @@
 # sent_id = 61
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = All look at Radio Raheem and realize what is about to happen.
 # time = NIGHT
@@ -1294,6 +1319,7 @@
 # sent_id = 62
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem screams, he goes crazy.
 # time = NIGHT
@@ -1312,6 +1338,7 @@
 # sent_id = 63
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem screams, he goes crazy.
 # time = NIGHT
@@ -1345,6 +1372,7 @@
 # sent_id = 65
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem picks Sal up from behind the counter and starts to choke his ass.
 # time = NIGHT
@@ -1371,6 +1399,7 @@
 # sent_id = 66
 # sent_len = 37
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem's prized possession--his box, the only thing he owned of value--his box, the one thing that gave him any sense of worth--has been smashed to bits.
 # time = NIGHT
@@ -1418,6 +1447,7 @@
 # sent_id = 67
 # sent_len = 22
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = (Radio Raheem, like many Black youth, is the victim of materialism and a misplaced sense of values.)
 # time = NIGHT
@@ -1450,6 +1480,7 @@
 # sent_id = 68
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Now he doesn't give a fuck anymore.
 # time = NIGHT
@@ -1469,6 +1500,7 @@
 # sent_id = 69
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He's gonna make Sal pay with his life.
 # time = NIGHT
@@ -1490,6 +1522,7 @@
 # sent_id = 70
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito and Pino jump on Radio Raheem, who only tightens his grip around Sal's neck.
 # time = NIGHT
@@ -1518,6 +1551,7 @@
 # sent_id = 71
 # sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = NIGHT
@@ -1530,6 +1564,7 @@
 # sent_id = 72
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out tries to help his friend.
 # time = NIGHT
@@ -1547,6 +1582,7 @@
 # sent_id = 73
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie just stands and watches as Ahmad, Cee, Punchy, and Ella cheerlead.
 # time = NIGHT

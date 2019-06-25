@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 24
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The tangled mass of choking, biting, kicking, screaming confusion flies through the door of Sal's out onto the sidewalk.
 # time = NIGHT
@@ -38,6 +39,7 @@
 # sent_id = 2
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The kid yells:
 # time = NIGHT
@@ -52,6 +54,7 @@
 # sent_id = 3
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The kid yells:  Fight!
 # time = NIGHT
@@ -82,6 +85,7 @@
 # sent_id = 5
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks up.
 # time = NIGHT
@@ -96,6 +100,7 @@
 # sent_id = 6
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = She looks up.
 # time = NIGHT
@@ -110,6 +115,7 @@
 # sent_id = 7
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He also looks up.
 # time = NIGHT
@@ -125,6 +131,7 @@
 # sent_id = 8
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The people on The Block run to Sal's Famous Pizzeria to see the STATIC.
 # time = NIGHT
@@ -151,6 +158,7 @@
 # sent_id = 9
 # sent_len = 36
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem, Buggin' Out, Sal, Vito, and Pino are still entangled, rolling around on the sidewalk, but now before an entertained crowd of onlookers:  Break it up.
 # time = NIGHT
@@ -213,6 +221,7 @@
 # sent_id = 11
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The fight continues.
 # time = NIGHT
@@ -227,6 +236,7 @@
 # sent_id = 12
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor is smart enough not to get in the middle of this war.
 # time = NIGHT
@@ -252,6 +262,7 @@
 # sent_id = 13
 # sent_len = 22
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = We hear sirens, somebody has called The cop cars come right through the crowd, almost running over some people.
 # time = NIGHT
@@ -284,6 +295,7 @@
 # sent_id = 14
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The cops get out with nightsticks and guns drawn.
 # time = NIGHT
@@ -304,6 +316,7 @@
 # sent_id = 15
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = WE RECOGNIZE two of the faces, Officers Long and Ponte.
 # time = NIGHT
@@ -326,6 +339,7 @@
 # sent_id = 16
 # sent_len = 30
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Any time there is a skirmish between a Black man and a white man, you can bet the house on who the copes are gonna go for.
 # time = NIGHT
@@ -366,6 +380,7 @@
 # sent_id = 17
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = You know the deal!
 # time = NIGHT
@@ -381,6 +396,7 @@
 # sent_id = 18
 # sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = NIGHT
@@ -393,6 +409,7 @@
 # sent_id = 19
 # sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out is pulled off first, then Vito and Pino, but Radio Raheem is a crazed man.
 # time = NIGHT
@@ -422,6 +439,7 @@
 # sent_id = 20
 # sent_len = 21
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It takes all six cops to pull him off Sal, who is red as a beet from being choked.
 # time = NIGHT
@@ -453,6 +471,7 @@
 # sent_id = 21
 # sent_len = 24
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Handcuffs are put on Buggin' Out as he watches the other cops put a choke hold on Radio Raheem to restrain him.
 # time = NIGHT
@@ -487,6 +506,7 @@
 # sent_id = 22
 # sent_len = 30
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem is still struggling, then he just stops, his body goes limp and he falls to the sidewalk like a fifty- pound bag of Idaho potatoes.
 # time = NIGHT
@@ -527,6 +547,7 @@
 # sent_id = 23
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Officers Long and Ponte kick him.
 # time = NIGHT
@@ -574,6 +595,7 @@
 # sent_id = 26
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem just lies there like a bump on a log.
 # time = NIGHT
@@ -596,6 +618,7 @@
 # sent_id = 27
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The crowd stares at Radio Raheem's still body.
 # time = NIGHT
@@ -616,6 +639,7 @@
 # sent_id = 28
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He's unconscious or dead.
 # time = NIGHT
@@ -647,6 +671,7 @@
 # sent_id = 30
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The officers all look at each other.
 # time = NIGHT
@@ -665,6 +690,7 @@
 # sent_id = 31
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = They know, they know exactly what they've done.
 # time = NIGHT
@@ -686,6 +712,7 @@
 # sent_id = 32
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The infamous Michael Stewart choke hold.
 # time = NIGHT
@@ -722,6 +749,7 @@
 # sent_id = 34
 # sent_len = 17
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The officers pick up Radio Raheem's limp body and throw him into the back seat.
 # time = NIGHT
@@ -749,6 +777,7 @@
 # sent_id = 35
 # sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = NIGHT
@@ -761,6 +790,7 @@
 # sent_id = 36
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out is pushed into another car.
 # time = NIGHT
@@ -778,6 +808,7 @@
 # sent_id = 37
 # sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The cop cars speed off; in their haste to beat it, they have left the crowd.
 # time = NIGHT
@@ -807,6 +838,7 @@
 # sent_id = 38
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's at this point the crowd becomes an angry mob.
 # time = NIGHT
@@ -829,6 +861,7 @@
 # sent_id = 39
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob looks at...
 # time = NIGHT
@@ -844,6 +877,7 @@
 # sent_id = 40
 # sent_len = 23
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal still on the sidewalk, being helped to his feet by Vito and Pino, who are in bad shape themselves.
 # time = NIGHT
@@ -877,6 +911,7 @@
 # sent_id = 41
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The mood/tone of the mob is getting ugly.
 # time = NIGHT
@@ -898,6 +933,7 @@
 # sent_id = 42
 # sent_len = 20
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Once again they have seen one of their own killed before their eyes at the hands of the cops.
 # time = NIGHT
@@ -928,6 +964,7 @@
 # sent_id = 43
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = We hear the murmurs of the folks go through the crowd.
 # time = NIGHT
@@ -1172,6 +1209,7 @@
 # sent_id = 59
 # sent_len = 32
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The cops, in their haste to get Radio Raheem out of there, have left an angry mob of Black folks with a defenseless Sal, Vito, and Pino.
 # time = NIGHT
@@ -1214,6 +1252,7 @@
 # sent_id = 60
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob looks at them.
 # time = NIGHT
@@ -1341,6 +1380,7 @@
 # sent_id = 67
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He leaves Sal and his two sons.
 # time = NIGHT
@@ -1360,6 +1400,7 @@
 # sent_id = 68
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor walks in front of the crowd.
 # time = NIGHT
@@ -1550,6 +1591,7 @@
 # sent_id = 77
 # sent_len = 14
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie picks up a garbage can and dumps it out into the street.
 # time = NIGHT
@@ -1574,6 +1616,7 @@
 # sent_id = 78
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He walks through the crowd, up to Da Mayor, Sal, Vito, and Pino.
 # time = NIGHT
@@ -1602,6 +1645,7 @@
 # sent_id = 79
 # sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He screams.
 # time = NIGHT
@@ -1615,6 +1659,7 @@
 # sent_id = 80
 # sent_len = 3
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He screams.
 # time = NIGHT
@@ -1657,6 +1702,7 @@
 # sent_id = 83
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie hurls the garbage can through the plate glass window of Sal's Famous Pizzeria.
 # time = NIGHT
@@ -1683,6 +1729,7 @@
 # sent_id = 84
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = That's it.
 # time = NIGHT
@@ -1697,6 +1744,7 @@
 # sent_id = 85
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = All hell breaks loose.
 # time = NIGHT
@@ -1712,6 +1760,7 @@
 # sent_id = 86
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The dam has been unplugged, broke.
 # time = NIGHT
@@ -1730,6 +1779,7 @@
 # sent_id = 87
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The rage of a people has been unleashed, a fury.
 # time = NIGHT
@@ -1752,6 +1802,7 @@
 # sent_id = 88
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = A lone garbage can thrown through the air has released a tidal wave of frustration.
 # time = NIGHT
@@ -1778,6 +1829,7 @@
 # sent_id = 89
 # sent_len = 23
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor pushes Sal, Vito, and Pino out of the way as the mob storms into Sal's Famous Pizzeria.
 # time = NIGHT

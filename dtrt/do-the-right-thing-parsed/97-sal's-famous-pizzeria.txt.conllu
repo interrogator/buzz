@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 17
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie walks up to Sal's Famous Pizzeria as it still smoulders in the morning light.
 # time = DAY
@@ -31,6 +32,7 @@
 # sent_id = 2
 # sent_len = 15
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal emerges from the wreckage; he looks like he might have slept there.
 # time = DAY
@@ -108,6 +110,7 @@
 # sent_id = 6
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal looks at Mookie in disbelief.
 # time = DAY
@@ -513,6 +516,7 @@
 # sent_id = 26
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal has had it.
 # time = DAY
@@ -593,6 +597,7 @@
 # sent_id = 31
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal pulls out a wad and quickly peels off hundred dollar bills.
 # time = DAY
@@ -638,6 +643,7 @@
 # sent_id = 33
 # sent_len = 22
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal throws the "C" notes at Mookie, they hit him in the chest and fall to the sidewalk.
 # time = DAY
@@ -784,6 +790,7 @@
 # sent_id = 39
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie is stunned by Sal's outburst.
 # time = DAY
@@ -802,6 +809,7 @@
 # sent_id = 40
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He picks up the bills.
 # time = DAY
@@ -911,6 +919,7 @@
 # sent_id = 46
 # sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Both look at the two hundred-dollar bills on the sidewalk and refuse to pick them up.
 # time = DAY
@@ -940,6 +949,7 @@
 # sent_id = 47
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's a stalemate.
 # time = DAY
@@ -976,6 +986,7 @@
 # sent_id = 49
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie counts his money.
 # time = DAY
@@ -1235,6 +1246,7 @@
 # sent_id = 63
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie turns around and goes back.
 # time = DAY
@@ -1354,6 +1366,7 @@
 # sent_id = 70
 # sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie thinks about it, looks at the two "C" notes still smiling up at him.
 # time = DAY
@@ -1383,6 +1396,7 @@
 # sent_id = 71
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He quickly scoops them up.
 # time = DAY

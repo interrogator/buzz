@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 10
 # setting = BATHROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie pulls the shower curtain back and steps out.
 # time = DAY

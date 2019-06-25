@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 2
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = NIGHT
@@ -16,6 +17,7 @@
 # sent_id = 2
 # sent_len = 19
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Out sits down on a car next to Radio Raheem; as usual, his box is blasting.
 # time = NIGHT

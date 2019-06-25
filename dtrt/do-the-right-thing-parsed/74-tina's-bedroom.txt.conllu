@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 31
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie sits Tina down on her futon bed, turns off the lights, and turns on WE LOVE RADIO as Mister Señor Love Daddy serenades them with slow jams.
 # time = NIGHT
@@ -150,6 +151,7 @@
 # sent_id = 7
 # sent_len = 6
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = He laughs his sinister laugh.
 # time = NIGHT
@@ -166,6 +168,7 @@
 # sent_id = 8
 # sent_len = 11
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie unsnaps her bra, then pulls her panties off.
 # time = NIGHT
@@ -187,6 +190,7 @@
 # sent_id = 9
 # sent_len = 7
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina is naked as a jaybird.
 # time = NIGHT
@@ -204,6 +208,7 @@
 # sent_id = 10
 # sent_len = 11
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie unsnaps her bra, then pulls her panties off.
 # time = NIGHT
@@ -225,6 +230,7 @@
 # sent_id = 11
 # sent_len = 7
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina is naked as a jaybird.
 # time = NIGHT
@@ -337,6 +343,7 @@
 # sent_id = 17
 # sent_len = 4
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = He gets up.
 # time = NIGHT
@@ -351,6 +358,7 @@
 # sent_id = 18
 # sent_len = 20
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie walks into the kitchen and sees CARMEN, Tina's mother, fixing some food on the stove.
 # time = NIGHT
@@ -398,6 +406,7 @@
 # sent_id = 20
 # sent_len = 4
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Carmen stares at him
 # time = NIGHT
@@ -412,6 +421,7 @@
 # sent_id = 21
 # sent_len = 27
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = , it's a look that would definitely stop traffic, she mutters some Spanish and goes into her bedroom, slamming the door behind her.
 # time = NIGHT
@@ -449,6 +459,7 @@
 # sent_id = 22
 # sent_len = 13
 # setting = TINA'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = He opens the refrigerator and takes out all the trays of ice.
 # time = NIGHT

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 6
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina watches Mookie watch her.
 # time = NIGHT
@@ -20,6 +21,7 @@
 # sent_id = 2
 # sent_len = 20
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = When she's through watching, she takes the pizza from his hands and puts it on the floor.
 # time = NIGHT
@@ -50,6 +52,7 @@
 # sent_id = 3
 # sent_len = 8
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie grabs her and starts to kiss.
 # time = NIGHT
@@ -68,6 +71,7 @@
 # sent_id = 4
 # sent_len = 17
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina is Mookie's woman, the one he's been on the phone with earlier.
 # time = NIGHT
@@ -95,6 +99,7 @@
 # sent_id = 5
 # sent_len = 11
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = We've heard the voice and now SEE the person.
 # time = NIGHT
@@ -679,6 +684,7 @@
 # sent_id = 36
 # sent_len = 8
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie pushes Tina back into her bedroom.
 # time = NIGHT

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The people rush into Sal's Famous Pizzeria, tearing it up.
 # time = NIGHT
@@ -27,6 +28,7 @@
 # sent_id = 2
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The cash register is opened.
 # time = NIGHT
@@ -43,6 +45,7 @@
 # sent_id = 3
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = WE SEE only coins, Sal has the paper.
 # time = NIGHT

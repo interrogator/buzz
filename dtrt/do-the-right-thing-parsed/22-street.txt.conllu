@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 20
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie walks down the block with pizza box in hand when he sees Da Mayor sitting on his stoop.
 # time = DAY
@@ -80,6 +81,7 @@
 # sent_id = 5
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie turns around and goes back.
 # time = DAY

@@ -66,6 +66,7 @@
 # sent_id = 4
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie has nothing to say.
 # time = DAY
@@ -127,6 +128,7 @@
 # sent_id = 7
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade enters, and Sal looks up.
 # time = DAY
@@ -145,6 +147,7 @@
 # sent_id = 8
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He stops blasting Mookie and a very noticeable change comes over him.
 # time = DAY
@@ -430,6 +433,7 @@
 # sent_id = 23
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal moves behind the counter and goes to work.
 # time = DAY
@@ -450,6 +454,7 @@
 # sent_id = 24
 # sent_len = 17
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino and Mookie look at each other in agreement, neither likes what he has seen.
 # time = DAY
@@ -477,6 +482,7 @@
 # sent_id = 25
 # sent_len = 14
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = This happens to Sal every time Jade is in Sal's Famous Pizzeria.
 # time = DAY
@@ -501,6 +507,7 @@
 # sent_id = 26
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito sits down with Jade.
 # time = DAY

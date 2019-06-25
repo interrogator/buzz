@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem is back in action.
 # time = DUSK
@@ -21,6 +22,7 @@
 # sent_id = 2
 # sent_len = 14
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He's alive, he's bad and he got his twenty "D
 # time = DUSK
@@ -45,6 +47,7 @@
 # sent_id = 3
 # sent_len = 9
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = " Duracell batteries, his box is kicking.
 # time = DUSK
@@ -64,6 +67,7 @@
 # sent_id = 4
 # sent_len = 14
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem bops by Coconut Sid, ML, and Sweet Dick Willie.
 # time = DUSK
@@ -88,6 +92,7 @@
 # sent_id = 5
 # sent_len = 11
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = CLOSE--COCONUT SID, ML, and SWEET DICK WILLIE
 # time = DUSK
@@ -109,6 +114,7 @@
 # sent_id = 6
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = All three shake their heads in bewilderment as Radio Raheem goes by.
 # time = DUSK
@@ -132,6 +138,7 @@
 # sent_id = 7
 # sent_len = 11
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = CLOSE--COCONUT SID, ML, and SWEET DICK WILLIE
 # time = DUSK
@@ -153,6 +160,7 @@
 # sent_id = 8
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = All three shake their heads in bewilderment as Radio Raheem goes by.
 # time = DUSK
@@ -176,6 +184,7 @@
 # sent_id = 9
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = All three shake their heads in bewilderment as Radio Raheem goes by.
 # time = DUSK
@@ -237,6 +246,7 @@
 # sent_id = 12
 # sent_len = 22
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Sweet Dick Willie gets up from his chair and goes to the corner, zips down his pants, and urinates.
 # time = DUSK
@@ -304,6 +314,7 @@
 # sent_id = 15
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Sweet Dick Willie and Coconut Sid laugh.
 # time = DUSK
@@ -362,6 +373,7 @@
 # sent_id = 18
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Sweet Dick Willie zips up his pants and returns to his seat.
 # time = DUSK

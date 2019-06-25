@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 20
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = On a stoop, a group of Puerto Ricans sits talking, drinking cerveza frío, and playing dominoes.
 # time = DAY
@@ -34,6 +35,7 @@
 # sent_id = 2
 # sent_len = 15
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = One of their cars is parked near the stoop, and blasts salsa music.
 # time = DAY
@@ -59,6 +61,7 @@
 # sent_id = 3
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = As usual we hear the rap music of Radio Raheem, but underneath the salsa music.
 # time = DAY
@@ -86,6 +89,7 @@
 # sent_id = 4
 # sent_len = 26
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem does not like to be bested; the salsa music from the parked car is giving him competition, this is no good.
 # time = DAY
@@ -122,6 +126,7 @@
 # sent_id = 5
 # sent_len = 14
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem stands in front of the stoop and raises his decibel level.
 # time = DAY
@@ -146,6 +151,7 @@
 # sent_id = 6
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The Puerto Rican men look at him, then begin to yell at him in Spanish.
 # time = DAY
@@ -173,6 +179,7 @@
 # sent_id = 7
 # sent_len = 15
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = There is a standoff, the rap and salsa clashing in a deafening roar.
 # time = DAY
@@ -198,6 +205,7 @@
 # sent_id = 8
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = One of the men, STEVIE, gets off the stoop and goes to the car.
 # time = DAY
@@ -225,6 +233,7 @@
 # sent_id = 9
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Stevie turns the car radio off.
 # time = DAY
@@ -242,6 +251,7 @@
 # sent_id = 10
 # sent_len = 21
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem smiles, nods, turns his box to a reasonable listening level, and bops down the block.
 # time = DAY
@@ -273,6 +283,7 @@
 # sent_id = 11
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem still the loudest.
 # time = DAY
@@ -289,6 +300,7 @@
 # sent_id = 12
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem still the king.
 # time = DAY
@@ -305,6 +317,7 @@
 # sent_id = 13
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Stevie turns the car radio off.
 # time = DAY
@@ -322,6 +335,7 @@
 # sent_id = 14
 # sent_len = 21
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem smiles, nods, turns his box to a reasonable listening level, and bops down the block.
 # time = DAY
@@ -353,6 +367,7 @@
 # sent_id = 15
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem still the loudest.
 # time = DAY
@@ -369,6 +384,7 @@
 # sent_id = 16
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem still the king.
 # time = DAY
@@ -403,6 +419,7 @@
 # sent_id = 18
 # sent_len = 19
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The men curse in Spanish and shake their heads in bewilderment and Stevie turns the salsa back on.
 # time = DAY

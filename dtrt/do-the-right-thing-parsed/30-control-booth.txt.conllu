@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 15
 # setting = CONTROL BOOTH
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie and Vito very quietly walk in; the man is on the air.
 # time = DAY
@@ -105,6 +106,7 @@
 # sent_id = 5
 # sent_len = 6
 # setting = CONTROL BOOTH
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie goes to the mike.
 # time = DAY
@@ -280,6 +282,7 @@
 # sent_id = 13
 # sent_len = 6
 # setting = CONTROL BOOTH
+# speaker = stage_direction
 # stage_direction = True
 # text = He hits the cart machine...
 # time = DAY

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 29
 # setting = FIRE ESCAPE
+# speaker = stage_direction
 # stage_direction = True
 # text = Ahmad, Punchy, Cee, and Ella sit on a fire escape, trying to keep still, trying to find a cool spot in the shade.
 # time = DAY
@@ -43,6 +44,7 @@
 # sent_id = 2
 # sent_len = 6
 # setting = FIRE ESCAPE
+# speaker = stage_direction
 # stage_direction = True
 # text = No one says a word.
 # time = DAY

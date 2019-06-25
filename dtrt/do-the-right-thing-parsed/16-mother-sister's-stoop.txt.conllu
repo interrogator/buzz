@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 25
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor has his can of beer (not Budweiser) and the brown paper bag is twisted into a knot at the bottom.
 # time = DAY
@@ -39,6 +40,7 @@
 # sent_id = 2
 # sent_len = 8
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = He stops and takes a long swig.
 # time = DAY
@@ -119,6 +121,7 @@
 # sent_id = 6
 # sent_len = 15
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor lowers the can from his mouth and looks up at his heckler.
 # time = DAY
@@ -144,6 +147,7 @@
 # sent_id = 7
 # sent_len = 9
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = It's obvious from the look on his face
 # time = DAY
@@ -163,6 +167,7 @@
 # sent_id = 8
 # sent_len = 6
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = he's heard this before.
 # time = DAY
@@ -179,6 +184,7 @@
 # sent_id = 9
 # sent_len = 10
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor contorts his face and stares at her.
 # time = DAY
@@ -233,6 +239,7 @@
 # sent_id = 12
 # sent_len = 11
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor changes his face into a more grotesque look.
 # time = DAY
@@ -546,6 +553,7 @@
 # sent_id = 28
 # sent_len = 22
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor tips his beat-up hat to Mother Sister and takes a final swig of beer just for her.
 # time = DAY

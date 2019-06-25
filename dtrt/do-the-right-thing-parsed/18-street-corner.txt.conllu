@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 21
 # setting = STREET CORNER
+# speaker = stage_direction
 # stage_direction = True
 # text = Every day on this corner, summer or winter, spring or fall, a small group of men meet.
 # time = DAY
@@ -35,6 +36,7 @@
 # sent_id = 2
 # sent_len = 23
 # setting = STREET CORNER
+# speaker = stage_direction
 # stage_direction = True
 # text = They have no steady employment, nothing they can speak of; they do, however, have the gift of gab.
 # time = DAY
@@ -68,6 +70,7 @@
 # sent_id = 3
 # sent_len = 31
 # setting = STREET CORNER
+# speaker = stage_direction
 # stage_direction = True
 # text = These man can talk, talk, and mo' talk, and when a bottle is going round and they're feeling "nice," they get philosophical.
 # time = DAY
@@ -109,6 +112,7 @@
 # sent_id = 4
 # sent_len = 26
 # setting = STREET CORNER
+# speaker = stage_direction
 # stage_direction = True
 # text = These men become the great thinkers of the world, with solutions to all its ills; like drugs, the homeless, and AIDS.
 # time = DAY
@@ -145,6 +149,7 @@
 # sent_id = 5
 # sent_len = 17
 # setting = STREET CORNER
+# speaker = stage_direction
 # stage_direction = True
 # text = They're called the Corner Men: SWEET DICK WILLIE, COCONUT SID, and ML.
 # time = DAY
@@ -172,6 +177,7 @@
 # sent_id = 6
 # sent_len = 15
 # setting = STREET CORNER
+# speaker = stage_direction
 # stage_direction = True
 # text = All three are sitting in folding chairs up against a wall in the shade.
 # time = DAY

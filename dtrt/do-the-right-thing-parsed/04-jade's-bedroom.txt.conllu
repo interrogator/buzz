@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 10
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = JADE, Mookie's sister, is fast asleep.
 # time = DAY
@@ -24,6 +25,7 @@
 # sent_id = 2
 # sent_len = 14
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie's fingers ENTER THE FRAME and start to play with her lips.
 # time = DAY
@@ -48,6 +50,7 @@
 # sent_id = 3
 # sent_len = 6
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade pushes his hands away.
 # time = DAY
@@ -64,6 +67,7 @@
 # sent_id = 4
 # sent_len = 8
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie waits several beats and he continues.
 # time = DAY
@@ -82,6 +86,7 @@
 # sent_id = 5
 # sent_len = 6
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade wakes up--mad.
 # time = DAY
@@ -98,6 +103,7 @@
 # sent_id = 6
 # sent_len = 10
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = JADE, Mookie's sister, is fast asleep.
 # time = DAY
@@ -118,6 +124,7 @@
 # sent_id = 7
 # sent_len = 14
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie's fingers ENTER THE FRAME and start to play with her lips.
 # time = DAY
@@ -142,6 +149,7 @@
 # sent_id = 8
 # sent_len = 6
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade pushes his hands away.
 # time = DAY
@@ -158,6 +166,7 @@
 # sent_id = 9
 # sent_len = 8
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie waits several beats and he continues.
 # time = DAY
@@ -176,6 +185,7 @@
 # sent_id = 10
 # sent_len = 6
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade wakes up--mad.
 # time = DAY
@@ -459,6 +469,7 @@
 # sent_id = 25
 # sent_len = 12
 # setting = JADE'S BEDROOM
+# speaker = stage_direction
 # stage_direction = True
 # text = He plants a big fat juicy on his sister's forehead.
 # time = DAY

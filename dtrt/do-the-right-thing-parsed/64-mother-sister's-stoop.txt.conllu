@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 10
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Mother Sister is sitting in her window as usual.
 # time = DUSK
@@ -24,6 +25,7 @@
 # sent_id = 2
 # sent_len = 23
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor walks up the stoop with a bunch of fresh-cut flowers in a discarded wine bottle for a vase.
 # time = DUSK
@@ -57,6 +59,7 @@
 # sent_id = 3
 # sent_len = 17
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor holds them out for Mother Sister, who does not acknowledge him at all.
 # time = DUSK
@@ -84,6 +87,7 @@
 # sent_id = 4
 # sent_len = 17
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor holds them out for Mother Sister, who does not acknowledge him at all.
 # time = DUSK
@@ -147,6 +151,7 @@
 # sent_id = 7
 # sent_len = 16
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor takes a seat on the stoop and puts the flowers to his face.
 # time = DUSK
@@ -216,6 +221,7 @@
 # sent_id = 10
 # sent_len = 6
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Mother Sister does not answer.
 # time = DUSK
@@ -232,6 +238,7 @@
 # sent_id = 11
 # sent_len = 6
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = He puts the flowers down.
 # time = DUSK
@@ -293,6 +300,7 @@
 # sent_id = 14
 # sent_len = 11
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks up at Mother Sister who immediately turns away.
 # time = DUSK
@@ -352,6 +360,7 @@
 # sent_id = 16
 # sent_len = 9
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor looks up at the setting sun.
 # time = DUSK
@@ -414,6 +423,7 @@
 # sent_id = 19
 # sent_len = 9
 # setting = MOTHER SISTER'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = The sun is an orange and purple glaze.
 # time = DUSK

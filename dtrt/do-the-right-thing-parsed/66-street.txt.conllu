@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 16
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = An old Puerto Rican man rings a bell as he pushes a cart on wheels.
 # time = DUSK
@@ -30,6 +31,7 @@
 # sent_id = 2
 # sent_len = 31
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = On the side of the cart is hand-lettered HELADO DE COCO, and a big block of ice rests on top surrounded by different colored bottles of flavors.
 # time = DUSK
@@ -71,6 +73,7 @@
 # sent_id = 3
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = A group of kids eagerly waits for the ices.
 # time = DUSK
@@ -91,6 +94,7 @@
 # sent_id = 4
 # sent_len = 22
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The man scrapes the block of ice, puts the shavings in a paper cup, and drowns it with syrup.
 # time = DUSK
@@ -123,6 +127,7 @@
 # sent_id = 5
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor is walking down the street.
 # time = DUSK
@@ -141,6 +146,7 @@
 # sent_id = 6
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = We hear the familiar tune from the Mister Softee truck as it comes down the street.
 # time = DUSK
@@ -168,6 +174,7 @@
 # sent_id = 7
 # sent_len = 35
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie, the young kid who earlier ran an errand for Da Mayor, looks up from the sidewalk where he's playing and runs out into the street in pursuit of Mister Softee.
 # time = DUSK
@@ -213,6 +220,7 @@
 # sent_id = 8
 # sent_len = 35
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie, the young kid who earlier ran an errand for Da Mayor, looks up from the sidewalk where he's playing and runs out into the street in pursuit of Mister Softee.
 # time = DUSK
@@ -288,6 +296,7 @@
 # sent_id = 11
 # sent_len = 16
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie is running in pursuit of the truck, unaware of the oncoming speeding car.
 # time = DUSK
@@ -314,6 +323,7 @@
 # sent_id = 12
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor sees speeding car bearing down on Eddie.
 # time = DUSK
@@ -334,6 +344,7 @@
 # sent_id = 13
 # sent_len = 19
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor runs across the street and knocks Eddie down, out of the way of the car.
 # time = DUSK
@@ -363,6 +374,7 @@
 # sent_id = 14
 # sent_len = 12
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Both are thrown as they are hit by the reckless driver.
 # time = DUSK
@@ -385,6 +397,7 @@
 # sent_id = 15
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie is crying as Da Mayor picks him up.
 # time = DUSK
@@ -405,6 +418,7 @@
 # sent_id = 16
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor sees speeding car bearing down on Eddie.
 # time = DUSK
@@ -425,6 +439,7 @@
 # sent_id = 17
 # sent_len = 19
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor runs across the street and knocks Eddie down, out of the way of the car.
 # time = DUSK
@@ -454,6 +469,7 @@
 # sent_id = 18
 # sent_len = 12
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Both are thrown as they are hit by the reckless driver.
 # time = DUSK
@@ -476,6 +492,7 @@
 # sent_id = 19
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie is crying as Da Mayor picks him up.
 # time = DUSK
@@ -496,6 +513,7 @@
 # sent_id = 20
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie is crying as Da Mayor picks him up.
 # time = DUSK
@@ -557,6 +575,7 @@
 # sent_id = 23
 # sent_len = 4
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = A crowd gathers.
 # time = DUSK
@@ -608,6 +627,7 @@
 # sent_id = 26
 # sent_len = 21
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = A woman in her twenties, LOUISE, Eddie's mother, breaks through the crowd and hugs her baby.
 # time = DUSK
@@ -795,6 +815,7 @@
 # sent_id = 34
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The crowd agrees "That's the way it happened," and Louise stands up.
 # time = DUSK
@@ -841,6 +862,7 @@
 # sent_id = 36
 # sent_len = 4
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie is quiet.
 # time = DUSK
@@ -877,6 +899,7 @@
 # sent_id = 38
 # sent_len = 5
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie is still mum.
 # time = DUSK
@@ -932,6 +955,7 @@
 # sent_id = 41
 # sent_len = 2
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = WHAP!
 # time = DUSK
@@ -944,6 +968,7 @@
 # sent_id = 42
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Louise hits Eddie on da butt.
 # time = DUSK
@@ -961,6 +986,7 @@
 # sent_id = 43
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie starts to dance, as his mother hits hard; she's heavy-handed.
 # time = DUSK
@@ -1106,6 +1132,7 @@
 # sent_id = 51
 # sent_len = 4
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Eddie runs away.
 # time = DUSK
@@ -1248,6 +1275,7 @@
 # sent_id = 57
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Louise goes away, probably to give her son another "whooping.
 # time = DUSK
@@ -1271,6 +1299,7 @@
 # sent_id = 58
 # sent_len = 1
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = "
 # time = DUSK
@@ -1282,6 +1311,7 @@
 # sent_id = 59
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor tips his hat to her.
 # time = DUSK

@@ -5,6 +5,7 @@
 # sent_id = 1
 # sent_len = 2
 # setting = JADE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = bed.
 # time = DAY
@@ -18,6 +19,7 @@
 # sent_id = 2
 # sent_len = 7
 # setting = JADE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = WE SEE him counting his money.
 # time = DAY
@@ -36,6 +38,7 @@
 # sent_id = 3
 # sent_len = 22
 # setting = JADE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = This isn't any ordinary counting of money, he's straightening out all the corners of the bills, arranging them
 # time = DAY
@@ -69,6 +72,7 @@
 # sent_id = 4
 # sent_len = 14
 # setting = JADE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = so the bills--actually the "dead presidents"--are facing the same way.
 # time = DAY
@@ -94,6 +98,7 @@
 # sent_id = 5
 # sent_len = 4
 # setting = JADE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = This is MOOKIE.
 # time = DAY
@@ -109,6 +114,7 @@
 # sent_id = 6
 # sent_len = 20
 # setting = JADE'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Once he's finished with that task, counting his money, he sneaks into his sister's bedroom.
 # time = DAY

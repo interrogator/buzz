@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie walks down the block.
 # time = DAY
@@ -20,6 +21,7 @@
 # sent_id = 2
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = The streets are filled with kids playing.
 # time = DAY
@@ -38,6 +40,7 @@
 # sent_id = 3
 # sent_len = 19
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = WE SEE stoop ball, double dutch, hand games, bike-riding, skateboarding, etc.
 # time = DAY
@@ -67,6 +70,7 @@
 # sent_id = 4
 # sent_len = 5
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem approaches Mookie.
 # time = DAY
@@ -82,6 +86,7 @@
 # sent_id = 5
 # sent_len = 5
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem approaches Mookie.
 # time = DAY
@@ -183,6 +188,7 @@
 # sent_id = 11
 # sent_len = 17
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie stares at the gold "brass knuckles" rings Radio Raheem wears on each hand.
 # time = DAY
@@ -210,6 +216,7 @@
 # sent_id = 12
 # sent_len = 24
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Spelled out across the rings are the words "LOVE" on the right hand and "HATE" on the left hand.
 # time = DAY
@@ -341,6 +348,7 @@
 # sent_id = 18
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He thrusts up his left hand.
 # time = DAY
@@ -396,6 +404,7 @@
 # sent_id = 21
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He thrusts up his right hand.
 # time = DAY
@@ -471,6 +480,7 @@
 # sent_id = 25
 # sent_len = 5
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie is buggin'.
 # time = DAY
@@ -505,6 +515,7 @@
 # sent_id = 27
 # sent_len = 11
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = He locks his fingers and writhes, cracking the joints.
 # time = DAY
@@ -678,6 +689,7 @@
 # sent_id = 36
 # sent_len = 15
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie doesn't know what to say, so he doesn't say anything.
 # time = DAY

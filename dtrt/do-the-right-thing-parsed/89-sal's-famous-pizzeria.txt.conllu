@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 30
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob moves back to in front of Sal's as the fire trucks and police, in full riot gear, pull up in the street behind them.
 # time = NIGHT
@@ -95,6 +96,7 @@
 # sent_id = 5
 # sent_len = 27
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The firemen rush to hook up their hoses, the police force themselves between the crowd and the burning Sal's Famous Pizzeria.  Please disperse!
 # time = NIGHT
@@ -149,6 +151,7 @@
 # sent_id = 7
 # sent_len = 12
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob doesn't listen, they will not be moved.
 # time = NIGHT
@@ -171,6 +174,7 @@
 # sent_id = 8
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The mob will not be moved until they see Sal's Famous Pizzeria burn to the ground.
 # time = NIGHT
@@ -199,6 +203,7 @@
 # sent_id = 9
 # sent_len = 19
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The firemen douse the pizzeria, trying desperately to stop the fire from spreading into the adjoining buildings.
 # time = NIGHT
@@ -306,6 +311,7 @@
 # sent_id = 14
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It will take force to move this mass of people.
 # time = NIGHT
@@ -347,6 +353,7 @@
 # sent_id = 16
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The hoses are turned on the mob.
 # time = NIGHT
@@ -365,6 +372,7 @@
 # sent_id = 17
 # sent_len = 29
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = WE SEE Mookie, Mother Sister, Sweet Dick Willie, ML, Coconut Sid, Jade, Ahmad, Cee, Punchy, and Ella, etc.
 # time = NIGHT
@@ -404,6 +412,7 @@
 # sent_id = 18
 # sent_len = 11
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = , go down before the powerful blast of the firehouse.
 # time = NIGHT
@@ -425,6 +434,7 @@
 # sent_id = 19
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Now we've come full circle.
 # time = NIGHT
@@ -442,6 +452,7 @@
 # sent_id = 20
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = We're back to Montgomery or Birmingham, Alabama.
 # time = NIGHT
@@ -462,6 +473,7 @@
 # sent_id = 21
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The only thing missing is Sheriff Bull Connor and the German shepherds.
 # time = NIGHT
@@ -485,6 +497,7 @@
 # sent_id = 22
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It would take force to move them and that's exactly what the mob got.
 # time = NIGHT
@@ -511,6 +524,7 @@
 # sent_id = 23
 # sent_len = 22
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = People are trying to hold on to each other, cars, railings, anything to keep from being swept away.
 # time = NIGHT

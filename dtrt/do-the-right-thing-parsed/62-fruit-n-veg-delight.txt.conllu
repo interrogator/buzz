@@ -234,6 +234,7 @@
 # sent_id = 15
 # sent_len = 9
 # setting = FRUIT-N-VEG DELIGHT
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem has to laugh at that one.
 # time = DUSK

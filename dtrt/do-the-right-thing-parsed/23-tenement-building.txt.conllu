@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie is hiking up a flight of stairs.
 # time = DAY
@@ -23,6 +24,7 @@
 # sent_id = 2
 # sent_len = 11
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = He puts the pizza box down and takes a breather.
 # time = DAY
@@ -44,6 +46,7 @@
 # sent_id = 3
 # sent_len = 6
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Sweat drips off his face.
 # time = DAY
@@ -60,6 +63,7 @@
 # sent_id = 4
 # sent_len = 16
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = He bends down to pick up the pizza box and tackles the last few flights.
 # time = DAY
@@ -86,6 +90,7 @@
 # sent_id = 5
 # sent_len = 5
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie pushes the buzzer.
 # time = DAY
@@ -101,6 +106,7 @@
 # sent_id = 6
 # sent_len = 9
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = A young Puerto Rican woman opens the door.
 # time = DAY
@@ -139,6 +145,7 @@
 # sent_id = 8
 # sent_len = 6
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie hands her the pizza.
 # time = DAY
@@ -192,6 +199,7 @@
 # sent_id = 11
 # sent_len = 8
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda hands him a handful of singles.
 # time = DAY
@@ -210,6 +218,7 @@
 # sent_id = 12
 # sent_len = 7
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie looks at the crumpled mess.
 # time = DAY
@@ -227,6 +236,7 @@
 # sent_id = 13
 # sent_len = 17
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda attempts to close the door, but Mookie's foot says, "Hell no.
 # time = DAY
@@ -254,6 +264,7 @@
 # sent_id = 14
 # sent_len = 4
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = "  Hold it.
 # time = DAY
@@ -286,6 +297,7 @@
 # sent_id = 16
 # sent_len = 12
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = First he straightens out the dollars, then counts the bills.
 # time = DAY
@@ -484,6 +496,7 @@
 # sent_id = 26
 # sent_len = 8
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda looks at him and sees right away
 # time = DAY
@@ -502,6 +515,7 @@
 # sent_id = 27
 # sent_len = 6
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = he's not going anywhere.
 # time = DAY
@@ -549,6 +563,7 @@
 # sent_id = 30
 # sent_len = 16
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda goes into the apartment and we hear her talking in Spanish to a male.
 # time = DAY
@@ -575,6 +590,7 @@
 # sent_id = 31
 # sent_len = 8
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie bends down to tie his sneakers.
 # time = DAY
@@ -593,6 +609,7 @@
 # sent_id = 32
 # sent_len = 12
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda reappears and holds out a lonely lone dollar for him.
 # time = DAY
@@ -615,6 +632,7 @@
 # sent_id = 33
 # sent_len = 14
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie has her hold it out for awhile, then he takes it.
 # time = DAY
@@ -639,6 +657,7 @@
 # sent_id = 34
 # sent_len = 8
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie bends down to tie his sneakers.
 # time = DAY
@@ -657,6 +676,7 @@
 # sent_id = 35
 # sent_len = 12
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda reappears and holds out a lonely lone dollar for him.
 # time = DAY
@@ -679,6 +699,7 @@
 # sent_id = 36
 # sent_len = 14
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie has her hold it out for awhile, then he takes it.
 # time = DAY
@@ -718,6 +739,7 @@
 # sent_id = 38
 # sent_len = 5
 # setting = TENEMENT BUILDING
+# speaker = stage_direction
 # stage_direction = True
 # text = Nilda slams the door.
 # time = DAY

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 13
 # setting = DA MAYOR'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = Da Mayor, Sal, Vito, and Pino watch in disbelief.
 # time = NIGHT
@@ -27,6 +28,7 @@
 # sent_id = 2
 # sent_len = 10
 # setting = DA MAYOR'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = It's unbelievable what is happening before their eyes.
 # time = NIGHT
@@ -47,6 +49,7 @@
 # sent_id = 3
 # sent_len = 20
 # setting = DA MAYOR'S STOOP
+# speaker = stage_direction
 # stage_direction = True
 # text = People are screaming, kids and women are not being spared from the brute force of the firehoses either.
 # time = NIGHT

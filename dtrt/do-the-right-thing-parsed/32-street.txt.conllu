@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 6
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito and Mookie see Buggin'
 # time = DAY
@@ -20,6 +21,7 @@
 # sent_id = 2
 # sent_len = 9
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Out on their way back to Sal's.
 # time = DAY
@@ -135,6 +137,7 @@
 # sent_id = 8
 # sent_len = 13
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin' Out gives Mookie five and a menacing look at Vito.
 # time = DAY

@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 14
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = WE SEE only big white teeth and very Negroidal (big) lips.
 # time = DAY
@@ -235,6 +236,7 @@
 # sent_id = 13
 # sent_len = 23
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = The CAMERA, which is STILL PULLING BACK, shows that Mister Señor Love Daddy is actually sitting in a storefront window.
 # time = DAY
@@ -268,6 +270,7 @@
 # sent_id = 14
 # sent_len = 10
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = The control booth looks directly out onto the street.
 # time = DAY
@@ -288,6 +291,7 @@
 # sent_id = 15
 # sent_len = 14
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = This is WE LOVE RADIO, a modest station with a loyal following,
 # time = DAY
@@ -312,6 +316,7 @@
 # sent_id = 16
 # sent_len = 9
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = * right in the heart of the neighborhood.
 # time = DAY
@@ -331,6 +336,7 @@
 # sent_id = 17
 # sent_len = 18
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = The OPENING SHOT will be a TRICK SHOT--the CAMERA PULLING BACK through the storefront window.
 # time = DAY
@@ -486,6 +492,7 @@
 # sent_id = 24
 # sent_len = 12
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = He hits the cart machine and we hear a station jingle.
 # time = DAY
@@ -575,6 +582,7 @@
 # sent_id = 28
 # sent_len = 6
 # setting = WE LOVE RADIO STATION STOREFRONT
+# speaker = stage_direction
 # stage_direction = True
 # text = He laughs like a madman.
 # time = DAY

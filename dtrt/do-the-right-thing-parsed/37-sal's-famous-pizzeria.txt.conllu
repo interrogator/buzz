@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie is on the phone.
 # time = DAY
@@ -527,6 +528,7 @@
 # sent_id = 28
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The phone rings right away
 # time = DAY
@@ -542,6 +544,7 @@
 # sent_id = 29
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = and Pino picks it up.
 # time = DAY
@@ -817,6 +820,7 @@
 # sent_id = 43
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie is smiling now.
 # time = DAY
@@ -866,6 +870,7 @@
 # sent_id = 46
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino doesn't answer, because he sees the trap he's already fallen into.
 # time = DAY
@@ -907,6 +912,7 @@
 # sent_id = 48
 # sent_len = 5
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie and Vito laugh.
 # time = DAY
@@ -1210,6 +1216,7 @@
 # sent_id = 65
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = With each word Pino is hanging himself even further.
 # time = DAY
@@ -1558,6 +1565,7 @@
 # sent_id = 82
 # sent_len = 24
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The following will be a QUICK-CUTTING MONTAGE of racial slurs, with different ethnic groups pointing the finger at one another.
 # time = DAY
@@ -1592,6 +1600,7 @@
 # sent_id = 83
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Each person looks directly INTO THE CAMERA.
 # time = DAY

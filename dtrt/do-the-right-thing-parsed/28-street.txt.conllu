@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 8
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito and Mookie walk down the block.
 # time = DAY

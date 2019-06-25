@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 2
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = DAY
@@ -16,6 +17,7 @@
 # sent_id = 2
 # sent_len = 18
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Out has one foot up on a fire hydrant and tries to clean his soiled Air Jordan.
 # time = DAY
@@ -44,6 +46,7 @@
 # sent_id = 3
 # sent_len = 7
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade and Mookie walk up to Buggin
 # time = DAY
@@ -61,6 +64,7 @@
 # sent_id = 4
 # sent_len = 3
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = ' Out.
 # time = DAY
@@ -345,6 +349,7 @@
 # sent_id = 19
 # sent_len = 3
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Mookie leaves.
 # time = DAY
@@ -514,6 +519,7 @@
 # sent_id = 27
 # sent_len = 5
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Jade looks at Buggin'
 # time = DAY
@@ -529,6 +535,7 @@
 # sent_id = 28
 # sent_len = 10
 # setting = STREET
+# speaker = stage_direction
 # stage_direction = True
 # text = Out like "Are you serious?"  Buggin'
 # time = DAY

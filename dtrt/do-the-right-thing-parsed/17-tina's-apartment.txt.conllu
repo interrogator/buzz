@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 17
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = An elderly Puerto Rican woman, CARMEN, is telling off her daughter TINA in Spanish.
 # time = DAY
@@ -31,6 +32,7 @@
 # sent_id = 2
 # sent_len = 17
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina, having heard enough, closes the door on her mother's ranting and raving.
 # time = DAY
@@ -58,6 +60,7 @@
 # sent_id = 3
 # sent_len = 23
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
@@ -91,6 +94,7 @@
 # sent_id = 4
 # sent_len = 11
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = She talks to her son while walking around the room.
 # time = DAY
@@ -112,6 +116,7 @@
 # sent_id = 5
 # sent_len = 23
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
@@ -145,6 +150,7 @@
 # sent_id = 6
 # sent_len = 11
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = She talks to her son while walking around the room.
 # time = DAY
@@ -166,6 +172,7 @@
 # sent_id = 7
 # sent_len = 23
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina bends down and scoops her baby son HECTOR up from the bed and holds him for dear life to her breasts.
 # time = DAY
@@ -199,6 +206,7 @@
 # sent_id = 8
 # sent_len = 11
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = She talks to her son while walking around the room.
 # time = DAY
@@ -498,6 +506,7 @@
 # sent_id = 22
 # sent_len = 5
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina kisses her son.
 # time = DAY
@@ -513,6 +522,7 @@
 # sent_id = 23
 # sent_len = 10
 # setting = TINA'S APARTMENT
+# speaker = stage_direction
 # stage_direction = True
 # text = Tina is seventeen years old, another teenage parent.
 # time = DAY

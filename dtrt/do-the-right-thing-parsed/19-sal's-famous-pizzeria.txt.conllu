@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Customers are in Sal's; it's lunchtime
 # time = DAY
@@ -23,6 +24,7 @@
 # sent_id = 2
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = and it's fairly busy.
 # time = DAY
@@ -39,6 +41,7 @@
 # sent_id = 3
 # sent_len = 21
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal puts a hot slice down on the counter in front of BUGGIN' OUT, a b-boy.
 # time = DAY
@@ -89,6 +92,7 @@
 # sent_id = 5
 # sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = DAY
@@ -101,6 +105,7 @@
 # sent_id = 6
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out looks at the slice.
 # time = DAY
@@ -274,6 +279,7 @@
 # sent_id = 16
 # sent_len = 2
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Buggin'
 # time = DAY
@@ -286,6 +292,7 @@
 # sent_id = 17
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out slams his money down on the counter, takes his slice and sits down.
 # time = DAY
@@ -312,6 +319,7 @@
 # sent_id = 18
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = All around Buggin'
 # time = DAY
@@ -326,6 +334,7 @@
 # sent_id = 19
 # sent_len = 24
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Out, peering down from the WALL OF FAME, are signed, framed, eight by ten glossies of famous Italian Americans.
 # time = DAY
@@ -360,6 +369,7 @@
 # sent_id = 20
 # sent_len = 30
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = WE SEE Joe DiMaggio, Rocky Marciano, Perry Como, Frank Sinatra, Luciano Pavarotti, Liza Minnelli, Governor Mario Cuomo, Al Pacino and, of course
 # time = DAY
@@ -400,6 +410,7 @@
 # sent_id = 21
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = , how can we forget Sylvester Stallone as Rocky Balboa: THE ITALIAN STALLION, also RAMBO.
 # time = DAY
@@ -428,6 +439,7 @@
 # sent_id = 22
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks at the pictures hovering above him.
 # time = DAY
@@ -447,6 +459,7 @@
 # sent_id = 23
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He looks at the pictures hovering above him.
 # time = DAY
@@ -754,6 +767,7 @@
 # sent_id = 37
 # sent_len = 8
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Pino walks over to Buggin' Out.
 # time = DAY
@@ -834,6 +848,7 @@
 # sent_id = 41
 # sent_len = 16
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Sal comes from behind the counter with his Louisville Slugger Mickey Mantle model baseball bat.
 # time = DAY
@@ -860,6 +875,7 @@
 # sent_id = 42
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Vito is by his side, but Mookie intercepts them, and takes Buggin' Out outside.
 # time = DAY

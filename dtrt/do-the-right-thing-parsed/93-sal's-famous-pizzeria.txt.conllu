@@ -4,6 +4,7 @@
 # sent_id = 1
 # sent_len = 7
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Some burnt photos on the floor.
 # time = NIGHT
@@ -21,6 +22,7 @@
 # sent_id = 2
 # sent_len = 6
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = The Mickey Mantle bat burns.
 # time = NIGHT
@@ -37,6 +39,7 @@
 # sent_id = 3
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Radio Raheem's box has melted into a black mass of goo.
 # time = NIGHT
@@ -60,6 +63,7 @@
 # sent_id = 4
 # sent_len = 23
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = As WE MOVE IN TIGHTER ON the melted box, we begin to hear the rap song that we've hear throughout.
 # time = NIGHT
@@ -93,6 +97,7 @@
 # sent_id = 5
 # sent_len = 17
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = All other sound drops as the rap song gets louder and louder until it's deafening.
 # time = NIGHT
@@ -120,6 +125,7 @@
 # sent_id = 6
 # sent_len = 18
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Smiley sits up from where he hid during the burning and looting of Sal's Famous Pizzeria.
 # time = NIGHT
@@ -148,6 +154,7 @@
 # sent_id = 7
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Smiley looks around and goes directly to the smoldering Wall of Fame.
 # time = NIGHT
@@ -171,6 +178,7 @@
 # sent_id = 8
 # sent_len = 4
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = He stands there.
 # time = NIGHT
@@ -185,6 +193,7 @@
 # sent_id = 9
 # sent_len = 21
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = Smiley pins one of his Malcolm X/Martin Luther King, Jr., cards to the Wall of Fame.
 # time = NIGHT
@@ -216,6 +225,7 @@
 # sent_id = 10
 # sent_len = 13
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = We're on Smiley's face and a smile slowly travels across.
 # time = NIGHT
@@ -239,6 +249,7 @@
 # sent_id = 11
 # sent_len = 10
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = It's the first time Smiley has smiled in years
 # time = NIGHT
@@ -259,6 +270,7 @@
 # sent_id = 12
 # sent_len = 9
 # setting = SAL'S FAMOUS PIZZERIA
+# speaker = stage_direction
 # stage_direction = True
 # text = and nobody is there to see this event.
 # time = NIGHT
