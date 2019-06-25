@@ -1,12 +1,16 @@
 import os
-from collections import defaultdict, Counter
 
 import pandas as pd
 
 from .conc import _concordance
 from .search import Searcher
 from .slice import Just, Skip, See  # noqa: F401
+from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
 from .views import _table, _tabview, _make_match_col
+from .utils import _get_tqdm, _tqdm_close, _tqdm_update
+
+
+tqdm = _get_tqdm()
 
 
 class Dataset(pd.DataFrame):
@@ -53,15 +57,13 @@ class Dataset(pd.DataFrame):
         """
         Search constituency parses using tgrep
         """
-        searcher = Searcher(self)
-        return searcher.run('t', query, **kwargs)
+        return Searcher().run(self, 't', query, **kwargs)
 
     def depgrep(self, query, **kwargs):
         """
         Search dependencies using depgrep
         """
-        searcher = Searcher(self)
-        return searcher.run('d', query, **kwargs)
+        return Searcher().run(self, 'd', query, **kwargs)
 
     def conc(self, *args, **kwargs):
         """
@@ -84,72 +86,33 @@ class Dataset(pd.DataFrame):
         """
         return self[self.index.get_level_values('i') == 1]
 
-    def tfidf_by(self, column, show=['w']):
-        """
-        Generate tfidf vectors for the given column
-
-        I.e. one model for each speaker, setting, whatever
-        """
-        from sklearn.feature_extraction.text import TfidfVectorizer
-
-        attr_sents = defaultdict(list)
-        sents = list()
-
-        # get dict of attr: [list, of, sents]
-        self['_formatted'] = _make_match_col(self, show, preserve_case=False)
-        if column:
-            for attr, df_by_attr in self.groupby(column):
-                for fsi, sent in df_by_attr.groupby(level=['file', 's']):
-                    attr_sents[attr].append(' '.join(sent['_formatted']))
-        else:
-            for fsi, sent in self['_formatted'].groupby(level=['file', 's']):
-                sents.append(' '.join(sent))
-            attr_sents['_base'] = sents
-
-        # for each database, make a vector
-        vectors = dict()
-        for attr, sents in attr_sents.items():
-            vec = TfidfVectorizer()
-            vec.fit(sents)
-            features = vec.transform(sents)
-            vectors[attr] = (vec, features, show)
-
-        # little hack when there are no columns
-        if not column:
-            vectors = vectors['_base']
-
-        self._tfidf[column] = vectors
-
-    def tfidf_score(self, column, text):
-        """
-        Score input text against tdif models for this ccolumn
-        """
-        if column not in self._tfidf:
-            self.tfidf_by(column)
-
-        scores = dict()
-        for k, (vec, features, show) in self._tfidf[column].items():
-            if isinstance(text, str):
-                if show != ['w']:
-                    err = f'Input text can only be string when vector is ["w"], not {show}'
-                    raise ValueError(err)
-                sents = [text]
-            elif isinstance(text, list):
-                sents = text
-            else:
-                sents = list()
-                series = _make_match_col(text, show, preserve_case=False)
-                for fsi, sent in series.groupby(level=['file', 's']):
-                    sents.append(' '.join(sent))
-            new_features = vec.transform(sents)
-            scored = (features * new_features.T).A
-            scores[k] = scored
-            scores[k] = (sum(scored) / len(scored))[0]
-        return Counter(scores)
-
     def sent(self, n):
         """
         Helper: get nth sentence as DataFrame with all index levels intact
         """
         # order of magnitude faster than groupby:
         return self.iloc[self.index.get_loc(self.index.droplevel('i').unique()[n])]
+
+    def tfidf_by(self, column, n_top_members=-1, show=['w']):
+        """
+        Generate tfidf vectors for the given column
+
+        I.e. one model for each speaker, setting, whatever
+        """
+        return _tfidf_model(self, column, n_top_members=n_top_members, show=show)
+
+    def tfidf_score(self, column, show, text):
+        """
+        Score input text against tdif models for this column
+
+        text is a DataFrame representing one sentence
+        """
+        return _tfidf_score(self, column, show, text)
+
+    def prototypical(self, column, show, n_top_members=-1, only_correct=True, top=-1):
+        """
+        Get prototypical instances over bins segmented by column
+        """
+        return _tfidf_prototypical(
+            self, column, show, n_top_members=n_top_members, only_correct=only_correct, top=top
+        )
