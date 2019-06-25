@@ -46,4 +46,5 @@ LONG_NAMES = dict(
     e={'extra'},
     o={'other'},
     speaker={'speaker', 'speakers'},
+    text={'text', 'texts', 'sentence', 'sentences'},
 )
