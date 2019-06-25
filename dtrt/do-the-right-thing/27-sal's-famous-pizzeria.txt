@@ -1,8 +1,8 @@
-Mookie enters. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true">
-Mookie, what took you so long? I got a business to run. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="SAL" line="210">
-Run it then. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="MOOKIE" line="211">
-Here, this goes to the radio station. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="SAL" line="212">
-He gives Mookie a bag full of food. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true">
-Pop, I'm gonna go with Mookie. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="VITO" line="213">
-Good, make sure he don't jerk around. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="SAL" line="214">
-Yeah, hurry back, it's getting crowded. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="PINO" line="215">
+Mookie enters. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction">
+Mookie, what took you so long? I got a business to run. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction" speaker="SAL" line="210">
+Run it then. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="211">
+Here, this goes to the radio station. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction" speaker="SAL" line="212">
+He gives Mookie a bag full of food. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction">
+Pop, I'm gonna go with Mookie. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction" speaker="VITO" line="213">
+Good, make sure he don't jerk around. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction" speaker="SAL" line="214">
+Yeah, hurry back, it's getting crowded. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="27" stage_direction="true" speaker="stage_direction" speaker="PINO" line="215">

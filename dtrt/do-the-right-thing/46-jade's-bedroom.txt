@@ -1,14 +1,14 @@
-Jade sits in a chair directly in front of an air conditioner going full blast. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true">
-How come you're not at Sal's? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="417">
-I'm working. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="MOOKIE" line="418">
-Is this another one of your patented two-hour lunches? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="419">
-I just come home to take a quick shower. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="MOOKIE" line="420">
-Sal's gonna be mad. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="421">
-Later for Sal. Y'know, sometimes I think you're more concerned with him than me. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="MOOKIE" line="422">
-I think no such a thing. Sal pays you, you should work. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="423">
-Slavery days are over. My name ain't Kunta Kinte. Sis, I don't want to argue, stop pressing me. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="MOOKIE" line="424">
-I just don't want you to lose the one job you've been able to keep, that's all. I'm carrying you as it is. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="425">
-Don't worry 'bout me. I always get paid. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="MOOKIE" line="426">
-Yeah, then ya should take better care of your responsibilities. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="427">
-What responsibilities? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="MOOKIE" line="428">
-I didn't stutter. Take care of your responsibilities. Y'know exactly what I'm talking about. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="JADE" line="429">
+Jade sits in a chair directly in front of an air conditioner going full blast. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction">
+How come you're not at Sal's? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="417">
+I'm working. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="418">
+Is this another one of your patented two-hour lunches? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="419">
+I just come home to take a quick shower. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="420">
+Sal's gonna be mad. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="421">
+Later for Sal. Y'know, sometimes I think you're more concerned with him than me. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="422">
+I think no such a thing. Sal pays you, you should work. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="423">
+Slavery days are over. My name ain't Kunta Kinte. Sis, I don't want to argue, stop pressing me. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="424">
+I just don't want you to lose the one job you've been able to keep, that's all. I'm carrying you as it is. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="425">
+Don't worry 'bout me. I always get paid. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="426">
+Yeah, then ya should take better care of your responsibilities. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="427">
+What responsibilities? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="428">
+I didn't stutter. Take care of your responsibilities. Y'know exactly what I'm talking about. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="46" stage_direction="true" speaker="stage_direction" speaker="JADE" line="429">

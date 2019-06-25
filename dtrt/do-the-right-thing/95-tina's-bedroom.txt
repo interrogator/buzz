@@ -1,16 +1,16 @@
-Mookie jumps out of her bed; Tina sleeps by his side and their son Hector is between them. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true">
-WAKE UP! <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" voice_over="true" off_screen="true" speaker="MISTER SEÑOR LOVE DADDY" line="755">
-Fuck! My money! <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="MOOKIE" line="756">
-Where are you going? <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="TINA" line="757">
-To get my money. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="MOOKIE" line="758">
-Mookie, you must think I'm stupid or something. You're gonna run outta here and I won't see your black ass for another week. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="TINA" line="759">
-Tina, it's not like that. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="MOOKIE" line="760">
-Mookie is putting on his clothes. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true">
-You don't care about me and you definately don't care 'bout your son. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="TINA" line="761">
-Tina, I'll be right back. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="MOOKIE" line="762">
-Be a man. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="TINA" line="763">
-I am a man. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="MOOKIE" line="764">
-Act like one then. Be a man. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="TINA" line="765">
-Later. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="MOOKIE" line="766">
-You're to the curb. You better step off. Get a life. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="TINA" line="767">
-Mookie leaves. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true">
+Mookie jumps out of her bed; Tina sleeps by his side and their son Hector is between them. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction">
+WAKE UP! <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" voice_over="true" off_screen="true" speaker="MISTER SEÑOR LOVE DADDY" line="755">
+Fuck! My money! <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="756">
+Where are you going? <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="TINA" line="757">
+To get my money. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="758">
+Mookie, you must think I'm stupid or something. You're gonna run outta here and I won't see your black ass for another week. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="TINA" line="759">
+Tina, it's not like that. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="760">
+Mookie is putting on his clothes. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction">
+You don't care about me and you definately don't care 'bout your son. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="TINA" line="761">
+Tina, I'll be right back. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="762">
+Be a man. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="TINA" line="763">
+I am a man. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="764">
+Act like one then. Be a man. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="TINA" line="765">
+Later. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="766">
+You're to the curb. You better step off. Get a life. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction" speaker="TINA" line="767">
+Mookie leaves. <metadata time="DAY" loc="INT" setting="TINA'S BEDROOM" scene="95" stage_direction="true" speaker="stage_direction">

@@ -1,3 +1,3 @@
-We hear a key in the door, the lock turns and Mookie enters. <metadata time="DAY" loc="INT" setting="MOOKIE'S APARTMENT" scene="45" stage_direction="true">
-Jade. <metadata time="DAY" loc="INT" setting="MOOKIE'S APARTMENT" scene="45" stage_direction="true" speaker="MOOKIE" line="415">
-I'm in here. <metadata time="DAY" loc="INT" setting="MOOKIE'S APARTMENT" scene="45" stage_direction="true" voice_over="true" off_screen="true" speaker="JADE" line="416">
+We hear a key in the door, the lock turns and Mookie enters. <metadata time="DAY" loc="INT" setting="MOOKIE'S APARTMENT" scene="45" stage_direction="true" speaker="stage_direction">
+Jade. <metadata time="DAY" loc="INT" setting="MOOKIE'S APARTMENT" scene="45" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="415">
+I'm in here. <metadata time="DAY" loc="INT" setting="MOOKIE'S APARTMENT" scene="45" stage_direction="true" speaker="stage_direction" voice_over="true" off_screen="true" speaker="JADE" line="416">

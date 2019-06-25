@@ -1,10 +1,10 @@
-Mookie picks up his two pizza pies for delivery. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true">
-Sal, can you do me a favor? <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="MOOKIE" line="383">
-Depends. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="SAL" line="384">
-Can you pay me now? <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="MOOKIE" line="385">
-Can't do. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="SAL" line="386">
-Sal, just this once, do me that solid. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="MOOKIE" line="387">
-You know you don't get paid till we close tonight. We're still open. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="SAL" line="388">
-I would like to get paid now. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="MOOKIE" line="389">
-Tonight, when we close. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="SAL" line="390">
-Mookie leaves. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true">
+Mookie picks up his two pizza pies for delivery. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction">
+Sal, can you do me a favor? <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="383">
+Depends. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="SAL" line="384">
+Can you pay me now? <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="385">
+Can't do. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="SAL" line="386">
+Sal, just this once, do me that solid. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="387">
+You know you don't get paid till we close tonight. We're still open. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="SAL" line="388">
+I would like to get paid now. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="389">
+Tonight, when we close. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction" speaker="SAL" line="390">
+Mookie leaves. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="39" stage_direction="true" speaker="stage_direction">

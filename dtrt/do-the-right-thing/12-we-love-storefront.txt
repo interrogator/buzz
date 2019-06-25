@@ -1,1 +1,1 @@
-Radio Raheem waves to Mister Señor Love Daddy as he walks by. <metadata time="DAY" loc="EXT" setting="WE LOVE STOREFRONT" scene="12" stage_direction="true">
+Radio Raheem waves to Mister Señor Love Daddy as he walks by. <metadata time="DAY" loc="EXT" setting="WE LOVE STOREFRONT" scene="12" stage_direction="true" speaker="stage_direction">

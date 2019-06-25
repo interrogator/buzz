@@ -1,19 +1,19 @@
-Officers Ponte and Long are awaiting their orders. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true">
-It's almost ready. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="645">
-What time you closing tonight? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="OFFICER LONG" line="646">
-Ten. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="647">
-Sal goes over to the oven, takes out their food and wraps it up. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true">
-Here you go. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="648">
-What do we owe you? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="OFFICER PONTE" line="649">
-Nine-fifty. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="650">
-Here. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="OFFICER PONTE" line="651">
-Thanks. Enjoy. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="652">
-Vito, Pino, see ya later. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="OFFICER LONG" line="653">
-The officers leave just as Mookie enters. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true">
-Sal, if you want me to deliver any faster, get me a jet rocket or something, cuz I can't run with pizzas, all the cheese ends up on one side and shit. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="MOOKIE" line="654">
-I didn't say nuthin'. You must have a guilty conscience. What are you guilty of? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="655">
-I'm not guilty of nuthin'. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="MOOKIE" line="656">
-You must be guilty of something or you would have never come in saying the things you said. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="657">
-C'mon, Sal. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="MOOKIE" line="658">
-Where we goin'? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="SAL" line="659">
-While Sal laughs at his corny joke, Pino pulls Vito into the back. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true">
+Officers Ponte and Long are awaiting their orders. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction">
+It's almost ready. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="645">
+What time you closing tonight? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="OFFICER LONG" line="646">
+Ten. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="647">
+Sal goes over to the oven, takes out their food and wraps it up. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction">
+Here you go. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="648">
+What do we owe you? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="OFFICER PONTE" line="649">
+Nine-fifty. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="650">
+Here. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="OFFICER PONTE" line="651">
+Thanks. Enjoy. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="652">
+Vito, Pino, see ya later. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="OFFICER LONG" line="653">
+The officers leave just as Mookie enters. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction">
+Sal, if you want me to deliver any faster, get me a jet rocket or something, cuz I can't run with pizzas, all the cheese ends up on one side and shit. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="654">
+I didn't say nuthin'. You must have a guilty conscience. What are you guilty of? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="655">
+I'm not guilty of nuthin'. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="656">
+You must be guilty of something or you would have never come in saying the things you said. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="657">
+C'mon, Sal. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="658">
+Where we goin'? <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction" speaker="SAL" line="659">
+While Sal laughs at his corny joke, Pino pulls Vito into the back. <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="76" stage_direction="true" speaker="stage_direction">

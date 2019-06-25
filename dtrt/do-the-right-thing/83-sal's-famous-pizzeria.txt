@@ -1,1 +1,1 @@
-Someone lights a match. WHOOOSH! <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="83" stage_direction="true">
+Someone lights a match. WHOOOSH! <metadata time="NIGHT" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="83" stage_direction="true" speaker="stage_direction">

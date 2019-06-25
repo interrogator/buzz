@@ -1,1 +1,1 @@
-WE SEE the reflection of the fire in the storefront window as Mister Señor Love Daddy looks on. <metadata time="NIGHT" loc="EXT" setting="WE LOVE STOREFRONT" scene="91" stage_direction="true">
+WE SEE the reflection of the fire in the storefront window as Mister Señor Love Daddy looks on. <metadata time="NIGHT" loc="EXT" setting="WE LOVE STOREFRONT" scene="91" stage_direction="true" speaker="stage_direction">

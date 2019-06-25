@@ -1,25 +1,25 @@
-Buggin' Out has one foot up on a fire hydrant and tries to clean his soiled Air Jordan. Jade and Mookie walk up to Buggin' Out. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true">
-It's so nice to see a family hanging out together. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="457">
-We're not hanging out. I'm being escorted back to work. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="MOOKIE" line="458">
-That's not even true. I just want a slice. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="459">
-Jade, you don't know this, but I'm organizing a boycott of Sal's Famous Pizzeria. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="460">
-What did he do this time? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="461">
-Y'know all those pictures he has hanging on the Wall of Fame? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="462">
-So? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="463">
-Have you noticed something about them? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="464">
-No. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="465">
-Yo, I'm gone. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="MOOKIE" line="466">
-I'll see ya there. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="467">
-Peace. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="468">
-Mookie leaves. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true">
-Every single one of those pictures is somebody Italian. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="469">
-And? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="470">
-And I--we--want some Black people up. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="471">
-Did you ask Sal? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="472">
-Yeah, I asked him. I don't want nobody in there, nobody spending good money in Sal's. He should get no mo' money from the community till he puts some Black faces up on that motherfucking wall. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="473">
-Jade looks at Buggin' Out like "Are you serious?" <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true">
-Buggin' Out, I don't mean to be disrespectful, but you can really direct your energies in a more useful way. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="474">
-So, in other words, you are not down. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="475">
-I'm down, but for a worthwhile cause. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="476">
-Jade, I still love you. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="BUGGIN' OUT" line="477">
-I still love you too. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="JADE" line="478">
+Buggin' Out has one foot up on a fire hydrant and tries to clean his soiled Air Jordan. Jade and Mookie walk up to Buggin' Out. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction">
+It's so nice to see a family hanging out together. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="457">
+We're not hanging out. I'm being escorted back to work. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="458">
+That's not even true. I just want a slice. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="459">
+Jade, you don't know this, but I'm organizing a boycott of Sal's Famous Pizzeria. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="460">
+What did he do this time? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="461">
+Y'know all those pictures he has hanging on the Wall of Fame? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="462">
+So? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="463">
+Have you noticed something about them? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="464">
+No. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="465">
+Yo, I'm gone. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="466">
+I'll see ya there. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="467">
+Peace. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="468">
+Mookie leaves. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction">
+Every single one of those pictures is somebody Italian. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="469">
+And? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="470">
+And I--we--want some Black people up. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="471">
+Did you ask Sal? <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="472">
+Yeah, I asked him. I don't want nobody in there, nobody spending good money in Sal's. He should get no mo' money from the community till he puts some Black faces up on that motherfucking wall. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="473">
+Jade looks at Buggin' Out like "Are you serious?" <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction">
+Buggin' Out, I don't mean to be disrespectful, but you can really direct your energies in a more useful way. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="474">
+So, in other words, you are not down. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="475">
+I'm down, but for a worthwhile cause. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="476">
+Jade, I still love you. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="477">
+I still love you too. <metadata time="DAY" loc="EXT" setting="STREET" scene="58" stage_direction="true" speaker="stage_direction" speaker="JADE" line="478">

@@ -1,1 +1,1 @@
-Mookie pulls the shower curtain back and steps out. <metadata time="DAY" loc="INT" setting="BATHROOM" scene="53" stage_direction="true">
+Mookie pulls the shower curtain back and steps out. <metadata time="DAY" loc="INT" setting="BATHROOM" scene="53" stage_direction="true" speaker="stage_direction">

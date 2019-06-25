@@ -1,9 +1,9 @@
-Sal sits at a table talking to Jade as she finishes her "special" slice. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true">
-Sal, that was delicious. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="JADE" line="549">
-Anytime. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="SAL" line="550">
-Vito, Pino, and Mookie look on, watching Sal have the time of his life. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true">
-Thanks. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="JADE" line="551">
-Jade gets up and Mookie helps her. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true">
-I'll see you out. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="MOOKIE" line="552">
-See ya around. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="JADE" line="553">
-Don't wait too long to come back. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="SAL" line="554">
+Sal sits at a table talking to Jade as she finishes her "special" slice. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction">
+Sal, that was delicious. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction" speaker="JADE" line="549">
+Anytime. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction" speaker="SAL" line="550">
+Vito, Pino, and Mookie look on, watching Sal have the time of his life. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction">
+Thanks. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction" speaker="JADE" line="551">
+Jade gets up and Mookie helps her. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction">
+I'll see you out. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="552">
+See ya around. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction" speaker="JADE" line="553">
+Don't wait too long to come back. <metadata time="DUSK" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="67" stage_direction="true" speaker="stage_direction" speaker="SAL" line="554">

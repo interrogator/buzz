@@ -1,6 +1,6 @@
-Mookie enters. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true">
-Mookie, if your friends can't behave, they're not welcome. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="SAL" line="129">
-I got no say over people. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="MOOKIE" line="130">
-You talk to 'em. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="PINO" line="131">
-People are free to do what they wanna do. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="MOOKIE" line="132">
-I know, this is America, but I don't want no trouble. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="SAL" line="133">
+Mookie enters. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="stage_direction">
+Mookie, if your friends can't behave, they're not welcome. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="stage_direction" speaker="SAL" line="129">
+I got no say over people. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="130">
+You talk to 'em. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="stage_direction" speaker="PINO" line="131">
+People are free to do what they wanna do. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="132">
+I know, this is America, but I don't want no trouble. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="21" stage_direction="true" speaker="stage_direction" speaker="SAL" line="133">

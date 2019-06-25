@@ -1,4 +1,4 @@
-Da Mayor leads Sal, Vito, and Pino back to his stoop where they watch in horror. <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true">
-There it goes. Why? <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="SAL" line="735">
-You was there. First white folks they saw. You was there. <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="DA MAYOR" line="736">
-Fuckin' niggers. <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="PINO" line="737">
+Da Mayor leads Sal, Vito, and Pino back to his stoop where they watch in horror. <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="stage_direction">
+There it goes. Why? <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="stage_direction" speaker="SAL" line="735">
+You was there. First white folks they saw. You was there. <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="stage_direction" speaker="DA MAYOR" line="736">
+Fuckin' niggers. <metadata time="NIGHT" loc="EXT" setting="DA MAYOR'S STOOP" scene="82" stage_direction="true" speaker="stage_direction" speaker="PINO" line="737">
