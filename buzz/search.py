@@ -11,7 +11,7 @@ class Searcher(object):
     An engine for searching corpora
     """
 
-    def __init__(self, corpus):
+    def _understand_input_data(self, corpus):
         """
         Searcher understands Corpus, File and Dataset
         """
@@ -19,18 +19,19 @@ class Searcher(object):
         from .corpus import Corpus
         from .dataset import Dataset
 
-        self.corpus = corpus
         if type(corpus) == Corpus:
-            self.to_search = self.corpus.files
-            self.reference = None
+            to_search = corpus.files
+            reference = None
         elif type(corpus) == File:
-            self.corpus = self.corpus.load()
-            self.to_search = [self.corpus]
-            self.reference = self.corpus.reference
+            corpus = corpus.load()
+            to_search = [corpus]
+            reference = corpus.reference
         # if it's results, use the reference of that
         elif type(corpus) == Dataset:
-            self.to_search = [self.corpus]
-            self.reference = self.corpus.reference
+            to_search = [corpus]
+            reference = corpus.reference
+
+        return to_search, reference
 
     def _tgrep_iteration(self, df):
         """
@@ -121,7 +122,7 @@ class Searcher(object):
         # get just the lines matching the bool ix
         return bool_ix
 
-    def run(self, target, query, case_sensitive=True):
+    def run(self, corpus, target, query, case_sensitive=True):
         """
         Search either trees or dependencies for query
 
@@ -130,6 +131,8 @@ class Searcher(object):
         from .file import File
         from .dataset import Dataset
 
+        self.corpus = corpus
+        self.to_search, self.reference = self._understand_input_data(corpus)
         self.target = target
         self.query = query
         self.case_sensitive = case_sensitive
