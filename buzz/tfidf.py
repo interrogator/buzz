@@ -1,12 +1,8 @@
 from collections import Counter, defaultdict
 from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas ass pd
+import pandas as pd
 
-from .utils import (
-    _get_tqdm,
-    _tqdm_close,
-    _tqdm_update,
-)
+from .utils import _get_tqdm, _tqdm_close, _tqdm_update
 
 tqdm = _get_tqdm()
 
@@ -101,6 +97,7 @@ def _tfidf_score(df, column, show, text):
         scores[k] = scored
         scores[k] = (sum(scored) / len(scored))[0]
     return Counter(scores)
+
 
 def _tfidf_model(df, column, n_top_members=-1, show=['w']):
 
