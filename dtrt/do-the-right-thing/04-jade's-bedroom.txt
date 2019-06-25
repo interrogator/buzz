@@ -1,11 +1,11 @@
-JADE, Mookie's sister, is fast asleep. Mookie's fingers ENTER THE FRAME and start to play with her lips. Jade pushes his hands away. Mookie waits several beats and he continues. Jade wakes up--mad. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true">
-JADE, Mookie's sister, is fast asleep. Mookie's fingers ENTER THE FRAME and start to play with her lips. Jade pushes his hands away. Mookie waits several beats and he continues. Jade wakes up--mad. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true">
-Don't you have enough sense not to bother people when they're sleeping? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="JADE" line="7">
-Wake up! <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="MOOKIE" line="8">
-Wake up? Saturday is the lone day I get to sleep late. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="JADE" line="9">
-It's gonna be hot today. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="MOOKIE" line="10">
-Good! Leave me alone when I'm sleeping. I'm gonna get a lock on my door, to keep ya ass outta here. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="JADE" line="11">
-Don't ya love ya brother Mookie anymore? I loves ya, Jade. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="MOOKIE" line="12">
-Do me a favor. Go to work. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="JADE" line="13">
-Later. Gotta get paid. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="MOOKIE" line="14">
-He plants a big fat juicy on his sister's forehead. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true">
+JADE, Mookie's sister, is fast asleep. Mookie's fingers ENTER THE FRAME and start to play with her lips. Jade pushes his hands away. Mookie waits several beats and he continues. Jade wakes up--mad. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction">
+JADE, Mookie's sister, is fast asleep. Mookie's fingers ENTER THE FRAME and start to play with her lips. Jade pushes his hands away. Mookie waits several beats and he continues. Jade wakes up--mad. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction">
+Don't you have enough sense not to bother people when they're sleeping? <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="JADE" line="7">
+Wake up! <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="8">
+Wake up? Saturday is the lone day I get to sleep late. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="JADE" line="9">
+It's gonna be hot today. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="10">
+Good! Leave me alone when I'm sleeping. I'm gonna get a lock on my door, to keep ya ass outta here. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="JADE" line="11">
+Don't ya love ya brother Mookie anymore? I loves ya, Jade. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="12">
+Do me a favor. Go to work. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="JADE" line="13">
+Later. Gotta get paid. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="14">
+He plants a big fat juicy on his sister's forehead. <metadata time="DAY" loc="INT" setting="JADE'S BEDROOM" scene="4" stage_direction="true" speaker="stage_direction">

@@ -1,1 +1,1 @@
-Mookie comes down his stoop and walks to work. <metadata time="DAY" loc="EXT" setting="MOOKIE'S BROWNSTONE" scene="6" stage_direction="true">
+Mookie comes down his stoop and walks to work. <metadata time="DAY" loc="EXT" setting="MOOKIE'S BROWNSTONE" scene="6" stage_direction="true" speaker="stage_direction">
