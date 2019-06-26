@@ -57,7 +57,10 @@ class Filter(object):
             strung = strung.str.lower()
 
         if isinstance(entry, (set, list)):
-            bool_ix = strung.isin(entry)
+            if exact_match:
+                bool_ix = strung.isin(entry)
+            else:
+                bool_ix = strung.apply(lambda x: any(i in x for i in entry))
         else:
             # get the correct method --- if user wants exact match
             search_method = strung.str.match if exact_match else strung.str.contains
