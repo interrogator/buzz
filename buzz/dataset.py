@@ -7,10 +7,6 @@ from .search import Searcher
 from .slice import Just, Skip, See  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
 from .views import _table, _tabview
-from .utils import _get_tqdm, _tqdm_close, _tqdm_update
-
-
-tqdm = _get_tqdm()
 
 
 class Dataset(pd.DataFrame):
