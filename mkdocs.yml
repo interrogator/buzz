@@ -12,4 +12,5 @@ nav:
     - Concordancing: conc.md
     - Prototypicality and similarity: proto.md
     - Working with pandas: pandas.md
+    - "Case study: lexical density": density.md
     - About: about.md

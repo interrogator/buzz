@@ -89,7 +89,6 @@ def parse_section(shot, meta, line_number):
             angle += '...'
         meta['camera_angle'] = angle
         before_dialogue = re.sub(camera_angle.group(0), '', before_dialogue)
-    meta['stage_direction'] = True
     meta['speaker'] = 'stage_direction'
     line_meta = dict_to_meta(meta)
     direction = [i for i in before_dialogue.splitlines() if i and re.search(START_OF_DIRECTION, i)]

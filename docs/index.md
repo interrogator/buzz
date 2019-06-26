@@ -11,4 +11,5 @@ Dependency searching is handled by `depgrep`
 - [Concordancing](conc.md)
 - [Measuring prototypicality and similarity](proto.md)
 - [Working with pandas](pandas.md)
+- [Case study: lexical density](density.md)
 - [About `buzz`](about.md)
