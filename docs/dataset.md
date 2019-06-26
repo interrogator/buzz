@@ -530,3 +530,4 @@ verbs.see.speaker.by.lemma.to_html()
 </table>
 
 This is really just the basics, however. If you want to do more advanced kinds of frequency calculations, you'll want to use the `Dataset.table()` method, with documentation available [here](/en/latest/table).
+

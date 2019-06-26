@@ -12,6 +12,19 @@ from tqdm import tqdm, tqdm_notebook
 from .constants import DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE, COLUMN_NAMES
 
 
+def _make_match_col(df, show, preserve_case):
+    for s in show:
+        if s in df.index.names and s not in df.columns:
+            df[s] = df.index.get_level_values(s)
+    if len(show) == 1:
+        made = df[show[0]].astype(str)
+    cats = [df[i].astype(str) for i in show[1:]]
+    made = df[show[0]].str.cat(others=cats, sep='/').str.rstrip('/')
+    if not preserve_case:
+        made = made.str.lower()
+    return made
+
+
 def _get_tqdm():
     """
     Get either the IPython or regular version of tqdm

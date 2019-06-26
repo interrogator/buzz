@@ -10,5 +10,6 @@ nav:
     - Generating tables: table.md
     - Grammatical querying: query.md
     - Concordancing: conc.md
+    - Prototypicality and similarity: proto.md
     - Working with pandas: pandas.md
     - About: about.md

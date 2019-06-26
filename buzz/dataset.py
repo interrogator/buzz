@@ -6,7 +6,7 @@ from .conc import _concordance
 from .search import Searcher
 from .slice import Just, Skip, See  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .views import _table, _tabview, _make_match_col
+from .views import _table, _tabview
 from .utils import _get_tqdm, _tqdm_close, _tqdm_update
 
 
@@ -99,7 +99,8 @@ class Dataset(pd.DataFrame):
 
         I.e. one model for each speaker, setting, whatever
         """
-        return _tfidf_model(self, column, n_top_members=n_top_members, show=show)
+        vectors = _tfidf_model(self, column, n_top_members=n_top_members, show=show)
+        self._tfidf[(column, tuple(show))] = vectors
 
     def tfidf_score(self, column, show, text):
         """

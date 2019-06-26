@@ -2,7 +2,7 @@ from collections import Counter, defaultdict
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 
-from .utils import _get_tqdm, _tqdm_close, _tqdm_update
+from .utils import _get_tqdm, _tqdm_close, _tqdm_update, _make_match_col
 
 tqdm = _get_tqdm()
 
@@ -105,17 +105,15 @@ def _tfidf_model(df, column, n_top_members=-1, show=['w']):
     sents = list()
 
     if n_top_members > 0:
-        top_members = list(getattr(self, column).value_counts().index[:n_top_members])
-        df = self[getattr(self, column).isin(top_members)]
-    else:
-        df = self
+        top_members = list(getattr(df, column).value_counts().index[:n_top_members])
+        df = df[getattr(df, column).isin(top_members)]
 
     # get dict of attr: [list, of, sents]
     df['_formatted'] = _make_match_col(df, show, preserve_case=False)
 
     groupby = df.groupby(column) if column else df['_formatted'].groupby(level=['file', 's'])
 
-    kwa = dict(ncols=120, unit='bin', desc=f'Building {column} models', total=len(groupby))
+    kwa = dict(ncols=120, unit='bin', desc=f'Building {column} model', total=len(groupby))
     t = tqdm(**kwa) if len(groupby) > 1 else None
 
     if column:
@@ -144,4 +142,4 @@ def _tfidf_model(df, column, n_top_members=-1, show=['w']):
     if not column:
         vectors = vectors['_base']
 
-    self._tfidf[(column, tuple(show))] = vectors
+    return vectors

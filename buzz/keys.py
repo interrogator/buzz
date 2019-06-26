@@ -3,7 +3,7 @@
 from collections import Counter
 
 import pandas as pd
-from .views import _make_match_col
+from .utils import _make_match_col
 
 
 def log_likelihood_measure(word_in_ref, word_in_target, ref_sum, target_sum):

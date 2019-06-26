@@ -1,9 +1,14 @@
 `buzz` is a library for parsing and analysing natural language.
 
-- [Modelling and parsing corpora](/en/latest/corpus)
-- [Exploring parsed datasets](/en/latest/dataset)
-- [Generating tables](/en/latest/table)
-- [Grammatical querying](/en/latest/query)
-- [Concordancing](/en/latest/conc)
-- [Working with pandas](/en/latest/pandas)
-- [About the tool](/en/latest/about)
+It relies heavily on pandas/numpy, spaCy, and occasionally NLTK. Constituency parsing can be performed with either benepar or bllip.
+
+Dependency searching is handled by `depgrep`
+
+- [Modelling and parsing corpora](corpus.md)
+- [Exploring parsed datasets](dataset.md)
+- [Generating tables](table.md)
+- [Grammatical querying](query.md)
+- [Concordancing](conc.md)
+- [Measuring prototypicality and similarity](proto.md)
+- [Working with pandas](pandas.md)
+- [About `buzz`](about.md)
