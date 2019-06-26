@@ -20,6 +20,7 @@ setup(
         'scipy',
         'cython',
         'depgrep',
+        'scikit-learn',
         # 'benepar',
         # 'benepar[cpu]',
         'tensorflow>=1.12.1',

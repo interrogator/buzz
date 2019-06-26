@@ -3,6 +3,7 @@ numpy
 nltk
 bllipparser
 scipy
+scikit-learn
 tensorflow
 spacy
 pandas
