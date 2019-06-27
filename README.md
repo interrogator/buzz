@@ -9,7 +9,7 @@
 <!--- Don't edit the version line below manually. Let bump2version do it for you. -->
 > Version 1.0.5
 
-> buzz is a linguistics tool for parsing and then exploring plain or metadata-rich text.
+> *buzz* is a linguistics tool for parsing and then exploring plain or metadata-rich text. This README provides an overview of functionality. Visit the [full documentation](https://buzz.readthedocs.io/en/latest/) for a more complete user guide.
 
 ## Install
 
@@ -22,22 +22,27 @@ cd buzz
 python setup.py install
 ```
 
-## Usage
+## Creating a corpus
 
-First, make a folder (i.e. a corpus), which can contain either subfirectories or text files.
+*buzz* models plain text, or [CONLL-U formatted](https://universaldependencies.org/format.html) files. This guide will assume that you are have plain text data, and want to process and analyse it.
 
-Text files should be plain text, but can have metadata stored in two ways. First, speaker names can be added by using capital letters and a colon, much like in a script. Second, you can use XML style metadata tags, preferably at the end of sentences and lines. Below demonstrates both:
+So, first, you need to make sure that your corpus is in a format and structure that *buzz* can work with. This simply means putting all your text files into a folder, and optionally within subfolders (representing subcorpora).
 
-`sopranos/s1/e01.txt`:
+Text files should be plain text, with a `.txt` extension. Importantly though, they can be augmented with metadata, which can be stored in two ways. First, speaker names can be added by using capital letters and a colon, much like in a script. Second, you can use XML style metadata markup. Here is an example file, `sopranos/s1/e01.txt`:
 
-```
+```html
+<metadata aired="10.01.1999">
 MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true, interrogative-type='intonation' move=info-request>
 TONY: They said it was a panic attack <metadata emph-token=0, move='refute'>
 MELFI: You don't agree that you had a panic attack? <metadata move='info-request', question=type='in'>
+...
 ```
 
-We can use buzz to model and parse this corpus.
+If you add a metadata element at the start of the text file, it will be understood as file-level metadata. For sentence-specific metadata, the element should follow the sentence, ideally at the end of a line. All metadata will be searchable later, so the more you can add, the more you can do with your corpus.
 
+## Parsing
+
+buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simply:
 
 ```python
 from buzz import Corpus
@@ -47,24 +52,24 @@ parsed = corpus.parse()
 parsed = corpus.parse(cons_parser=None)
 ```
 
-That will give us output in CONLL-U format, complete with original text, speaker names, all other metadata and constituency parses (if not excluded). It also creates another `Corpus` object, called `parsed` above, which we can exlore via commands like:
+The main advantages of parsing with *buzz* are that:
+
+* Parse results are stored as valid CONLL-U 2.0
+* Metadata is respected, and transferred into the output files
+* You can do constituency and dependency parsing at the same time (with parse trees being stored as CONLL-U metadata)
+
+the `parse()` method returns another `Corpus` object, representing the newly created files. We can explore this corpus via commands like:
 
 ```python
+parsed.subcorpora.s1.files.e01
 parsed.files[0]
 parsed.subcorpora.s1[:5]
+parsed.subcorpora['s1']
 ```
-
-You can interactively explore the corpus with [tabview](https://github.com/TabViewer/tabview) using the `view()` method:
-
-```python
-parsed.view()
-```
-
-The interactive view has a number of cool features, such as the ability to sort by row or column. Also, pressing `enter` on a given line will generate a concordance based on that line's contents. Neat!
 
 ### Loading corpora into memory
 
-You can use the `load()` method to load a whole or partial corpus into memory, as a Dataset object, which extends the p[andas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
+You can use the `load()` method to load a whole or partial corpus into memory, as a Dataset object, which extends the [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
 
 ```python
 loaded = parsed.load()
@@ -72,23 +77,206 @@ loaded = parsed.load()
 
 You don't need to load corpora into memory to work on them, but it's great for small corpora. As a rule of thumb, datasets under a million words should be easily loadable on a personal computer.
 
-## Working with corpora
+The loaded corpus is a `Dataset` object, which is based on the pandas DataFrame. So, you can use pandas methods on it:
 
-A corpus is a pandas DataFrame object.Tndex is a multiindex, comprised of `filename`, `sent_id` and `token`. Each token in the corpus is therefore uniquely identifiable through this index. The columns for the loaded copus are all the CONLL columns, plus anything included as metadata.
-
-Because the object is based on DataFrame, expert users can directly use `pandas.DataFrame` operations if you know them:
 
 ```python
-# show first five lines
 loaded.head()
 ```
 
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>w</th>
+      <th>l</th>
+      <th>x</th>
+      <th>p</th>
+      <th>g</th>
+      <th>f</th>
+      <th>e</th>
+      <th>aired</th>
+      <th>emph-token</th>
+      <th>exposition</th>
+      <th>interrogative-type</th>
+      <th>move</th>
+      <th>parse</th>
+      <th>question</th>
+      <th>sent_id</th>
+      <th>sent_len</th>
+      <th>speaker</th>
+      <th>text</th>
+      <th>_n</th>
+    </tr>
+    <tr>
+      <th>file</th>
+      <th>s</th>
+      <th>i</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">e01</th>
+      <th rowspan="5" valign="top">1</th>
+      <th>1</th>
+      <td>My</td>
+      <td>-PRON-</td>
+      <td>DET</td>
+      <td>PRP$</td>
+      <td>2</td>
+      <td>poss</td>
+      <td>_</td>
+      <td>10.01.1999</td>
+      <td>_</td>
+      <td>true,</td>
+      <td>intonation</td>
+      <td>info-request</td>
+      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
+      <td>_</td>
+      <td>1</td>
+      <td>14</td>
+      <td>MELFI</td>
+      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>understanding</td>
+      <td>understanding</td>
+      <td>NOUN</td>
+      <td>NN</td>
+      <td>13</td>
+      <td>nsubjpass</td>
+      <td>_</td>
+      <td>10.01.1999</td>
+      <td>_</td>
+      <td>true,</td>
+      <td>intonation</td>
+      <td>info-request</td>
+      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
+      <td>_</td>
+      <td>1</td>
+      <td>14</td>
+      <td>MELFI</td>
+      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>from</td>
+      <td>from</td>
+      <td>ADP</td>
+      <td>IN</td>
+      <td>2</td>
+      <td>prep</td>
+      <td>_</td>
+      <td>10.01.1999</td>
+      <td>_</td>
+      <td>true,</td>
+      <td>intonation</td>
+      <td>info-request</td>
+      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
+      <td>_</td>
+      <td>1</td>
+      <td>14</td>
+      <td>MELFI</td>
+      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Dr.</td>
+      <td>Dr.</td>
+      <td>PROPN</td>
+      <td>NNP</td>
+      <td>5</td>
+      <td>compound</td>
+      <td>_</td>
+      <td>10.01.1999</td>
+      <td>_</td>
+      <td>true,</td>
+      <td>intonation</td>
+      <td>info-request</td>
+      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
+      <td>_</td>
+      <td>1</td>
+      <td>14</td>
+      <td>MELFI</td>
+      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Cusamano</td>
+      <td>Cusamano</td>
+      <td>PROPN</td>
+      <td>NNP</td>
+      <td>3</td>
+      <td>pobj</td>
+      <td>_</td>
+      <td>10.01.1999</td>
+      <td>_</td>
+      <td>true,</td>
+      <td>intonation</td>
+      <td>info-request</td>
+      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
+      <td>_</td>
+      <td>1</td>
+      <td>14</td>
+      <td>MELFI</td>
+      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+You can also interactively explore the corpus with [tabview](https://github.com/TabViewer/tabview) using the `view()` method:
+
 ```python
-# get the 'word' column for the first five tokens
-loaded.iloc[:5]['w']
+loaded.view()
 ```
 
-You don't need to know pandas, however, in oter to use `buzz`, because `buzz` makes possible some more intuitive measures with linguisitcs in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties:
+The interactive view has a number of cool features, such as the ability to sort by row or column. Also, pressing `enter` on a given line will generate a concordance based on that line's contents. Neat!
+
+## Exploring parsed and loaded corpora
+
+A corpus is a pandas DataFrame object. The index is a multiindex, comprised of `filename`, `sent_id` and `token`. Each token in the corpus is therefore uniquely identifiable through this index. The columns for the loaded copus are all the CONLL columns, plus anything included as metadata.
+
+```python
+# get the 'word' column for the first five tokens
+first = loaded.sent(0)
+# using pandas syntax to get first n words
+first.iloc[:5]['w']
+# join the wordclasses and words
+print(' '.join(first.x.str.cat(first.w, sep='/')))
+```
+
+```
+"DET/My NOUN/understanding ADP/from PROPN/Dr. PROPN/Cusamano PUNCT/, DET/your NOUN/family NOUN/physician PUNCT/, VERB/is PRON/you VERB/collapsed PUNCT/?
+```
+
+You don't need to know pandas, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguisitcs in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties:
 
 ```python
 tony = loaded.just.speaker.TONY
@@ -96,7 +284,7 @@ tony = loaded.just.speaker.TONY
 no_punct = loaded.skip.wordlcass.PUNCT
 ```
 
-Any object created by `buzz` has a `.view()` method, which launches a `tabview` interactive space where you can explore corpora, frequencies or concordances.
+Any object created by *buzz* has a `.view()` method, which launches a `tabview` interactive space where you can explore corpora, frequencies or concordances.
 
 ## spaCy
 
@@ -150,11 +338,11 @@ It also works with nodes and links, though there are numerous differences. In pa
 
 ## Viewing search results
 
-An important principle in `buzz` is the separation of searching and viewing results. Unlike many other tools, you do not search for a concordance---instead, you search the corpus, and then visualise the output of the data as a concordance.
+An important principle in *buzz* is the separation of searching and viewing results. Unlike many other tools, you do not search for a concordance---instead, you search the corpus, and then visualise the output of the data as a concordance.
 
 ### Concordancing
 
-Concordancing is a nice way of looking at results. The main thing you have to do is tell `buzz` how you want the match column to look---it can be just the matching words, but also any combination of things. To show words and their parts of speech, you can do:
+Concordancing is a nice way of looking at results. The main thing you have to do is tell *buzz* how you want the match column to look---it can be just the matching words, but also any combination of things. To show words and their parts of speech, you can do:
 
 ```python
 nsubj = loaded.just.function.nsubj
@@ -187,7 +375,7 @@ This creates a `Table` object, which is also based on DataFrame. You can use its
 
 ### Plotting
 
-You can also use `buzz` to create high-quality visualisations of frequency data. This relies completely on pandas' plotting method. A `plot` method more tailored to language datasets is still in development.
+You can also use *buzz* to create high-quality visualisations of frequency data. This relies completely on pandas' plotting method. A `plot` method more tailored to language datasets is still in development.
 
 ```python
 tab.plot(...)

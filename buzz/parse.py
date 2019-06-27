@@ -229,6 +229,7 @@ class Parser:
             self._process_file(path)
             _tqdm_update(t)
         _tqdm_close(t)
+        print('Done!')
 
     def _make_metadata(self, description):
         return dict(

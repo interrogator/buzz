@@ -109,3 +109,5 @@ tests/data-parsed/
 tests/data-stripped/
 tests/odata-parsed/
 unabomber/manifesto-parsed/
+sopranos/
+sopranos-parsed/

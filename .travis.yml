@@ -10,7 +10,6 @@ jobs:
   include:
     - stage: build
       script:
-        - pip install --upgrade setuptools
         - python setup.py install
         - pip install benepar
         - pip install benepar[cpu]
