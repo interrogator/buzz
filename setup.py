@@ -23,7 +23,7 @@ setup(
         'scikit-learn',
         # 'benepar',
         # 'benepar[cpu]',
-        'tensorflow==1.12.3',
+        'tensorflow>=1.12.1',
         'setuptools>=41.0.0',
         'spacy',
         'pandas',
