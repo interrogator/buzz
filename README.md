@@ -32,7 +32,7 @@ Text files should be plain text, with a `.txt` extension. Importantly though, th
 
 ```html
 <metadata aired="10.01.1999">
-MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true, interrogative-type='intonation' move=info-request>
+MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true interrogative-type='intonation' move=info-request>
 TONY: They said it was a panic attack <metadata emph-token=0, move='refute'>
 MELFI: You don't agree that you had a panic attack? <metadata move='info-request', question=type='in'>
 ...
@@ -87,9 +87,11 @@ loaded.head()
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th></th>
+    </tr>
+    <tr>
+      <th>file</th>
+      <th>s</th>
+      <th>i</th>
       <th>w</th>
       <th>l</th>
       <th>x</th>
@@ -108,31 +110,6 @@ loaded.head()
       <th>sent_len</th>
       <th>speaker</th>
       <th>text</th>
-      <th>_n</th>
-    </tr>
-    <tr>
-      <th>file</th>
-      <th>s</th>
-      <th>i</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -149,7 +126,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true,</td>
+      <td>true</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -158,7 +135,6 @@ loaded.head()
       <td>14</td>
       <td>MELFI</td>
       <td>My understanding from Dr. Cusamano, your famil...</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -171,7 +147,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true,</td>
+      <td>true</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -180,7 +156,6 @@ loaded.head()
       <td>14</td>
       <td>MELFI</td>
       <td>My understanding from Dr. Cusamano, your famil...</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -193,7 +168,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true,</td>
+      <td>true</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -202,7 +177,6 @@ loaded.head()
       <td>14</td>
       <td>MELFI</td>
       <td>My understanding from Dr. Cusamano, your famil...</td>
-      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
@@ -215,7 +189,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true,</td>
+      <td>true</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -224,7 +198,6 @@ loaded.head()
       <td>14</td>
       <td>MELFI</td>
       <td>My understanding from Dr. Cusamano, your famil...</td>
-      <td>3</td>
     </tr>
     <tr>
       <th>5</th>
@@ -237,7 +210,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true,</td>
+      <td>true</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -246,7 +219,6 @@ loaded.head()
       <td>14</td>
       <td>MELFI</td>
       <td>My understanding from Dr. Cusamano, your famil...</td>
-      <td>4</td>
     </tr>
   </tbody>
 </table>
@@ -361,14 +333,14 @@ Possible keyword arguments for the `.table()` method are as follows:
 
 | Argument           | Description                                                                                                                                                                                                                                                                                      | Default  |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| `subcorpora`         | Feature(s) to use as the index of the table. Passing in a list of multiple features will create a multiindex                                                                                                                                                                                     | ['file'] |
-| `show`               | Feature(s) to use as the columns of the table. Passing a list will join the features with slash, so ['w', 'p'] results in 'friend/NN'                                                                                                                                                            | ['w']    |
-| `sort`               | How to sort the results. 'total'/'infreq', 'increase/'decrease', 'static/turbulent', 'name'/'inverse'                                                                                                                                                                                            | 'total'  |
-| `relative`           | Use relative, rather than absolute frequencies with `True`. You can also pass in Series, DataFrame or buzz objects to calculate relative frequencies against the passed in data.                                                                                                                 | False    |
-| `remove_above_p`     | Sorting by increase/decrease/static/turbulent calculates the slope of the frequencies across each subcorpus, and p-values where the null hypothesis is no slope. If you pass in a float, entries with p-values above this float are dropped from the results. Passing in `True` will use `0.05`. | False    |
-| `keep_stats`         | If True, keep generated statistics related to the trajectory calculation                                                                                                                                                                                                                         | False    |
-| `preserve_case`      | Keep the original case for `show` (column) values                                                                                                                                                                                                                                                | False    |
-| `multiindex_columns` | When `show` is a list with multiple features, rather than joining `show` with slashes, build a multiindex                                                                                                                                                                                        | False    |
+| `subcorpora`         | Feature(s) to use as the index of the table. Passing in a list of multiple features will create a multiindex                                                                                                                                                                                     | `['file']` |
+| `show`               | Feature(s) to use as the columns of the table. Passing a list will join the features with slash, so `['w', 'p']` results in columns with names like `'friend/NN'`                                                                                                                                | `['w']`    |
+| `sort`               | How to sort the results. 'total'/'infreq', 'increase/'decrease', 'static/turbulent', 'name'/'inverse'                                                                                                                                                                                            | `'total'`  |
+| `relative`           | Use relative, rather than absolute frequencies with `True`. You can also pass in Series, DataFrame or buzz objects to calculate relative frequencies against the passed in data.                                                                                                                 | `False`    |
+| `remove_above_p`     | Sorting by increase/decrease/static/turbulent calculates the slope of the frequencies across each subcorpus, and p-values where the null hypothesis is no slope. If you pass in a float, entries with p-values above this float are dropped from the results. Passing in `True` will use `0.05`. | `False`    |
+| `keep_stats`         | If True, keep generated statistics related to the trajectory calculation                                                                                                                                                                                                                         | `False`    |
+| `preserve_case`      | Keep the original case for `show` (column) values                                                                                                                                                                                                                                                | `False`    |
+| `multiindex_columns` | When `show` is a list with multiple features, rather than joining `show` with slashes, build a multiindex                                                                                                                                                                                        | `False`    |
 
 
 This creates a `Table` object, which is also based on DataFrame. You can use its `.view()` method to quickly explore results,. Pressing enter on a given frequency will bring up a concordance of instances of this entry.
