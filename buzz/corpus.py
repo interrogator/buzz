@@ -37,9 +37,9 @@ class Corpus(MutableSequence):
         self.subcorpora = Contents()
         path = os.path.expanduser(path)
         if not os.path.isdir(path):
-            raise FileNotFoundError(f'Not a valid path: {path}')
+            raise FileNotFoundError(f"Not a valid path: {path}")
         self.path = path
-        self._metadata_path = os.path.join(self.path, '.metadata.json')
+        self._metadata_path = os.path.join(self.path, ".metadata.json")
         self.filename = os.path.basename(path)
         self.name = self.filename
         self.subcorpora, self.files, self.is_parsed = self._get_subcorpora_and_files()
@@ -52,18 +52,18 @@ class Corpus(MutableSequence):
 
     def __lt__(self, other):
         if not isinstance(other, self.__class__):
-            raise TypeError(f'Not same class: {self.__class__} vs {other.__class__}')
+            raise TypeError(f"Not same class: {self.__class__} vs {other.__class__}")
         return self.name < other.name
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
-            raise TypeError(f'Not same class: {self.__class__} vs {other.__class__}')
+            raise TypeError(f"Not same class: {self.__class__} vs {other.__class__}")
         return self.path == other.path
 
     def __repr__(self):
-        parsed = 'parsed' if self.is_parsed else 'unparsed'
-        form = [super().__repr__().rstrip('>'), self.path, parsed]
-        return '{} ({}, {})>'.format(*form)
+        parsed = "parsed" if self.is_parsed else "unparsed"
+        form = [super().__repr__().rstrip(">"), self.path, parsed]
+        return "{} ({}, {})>".format(*form)
 
     def __getitem__(self, i):
         """
@@ -84,13 +84,13 @@ class Corpus(MutableSequence):
         """
         Search constituency parses using tgrep
         """
-        return Searcher().run(self, 't', query, **kwargs)
+        return Searcher().run(self, "t", query, **kwargs)
 
     def depgrep(self, query, **kwargs):
         """
         Search dependencies using depgrep
         """
-        return Searcher().run(self, 'd', query, **kwargs)
+        return Searcher().run(self, "d", query, **kwargs)
 
     @property
     def metadata(self):
@@ -99,7 +99,7 @@ class Corpus(MutableSequence):
         """
         if not os.path.isfile(self._metadata_path):
             return self._generate_metadata()
-        with open(self._metadata_path, 'r') as fo:
+        with open(self._metadata_path, "r") as fo:
             return json.load(fo)
 
     def _generate_metadata(self):
@@ -107,16 +107,16 @@ class Corpus(MutableSequence):
         Create, store and return the metadata for this corpus
         """
         meta = dict(
-            language='english',
-            parser='spacy',
-            cons_parser='benepar',
+            language="english",
+            parser="spacy",
+            cons_parser="benepar",
             path=self.path,
             name=self.name,
             parsed=self.is_parsed,
             nsents=-1,
             ntokens=-1,
             nfiles=len(self.files),
-            desc='',
+            desc="",
         )
         self.add_metadata(**meta)
         return meta
@@ -128,33 +128,41 @@ class Corpus(MutableSequence):
         Return the complete metadata dict
         """
         must_exist = {
-            'name',
-            'desc',
-            'parsed',
-            'nfiles',
-            'nsents',
-            'path',
-            'language',
-            'parser',
-            'cons_parser',
+            "name",
+            "desc",
+            "parsed",
+            "nfiles",
+            "nsents",
+            "path",
+            "language",
+            "parser",
+            "cons_parser",
         }
         if not all(i in pairs for i in must_exist):
             not_there = must_exist - pairs.keys()
-            raise ValueError('Fields must exist: {}'.format(not_there))
-        with open(self._metadata_path, 'w') as fo:
-            json.dump(pairs, fo, sort_keys=True, indent=4, separators=(',', ': '))
+            raise ValueError("Fields must exist: {}".format(not_there))
+        with open(self._metadata_path, "w") as fo:
+            json.dump(pairs, fo, sort_keys=True, indent=4, separators=(",", ": "))
         return self.metadata
 
     def parse(
-        self, parser: str = 'spacy', cons_parser: str = 'bllip', language: str = 'english', **kwargs
+        self,
+        parser: str = "spacy",
+        cons_parser: str = "bllip",
+        language: str = "english",
+        **kwargs,
     ):
         """
         Parse a plaintext corpus
         """
-        parsed_path = self.path + '-parsed'
-        if os.path.isdir(parsed_path) or self.path.endswith(('-parsed', 'conll', 'conllu')):
-            raise ValueError('Corpus is already parsed.')
-        self.parser = Parser(self, parser=parser, cons_parser=cons_parser, language=language)
+        parsed_path = self.path + "-parsed"
+        if os.path.isdir(parsed_path) or self.path.endswith(
+            ("-parsed", "conll", "conllu")
+        ):
+            raise ValueError("Corpus is already parsed.")
+        self.parser = Parser(
+            self, parser=parser, cons_parser=cons_parser, language=language
+        )
         return self.parser.run(self)
 
     def load(self, load_trees: bool = False, **kwargs):
@@ -163,14 +171,16 @@ class Corpus(MutableSequence):
         """
 
         # progress indicator
-        kwa = dict(ncols=120, unit='file', desc='Loading', total=len(self))
+        kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
         t = tqdm(**kwa) if len(self.files) > 1 else None
 
         # load each file and add to list, indicating progress
         loaded = list()
         prsd = self.is_parsed
         for file in self.files:
-            loaded.append(file.load(load_trees=load_trees, **kwargs) if prsd else file.read())
+            loaded.append(
+                file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
+            )
             _tqdm_update(t)
         _tqdm_close(t)
 
@@ -180,12 +190,12 @@ class Corpus(MutableSequence):
             if load_trees:
                 tree_once = _tree_once(df)
                 if isinstance(tree_once.values[0], str):
-                    df['parse'] = tree_once.apply(_make_tree)
+                    df["parse"] = tree_once.apply(_make_tree)
 
-            df = df.drop('_n', axis=1, errors='ignore')
+            df = df.drop("_n", axis=1, errors="ignore")
             col_order = list(df.columns)
-            df['_n'] = range(len(df))
-            df = df[col_order + ['_n']]
+            df["_n"] = range(len(df))
+            df = df[col_order + ["_n"]]
             df = _set_best_data_types(df)
             fixed = self._order_columns(df)
             return Dataset(fixed, reference=fixed)
@@ -195,7 +205,7 @@ class Corpus(MutableSequence):
 
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
-    def to_spacy(self, language='en'):
+    def to_spacy(self, language="en"):
         """
         Get spacy's model of the Corpus
         """
@@ -213,10 +223,10 @@ class Corpus(MutableSequence):
         proper_order = CONLL_COLUMNS[1:]
         fixed = [i for i in proper_order if i in list(df.columns)]
         met = list(sorted([i for i in list(df.columns) if i not in proper_order]))
-        met.remove('_n')
+        met.remove("_n")
         if met:
             fixed += met
-        return df[fixed + ['_n']]
+        return df[fixed + ["_n"]]
 
     def _get_subcorpora_and_files(self):
         """
@@ -228,22 +238,22 @@ class Corpus(MutableSequence):
         files = list()
         for root, dirnames, filenames in os.walk(self.path):
             for filename in sorted(filenames):
-                if not filename.endswith(('conll', 'conllu', 'txt')):
+                if not filename.endswith(("conll", "conllu", "txt")):
                     continue
-                if filename.startswith('.'):
+                if filename.startswith("."):
                     continue
                 fpath = os.path.join(root, filename)
                 fpath = File(fpath)
                 files.append(fpath)
             for directory in dirnames:
-                if directory.startswith('.'):
+                if directory.startswith("."):
                     continue
                 directory = os.path.join(root, directory)
                 directory = Subcorpus(directory)
                 subcorpora.append(directory)
         subcorpora = Contents(list(sorted(subcorpora)))
         files = Contents(list(sorted(files)))
-        is_parsed = self.name.endswith('-parsed')
+        is_parsed = self.name.endswith("-parsed")
         return subcorpora, files, is_parsed
 
 

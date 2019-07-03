@@ -13,10 +13,12 @@ def log_likelihood_measure(word_in_ref, word_in_target, ref_sum, target_sum):
     neg = (word_in_target / float(target_sum)) < (word_in_ref / float(ref_sum))
 
     E1 = float(ref_sum) * (
-        (float(word_in_ref) + float(word_in_target)) / (float(ref_sum) + float(target_sum))
+        (float(word_in_ref) + float(word_in_target))
+        / (float(ref_sum) + float(target_sum))
     )
     E2 = float(target_sum) * (
-        (float(word_in_ref) + float(word_in_target)) / (float(ref_sum) + float(target_sum))
+        (float(word_in_ref) + float(word_in_target))
+        / (float(ref_sum) + float(target_sum))
     )
 
     if word_in_ref == 0:
@@ -68,9 +70,9 @@ def _get_reference_corpus(self, reference_corpus):
         df = self
     if not reference_corpus:
         return df, self.reference
-    if reference_corpus == 'bnc':
+    if reference_corpus == "bnc":
         if len(show) > 1:
-            msg = 'Cannot do multiple show values with BNC reference reference corpus'
+            msg = "Cannot do multiple show values with BNC reference reference corpus"
             raise NotImplementedError(msg)
         return df, _get_bnc()
     if isinstance(reference_corpus, (pd.Series, pd.DataFrame)):
@@ -81,11 +83,11 @@ def _get_reference_corpus(self, reference_corpus):
 
 def _keywords(
     self,
-    show=['w'],
-    subcorpora='file',
+    show=["w"],
+    subcorpora="file",
     reference_corpus=None,
     selfdrop=True,
-    measure='ll',
+    measure="ll",
     only_open_class=True,
     **kwargs
 ):
@@ -101,8 +103,11 @@ def _keywords(
     measurer = measures.get(measure, log_likelihood_measure)
 
     if only_open_class:
-        df = df[df['p'].str.startswith(('N', 'V', 'J', 'A'))]
-    rs, ts = reference.shape[0] if not reference_corpus else reference.sum(), df.shape[0]
+        df = df[df["p"].str.startswith(("N", "V", "J", "A"))]
+    rs, ts = (
+        reference.shape[0] if not reference_corpus else reference.sum(),
+        df.shape[0],
+    )
 
     form_match = _make_match_col(df, show)
 
@@ -120,9 +125,9 @@ def _keywords(
         )
 
     # make the formatted column
-    reference['_match'] = form_match
+    reference["_match"] = form_match
     # formatted -> count series
-    ref_counts = reference['_match'].value_counts()
+    ref_counts = reference["_match"].value_counts()
 
     kwa = dict(
         axis=0,

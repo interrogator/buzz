@@ -19,7 +19,7 @@ def _make_match_col(df, show, preserve_case):
     if len(show) == 1:
         made = df[show[0]].astype(str)
     cats = [df[i].astype(str) for i in show[1:]]
-    made = df[show[0]].str.cat(others=cats, sep='/').str.rstrip('/')
+    made = df[show[0]].str.cat(others=cats, sep="/").str.rstrip("/")
     if not preserve_case:
         made = made.str.lower()
     return made
@@ -30,7 +30,7 @@ def _get_tqdm():
     Get either the IPython or regular version of tqdm
     """
     try:
-        if get_ipython().__class__.__name__ == 'ZMQInteractiveShell':  # noqa: F821
+        if get_ipython().__class__.__name__ == "ZMQInteractiveShell":  # noqa: F821
             return tqdm_notebook
         return tqdm
     except NameError:
@@ -42,7 +42,7 @@ def _tree_once(df):
     """
     Get each parse tree once, probably so we can run nltk.ParentedTree on them
     """
-    return df['parse'][df.index.get_level_values('i') == 1]
+    return df["parse"][df.index.get_level_values("i") == 1]
 
 
 def _tqdm_update(tqdm):
@@ -75,12 +75,12 @@ def _set_best_data_types(df):
     Make DF have the best possible column data types
     """
     for c in list(df.columns):
-        if c == 'g' or df[c].dtype.name.startswith('date'):
+        if c == "g" or df[c].dtype.name.startswith("date"):
             continue
         try:
-            df[c] = df[c].astype(DTYPES.get(c, 'category'))
+            df[c] = df[c].astype(DTYPES.get(c, "category"))
             try:
-                df[c].cat.add_categories('_')
+                df[c].cat.add_categories("_")
             except AttributeError:
                 pass
         except (ValueError, TypeError):
@@ -98,13 +98,13 @@ def _make_tree(tree):
         return
 
 
-def _get_nlp(language='english'):
+def _get_nlp(language="english"):
     """
     Get spaCy
     """
     import spacy
 
-    langs = dict(english='en', german='de')
+    langs = dict(english="en", german="de")
     lang = langs.get(language, language)
 
     try:
@@ -122,11 +122,13 @@ def _strip_metadata(text):
     """
     from .constants import MAX_SPEAKERNAME_SIZE
 
-    idregex = re.compile(r'(^[A-Za-z0-9-_]{,%d}?):' % MAX_SPEAKERNAME_SIZE, re.MULTILINE)
-    text = re.sub(idregex, '', text)
-    text = re.sub('<metadata.*?>', '', text)
-    text = '\n'.join([i.strip() for i in text.splitlines()])
-    return re.sub(r'\n\s*\n', '\n', text)
+    idregex = re.compile(
+        r"(^[A-Za-z0-9-_]{,%d}?):" % MAX_SPEAKERNAME_SIZE, re.MULTILINE
+    )
+    text = re.sub(idregex, "", text)
+    text = re.sub("<metadata.*?>", "", text)
+    text = "\n".join([i.strip() for i in text.splitlines()])
+    return re.sub(r"\n\s*\n", "\n", text)
 
 
 def cast(text):
@@ -165,24 +167,24 @@ def _make_csv(raw_lines, fname):
     meta_dicts = list()  # our sent-level metadata will go in here
     fname = os.path.basename(fname)
     # make list of sentence strings
-    sents = raw_lines.strip().split('\n\n')
+    sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
-    splut = [re.split('\n([0-9])', s, 1) for s in sents]
+    splut = [re.split("\n([0-9])", s, 1) for s in sents]
     for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
         text = one + text  # rejoin it as it was
         sent_meta = dict()
         # get every metadata row, split into key//value
-        for key, value in re.findall('^# (.*?) = (.*?)$', raw_sent_meta, re.MULTILINE):
+        for key, value in re.findall("^# (.*?) = (.*?)$", raw_sent_meta, re.MULTILINE):
             # turn the string into an object if it's valid json
             sent_meta[key.strip()] = cast(value.strip())
         # add the fsi part to every row
-        text = '\n'.join(f'{fname}\t{sent_id}\t{line}' for line in text.splitlines())
+        text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in text.splitlines())
         # add csv and meta to our collection
         csvdat.append(text)
         meta_dicts.append(sent_meta)
 
     # return the csv without the double newline so it can be read all at once. add meta_dicts later.
-    return '\n'.join(csvdat), meta_dicts
+    return "\n".join(csvdat), meta_dicts
 
 
 def _order_df_columns(df, metadata=None):
@@ -204,20 +206,20 @@ def _to_df(
     """
     from .dataset import Dataset
 
-    with open(corpus.path, 'r') as fo:
-        data = fo.read().strip('\n')
+    with open(corpus.path, "r") as fo:
+        data = fo.read().strip("\n")
 
     data, metadata = _make_csv(data, corpus.name)
 
     df = pd.read_csv(
         StringIO(data),
-        sep='\t',
+        sep="\t",
         header=None,
         names=usecols,
         quoting=3,
         memory_map=True,
-        index_col=['file', 's', 'i'],
-        engine='c',
+        index_col=["file", "s", "i"],
+        engine="c",
         na_filter=False,
         usecols=usecols,
     )
@@ -225,21 +227,21 @@ def _to_df(
     # make a dataframe containing sentence level metadata, then join it to main df
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
     metadata = pd.DataFrame(metadata).T
-    metadata.index.name = 's'
-    df = metadata.join(df, how='inner')
+    metadata.index.name = "s"
+    df = metadata.join(df, how="inner")
 
     # fix the column order
     df = _order_df_columns(df, metadata)
 
     # remove columns whose value was interpeted or for which nothing is ever availablr
-    badcols = ['o', 'm']
-    df = df.drop(badcols, axis=1, errors='ignore')
+    badcols = ["o", "m"]
+    df = df.drop(badcols, axis=1, errors="ignore")
 
-    df['g'] = df['g'].fillna(0)
-    if df['g'].dtype in {object, str}:
-        df['g'] = df['g'].str.replace('_|^$', '0').astype(int)
-    df['g'] = df['g'].astype(int)
-    df = df.fillna('_')
+    df["g"] = df["g"].fillna(0)
+    if df["g"].dtype in {object, str}:
+        df["g"] = df["g"].str.replace("_|^$", "0").astype(int)
+    df["g"] = df["g"].astype(int)
+    df = df.fillna("_")
     return Dataset(_set_best_data_types(df))
 
 
@@ -255,26 +257,26 @@ def _make_meta_dict_from_sent(text):
     from .utils import cast
 
     metad = dict()
-    if '<metadata' in text:
-        relevant = text.strip().rstrip('>').rsplit('<metadata ', 1)
+    if "<metadata" in text:
+        relevant = text.strip().rstrip(">").rsplit("<metadata ", 1)
         try:
             shxed = shlex.split(relevant[-1])
         except Exception:  # what is it?
             shxed = relevant[-1].split("' ")
         for m in shxed:
             try:
-                k, v = m.split('=', 1)
-                v = v.replace(u"\u2018", "'").replace(u"\u2019", "'")
+                k, v = m.split("=", 1)
+                v = v.replace("\u2018", "'").replace("\u2019", "'")
                 v = v.strip("'").strip('"')
-                metad[k.replace('-', '_')] = cast(v)
+                metad[k.replace("-", "_")] = cast(v)
             except ValueError:
                 continue
     # speaker seg part
-    regex = r'(^[a-zA-Z0-9-_]{,%d}?):..+' % MAX_SPEAKERNAME_SIZE
+    regex = r"(^[a-zA-Z0-9-_]{,%d}?):..+" % MAX_SPEAKERNAME_SIZE
     speaker_regex = re.compile(regex)
     match = re.search(speaker_regex, text)
     if not match:
         return metad
     speaker = match.group(1)
-    metad['speaker'] = speaker
+    metad["speaker"] = speaker
     return metad

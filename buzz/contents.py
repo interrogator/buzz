@@ -33,7 +33,7 @@ class Contents(MutableSequence):
         found = self._try_to_get_same(attr)
         if found:
             return found
-        raise AttributeError(f'No such attribute: {attr}')
+        raise AttributeError(f"No such attribute: {attr}")
 
     def __getitem__(self, i):
         """
@@ -44,10 +44,10 @@ class Contents(MutableSequence):
             found = self._try_to_get_same(i)
             if found:
                 return found
-            raise KeyError(f'No such object: {i}')
+            raise KeyError(f"No such object: {i}")
 
         # allow user to pass in a regular expression and get all matching names
-        if isinstance(i, type(re.compile('x'))):
+        if isinstance(i, type(re.compile("x"))):
             return Contents([s for s in self.list if re.search(i, s.name)])
 
         # normal indexing and slicing
@@ -65,14 +65,14 @@ class Contents(MutableSequence):
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
-            raise TypeError(f'Not same class: {self.__class__} vs {other.__class__}')
+            raise TypeError(f"Not same class: {self.__class__} vs {other.__class__}")
         if len(self) != len(other):
             return False
         return all(a == b for a, b in zip(self, other))
 
     def insert(self, i, v):
         if self and not isinstance(v, self[0].__class__):
-            raise TypeError(f'Not same class: {self[0].__class__} vs {v.__class__}')
+            raise TypeError(f"Not same class: {self[0].__class__} vs {v.__class__}")
         self.list.insert(i, v)
 
     def load(self, **kwargs):
@@ -80,5 +80,5 @@ class Contents(MutableSequence):
         for piece in self:
             loaded.append(piece.load(**kwargs))
         df = pd.concat(loaded)
-        df['_n'] = range(len(df))
+        df["_n"] = range(len(df))
         return _order_df_columns(df)

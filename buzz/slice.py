@@ -64,7 +64,7 @@ class Filter(object):
         else:
             # get the correct method --- if user wants exact match
             search_method = strung.str.match if exact_match else strung.str.contains
-            if not kwargs.get('regex') and exact_match:
+            if not kwargs.get("regex") and exact_match:
                 bool_ix = strung == entry
             else:
                 bool_ix = search_method(entry, *args, **kwargs)
@@ -121,12 +121,16 @@ class Proto(Filter):
     def showing(self):
         return Proto(self._df, self.column)
 
-    def __call__(self, show=['w'], top=10, n_top_members=-1, only_correct=True):
+    def __call__(self, show=["w"], top=10, n_top_members=-1, only_correct=True):
         if not isinstance(show, list):
             show = [show]
         show = [_get_short_name_from_long_name(i) for i in show]
         return self._df.prototypical(
-            self.column, show=show, top=top, n_top_members=n_top_members, only_correct=only_correct
+            self.column,
+            show=show,
+            top=top,
+            n_top_members=n_top_members,
+            only_correct=only_correct,
         )
 
 
@@ -154,7 +158,7 @@ class Slice(ABC):
         """
         short = _get_short_name_from_long_name(col)
         if short not in self._valid:
-            raise ValueError(f'Invalid name: {col}')
+            raise ValueError(f"Invalid name: {col}")
         # use the custom data grabber for this kind of slicer.
         return self._grab(short)
 
@@ -167,7 +171,7 @@ class Slice(ABC):
         return
 
 
-@pd.api.extensions.register_dataframe_accessor('just')
+@pd.api.extensions.register_dataframe_accessor("just")
 class Just(Slice):
     """
     LoadedCorpus.just.speakers.MOOKIE -- filter df
@@ -177,7 +181,7 @@ class Just(Slice):
         return Filter(self._df, colname)
 
 
-@pd.api.extensions.register_dataframe_accessor('proto')
+@pd.api.extensions.register_dataframe_accessor("proto")
 class Prototypical(Slice):
     """
     LoadedCorpus.just.speakers.MOOKIE -- filter df
@@ -187,7 +191,7 @@ class Prototypical(Slice):
         return Proto(self._df, colname)
 
 
-@pd.api.extensions.register_dataframe_accessor('skip')
+@pd.api.extensions.register_dataframe_accessor("skip")
 class Skip(Slice):
     """
     LoadedCorpus.skip.speakers.MOOKIE -- filter df
@@ -197,7 +201,7 @@ class Skip(Slice):
         return Filter(self._df, colname, inverse=True)
 
 
-@pd.api.extensions.register_dataframe_accessor('see')
+@pd.api.extensions.register_dataframe_accessor("see")
 class See(Slice):
     """
     results.see.lemma.by.speaker: make table

@@ -22,21 +22,21 @@ def _tfidf_prototypical(df, column, show, n_top_members=-1, only_correct=True, t
         top_members = list(getattr(df, column).value_counts().index[:n_top_members])
         df = df[getattr(df, column).isin(top_members)]
 
-    df['_formatted'] = _make_match_col(df, show, preserve_case=False)
+    df["_formatted"] = _make_match_col(df, show, preserve_case=False)
 
     index = list()
     results = list()
 
     groupby = df.groupby(column)
 
-    kwa = dict(ncols=120, unit='bin', desc='Scoring against models', total=len(groupby))
+    kwa = dict(ncols=120, unit="bin", desc="Scoring against models", total=len(groupby))
     t = tqdm(**kwa) if len(groupby) > 1 else None
 
     for column_value, df_by_attr in groupby:
-        for fsi, sent in df_by_attr.groupby(level=['file', 's']):
+        for fsi, sent in df_by_attr.groupby(level=["file", "s"]):
             # note, the actions below are probably done twice. bad.
             text = sent.iloc[0].text
-            form = ' '.join(sent['_formatted'])
+            form = " ".join(sent["_formatted"])
             scores = df.tfidf_score(column, show, sent)
             if column in sent.columns:
                 actual = getattr(sent.iloc[0], column)
@@ -51,17 +51,17 @@ def _tfidf_prototypical(df, column, show, n_top_members=-1, only_correct=True, t
         _tqdm_update(t)
     _tqdm_close(t)
 
-    show = '/'.join(show)
-    names = ['file', 's', show, 'text', 'actual ' + column, 'guess ' + column]
+    show = "/".join(show)
+    names = ["file", "s", show, "text", "actual " + column, "guess " + column]
     index = pd.MultiIndex.from_tuples(index, names=names)
     results = pd.Series(results, index=index)
     if only_correct:
         reset = results.reset_index()
-        bool_ix = reset['guess ' + column] == reset['actual ' + column]
+        bool_ix = reset["guess " + column] == reset["actual " + column]
         results = results[bool_ix.values]
         results.index = results.index.droplevel(-1)
-        results.index.names = [i.replace('actual ', '') for i in results.index.names]
-    results.name = 'similarity'
+        results.index.names = [i.replace("actual ", "") for i in results.index.names]
+    results.name = "similarity"
     if top < 1:
         return results
 
@@ -81,7 +81,7 @@ def _tfidf_score(df, column, show, text):
     scores = dict()
     for k, (vec, features, show) in df._tfidf[key].items():
         if isinstance(text, str):
-            if show != ['w']:
+            if show != ["w"]:
                 err = f'Input text can only be string when vector is ["w"], not {show}'
                 raise ValueError(err)
             sents = [text]
@@ -90,8 +90,8 @@ def _tfidf_score(df, column, show, text):
         else:
             sents = list()
             series = _make_match_col(text, show, preserve_case=False)
-            for fsi, sent in series.groupby(level=['file', 's']):
-                sents.append(' '.join(sent))
+            for fsi, sent in series.groupby(level=["file", "s"]):
+                sents.append(" ".join(sent))
         new_features = vec.transform(sents)
         scored = (features * new_features.T).A
         scores[k] = scored
@@ -99,7 +99,7 @@ def _tfidf_score(df, column, show, text):
     return Counter(scores)
 
 
-def _tfidf_model(df, column, n_top_members=-1, show=['w']):
+def _tfidf_model(df, column, n_top_members=-1, show=["w"]):
 
     attr_sents = defaultdict(list)
     sents = list()
@@ -109,24 +109,28 @@ def _tfidf_model(df, column, n_top_members=-1, show=['w']):
         df = df[getattr(df, column).isin(top_members)]
 
     # get dict of attr: [list, of, sents]
-    df['_formatted'] = _make_match_col(df, show, preserve_case=False)
+    df["_formatted"] = _make_match_col(df, show, preserve_case=False)
 
-    groupby = df.groupby(column) if column else df['_formatted'].groupby(level=['file', 's'])
+    groupby = (
+        df.groupby(column) if column else df["_formatted"].groupby(level=["file", "s"])
+    )
 
-    kwa = dict(ncols=120, unit='bin', desc=f'Building {column} model', total=len(groupby))
+    kwa = dict(
+        ncols=120, unit="bin", desc=f"Building {column} model", total=len(groupby)
+    )
     t = tqdm(**kwa) if len(groupby) > 1 else None
 
     if column:
         for attr, df_by_attr in df.groupby(column):
-            for fsi, sent in df_by_attr.groupby(level=['file', 's']):
-                attr_sents[attr].append(' '.join(sent['_formatted']))
+            for fsi, sent in df_by_attr.groupby(level=["file", "s"]):
+                attr_sents[attr].append(" ".join(sent["_formatted"]))
             _tqdm_update(t)
 
     else:
-        for fsi, sent in df['_formatted'].groupby(level=['file', 's']):
-            sents.append(' '.join(sent))
+        for fsi, sent in df["_formatted"].groupby(level=["file", "s"]):
+            sents.append(" ".join(sent))
             _tqdm_update(t)
-        attr_sents['_base'] = sents
+        attr_sents["_base"] = sents
 
     _tqdm_close(t)
 
@@ -140,6 +144,6 @@ def _tfidf_model(df, column, n_top_members=-1, show=['w']):
 
     # little hack when there are no columns
     if not column:
-        vectors = vectors['_base']
+        vectors = vectors["_base"]
 
     return vectors

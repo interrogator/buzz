@@ -19,13 +19,13 @@ def _get_widths(df, is_conc, window):
     for i, col_name in enumerate(df.columns):
         if not is_conc:
             widths.append(8)
-        elif is_conc and col_name == 'left':
+        elif is_conc and col_name == "left":
             widths.append(window[0])
             truncs[i + len(df.index.names)] = True
-        elif is_conc and col_name == 'right':
+        elif is_conc and col_name == "right":
             widths.append(window[1])
             aligns[i + len(df.index.names)] = False
-        elif is_conc and col_name == 'match':
+        elif is_conc and col_name == "match":
             mx = df[col_name].astype(str).str.len().max() + 1
             mx = min(15, mx)
             widths.append(mx)
@@ -38,7 +38,7 @@ def _get_widths(df, is_conc, window):
     return aligns, truncs, widths
 
 
-def _tabview(df, reference, window='auto', **kwargs):
+def _tabview(df, reference, window="auto", **kwargs):
     """
     Show concordance in interactive cli view
     """
@@ -63,24 +63,24 @@ def _tabview(df, reference, window='auto', **kwargs):
     # expand single window integer to both sides
     if isinstance(window, int):
         window = [window, window]
-    elif window == 'auto':
+    elif window == "auto":
         window = _auto_window()
     else:
         window = list(window)
 
     # make window smaller if it can be
     if is_conc:
-        window[0] = max(df['left'].str.len().max(), window[0])
-        window[1] = max(df['right'].str.len().max(), window[1])
+        window[0] = max(df["left"].str.len().max(), window[0])
+        window[1] = max(df["right"].str.len().max(), window[1])
 
     aligns, truncs, widths = _get_widths(df, is_conc, window)
 
     view_style = dict(column_widths=widths, reference=reference, df=df)
 
-    if 'align_right' not in kwargs:
-        view_style['align_right'] = aligns
-    if 'trunc_left' not in kwargs:
-        view_style['trunc_left'] = truncs
+    if "align_right" not in kwargs:
+        view_style["align_right"] = aligns
+    if "trunc_left" not in kwargs:
+        view_style["trunc_left"] = truncs
     view(pd.DataFrame(df), **view_style)
 
 
@@ -90,7 +90,7 @@ def _lingres(ser, index):
     """
     from scipy.stats import linregress
 
-    ix = ['_slope', '_intercept', '_r', '_p', '_stderr']
+    ix = ["_slope", "_intercept", "_r", "_p", "_stderr"]
     return pd.Series(linregress(index, ser.values), index=ix)
 
 
@@ -99,14 +99,14 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
     Sort results, potentially using scipy's linregress
     """
     # translate options and make sure they are parseable
-    stat_field = ['_slope', '_intercept', '_r', '_p', '_stderr']
-    easy_sorts = ['total', 'infreq', 'name', 'most', 'least', 'reverse']
-    stat_sorts = ['increase', 'decrease', 'static', 'turbulent']
+    stat_field = ["_slope", "_intercept", "_r", "_p", "_stderr"]
+    easy_sorts = ["total", "infreq", "name", "most", "least", "reverse"]
+    stat_sorts = ["increase", "decrease", "static", "turbulent"]
 
     options = stat_field + easy_sorts + stat_sorts
 
     # allow some alternative names
-    by_convert = {'most': 'total', True: 'total', 'least': 'infreq'}
+    by_convert = {"most": "total", True: "total", "least": "infreq"}
     by = by_convert.get(by, by)
 
     if keep_stats or by in stat_field + stat_sorts:
@@ -123,57 +123,57 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
         df = df.append(stats)
         df = df.replace([np.inf, -np.inf], 0.0)
 
-    if by == 'name':
+    if by == "name":
         # currently case sensitive
         df = df.reindex_axis(sorted(df.columns), axis=1)
 
-    elif by in {'total', 'infreq'}:
-        ascending = by != 'total'
+    elif by in {"total", "infreq"}:
+        ascending = by != "total"
         df = df[list(df.sum().sort_values(ascending=ascending).index)]
 
-    elif by == 'reverse':
+    elif by == "reverse":
         df = df.loc[::, ::-1]
 
     # sort by slope etc., or search by subcorpus name
     if by in stat_field or by not in options:
-        asc = False if by is True or by in {'total', 'most'} else True
+        asc = False if by is True or by in {"total", "most"} else True
 
         df = df.T.sort_values(by=by, ascending=asc).T
 
-    if '_slope' in df.index:
-        slopes = df.loc['_slope']
-        if by == 'increase':
+    if "_slope" in df.index:
+        slopes = df.loc["_slope"]
+        if by == "increase":
             std = slopes.sort_values(ascending=False)
             df = df[std.index]
-        elif by == 'decrease':
+        elif by == "decrease":
             std = slopes.sort_values(ascending=True)
             df = df[std.index]
-        elif by == 'static':
+        elif by == "static":
             std = slopes.abs().sort_values(ascending=True)
             df = df[std.index]
-        elif by == 'turbulent':
+        elif by == "turbulent":
             std = slopes.abs().sort_values(ascending=False)
             df = df[std.index]
         if remove_above_p is not False and remove_above_p > 0:
             df = df.T
-            df = df[df['_p'] <= remove_above_p]
+            df = df[df["_p"] <= remove_above_p]
             df = df.T
 
     # remove stats field by default
     if not keep_stats:
-        df = df.drop(stat_field, axis=0, errors='ignore')
+        df = df.drop(stat_field, axis=0, errors="ignore")
     else:
-        df.index = [i.lstrip('_') if i in stat_field else i for i in list(df.index)]
+        df.index = [i.lstrip("_") if i in stat_field else i for i in list(df.index)]
     return df
 
 
 def _uncomma(row, df, df_show_col, gram_ix):
     n = row.name
-    gramsize = str(row[gram_ix]).count(',') + 1
+    gramsize = str(row[gram_ix]).count(",") + 1
     try:
         rel = df[n : n + gramsize, df_show_col]
         # todo: if df_show_col is list, do slash sep
-        form = ' '.join(rel)
+        form = " ".join(rel)
         return form
     except Exception:  # todo: why?
         return str()
@@ -188,10 +188,10 @@ def _relativise(df, denom=None):
 
 def _table(
     dataset,
-    subcorpora=['file'],
-    show=['w'],
+    subcorpora=["file"],
+    show=["w"],
     preserve_case=False,
-    sort='total',
+    sort="total",
     relative=False,
     remove_above_p=False,
     multiindex_columns=False,
@@ -214,7 +214,7 @@ def _table(
 
     # showing next or previous words -- add the cols
     for to_show in show:
-        if not to_show.startswith(('+', '-')):
+        if not to_show.startswith(("+", "-")):
             continue
         df[to_show] = reference[to_show[2:]].shift(-int(to_show[1]))
 
@@ -222,13 +222,15 @@ def _table(
         remove_above_p = 0.05
 
     # make a column representing the 'show' info
-    df['_match'] = _make_match_col(df, show, preserve_case)
+    df["_match"] = _make_match_col(df, show, preserve_case)
 
     # need a column of ones for summing, yuck
-    df['_count'] = 1
+    df["_count"] = 1
 
     # make the matrix
-    df = df.pivot_table(index=subcorpora, columns='_match', values='_count', aggfunc=sum)
+    df = df.pivot_table(
+        index=subcorpora, columns="_match", values="_count", aggfunc=sum
+    )
     df = df.fillna(0)
     # make table now so we can relative/sort
     df = Table(df, reference=reference)
@@ -242,9 +244,9 @@ def _table(
 
     # make columns into multiindex if the user wants that
     if multiindex_columns and len(show) > 1:
-        df.columns = [i.split('/') for i in df.columns.names]
-        df.columns.names = df.columns.names[0].split('/')
+        df.columns = [i.split("/") for i in df.columns.names]
+        df.columns.names = df.columns.names[0].split("/")
     else:
-        df.columns.name = '/'.join(show)
+        df.columns.name = "/".join(show)
 
     return df

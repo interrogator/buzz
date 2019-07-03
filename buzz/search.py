@@ -37,7 +37,7 @@ class Searcher(object):
         """
         Search a DataFrame-like object's parse column using tgrep.
         """
-        df['_gram'] = False
+        df["_gram"] = False
         tree_once = _tree_once(df)
         if isinstance(tree_once.values[0], str):
             tree_once = tree_once.apply(_make_tree)
@@ -50,30 +50,32 @@ class Searcher(object):
         if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             running_count = 0
-            t = tqdm(total=len(tree_once), desc='Searching trees', ncols=120, unit='tree')
+            t = tqdm(
+                total=len(tree_once), desc="Searching trees", ncols=120, unit="tree"
+            )
 
         for n, tree in tree_once.iteritems():
             if not tree:
                 continue
             match_count = 0
             # a tree is a bunch of positions. we iterate over each and check for match there
-            root_positions = tree.treepositions(order='leaves')
+            root_positions = tree.treepositions(order="leaves")
             positions = tree.treepositions()
             for position in positions:
                 if self.query(tree[position]):
                     match_count += 1
                     size = len(tree[position].leaves())  # how long is match for _gram
-                    first = tree[position].treepositions('leaves')[0]
+                    first = tree[position].treepositions("leaves")[0]
                     first = position + first
                     pos = root_positions.index(first)
-                    form = ','.join([str(x) for x in range(pos + 1, pos + size + 1)])
+                    form = ",".join([str(x) for x in range(pos + 1, pos + size + 1)])
                     for x in range(pos + 1, pos + size + 1):
                         indices_to_keep[(n[0], n[1], x)] = form
 
             # progress bar stuff for df
             if isinstance(self.corpus, pd.DataFrame):
                 running_count += match_count
-                kwa = dict(results=format(running_count, ','))
+                kwa = dict(results=format(running_count, ","))
                 t.set_postfix(**kwa)
                 t.update()
 
@@ -89,7 +91,9 @@ class Searcher(object):
         # create progress bar
         if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
-            prog_bar_info = dict(desc='Searching loaded corpus', unit='tokens', ncols=120)
+            prog_bar_info = dict(
+                desc="Searching loaded corpus", unit="tokens", ncols=120
+            )
             tqdm.pandas(**prog_bar_info)
             matches = df.progress_apply(self.query, axis=1, raw=True)
         # when corpus is not loaded, no progress bar?
@@ -108,14 +112,17 @@ class Searcher(object):
         depgrep over one piece of data, returning the matching lines
         """
         # make multiindex and add an _n column, then remove old index
-        df = piece.drop(['_n', 'file', 's', 'i'], axis=1, errors='ignore')
-        df['_n'] = range(len(df))
+        df = piece.drop(["_n", "file", "s", "i"], axis=1, errors="ignore")
+        df["_n"] = range(len(df))
         df = df.reset_index(level=df.index.names)
         positions = {y: x for x, y in enumerate(list(df.columns))}
         values = df.values
         # compile the query against this dataframe
         self.query = depgrep_compile(
-            query, values=values, positions=positions, case_sensitive=self.case_sensitive
+            query,
+            values=values,
+            positions=positions,
+            case_sensitive=self.case_sensitive,
         )
         # run the query, returning a boolean index
         bool_ix = self.depgrep(df, positions)
@@ -141,12 +148,17 @@ class Searcher(object):
         results = list()
 
         # unlike depgrep, tgrep queries are compiled without the file data, so can be done once
-        if target == 't':
+        if target == "t":
             self.query = tgrep_compile(query)
 
         # progbar stuff
         tqdm = _get_tqdm()
-        kwa = dict(total=len(self.to_search), desc='Searching corpus', ncols=120, unit='document')
+        kwa = dict(
+            total=len(self.to_search),
+            desc="Searching corpus",
+            ncols=120,
+            unit="document",
+        )
         t = tqdm(**kwa) if len(self.to_search) > 1 else None
 
         # iterate over searchable bits, doing query with progbar
@@ -154,22 +166,26 @@ class Searcher(object):
         for piece in self.to_search:
             if isinstance(piece, File):
                 piece = piece.load()
-                piece['_n'] = list(range(n, len(piece) + n))
+                piece["_n"] = list(range(n, len(piece) + n))
                 n += len(piece)
             # do the dep or tree searches and make a reduced dataset containing just matches
-            if self.target == 'd':
+            if self.target == "d":
                 res = piece[self._depgrep_iteration(piece, query)]
-            elif self.target == 't':
+            elif self.target == "t":
                 gram_ser = self._tgrep_iteration(piece)
                 res = piece.loc[gram_ser.index]
-                res['_gram'] = gram_ser
+                res["_gram"] = gram_ser
 
             if not res.empty:
                 results.append(res)
             _tqdm_update(t)
         _tqdm_close(t)
 
-        results = Dataset(pd.concat(results, sort=False)) if results else Dataset(pd.DataFrame())
+        results = (
+            Dataset(pd.concat(results, sort=False))
+            if results
+            else Dataset(pd.DataFrame())
+        )
         # if we already had reference corpus, it can stay...
         results.reference = self.reference
         return results

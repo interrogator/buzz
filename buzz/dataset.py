@@ -6,6 +6,7 @@ from .conc import _concordance
 from .search import Searcher
 from .slice import Just, Skip, See  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
+from .utils import _get_nlp
 from .views import _table, _tabview
 
 
@@ -17,7 +18,7 @@ class Dataset(pd.DataFrame):
     _internal_names = pd.DataFrame._internal_names
     _internal_names_set = set(_internal_names)
 
-    _metadata = ['reference', '_tfidf']
+    _metadata = ["reference", "_tfidf"]
     reference = None
     _tfidf = dict()
 
@@ -53,13 +54,13 @@ class Dataset(pd.DataFrame):
         """
         Search constituency parses using tgrep
         """
-        return Searcher().run(self, 't', query, **kwargs)
+        return Searcher().run(self, "t", query, **kwargs)
 
     def depgrep(self, query, **kwargs):
         """
         Search dependencies using depgrep
         """
-        return Searcher().run(self, 'd', query, **kwargs)
+        return Searcher().run(self, "d", query, **kwargs)
 
     def conc(self, *args, **kwargs):
         """
@@ -80,16 +81,16 @@ class Dataset(pd.DataFrame):
         """
         Get unique sentences
         """
-        return self[self.index.get_level_values('i') == 1]
+        return self[self.index.get_level_values("i") == 1]
 
     def sent(self, n):
         """
         Helper: get nth sentence as DataFrame with all index levels intact
         """
         # order of magnitude faster than groupby:
-        return self.iloc[self.index.get_loc(self.index.droplevel('i').unique()[n])]
+        return self.iloc[self.index.get_loc(self.index.droplevel("i").unique()[n])]
 
-    def tfidf_by(self, column, n_top_members=-1, show=['w']):
+    def tfidf_by(self, column, n_top_members=-1, show=["w"]):
         """
         Generate tfidf vectors for the given column
 
@@ -111,5 +112,16 @@ class Dataset(pd.DataFrame):
         Get prototypical instances over bins segmented by column
         """
         return _tfidf_prototypical(
-            self, column, show, n_top_members=n_top_members, only_correct=only_correct, top=top
+            self,
+            column,
+            show,
+            n_top_members=n_top_members,
+            only_correct=only_correct,
+            top=top,
         )
+
+    def to_spacy(self, language="en"):
+        sents = self.sentences()
+        text = " ".join(sents["text"])
+        self.nlp = _get_nlp(language=language)
+        return self.nlp(text)

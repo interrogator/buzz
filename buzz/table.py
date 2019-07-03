@@ -8,10 +8,10 @@ class Table(pd.DataFrame):
     A dataframe with numerical datapoints
     """
 
-    _internal_names = pd.DataFrame._internal_names + ['reference']
+    _internal_names = pd.DataFrame._internal_names + ["reference"]
     _internal_names_set = set(_internal_names)
 
-    _metadata = ['reference', 'path', 'name']
+    _metadata = ["reference", "path", "name"]
 
     def __init__(self, data, reference=None, **kwargs):
         super().__init__(data, **kwargs)
@@ -24,7 +24,7 @@ class Table(pd.DataFrame):
     def view(self, *args, **kwargs):
         return _tabview(self, self.reference, *args, **kwargs)
 
-    def sort(self, by='total', keep_stats=False, remove_above_p=False):
+    def sort(self, by="total", keep_stats=False, remove_above_p=False):
         """
         Sort this table
 
