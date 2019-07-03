@@ -17,6 +17,8 @@ jobs:
       script:
         - flake8 .
         - black . --check
+        # mode 3 with trailing commas is black compatible isort
+        - isort -m 3 -tc -c buzz/* tests/* setup.py
     - stage: test
       script:
         - coverage run -m unittest
