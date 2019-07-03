@@ -12,6 +12,22 @@ from tqdm import tqdm, tqdm_notebook
 from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
 
 
+def _save_string(string, savename, is_parsed):
+    """
+    Save string as a corpus called savename, parsed or not.
+    """
+    from .corpus import Corpus
+
+    if is_parsed:
+        dirname, fname = f"{savename}-parsed", f"{savename}.txt.conllu"
+    else:
+        dirname, fname = f"{savename}", f"{savename}.txt"
+    os.makedirs(dirname)
+    with open(f"{dirname}/{fname}", "w") as fo:
+        fo.write(string.strip() + "\n")
+    return Corpus(f"{dirname}")
+
+
 def _get_texts(file_data):
     """
     From a CONLL-U string, return a string of just the text metadata
@@ -138,9 +154,7 @@ def _strip_metadata(text):
     """
     from .constants import MAX_SPEAKERNAME_SIZE
 
-    idregex = re.compile(
-        r"(^[A-Za-z0-9-_]{,%d}?):" % MAX_SPEAKERNAME_SIZE, re.MULTILINE
-    )
+    idregex = re.compile(r"(^[A-Za-z0-9-_]{,%d}?):" % MAX_SPEAKERNAME_SIZE, re.MULTILINE)
     text = re.sub(idregex, "", text)
     text = re.sub("<metadata.*?>", "", text)
     text = "\n".join([i.strip() for i in text.splitlines()])
@@ -220,10 +234,17 @@ def _to_df(
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
     """
+    from .corpus import Corpus
     from .dataset import Dataset
+    from .file import File
 
-    with open(corpus.path, "r") as fo:
-        data = fo.read().strip("\n")
+    if isinstance(corpus, str) and os.path.isfile(corpus):
+        corpus = File(corpus)
+    if isinstance(corpus, (Corpus, File)):
+        with open(corpus.path, "r") as fo:
+            data = fo.read().strip("\n")
+    elif isinstance(corpus, str) and not os.path.exists(corpus):
+        data = corpus
 
     data, metadata = _make_csv(data, corpus.name)
 

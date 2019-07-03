@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 from collections import MutableSequence
 from functools import total_ordering
 
@@ -11,6 +12,8 @@ from .contents import Contents
 from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
+
+from typing import Optional
 
 tqdm = utils._get_tqdm()
 
@@ -41,6 +44,52 @@ class Corpus(MutableSequence):
 
     def __len__(self):
         return len(self.iterable)
+
+    @staticmethod
+    def from_string(
+        data,
+        parse: bool = True,
+        save_as: Optional[str] = None,
+        cons_parser: str = "bllip",
+        language: str = "english",
+        **kwargs,
+    ):
+        """
+        Turn string into corpus
+        """
+        tmp_name = "tmp"
+        savename = save_as or tmp_name
+        guess_parsed = "# text = " in data or "-parsed" in savename
+        # if user gave us conll as string and doesn't want to save, just load it.
+        if guess_parsed and not save_as:
+            return utils._to_df(data)
+
+        # make and save the corpus, possibly parsed and possibly not
+        corpus = utils._save_string(data, savename, guess_parsed)
+
+        # if already parsed, the user wanted it saved and loaded.
+        if corpus.is_parsed:
+            df = corpus.load()
+            if not save_as:
+                shutil.rmtree(tmp_name + "-parsed")
+            return df
+
+        # the user gave us unparsed text, did not want it parsed
+        if not parse:
+            # if they didn't want it saved, they just want corpus object, though pointless.
+            if not save_as:
+                shutil.rmtree(tmp_name)
+            # otherwise, it is saved, we can return it
+            return corpus
+
+        # from here, we know the user wants to parse the corpus.
+        parser = Parser(corpus, cons_parser=cons_parser, language=language)
+        parsed = parser.run(corpus).load()
+        # delete the tmp files if they never wanted it saved
+        if not save_as:
+            shutil.rmtree(tmp_name)
+            shutil.rmtree(tmp_name + "-parsed")
+        return parsed
 
     def __lt__(self, other):
         if not isinstance(other, self.__class__):
@@ -101,7 +150,7 @@ class Corpus(MutableSequence):
         meta = dict(
             language="english",
             parser="spacy",
-            cons_parser="benepar",
+            cons_parser="bllip",
             path=self.path,
             name=self.name,
             parsed=self.is_parsed,
@@ -137,24 +186,14 @@ class Corpus(MutableSequence):
             json.dump(pairs, fo, sort_keys=True, indent=4, separators=(",", ": "))
         return self.metadata
 
-    def parse(
-        self,
-        parser: str = "spacy",
-        cons_parser: str = "bllip",
-        language: str = "english",
-        **kwargs,
-    ):
+    def parse(self, cons_parser: str = "bllip", language: str = "english", **kwargs):
         """
         Parse a plaintext corpus
         """
         parsed_path = self.path + "-parsed"
-        if os.path.isdir(parsed_path) or self.path.endswith(
-            ("-parsed", "conll", "conllu")
-        ):
+        if os.path.isdir(parsed_path) or self.path.endswith(("-parsed", "conll", "conllu")):
             raise ValueError("Corpus is already parsed.")
-        self.parser = Parser(
-            self, parser=parser, cons_parser=cons_parser, language=language
-        )
+        self.parser = Parser(self, cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
     def load(self, load_trees: bool = False, **kwargs):
@@ -170,9 +209,7 @@ class Corpus(MutableSequence):
         loaded = list()
         prsd = self.is_parsed
         for file in self.files:
-            loaded.append(
-                file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
-            )
+            loaded.append(file.load(load_trees=load_trees, **kwargs) if prsd else file.read())
             utils._tqdm_update(t)
         utils._tqdm_close(t)
 
