@@ -3,13 +3,14 @@ import unittest
 from collections import OrderedDict
 from unittest.mock import patch
 
+from nltk.tree import ParentedTree
+from spacy.tokens.doc import Doc
+
 from buzz.constants import LONG_NAMES
 from buzz.contents import Contents
 from buzz.corpus import Corpus
 from buzz.dataset import Dataset
 from buzz.table import Table
-from nltk.tree import ParentedTree
-from spacy.tokens.doc import Doc
 
 TOTAL_TOKENS = 329
 

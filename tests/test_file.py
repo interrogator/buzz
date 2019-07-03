@@ -1,8 +1,9 @@
 import unittest
 
+from spacy.tokens.doc import Doc
+
 from buzz.dataset import Dataset
 from buzz.file import File
-from spacy.tokens.doc import Doc
 
 
 class TestFile(unittest.TestCase):
