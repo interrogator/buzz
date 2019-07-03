@@ -32,9 +32,9 @@ Text files should be plain text, with a `.txt` extension. Importantly though, th
 
 ```html
 <metadata aired="10.01.1999">
-MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true interrogative-type='intonation' move=info-request>
-TONY: They said it was a panic attack <metadata emph-token=0, move='refute'>
-MELFI: You don't agree that you had a panic attack? <metadata move='info-request', question=type='in'>
+MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true interrogative-type="intonation" move="info-request">
+TONY: They said it was a panic attack <metadata emph-token=0, move="refute">
+MELFI: You don't agree that you had a panic attack? <metadata move="info-request" question=type="in">
 ...
 ```
 
@@ -100,9 +100,9 @@ loaded.head()
       <th>f</th>
       <th>e</th>
       <th>aired</th>
-      <th>emph-token</th>
+      <th>emph_token</th>
       <th>exposition</th>
-      <th>interrogative-type</th>
+      <th>interrogative_type</th>
       <th>move</th>
       <th>parse</th>
       <th>question</th>
@@ -126,7 +126,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true</td>
+      <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -147,7 +147,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true</td>
+      <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -168,7 +168,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true</td>
+      <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -189,7 +189,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true</td>
+      <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -210,7 +210,7 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
-      <td>true</td>
+      <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
       <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
@@ -236,9 +236,9 @@ The interactive view has a number of cool features, such as the ability to sort 
 A corpus is a pandas DataFrame object. The index is a multiindex, comprised of `filename`, `sent_id` and `token`. Each token in the corpus is therefore uniquely identifiable through this index. The columns for the loaded copus are all the CONLL columns, plus anything included as metadata.
 
 ```python
-# get the 'word' column for the first five tokens
+# get the first sentence using buzz.sent()
 first = loaded.sent(0)
-# using pandas syntax to get first n words
+# using pandas syntax to get first 5 words
 first.iloc[:5]['w']
 # join the wordclasses and words
 print(' '.join(first.x.str.cat(first.w, sep='/')))
@@ -263,9 +263,9 @@ Any object created by *buzz* has a `.view()` method, which launches a `tabview` 
 [`spaCy`](https://spacy.io/) is used under the hood for dependency parsing, and a couple of other things. spaCy bring with it a lot of state of the art methods in NLP. You can access the `spaCy` representation of your data with:
 
 ```python
-corpus.spacy()
+corpus.to_spacy()
 # or
-loaded.spacy()
+loaded.to_spacy()
 ```
 
 ## Searching dependencies
@@ -303,7 +303,7 @@ Note that for any searches that do not require traversal of the grammatical stru
 Constituency tree searching can be done with the `tgrep` method, which provides a Python implementation of the [`tgrep2` query syntax](https://web.stanford.edu/dept/linguistics/corpora/cas-tut-tgrep.html): 
 
 ```python
-nps_with_adjectives = loaded.tgrep('NP < JJ') 
+nps_with_adjectives = loaded.tgrep('NP < JJ')
 ```
 
 It also works with nodes and links, though there are numerous differences. In particular, note that arrows appear reversed --- `NP < JJ` is an NP that dominates a JJ, while something similar in depgrep would be `f/nsubj/ -> f/amod/`, a nominal subject governing an adjective.
