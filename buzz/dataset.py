@@ -66,7 +66,8 @@ class Dataset(pd.DataFrame):
         """
         Generate a concordance for each row
         """
-        return _concordance(self, self.reference, *args, **kwargs)
+        reference = kwargs.pop("reference", self.reference)
+        return _concordance(self, reference, *args, **kwargs)
 
     def table(self, *args, **kwargs):
         return _table(self, *args, **kwargs)

@@ -33,7 +33,7 @@ Text files should be plain text, with a `.txt` extension. Importantly though, th
 ```html
 <metadata aired="10.01.1999">
 MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true interrogative-type="intonation" move="info-request">
-TONY: They said it was a panic attack <metadata emph-token=0, move="refute">
+TONY: They said it was a panic attack <metadata emph-token=0 move="refute">
 MELFI: You don't agree that you had a panic attack? <metadata move="info-request" question=type="in">
 ...
 ```
@@ -344,7 +344,7 @@ Possible keyword arguments for the `.table()` method are as follows:
 | `multiindex_columns` | When `show` is a list with multiple features, rather than joining `show` with slashes, build a multiindex                                                                                                                                                                                        | `False`    |
 
 
-This creates a `Table` object, which is also based on DataFrame. You can use its `.view()` method to quickly explore results,. Pressing enter on a given frequency will bring up a concordance of instances of this entry.
+This creates a `Table` object, which is also based on DataFrame. You can use its `.view()` method to quickly explore results. Pressing enter on a given frequency will bring up a concordance of instances of this entry.
 
 ### Plotting
 

@@ -181,7 +181,7 @@ If you want to load parts of a corpus, you can select the needed parts from the 
 parsed.files[:5].load()
 # load all files whose name matches a regex
 import re
-parsed.files[re.compile('pizzeria$')].load() 
+parsed.files[re.compile('pizzeria$')].load()
 ```
 
 ```python

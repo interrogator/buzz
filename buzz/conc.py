@@ -73,7 +73,6 @@ def _concordance(
     finished = df.apply(
         _apply_conc, axis=1, allwords=reference["w"].values, window=window
     )
-
     finished.columns = ["left", "match", "right"]
     finished = finished[["left", "match", "right"]]
 

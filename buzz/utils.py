@@ -12,7 +12,23 @@ from tqdm import tqdm, tqdm_notebook
 from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
 
 
+def _get_texts(file_data):
+    """
+    From a CONLL-U string, return a string of just the text metadata
+    """
+    out = list()
+    pre = "# text = "
+    for line in file_data.splitlines():
+        if line.startswith(pre):
+            line = line.replace(pre, "", 1)
+            out.append(line.strip())
+    return "\n".join(out)
+
+
 def _make_match_col(df, show, preserve_case):
+    """
+    Make a Series representing the format requested in `show`
+    """
     for s in show:
         if s in df.index.names and s not in df.columns:
             df[s] = df.index.get_level_values(s)

@@ -81,7 +81,7 @@ def _tabview(df, reference, window="auto", **kwargs):
         view_style["align_right"] = aligns
     if "trunc_left" not in kwargs:
         view_style["trunc_left"] = truncs
-    view(pd.DataFrame(df), **view_style)
+    view(df, **view_style)
 
 
 def _lingres(ser, index):

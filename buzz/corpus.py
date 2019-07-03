@@ -11,7 +11,9 @@ from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
 from .utils import (
+    _get_nlp,
     _get_tqdm,
+    _get_texts,
     _make_tree,
     _set_best_data_types,
     _tqdm_close,
@@ -204,10 +206,23 @@ class Corpus(MutableSequence):
 
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
-    def to_spacy(self, language="en"):
+    def to_spacy(self, language="en", concat=False):
         """
         Get spacy's model of the Corpus
+
+        If concat is True, model corpus as one spacy Document, rather than a list
         """
+        if concat:
+            file_datas = [f.read() for f in self.files]
+            # for parsed corpora, we have to pull out the "# text = " lines...
+            if self.is_parsed:
+                out = list()
+                for data in file_datas:
+                    out.append(_get_texts(data))
+                file_datas = out
+            self.nlp = _get_nlp(language=language)
+            return self.nlp(" ".join(file_datas))
+
         models = list()
         for file in self.files:
             models.append(file.to_spacy(language=language))
