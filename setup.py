@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="buzz",
-    version="1.0.5",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
+    version="version='2.0.0'",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
     description="Sophisticated corpus linguistics",
     url="http://github.com/interrogator/buzz",
     author="Daniel McDonald",
