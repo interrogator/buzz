@@ -1,4 +1,5 @@
 import os
+import scipy
 
 import pandas as pd
 
@@ -113,12 +114,7 @@ class Dataset(pd.DataFrame):
         Get prototypical instances over bins segmented by column
         """
         return _tfidf_prototypical(
-            self,
-            column,
-            show,
-            n_top_members=n_top_members,
-            only_correct=only_correct,
-            top=top,
+            self, column, show, n_top_members=n_top_members, only_correct=only_correct, top=top
         )
 
     def to_spacy(self, language="en"):
@@ -126,3 +122,26 @@ class Dataset(pd.DataFrame):
         text = " ".join(sents["text"])
         self.nlp = _get_nlp(language=language)
         return self.nlp(text)
+
+    @property
+    def vector(self):
+        return self.to_spacy().vector
+
+    def similarity(self, other, **kwargs):
+        """
+        Get vector similarity between this df and other.
+
+        Other can be a df, a corpus, a corpus path or a text str
+        """
+        from .corpus import Corpus
+
+        if isinstance(other, str):
+            # if it is a path, load it
+            if os.path.exists(other):
+                other = Corpus(other).load()
+            # if it is a text string, make a corpus and compare that
+            else:
+                other = Corpus.from_string(other, **kwargs)
+        # the getattr will work on corpus or dataset objects by this point
+        vector = getattr(other, 'vector', other)
+        return scipy.spatial.distance.cosine(self.vector, vector)

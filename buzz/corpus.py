@@ -234,6 +234,11 @@ class Corpus(MutableSequence):
 
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
+    @property
+    def vector(self):
+        spac = self.to_spacy(concat=True)
+        return spac.vector
+
     def to_spacy(self, language="en", concat=False):
         """
         Get spacy's model of the Corpus
