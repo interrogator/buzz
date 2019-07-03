@@ -19,3 +19,4 @@ mypy
 codecov
 pre-commit
 black
+isort

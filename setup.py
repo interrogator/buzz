@@ -29,6 +29,7 @@ setup(
         "tqdm",
         "pyparsing",
         "tabview",
+        "isort",
     ],
     dependency_links=["https://github.com/interrogator/tabview/archive/master.zip"],
 )
