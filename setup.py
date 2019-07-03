@@ -1,9 +1,21 @@
+import os
+
 from setuptools import setup
+
+
+def read(fname):
+    """
+    Helper to read README
+    """
+    return open(os.path.join(os.path.dirname(__file__), fname)).read().strip()
+
 
 setup(
     name="buzz",
-    version="version='2.0.0'",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
+    version="2.0.0",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
     description="Sophisticated corpus linguistics",
+    long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     url="http://github.com/interrogator/buzz",
     author="Daniel McDonald",
     include_package_data=True,
