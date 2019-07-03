@@ -40,8 +40,10 @@ setup(
         "pandas",
         "tqdm",
         "pyparsing",
-        "tabview",
+        "tabview==1.4.5",
         "isort",
     ],
-    dependency_links=["https://github.com/interrogator/tabview/archive/master.zip"],
+    dependency_links=[
+        "git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5"
+    ],
 )

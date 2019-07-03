@@ -10,7 +10,7 @@ pandas
 tqdm
 pyparsing
 depgrep
-https://github.com/interrogator/tabview/archive/master.zip
+git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5
 setuptools
 # just needed for test/ci:
 flake8
