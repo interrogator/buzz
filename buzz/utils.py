@@ -266,7 +266,7 @@ def _make_meta_dict_from_sent(text):
                 k, v = m.split('=', 1)
                 v = v.replace(u"\u2018", "'").replace(u"\u2019", "'")
                 v = v.strip("'").strip('"')
-                metad[k] = cast(v)
+                metad[k.replace('-', '_')] = cast(v)
             except ValueError:
                 continue
     # speaker seg part

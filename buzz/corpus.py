@@ -195,7 +195,7 @@ class Corpus(MutableSequence):
 
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
-    def to_spacy(self, language='en', **kwargs):
+    def to_spacy(self, language='en'):
         """
         Get spacy's model of the Corpus
         """
