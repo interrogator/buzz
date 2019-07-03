@@ -5,23 +5,14 @@ from functools import total_ordering
 
 import pandas as pd
 
+from . import utils
 from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
-from .utils import (
-    _get_nlp,
-    _get_tqdm,
-    _get_texts,
-    _make_tree,
-    _set_best_data_types,
-    _tqdm_close,
-    _tqdm_update,
-    _tree_once,
-)
 
-tqdm = _get_tqdm()
+tqdm = utils._get_tqdm()
 
 
 @total_ordering
@@ -182,22 +173,22 @@ class Corpus(MutableSequence):
             loaded.append(
                 file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
             )
-            _tqdm_update(t)
-        _tqdm_close(t)
+            utils._tqdm_update(t)
+        utils._tqdm_close(t)
 
         # for parsed corpora, we merge each file contents into one huge dataframe as LoadedCorpus
         if self.is_parsed:
             df = pd.concat(loaded, sort=False)
             if load_trees:
-                tree_once = _tree_once(df)
+                tree_once = utils._tree_once(df)
                 if isinstance(tree_once.values[0], str):
-                    df["parse"] = tree_once.apply(_make_tree)
+                    df["parse"] = tree_once.apply(utils._make_tree)
 
             df = df.drop("_n", axis=1, errors="ignore")
             col_order = list(df.columns)
             df["_n"] = range(len(df))
             df = df[col_order + ["_n"]]
-            df = _set_best_data_types(df)
+            df = utils._set_best_data_types(df)
             fixed = self._order_columns(df)
             return Dataset(fixed, reference=fixed)
         # for unparsed corpora, we give a dict of {path: text}
@@ -218,9 +209,9 @@ class Corpus(MutableSequence):
             if self.is_parsed:
                 out = list()
                 for data in file_datas:
-                    out.append(_get_texts(data))
+                    out.append(utils._get_texts(data))
                 file_datas = out
-            self.nlp = _get_nlp(language=language)
+            self.nlp = utils._get_nlp(language=language)
             return self.nlp(" ".join(file_datas))
 
         models = list()
