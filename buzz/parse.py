@@ -5,8 +5,13 @@ import shutil
 import nltk
 
 from .constants import MAX_SPEAKERNAME_SIZE
-from .utils import (_get_nlp, _get_tqdm, _make_meta_dict_from_sent,
-                    _tqdm_close, _tqdm_update)
+from .utils import (
+    _get_nlp,
+    _get_tqdm,
+    _make_meta_dict_from_sent,
+    _tqdm_close,
+    _tqdm_update,
+)
 
 tqdm = _get_tqdm()
 

@@ -10,8 +10,14 @@ from .contents import Contents
 from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
-from .utils import (_get_tqdm, _make_tree, _set_best_data_types, _tqdm_close,
-                    _tqdm_update, _tree_once)
+from .utils import (
+    _get_tqdm,
+    _make_tree,
+    _set_best_data_types,
+    _tqdm_close,
+    _tqdm_update,
+    _tree_once,
+)
 
 tqdm = _get_tqdm()
 
