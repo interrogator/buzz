@@ -4,7 +4,7 @@ import pandas as pd
 
 from .conc import _concordance
 from .search import Searcher
-from .slice import Just, Skip, See  # noqa: F401
+from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
 from .utils import _get_nlp
 from .views import _table, _tabview

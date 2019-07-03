@@ -23,8 +23,8 @@ from abc import ABC, abstractmethod
 
 import pandas as pd
 
-from .utils import _get_short_name_from_long_name
 from .search import Searcher
+from .utils import _get_short_name_from_long_name
 
 
 class Filter(object):

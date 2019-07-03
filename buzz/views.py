@@ -2,8 +2,9 @@
 in buzz, searches result in corpus subsets. views represent subsets as stats,
 or as concordance lines, or as figures...
 """
-import pandas as pd
 import numpy as np
+
+import pandas as pd
 from tabview import view
 
 from .utils import _auto_window, _make_match_col

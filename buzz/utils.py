@@ -1,15 +1,15 @@
-import re
 import os
+import re
 import shlex
 import shutil
-from typing import Optional, List
 from io import StringIO
+from typing import List, Optional
 
 import pandas as pd
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE, COLUMN_NAMES
+from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
 
 
 def _make_match_col(df, show, preserve_case):

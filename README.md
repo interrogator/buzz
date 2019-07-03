@@ -46,6 +46,7 @@ buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as
 
 ```python
 from buzz import Corpus
+
 corpus = Corpus('sopranos')
 parsed = corpus.parse()
 # if you don't need constituency parses, you can speed things up with:

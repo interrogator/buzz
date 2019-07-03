@@ -1,8 +1,9 @@
 from collections import Counter, defaultdict
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas as pd
 
-from .utils import _get_tqdm, _tqdm_close, _tqdm_update, _make_match_col
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+from .utils import _get_tqdm, _make_match_col, _tqdm_close, _tqdm_update
 
 tqdm = _get_tqdm()
 

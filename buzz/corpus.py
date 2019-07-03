@@ -8,17 +8,10 @@ import pandas as pd
 from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .dataset import Dataset
-from .search import Searcher
 from .parse import Parser
-from .utils import (
-    _set_best_data_types,
-    _get_tqdm,
-    _tqdm_close,
-    _tqdm_update,
-    _tree_once,
-    _make_tree,
-)
-
+from .search import Searcher
+from .utils import (_get_tqdm, _make_tree, _set_best_data_types, _tqdm_close,
+                    _tqdm_update, _tree_once)
 
 tqdm = _get_tqdm()
 

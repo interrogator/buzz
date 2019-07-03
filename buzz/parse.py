@@ -1,17 +1,12 @@
 import os
-import shutil
 import re
-
-from .constants import MAX_SPEAKERNAME_SIZE
-from .utils import (
-    _get_tqdm,
-    _tqdm_close,
-    _tqdm_update,
-    _get_nlp,
-    _make_meta_dict_from_sent,
-)
+import shutil
 
 import nltk
+
+from .constants import MAX_SPEAKERNAME_SIZE
+from .utils import (_get_nlp, _get_tqdm, _make_meta_dict_from_sent,
+                    _tqdm_close, _tqdm_update)
 
 tqdm = _get_tqdm()
 

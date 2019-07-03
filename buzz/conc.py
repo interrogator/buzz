@@ -2,8 +2,8 @@ import pandas as pd
 from pandas import option_context
 
 from .constants import CONLL_COLUMNS
-from .views import _tabview
 from .utils import _auto_window, _make_match_col
+from .views import _tabview
 
 
 class Concordance(pd.DataFrame):
