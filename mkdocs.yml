@@ -5,8 +5,10 @@ theme:
 
 nav:
     - Home: index.md
+    - Installing *buzz*: install.md
     - Modelling and parsing corpora: corpus.md
     - Exploring parsed datasets: dataset.md
+    - Processing raw strings: from_string.md
     - Generating tables: table.md
     - Grammatical querying: query.md
     - Concordancing: conc.md
