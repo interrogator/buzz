@@ -22,7 +22,7 @@ class Phony(object):
     """
 
     def __init__(self, word):
-        self.word = Parser.normalise_word(word)
+        self.word = Parser._normalise_word(word)
 
     def decode(self, *args, **kwargs):
         return self.word
@@ -39,25 +39,16 @@ class Parser:
     Create an object that can parse a Corpus.
     """
 
-    def __init__(self, corpus, cons_parser="bllip", language="english"):
-        self.corpus = corpus
+    def __init__(self, cons_parser="bllip", language="english"):
         self.cons_parser = cons_parser
         self.language = language
-        self.ntokens = -1
-        self.nsents = -1
-        self._made_new_dir = False
-
-    def spacy_prepare(self):
         self.nlp = _get_nlp()
-        if not self.trees:
-            return
         if self.cons_parser == "bllip":
-            self.prepare_bllip()
+            self._prepare_bllip()
         elif self.cons_parser == "benepar":
-            self.prepare_benepar()
-        return True
+            self._prepare_benepar()
 
-    def prepare_bllip(self):
+    def _prepare_bllip(self):
         print("Loading constituency parser...")
         from nltk.parse import BllipParser
 
@@ -68,14 +59,13 @@ class Parser:
             nltk.download("bllip_wsj_no_aux")
             model_dir = nltk.data.find("models/bllip_wsj_no_aux").path
         self.tree_parser = BllipParser.from_unified_model_dir(model_dir)
-        return True
 
-    def prepare_benepar(self):
+    def _prepare_benepar(self):
         from benepar.spacy_plugin import BeneparComponent
 
         langs = dict(english="en", german="de")
         lang = langs.get(self.language)
-        ben_file = "benepar_{}".format(lang)
+        ben_file = f"benepar_{lang}"
         try:
             nltk.data.find(ben_file).path
         except LookupError:
@@ -83,10 +73,9 @@ class Parser:
 
             benepar.download(ben_file)
         self.nlp.add_pipe(BeneparComponent(ben_file))
-        return True
 
     @staticmethod
-    def normalise_word(word, wrap=False):
+    def _normalise_word(word, wrap=False):
         norm = str(word).strip().replace("\t", "").replace("\n", "")
         return Phony(norm) if wrap else norm
 
@@ -126,28 +115,21 @@ class Parser:
         word_index = 1
         sent_parts = list()
         text = sent.text.strip(" ").replace("\n", " ")
-        length = len([i for i in sent if not i.is_space])
-        self.ntokens += length
-        sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=length)
+        toks = [i for i in sent if not i.is_space]
+        self.ntokens += len(toks)
+        sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=len(toks))
 
         if self.trees and self.language.startswith("en"):
-            parse = [
-                self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space
-            ]
+            parse = [self._normalise_word(str(i), wrap=True) for i in toks]
             if self.cons_parser == "bllip":
                 parse = self.tree_parser.parse_one(parse)
-                parse = (
-                    parse[0]._pformat_flat("", ("(", ")"), "").replace("\n", "").strip()
-                )
+                parse = parse[0]._pformat_flat("", ("(", ")"), "")
             else:
-                parse = sent._.parse_string.strip(" ")
-            parse = parse.replace("\n", " ")
-            sent_meta["parse"] = parse
+                parse = sent._.parse_string
+            sent_meta["parse"] = parse.replace("\n", " ").strip()
 
         metaline = self._get_line_with_meta(sent.start_char, plain, stripped_data)
-
         extra_meta = _make_meta_dict_from_sent(metaline)
-
         all_meta = {**file_meta, **sent_meta, **extra_meta}
 
         for field, value in sorted(all_meta.items()):
@@ -159,7 +141,7 @@ class Parser:
                 continue
 
             governor = self._get_governor_id(word)
-            word_text = self.normalise_word(str(word))
+            word_text = self._normalise_word(str(word))
             named_ent = self._make_misc_field(word)
 
             parts = [
@@ -181,59 +163,54 @@ class Parser:
 
         return "\n".join(sent_parts)
 
-    def _process_file(self, path):
+    def _process_string(self, plain, path=None):
         """
-        spacy: process one file
+        spacy: process a string of text
         """
-
-        with open(path, "r") as fo:
-            plain = fo.read().strip()
-
         # break into lines, removing empty
         plain = [i.strip(" ") for i in plain.splitlines() if i.strip(" ")]
-
-        if plain[0].startswith("<metadata"):
-            file_meta = _make_meta_dict_from_sent(plain[0])
-            # remove the metadata line
+        file_meta = _make_meta_dict_from_sent(plain[0], first=True)
+        if file_meta:
             plain = plain[1:]
-        else:
-            file_meta = dict()
-
         plain = "\n".join(plain)
         stripped_data = self._strip_metadata(plain)
+
         doc = self.nlp(stripped_data)
         output = list()
         self.nsents += len(list(doc.sents))
 
         for sent_index, sent in enumerate(doc.sents, start=1):
-            sent_string = self._process_sent(
-                sent_index, sent, file_meta, plain, stripped_data
-            )
-            output.append(sent_string)
+            sstr = self._process_sent(sent_index, sent, file_meta, plain, stripped_data)
+            output.append(sstr)
         output = "\n\n".join(output).strip() + "\n"
+
+        if not self.save_as and isinstance(self.plain_corpus, str):
+            return output
 
         outpath = path.replace(self.corpus_name, self.corpus_name + "-parsed")
         outpath = outpath.rstrip(".") + ".conllu"
         os.makedirs(os.path.split(outpath)[0], exist_ok=True)
-        self._made_new_dir = True
+        self.made_new_dir = True
 
         with open(outpath, "w") as fo:
             fo.write(output)
 
-    def spacy_parse(self):
-        abspath = os.path.abspath(os.getcwd())
-        fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
-        kwa = dict(ncols=120, unit="file", desc="Parsing", total=len(fs))
-        t = None
-        self.ntokens = 0
-        self.nsents = 0
-        t = tqdm(**kwa) if len(fs) > 1 else None
-
-        for path in sorted(fs):
-            self._process_file(path)
-            _tqdm_update(t)
-        _tqdm_close(t)
-        print("Done!")
+    def _spacy_parse(self):
+        if self.from_str:
+            return self._process_string(self.plain_corpus)
+        else:
+            abspath = os.path.abspath(os.getcwd())
+            fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
+            kwa = dict(ncols=120, unit="file", desc="Parsing", total=len(fs))
+            t = None
+            t = tqdm(**kwa) if len(fs) > 1 else None
+            for path in sorted(fs):
+                with open(path, "r") as fo:
+                    plain = fo.read().strip()
+                self._process_string(plain, path=path)
+                _tqdm_update(t)
+            _tqdm_close(t)
+            print("Done!")
 
     def _make_metadata(self, description):
         return dict(
@@ -249,7 +226,7 @@ class Parser:
             desc=description,
         )
 
-    def run(self, corpus):
+    def run(self, corpus, save_as=None):
         """
         Run the parsing pipeline
 
@@ -262,28 +239,45 @@ class Parser:
         from .corpus import Corpus
 
         self.plain_corpus = corpus
-        assert not corpus.is_parsed, "Corpus is already parsed"
+        self.save_as = save_as
         self.trees = bool(self.cons_parser)
-        self.corpus_name = corpus.name
+        self.ntokens = 0
+        self.nsents = 0
+        self.made_new_dir = False
+        self.from_str = True
 
-        # name for final corpus folder
-        self.parsed_name = corpus.name + "-parsed"
-        self.parsed_path = corpus.path + "-parsed"
+        # get the corpus name and parsed name/path depending on obj type
+        # it's a corpus, everything is easy
+        if isinstance(corpus, Corpus):
+            assert not corpus.is_parsed, "Corpus is already parsed"
+            self.corpus_name = corpus.name
+            self.parsed_name = corpus.name + "-parsed"
+            self.parsed_path = corpus.path + "-parsed"
+            self.from_str = False
+        # it's a string, and the savename was provided
+        elif isinstance(self.save_as, str):
+            self.corpus_name = self.save_as
+            self.parsed_name = self.corpus_name + "-parsed"
+            self.parsed_path = self.parsed_name
+        # save is simply true. needs a name.
+        elif self.save_as:
+            msg = "Please specify a savename with the `save` argument, or do save=False"
+            raise ValueError(msg)
 
-        if os.path.isdir(self.parsed_path):
+        if self.save_as and os.path.isdir(self.parsed_path):
             raise OSError(f"Path already exists: {self.parsed_path}")
 
         try:
-            prepared = self.spacy_prepare()
-            if not prepared:
-                raise ValueError("Error in preparation...")
-            self.spacy_parse()
+            as_string = self._spacy_parse()
         except Exception:
-            if self._made_new_dir:
+            if self.made_new_dir:
                 shutil.rmtree(self.parsed_path)
             raise
 
-        parsed = Corpus(self.parsed_path)
-        metadata = self._make_metadata(None)
-        parsed.add_metadata(**metadata)
+        if as_string is not None:
+            parsed = Corpus.from_string(as_string, save_as=False)
+        else:
+            parsed = Corpus(self.parsed_path)
+            metadata = self._make_metadata(None)
+            parsed.add_metadata(**metadata)
         return parsed

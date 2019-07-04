@@ -234,6 +234,7 @@ def _to_df(
     load_trees: bool = True,
     subcorpus: Optional[str] = None,
     usecols: List[str] = COLUMN_NAMES,
+    usename: Optional[str] = None,
 ):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
@@ -250,7 +251,7 @@ def _to_df(
     elif isinstance(corpus, str) and not os.path.exists(corpus):
         data = corpus
 
-    data, metadata = _make_csv(data, corpus.name)
+    data, metadata = _make_csv(data, usename or corpus.name)
 
     df = pd.read_csv(
         StringIO(data),
@@ -294,10 +295,14 @@ def _get_short_name_from_long_name(longname):
     return revers.get(longname, longname)
 
 
-def _make_meta_dict_from_sent(text):
+def _make_meta_dict_from_sent(text, first=False):
     from .utils import cast
 
     metad = dict()
+
+    if first and not text.strip().startswith("<metadata"):
+        return metad
+
     if "<metadata" in text:
         relevant = text.strip().rstrip(">").rsplit("<metadata ", 1)
         try:
@@ -312,6 +317,10 @@ def _make_meta_dict_from_sent(text):
                 metad[k.replace("-", "_")] = cast(v)
             except ValueError:
                 continue
+
+    if first:
+        return metad
+
     # speaker seg part
     regex = r"(^[a-zA-Z0-9-_]{,%d}?):..+" % MAX_SPEAKERNAME_SIZE
     speaker_regex = re.compile(regex)

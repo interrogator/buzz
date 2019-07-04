@@ -61,7 +61,7 @@ class Corpus(MutableSequence):
         guess_parsed = "# text = " in data or "-parsed" in savename
         # if user gave us conll as string and doesn't want to save, just load it.
         if guess_parsed and not save_as:
-            return utils._to_df(data)
+            return utils._to_df(data, usename="str")
 
         # make and save the corpus, possibly parsed and possibly not
         corpus = utils._save_string(data, savename, guess_parsed)
@@ -194,7 +194,7 @@ class Corpus(MutableSequence):
             ("-parsed", "conll", "conllu")
         ):
             raise ValueError("Corpus is already parsed.")
-        self.parser = Parser(self, cons_parser=cons_parser, language=language)
+        self.parser = Parser(cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
     def load(self, load_trees: bool = False, **kwargs):

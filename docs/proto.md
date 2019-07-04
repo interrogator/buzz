@@ -3,26 +3,25 @@
 `buzz` contains tools that help judge the similarity of parsed documents using a TF-IDF metric, similar to how a search engine returns an ordered set of similar documents to some search query.
 
 
-The following will return a multiindexed `pandas.Series` containing the sentence and its similarity to each language model (i.e. *bin*). The basic `proto` command is avaiable by dot syntax as:
+The following will return a multiindexed `pandas.Series` containing the sentence and its similarity to each language model (i.e. *bin*):
 
 ```python
-proto = dtrt.proto.speaker.by.lemmata
-# proto is a Series with scores as values. for nicer display we do:
-proto.reset_index().to_html(index=False)
+dtrt = Corpus('do-the-right-thing-parsed').load()
+proto = dtrt.proto.speaker.showing.lemmata
 ```
 
-`proto` begins by segmenting the corpus by the feature of interest (`speaker` in the case above) into bins. It then builds as TF-IDF model of each bin using `[TfidfVectorizer]`(https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)` from [*scikit-learn*](https://scikit-learn.org/stable/index.html). These are stored in memory alongside the corpus. Then, each sentence is scored against each model.
+`proto` begins by segmenting the corpus by the feature of interest (*speaker* in the case above) into bins. It then builds as TF-IDF model of each bin using [`TfidfVectorizer`]`(https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)` from [*scikit-learn*](https://scikit-learn.org/stable/index.html). These are stored in memory alongside the corpus. Then, each sentence is scored against each model.
 
-To customise results further, you can use the full bracketted expression, which gives you some extra options, and allows you to construct the language model using combinations of word features.
+To customise results further, you can use the bracketted expression, which gives you some extra options, and allows you to construct the language model using combinations of word features.
 
 * `show` is a list of features to join together when constructing the language model.
 * `only_correct` can be switched off, in order to see how every sentence compared to every model.
 * `n_top_members` can remove infrequent members of the metadata field of interest. This can speed up the operation, remove junk, and prevent outliers from having a large effect. 
-* `top` can be used to quickly filter just the `n` most similar sentences per bin., So, setting it to `1` will 
+* `top` can be used to quickly filter just the `n` most similar sentences per bin., So, setting it to `1` will show you just the most prototypical sentence from each bin.
 
 ```python
 model_format = ['l', 'x']  # model corpus as lemma/wordclass tuples, rather than words
-proto = dtrt.proto.file(show=model_format, only_correct=True, n_top_members=5, top=1)
+proto = dtrt.proto.speaker(show=model_format, only_correct=True, n_top_members=5, top=1)
 # make the data print a little nicer as html:
 proto.reset_index().drop('l/x', axis=1).to_html(index=False)
 ```
