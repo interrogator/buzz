@@ -1,9 +1,7 @@
 import json
 import os
-import shutil
 from collections import MutableSequence
 from functools import total_ordering
-from typing import Optional
 
 import pandas as pd
 
@@ -45,50 +43,29 @@ class Corpus(MutableSequence):
         return len(self.iterable)
 
     @staticmethod
-    def from_string(
-        data,
-        parse: bool = True,
-        save_as: Optional[str] = None,
-        cons_parser: str = "bllip",
-        language: str = "english",
-        **kwargs,
-    ):
+    def from_string(data: str, save_as: str):
         """
-        Turn string into corpus
+        Turn string into corpus and save it as direcoty with name `save_as`
         """
-        tmp_name = "tmp"
-        savename = save_as or tmp_name
-        guess_parsed = "# text = " in data or "-parsed" in savename
+        from .corpus import Corpus
+
+        guess_parsed = "# text = " in data or "-parsed" in save_as
         # if user gave us conll as string and doesn't want to save, just load it.
-        if guess_parsed and not save_as:
+        if guess_parsed:
             return utils._to_df(data, usename="str")
 
-        # make and save the corpus, possibly parsed and possibly not
-        corpus = utils._save_string(data, savename, guess_parsed)
+        if guess_parsed:
+            dirname, fname = f"{save_as}-parsed", f"{save_as}.txt.conllu"
+        else:
+            dirname, fname = f"{save_as}", f"{save_as}.txt"
 
-        # if already parsed, the user wanted it saved and loaded.
-        if corpus.is_parsed:
-            df = corpus.load()
-            if not save_as:
-                shutil.rmtree(tmp_name + "-parsed")
-            return df
+        if os.path.exists(dirname):
+            raise ValueError(f"Already exists: {dirname}")
+        os.makedirs(dirname)
 
-        # the user gave us unparsed text, did not want it parsed
-        if not parse:
-            # if they didn't want it saved, they just want corpus object, though pointless.
-            if not save_as:
-                shutil.rmtree(tmp_name)
-            # otherwise, it is saved, we can return it
-            return corpus
-
-        # from here, we know the user wants to parse the corpus.
-        parser = Parser(corpus, cons_parser=cons_parser, language=language)
-        parsed = parser.run(corpus).load()
-        # delete the tmp files if they never wanted it saved
-        if not save_as:
-            shutil.rmtree(tmp_name)
-            shutil.rmtree(tmp_name + "-parsed")
-        return parsed
+        with open(f"{dirname}/{fname}", "w") as fo:
+            fo.write(data.strip() + "\n")
+        return Corpus(dirname)
 
     def __lt__(self, other):
         if not isinstance(other, self.__class__):

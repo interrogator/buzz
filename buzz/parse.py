@@ -3,6 +3,7 @@ import re
 import shutil
 
 import nltk
+from nltk.parse import BllipParser
 
 from .constants import MAX_SPEAKERNAME_SIZE
 from .utils import (
@@ -14,6 +15,9 @@ from .utils import (
 )
 
 tqdm = _get_tqdm()
+
+# this is where we store the bllip parser, which can only be loaded once.
+BLLIP = None
 
 
 class Phony(object):
@@ -50,15 +54,18 @@ class Parser:
 
     def _prepare_bllip(self):
         print("Loading constituency parser...")
-        from nltk.parse import BllipParser
-
         try:
             model_dir = nltk.data.find("models/bllip_wsj_no_aux").path
         except LookupError:
             print("Downloading constituency data...")
             nltk.download("bllip_wsj_no_aux")
             model_dir = nltk.data.find("models/bllip_wsj_no_aux").path
-        self.tree_parser = BllipParser.from_unified_model_dir(model_dir)
+        try:
+            # need to use global here because you cannot load this model twice...
+            global BLLIP
+            BLLIP = BllipParser.from_unified_model_dir(model_dir)
+        except RuntimeError:
+            pass
 
     def _prepare_benepar(self):
         from benepar.spacy_plugin import BeneparComponent
@@ -111,7 +118,6 @@ class Parser:
         return plain[newlines_before]
 
     def _process_sent(self, sent_index, sent, file_meta, plain, stripped_data):
-
         word_index = 1
         sent_parts = list()
         text = sent.text.strip(" ").replace("\n", " ")
@@ -122,7 +128,7 @@ class Parser:
         if self.trees and self.language.startswith("en"):
             parse = [self._normalise_word(str(i), wrap=True) for i in toks]
             if self.cons_parser == "bllip":
-                parse = self.tree_parser.parse_one(parse)
+                parse = BLLIP.parse_one(parse)
                 parse = parse[0]._pformat_flat("", ("(", ")"), "")
             else:
                 parse = sent._.parse_string
@@ -261,7 +267,7 @@ class Parser:
             self.parsed_path = self.parsed_name
         # save is simply true. needs a name.
         elif self.save_as:
-            msg = "Please specify a savename with the `save` argument, or do save=False"
+            msg = "Please specify a savename with the `save` argument, or do save_as=False"
             raise ValueError(msg)
 
         if self.save_as and os.path.isdir(self.parsed_path):

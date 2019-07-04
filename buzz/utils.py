@@ -12,24 +12,6 @@ from tqdm import tqdm, tqdm_notebook
 from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
 
 
-def _save_string(string, savename, is_parsed):
-    """
-    Save string as a corpus called savename, parsed or not.
-    """
-    from .corpus import Corpus
-
-    if is_parsed:
-        dirname, fname = f"{savename}-parsed", f"{savename}.txt.conllu"
-    else:
-        dirname, fname = f"{savename}", f"{savename}.txt"
-    if os.path.exists(dirname):
-        shutil.rmtree(dirname)
-    os.makedirs(dirname)
-    with open(f"{dirname}/{fname}", "w") as fo:
-        fo.write(string.strip() + "\n")
-    return Corpus(f"{dirname}")
-
-
 def _get_texts(file_data):
     """
     From a CONLL-U string, return a string of just the text metadata
@@ -134,11 +116,11 @@ def _make_tree(tree):
 
 def _get_nlp(language="english"):
     """
-    Get spaCy
+    Get spaCY with models by language
     """
     import spacy
 
-    langs = dict(english="en", german="de")
+    langs = dict(english="en_core_web_lg", german="de")
     lang = langs.get(language, language)
 
     try:

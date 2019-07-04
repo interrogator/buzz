@@ -38,19 +38,41 @@ MELFI: You don't agree that you had a panic attack? <metadata move="info-request
 ...
 ```
 
+
 If you add a metadata element at the start of the text file, it will be understood as file-level metadata. For sentence-specific metadata, the element should follow the sentence, ideally at the end of a line. All metadata will be searchable later, so the more you can add, the more you can do with your corpus.
+
+To load corpora as *buzz* objects:
+
+```python
+from buzz import Corpus
+
+corpus = Corpus("sopranos")
+```
+
+You can also make virtual corpora from strings, optionally saving the corpus to disk.
+
+```python
+corpus = Corpus.from_string("Some sentences here.", save_as="corpusname")
+```
+
 
 ## Parsing
 
 buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simply:
 
 ```python
-from buzz import Corpus
-
-corpus = Corpus('sopranos')
 parsed = corpus.parse()
 # if you don't need constituency parses, you can speed things up with:
 parsed = corpus.parse(cons_parser=None)
+```
+
+You can also parse text strings, optionally passing in a name under which to save the corpus:
+
+```python
+from buzz import Parser
+parser = Parser(cons_parser="benepar")
+for text in list_of_texts:
+    dataset = parser.run(text, save_as=False)
 ```
 
 The main advantages of parsing with *buzz* are that:

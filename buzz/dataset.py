@@ -132,21 +132,29 @@ class Dataset(pd.DataFrame):
     def vector(self):
         return self.to_spacy().vector
 
-    def similarity(self, other, **kwargs):
+    def similarity(self, other, save_as=None, **kwargs):
         """
         Get vector similarity between this df and other.
 
         Other can be a df, a corpus, a corpus path or a text str
         """
         from .corpus import Corpus
+        from .parse import Parser
 
         if isinstance(other, str):
             # if it is a path, load it
             if os.path.exists(other):
-                other = Corpus(other).load()
+                other = Corpus(other)
             # if it is a text string, make a corpus and compare that
+            elif save_as:
+                other = Corpus.from_string(other, save_as=save_as)
+                if not other.is_parsed:
+                    other = other.parse()
+                other = other.load()
             else:
-                other = Corpus.from_string(other, **kwargs)
+                parser = Parser(**kwargs)
+                other = parser.run(other, save_as=False)
+
         # the getattr will work on corpus or dataset objects by this point
         vector = getattr(other, "vector", other)
         return scipy.spatial.distance.cosine(self.vector, vector)
