@@ -22,6 +22,8 @@ def _save_string(string, savename, is_parsed):
         dirname, fname = f"{savename}-parsed", f"{savename}.txt.conllu"
     else:
         dirname, fname = f"{savename}", f"{savename}.txt"
+    if os.path.exists(dirname):
+        shutil.rmtree(dirname)
     os.makedirs(dirname)
     with open(f"{dirname}/{fname}", "w") as fo:
         fo.write(string.strip() + "\n")
