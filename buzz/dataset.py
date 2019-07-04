@@ -1,7 +1,7 @@
 import os
-import scipy
 
 import pandas as pd
+import scipy
 
 from .conc import _concordance
 from .search import Searcher
@@ -114,7 +114,12 @@ class Dataset(pd.DataFrame):
         Get prototypical instances over bins segmented by column
         """
         return _tfidf_prototypical(
-            self, column, show, n_top_members=n_top_members, only_correct=only_correct, top=top
+            self,
+            column,
+            show,
+            n_top_members=n_top_members,
+            only_correct=only_correct,
+            top=top,
         )
 
     def to_spacy(self, language="en"):
@@ -143,5 +148,5 @@ class Dataset(pd.DataFrame):
             else:
                 other = Corpus.from_string(other, **kwargs)
         # the getattr will work on corpus or dataset objects by this point
-        vector = getattr(other, 'vector', other)
+        vector = getattr(other, "vector", other)
         return scipy.spatial.distance.cosine(self.vector, vector)

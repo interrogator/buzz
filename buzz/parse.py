@@ -5,7 +5,13 @@ import shutil
 import nltk
 
 from .constants import MAX_SPEAKERNAME_SIZE
-from .utils import _get_nlp, _get_tqdm, _make_meta_dict_from_sent, _tqdm_close, _tqdm_update
+from .utils import (
+    _get_nlp,
+    _get_tqdm,
+    _make_meta_dict_from_sent,
+    _tqdm_close,
+    _tqdm_update,
+)
 
 tqdm = _get_tqdm()
 
@@ -79,13 +85,6 @@ class Parser:
         self.nlp.add_pipe(BeneparComponent(ben_file))
         return True
 
-    def prepare_parser(self):
-        """
-        Calls the correct preparation method
-        """
-        prepares = dict(spacy=self.spacy_prepare)
-        return self.spacy_prepare()
-
     @staticmethod
     def normalise_word(word, wrap=False):
         norm = str(word).strip().replace("\t", "").replace("\n", "")
@@ -132,10 +131,14 @@ class Parser:
         sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=length)
 
         if self.trees and self.language.startswith("en"):
-            parse = [self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space]
+            parse = [
+                self.normalise_word(str(i), wrap=True) for i in sent if not i.is_space
+            ]
             if self.cons_parser == "bllip":
                 parse = self.tree_parser.parse_one(parse)
-                parse = parse[0]._pformat_flat("", ("(", ")"), "").replace("\n", "").strip()
+                parse = (
+                    parse[0]._pformat_flat("", ("(", ")"), "").replace("\n", "").strip()
+                )
             else:
                 parse = sent._.parse_string.strip(" ")
             parse = parse.replace("\n", " ")
@@ -203,7 +206,9 @@ class Parser:
         self.nsents += len(list(doc.sents))
 
         for sent_index, sent in enumerate(doc.sents, start=1):
-            sent_string = self._process_sent(sent_index, sent, file_meta, plain, stripped_data)
+            sent_string = self._process_sent(
+                sent_index, sent, file_meta, plain, stripped_data
+            )
             output.append(sent_string)
         output = "\n\n".join(output).strip() + "\n"
 
@@ -233,7 +238,7 @@ class Parser:
     def _make_metadata(self, description):
         return dict(
             language=self.language,
-            parser='spacy',
+            parser="spacy",
             cons_parser=self.cons_parser,
             path=os.path.abspath(self.parsed_path),
             name=self.corpus_name,
@@ -269,7 +274,7 @@ class Parser:
             raise OSError(f"Path already exists: {self.parsed_path}")
 
         try:
-            prepared = self.prepare_parser()
+            prepared = self.spacy_prepare()
             if not prepared:
                 raise ValueError("Error in preparation...")
             self.spacy_parse()

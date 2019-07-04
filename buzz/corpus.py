@@ -3,6 +3,7 @@ import os
 import shutil
 from collections import MutableSequence
 from functools import total_ordering
+from typing import Optional
 
 import pandas as pd
 
@@ -12,8 +13,6 @@ from .contents import Contents
 from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
-
-from typing import Optional
 
 tqdm = utils._get_tqdm()
 
@@ -191,7 +190,9 @@ class Corpus(MutableSequence):
         Parse a plaintext corpus
         """
         parsed_path = self.path + "-parsed"
-        if os.path.isdir(parsed_path) or self.path.endswith(("-parsed", "conll", "conllu")):
+        if os.path.isdir(parsed_path) or self.path.endswith(
+            ("-parsed", "conll", "conllu")
+        ):
             raise ValueError("Corpus is already parsed.")
         self.parser = Parser(self, cons_parser=cons_parser, language=language)
         return self.parser.run(self)
@@ -209,7 +210,9 @@ class Corpus(MutableSequence):
         loaded = list()
         prsd = self.is_parsed
         for file in self.files:
-            loaded.append(file.load(load_trees=load_trees, **kwargs) if prsd else file.read())
+            loaded.append(
+                file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
+            )
             utils._tqdm_update(t)
         utils._tqdm_close(t)
 

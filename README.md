@@ -319,7 +319,7 @@ Concordancing is a nice way of looking at results. The main thing you have to do
 
 ```python
 nsubj = loaded.just.function.nsubj
-nsubj.concordance(show=['w', 'p'])
+nsubj.conc(show=['w', 'p'])
 ```
 
 ### Frequency tables

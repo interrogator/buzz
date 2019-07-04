@@ -156,7 +156,9 @@ def _strip_metadata(text):
     """
     from .constants import MAX_SPEAKERNAME_SIZE
 
-    idregex = re.compile(r"(^[A-Za-z0-9-_]{,%d}?):" % MAX_SPEAKERNAME_SIZE, re.MULTILINE)
+    idregex = re.compile(
+        r"(^[A-Za-z0-9-_]{,%d}?):" % MAX_SPEAKERNAME_SIZE, re.MULTILINE
+    )
     text = re.sub(idregex, "", text)
     text = re.sub("<metadata.*?>", "", text)
     text = "\n".join([i.strip() for i in text.splitlines()])
