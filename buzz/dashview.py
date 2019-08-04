@@ -1,5 +1,6 @@
 from multiprocessing import Process
 
+import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objects as go
@@ -55,6 +56,24 @@ class DashSite(object):
         ]
         return html.Table(header + body)
 
+    def _make_datatable(self, df):
+        self._n_chart += 1
+        return dash_table.DataTable(
+            id=f"table-{self._n_chart}",
+            columns=[{"name": i, "id": i} for i in df.columns],
+            data=df.to_dict("rows"),
+            editable=True,
+            filter_action="native",
+            sort_action="native",
+            sort_mode="multi",
+            row_selectable="multi",
+            row_deletable=True,
+            selected_rows=[],
+            page_action="native",
+            page_current=0,
+            page_size=10,
+        )
+
     def add(self, kind="div", data=None, **kwargs):
         if kind in CHART_TYPES:
             get_from = dcc
@@ -65,6 +84,12 @@ class DashSite(object):
             get_from = MAPPING.get(kind.lower(), html)
         if kind.lower() == "table":
             contents = dict(children=self._df_to_table(data))
+        elif kind.lower() == "datatable":
+            datatable = self._make_datatable(data)
+            self.app.layout.children.append(datatable)
+            if self._process and self._process.is_alive():
+                self.reload()
+            return
         elif kind.lower() == "markdown":
             contents = dict(children=data)
         elif get_from == html:
