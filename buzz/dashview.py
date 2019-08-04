@@ -2,11 +2,9 @@ from multiprocessing import Process
 
 import dash_core_components as dcc
 import dash_html_components as html
-
-import plotly.graph_objects as go
-import plotly.express as px
-
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
 
 import dash
 
@@ -33,7 +31,9 @@ class DashSite(object):
         self.title = title or "buzz project (pass `title` argument to rename)"
         self.colors = {"background": "#ffffff", "text": "#7FDBFF"}
         self._process = None
-        self._plotters = dict(line=self._line_chart, bar=self._bar_chart, heatmap=self._heatmap)
+        self._plotters = dict(
+            line=self._line_chart, bar=self._bar_chart, heatmap=self._heatmap
+        )
         self.app.layout = html.Div(
             style={"backgroundColor": self.colors["background"]},
             children=[
@@ -83,7 +83,9 @@ class DashSite(object):
         return dict(x=list(row.index), y=list(row), type="bar", name=row_name)
 
     def _line_chart(self, row_name, row):
-        return go.Scatter(x=list(row.index), y=list(row), mode="lines+markers", name=row_name)
+        return go.Scatter(
+            x=list(row.index), y=list(row), mode="lines+markers", name=row_name
+        )
 
     def _heatmap(self, df):
         return [go.Heatmap(z=df.T.values, x=list(df.index), y=list(df.columns))]
@@ -91,7 +93,7 @@ class DashSite(object):
     def _df_to_plot(self, df, kind):
         datapoints = list()
         plotter = self._plotters[kind]
-        if kind == 'heatmap':
+        if kind == "heatmap":
             datapoints = plotter(df)
         else:
             for row_name, row in df.T.iterrows():

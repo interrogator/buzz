@@ -166,9 +166,9 @@ class Dataset(pd.DataFrame):
         site = DashSite(title)
         height, width = self.shape
         if height > 20 or width > 20:
-            warn = f'Warning: shape of data is large ({self.shape}). Performance may be slow.'
+            warn = f"Warning: shape of data is large ({self.shape}). Performance may be slow."
             print(warn)
         dataset = self.to_frame() if isinstance(self, pd.Series) else self
-        site.add('Table', dataset)
+        site.add("Table", dataset)
         site.run()
         return site

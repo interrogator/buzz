@@ -44,7 +44,7 @@ setup(
         "isort",
         "flask",
         "dash",
-        "dash-daq"
+        "dash-daq",
     ],
     dependency_links=[
         "git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5"
