@@ -36,12 +36,15 @@ setup(
         # 'benepar[cpu]',
         "tensorflow>=1.12.1",
         "setuptools>=41.0.0",
-        "spacy",
+        "spacy==2.1.6",
         "pandas",
         "tqdm",
         "pyparsing",
         "tabview==1.4.5",
         "isort",
+        "flask",
+        "dash",
+        "dash-daq"
     ],
     dependency_links=[
         "git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5"

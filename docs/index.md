@@ -13,5 +13,6 @@ A general introduction to the basics of *buzz* is available [via GitHub](https:/
 - [Concordancing](conc.md)
 - [Measuring prototypicality and similarity](proto.md)
 - [Working with pandas](pandas.md)
+- [Interactive visualisation in the browser](site.md)
 - [Case study: lexical density](density.md)
 - [About `buzz`](about.md)

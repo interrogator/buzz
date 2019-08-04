@@ -4,6 +4,7 @@ import pandas as pd
 import scipy
 
 from .conc import _concordance
+from .dashview import DashSite
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
@@ -158,3 +159,16 @@ class Dataset(pd.DataFrame):
         # the getattr will work on corpus or dataset objects by this point
         vector = getattr(other, "vector", other)
         return scipy.spatial.distance.cosine(self.vector, vector)
+
+    def site(self, title=None, **kwargs):
+        """
+        """
+        site = DashSite(title)
+        height, width = self.shape
+        if height > 20 or width > 20:
+            warn = f'Warning: shape of data is large ({self.shape}). Performance may be slow.'
+            print(warn)
+        dataset = self.to_frame() if isinstance(self, pd.Series) else self
+        site.add('Table', dataset)
+        site.run()
+        return site

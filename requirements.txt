@@ -5,13 +5,16 @@ bllipparser
 scipy
 scikit-learn
 tensorflow
-spacy
+spacy==2.1.6
 pandas
 tqdm
 pyparsing
 depgrep
 git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5
 setuptools
+flask
+dash
+dash-daq
 # just needed for test/ci:
 flake8
 coverage
