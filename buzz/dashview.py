@@ -17,7 +17,7 @@ MAPPING = {
     "table": html,
 }
 
-CHART_TYPES = {"line", "bar", "pie", "heatmap"}
+CHART_TYPES = {"line", "bar", "pie", "heatmap", "area", "stacked_bar"}
 
 
 class DashSite(object):
@@ -26,11 +26,16 @@ class DashSite(object):
             __name__,
             external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"],
         )
+        self._n_chart = 0
         self.title = title or "buzz project (pass `title` argument to rename)"
         self.colors = {"background": "#ffffff", "text": "#7FDBFF"}
         self._process = None
         self._plotters = dict(
-            line=self._line_chart, bar=self._bar_chart, heatmap=self._heatmap
+            line=self._line_chart,
+            bar=self._bar_chart,
+            heatmap=self._heatmap,
+            area=self._area_chart,
+            stacked_bar=self._bar_chart,
         )
         self.app.layout = html.Div(
             style={"backgroundColor": self.colors["background"]},
@@ -85,10 +90,21 @@ class DashSite(object):
             x=list(row.index), y=list(row), mode="lines+markers", name=row_name
         )
 
+    def _area_chart(self, row_name, row):
+        return go.Scatter(
+            x=list(row.index),
+            y=list(row),
+            hoverinfo="x+y",
+            mode="lines",
+            stackgroup="one",
+            name=row_name,
+        )
+
     def _heatmap(self, df):
         return [go.Heatmap(z=df.T.values, x=list(df.index), y=list(df.columns))]
 
     def _df_to_plot(self, df, kind):
+        self._n_chart += 1
         datapoints = list()
         plotter = self._plotters[kind]
         if kind == "heatmap":
@@ -101,9 +117,10 @@ class DashSite(object):
             paper_bgcolor=self.colors["background"],
             font=dict(color=self.colors["text"]),
         )
+        if kind == "stacked_bar":
+            layout["barmode"] = "stack"
         return dict(
-            id=self.title.lower().replace(" ", "-") + "-chart",
-            figure=dict(data=datapoints, layout=layout),
+            id=f"chart-{self._n_chart}", figure=dict(data=datapoints, layout=layout)
         )
 
     def run(self):
@@ -123,4 +140,5 @@ class DashSite(object):
 
     def empty(self):
         self.app.layout.children = [self.app.layout.children[0]]
+        self._n_chart = 0
         self.reload()

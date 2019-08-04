@@ -47,7 +47,7 @@ class Table(pd.DataFrame):
         """
         from .dataset import Dataset
 
-        if denom is True:
+        if denom is True or denom is None:
             denom = self
         if isinstance(denom, Dataset):
             denom = denom.table(subcorpora=list(self.index.names))
