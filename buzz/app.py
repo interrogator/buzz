@@ -60,6 +60,7 @@ class Site(object):
         self.corpus = Corpus(self.path).load()
         self.colors = {"background": "#ffffff", "text": "#7FDBFF"}
         ALL_DATA['corpus'] = self.corpus
+        ALL_DATA['initial_table'] = self.corpus.table(show='x', subcorpora='f')
         app.layout = html.Div(
             style={"backgroundColor": self.colors["background"]},
             children=[
@@ -120,7 +121,7 @@ class Site(object):
         self.add("markdown", "## Table space")
         cols = ["file", "s", "i"] + list(self.corpus.columns)
         cols = [dict(label=LABELS.get(i, i.title()), value=i) for i in cols]
-        show_check = dcc.Checklist(id="show-for-table", options=cols, value=["l", "x"])
+        show_check = dcc.Checklist(id="show-for-table", options=cols, value=[])
         subcorpora_drop = dcc.Dropdown(
             id="subcorpora-for-table", options=cols, value="file"
         )
@@ -202,7 +203,8 @@ def new_search(col, skip, search_string):
 @app.callback(
     [
         dash.dependencies.Output("main-chart", "figure"),
-        dash.dependencies.Output("freq-table", "figure"),
+        dash.dependencies.Output("freq-table", "columns"),
+        dash.dependencies.Output("freq-table", "data")
     ],
     [
         dash.dependencies.Input("show-for-table", "value"),
@@ -213,14 +215,15 @@ def new_search(col, skip, search_string):
 )
 def new_table(show, subcorpora, relkey, sort):
     print("NEW TABLE CALLBACK", show, subcorpora, relkey, sort)
-    corpus = ALL_DATA['corpus']
-    if True:
-        tab = ALL_DATA['corpus'].just.x.NOUN.table(subcorpora="file", show="l", relative=True)
-        return (_df_to_figure(tab), _make_datatable(corpus.head(100), "freq-table"))
-    relative, keyness = translate_relative(relkey)
+    if not show:
+        table = ALL_DATA['initial_table']
+        cols, data = _make_datatable(table, "freq-table", update=True)
+        return (_df_to_figure(table), cols, data)
+    relative, keyness = _translate_relative(relkey)
     if relative is None:
-        relative = corpus
-    to_search = corpus  # if not search_from else search_from...
+        relative = ALL_DATA['corpus']
+    to_search = ALL_DATA['corpus']  # if not search_from else search_from...
+    # todo: preload the simple ones
     table = to_search.table(
         show=show,
         subcorpora=subcorpora,
@@ -228,9 +231,8 @@ def new_table(show, subcorpora, relkey, sort):
         keyness=keyness,
         sort=sort,
     )
-    return (_df_to_figure(table), _make_datatable(df, "freq-table"))
-
-
+    cols, data = _make_datatable(table, "freq-table", update=True)
+    return (_df_to_figure(table), cols, data)
 
 
 def _make_datatable(df, id, update=False):
@@ -268,8 +270,8 @@ def _df_to_figure(df, kind="bar"):
 
 
 def _translate_relative(inp):
-    mapping = dict(t=True, f=False, n=corpus, l="ll", p="pd")
-    assert len(inp) == 1
+    mapping = dict(t=True, f=False, n=ALL_DATA['corpus'], l="ll", p="pd")
+    assert len(inp) == 2
     return mapping[inp[0]], mapping[inp[1]]
 
 
