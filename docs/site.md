@@ -2,7 +2,7 @@
 
 *buzz* interfaces smoothly with [dash](https://dash.plot.ly), a tool that builds simple websites for exploring datasets. Charts are responsive, interactive and beautiful.
 
-On any `Table` or Dataset object, you can run `df.site('Site title')` to generate a site accessible via your web browser at `http://127.0.0.1:8050/`.
+On any `Table` or Dataset object, you can run `df.site("Site title")` to generate a site accessible via your web browser at `http://127.0.0.1:8050/`.
 
 This returns a `DashSite` object, which you can then extend and refine. Generating a simple site works like so:
 
@@ -27,13 +27,21 @@ site.add("div", "Text <i>below</i> the heading")
 site.add("markdown", "## New heading\n\nText *below* the heading")
 ```
 
-The available chart types are `line`, `bar`, `pie` and `heatmap`:
+Many different types of chart are possible. They can be added to the site by passing the chart type, alongside a DataFrame-like object.
 
 ```python
 site.add("line", verbs)
 site.add("bar", verbs)
+site.add("stacked_bar", verbs)
 site.add("pie", verbs)
 site.add("heatmap", verbs)
+site.add("area", verbs)
+```
+
+For a concordance, use `conc`:
+
+```python
+site.add("conc", verbs.conc(show=['w', 'l']))
 ```
 
 ## Customising style

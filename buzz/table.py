@@ -61,15 +61,15 @@ class Table(pd.DataFrame):
         """
         return self.iloc[:n, :n]
 
-    def site(self, title=None, **kwargs):
+    def site(self, title=None, kind="bar", **kwargs):
         title = title or getattr(self, "name", None)
         site = DashSite(title)
         height, width = self.shape
-        if height > 20 or width > 20:
+        if height > 100 or width > 100:
             warn = f"Warning: shape of data is large ({self.shape}). Performance may be slow."
             print(warn)
         dataset = self.to_frame() if isinstance(self, pd.Series) else self
-        site.add("Graph", dataset)
-        site.add("Table", dataset)
+        site.add(kind, dataset)
+        site.add("datatable", dataset)
         site.run()
         return site
