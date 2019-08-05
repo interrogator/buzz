@@ -20,6 +20,24 @@ MAPPING = {
 
 CHART_TYPES = {"line", "bar", "pie", "heatmap", "area", "stacked_bar"}
 
+def _make_datatable(df, id):
+    df = df.drop('parse', axis=1, errors='ignore')
+    return dash_table.DataTable(
+        id=id,
+        columns=[{"name": i, "id": i} for i in df.columns],
+        data=df.to_dict("rows"),
+        editable=True,
+        filter_action="native",
+        sort_action="native",
+        sort_mode="multi",
+        row_selectable="multi",
+        row_deletable=True,
+        selected_rows=[],
+        page_action="native",
+        page_current=0,
+        page_size=50,
+    )
+
 
 class DashSite(object):
     def __init__(self, title=None):
@@ -56,25 +74,7 @@ class DashSite(object):
         ]
         return html.Table(header + body)
 
-    def _make_datatable(self, df):
-        self._n_chart += 1
-        return dash_table.DataTable(
-            id=f"table-{self._n_chart}",
-            columns=[{"name": i, "id": i} for i in df.columns],
-            data=df.to_dict("rows"),
-            editable=True,
-            filter_action="native",
-            sort_action="native",
-            sort_mode="multi",
-            row_selectable="multi",
-            row_deletable=True,
-            selected_rows=[],
-            page_action="native",
-            page_current=0,
-            page_size=50,
-        )
-
-    def add(self, kind="div", data=None, **kwargs):
+    def add(self, kind="div", data=None, add=None, id=None, **kwargs):
         if kind in CHART_TYPES:
             get_from = dcc
             chart_type = kind
@@ -85,7 +85,9 @@ class DashSite(object):
         if kind.lower() == "table":
             contents = dict(children=self._df_to_table(data))
         elif kind.lower() == "datatable":
-            datatable = self._make_datatable(data)
+            self._n_chart += 1
+            id = f"table-{self._n_chart}"
+            datatable = _make_datatable(data, id)
             self.app.layout.children.append(datatable)
             if self._process and self._process.is_alive():
                 self.reload()
@@ -98,7 +100,7 @@ class DashSite(object):
                 style={"textAlign": "center", "color": self.colors["text"]},
             )
         elif get_from == dcc:
-            contents = self._df_to_plot(data, chart_type)
+            contents = self._df_to_plot(data, chart_type, id)
         else:
             raise ValueError(f'Do not understand component type "{kind}"')
 
@@ -128,7 +130,7 @@ class DashSite(object):
     def _heatmap(self, df):
         return [go.Heatmap(z=df.T.values, x=list(df.index), y=list(df.columns))]
 
-    def _df_to_plot(self, df, kind):
+    def _df_to_plot(self, df, kind, idx):
         self._n_chart += 1
         datapoints = list()
         plotter = self._plotters[kind]
@@ -144,8 +146,9 @@ class DashSite(object):
         )
         if kind == "stacked_bar":
             layout["barmode"] = "stack"
+        idx = idx or f"chart-{self._n_chart}"
         return dict(
-            id=f"chart-{self._n_chart}", figure=dict(data=datapoints, layout=layout)
+            id=idx, figure=dict(data=datapoints, layout=layout)
         )
 
     def run(self):
