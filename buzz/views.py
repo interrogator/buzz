@@ -2,6 +2,7 @@
 in buzz, searches result in corpus subsets. views represent subsets as stats,
 or as concordance lines, or as figures...
 """
+import math
 import numpy as np
 import pandas as pd
 from tabview import view
@@ -187,8 +188,9 @@ def _relativise(df, denom=None):
 
 
 def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
-    """calc log likelihood keyness"""
-    import math
+    """
+    calculate log likelihood keyness
+    """
 
     neg = (word_in_target / float(target_sum)) < (word_in_ref / float(ref_sum))
 
@@ -233,14 +235,11 @@ def _make_keywords(
     target_sum,
     measure
 ):
-    print('SUBc', subcorpus)
     points = [
         (reference.get(name, 0), count, ref_sum, target_sum)
         for name, count in subcorpus.iteritems()
     ]
-    ser = [measure(*arg) for arg in points]
-    print(ser)
-    return ser
+    return [measure(*arg) for arg in points]
 
 
 def _table(
@@ -301,11 +300,12 @@ def _table(
             axis=0,
             reference=reference["_match"].value_counts(),
             measure=dict(ll=_log_likelihood, pd=_perc_diff).get(keyness, _log_likelihood),
-            ref_sum=reference.sum(),
+            ref_sum=reference.shape[0],
             target_sum=df.shape[0],
         )
         applied = df.T.apply(_make_keywords, **kwa).T
-        df = applied.apply(abs).sum().sort_values(ascending=False)
+        top = applied.abs().sum().sort_values(ascending=False)
+        df = applied[top.index]
 
     # sort if the user wants that
     if sort and not keyness:
