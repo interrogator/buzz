@@ -71,7 +71,7 @@ class DashSite(object):
             selected_rows=[],
             page_action="native",
             page_current=0,
-            page_size=10,
+            page_size=50,
         )
 
     def add(self, kind="div", data=None, **kwargs):
