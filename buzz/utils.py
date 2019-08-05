@@ -186,18 +186,21 @@ def _make_csv(raw_lines, fname):
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
     splut = [re.split("\n([0-9])", s, 1) for s in sents]
-    for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
-        text = one + text  # rejoin it as it was
-        sent_meta = dict()
-        # get every metadata row, split into key//value
-        for key, value in re.findall("^# (.*?) = (.*?)$", raw_sent_meta, re.MULTILINE):
-            # turn the string into an object if it's valid json
-            sent_meta[key.strip()] = cast(value.strip())
-        # add the fsi part to every row
-        text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in text.splitlines())
-        # add csv and meta to our collection
-        csvdat.append(text)
-        meta_dicts.append(sent_meta)
+    try:
+        for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
+            text = one + text  # rejoin it as it was
+            sent_meta = dict()
+            # get every metadata row, split into key//value
+            for key, value in re.findall("^# (.*?) = (.*?)$", raw_sent_meta, re.MULTILINE):
+                # turn the string into an object if it's valid json
+                sent_meta[key.strip()] = cast(value.strip())
+            # add the fsi part to every row
+            text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in text.splitlines())
+            # add csv and meta to our collection
+            csvdat.append(text)
+            meta_dicts.append(sent_meta)
+    except ValueError as error:
+        raise ValueError(f'Problem in file: {fname}') from error
 
     # return the csv without the double newline so it can be read all at once. add meta_dicts later.
     return "\n".join(csvdat), meta_dicts
@@ -217,6 +220,7 @@ def _to_df(
     subcorpus: Optional[str] = None,
     usecols: List[str] = COLUMN_NAMES,
     usename: Optional[str] = None,
+    set_data_types: bool = True,
 ):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
@@ -266,7 +270,9 @@ def _to_df(
         df["g"] = df["g"].str.replace("_|^$", "0").astype(int)
     df["g"] = df["g"].astype(int)
     df = df.fillna("_")
-    return Dataset(_set_best_data_types(df))
+    if set_data_types:
+        df = _set_best_data_types(df)
+    return Dataset(df)
 
 
 def _get_short_name_from_long_name(longname):

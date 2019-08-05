@@ -129,7 +129,10 @@ class Parser:
             parse = [self._normalise_word(str(i), wrap=True) for i in toks]
             if self.cons_parser == "bllip":
                 parse = BLLIP.parse_one(parse)
-                parse = parse[0]._pformat_flat("", ("(", ")"), "")
+                if parse:
+                    parse = parse[0]._pformat_flat("", ("(", ")"), "")
+                else:
+                    parse = '(. .)'
             else:
                 parse = sent._.parse_string
             sent_meta["parse"] = parse.replace("\n", " ").strip()

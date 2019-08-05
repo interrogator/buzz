@@ -186,6 +186,63 @@ def _relativise(df, denom=None):
     return (df.T * 100.0 / denom).T
 
 
+def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
+    """calc log likelihood keyness"""
+    import math
+
+    neg = (word_in_target / float(target_sum)) < (word_in_ref / float(ref_sum))
+
+    E1 = float(ref_sum) * (
+        (float(word_in_ref) + float(word_in_target))
+        / (float(ref_sum) + float(target_sum))
+    )
+    E2 = float(target_sum) * (
+        (float(word_in_ref) + float(word_in_target))
+        / (float(ref_sum) + float(target_sum))
+    )
+
+    if word_in_ref == 0:
+        logaE1 = 0
+    else:
+        logaE1 = math.log(word_in_ref / E1)
+    if word_in_target == 0:
+        logaE2 = 0
+    else:
+        logaE2 = math.log(word_in_target / E2)
+    score = float(2 * ((word_in_ref * logaE1) + (word_in_target * logaE2)))
+    if neg:
+        score = -score
+    return score
+
+
+def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
+    """calculate using perc diff measure"""
+
+    norm_target = float(word_in_target) / target_sum
+    norm_ref = float(word_in_ref) / ref_sum
+    # Gabrielatos and Marchi (2012) do it this way!
+    if norm_ref == 0:
+        norm_ref = 0.00000000000000000000000001
+    return ((norm_target - norm_ref) * 100.0) / norm_ref
+
+
+def _make_keywords(
+    subcorpus,
+    reference,
+    ref_sum,
+    target_sum,
+    measure
+):
+    print('SUBc', subcorpus)
+    points = [
+        (reference.get(name, 0), count, ref_sum, target_sum)
+        for name, count in subcorpus.iteritems()
+    ]
+    ser = [measure(*arg) for arg in points]
+    print(ser)
+    return ser
+
+
 def _table(
     dataset,
     subcorpora=["file"],
@@ -193,6 +250,7 @@ def _table(
     preserve_case=False,
     sort="total",
     relative=False,
+    keyness=False,
     remove_above_p=False,
     multiindex_columns=False,
     keep_stats=False,
@@ -223,6 +281,7 @@ def _table(
 
     # make a column representing the 'show' info
     df["_match"] = _make_match_col(df, show, preserve_case)
+    reference["_match"] = df["_match"]
 
     # need a column of ones for summing, yuck
     df["_count"] = 1
@@ -237,9 +296,19 @@ def _table(
 
     # relative frequency if user wants that
     df = df.relative(relative) if relative is not False else df.astype(int)
+    if keyness:
+        kwa = dict(
+            axis=0,
+            reference=reference["_match"].value_counts(),
+            measure=dict(ll=_log_likelihood, pd=_perc_diff).get(keyness, _log_likelihood),
+            ref_sum=reference.sum(),
+            target_sum=df.shape[0],
+        )
+        applied = df.T.apply(_make_keywords, **kwa).T
+        df = applied.apply(abs).sum().sort_values(ascending=False)
 
     # sort if the user wants that
-    if sort:
+    if sort and not keyness:
         df = df.sort(by=sort, keep_stats=keep_stats, remove_above_p=remove_above_p)
 
     # make columns into multiindex if the user wants that

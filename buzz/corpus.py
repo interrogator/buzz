@@ -178,7 +178,6 @@ class Corpus(MutableSequence):
         """
         Load a Corpus into memory.
         """
-
         # progress indicator
         kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
         t = tqdm(**kwa) if len(self.files) > 1 else None

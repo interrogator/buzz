@@ -270,3 +270,5 @@ print(loaded.head(1).T.to_html())
     </tr>
   </tbody>
 </table>
+
+By default, loading files will spend a fair bit of time transforming data into optimal categories (e.g. categorical datatypes for POS tags). This slows down loading quite a lot, so if you don't care about setting optimial data types, you can do `data.load(set_data_types=False)` to double the loading speed.

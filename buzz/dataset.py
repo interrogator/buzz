@@ -8,7 +8,7 @@ from .dashview import DashSite
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import _get_nlp
+from .utils import _get_nlp, _tree_once, _make_tree
 from .views import _table, _tabview
 
 
@@ -162,6 +162,7 @@ class Dataset(pd.DataFrame):
 
     def site(self, title=None, **kwargs):
         """
+        Make a website with this dataset as a datatable
         """
         site = DashSite(title)
         height, width = self.shape
@@ -172,3 +173,29 @@ class Dataset(pd.DataFrame):
         site.add("datatable", dataset)
         site.run()
         return site
+
+    def save(self, savename):
+        """
+        Save to feather
+        """
+        if 'parse' in self.columns:
+            par = list()
+            for (f, s, i), data in self['parse'].iteritems():
+                if i == 1:
+                    par.append(data)
+                else:
+                    par.append(None)
+            self['parse'] = par
+        self.reset_index().to_feather(savename)
+
+    @staticmethod
+    def load(loadname):
+        """
+        Load from feather
+        """
+        df = pd.read_feather(loadname)
+        df = df.set_index(['file', 's', 'i'])
+        tree_once = _tree_once(df)
+        if isinstance(tree_once.values[0], str):
+            df["parse"] = tree_once.apply(_make_tree)
+        return Dataset(df, reference=df)
