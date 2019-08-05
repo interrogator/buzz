@@ -39,6 +39,74 @@ def _make_datatable(df, id):
     )
 
 
+def _bar_chart(row_name, row):
+    return dict(x=list(row.index), y=list(row), type="bar", name=row_name)
+
+def _line_chart(row_name, row):
+    return go.Scatter(
+        x=list(row.index), y=list(row), mode="lines+markers", name=row_name
+    )
+
+def _area_chart(row_name, row):
+    return go.Scatter(
+        x=list(row.index),
+        y=list(row),
+        hoverinfo="x+y",
+        mode="lines",
+        stackgroup="one",
+        name=row_name,
+    )
+
+def _heatmap(df):
+    return [go.Heatmap(z=df.T.values, x=list(df.index), y=list(df.columns))]
+
+PLOTTERS = dict(
+            line=_line_chart,
+            bar=_bar_chart,
+            heatmap=_heatmap,
+            area=_area_chart,
+            stacked_bar=_bar_chart,
+        )
+
+def _df_to_plot(df, kind, idx):
+    datapoints = list()
+    plotter = PLOTTERS[kind]
+    if kind == "heatmap":
+        datapoints = plotter(df)
+    else:
+        for row_name, row in df.T.iterrows():
+            datapoints.append(plotter(row_name, row))
+    layout = dict()
+    if kind == "stacked_bar":
+        layout["barmode"] = "stack"
+    return dict(id=idx, figure=dict(data=datapoints, layout=layout))
+
+
+def _make_component(kind='div', data=None, add=None, id=None, **kwargs):
+    if kind in CHART_TYPES:
+        get_from = dcc
+        chart_type = kind
+        kind = "graph"
+    else:
+        chart_type = None
+        get_from = MAPPING.get(kind.lower(), html)
+    if kind.lower() == "datatable":
+        datatable = _make_datatable(data, id)
+        return datatable
+    elif kind.lower() == "markdown":
+        contents = dict(children=data)
+    elif get_from == html:
+        contents = dict(
+            children=data,
+            style={"textAlign": "center", "color": self.colors["text"]},
+        )
+    elif get_from == dcc:
+        contents = _df_to_plot(data, chart_type, id)
+    else:
+        raise ValueError(f'Do not understand component type "{kind}"')
+
+    return getattr(get_from, kind.title())(**contents, **kwargs)
+
 class DashSite(object):
     def __init__(self, title=None):
         self.app = dash.Dash(
@@ -49,13 +117,6 @@ class DashSite(object):
         self.title = title or "buzz project (pass `title` argument to rename)"
         self.colors = {"background": "#ffffff", "text": "#7FDBFF"}
         self._process = None
-        self._plotters = dict(
-            line=self._line_chart,
-            bar=self._bar_chart,
-            heatmap=self._heatmap,
-            area=self._area_chart,
-            stacked_bar=self._bar_chart,
-        )
         self.app.layout = html.Div(
             style={"backgroundColor": self.colors["background"]},
             children=[
@@ -66,90 +127,12 @@ class DashSite(object):
             ],
         )
 
-    def _df_to_table(self, df, max_rows=10):
-        header = [html.Tr([html.Th(col) for col in df.columns])]
-        body = [
-            html.Tr([html.Td(df.iloc[i][col]) for col in df.columns])
-            for i in range(min(len(df), max_rows))
-        ]
-        return html.Table(header + body)
-
     def add(self, kind="div", data=None, add=None, id=None, **kwargs):
-        if kind in CHART_TYPES:
-            get_from = dcc
-            chart_type = kind
-            kind = "graph"
-        else:
-            chart_type = None
-            get_from = MAPPING.get(kind.lower(), html)
-        if kind.lower() == "table":
-            contents = dict(children=self._df_to_table(data))
-        elif kind.lower() == "datatable":
-            self._n_chart += 1
-            id = f"table-{self._n_chart}"
-            datatable = _make_datatable(data, id)
-            self.app.layout.children.append(datatable)
-            if self._process and self._process.is_alive():
-                self.reload()
-            return
-        elif kind.lower() == "markdown":
-            contents = dict(children=data)
-        elif get_from == html:
-            contents = dict(
-                children=data,
-                style={"textAlign": "center", "color": self.colors["text"]},
-            )
-        elif get_from == dcc:
-            contents = self._df_to_plot(data, chart_type, id)
-        else:
-            raise ValueError(f'Do not understand component type "{kind}"')
 
-        component = getattr(get_from, kind.title())(**contents, **kwargs)
-        self.app.layout.children.append(component)
+        comp = _make_component(kind, data, add, id, **kargs)
+        self.app.layout.children.append(comp)
         if self._process and self._process.is_alive():
             self.reload()
-
-    def _bar_chart(self, row_name, row):
-        return dict(x=list(row.index), y=list(row), type="bar", name=row_name)
-
-    def _line_chart(self, row_name, row):
-        return go.Scatter(
-            x=list(row.index), y=list(row), mode="lines+markers", name=row_name
-        )
-
-    def _area_chart(self, row_name, row):
-        return go.Scatter(
-            x=list(row.index),
-            y=list(row),
-            hoverinfo="x+y",
-            mode="lines",
-            stackgroup="one",
-            name=row_name,
-        )
-
-    def _heatmap(self, df):
-        return [go.Heatmap(z=df.T.values, x=list(df.index), y=list(df.columns))]
-
-    def _df_to_plot(self, df, kind, idx):
-        self._n_chart += 1
-        datapoints = list()
-        plotter = self._plotters[kind]
-        if kind == "heatmap":
-            datapoints = plotter(df)
-        else:
-            for row_name, row in df.T.iterrows():
-                datapoints.append(plotter(row_name, row))
-        layout = dict(
-            plot_bgcolor=self.colors["background"],
-            paper_bgcolor=self.colors["background"],
-            font=dict(color=self.colors["text"]),
-        )
-        if kind == "stacked_bar":
-            layout["barmode"] = "stack"
-        idx = idx or f"chart-{self._n_chart}"
-        return dict(
-            id=idx, figure=dict(data=datapoints, layout=layout)
-        )
 
     def run(self):
         def _flask_thread():
