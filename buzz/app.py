@@ -60,7 +60,7 @@ class Site(object):
         self.corpus = Corpus(self.path).load()
         self.colors = {"background": "#ffffff", "text": "#7FDBFF"}
         ALL_DATA['corpus'] = self.corpus
-        ALL_DATA['initial_table'] = self.corpus.table(show='x', subcorpora='f')
+        ALL_DATA['initial_table'] = self.corpus.head(1000).table(show='x', subcorpora='f')
         app.layout = html.Div(
             style={"backgroundColor": self.colors["background"]},
             children=[
@@ -222,8 +222,9 @@ def new_table(show, subcorpora, relkey, sort):
     relative, keyness = _translate_relative(relkey)
     if relative is None:
         relative = ALL_DATA['corpus']
-    to_search = ALL_DATA['corpus']  # if not search_from else search_from...
+    to_search = ALL_DATA['corpus'].head(1000)  # if not search_from else search_from...
     # todo: preload the simple ones
+    print('MAKING TABLE')
     table = to_search.table(
         show=show,
         subcorpora=subcorpora,
@@ -231,6 +232,7 @@ def new_table(show, subcorpora, relkey, sort):
         keyness=keyness,
         sort=sort,
     )
+    print('TABLE MADE')
     cols, data = _make_datatable(table, "freq-table", update=True)
     return (_df_to_figure(table), cols, data)
 
