@@ -82,7 +82,7 @@ def _df_to_plot(df, kind, idx):
     return dict(id=idx, figure=dict(data=datapoints, layout=layout))
 
 
-def _make_component(kind='div', data=None, add=None, id=None, **kwargs):
+def _make_component(kind='div', data=None, id=None, **kwargs):
     if kind in CHART_TYPES:
         get_from = dcc
         chart_type = kind
@@ -98,7 +98,7 @@ def _make_component(kind='div', data=None, add=None, id=None, **kwargs):
     elif get_from == html:
         contents = dict(
             children=data,
-            style={"textAlign": "center", "color": self.colors["text"]},
+            # style={"textAlign": "center"},
         )
     elif get_from == dcc:
         contents = _df_to_plot(data, chart_type, id)
@@ -127,9 +127,9 @@ class DashSite(object):
             ],
         )
 
-    def add(self, kind="div", data=None, add=None, id=None, **kwargs):
+    def add(self, kind="div", data=None, id=None, **kwargs):
 
-        comp = _make_component(kind, data, add, id, **kargs)
+        comp = _make_component(kind, data, add, id, **kwargs)
         self.app.layout.children.append(comp)
         if self._process and self._process.is_alive():
             self.reload()
