@@ -6,6 +6,19 @@ COLUMN_NAMES = ["file", "s"] + CONLL_COLUMNS
 
 MAX_SPEAKERNAME_SIZE = 40
 
+SHORT_TO_LONG_NAME = dict(
+    w="Word",
+    l="Lemma",
+    p="Part of speech",
+    g="Governor index",
+    f="Dependency role",
+    x="Wordclass",
+    i="Token index",
+    s="Sentence number",
+    file="Filename",
+    speaker="Speaker",
+)
+
 DTYPES = dict(
     i=np.int32,
     s=np.int64,

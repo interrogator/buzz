@@ -18,7 +18,7 @@ MAPPING = {
     "table": html,
 }
 
-CHART_TYPES = {"line", "bar", "pie", "heatmap", "area", "stacked_bar"}
+CHART_TYPES = {"line", "bar", "heatmap", "area", "stacked_bar"} # "pie"
 
 def _make_datatable(df, id):
     df = df.drop('parse', axis=1, errors='ignore')
@@ -69,6 +69,9 @@ PLOTTERS = dict(
         )
 
 def _df_to_plot(df, kind, idx):
+    """
+    todo: delete this?
+    """
     datapoints = list()
     plotter = PLOTTERS[kind]
     if kind == "heatmap":
@@ -76,10 +79,27 @@ def _df_to_plot(df, kind, idx):
     else:
         for row_name, row in df.T.iterrows():
             datapoints.append(plotter(row_name, row))
-    layout = dict(width=2000)
+    layout = dict()
     if kind == "stacked_bar":
         layout["barmode"] = "stack"
     return dict(id=idx, figure=dict(data=datapoints, layout=layout))
+
+
+def _df_to_figure(df, kind="bar"):
+    """
+    Helper to generate charts
+    """
+    datapoints = list()
+    plotter = PLOTTERS[kind]
+    if kind == "heatmap":
+        datapoints = plotter(df)
+    else:
+        for row_name, row in df.T.iterrows():
+            datapoints.append(plotter(row_name, row))
+    layout = dict(width=1300)
+    if kind == "stacked_bar":
+        layout["barmode"] = "stack"
+    return dict(data=datapoints, layout=layout)
 
 
 def _make_component(kind='div', data=None, id=None, **kwargs):
