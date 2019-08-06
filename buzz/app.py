@@ -18,6 +18,7 @@ import pandas as pd
 LABELS = dict(
     w="Word",
     l="Lemma",
+    p="Part of speech",
     g="Governor index",
     f="Dependency role",
     x="Wordclass",
@@ -98,12 +99,49 @@ class Site(object):
                 search_from,
                 dcc.Tabs(
                     id="tabs",
+                    value="dataset",
                     children=[
-                        dcc.Tab(label="Dataset", children=dataset),
-                        dcc.Tab(label="Frequencies", children=frequencies),
-                        dcc.Tab(label="Chart", children=chart),
-                        dcc.Tab(label="Concordance", children=concordance),
+                        dcc.Tab(label="Dataset", value="dataset"),
+                        dcc.Tab(label="Frequencies", value="frequencies"),
+                        dcc.Tab(label="Chart", value="chart"),
+                        dcc.Tab(label="Concordance", value="concordance"),
                     ],
+                ),
+                html.Div(
+                    children=[
+                        html.Div(
+                            id="tab-dataset",
+                            style={"display": "none"},
+                            children=[
+                                html.Div(id="display-dataset", children=[dataset]),
+                            ],
+                        ),
+                        html.Div(
+                            id="tab-frequencies",
+                            style={"display": "none"},
+                            children=[
+                                html.Div(
+                                    id="display-frequencies", children=[frequencies]
+                                ),
+                            ],
+                        ),
+                        html.Div(
+                            id="tab-chart",
+                            style={"display": "none"},
+                            children=[
+                                html.Div(id="display-chart", children=[chart]),
+                            ],
+                        ),
+                        html.Div(
+                            id="tab-concordance",
+                            style={"display": "none"},
+                            children=[
+                                html.Div(
+                                    id="display-concordance", children=[concordance]
+                                ),
+                            ],
+                        ),
+                    ]
                 ),
             ]
         )
@@ -119,25 +157,31 @@ class Site(object):
         """
         Build the search interface and the conll display
         """
-        cols = ["file", "s", "i"] + list(self.corpus.columns)
+        col_order = ["file", "s", "i"] + list(self.corpus.columns)
         cols = [
             dict(label=LABELS.get(i, i.title().replace("_", " ")), value=i)
-            for i in cols
+            for i in col_order
         ]
         cols += [dict(label="Dependencies", value="d"), dict(label="Trees", value="t")]
         dropdown = dcc.Dropdown(id="colselect", options=cols, value="w")
         df = SEARCHES["corpus"]
-        df = df.drop(["parse", "text"], axis=1, errors="ignore")
+        df = df.reset_index()
+        df = df[[i for i in col_order if i not in ["parse", "text"]]]
 
         search_space = html.Div(
             [
-                html.Div(dropdown),
-                html.Div(dcc.Input(id="input-box", type="text")),
-                html.Button("Submit", id="search-button"),
-                daq.BooleanSwitch(id="skip-switch", on=False),
+                html.Div(dropdown, style={"width": "20%", "display": "inline-block"}),
                 html.Div(
-                    id="output-container-button",
-                    children="Enter a value and press submit",
+                    dcc.Input(id="input-box", type="text"),
+                    style={"width": "30%", "display": "inline-block"},
+                ),
+                html.Div(
+                    daq.BooleanSwitch(id="skip-switch", on=False),
+                    style={"display": "inline-block"},
+                ),
+                html.Div(
+                    html.Button("Submit", id="search-button"),
+                    style={"display": "inline-block"},
                 ),
             ]
         )
@@ -194,9 +238,7 @@ class Site(object):
             ],
             value="total",
         )
-        df = INITIAL["table"]
-        columns = [{"name": i, "id": i} for i in df.columns]
-        data = df.to_dict("rows")
+        columns, data = _update_datatable(INITIAL["table"], conll=False)
         freq_table = dash_table.DataTable(
             id="freq-table",
             columns=columns,
@@ -269,19 +311,39 @@ class Site(object):
         types = [dict(label=i.title(), value=i) for i in CHART_TYPES]
         chart_type = dcc.Dropdown(id="chart-type", options=types, value="bar")
         chart_space = html.Div(
-            [dropdown, html.Div(chart_type), html.Button("Update", id="chart-button")]
+            [dropdown, html.Div(chart_type), html.Button("Update", id="figure-button")]
         )
         df = INITIAL["table"]
-        main_chart_data = _df_to_plot(df, kind="bar", idx="main-chart")
-        chart_space = html.Div([chart_space, dcc.Graph(**main_chart_data)])
-        return chart_space
+        figure = _df_to_figure(df, kind="bar")
+        main_chart_data = dict(id="main-chart", figure=figure)
+        return html.Div([chart_space, dcc.Graph(**main_chart_data)])
+
+
+@app.callback(
+    [
+        Output("tab-dataset", "style"),
+        Output("tab-frequencies", "style"),
+        Output("tab-chart", "style"),
+        Output("tab-concordance", "style"),
+    ],
+    [Input("tabs", "value")]
+)
+def render_content(tab):
+    if tab is None:
+        tab = "dataset"
+    outputs = []
+    for i in ["dataset", "frequencies", "chart", "concordance"]:
+        if tab == i:
+            outputs.append({"display": "block"})
+        else:
+            outputs.append({"display": "none"})
+    return outputs
 
 
 def _get_from_corpus(from_number, dataset=SEARCHES):
     """
     Get the correct dataset from number stored in the dropdown for search_from
     """
-    print(list(dataset.keys()), from_number)
     specs, corpus = list(dataset.items())[from_number]
     # load from index to save memory
     if not isinstance(corpus, pd.DataFrame):
@@ -312,24 +374,30 @@ def _make_table_name(history):
     Generate a table name from its history
     """
     if history == "initial":
-        return "Corpus"
+        return "Show lemma by dependency role -- from 'Corpus'"
     specs, show, subcorpora, relative, keyness, sort = history
+    show = [LABELS.get(i, i).lower().replace('_', ' ') for i in show]
+    show = ', '.join(show)
     relkey = " calculating relative frequency" if relative else " calculating keyness"
     if keyness:
         relkey = f"{relkey} ({keyness})"
     if relative is False and keyness is False:
         relkey = " showing absolute frequencies"
-    basic = f"Table {show} by {subcorpora}{relkey}, sorting by {sort}"
+    basic = f"Table showing {show} by {subcorpora}{relkey}, sorting by {sort}"
     parent = _make_search_name(specs)
     return f"{basic} -- from '{parent}'"
 
 
 @app.callback(
-    [Output("main-chart", "figure")],
-    [Input("chart-button", "n_clicks")],
-    [State("chart-from", "value"), State("chart-type", "value")],
+    Output("main-chart", "figure"),
+    [Input("figure-button", "n_clicks")],
+    [State("chart-from", "value"),
+     State("chart-type", "value")],
 )
-def new_chart(n_clicks, table_from, chart_type):
+def _new_chart(n_clicks, table_from, chart_type):
+    """
+    Make new chart by kind
+    """
     if n_clicks is None:
         raise PreventUpdate
     specs, df = _get_from_corpus(table_from, dataset=TABLES)
@@ -352,7 +420,7 @@ def new_chart(n_clicks, table_from, chart_type):
         State("search-from", "options"),
     ],
 )
-def new_search(n_clicks, search_from, skip, col, search_string, search_from_options):
+def _new_search(n_clicks, search_from, skip, col, search_string, search_from_options):
     """
     Callback when a new search is submitted
     """
@@ -366,7 +434,7 @@ def new_search(n_clicks, search_from, skip, col, search_string, search_from_opti
     this_search = (specs, col, skip, search_string)
     new_value = len(SEARCHES)
     SEARCHES[this_search] = df.index
-    datatable_cols, datatable_data = _make_datatable(df, "conll-view", update=True)
+    datatable_cols, datatable_data = _update_datatable(df)
     option = dict(value=new_value, label=_make_search_name(this_search))
     search_from_options.append(option)
     return datatable_cols, datatable_data, search_from_options, new_value
@@ -389,7 +457,7 @@ def new_search(n_clicks, search_from, skip, col, search_string, search_from_opti
         State("chart-from", "options"),
     ],
 )
-def new_table(
+def _new_table(
     n_clicks, search_from, show, subcorpora, relkey, sort, table_from_options
 ):
     """
@@ -402,39 +470,31 @@ def new_table(
     table = corpus.table(
         show=show, subcorpora=subcorpora, relative=relative, keyness=keyness, sort=sort
     )
-    this_table = (specs, show, subcorpora, relative, keyness, sort)
+    this_table = (specs, tuple(show), subcorpora, relative, keyness, sort)
     new_value = len(TABLES)
-    SEARCHES[this_table] = table
-    cols, data = _make_datatable(table, "freq-table", update=True)
+    TABLES[this_table] = table
+    cols, data = _update_datatable(table, conll=False)
     option = dict(value=new_value, label=_make_table_name(this_table))
     table_from_options.append(option)
     return (cols, data, table_from_options, new_value)
 
 
-def _make_datatable(df, id, update=False):
+def _update_datatable(df, conll=True):
     """
     Helper for datatables
     """
-    df = df.drop(["parse", "text"], axis=1, errors="ignore")
+    if conll:
+        col_order = ["file", "s", "i"] + list(SEARCHES['corpus'].columns)
+        col_order = [i for i in col_order if i not in ['parse', 'text']]
+    else:
+        col_order = list(df.index.names)
+        extra = [i for i in list(df.columns) if i not in col_order]
+        col_order += extra
+    df = df.reset_index()
+    df = df[col_order]
     columns = [{"name": i, "id": i} for i in df.columns]
     data = df.to_dict("rows")
-    if update:
-        return columns, data
-    return dash_table.DataTable(
-        id=id,
-        columns=columns,
-        data=data,
-        editable=True,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        row_selectable="multi",
-        row_deletable=True,
-        selected_rows=[],
-        page_action="native",
-        page_current=0,
-        page_size=50,
-    )
+    return columns, data
 
 
 def _df_to_figure(df, kind="bar"):
@@ -442,13 +502,15 @@ def _df_to_figure(df, kind="bar"):
     Helper to generate charts
     """
     datapoints = list()
-    for row_name, row in df.T.iterrows():
-        datapoints.append(PLOTTERS[kind](row_name, row))
-    layout = dict(
-        # plot_bgcolor=self.colors["background"],
-        # paper_bgcolor=self.colors["background"],
-        # font=dict(color=self.colors["text"]),
-    )
+    plotter = PLOTTERS[kind]
+    if kind == "heatmap":
+        datapoints = plotter(df)
+    else:
+        for row_name, row in df.T.iterrows():
+            datapoints.append(plotter(row_name, row))
+    layout = dict(width=2000)
+    if kind == "stacked_bar":
+        layout["barmode"] = "stack"
     return dict(data=datapoints, layout=layout)
 
 

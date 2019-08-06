@@ -76,7 +76,7 @@ def _df_to_plot(df, kind, idx):
     else:
         for row_name, row in df.T.iterrows():
             datapoints.append(plotter(row_name, row))
-    layout = dict()
+    layout = dict(width=2000)
     if kind == "stacked_bar":
         layout["barmode"] = "stack"
     return dict(id=idx, figure=dict(data=datapoints, layout=layout))
@@ -129,7 +129,7 @@ class DashSite(object):
 
     def add(self, kind="div", data=None, id=None, **kwargs):
 
-        comp = _make_component(kind, data, add, id, **kwargs)
+        comp = _make_component(kind, data, id, **kwargs)
         self.app.layout.children.append(comp)
         if self._process and self._process.is_alive():
             self.reload()
