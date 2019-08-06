@@ -7,7 +7,7 @@ import dash_daq as daq
 import plotly.graph_objects as go
 import os
 import sys
-
+from collections import OrderedDict
 from buzz.corpus import Corpus
 from buzz.dashview import MAPPING, CHART_TYPES, _make_component, PLOTTERS
 
@@ -26,7 +26,8 @@ LABELS = dict(
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
-ALL_DATA = dict(corpus=None)
+# store corpus and search results in here
+ALL_DATA = OrderedDict()
 
 def _parse_cmdline_args():
     """
@@ -184,20 +185,24 @@ class Site(object):
     ],
     [
         dash.dependencies.Input("colselect", "value"),
+        dash.dependencies.Input("search-from", "value"),
         dash.dependencies.Input("skip-switch", "on"),
     ],
     [dash.dependencies.State("input-box", "value")],
 )
-def new_search(col, skip, search_string):
+def new_search(col, search_from, skip, search_string):
     print("NEW SEARCH CALLBACK", col, skip, search_string)
     # seems to callback on load, don't know why
     # this is therefore what is shown initially
+    from_specs, from_corpus = list(ALL_DATA.items())[search_from]
+    if not isinstance(from_index, pd.DataFrame):
+        from_corpus = ALL_DATA['corpus'].loc[from_corpus]
     if search_string is None:
         return _make_datatable(ALL_DATA['corpus'], "conll-view", update=True)
     method = "just" if not skip else "skip"
-    df = getattr(getattr(ALL_DATA['corpus'], method), col)(search_string.strip())
-    this_search = (col, skip, search_string, df.index)
-    print('MADE IT HERE')
+    df = getattr(getattr(search_from, method), col)(search_string.strip())
+    this_search = (search_from[0], col, skip, search_string)
+    ALL_DATA[this_search] = df.index
     return _make_datatable(df, "conll-view", update=True)
 
 @app.callback(
