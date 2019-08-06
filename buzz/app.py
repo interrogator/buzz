@@ -10,6 +10,10 @@ import sys
 from collections import OrderedDict
 from buzz.corpus import Corpus
 from buzz.dashview import MAPPING, CHART_TYPES, _make_component, PLOTTERS
+from dash.dependencies import Input, Output, State
+from dash.exceptions import PreventUpdate
+
+import pandas as pd
 
 LABELS = dict(
     w="Word",
@@ -28,6 +32,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
 # store corpus and search results in here
 ALL_DATA = OrderedDict()
+
 
 def _parse_cmdline_args():
     """
@@ -53,6 +58,7 @@ def _parse_cmdline_args():
     parser.add_argument("path", help="Path to the corpus")
 
     return vars(parser.parse_args())
+
 
 class Site(object):
     def __init__(self, path, title=None, load=True):
@@ -92,7 +98,7 @@ class Site(object):
             [
                 html.Div(dropdown),
                 html.Div(dcc.Input(id="input-box", type="text")),
-                html.Button("Submit", id="button"),
+                html.Button("Submit", id="search-button"),
                 daq.BooleanSwitch(id="skip-switch", on=False),
                 html.Div(
                     id="output-container-button",
@@ -156,7 +162,7 @@ class Site(object):
                 html.Div(subcorpora_drop),
                 html.Div(sort_drop),
                 html.Div(relative_drop),
-                html.Button("Update", id="update-button"),
+                html.Button("Update", id="table-button"),
                 html.Div(id="table-generate-outer", children="Generate a new table"),
             ]
         )
@@ -174,55 +180,75 @@ class Site(object):
         self._build_table_space(tab.square(20))
 
 
+def _get_from_corpus(from_number):
+    """
+    Get the correct dataset from number stored in the dropdown for search_from
+    """
+    specs, corpus = list(ALL_DATA.items())[from_number]
+    # load from index to save memory
+    if not isinstance(corpus, pd.DataFrame):
+        corpus = ALL_DATA['corpus'].loc[corpus]
+    return specs, corpus
 
 
 @app.callback(
     [
-        dash.dependencies.Output("conll-view", "columns"),
-        dash.dependencies.Output("conll-view", "data")
-        # todo: search from...
-        # dash.dependencies.Output('search-from', 'children')
+        Output("conll-view", "columns"),
+        Output("conll-view", "data")
+        #Output("search-from", "options")
     ],
     [
-        dash.dependencies.Input("colselect", "value"),
-        dash.dependencies.Input("search-from", "value"),
-        dash.dependencies.Input("skip-switch", "on"),
+        Input("search-button", "n_clicks")
     ],
-    [dash.dependencies.State("input-box", "value")],
+    [
+    State("search-from", "value"),
+    State("skip-switch", "on"),
+    State("colselect", "value"),
+    State("input-box", "value"),
+    State("search-from", "options"),
+]
+
 )
-def new_search(col, search_from, skip, search_string):
+def new_search(n_clicks, search_from, skip, col, search_string, search_from_options):
     print("NEW SEARCH CALLBACK", col, skip, search_string)
     # seems to callback on load, don't know why
     # this is therefore what is shown initially
-    from_specs, from_corpus = list(ALL_DATA.items())[search_from]
-    if not isinstance(from_index, pd.DataFrame):
-        from_corpus = ALL_DATA['corpus'].loc[from_corpus]
-    if search_string is None:
-        return _make_datatable(ALL_DATA['corpus'], "conll-view", update=True)
+    # get the corpus we will search from
+    specs, corpus = _get_from_corpus(search_from)
+    if n_clicks is None:
+        print('NO NEW SEARCH')
+        return _make_datatable(corpus, "conll-view", update=True)
     method = "just" if not skip else "skip"
-    df = getattr(getattr(search_from, method), col)(search_string.strip())
-    this_search = (search_from[0], col, skip, search_string)
+    df = getattr(getattr(corpus, method), col)(search_string.strip())
+    # we store this search specs as a tuple, with first item being specs of last search?
+    # maybe can just store search_from instead?
+    this_search = (specs, col, skip, search_string)
     ALL_DATA[this_search] = df.index
-    return _make_datatable(df, "conll-view", update=True)
+    datatable_cols, datatable_data = _make_datatable(df, "conll-view", update=True)
+    print('REAL NEW SEARCH')
+    return datatable_cols, datatable_data
+
 
 @app.callback(
     [
-        dash.dependencies.Output("main-chart", "figure"),
-        dash.dependencies.Output("freq-table", "columns"),
-        dash.dependencies.Output("freq-table", "data")
+        Output("main-chart", "figure"),
+        Output("freq-table", "columns"),
+        Output("freq-table", "data")
     ],
+    [Input("table-button", "n_clicks")],
     [
-        dash.dependencies.Input("show-for-table", "value"),
-        dash.dependencies.Input("subcorpora-for-table", "value"),
-        dash.dependencies.Input("relative-for-table", "value"),
-        dash.dependencies.Input("sort-for-table", "value"),
+        State("show-for-table", "value"),
+        State("subcorpora-for-table", "value"),
+        State("relative-for-table", "value"),
+        State("sort-for-table", "value"),
     ],
 )
-def new_table(show, subcorpora, relkey, sort):
-    print("NEW TABLE CALLBACK", show, subcorpora, relkey, sort)
-    if not show:
+def new_table(n_clicks, show, subcorpora, relkey, sort):
+    print("NEW TABLE CALLBACK", n_clicks, show, subcorpora, relkey, sort)
+    if n_clicks is None:
         table = ALL_DATA['initial_table']
         cols, data = _make_datatable(table, "freq-table", update=True)
+        print('Was none, returning default')
         return (_df_to_figure(table), cols, data)
     relative, keyness = _translate_relative(relkey)
     if relative is None:
@@ -264,6 +290,7 @@ def _make_datatable(df, id, update=False):
         page_size=50,
     )
 
+
 def _df_to_figure(df, kind="bar"):
     datapoints = list()
     for row_name, row in df.T.iterrows():
@@ -282,8 +309,6 @@ def _translate_relative(inp):
     return mapping[inp[0]], mapping[inp[1]]
 
 
-
 if __name__ == "__main__":
     site = Site(**_parse_cmdline_args())
     app.run_server(debug=True)
-
