@@ -202,18 +202,30 @@ def _build_chart_space(tables):
         chart_type = dcc.Dropdown(
             id=f"chart-type-{chart_num}", options=types, value=kind
         )
-        transpose = daq.BooleanSwitch(
-            id=f"chart-transpose-{chart_num}", on=False, style={"verticalAlign": "middle"}
-        ),
-        top_n = dcc.Input(
-        id=f"chart-top-n-{chart_num}",
-        placeholder='Results to plot',
-        type="number", min=1, max=99, value=7)
-
-        toolbar = [dropdown, chart_type, top_n, transpose, html.Button("Update", id=f"figure-button-{chart_num}")]
-        style = dict(
-            display="inline-block", verticalAlign="middle"
+        transpose = (
+            daq.BooleanSwitch(
+                id=f"chart-transpose-{chart_num}",
+                on=False,
+                style={"verticalAlign": "middle"},
+            ),
         )
+        top_n = dcc.Input(
+            id=f"chart-top-n-{chart_num}",
+            placeholder="Results to plot",
+            type="number",
+            min=1,
+            max=99,
+            value=7,
+        )
+
+        toolbar = [
+            dropdown,
+            chart_type,
+            top_n,
+            transpose,
+            html.Button("Update", id=f"figure-button-{chart_num}"),
+        ]
+        style = dict(display="inline-block", verticalAlign="middle")
         widths = {dropdown: "50%", chart_type: "15%"}
         tools = list()
         for component in toolbar:
@@ -224,15 +236,10 @@ def _build_chart_space(tables):
         df = tables["initial"]
         figure = _df_to_figure(df, kind=kind)
         chart_data = dict(id=f"chart-{chart_num}", figure=figure)
-        chart_space = html.Div(
-            [
-                toolbar,
-                dcc.Graph(**chart_data),
-            ]
-        )
+        chart_space = html.Div([toolbar, dcc.Graph(**chart_data)])
         collapse = html.Details(
             [html.Summary(f"Chart space {chart_num}"), html.Div(chart_space)],
-            open=chart_num==1
+            open=chart_num == 1,
         )
         charts.append(collapse)
     return html.Div(charts)
@@ -246,12 +253,11 @@ def _update_datatable(corpus, df, conll=True):
         col_order = ["file", "s", "i"] + list(corpus.columns)
         col_order = [i for i in col_order if i not in ["parse", "text"]]
     else:
-        col_order = list(df.index.names)
-        extra = [i for i in list(df.columns) if i not in col_order]
-        col_order += extra
+        df.index.names = [f"_{x}" for x in df.index.names]
+        col_order = list(df.index.names) + list(df.columns)
     df = df.reset_index()
     df = df[col_order]
-    columns = [{"name": i, "id": i} for i in df.columns]
+    columns = [{"name": i.strip("_"), "id": i} for i in df.columns]
     data = df.to_dict("rows")
     return columns, data
 
@@ -268,8 +274,13 @@ def _make_tabs(title, searches, tables):
     search_from = [
         dict(value=i, label=_make_search_name(h)) for i, h in enumerate(searches)
     ]
+    clear = html.Button("Clear history", id="clear-history")
     dropdown = dcc.Dropdown(id="search-from", options=search_from, value=0)
-    search_from = html.Div(dropdown)
+    top_bit = [
+        html.Div(dropdown, style=dict(display="inline-block", width="90%")),
+        html.Div(clear, style=dict(display="inline-block", width="10%")),
+    ]
+    top_bit = html.Div(top_bit)
     tab_headers = dcc.Tabs(
         id="tabs",
         value="dataset",
@@ -308,7 +319,7 @@ def _make_tabs(title, searches, tables):
     return html.Div(
         [
             html.H1(children=title, style={"textAlign": "center"}),
-            search_from,
+            top_bit,
             tab_headers,
             tab_contents,
         ]

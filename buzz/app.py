@@ -20,7 +20,7 @@ from app.tabs import (
     _build_frequencies_space,
     _build_chart_space,
     _build_concordance_space,
-    _update_datatable
+    _update_datatable,
 )
 from app.cmd import _parse_cmdline_args
 from app.strings import _make_search_name, _make_table_name
@@ -80,10 +80,12 @@ for i in range(1, 4):
     @app.callback(
         Output(f"chart-{i}", "figure"),
         [Input(f"figure-button-{i}", "n_clicks")],
-        [State(f"chart-from-{i}", "value"),
-         State(f"chart-type-{i}", "value"),
-         State(f"chart-top-n-{i}", "value"),
-         State(f"chart-transpose-{i}", "on")],
+        [
+            State(f"chart-from-{i}", "value"),
+            State(f"chart-type-{i}", "value"),
+            State(f"chart-top-n-{i}", "value"),
+            State(f"chart-transpose-{i}", "on"),
+        ],
     )
     def _new_chart(n_clicks, table_from, chart_type, top_n, transpose):
         """
@@ -94,7 +96,7 @@ for i in range(1, 4):
         specs, df = _get_from_corpus(table_from, dataset=TABLES)
         if transpose:
             df = df.T
-        df = df.iloc[:,:top_n]
+        df = df.iloc[:, :top_n]
         return _df_to_figure(df, chart_type)
 
 
@@ -105,7 +107,8 @@ for i in range(1, 4):
         Output("search-from", "options"),
         Output("search-from", "value"),
     ],
-    [Input("search-button", "n_clicks")],
+    [Input("search-button", "n_clicks"),
+     Input("clear-history", "n_clicks")],
     [
         State("search-from", "value"),
         State("skip-switch", "on"),
@@ -114,13 +117,27 @@ for i in range(1, 4):
         State("search-from", "options"),
     ],
 )
-def _new_search(n_clicks, search_from, skip, col, search_string, search_from_options):
+def _new_search(
+    n_clicks, cleared, search_from, skip, col, search_string, search_from_options
+):
     """
     Callback when a new search is submitted
     """
-    specs, corpus = _get_from_corpus(search_from)
     if n_clicks is None:
         raise PreventUpdate
+
+    if cleared:
+        corpus = SEARCHES["corpus"]
+        SEARCHES.clear()
+        SEARCHES["corpus"] = corpus
+        # the line below could be slow. can we get from elsewhere?
+        datatable_cols, datatable_data = _update_datatable(SEARCHES["corpus"], SEARCHES["corpus"])
+        search_from = [
+            dict(value=i, label=_make_search_name(h)) for i, h in enumerate(SEARCHES)
+        ]
+        return datatable_cols, datatable_data, search_from, 0
+
+    specs, corpus = _get_from_corpus(search_from)
     method = "just" if not skip else "skip"
     df = getattr(getattr(corpus, method), col)(search_string.strip())
     # we store this search specs as a tuple, with first item being specs of last search?
@@ -194,6 +211,8 @@ if __name__ == "__main__":
     # create all the data we start with. loaded corpus, nouns, and noun table
     SEARCHES["corpus"] = Corpus(path).load()
     open_class = ["NOUN", "VERB", "ADJ", "ADV"]
-    TABLES["initial"] = SEARCHES["corpus"].just.x(open_class).table(show="x", subcorpora="file")
+    TABLES["initial"] = (
+        SEARCHES["corpus"].just.x(open_class).table(show="x", subcorpora="file")
+    )
     app.layout = _make_tabs(title, SEARCHES, TABLES)
     app.run_server(debug=True)
