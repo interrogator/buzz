@@ -2,15 +2,16 @@
 buzz webapp: everything needed to populate app tabs initially
 """
 
-import dash_table
 import dash_core_components as dcc
-import dash_html_components as html
 import dash_daq as daq
+import dash_html_components as html
+import dash_table
 
-from .strings import _make_table_name, _make_search_name
-from .utils import _get_cols, _update_datatable
 from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
+
+from .strings import _make_search_name, _make_table_name
+from .utils import _get_cols, _update_datatable
 
 
 def _build_dataset_space(df, rows):
@@ -23,7 +24,10 @@ def _build_dataset_space(df, rows):
     df = df.drop(["parse", "text", "e", "sent_id", "sent_len"], axis=1, errors="ignore")
     pieces = [
         dcc.Dropdown(
-            id="search-target", options=cols, value="w", style={"width": "200px", "fontFamily": "monospace"}
+            id="search-target",
+            options=cols,
+            value="w",
+            style={"width": "200px", "fontFamily": "monospace"},
         ),
         dcc.Input(
             id="input-box",
@@ -53,7 +57,9 @@ def _build_dataset_space(df, rows):
     # add tooltip to boolean switch
     pieces[2].title = "Invert result"
     # pieces[0].style['position'] = "absolute";
-    search_space = html.Div(pieces, style={"marginBottom": 15, "marginTop": 15, "fontFamily": "bold"})
+    search_space = html.Div(
+        pieces, style={"marginBottom": 15, "marginTop": 15, "fontFamily": "bold"}
+    )
     columns = [
         {
             "name": SHORT_TO_COL_NAME.get(i, i).capitalize().replace("_", " "),
@@ -76,7 +82,10 @@ def _build_dataset_space(df, rows):
     ]
     # style_index.append({"if": {"column_id": "w"}, "fontWeight": "bold"})
     stripes = [{"if": {"row_index": "odd"}, "backgroundColor": "rgb(248, 248, 248)"}]
-    aligns = [{"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"} for c in left_aligns]
+    aligns = [
+        {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
+        for c in left_aligns
+    ]
     pads = [{"if_not": {"column_id": c}, "paddingRight": "5px"} for c in left_aligns]
     conll_table = dcc.Loading(
         type="default",
@@ -161,7 +170,10 @@ def _build_frequencies_space(corpus, table, rows):
     ]
     stripes = [{"if": {"row_index": "odd"}, "backgroundColor": "rgb(248, 248, 248)"}]
     left_aligns = ["file", "w", "l", "x", "p", "f", "speaker", "setting"]
-    aligns = [{"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"} for c in left_aligns]
+    aligns = [
+        {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
+        for c in left_aligns
+    ]
     pads = [{"if_not": {"column_id": c}, "paddingRight": "5px"} for c in left_aligns]
     freq_table = dcc.Loading(
         type="default",
@@ -241,7 +253,10 @@ def _build_concordance_space(df, rows):
     ]
     data = df.to_dict("rows")
     left_aligns = ["match", "right", "speaker", "file"]
-    aligns = [{"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"} for c in left_aligns]
+    aligns = [
+        {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
+        for c in left_aligns
+    ]
     pads = [{"if_not": {"column_id": c}, "paddingRight": "5px"} for c in left_aligns]
     conc = dcc.Loading(
         type="default",
@@ -299,9 +314,15 @@ def _build_chart_space(tables, rows):
             dict(value=i, label=_make_table_name(h)) for i, h in enumerate(tables)
         ]
         dropdown = dcc.Dropdown(
-            id=f"chart-from-{chart_num}", options=table_from, value=0, style=dict(fontFamily="monospace")
+            id=f"chart-from-{chart_num}",
+            options=table_from,
+            value=0,
+            style=dict(fontFamily="monospace"),
         )
-        types = [dict(label=i.capitalize().replace('_', ' '), value=i) for i in sorted(CHART_TYPES)]
+        types = [
+            dict(label=i.capitalize().replace("_", " "), value=i)
+            for i in sorted(CHART_TYPES)
+        ]
         chart_type = dcc.Dropdown(
             id=f"chart-type-{chart_num}",
             options=types,
@@ -355,11 +376,21 @@ def _build_chart_space(tables, rows):
         chart_space = html.Div([toolbar, chart])
         collapse = html.Details(
             [
-                html.Summary(f"Chart #{chart_num}", style={"fontWeight": "bold", "fontSize": "11pt", "fontFamily": "monospace", "paddingBottom": "10px", "paddingTop": "10px", "color": "#555555"}),
+                html.Summary(
+                    f"Chart #{chart_num}",
+                    style={
+                        "fontWeight": "bold",
+                        "fontSize": "11pt",
+                        "fontFamily": "monospace",
+                        "paddingBottom": "10px",
+                        "paddingTop": "10px",
+                        "color": "#555555",
+                    },
+                ),
                 html.Div(chart_space),
             ],
             open=chart_num == 1,
-            #style={"borderStyle": "groove"}
+            # style={"borderStyle": "groove"}
         )
         charts.append(collapse)
     return html.Div(charts)
@@ -385,22 +416,10 @@ def _make_tabs(searches, tables, title=None, rows=25, **kwargs):
 
     top_bit = [
         html.H3(children=title, style={"textAlign": "left", "display": "table-cell"}),
-        dcc.ConfirmDialog(
-            id='dialog-search',
-            message='',
-        ),
-        dcc.ConfirmDialog(
-            id='dialog-table',
-            message='',
-        ),
-        dcc.ConfirmDialog(
-            id='dialog-chart',
-            message='',
-        ),
-        dcc.ConfirmDialog(
-            id='dialog-conc',
-            message='',
-        ),
+        dcc.ConfirmDialog(id="dialog-search", message=""),
+        dcc.ConfirmDialog(id="dialog-table", message=""),
+        dcc.ConfirmDialog(id="dialog-chart", message=""),
+        dcc.ConfirmDialog(id="dialog-conc", message=""),
         html.Div(
             dropdown,
             style=dict(
@@ -456,4 +475,7 @@ def _make_tabs(searches, tables, title=None, rows=25, **kwargs):
     ]
     tab_contents = html.Div(children=tab_contents)
 
-    return html.Div([top_bit, tab_headers, tab_contents], style=dict(fontFamily="monospace !important"))
+    return html.Div(
+        [top_bit, tab_headers, tab_contents],
+        style=dict(fontFamily="monospace !important"),
+    )

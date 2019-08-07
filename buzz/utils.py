@@ -191,16 +191,20 @@ def _make_csv(raw_lines, fname):
             text = one + text  # rejoin it as it was
             sent_meta = dict()
             # get every metadata row, split into key//value
-            for key, value in re.findall("^# (.*?) = (.*?)$", raw_sent_meta, re.MULTILINE):
+            for key, value in re.findall(
+                "^# (.*?) = (.*?)$", raw_sent_meta, re.MULTILINE
+            ):
                 # turn the string into an object if it's valid json
                 sent_meta[key.strip()] = cast(value.strip())
             # add the fsi part to every row
-            text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in text.splitlines())
+            text = "\n".join(
+                f"{fname}\t{sent_id}\t{line}" for line in text.splitlines()
+            )
             # add csv and meta to our collection
             csvdat.append(text)
             meta_dicts.append(sent_meta)
     except ValueError as error:
-        raise ValueError(f'Problem in file: {fname}') from error
+        raise ValueError(f"Problem in file: {fname}") from error
 
     # return the csv without the double newline so it can be read all at once. add meta_dicts later.
     return "\n".join(csvdat), meta_dicts

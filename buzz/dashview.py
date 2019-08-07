@@ -1,8 +1,8 @@
 from multiprocessing import Process
 
-import dash_table
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_table
 import plotly.graph_objects as go
 
 import dash
@@ -18,10 +18,11 @@ MAPPING = {
     "table": html,
 }
 
-CHART_TYPES = {"line", "bar", "heatmap", "area", "stacked_bar"} # "pie"
+CHART_TYPES = {"line", "bar", "heatmap", "area", "stacked_bar"}  # "pie"
+
 
 def _make_datatable(df, id):
-    df = df.drop('parse', axis=1, errors='ignore')
+    df = df.drop("parse", axis=1, errors="ignore")
     return dash_table.DataTable(
         id=id,
         columns=[{"name": i, "id": i} for i in df.columns],
@@ -42,10 +43,12 @@ def _make_datatable(df, id):
 def _bar_chart(row_name, row):
     return dict(x=list(row.index), y=list(row), type="bar", name=row_name)
 
+
 def _line_chart(row_name, row):
     return go.Scatter(
         x=list(row.index), y=list(row), mode="lines+markers", name=row_name
     )
+
 
 def _area_chart(row_name, row):
     return go.Scatter(
@@ -57,16 +60,19 @@ def _area_chart(row_name, row):
         name=row_name,
     )
 
+
 def _heatmap(df):
     return [go.Heatmap(z=df.T.values, x=list(df.index), y=list(df.columns))]
 
+
 PLOTTERS = dict(
-            line=_line_chart,
-            bar=_bar_chart,
-            heatmap=_heatmap,
-            area=_area_chart,
-            stacked_bar=_bar_chart,
-        )
+    line=_line_chart,
+    bar=_bar_chart,
+    heatmap=_heatmap,
+    area=_area_chart,
+    stacked_bar=_bar_chart,
+)
+
 
 def _df_to_plot(df, kind, idx):
     """
@@ -102,7 +108,7 @@ def _df_to_figure(df, kind="bar"):
     return dict(data=datapoints, layout=layout)
 
 
-def _make_component(kind='div', data=None, id=None, **kwargs):
+def _make_component(kind="div", data=None, id=None, **kwargs):
     if kind in CHART_TYPES:
         get_from = dcc
         chart_type = kind
@@ -126,6 +132,7 @@ def _make_component(kind='div', data=None, id=None, **kwargs):
         raise ValueError(f'Do not understand component type "{kind}"')
 
     return getattr(get_from, kind.title())(**contents, **kwargs)
+
 
 class DashSite(object):
     def __init__(self, title=None):

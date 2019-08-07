@@ -2,8 +2,9 @@
 buzz webapp: helpers and utilities
 """
 
-from buzz.constants import SHORT_TO_LONG_NAME, SHORT_TO_COL_NAME
 import pandas as pd
+
+from buzz.constants import SHORT_TO_COL_NAME, SHORT_TO_LONG_NAME
 
 
 def _get_from_corpus(from_number, dataset):
@@ -23,7 +24,7 @@ def _translate_relative(inp, corpus):
     """
     if not inp:
         return False, False
-    mapping = dict(t=True, f=False, n=corpus, l="ll", p="pd")
+    mapping = dict(t=True, f=False, n=corpus, l="ll", p="pd")  # noqa: E741
     return mapping[inp[0]], mapping[inp[1]]
 
 

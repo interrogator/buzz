@@ -8,7 +8,7 @@ from .dashview import DashSite
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import _get_nlp, _tree_once, _make_tree
+from .utils import _get_nlp, _make_tree, _tree_once
 from .views import _table, _tabview
 
 

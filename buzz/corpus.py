@@ -34,7 +34,7 @@ class Corpus(MutableSequence):
         self._metadata_path = os.path.join(self.path, ".metadata.json")
         self.filename = os.path.basename(path)
         self.name = self.filename
-        if self.name.endswith('-parsed'):
+        if self.name.endswith("-parsed"):
             self.name = self.name[:-7]
         self.subcorpora, self.files, self.is_parsed = self._get_subcorpora_and_files()
         self.filepaths = Contents([i.path for i in self.files])

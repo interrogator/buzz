@@ -8,7 +8,7 @@ MAX_SPEAKERNAME_SIZE = 40
 
 SHORT_TO_LONG_NAME = dict(
     w="Word",
-    l="Lemma",
+    l="Lemma",  # noqa: E741
     p="Part of speech",
     g="Governor index",
     f="Dependency role",
@@ -19,7 +19,7 @@ SHORT_TO_LONG_NAME = dict(
     speaker="Speaker",
 )
 
-_SHORTER = dict(s='Sent #', i='Token #', p="POS", g="Gov.", f='Function', x="Class")
+_SHORTER = dict(s="Sent #", i="Token #", p="POS", g="Gov.", f="Function", x="Class")
 SHORT_TO_COL_NAME = {**SHORT_TO_LONG_NAME, **_SHORTER}
 
 DTYPES = dict(

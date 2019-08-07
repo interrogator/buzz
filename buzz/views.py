@@ -3,6 +3,7 @@ in buzz, searches result in corpus subsets. views represent subsets as stats,
 or as concordance lines, or as figures...
 """
 import math
+
 import numpy as np
 import pandas as pd
 from tabview import view
@@ -228,13 +229,7 @@ def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
     return ((norm_target - norm_ref) * 100.0) / norm_ref
 
 
-def _make_keywords(
-    subcorpus,
-    reference,
-    ref_sum,
-    target_sum,
-    measure
-):
+def _make_keywords(subcorpus, reference, ref_sum, target_sum, measure):
     points = [
         (reference.get(name, 0), count, ref_sum, target_sum)
         for name, count in subcorpus.iteritems()
@@ -299,7 +294,9 @@ def _table(
         kwa = dict(
             axis=0,
             reference=reference["_match"].value_counts(),
-            measure=dict(ll=_log_likelihood, pd=_perc_diff).get(keyness, _log_likelihood),
+            measure=dict(ll=_log_likelihood, pd=_perc_diff).get(
+                keyness, _log_likelihood
+            ),
             ref_sum=reference.shape[0],
             target_sum=df.shape[0],
         )

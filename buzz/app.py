@@ -1,17 +1,21 @@
-import dash
-import os
 from collections import OrderedDict
+
+import pandas as pd
+
+import dash
+from app.cmd import _parse_cmdline_args
+from app.strings import (
+    _make_search_name,
+    _make_table_name,
+    _search_error,
+    _table_error,
+)
+from app.tabs import _make_tabs
+from app.utils import _get_from_corpus, _translate_relative, _update_datatable
 from buzz.corpus import Corpus
 from buzz.dashview import _df_to_figure
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
-
-from app.tabs import _make_tabs
-from app.cmd import _parse_cmdline_args
-from app.strings import _make_search_name, _make_table_name, _search_error, _table_error
-from app.utils import _get_from_corpus, _translate_relative, _update_datatable
-
-import pandas as pd
 
 #######################
 # MAKE FLASK/DASH APP #
@@ -219,7 +223,18 @@ def _new_search(
     ],
 )
 def _new_table(
-    n_clicks, search_from, show, subcorpora, relkey, sort, table_from_options, nv1, nv2, nv3, nv4, nv5
+    n_clicks,
+    search_from,
+    show,
+    subcorpora,
+    relkey,
+    sort,
+    table_from_options,
+    nv1,
+    nv2,
+    nv3,
+    nv4,
+    nv5,
 ):
     """
     Callback when a new freq table is generated
@@ -279,7 +294,13 @@ def _new_table(
         tfo.append(option)
         nv1, nv2, nv3, nv4, nv5 = nv, nv, nv, nv, nv
     elif exists:
-        nv1, nv2, nv3, nv4, nv5 = exists[-1], exists[-1], exists[-1], exists[-1], exists[-1]
+        nv1, nv2, nv3, nv4, nv5 = (
+            exists[-1],
+            exists[-1],
+            exists[-1],
+            exists[-1],
+            exists[-1],
+        )
 
     return cols, data, tfo, nv1, tfo, nv2, tfo, nv3, tfo, nv4, tfo, nv5, bool(msg), msg
 

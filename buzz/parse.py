@@ -132,7 +132,7 @@ class Parser:
                 if parse:
                     parse = parse[0]._pformat_flat("", ("(", ")"), "")
                 else:
-                    parse = '(. .)'
+                    parse = "(. .)"
             else:
                 parse = sent._.parse_string
             sent_meta["parse"] = parse.replace("\n", " ").strip()
