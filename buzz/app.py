@@ -176,6 +176,8 @@ def _new_table(
     table = corpus.table(
         show=show, subcorpora=subcorpora, relative=relative, keyness=keyness, sort=sort
     )
+    if relative is not False or keyness:
+        table = table.round(2)
     # store the search information and the result
     nv = len(TABLES)
     this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv)

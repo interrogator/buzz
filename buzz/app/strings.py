@@ -34,7 +34,7 @@ def _make_search_name(history):
         return "Search entire corpus"
     previous, col, skip, search_string, n = history
     no = "not " if skip else ""
-    basic = f"{SHORT_TO_LONG_NAME[col]} {no}matching '{search_string}'"
+    basic = f"{SHORT_TO_LONG_NAME.get(col, col)} {no}matching '{search_string}'"
     hyphen = ""
     while isinstance(previous, tuple):
         hyphen += "─"
