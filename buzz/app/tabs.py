@@ -50,9 +50,23 @@ def _build_dataset_space(df):
     ]
     # pieces[0].style['position'] = "absolute";
     search_space = html.Div(pieces)
-    columns = [{"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["s", "i"]} for i in df.columns]
+    columns = [
+        {"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["s", "i"]}
+        for i in df.columns
+    ]
     data = df.to_dict("rows")
     left_aligns = ["file", "w", "l", "x", "p", "f", "speaker", "setting"]
+    style_index = [
+        {
+            "if": {"column_id": c},
+            "backgroundColor": "#fafafa",
+            # "color": "white",
+            "fontWeight": "bold",
+        }
+        for c in ["file", "s", "i"]
+    ]
+    stripes = [{"if": {"row_index": "odd"}, "backgroundColor": "rgb(248, 248, 248)"}]
+
     conll_table = dcc.Loading(
         type="default",
         children=[
@@ -64,30 +78,21 @@ def _build_dataset_space(df):
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
-                row_selectable="multi",
+                # row_selectable="multi",
                 row_deletable=True,
                 selected_rows=[],
                 page_action="native",
                 page_current=0,
                 page_size=25,
                 # style_as_list_view=True,
-                style_header={'fontWeight': 'bold'},
+                style_header={"fontWeight": "bold"},
                 style_cell_conditional=[
                     {"if": {"column_id": c}, "textAlign": "left"} for c in left_aligns
                 ],
-                style_data_conditional=[
-                    {
-                        "if": {"column_id": c},
-                        "backgroundColor": "#fafafa",
-                        #"color": "white",
-                        'fontWeight': 'bold'
-                    }
-                    for c in ["file", "s", "i"]
-                ],
+                style_data_conditional=style_index + stripes,
             )
         ],
     )
-
     return html.Div(id="dataset-container", children=[search_space, conll_table])
 
 
@@ -131,7 +136,15 @@ def _build_frequencies_space(corpus, table):
         placeholder="Sort columns by...",
     )
     columns, data = _update_datatable(corpus, table, conll=False)
-
+    style_index = [
+        {
+            "if": {"column_id": table.index.name},
+            "backgroundColor": "#fafafa",
+            # "color": "white",
+            "fontWeight": "bold",
+        }
+    ]
+    stripes = [{"if": {"row_index": "odd"}, "backgroundColor": "rgb(248, 248, 248)"}]
     freq_table = dcc.Loading(
         type="default",
         children=[
@@ -143,18 +156,21 @@ def _build_frequencies_space(corpus, table):
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
-                row_selectable="multi",
+                # row_selectable="multi",
                 row_deletable=True,
                 selected_rows=[],
                 page_action="native",
                 page_current=0,
-                page_size=50,
+                page_size=25,
+                style_header={"fontWeight": "bold"},
+                style_data_conditional=style_index + stripes,
             )
         ],
     )
 
     style = dict(
-        display="inline-block", verticalAlign="middle", height="35px", width="33%"
+
+        display="inline-block", verticalAlign="middle", height="35px", width="25%"
     )
     left = html.Div(
         [html.Div(show_check, style=style), html.Div(subcorpora_drop, style=style)]
@@ -163,7 +179,9 @@ def _build_frequencies_space(corpus, table):
         [
             html.Div(sort_drop, style=style),
             html.Div(relative_drop, style=style),
-            html.Button("Generate table", id="table-button", style=style),
+            html.Button(
+                "Generate table", id="table-button", style={**style, **{"width": "10%"}}
+            ),
         ]
     )
     toolbar = html.Div([left, right])
@@ -178,12 +196,18 @@ def _build_concordance_space(df):
     show_check = dcc.Dropdown(
         multi=True, placeholder="Features to show", id="show-for-conc", options=cols
     )
-    update = html.Button("Update", id="update-conc"),
-    style = dict(display="table-cell", verticalAlign="middle", height="35px", width="100%")
+    update = (html.Button("Update", id="update-conc"),)
+    style = dict(
+        display="table-cell", verticalAlign="middle", height="35px", width="100%"
+    )
     toolbar = [html.Div(i, style=style) for i in [show_check, update]]
     conc_space = html.Div(toolbar)
-    df = df.just.x.NOUN.conc(window=(80, 80))
-    columns = [{"name": i, "id": i, "deletable": i not in ["left", "match", "right"]} for i in df.columns]
+    df = df.just.x.NOUN.conc(metadata=["file", "s", "i", "speaker"], window=(80, 80))
+    df = df[["left", "match", "right", "file", "s", "i", "speaker"]]
+    columns = [
+        {"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["left", "match", "right"]}
+        for i in df.columns
+    ]
     data = df.to_dict("rows")
     left_aligns = ["match", "right", "speaker", "file"]
     conc = dcc.Loading(
@@ -197,24 +221,25 @@ def _build_concordance_space(df):
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
-                row_selectable="multi",
+                # row_selectable="multi",
                 row_deletable=True,
                 selected_rows=[],
                 page_action="native",
                 page_current=0,
-                page_size=50,
+                page_size=25,
                 style_as_list_view=True,
-                style_header={'fontWeight': 'bold'},
+                style_header={"fontWeight": "bold"},
                 style_cell_conditional=[
                     {"if": {"column_id": c}, "textAlign": "left"} for c in left_aligns
                 ],
                 style_data_conditional=[
+                    {"if": {"column_id": "match"}, "fontWeight": "bold"},
+                    {"if": {"column_id": "file"}, "fontWeight": "bold"},
                     {
-                        "if": {"column_id": "match"},
-                        'fontWeight': 'bold'
-                    }
+                        "if": {"row_index": "odd"},
+                        "backgroundColor": "rgb(248, 248, 248)",
+                    },
                 ],
-
             )
         ],
     )
@@ -227,7 +252,13 @@ def _build_chart_space(tables):
     Div representing the chart tab
     """
     charts = []
-    for chart_num, kind in [(1, "bar"), (2, "line"), (3, "area")]:
+    for chart_num, kind in [
+        (1, "bar"),
+        (2, "line"),
+        (3, "area"),
+        (4, "heatmap"),
+        (5, "stacked_bar"),
+    ]:
 
         table_from = [
             dict(value=i, label=_make_table_name(h)) for i, h in enumerate(tables)
@@ -276,7 +307,10 @@ def _build_chart_space(tables):
         chart = dcc.Loading(type="default", children=[dcc.Graph(**chart_data)])
         chart_space = html.Div([toolbar, chart])
         collapse = html.Details(
-            [html.Summary(f"Chart space {chart_num}"), html.Div(chart_space)],
+            [
+                html.Summary(f"Chart space {chart_num}", style={"fontWeight": "bold"}),
+                html.Div(chart_space),
+            ],
             open=chart_num == 1,
         )
         charts.append(collapse)
@@ -298,8 +332,18 @@ def _make_tabs(title, searches, tables):
     clear = html.Button("Clear history", id="clear-history")
     dropdown = dcc.Dropdown(id="search-from", options=search_from, value=0)
     top_bit = [
-        html.Div(dropdown, style=dict(display="table-cell", width="90%", verticalAlign="middle", height="35px")),
-        html.Div(clear, style=dict(display="table-cell", width="10%", verticalAlign="middle", height="35px")),
+        html.Div(
+            dropdown,
+            style=dict(
+                display="table-cell", width="90%", verticalAlign="middle", height="35px"
+            ),
+        ),
+        html.Div(
+            clear,
+            style=dict(
+                display="table-cell", width="10%", verticalAlign="middle", height="35px"
+            ),
+        ),
     ]
     top_bit = html.Div(top_bit)
     tab_headers = dcc.Tabs(

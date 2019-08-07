@@ -78,9 +78,10 @@ def _concordance(
 
     # if showing metadata to the right of lmr, add it here
     cnames = list(df.columns)
-    met = [i for i in cnames if i not in CONLL_COLUMNS]
     if metadata is True:
-        met_df = df[met]
+        metadata = [i for i in cnames if i not in CONLL_COLUMNS]
+    if metadata:
+        met_df = df[metadata]
         finished = pd.concat([finished, met_df], axis=1, sort=False)
     finished = finished.drop(
         ["_match", "_n", "sent_len", "parse"], axis=1, errors="ignore"

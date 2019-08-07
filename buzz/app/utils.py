@@ -44,7 +44,7 @@ def _update_datatable(corpus, df, conll=True, conc=False):
     """
     if conll:
         col_order = ["file", "s", "i"] + list(corpus.columns)
-        col_order = [i for i in col_order if i not in ["parse", "text"]]
+        col_order = [i for i in col_order if i not in ["parse", "text", "e"]]
     elif conc:
         col_order = ["file", "s", "i", "left", "match", "right"]
         rest = [i for i in list(df.columns) if i not in col_order and i not in ["parse", "text"]]
@@ -60,6 +60,6 @@ def _update_datatable(corpus, df, conll=True, conc=False):
     elif conc:
         columns = [{"name": i, "id": i, "deletable": i not in ["left", "match", "right"]} for i in df.columns]
     else:
-        columns = [{"name": i, "id": i, "deletable": True} for i in df.columns]
+        columns = [{"name": i.lstrip('_'), "id": i, "deletable": True} for i in df.columns]
     data = df.to_dict("rows")
     return columns, data

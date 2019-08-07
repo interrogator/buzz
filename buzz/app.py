@@ -11,12 +11,20 @@ from app.cmd import _parse_cmdline_args
 from app.strings import _make_search_name, _make_table_name
 from app.utils import _get_from_corpus, _translate_relative, _update_datatable
 
-# create the app itself
+import pandas as pd
+
+#######################
+# MAKE FLASK/DASH APP #
+#######################
+#
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
 
-# store corpus and search results in here
+###########
+# STORAGE #
+###########
+#
 SEARCHES = OrderedDict()
 TABLES = OrderedDict()
 CLICKS = dict(clear=-1)
@@ -60,7 +68,7 @@ def render_content(tab):
     return outputs
 
 
-for i in range(1, 4):
+for i in range(1, 6):
 
     @app.callback(
         Output(f"chart-{i}", "figure"),
@@ -76,12 +84,16 @@ for i in range(1, 4):
         """
         Make new chart by kind. Do it 3 times, once for each chart space
         """
+        # before anything is loaded, do nothing
         if n_clicks is None:
             raise PreventUpdate
+        # get correct dataset to chart
         specs, df = _get_from_corpus(table_from, dataset=TABLES)
+        # transpose and cut down items to plot
         if transpose:
             df = df.T
         df = df.iloc[:, :top_n]
+        # generate chart
         return _df_to_figure(df, chart_type)
 
 
@@ -113,18 +125,18 @@ def _new_search(
 
     # if the user has done clear history
     if cleared and cleared != CLICKS["clear"]:
+        # clear searches
         corpus = SEARCHES["corpus"]
         SEARCHES.clear()
         SEARCHES["corpus"] = corpus
-        # the line below could be slow. can we get from elsewhere?
-        datatable_cols, datatable_data = _update_datatable(
-            SEARCHES["corpus"], SEARCHES["corpus"]
-        )
+        # todo: the line below could be slow. can we get from elsewhere?
+        cols, data = _update_datatable(SEARCHES["corpus"], SEARCHES["corpus"])
         search_from = [
             dict(value=i, label=_make_search_name(h)) for i, h in enumerate(SEARCHES)
         ]
+        # set number of clicks at last moment
         CLICKS["clear"] = cleared
-        return datatable_cols, datatable_data, search_from, 0
+        return cols, data, search_from, 0
 
     # the expected callback. run a search and update dataset view and search history
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
@@ -170,18 +182,27 @@ def _new_table(
     if n_clicks is None:
         raise PreventUpdate
 
-    # parse options and run .table method
+    # parse options and get correct data
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
     relative, keyness = _translate_relative(relkey, SEARCHES["corpus"])
+
+    # generate table
     table = corpus.table(
         show=show, subcorpora=subcorpora, relative=relative, keyness=keyness, sort=sort
     )
+    # round df if floats are used
     if relative is not False or keyness:
         table = table.round(2)
+
+    # cannot hash a corpus, which relative may be. none will denote corpus as reference
+    if isinstance(relative, pd.DataFrame):
+        relative = None
+
     # store the search information and the result
     nv = len(TABLES)
     this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv)
     TABLES[this_table] = table
+
     # format various outputs for display
     cols, data = _update_datatable(SEARCHES["corpus"], table, conll=False)
     option = dict(value=nv, label=_make_table_name(this_table))
@@ -195,6 +216,9 @@ def _new_table(
     [State("show-for-conc", "value"), State("search-from", "value")],
 )
 def new_conc(n_clicks, show, search_from):
+    """
+    Callback for conc. We just pick what to show and where from...
+    """
     if n_clicks is None:
         raise PreventUpdate
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
@@ -214,7 +238,7 @@ if __name__ == "__main__":
     # create all the data we start with. loaded corpus, nouns, and noun table
     SEARCHES["corpus"] = Corpus(path).load()
     open_class = ["NOUN", "VERB", "ADJ", "ADV"]
-    opens = SEARCHES["corpus"].just.x(open_class).table(show="x", subcorpora="file")
+    opens = SEARCHES["corpus"].just.x(open_class).table(show="p", subcorpora="file")
     TABLES["initial"] = opens
     app.layout = _make_tabs(title, SEARCHES, TABLES)
     app.run_server(debug=True)
