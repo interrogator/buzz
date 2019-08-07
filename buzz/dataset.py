@@ -20,7 +20,7 @@ class Dataset(pd.DataFrame):
     _internal_names = pd.DataFrame._internal_names
     _internal_names_set = set(_internal_names)
 
-    _metadata = ["reference", "_tfidf"]
+    _metadata = ["reference", "_tfidf", "_name"]
     reference = None
     _tfidf = dict()
 
@@ -28,7 +28,7 @@ class Dataset(pd.DataFrame):
     def _constructor(self):
         return Dataset
 
-    def __init__(self, data, reference=None, load_trees=False, **kwargs):
+    def __init__(self, data, reference=None, load_trees=False, name=None, **kwargs):
 
         if isinstance(data, str):
             if os.path.isfile(data):
@@ -45,6 +45,7 @@ class Dataset(pd.DataFrame):
         super().__init__(data, **kwargs)
         self.reference = reference
         self._tfidf = dict()
+        self._name = name
 
     def __len__(self):
         """
@@ -178,14 +179,14 @@ class Dataset(pd.DataFrame):
         """
         Save to feather
         """
-        if 'parse' in self.columns:
+        if "parse" in self.columns:
             par = list()
-            for (f, s, i), data in self['parse'].iteritems():
+            for (f, s, i), data in self["parse"].iteritems():
                 if i == 1:
                     par.append(data)
                 else:
                     par.append(None)
-            self['parse'] = par
+            self["parse"] = par
         self.reset_index().to_feather(savename)
 
     @staticmethod
@@ -194,8 +195,11 @@ class Dataset(pd.DataFrame):
         Load from feather
         """
         df = pd.read_feather(loadname)
-        df = df.set_index(['file', 's', 'i'])
+        name = os.path.splitext(os.path.basename(loadname))[0]
+        if name.endswith("-parsed"):
+            name = name[:-7]
+        df = df.set_index(["file", "s", "i"])
         tree_once = _tree_once(df)
         if isinstance(tree_once.values[0], str):
             df["parse"] = tree_once.apply(_make_tree)
-        return Dataset(df, reference=df)
+        return Dataset(df, reference=df, name=name)

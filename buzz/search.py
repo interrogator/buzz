@@ -143,6 +143,8 @@ class Searcher(object):
         self.query = query
         self.case_sensitive = case_sensitive
 
+        name = getattr(corpus, "name", None)
+
         # where we store our results...
         results = list()
 
@@ -181,9 +183,9 @@ class Searcher(object):
         _tqdm_close(t)
 
         results = (
-            Dataset(pd.concat(results, sort=False))
+            Dataset(pd.concat(results, sort=False), name=name)
             if results
-            else Dataset(pd.DataFrame())
+            else Dataset(pd.DataFrame(), name=name)
         )
         # if we already had reference corpus, it can stay...
         results.reference = self.reference

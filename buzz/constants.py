@@ -19,7 +19,7 @@ SHORT_TO_LONG_NAME = dict(
     speaker="Speaker",
 )
 
-_SHORTER = dict(s='Sent #', i='Token #', p="POS", g="Gov.", f='Function')
+_SHORTER = dict(s='Sent #', i='Token #', p="POS", g="Gov.", f='Function', x="Class")
 SHORT_TO_COL_NAME = {**SHORT_TO_LONG_NAME, **_SHORTER}
 
 DTYPES = dict(

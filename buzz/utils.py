@@ -272,7 +272,7 @@ def _to_df(
     df = df.fillna("_")
     if set_data_types:
         df = _set_best_data_types(df)
-    return Dataset(df)
+    return Dataset(df, name=usename or corpus.name)
 
 
 def _get_short_name_from_long_name(longname):

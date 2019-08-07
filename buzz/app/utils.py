@@ -13,7 +13,7 @@ def _get_from_corpus(from_number, dataset):
     specs, corpus = list(dataset.items())[from_number]
     # load from index to save memory
     if not isinstance(corpus, pd.DataFrame):
-        corpus = dataset["corpus"].loc[corpus]
+        corpus = next(iter(dataset.values())).loc[corpus]
     return specs, corpus
 
 
@@ -21,7 +21,8 @@ def _translate_relative(inp, corpus):
     """
     Get relative and keyness from two-character input
     """
-    assert len(inp) == 2
+    if not inp:
+        return False, False
     mapping = dict(t=True, f=False, n=corpus, l="ll", p="pd")
     return mapping[inp[0]], mapping[inp[1]]
 
@@ -29,13 +30,14 @@ def _translate_relative(inp, corpus):
 def _get_cols(corpus):
     """
     Make list of dicts of conll columns (for search/show)
+
+    Do it by hand because we want a particular order (most common for search/show)
     """
-    col_order = ["file", "s", "i"] + list(corpus.columns)
-    cols = [
-        dict(label=SHORT_TO_LONG_NAME.get(i, i.title()).replace("_", " "), value=i)
-        for i in col_order
-    ]
-    return cols
+    col_order = ["w", "l", "p", "x", "f", "g", "speaker", "file", "s", "i"]
+    noshow = ["e", "o", "text", "sent_len", "parse", "_n"]
+    col_order += [i for i in list(corpus.columns) if i not in col_order + noshow]
+    longs = [(i, SHORT_TO_LONG_NAME.get(i, i).capitalize()) for i in col_order]
+    return [dict(value=v, label=l.replace("_", " ")) for v, l in longs]
 
 
 def _update_datatable(corpus, df, conll=True, conc=False):

@@ -3,6 +3,7 @@ buzz webapp: command-line processing
 """
 
 import argparse
+import os
 
 
 def _parse_cmdline_args():
@@ -23,7 +24,11 @@ def _parse_cmdline_args():
     )
 
     parser.add_argument(
-        "-t", "--title", nargs="?", type=str, required=False, help="Title for app"
+        "-t", "--title", nargs="?", type=str, default="buzzword", required=False, help="Title for app"
+    )
+
+    parser.add_argument(
+        "-r", "--rows", nargs="?", type=int, required=False, help="Rows per page"
     )
 
     parser.add_argument("path", help="Path to the corpus")
