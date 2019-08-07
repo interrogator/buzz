@@ -7,21 +7,10 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_daq as daq
 
-from buzz.constants import SHORT_TO_LONG_NAME
 from .strings import _make_table_name, _make_search_name
+from .utils import _get_cols, _update_datatable
+from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
-
-
-def _get_cols(corpus):
-    """
-    Make list of dicts of conll columns (for search/show)
-    """
-    col_order = ["file", "s", "i"] + list(corpus.columns)
-    cols = [
-        dict(label=SHORT_TO_LONG_NAME.get(i, i.title()).replace("_", " "), value=i)
-        for i in col_order
-    ]
-    return cols
 
 
 def _build_dataset_space(df):
@@ -31,7 +20,7 @@ def _build_dataset_space(df):
     cols = _get_cols(df)
     cols += [dict(label="Dependencies", value="d"), dict(label="Trees", value="t")]
     df = df.reset_index()
-    df = df.drop(["parse", "text"], axis=1, errors="ignore")
+    df = df.drop(["parse", "text", "e", "sent_id", "sent_len"], axis=1, errors="ignore")
     pieces = [
         dcc.Dropdown(
             id="search-target", options=cols, value="w", style={"width": "200px"}
@@ -61,23 +50,44 @@ def _build_dataset_space(df):
     ]
     # pieces[0].style['position'] = "absolute";
     search_space = html.Div(pieces)
-    columns = [{"name": i, "id": i} for i in df.columns]
+    columns = [{"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["s", "i"]} for i in df.columns]
     data = df.to_dict("rows")
-    conll_table = dash_table.DataTable(
-        id="conll-view",
-        columns=columns,
-        data=data,
-        editable=True,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        row_selectable="multi",
-        row_deletable=True,
-        selected_rows=[],
-        page_action="native",
-        page_current=0,
-        page_size=50,
+    left_aligns = ["file", "w", "l", "x", "p", "f", "speaker", "setting"]
+    conll_table = dcc.Loading(
+        type="default",
+        children=[
+            dash_table.DataTable(
+                id="conll-view",
+                columns=columns,
+                data=data,
+                editable=True,
+                filter_action="native",
+                sort_action="native",
+                sort_mode="multi",
+                row_selectable="multi",
+                row_deletable=True,
+                selected_rows=[],
+                page_action="native",
+                page_current=0,
+                page_size=25,
+                # style_as_list_view=True,
+                style_header={'fontWeight': 'bold'},
+                style_cell_conditional=[
+                    {"if": {"column_id": c}, "textAlign": "left"} for c in left_aligns
+                ],
+                style_data_conditional=[
+                    {
+                        "if": {"column_id": c},
+                        "backgroundColor": "#fafafa",
+                        #"color": "white",
+                        'fontWeight': 'bold'
+                    }
+                    for c in ["file", "s", "i"]
+                ],
+            )
+        ],
     )
+
     return html.Div(id="dataset-container", children=[search_space, conll_table])
 
 
@@ -121,20 +131,26 @@ def _build_frequencies_space(corpus, table):
         placeholder="Sort columns by...",
     )
     columns, data = _update_datatable(corpus, table, conll=False)
-    freq_table = dash_table.DataTable(
-        id="freq-table",
-        columns=columns,
-        data=data,
-        editable=True,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        row_selectable="multi",
-        row_deletable=True,
-        selected_rows=[],
-        page_action="native",
-        page_current=0,
-        page_size=50,
+
+    freq_table = dcc.Loading(
+        type="default",
+        children=[
+            dash_table.DataTable(
+                id="freq-table",
+                columns=columns,
+                data=data,
+                editable=True,
+                filter_action="native",
+                sort_action="native",
+                sort_mode="multi",
+                row_selectable="multi",
+                row_deletable=True,
+                selected_rows=[],
+                page_action="native",
+                page_current=0,
+                page_size=50,
+            )
+        ],
     )
 
     style = dict(
@@ -162,24 +178,45 @@ def _build_concordance_space(df):
     show_check = dcc.Dropdown(
         multi=True, placeholder="Features to show", id="show-for-conc", options=cols
     )
-    conc_space = html.Div([show_check])
-    df = df.just.x.NOUN.conc().head(100)
-    columns = [{"name": i, "id": i} for i in df.columns]
+    update = html.Button("Update", id="update-conc"),
+    style = dict(display="table-cell", verticalAlign="middle", height="35px", width="100%")
+    toolbar = [html.Div(i, style=style) for i in [show_check, update]]
+    conc_space = html.Div(toolbar)
+    df = df.just.x.NOUN.conc(window=(80, 80))
+    columns = [{"name": i, "id": i, "deletable": i not in ["left", "match", "right"]} for i in df.columns]
     data = df.to_dict("rows")
-    conc = dash_table.DataTable(
-        id="conctable",
-        columns=columns,
-        data=data,
-        editable=True,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        row_selectable="multi",
-        row_deletable=True,
-        selected_rows=[],
-        page_action="native",
-        page_current=0,
-        page_size=50,
+    left_aligns = ["match", "right", "speaker", "file"]
+    conc = dcc.Loading(
+        type="default",
+        children=[
+            dash_table.DataTable(
+                id="conc-table",
+                columns=columns,
+                data=data,
+                editable=True,
+                filter_action="native",
+                sort_action="native",
+                sort_mode="multi",
+                row_selectable="multi",
+                row_deletable=True,
+                selected_rows=[],
+                page_action="native",
+                page_current=0,
+                page_size=50,
+                style_as_list_view=True,
+                style_header={'fontWeight': 'bold'},
+                style_cell_conditional=[
+                    {"if": {"column_id": c}, "textAlign": "left"} for c in left_aligns
+                ],
+                style_data_conditional=[
+                    {
+                        "if": {"column_id": "match"},
+                        'fontWeight': 'bold'
+                    }
+                ],
+
+            )
+        ],
     )
 
     return html.Div([conc_space, conc])
@@ -236,30 +273,14 @@ def _build_chart_space(tables):
         df = tables["initial"]
         figure = _df_to_figure(df, kind=kind)
         chart_data = dict(id=f"chart-{chart_num}", figure=figure)
-        chart_space = html.Div([toolbar, dcc.Graph(**chart_data)])
+        chart = dcc.Loading(type="default", children=[dcc.Graph(**chart_data)])
+        chart_space = html.Div([toolbar, chart])
         collapse = html.Details(
             [html.Summary(f"Chart space {chart_num}"), html.Div(chart_space)],
             open=chart_num == 1,
         )
         charts.append(collapse)
     return html.Div(charts)
-
-
-def _update_datatable(corpus, df, conll=True):
-    """
-    Helper for datatables
-    """
-    if conll:
-        col_order = ["file", "s", "i"] + list(corpus.columns)
-        col_order = [i for i in col_order if i not in ["parse", "text"]]
-    else:
-        df.index.names = [f"_{x}" for x in df.index.names]
-        col_order = list(df.index.names) + list(df.columns)
-    df = df.reset_index()
-    df = df[col_order]
-    columns = [{"name": i.strip("_"), "id": i} for i in df.columns]
-    data = df.to_dict("rows")
-    return columns, data
 
 
 def _make_tabs(title, searches, tables):
@@ -277,8 +298,8 @@ def _make_tabs(title, searches, tables):
     clear = html.Button("Clear history", id="clear-history")
     dropdown = dcc.Dropdown(id="search-from", options=search_from, value=0)
     top_bit = [
-        html.Div(dropdown, style=dict(display="inline-block", width="90%")),
-        html.Div(clear, style=dict(display="inline-block", width="10%")),
+        html.Div(dropdown, style=dict(display="table-cell", width="90%", verticalAlign="middle", height="35px")),
+        html.Div(clear, style=dict(display="table-cell", width="10%", verticalAlign="middle", height="35px")),
     ]
     top_bit = html.Div(top_bit)
     tab_headers = dcc.Tabs(

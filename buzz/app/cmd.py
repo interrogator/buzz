@@ -1,4 +1,9 @@
+"""
+buzz webapp: command-line processing
+"""
+
 import argparse
+
 
 def _parse_cmdline_args():
     """

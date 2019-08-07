@@ -1,3 +1,7 @@
+"""
+buzz webapp: making human-readable strings from data
+"""
+
 from buzz.constants import SHORT_TO_LONG_NAME
 
 

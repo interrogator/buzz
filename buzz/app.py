@@ -1,43 +1,35 @@
-import argparse
 import dash
-import dash_table
-import dash_core_components as dcc
-import dash_html_components as html
-import dash_daq as daq
-import plotly.graph_objects as go
 import os
-import sys
 from collections import OrderedDict
 from buzz.corpus import Corpus
-from buzz.constants import SHORT_TO_LONG_NAME
-from buzz.dashview import MAPPING, CHART_TYPES, _make_component, PLOTTERS, _df_to_figure
+from buzz.dashview import _df_to_figure
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
-from app.tabs import (
-    _make_tabs,
-    _build_dataset_space,
-    _build_frequencies_space,
-    _build_chart_space,
-    _build_concordance_space,
-    _update_datatable,
-)
+from app.tabs import _make_tabs
 from app.cmd import _parse_cmdline_args
 from app.strings import _make_search_name, _make_table_name
+from app.utils import _get_from_corpus, _translate_relative, _update_datatable
 
-import pandas as pd
-
+# create the app itself
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
+
 # store corpus and search results in here
 SEARCHES = OrderedDict()
 TABLES = OrderedDict()
 CLICKS = dict(clear=-1)
 
-
+#############
+# CALLBACKS #
+#############
+#
 @app.callback(Output("input-box", "placeholder"), [Input("search-target", "value")])
 def _correct_placeholder(value):
+    """
+    More accurate placeholder text when doing dependencies
+    """
     if value == "d":
         return "Enter depgrep query..."
     else:
@@ -54,6 +46,9 @@ def _correct_placeholder(value):
     [Input("tabs", "value")],
 )
 def render_content(tab):
+    """
+    Tab display callback. If the user clicked this tab, show it, otherwise hide
+    """
     if tab is None:
         tab = "dataset"
     outputs = []
@@ -63,17 +58,6 @@ def render_content(tab):
         else:
             outputs.append({"display": "none"})
     return outputs
-
-
-def _get_from_corpus(from_number, dataset=SEARCHES):
-    """
-    Get the correct dataset from number stored in the dropdown for search_from
-    """
-    specs, corpus = list(dataset.items())[from_number]
-    # load from index to save memory
-    if not isinstance(corpus, pd.DataFrame):
-        corpus = dataset["corpus"].loc[corpus]
-    return specs, corpus
 
 
 for i in range(1, 4):
@@ -90,7 +74,7 @@ for i in range(1, 4):
     )
     def _new_chart(n_clicks, table_from, chart_type, top_n, transpose):
         """
-        Make new chart by kind
+        Make new chart by kind. Do it 3 times, once for each chart space
         """
         if n_clicks is None:
             raise PreventUpdate
@@ -100,15 +84,15 @@ for i in range(1, 4):
         df = df.iloc[:, :top_n]
         return _df_to_figure(df, chart_type)
 
+
 @app.callback(
     [
         Output("conll-view", "columns"),
         Output("conll-view", "data"),
         Output("search-from", "options"),
-        Output("search-from", "value")
+        Output("search-from", "value"),
     ],
-    [Input("search-button", "n_clicks"),
-     Input("clear-history", "n_clicks")],
+    [Input("search-button", "n_clicks"), Input("clear-history", "n_clicks")],
     [
         State("search-from", "value"),
         State("skip-switch", "on"),
@@ -123,26 +107,29 @@ def _new_search(
     """
     Callback when a new search is submitted
     """
+    # the first callback, before anything is loaded
     if n_clicks is None:
         raise PreventUpdate
 
-    if cleared != CLICKS["clear"]:
+    # if the user has done clear history
+    if cleared and cleared != CLICKS["clear"]:
         corpus = SEARCHES["corpus"]
         SEARCHES.clear()
         SEARCHES["corpus"] = corpus
         # the line below could be slow. can we get from elsewhere?
-        datatable_cols, datatable_data = _update_datatable(SEARCHES["corpus"], SEARCHES["corpus"])
+        datatable_cols, datatable_data = _update_datatable(
+            SEARCHES["corpus"], SEARCHES["corpus"]
+        )
         search_from = [
             dict(value=i, label=_make_search_name(h)) for i, h in enumerate(SEARCHES)
         ]
         CLICKS["clear"] = cleared
         return datatable_cols, datatable_data, search_from, 0
 
-    specs, corpus = _get_from_corpus(search_from)
+    # the expected callback. run a search and update dataset view and search history
+    specs, corpus = _get_from_corpus(search_from, SEARCHES)
     method = "just" if not skip else "skip"
     df = getattr(getattr(corpus, method), col)(search_string.strip())
-    # we store this search specs as a tuple, with first item being specs of last search?
-    # maybe can just store search_from instead?
     new_value = len(SEARCHES)
     this_search = (specs, col, skip, search_string, new_value)
     SEARCHES[this_search] = df.index
@@ -179,29 +166,39 @@ def _new_table(
     """
     Callback when a new freq table is generated
     """
+    # do nothing if not yet loaded
     if n_clicks is None:
         raise PreventUpdate
-    specs, corpus = _get_from_corpus(search_from)
-    relative, keyness = _translate_relative(relkey)
+
+    # parse options and run .table method
+    specs, corpus = _get_from_corpus(search_from, SEARCHES)
+    relative, keyness = _translate_relative(relkey, SEARCHES["corpus"])
     table = corpus.table(
         show=show, subcorpora=subcorpora, relative=relative, keyness=keyness, sort=sort
     )
+    # store the search information and the result
     nv = len(TABLES)
     this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv)
     TABLES[this_table] = table
+    # format various outputs for display
     cols, data = _update_datatable(SEARCHES["corpus"], table, conll=False)
     option = dict(value=nv, label=_make_table_name(this_table))
     tfo = table_from_options + [option]
     return cols, data, tfo, nv, tfo, nv, tfo, nv
 
 
-def _translate_relative(inp):
-    """
-    Get relative and keyness from two-character input
-    """
-    assert len(inp) == 2
-    mapping = dict(t=True, f=False, n=SEARCHES["corpus"], l="ll", p="pd")
-    return mapping[inp[0]], mapping[inp[1]]
+@app.callback(
+    [Output("conc-table", "columns"), Output("conc-table", "data")],
+    [Input("update-conc", "n_clicks")],
+    [State("show-for-conc", "value"), State("search-from", "value")],
+)
+def new_conc(n_clicks, show, search_from):
+    if n_clicks is None:
+        raise PreventUpdate
+    specs, corpus = _get_from_corpus(search_from, SEARCHES)
+    conc = corpus.conc(show=show, window=(80, 80))
+    cols, data = _update_datatable(SEARCHES["corpus"], conc, conll=False)
+    return cols, data
 
 
 if __name__ == "__main__":
@@ -209,11 +206,13 @@ if __name__ == "__main__":
     kwargs = _parse_cmdline_args()
     path = kwargs["path"]
     title = kwargs["title"] or f"Explore: {os.path.basename(path)}"
+    if title.endswith("-parsed"):
+        title = title.rsplit("-", 1)[0]
+
     # create all the data we start with. loaded corpus, nouns, and noun table
     SEARCHES["corpus"] = Corpus(path).load()
     open_class = ["NOUN", "VERB", "ADJ", "ADV"]
-    TABLES["initial"] = (
-        SEARCHES["corpus"].just.x(open_class).table(show="x", subcorpora="file")
-    )
+    opens = SEARCHES["corpus"].just.x(open_class).table(show="x", subcorpora="file")
+    TABLES["initial"] = opens
     app.layout = _make_tabs(title, SEARCHES, TABLES)
     app.run_server(debug=True)
