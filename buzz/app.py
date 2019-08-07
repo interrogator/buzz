@@ -33,6 +33,7 @@ app.config.suppress_callback_exceptions = True
 # store corpus and search results in here
 SEARCHES = OrderedDict()
 TABLES = OrderedDict()
+CLICKS = dict(clear=-1)
 
 
 @app.callback(Output("input-box", "placeholder"), [Input("search-target", "value")])
@@ -99,13 +100,12 @@ for i in range(1, 4):
         df = df.iloc[:, :top_n]
         return _df_to_figure(df, chart_type)
 
-
 @app.callback(
     [
         Output("conll-view", "columns"),
         Output("conll-view", "data"),
         Output("search-from", "options"),
-        Output("search-from", "value"),
+        Output("search-from", "value")
     ],
     [Input("search-button", "n_clicks"),
      Input("clear-history", "n_clicks")],
@@ -126,7 +126,7 @@ def _new_search(
     if n_clicks is None:
         raise PreventUpdate
 
-    if cleared:
+    if cleared != CLICKS["clear"]:
         corpus = SEARCHES["corpus"]
         SEARCHES.clear()
         SEARCHES["corpus"] = corpus
@@ -135,6 +135,7 @@ def _new_search(
         search_from = [
             dict(value=i, label=_make_search_name(h)) for i, h in enumerate(SEARCHES)
         ]
+        CLICKS["clear"] = cleared
         return datatable_cols, datatable_data, search_from, 0
 
     specs, corpus = _get_from_corpus(search_from)
