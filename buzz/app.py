@@ -132,15 +132,24 @@ def _new_search(
     if n_clicks is None:
         raise PreventUpdate
 
+    specs, corpus = _get_from_corpus(search_from, SEARCHES)
+
     msg = _search_error(col, search_string)
     if msg:
         cols, data = _update_datatable(_corpus(), _corpus())
         return cols, data, search_from_options, search_from, False, True, msg
 
+    new_value = len(SEARCHES)
+    this_search = (specs, col, skip, search_string, new_value)
+
+    exists = next((i for i in SEARCHES if list(this_search)[:4] == list(i)[:4]), False)
+    if exists:
+        msg = "Table already exists. Switching to that one to save memory."
+        df = corpus.loc[SEARCHES[exists]]
+
     # if the user has done clear history
     if cleared and cleared != CLICKS["clear"]:
         # clear searches
-        corpus = _corpus()
         SEARCHES.clear()
         SEARCHES[corpus._name] = corpus
         # todo: the line below could be slow. can we get from elsewhere?
@@ -152,24 +161,28 @@ def _new_search(
         CLICKS["clear"] = cleared
         return cols, data, search_from, 0, True, False, ""
 
-    # the expected callback. run a search and update dataset view and search history
-    specs, corpus = _get_from_corpus(search_from, SEARCHES)
-    method = "just" if not skip else "skip"
-    df = getattr(getattr(corpus, method), col)(search_string.strip())
-    new_value = len(SEARCHES)
-    this_search = (specs, col, skip, search_string, new_value)
+    if not exists:
+        # the expected callback. run a search and update dataset view and search history
+        method = "just" if not skip else "skip"
+        df = getattr(getattr(corpus, method), col)(search_string.strip())
+
     SEARCHES[this_search] = df.index
     datatable_cols, datatable_data = _update_datatable(_corpus(), df)
-    option = dict(value=new_value, label=_make_search_name(this_search))
-    search_from_options.append(option)
+    if not msg:
+        option = dict(value=new_value, label=_make_search_name(this_search))
+        search_from_options.append(option)
+    elif exists:
+        new_value = exists[-1]
+    else:
+        new_value = search_from
     return (
         datatable_cols,
         datatable_data,
         search_from_options,
         new_value,
         False,
-        False,
-        "",
+        bool(msg),
+        msg,
     )
 
 
