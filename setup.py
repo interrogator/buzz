@@ -37,7 +37,7 @@ setup(
         "tensorflow>=1.12.1",
         "setuptools>=41.0.0",
         "spacy==2.1.6",
-        "pandas",
+        "pandas==0.24.0",
         "tqdm",
         "pyparsing",
         "tabview==1.4.5",

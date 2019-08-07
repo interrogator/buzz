@@ -167,8 +167,13 @@ def _new_search(
 
     if not exists:
         # the expected callback. run a search and update dataset view and search history
-        method = "just" if not skip else "skip"
-        df = getattr(getattr(corpus, method), col)(search_string.strip())
+        if col == "t":
+            df = corpus.tgrep(search_string, inverse=skip)
+        elif col == "d":
+            df = corpus.depgrep(search_string, inverse=skip)
+        else:
+            method = "just" if not skip else "skip"
+            df = getattr(getattr(corpus, method), col)(search_string.strip())
 
     SEARCHES[this_search] = df.index
     datatable_cols, datatable_data = _update_datatable(_corpus(), df)

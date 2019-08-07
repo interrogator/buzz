@@ -128,7 +128,7 @@ class Searcher(object):
         # get just the lines matching the bool ix
         return bool_ix
 
-    def run(self, corpus, target, query, case_sensitive=True):
+    def run(self, corpus, target, query, case_sensitive=True, inverse=False):
         """
         Search either trees or dependencies for query
 
@@ -171,7 +171,8 @@ class Searcher(object):
                 n += len(piece)
             # do the dep or tree searches and make a reduced dataset containing just matches
             if self.target == "d":
-                res = piece[self._depgrep_iteration(piece, query)]
+                depg = self._depgrep_iteration(piece, query)
+                res = piece[depg] if not inverse else piece[~depg]
             elif self.target == "t":
                 gram_ser = self._tgrep_iteration(piece)
                 res = piece.loc[gram_ser.index]

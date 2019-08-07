@@ -6,7 +6,7 @@ scipy
 scikit-learn
 tensorflow
 spacy==2.1.6
-pandas
+pandas==0.24.0
 tqdm
 pyparsing
 depgrep
