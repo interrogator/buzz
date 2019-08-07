@@ -47,7 +47,11 @@ def _update_datatable(corpus, df, conll=True, conc=False):
         col_order = [i for i in col_order if i not in ["parse", "text", "e"]]
     elif conc:
         col_order = ["file", "s", "i", "left", "match", "right"]
-        rest = [i for i in list(df.columns) if i not in col_order and i not in ["parse", "text"]]
+        rest = [
+            i
+            for i in list(df.columns)
+            if i not in col_order and i not in ["parse", "text"]
+        ]
         col_order += rest
     else:
         df.index.names = [f"_{x}" for x in df.index.names]
@@ -56,10 +60,22 @@ def _update_datatable(corpus, df, conll=True, conc=False):
         df = df.reset_index()
     df = df[col_order]
     if conll:
-        columns = [{"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["s", "i"]} for i in df.columns]
+        columns = [
+            {
+                "name": SHORT_TO_COL_NAME.get(i, i),
+                "id": i,
+                "deletable": i not in ["s", "i"],
+            }
+            for i in df.columns
+        ]
     elif conc:
-        columns = [{"name": i, "id": i, "deletable": i not in ["left", "match", "right"]} for i in df.columns]
+        columns = [
+            {"name": i, "id": i, "deletable": i not in ["left", "match", "right"]}
+            for i in df.columns
+        ]
     else:
-        columns = [{"name": i.lstrip('_'), "id": i, "deletable": True} for i in df.columns]
+        columns = [
+            {"name": i.lstrip("_"), "id": i, "deletable": True} for i in df.columns
+        ]
     data = df.to_dict("rows")
     return columns, data

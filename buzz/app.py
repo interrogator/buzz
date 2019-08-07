@@ -236,6 +236,9 @@ if __name__ == "__main__":
         title = title.rsplit("-", 1)[0]
 
     # create all the data we start with. loaded corpus, nouns, and noun table
+    # note that we have to suppress callback warnings, because we don't make tabs
+    # until after callbacks are defined. the reason for this is, we need to pass
+    # initial data to the tabs, which we can't generate without knowing the path
     SEARCHES["corpus"] = Corpus(path).load()
     open_class = ["NOUN", "VERB", "ADJ", "ADV"]
     opens = SEARCHES["corpus"].just.x(open_class).table(show="p", subcorpora="file")

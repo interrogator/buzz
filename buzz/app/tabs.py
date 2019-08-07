@@ -29,7 +29,7 @@ def _build_dataset_space(df):
             id="input-box",
             type="text",
             placeholder="Enter regular expression search query...",
-            size="80",
+            size="120",
             style={"font-family": "monospace"},
         ),
         daq.BooleanSwitch(
@@ -49,7 +49,7 @@ def _build_dataset_space(df):
         for piece in pieces
     ]
     # pieces[0].style['position'] = "absolute";
-    search_space = html.Div(pieces)
+    search_space = html.Div(pieces, style={"marginBottom": 15, "marginTop": 15})
     columns = [
         {"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["s", "i"]}
         for i in df.columns
@@ -169,7 +169,6 @@ def _build_frequencies_space(corpus, table):
     )
 
     style = dict(
-
         display="inline-block", verticalAlign="middle", height="35px", width="25%"
     )
     left = html.Div(
@@ -184,7 +183,7 @@ def _build_frequencies_space(corpus, table):
             ),
         ]
     )
-    toolbar = html.Div([left, right])
+    toolbar = html.Div([left, right], style={"marginBottom": 15, "marginTop": 15})
     return html.Div([toolbar, freq_table])
 
 
@@ -201,11 +200,15 @@ def _build_concordance_space(df):
         display="table-cell", verticalAlign="middle", height="35px", width="100%"
     )
     toolbar = [html.Div(i, style=style) for i in [show_check, update]]
-    conc_space = html.Div(toolbar)
+    conc_space = html.Div(toolbar, style={"marginBottom": 15, "marginTop": 15})
     df = df.just.x.NOUN.conc(metadata=["file", "s", "i", "speaker"], window=(80, 80))
     df = df[["left", "match", "right", "file", "s", "i", "speaker"]]
     columns = [
-        {"name": SHORT_TO_COL_NAME.get(i, i), "id": i, "deletable": i not in ["left", "match", "right"]}
+        {
+            "name": SHORT_TO_COL_NAME.get(i, i),
+            "id": i,
+            "deletable": i not in ["left", "match", "right"],
+        }
         for i in df.columns
     ]
     data = df.to_dict("rows")
@@ -285,25 +288,28 @@ def _build_chart_space(tables):
             max=99,
             value=7,
         )
+        update = html.Button("Update", id=f"figure-button-{chart_num}")
 
-        toolbar = [
-            dropdown,
-            chart_type,
-            top_n,
-            transpose,
-            html.Button("Update", id=f"figure-button-{chart_num}"),
-        ]
+        toolbar = [dropdown, chart_type, top_n, transpose, update]
         style = dict(display="inline-block", verticalAlign="middle")
-        widths = {dropdown: "50%", chart_type: "15%"}
+        widths = {
+            dropdown: "50%",
+            chart_type: "25%",
+            top_n: "10%",
+            transpose: "5%",
+            update: "10%",
+        }
         tools = list()
         for component in toolbar:
             width = widths.get(component, "10%")
             nstyle = {**style, **{"width": width}}
             tools.append(html.Div(component, style=nstyle))
-        toolbar = html.Div(tools)
+        toolbar = html.Div(tools, style={"marginBottom": 15, "marginTop": 15})
         df = tables["initial"]
         figure = _df_to_figure(df, kind=kind)
-        chart_data = dict(id=f"chart-{chart_num}", figure=figure)
+        chart_data = dict(
+            id=f"chart-{chart_num}", figure=figure, style={"height": "500px"}
+        )
         chart = dcc.Loading(type="default", children=[dcc.Graph(**chart_data)])
         chart_space = html.Div([toolbar, chart])
         collapse = html.Details(
@@ -332,10 +338,15 @@ def _make_tabs(title, searches, tables):
     clear = html.Button("Clear history", id="clear-history")
     dropdown = dcc.Dropdown(id="search-from", options=search_from, value=0)
     top_bit = [
+        html.H2(children=title, style={"textAlign": "left", "display": "table-cell"}),
         html.Div(
             dropdown,
             style=dict(
-                display="table-cell", width="90%", verticalAlign="middle", height="35px"
+                fontFamily="monospace",
+                display="table-cell",
+                width="60%",
+                verticalAlign="middle",
+                height="35px",
             ),
         ),
         html.Div(
@@ -345,7 +356,7 @@ def _make_tabs(title, searches, tables):
             ),
         ),
     ]
-    top_bit = html.Div(top_bit)
+    top_bit = html.Div(top_bit, style={"marginBottom": 15, "marginTop": 15})
     tab_headers = dcc.Tabs(
         id="tabs",
         value="dataset",
@@ -381,11 +392,4 @@ def _make_tabs(title, searches, tables):
     ]
     tab_contents = html.Div(children=tab_contents)
 
-    return html.Div(
-        [
-            html.H1(children=title, style={"textAlign": "center"}),
-            top_bit,
-            tab_headers,
-            tab_contents,
-        ]
-    )
+    return html.Div([top_bit, tab_headers, tab_contents])
