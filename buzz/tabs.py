@@ -11,7 +11,7 @@ from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
 
 from buzz.strings import _make_search_name, _make_table_name
-from buzz.utils import _get_cols, _update_datatable
+from buzz.helpers import _get_cols, _update_datatable
 
 
 class Style:
