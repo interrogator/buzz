@@ -34,8 +34,9 @@ def _make_match_col(df, show, preserve_case):
             df[s] = df.index.get_level_values(s)
     if len(show) == 1:
         made = df[show[0]].astype(str)
-    cats = [df[i].astype(str) for i in show[1:]]
-    made = df[show[0]].str.cat(others=cats, sep="/").str.rstrip("/")
+    else:
+        cats = [df[i].astype(str) for i in show[1:]]
+        made = df[show[0]].str.cat(others=cats, sep="/").str.rstrip("/")
     if not preserve_case:
         made = made.str.lower()
     return made

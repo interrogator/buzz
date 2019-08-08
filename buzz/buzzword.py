@@ -4,7 +4,12 @@ import pandas as pd
 
 import dash
 from buzz.cmdline import _parse_cmdline_args
-from buzz.strings import _make_search_name, _make_table_name, _search_error, _table_error
+from buzz.strings import (
+    _make_search_name,
+    _make_table_name,
+    _search_error,
+    _table_error,
+)
 from buzz.tabs import _make_tabs
 from buzz.helpers import (
     _get_from_corpus,
@@ -32,6 +37,7 @@ server = app.server
 #
 SEARCHES = OrderedDict()
 TABLES = OrderedDict()
+# CLICKS is a hack for clear history. move eventually to hidden div
 CLICKS = dict(clear=-1)
 
 
@@ -78,7 +84,7 @@ def render_content(tab):
             outputs.append({"display": "none"})
     return outputs
 
-
+# one for each chart space
 for i in range(1, 6):
 
     @app.callback(
@@ -93,7 +99,7 @@ for i in range(1, 6):
     )
     def _new_chart(n_clicks, table_from, chart_type, top_n, transpose):
         """
-        Make new chart by kind. Do it 3 times, once for each chart space
+        Make new chart by kind. Do it 5 times, once for each chart space
         """
         # before anything is loaded, do nothing
         if n_clicks is None:
@@ -132,8 +138,10 @@ def _new_search(
 ):
     """
     Callback when a new search is submitted
+
+    Validate input, run the search, store data and display things
     """
-    # the first callback, before anything is loaded
+    # the first callback, before anything is loaded. do nothing.
     if n_clicks is None:
         raise PreventUpdate
 
@@ -243,7 +251,7 @@ def _new_table(
     nv5,
 ):
     """
-    Callback when a new freq table is generated
+    Callback when a new freq table is generated. Same logic as new_search.
     """
     # do nothing if not yet loaded
     if n_clicks is None:
@@ -292,8 +300,10 @@ def _new_table(
     # nv numbers are what we update the chart-from dropdowns.
     # if successful table, update all to latest
     # if table existed, update all to that one
-    # if error, keep as they are
-    cols, data = _update_datatable(_corpus(), table.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False)
+    # if error, keep as they are (ths is why we need many states)
+    cols, data = _update_datatable(
+        _corpus(), table.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False
+    )
     tfo = table_from_options
     if not msg:
         option = dict(value=nv, label=_make_table_name(this_table))
@@ -312,20 +322,38 @@ def _new_table(
 
 
 @app.callback(
-    [Output("conc-table", "columns"), Output("conc-table", "data")],
+    [
+        Output("conc-table", "columns"),
+        Output("conc-table", "data"),
+        Output("dialog-conc", "displayed"),
+        Output("dialog-conc", "message"),
+    ],
     [Input("update-conc", "n_clicks")],
-    [State("show-for-conc", "value"), State("search-from", "value")],
+    [
+        State("show-for-conc", "value"),
+        State("search-from", "value"),
+        State("conc-table", "columns"),
+        State("conc-table", "data"),
+    ],
 )
-def new_conc(n_clicks, show, search_from):
+def new_conc(n_clicks, show, search_from, current_cols, current_data):
     """
-    Callback for conc. We just pick what to show and where from...
+    Callback for concordance. We just pick what to show and where from...
     """
     if n_clicks is None:
         raise PreventUpdate
+
+    # easy validation!
+    msg = "" if show else "No choice made for match formatting."
+    if not show:
+        return current_cols, current_data, True, msg
+
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
     conc = corpus.conc(show=show, window=(100, 100))
-    cols, data = _update_datatable(_corpus(), conc.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False)
-    return cols, data
+    cols, data = _update_datatable(
+        _corpus(), conc.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False
+    )
+    return cols, data, bool(msg), msg
 
 
 if __name__ == "__main__":
@@ -338,13 +366,17 @@ if __name__ == "__main__":
     # initial data to the tabs, which we can't generate without knowing the path
     corpus = Corpus(kwargs["path"]).load()
     corpus = _preprocess_corpus(corpus, **kwargs)
+    # store corpus by name as the 'original' search
     SEARCHES[corpus._name] = corpus
-    open_class = ["NOUN", "VERB", "ADJ", "ADV"]
-    opens = _corpus().just.x(open_class).table(show="p", subcorpora="file")
+    # create one table from this corpus, to prepopulate freq/chart. we get a
+    # part of speech tag distribution, just to limit the size of the result
+    opens = _corpus().table(show="p", subcorpora="file")
     TABLES["initial"] = opens
+    # build the appearance of the app, name and layout
     app.title = f"buzzword: {corpus._name}"
     app.layout = _make_tabs(SEARCHES, TABLES, **kwargs)
+    # run the server, either dev or production with debug as toggle.
     if kwargs["debug"]:
         app.run_server(debug=True)
     else:
-        app.run(host='0.0.0.0', port=5000, debug=False)
+        raise NotImplementedError()
