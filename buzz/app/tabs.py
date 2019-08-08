@@ -35,7 +35,7 @@ class Style:
     ]
     LEFT_ALIGN_CONC = [
         {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
-        for c in ["file", "match", "speaker", "setting"]
+        for c in ["file", "match", "right", "speaker", "setting"]
     ]
     INDEX = [
         {
@@ -46,6 +46,26 @@ class Style:
             "fontWeight": "bold",
         }
         for c in ["file", "s", "i"]
+    ]
+    CONC_LMR = [
+        {"if": {"column_id": "match"}, "fontWeight": "bold"},
+        {
+            "if": {"column_id": "left"},
+            "whiteSpace": "no-wrap",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "width": "35%",
+            "maxWidth": 0,
+            "direction": "rtl",
+        },
+        {
+            "if": {"column_id": "right"},
+            "whiteSpace": "no-wrap",
+            "overflow": "hidden",
+            "textOverflow": "ellipsis",
+            "width": "35%",
+            "maxWidth": 0,
+        },
     ]
 
 
@@ -232,7 +252,7 @@ def _build_concordance_space(df, rows):
     style = dict(width="100%", **Style.CELL_MIDDLE_35)
     toolbar = [html.Div(i, style=style) for i in [show_check, update]]
     conc_space = html.Div(toolbar, style=Style.VERTICAL_MARGINS)
-    df = df.just.x.NOUN.conc(metadata=["file", "s", "i", "speaker"], window=(80, 80))
+    df = df.just.x.NOUN.conc(metadata=["file", "s", "i", "speaker"], window=(100, 100))
     df = df[["left", "match", "right", "file", "s", "i", "speaker"]]
     columns = [
         {
@@ -242,13 +262,17 @@ def _build_concordance_space(df, rows):
         }
         for i in df.columns
     ]
-
+    style_data = [Style.STRIPES[0], Style.INDEX[0]] + Style.CONC_LMR
     data = df.to_dict("rows")
     conc = dcc.Loading(
         type="default",
         children=[
             dash_table.DataTable(
                 id="conc-table",
+                css=[{
+                    'selector': '.dash-cell div.dash-cell-value',
+                    'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'
+                }],
                 columns=columns,
                 data=data,
                 editable=True,
@@ -264,15 +288,7 @@ def _build_concordance_space(df, rows):
                 # style_as_list_view=True,
                 style_header=Style.BOLD_DARK,
                 style_cell_conditional=Style.LEFT_ALIGN_CONC,
-                style_data_conditional=[
-                    Style.STRIPES[0],
-                    {
-                        "if": {"column_id": "match"},
-                        "fontWeight": "bold",
-                        "paddingLeft": "10px",
-                    },
-                    Style.INDEX[0],
-                ],
+                style_data_conditional=style_data,
             )
         ],
     )
@@ -353,7 +369,9 @@ def _build_chart_space(tables, rows):
         df = tables["initial"]
         figure = _df_to_figure(df, kind=kind)
         chart_data = dict(
-            id=f"chart-{chart_num}", figure=figure, style={"height": "500px"}
+            id=f"chart-{chart_num}",
+            figure=figure,
+            style={"height": "60vh", "width": "95vw"},
         )
         chart = dcc.Loading(type="default", children=[dcc.Graph(**chart_data)])
         chart_space = html.Div([toolbar, chart])
@@ -366,7 +384,7 @@ def _build_chart_space(tables, rows):
                         "fontSize": "11pt",
                         "paddingBottom": "10px",
                         "paddingTop": "10px",
-                        **Style.BOLD_DARK
+                        **Style.BOLD_DARK,
                     },
                 ),
                 html.Div(chart_space),

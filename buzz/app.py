@@ -322,7 +322,7 @@ def new_conc(n_clicks, show, search_from):
     if n_clicks is None:
         raise PreventUpdate
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
-    conc = corpus.conc(show=show, window=(80, 80))
+    conc = corpus.conc(show=show, window=(100, 100))
     cols, data = _update_datatable(_corpus(), conc.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False)
     return cols, data
 
