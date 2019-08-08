@@ -10,8 +10,8 @@ import dash_table
 from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
 
-from .strings import _make_search_name, _make_table_name
-from .utils import _get_cols, _update_datatable
+from buzz.strings import _make_search_name, _make_table_name
+from buzz.utils import _get_cols, _update_datatable
 
 
 class Style:
