@@ -25,13 +25,6 @@ external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
 
-############
-# SETTINGS #
-############
-
-MAX_ROWS = 1000
-MAX_COLUMNS = 200
-
 ###########
 # STORAGE #
 ###########
@@ -337,8 +330,7 @@ def new_conc(n_clicks, show, search_from):
 if __name__ == "__main__":
     # when run as script, parse the command line arguments and start the site
     kwargs = _parse_cmdline_args()
-    if kwargs["table_size"]:
-        MAX_ROWS, MAX_COLUMNS = kwargs["table_size"]
+    MAX_ROWS, MAX_COLUMNS = kwargs["table_size"]
     # create all the data we start with. loaded corpus, nouns, and noun table
     # note that we have to suppress callback warnings, because we don't make tabs
     # until after callbacks are defined. the reason for this is, we need to pass

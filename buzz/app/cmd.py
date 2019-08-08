@@ -56,6 +56,7 @@ def _parse_cmdline_args():
         nargs="?",
         type=str,
         required=False,
+        default="2000,200",
         help="Max table dimensions as str ('nrows,ncolumns')",
     )
 
