@@ -3,7 +3,7 @@ from collections import OrderedDict
 import pandas as pd
 
 import dash
-from buzz.cmd import _parse_cmdline_args
+from buzz.cmdline import _parse_cmdline_args
 from buzz.strings import _make_search_name, _make_table_name, _search_error, _table_error
 from buzz.tabs import _make_tabs
 from buzz.helpers import (
@@ -24,6 +24,7 @@ from dash.exceptions import PreventUpdate
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
+server = app.server
 
 ###########
 # STORAGE #
@@ -343,4 +344,7 @@ if __name__ == "__main__":
     TABLES["initial"] = opens
     app.title = f"buzzword: {corpus._name}"
     app.layout = _make_tabs(SEARCHES, TABLES, **kwargs)
-    app.run_server(debug=True)
+    if kwargs["debug"]:
+        app.run_server(debug=True)
+    else:
+        app.run(host='0.0.0.0', port=5000, debug=False)
