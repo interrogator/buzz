@@ -3,10 +3,10 @@ from collections import OrderedDict
 import pandas as pd
 
 import dash
-from buzz.tools.cmd import _parse_cmdline_args
-from buzz.tools.strings import _make_search_name, _make_table_name, _search_error, _table_error
-from buzz.tools.tabs import _make_tabs
-from buzz.tools.utils import (
+from buzz.cmd import _parse_cmdline_args
+from buzz.strings import _make_search_name, _make_table_name, _search_error, _table_error
+from buzz.tabs import _make_tabs
+from buzz.helpers import (
     _get_from_corpus,
     _translate_relative,
     _update_datatable,
