@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Run the buzzword app
+
+python -m buzz.word $@

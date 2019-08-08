@@ -21,7 +21,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     packages=["buzz"],
-    scripts=["buzz/parse"],
+    scripts=["bin/buzzword", "bin/parse"],
     author_email="mcddjx@gmail.com",
     license="MIT",
     keywords=["corpus", "linguistics", "nlp"],

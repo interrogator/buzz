@@ -14,7 +14,7 @@ def _parse_cmdline_args():
     )
 
     parser.add_argument(
-        "-l",
+        "-nl",
         "--load",
         default=True,
         action="store_true",

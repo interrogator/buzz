@@ -373,7 +373,7 @@ if __name__ == "__main__":
     opens = _corpus().table(show="p", subcorpora="file")
     TABLES["initial"] = opens
     # build the appearance of the app, name and layout
-    app.title = f"buzzword: {corpus._name}"
+    app.title = kwargs["title"] or f"buzzword: {corpus._name}"
     app.layout = _make_tabs(SEARCHES, TABLES, **kwargs)
     # run the server, either dev or production with debug as toggle.
     if kwargs["debug"]:
