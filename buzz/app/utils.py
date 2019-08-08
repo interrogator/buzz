@@ -45,6 +45,8 @@ def _update_datatable(corpus, df, conll=True, conc=False):
     """
     Helper for datatables
     """
+    if conc:
+        conll = False
     if conll:
         col_order = ["file", "s", "i"] + list(corpus.columns)
         col_order = [i for i in col_order if i not in ["parse", "text", "e"]]
@@ -82,3 +84,14 @@ def _update_datatable(corpus, df, conll=True, conc=False):
         ]
     data = df.to_dict("rows")
     return columns, data
+
+
+def _preprocess_corpus(corpus, max_rows, drop_columns, **kwargs):
+    """
+    Fix corpus if the user wants this on command line
+    """
+    if max_rows is not None:
+        corpus = corpus.iloc[:max_rows, :]
+    if drop_columns is not None:
+        corpus = corpus.drop(drop_columns, axis=1)
+    return corpus

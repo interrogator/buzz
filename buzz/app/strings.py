@@ -10,8 +10,9 @@ def _make_table_name(history):
     Generate a table name from its history
     """
     if history == "initial":
-        return "Show wordclasses by file"
+        return "Wordclasses by file"
     specs, show, subcorpora, relative, keyness, sort, n = history
+    subcorpora = SHORT_TO_LONG_NAME.get(subcorpora, subcorpora).lower().replace("_", " ")
     show = [SHORT_TO_LONG_NAME.get(i, i).lower().replace("_", " ") for i in show]
     show = "+".join(show)
     relkey = ", rel. freq." if relative else ", keyness"

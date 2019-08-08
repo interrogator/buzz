@@ -33,9 +33,48 @@ def _parse_cmdline_args():
     )
 
     parser.add_argument(
-        "-r", "--rows", nargs="?", type=int, required=False, help="Rows per page"
+        "-d",
+        "--drop-columns",
+        nargs="?",
+        type=str,
+        required=False,
+        help="Dataset columns to remove before loading (comma-separated)",
+    )
+
+    parser.add_argument(
+        "-m",
+        "--max-rows",
+        nargs="?",
+        type=int,
+        required=False,
+        help="Limit dataframe to this many rows",
+    )
+
+    parser.add_argument(
+        "-s",
+        "--table-size",
+        nargs="?",
+        type=str,
+        required=False,
+        help="Max table dimensions as str ('nrows,ncolumns')",
+    )
+
+    parser.add_argument(
+        "-r",
+        "--rows",
+        nargs="?",
+        type=int,
+        default=25,
+        required=False,
+        help="Rows to display per page",
     )
 
     parser.add_argument("path", help="Path to the corpus")
 
-    return vars(parser.parse_args())
+    # postprocessing list-like arguments...
+    kwargs = vars(parser.parse_args())
+    if kwargs["drop_columns"] is not None:
+        kwargs["drop_columns"] = kwargs["drop_columns"].split(",")
+    if kwargs["table_size"] is not None:
+        kwargs["table_size"] = [int(i) for i in kwargs["table_size"].split(",")][:2]
+    return kwargs
