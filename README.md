@@ -13,8 +13,8 @@
 
 ## Install
 
-bash
-```
+
+```bash
 pip install buzz
 # or
 git clone http://github.com/interrogator/buzz
@@ -22,11 +22,23 @@ cd buzz
 python setup.py install
 ```
 
-## Creating a corpus
+## Frontend: *buzzword*
 
-*buzz* models plain text, or [CONLL-U formatted](https://universaldependencies.org/format.html) files. This guide will assume that you are have plain text data, and want to process and analyse it.
+The app comes bundled with a web frontend for exploring parsed corpora. To use it, first parse a corpus (see below), and then do:
 
-So, first, you need to make sure that your corpus is in a format and structure that *buzz* can work with. This simply means putting all your text files into a folder, and optionally within subfolders (representing subcorpora).
+```bash
+buzzword path/to/parsed/corpus
+# or
+python -m buzz.word path/to/parsed/corpus
+```
+
+A URL will be printed, which can be used to access the app in your browser.
+
+## Creating corpora
+
+*buzz* models plain text, or [CONLL-U formatted](https://universaldependencies.org/format.html) files. The remainder of this guide will assume that you are have plain text data, and want to process and analyse it on the command line using *buzz*
+
+First, you need to make sure that your corpus is in a format and structure that *buzz* can work with. This simply means putting all your text files into a folder, and optionally within subfolders (representing subcorpora).
 
 Text files should be plain text, with a `.txt` extension. Importantly though, they can be augmented with metadata, which can be stored in two ways. First, speaker names can be added by using capital letters and a colon, much like in a script. Second, you can use XML style metadata markup. Here is an example file, `sopranos/s1/e01.txt`:
 
@@ -37,7 +49,6 @@ TONY: They said it was a panic attack <metadata emph-token=0 move="refute">
 MELFI: You don't agree that you had a panic attack? <metadata move="info-request" question=type="in">
 ...
 ```
-
 
 If you add a metadata element at the start of the text file, it will be understood as file-level metadata. For sentence-specific metadata, the element should follow the sentence, ideally at the end of a line. All metadata will be searchable later, so the more you can add, the more you can do with your corpus.
 
@@ -55,10 +66,9 @@ You can also make virtual corpora from strings, optionally saving the corpus to 
 corpus = Corpus.from_string("Some sentences here.", save_as="corpusname")
 ```
 
-
 ## Parsing
 
-buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simply:
+buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simple:
 
 ```python
 parsed = corpus.parse()
@@ -89,6 +99,18 @@ parsed.files[0]
 parsed.subcorpora.s1[:5]
 parsed.subcorpora['s1']
 ```
+
+### Parse command
+
+You can also parse corpora without entering a Python session by using the `parse` command:
+
+```bash
+parse --language en --cons-parser=benepar|bllip|none path/to/conll/files
+# or 
+python -m buzz.parse path/to/conll/files
+```
+
+Both commands will create `path/to/conll/files-parsed`, a folder containing CONLL-U files.
 
 ### Loading corpora into memory
 
