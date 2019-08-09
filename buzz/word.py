@@ -207,7 +207,12 @@ def _new_search(
         if col == "t":
             df = corpus.tgrep(search_string, inverse=skip)
         elif col == "d":
-            df = corpus.depgrep(search_string, inverse=skip)
+            try:
+                df = corpus.depgrep(search_string, inverse=skip)
+            except Exception as error:
+                # todo: handle invalid queries properly...
+                print(f"DEPGREP ERROR: {type(error)}: {error}")
+                df = .iloc[:0,:0]
         else:
             method = "just" if not skip else "skip"
             df = getattr(getattr(corpus, method), col)(search_string.strip())
