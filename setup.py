@@ -41,7 +41,7 @@ setup(
         "tqdm",
         "pyparsing",
         "tabview==1.4.5",
-        "isort",
+        "isort4.3.21",
         "flask",
         "dash",
         "python-dotenv",

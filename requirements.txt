@@ -23,4 +23,4 @@ mypy
 codecov
 pre-commit
 black
-isort
+isort==4.3.21
