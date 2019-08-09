@@ -4,6 +4,14 @@ import pandas as pd
 
 import dash
 from buzz.configure import _configure_buzzword
+from buzz.corpus import Corpus
+from buzz.dashview import _df_to_figure
+from buzz.helpers import (
+    _get_from_corpus,
+    _preprocess_corpus,
+    _translate_relative,
+    _update_datatable,
+)
 from buzz.strings import (
     _make_search_name,
     _make_table_name,
@@ -11,14 +19,6 @@ from buzz.strings import (
     _table_error,
 )
 from buzz.tabs import _make_tabs
-from buzz.helpers import (
-    _get_from_corpus,
-    _translate_relative,
-    _update_datatable,
-    _preprocess_corpus,
-)
-from buzz.corpus import Corpus
-from buzz.dashview import _df_to_figure
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
@@ -44,10 +44,11 @@ def _corpus():
     """Get the corpus data, whatever its name may be"""
     return next(iter(SEARCHES.values()))
 
+
 #############################
 # LOAD CORPUS, POPULATE APP #
 #############################
-# 
+#
 # when run as script, parse the command line arguments and start the site
 CONFIG = _configure_buzzword()
 MAX_ROWS, MAX_COLUMNS = CONFIG["table_size"]
@@ -105,6 +106,7 @@ def render_content(tab):
         else:
             outputs.append({"display": "none"})
     return outputs
+
 
 # one for each chart space
 for i in range(1, 6):

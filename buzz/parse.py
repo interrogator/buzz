@@ -21,32 +21,31 @@ tqdm = _get_tqdm()
 BLLIP = None
 
 
-
 def _parse_cmd_line():
-    parser = argparse.ArgumentParser(description='Parse a corpus.')
+    parser = argparse.ArgumentParser(description="Parse a corpus.")
 
     parser.add_argument(
-        '-l',
-        '--language',
-        nargs='?',
-        default='english',
+        "-l",
+        "--language",
+        nargs="?",
+        default="english",
         type=str,
         required=False,
-        help='Language of the corpus',
+        help="Language of the corpus",
     )
 
     parser.add_argument(
-        '-p',
-        '--cons-parser',
-        nargs='?',
-        default='benepar',
+        "-p",
+        "--cons-parser",
+        nargs="?",
+        default="benepar",
         type=str,
         required=False,
-        choices=['bllip', 'benepar'],
-        help='Constituency parser to use (bllip/benepar)',
+        choices=["bllip", "benepar"],
+        help="Constituency parser to use (bllip/benepar)",
     )
 
-    parser.add_argument('path', help='Directory containing files to parse')
+    parser.add_argument("path", help="Directory containing files to parse")
     return vars(parser.parse_args())
 
 
@@ -321,8 +320,10 @@ class Parser:
             parsed.add_metadata(**metadata)
         return parsed
 
-if __name__ == '__main__':
-    kwargs = _parse_cmd_line()
-    corpus = Corpus(kwargs.pop('path'))
-    corpus.parse(**kwargs)
 
+if __name__ == "__main__":
+    from buzz.corpus import Corpus
+
+    kwargs = _parse_cmd_line()
+    corpus = Corpus(kwargs.pop("path"))
+    corpus.parse(**kwargs)

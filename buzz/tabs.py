@@ -9,9 +9,8 @@ import dash_table
 
 from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
-
-from buzz.strings import _make_search_name, _make_table_name
 from buzz.helpers import _get_cols, _update_datatable
+from buzz.strings import _make_search_name, _make_table_name
 
 
 class Style:
@@ -264,15 +263,13 @@ def _build_concordance_space(df, rows):
     ]
     style_data = [Style.STRIPES[0], Style.INDEX[0]] + Style.CONC_LMR
     data = df.to_dict("rows")
+    rule = "display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;"
     conc = dcc.Loading(
         type="default",
         children=[
             dash_table.DataTable(
                 id="conc-table",
-                css=[{
-                    'selector': '.dash-cell div.dash-cell-value',
-                    'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'
-                }],
+                css=[{"selector": ".dash-cell div.dash-cell-value", "rule": rule}],
                 columns=columns,
                 data=data,
                 editable=True,
