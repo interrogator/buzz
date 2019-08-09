@@ -27,6 +27,11 @@ class Style:
         "verticalAlign": "middle",
         "height": "35px",
     }
+    BLOCK_MIDDLE_35 = {
+        "display": "inline-block",
+        "verticalAlign": "middle",
+        "height": "35px",
+    }
     MARGIN_5_MONO = {"marginLeft": 5, "marginRight": 5, "fontFamily": "monospace"}
     BOLD_DARK = {"fontWeight": "bold", "color": "#555555"}
     STRIPES = [{"if": {"row_index": "odd"}, "backgroundColor": "rgb(248, 248, 248)"}]
@@ -406,27 +411,37 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     concordance = _build_concordance_space(corpus, page_size)
 
     search_from = [
-        dict(value=i, label=_make_search_name(h)) for i, h in enumerate(searches)
+        dict(value=i, label=_make_search_name(h, len(corpus)))
+        for i, h in enumerate(searches)
     ]
     clear = html.Button("Clear history", id="clear-history", style=Style.MARGIN_5_MONO)
     dropdown = dcc.Dropdown(
         id="search-from", options=search_from, value=0, disabled=True
     )
 
+    pad_block = {**Style.HORIZONTAL_PAD_5, **Style.BLOCK_MIDDLE_35}
+    drop_style = {
+        "fontFamily": "monospace",
+        "width": "60%",
+        **Style.HORIZONTAL_PAD_5,
+        **Style.BLOCK_MIDDLE_35,
+    }
+
     top_bit = [
-        html.H3(children=title, style={"textAlign": "left", "display": "table-cell"}),
+        html.Img(
+            src="assets/bolt.jpg", height=42, width=38, style=Style.BLOCK_MIDDLE_35
+        ),
+        html.H3(children=title, style=pad_block),
         # these spaces are used to flash messages to the user if something is wrong
         dcc.ConfirmDialog(id="dialog-search", message=""),
         dcc.ConfirmDialog(id="dialog-table", message=""),
         dcc.ConfirmDialog(id="dialog-chart", message=""),
         dcc.ConfirmDialog(id="dialog-conc", message=""),
-        html.Div(
-            dropdown,
-            style=dict(fontFamily="monospace", width="60%", **Style.CELL_MIDDLE_35),
-        ),
-        html.Div(clear, style=dict(width="10%", **Style.CELL_MIDDLE_35)),
+        html.Div(dropdown, style=drop_style),
+        html.Div(clear, style=dict(width="10%", **Style.BLOCK_MIDDLE_35)),
     ]
     top_bit = html.Div(top_bit, style=Style.VERTICAL_MARGINS)
+
     tab_headers = dcc.Tabs(
         id="tabs",
         value="dataset",

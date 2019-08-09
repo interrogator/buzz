@@ -31,15 +31,26 @@ def _make_table_name(history):
     return f"{basic} -- from search #{parent}"
 
 
-def _make_search_name(history):
+def _make_search_name(history, size):
     """
     Generate a search name from its history
     """
+    import locale
+
+    locale.setlocale(locale.LC_ALL, "")
     if isinstance(history, str):
-        return f"Search entire corpus: {history}"
-    previous, col, skip, search_string, n = history
+        return f"Search entire corpus: {history} (n={size:n})"
+    previous, col, skip, search_string, n, n_results = history
     no = "not " if skip else ""
-    basic = f"{SHORT_TO_LONG_NAME.get(col, col)} {no}matching '{search_string}'"
+    col = SHORT_TO_LONG_NAME.get(col, col)
+    relative_corpus = n_results * 100 / size
+    prev_total = previous[-1] if isinstance(previous, tuple) else None
+    rel_last = ""
+    if prev_total is not None:
+        rel_last = n_results * 100 / prev_total
+        rel_last = f"/{rel_last:.2f}%"
+    freq = f"(n={n_results:n}{rel_last}/{relative_corpus:.2f}%)"
+    basic = f"{col} {no}matching '{search_string}' {freq}"
     hyphen = ""
     while isinstance(previous, tuple):
         hyphen += "──"

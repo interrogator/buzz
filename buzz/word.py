@@ -30,6 +30,7 @@ from dash.exceptions import PreventUpdate
 #
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app.config.suppress_callback_exceptions = True
 server = app.server
 
 ###########
@@ -52,7 +53,7 @@ def _corpus():
 #############################
 #
 # when run as script, parse the command line arguments and start the site
-CONFIG = _configure_buzzword()
+CONFIG = _configure_buzzword(__name__)
 MAX_ROWS, MAX_COLUMNS = CONFIG["table_size"]
 # create all the data we start with. loaded corpus, nouns, and noun table
 # note that we have to suppress callback warnings, because we don't make tabs
@@ -179,9 +180,9 @@ def _new_search(
         return cols, data, search_from_options, search_from, False, True, msg
 
     new_value = len(SEARCHES)
-    this_search = (specs, col, skip, search_string, new_value)
+    this_search = [specs, col, skip, search_string]
 
-    exists = next((i for i in SEARCHES if list(this_search)[:4] == list(i)[:4]), False)
+    exists = next((i for i in SEARCHES if this_search == list(i)[:4]), False)
     if exists:
         msg = "Table already exists. Switching to that one to save memory."
         df = corpus.loc[SEARCHES[exists]]
@@ -194,7 +195,8 @@ def _new_search(
         # todo: the line below could be slow. can we get from elsewhere?
         cols, data = _update_datatable(_corpus(), _corpus())
         search_from = [
-            dict(value=i, label=_make_search_name(h)) for i, h in enumerate(SEARCHES)
+            dict(value=i, label=_make_search_name(h, len(corpus)))
+            for i, h in enumerate(SEARCHES)
         ]
         # set number of clicks at last moment
         CLICKS["clear"] = cleared
@@ -210,10 +212,14 @@ def _new_search(
             method = "just" if not skip else "skip"
             df = getattr(getattr(corpus, method), col)(search_string.strip())
 
+    this_search = tuple(this_search + [new_value, len(df)])
+
     SEARCHES[this_search] = df.index
-    datatable_cols, datatable_data = _update_datatable(_corpus(), df)
+    corpus = _corpus()
+    datatable_cols, datatable_data = _update_datatable(corpus, df)
     if not msg:
-        option = dict(value=new_value, label=_make_search_name(this_search))
+        name = _make_search_name(this_search, len(corpus))
+        option = dict(value=new_value, label=name)
         search_from_options.append(option)
     elif exists:
         new_value = exists[-1]

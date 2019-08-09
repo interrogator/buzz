@@ -85,15 +85,6 @@ def _from_cmdline():
     )
 
     parser.add_argument(
-        "-debug",
-        "--debug",
-        default=False,
-        action="store_true",
-        required=False,
-        help="Debug mode",
-    )
-
-    parser.add_argument(
         "-e",
         "--env",
         nargs="?",
@@ -111,14 +102,14 @@ def _from_cmdline():
     return kwargs
 
 
-def _configure_buzzword():
+def _configure_buzzword(name):
     """
     Configure application. If run as main, look at command line args.
     If the user wants to use dotenv, load from that.
     If not from main, use dotenv only.
     """
     env_path = os.path.join(os.getcwd(), ".env")
-    if __name__ == "__main__":
+    if name == "__main__":
         config = _from_cmdline()
         if not config["env"]:
             return config

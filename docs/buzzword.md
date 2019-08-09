@@ -35,7 +35,11 @@ In the text entry field, provide a case-sensitive regular expression that you wa
 
 Finally, you can toggle result inversion using the toggle switch (i.e. return rows *not matching* the search criteria). Then, hit *Search*. Search time depends mostly on how many items are returned.
 
-When the search has completed, the table will be reduced to just the matching rows. At the top of the tool, you'll see that your search has entered into the "Search from" space, translated into natural English. If you search again with the current search selected, you will "drill down", removing more rows as you go.
+When the search has completed, the table will be reduced to just the matching rows. At the top of the tool, you'll see that your search has entered into the "Search from" space, translated into natural English. Beside the search is a bracketed expression telling you how many results you have. It takes the format:
+
+`(absolute-frequency/percentage-of-parent-search/percentage-of-corpus)`
+
+If you search again with the current search selected, you will "drill down", removing more rows as you go.
 
 So, if you are interested in nouns ending in 'ing' that do not fill the role of *nsubj*, You search three times:
 
