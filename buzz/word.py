@@ -3,7 +3,7 @@ from collections import OrderedDict
 import pandas as pd
 
 import dash
-from buzz.cmdline import _parse_cmdline_args
+from buzz.configure import _configure_buzzword
 from buzz.strings import (
     _make_search_name,
     _make_table_name,
@@ -28,7 +28,6 @@ from dash.exceptions import PreventUpdate
 #
 external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app.config.suppress_callback_exceptions = True
 server = app.server
 
 ###########
@@ -45,6 +44,29 @@ def _corpus():
     """Get the corpus data, whatever its name may be"""
     return next(iter(SEARCHES.values()))
 
+#############################
+# LOAD CORPUS, POPULATE APP #
+#############################
+# 
+# when run as script, parse the command line arguments and start the site
+CONFIG = _configure_buzzword()
+MAX_ROWS, MAX_COLUMNS = CONFIG["table_size"]
+# create all the data we start with. loaded corpus, nouns, and noun table
+# note that we have to suppress callback warnings, because we don't make tabs
+# until after callbacks are defined. the reason for this is, we need to pass
+# initial data to the tabs, which we can't generate without knowing the path
+corpus = Corpus(CONFIG["path"]).load()
+corpus = _preprocess_corpus(corpus, **CONFIG)
+# store corpus by name as the 'original' search
+SEARCHES[corpus._name] = corpus
+# create one table from this corpus, to prepopulate freq/chart. we get a
+# part of speech tag distribution, just to limit the size of the result
+opens = _corpus().table(show="p", subcorpora="file")
+TABLES["initial"] = opens
+# build the appearance of the app, name and layout
+app.title = CONFIG["title"] or f"buzzword: {corpus._name}"
+app.layout = _make_tabs(SEARCHES, TABLES, **CONFIG)
+# run the server, either dev or production with debug as toggle.
 
 #############
 # CALLBACKS #
@@ -357,26 +379,4 @@ def new_conc(n_clicks, show, search_from, current_cols, current_data):
 
 
 if __name__ == "__main__":
-    # when run as script, parse the command line arguments and start the site
-    kwargs = _parse_cmdline_args()
-    MAX_ROWS, MAX_COLUMNS = kwargs["table_size"]
-    # create all the data we start with. loaded corpus, nouns, and noun table
-    # note that we have to suppress callback warnings, because we don't make tabs
-    # until after callbacks are defined. the reason for this is, we need to pass
-    # initial data to the tabs, which we can't generate without knowing the path
-    corpus = Corpus(kwargs["path"]).load()
-    corpus = _preprocess_corpus(corpus, **kwargs)
-    # store corpus by name as the 'original' search
-    SEARCHES[corpus._name] = corpus
-    # create one table from this corpus, to prepopulate freq/chart. we get a
-    # part of speech tag distribution, just to limit the size of the result
-    opens = _corpus().table(show="p", subcorpora="file")
-    TABLES["initial"] = opens
-    # build the appearance of the app, name and layout
-    app.title = kwargs["title"] or f"buzzword: {corpus._name}"
-    app.layout = _make_tabs(SEARCHES, TABLES, **kwargs)
-    # run the server, either dev or production with debug as toggle.
-    if kwargs["debug"]:
-        app.run_server(debug=True)
-    else:
-        raise NotImplementedError()
+    app.run_server(port=8050, debug=CONFIG["debug"], threaded=True)

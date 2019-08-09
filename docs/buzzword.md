@@ -13,12 +13,14 @@ buzzword ./path-to-parsed-corpus
 Either command gives you the following options:
 
 ```
---no-load / -nl      : false    : do not load the full corpus into memory (for very large datasets/small machines, makes searches much slower)
---title / -t         : buzzword : Custom title for the app
---drop-columns / -d  : none     : Comma separated list of corpus columns to drop before loading into tool
---max-rows / -r      : none     : Cut corpus at this many lines before loading into tool
---table-size / -s    : 2000,200 : Max rows,columns to show in tables
---rows / -r          : 25       : Rows per page of table
+--no-load / -nl         : false    : do not load the full corpus into memory (for very large datasets/small machines, makes searches much slower)
+--title / -t            : buzzword : Custom title for the app
+--drop-columns / -d     : none     : Comma separated list of corpus columns to drop before loading into tool
+--max-dataset-rows / -m : none     : Cut corpus at this many lines before loading into tool
+--table-size / -s       : 2000,200 : Max rows,columns to show in tables
+--page-size / -p        : 25       : Rows per page of table
+--env / -e              : none     : Use .env for configuration (pass path to .env file)
+--debug                 : true     : run flask/dash in debug mode
 ```
 
 ## Dataset view

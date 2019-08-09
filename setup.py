@@ -44,6 +44,7 @@ setup(
         "isort",
         "flask",
         "dash",
+        "python-dotenv",
         "dash-daq",
     ],
     dependency_links=[

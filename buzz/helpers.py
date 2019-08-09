@@ -86,12 +86,12 @@ def _update_datatable(corpus, df, conll=True, conc=False):
     return columns, data
 
 
-def _preprocess_corpus(corpus, max_rows, drop_columns, **kwargs):
+def _preprocess_corpus(corpus, max_dataset_rows, drop_columns, **kwargs):
     """
     Fix corpus if the user wants this on command line
     """
-    if max_rows is not None:
-        corpus = corpus.iloc[:max_rows, :]
+    if max_dataset_rows is not None:
+        corpus = corpus.iloc[:max_dataset_rows, :]
     if drop_columns is not None:
         corpus = corpus.drop(drop_columns, axis=1)
     return corpus
