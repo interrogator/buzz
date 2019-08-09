@@ -9,7 +9,7 @@ spacy==2.1.6
 pandas==0.24.0
 tqdm
 pyparsing
-depgrep>=0.1.0
+depgrep>=0.1.2
 git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5
 setuptools
 flask
