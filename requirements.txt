@@ -9,12 +9,13 @@ spacy==2.1.6
 pandas==0.24.0
 tqdm
 pyparsing
-depgrep
+depgrep>=0.1.0
 git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5
 setuptools
 flask
 dash
 dash-daq
+python-dotenv
 # just needed for test/ci:
 flake8
 coverage

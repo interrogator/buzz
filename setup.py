@@ -30,7 +30,7 @@ setup(
         "bllipparser",
         "scipy",
         "cython",
-        "depgrep",
+        "depgrep>=0.1.0",
         "scikit-learn",
         # 'benepar',
         # 'benepar[cpu]',
