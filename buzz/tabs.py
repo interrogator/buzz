@@ -1,3 +1,5 @@
+# flake8: noqa
+
 """
 buzz webapp: everything needed to populate app tabs initially
 """

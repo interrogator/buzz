@@ -1,3 +1,5 @@
+# flake8: noqa
+
 from multiprocessing import Process
 
 import dash_core_components as dcc

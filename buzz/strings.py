@@ -1,3 +1,5 @@
+# flake8: noqa
+
 """
 buzz webapp: making human-readable strings from data
 """

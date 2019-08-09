@@ -1,3 +1,5 @@
+# flake8: noqa
+
 """
 buzz webapp: command-line and .env processing
 """

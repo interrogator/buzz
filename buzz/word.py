@@ -1,3 +1,5 @@
+# flake8: noqa
+
 from collections import OrderedDict
 
 import pandas as pd
