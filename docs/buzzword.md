@@ -31,7 +31,7 @@ The dataset tab is also the place where you search the corpus. In *buzzword*, th
 
 In the leftmost dropdown field, you select the feature you want to search (word form, lemma form, POS, etc). Each of these options targets a token or metadata feature, except *Dependencies*, which is used to search the dependency grammar with which the corpus has been parsed. To start out, select something simple, like 'Word'.
 
-In the text entry field, provide a case-sensitive regular expression that you want to match. If you are searching dependencies, use the depgrep query language. If you're new to regular expressions, and just want to find words that exactly match a string, enter `^word$$`. The caret (`^`) denotes 'start of string', and the dollar sign (`$`) denotes the end of string. Without the dollar sign, the query would match not only *word*, but *wordy*, *wording*, *word-salad*, and so on.
+In the text entry field, provide a case-sensitive regular expression that you want to match. If you are searching dependencies, use the depgrep query language. If you're new to regular expressions, and just want to find words that exactly match a string, enter `^word$`. The caret (`^`) denotes 'start of string', and the dollar sign (`$`) denotes the end of string. Without the dollar sign, the query would match not only *word*, but *wordy*, *wording*, *word-salad*, and so on.
 
 Finally, you can toggle result inversion using the toggle switch (i.e. return rows *not matching* the search criteria). Then, hit *Search*. Search time depends mostly on how many items are returned.
 
@@ -47,11 +47,11 @@ So, if you are interested in nouns ending in 'ing' that do not fill the role of 
 2. Word matching `ing$`
 3. Function mtching `nsubj`, inverted
 
-If you want to reset your search history, you can use the 'Clear history' button to restart your investigtion.
+If you want to reset your search history, you can use the 'Clear history' button to restart your investigation.
 
 ## Frequencies view
 
-Once you have finished searching, you can move to the Frequenciest tab to turn the results into a frequency table.
+Once you have finished searching, you can move to the Frequencies tab to turn the results into a frequency table.
 
 Start by searching the correct search from the "Search from" dropdown menu at the top of the tool. These are the results you will be calculating from.
 
