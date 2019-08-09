@@ -77,7 +77,7 @@ class TestCorpus(unittest.TestCase):
         except FileNotFoundError:
             pass
         parsed = self.unparsed.parse()
-        self.assertEqual(parsed.name, self.unparsed.name + "-parsed")
+        self.assertEqual(parsed.name, self.unparsed.name)
         self.test_subcorpora_and_files(parsed)
         start = "<buzz.corpus.Corpus"
         end = "(tests/data-parsed, parsed)>"
