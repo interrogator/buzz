@@ -13,6 +13,7 @@ jobs:
         - python setup.py install
         - pip install benepar
         - pip install benepar[cpu]
+        - python -m spacy download en
     - stage: static-checks
       script:
         - flake8 .
