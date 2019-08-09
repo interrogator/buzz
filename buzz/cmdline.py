@@ -61,8 +61,8 @@ def _parse_cmdline_args():
     )
 
     parser.add_argument(
-        "-r",
-        "--rows",
+        "-p",
+        "--page-size",
         nargs="?",
         type=int,
         default=25,

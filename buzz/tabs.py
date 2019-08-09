@@ -396,15 +396,15 @@ def _build_chart_space(tables, rows):
     return html.Div(charts)
 
 
-def _make_tabs(searches, tables, title=None, rows=25, **kwargs):
+def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     """
     Generate initial layout div
     """
     corpus = next(iter(searches.values()))
-    dataset = _build_dataset_space(corpus, rows)
-    frequencies = _build_frequencies_space(corpus, tables["initial"], rows)
-    chart = _build_chart_space(tables, rows)
-    concordance = _build_concordance_space(corpus, rows)
+    dataset = _build_dataset_space(corpus, page_size)
+    frequencies = _build_frequencies_space(corpus, tables["initial"], page_size)
+    chart = _build_chart_space(tables, page_size)
+    concordance = _build_concordance_space(corpus, page_size)
 
     search_from = [
         dict(value=i, label=_make_search_name(h)) for i, h in enumerate(searches)
