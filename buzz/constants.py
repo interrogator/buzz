@@ -17,6 +17,8 @@ SHORT_TO_LONG_NAME = dict(
     s="Sentence number",
     file="Filename",
     speaker="Speaker",
+    d="Depgrep",
+    t="TGrep2",
 )
 
 _SHORTER = dict(s="Sent #", i="Token #", p="POS", g="Gov.", f="Function", x="Class")
