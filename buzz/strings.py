@@ -25,7 +25,7 @@ def _make_table_name(history):
     if relative is False and keyness is False:
         relkey = " showing absolute frequencies"
     basic = f"{show} by {subcorpora}{relkey}, sorting by {sort}"
-    parent = specs[-1] if isinstance(specs, tuple) else 0
+    parent = specs[-2] if isinstance(specs, tuple) else 0
     if not parent:
         return basic
     return f"{basic} -- from search #{parent}"
@@ -39,7 +39,7 @@ def _make_search_name(history, size):
 
     locale.setlocale(locale.LC_ALL, "")
     if isinstance(history, str):
-        return f"Search entire corpus: {history} (n={size:n})"
+        return f"Search entire corpus: {history} ({size:n} tokens)"
     previous, col, skip, search_string, n, n_results = history
     no = "not " if skip else ""
     col = SHORT_TO_LONG_NAME.get(col, col)
@@ -71,10 +71,12 @@ def _search_error(col, search_string):
     return ""
 
 
-def _table_error(show, subcorpora):
+def _table_error(show, subcorpora, updating):
     """
     Check for problems with table
     """
+    if updating:
+        return ""
     errors = []
     if not show:
         errors.append("No choice made for feature to use as columns.")
@@ -83,3 +85,6 @@ def _table_error(show, subcorpora):
     if not errors:
         return ""
     return "* " + "\n* ".join(errors)
+
+def _capitalize_first(s):
+    return s[0].upper() + s[1:]

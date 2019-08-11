@@ -5,6 +5,8 @@ from .constants import CONLL_COLUMNS
 from .utils import _auto_window, _make_match_col
 from .views import _tabview
 
+# setting with copy error for setting ['_match']
+pd.options.mode.chained_assignment = None
 
 class Concordance(pd.DataFrame):
     """

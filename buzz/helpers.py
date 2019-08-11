@@ -7,7 +7,7 @@ buzz webapp: helpers and utilities
 import pandas as pd
 
 from buzz.constants import SHORT_TO_COL_NAME, SHORT_TO_LONG_NAME
-
+from buzz.strings import _capitalize_first
 
 def _get_from_corpus(from_number, dataset):
     """
@@ -30,27 +30,34 @@ def _translate_relative(inp, corpus):
     return mapping[inp[0]], mapping[inp[1]]
 
 
-def _get_cols(corpus):
+def _get_cols(corpus, add_governor):
     """
     Make list of dicts of conll columns (for search/show)
 
     Do it by hand because we want a particular order (most common for search/show)
     """
     col_order = ["w", "l", "p", "x", "f", "g", "speaker", "file", "s", "i"]
+    if add_governor:
+        col_order += ["gw", "gl", "gp", "gx", "gf", "gg"]
     noshow = ["e", "o", "text", "sent_len", "parse", "_n"]
     col_order += [i for i in list(corpus.columns) if i not in col_order + noshow]
-    longs = [(i, SHORT_TO_LONG_NAME.get(i, i).capitalize()) for i in col_order]
+    longs = [(i, _capitalize_first(SHORT_TO_LONG_NAME.get(i, i))) for i in col_order]
     return [dict(value=v, label=l.replace("_", " ")) for v, l in longs]
 
 
-def _update_datatable(corpus, df, conll=True, conc=False):
+def _update_datatable(corpus, df, conll=True, conc=False, drop_govs=False):
     """
     Helper for datatables
     """
     if conc:
         conll = False
     if conll:
-        col_order = ["file", "s", "i"] + list(corpus.columns)
+        if drop_govs:
+            govs = ["gw", "gl", "gp", "gx", "gf", "gg"]
+            cols = [i for i in corpus.columns if i not in govs]
+        else:
+            cols = list(corpus.columns)
+        col_order = ["file", "s", "i"] + cols
         col_order = [i for i in col_order if i not in ["parse", "text", "e"]]
     elif conc:
         col_order = ["file", "s", "i", "left", "match", "right"]
@@ -61,7 +68,7 @@ def _update_datatable(corpus, df, conll=True, conc=False):
         ]
         col_order += rest
     else:
-        df.index.names = [f"_{x}" for x in df.index.names]
+        # df.index.names = [f"_{x}" for x in df.index.names]
         col_order = list(df.index.names) + list(df.columns)
     if not conc:
         df = df.reset_index()

@@ -40,7 +40,7 @@ server = app.server
 SEARCHES = OrderedDict()
 TABLES = OrderedDict()
 # CLICKS is a hack for clear history. move eventually to hidden div
-CLICKS = dict(clear=-1)
+CLICKS = dict(clear=-1, update=-1)
 
 
 def _corpus():
@@ -59,7 +59,7 @@ MAX_ROWS, MAX_COLUMNS = CONFIG["table_size"]
 # note that we have to suppress callback warnings, because we don't make tabs
 # until after callbacks are defined. the reason for this is, we need to pass
 # initial data to the tabs, which we can't generate without knowing the path
-corpus = Corpus(CONFIG["path"]).load()
+corpus = Corpus(CONFIG["path"]).load(add_governor=CONFIG["add_governor"])
 corpus = _preprocess_corpus(corpus, **CONFIG)
 # store corpus by name as the 'original' search
 SEARCHES[corpus._name] = corpus
@@ -172,11 +172,13 @@ def _new_search(
     if n_clicks is None:
         raise PreventUpdate
 
+    add_governor = CONFIG["add_governor"]
+
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
 
     msg = _search_error(col, search_string)
     if msg:
-        cols, data = _update_datatable(_corpus(), _corpus())
+        cols, data = _update_datatable(_corpus(), _corpus(), drop_govs=add_governor)
         return cols, data, search_from_options, search_from, False, True, msg
 
     new_value = len(SEARCHES)
@@ -193,7 +195,7 @@ def _new_search(
         SEARCHES.clear()
         SEARCHES[corpus._name] = corpus
         # todo: the line below could be slow. can we get from elsewhere?
-        cols, data = _update_datatable(_corpus(), _corpus())
+        cols, data = _update_datatable(_corpus(), _corpus(), drop_govs=add_governor)
         search_from = [
             dict(value=i, label=_make_search_name(h, len(corpus)))
             for i, h in enumerate(SEARCHES)
@@ -223,7 +225,9 @@ def _new_search(
 
     SEARCHES[this_search] = df.index
     corpus = _corpus()
-    datatable_cols, datatable_data = _update_datatable(corpus, df)
+    datatable_cols, datatable_data = _update_datatable(
+        corpus, df, drop_govs=add_governor
+    )
     if not msg:
         name = _make_search_name(this_search, len(corpus))
         option = dict(value=new_value, label=name)
@@ -247,6 +251,7 @@ def _new_search(
     [
         Output("freq-table", "columns"),
         Output("freq-table", "data"),
+        Output("table-update", "disabled"),
         Output("chart-from-1", "options"),
         Output("chart-from-1", "value"),
         Output("chart-from-2", "options"),
@@ -260,8 +265,10 @@ def _new_search(
         Output("dialog-table", "displayed"),
         Output("dialog-table", "message"),
     ],
-    [Input("table-button", "n_clicks")],
+    [Input("table-button", "n_clicks"), Input("table-update", "n_clicks")],
     [
+        State("freq-table", "columns"),
+        State("freq-table", "data"),
         State("search-from", "value"),
         State("show-for-table", "value"),
         State("subcorpora-for-table", "value"),
@@ -277,6 +284,9 @@ def _new_search(
 )
 def _new_table(
     n_clicks,
+    n_clicks_update,
+    current_cols,
+    current_data,
     search_from,
     show,
     subcorpora,
@@ -296,6 +306,8 @@ def _new_table(
     if n_clicks is None:
         raise PreventUpdate
 
+    disable_update = False
+
     # parse options and get correct data
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
     if not sort:
@@ -303,13 +315,23 @@ def _new_table(
     relative, keyness = _translate_relative(relkey, _corpus())
 
     # check if there are any validation problems
-    msg = _table_error(show, subcorpora)
+    updating = n_clicks_update is not None and n_clicks_update > CLICKS["update"]
+    msg = _table_error(show, subcorpora, updating)
     nv = len(TABLES)
     this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv)
 
     # if table already made, use that one
     exists = next((i for i in TABLES if list(this_table)[:6] == list(i)[:6]), False)
-    if exists:
+
+    # if we are updating the table:
+    if updating:
+        updating = True
+        CLICKS["update"] = n_clicks_update
+        table = TABLES[exists]
+        table = table[[i["id"] for i in current_cols[1:]]]
+        table = table.loc[[i[table.index.name] for i in current_data]]
+        TABLES[exists] = table
+    elif exists:
         msg = "Table already exists. Switching to that one to save memory."
         table = TABLES[exists]
     # if there was a validation problem, juse use last table (?)
@@ -340,15 +362,18 @@ def _new_table(
     # if successful table, update all to latest
     # if table existed, update all to that one
     # if error, keep as they are (ths is why we need many states)
-    cols, data = _update_datatable(
-        _corpus(), table.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False
-    )
+    if updating:
+        cols, data = current_cols, current_data
+    else:
+        cols, data = _update_datatable(
+            _corpus(), table.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False
+        )
     tfo = table_from_options
-    if not msg:
+    if not msg and not updating:
         option = dict(value=nv, label=_make_table_name(this_table))
         tfo.append(option)
         nv1, nv2, nv3, nv4, nv5 = nv, nv, nv, nv, nv
-    elif exists:
+    elif exists or updating:
         nv1, nv2, nv3, nv4, nv5 = (
             exists[-1],
             exists[-1],
@@ -357,7 +382,23 @@ def _new_table(
             exists[-1],
         )
 
-    return cols, data, tfo, nv1, tfo, nv2, tfo, nv3, tfo, nv4, tfo, nv5, bool(msg), msg
+    return (
+        cols,
+        data,
+        disable_update,
+        tfo,
+        nv1,
+        tfo,
+        nv2,
+        tfo,
+        nv3,
+        tfo,
+        nv4,
+        tfo,
+        nv5,
+        bool(msg),
+        msg,
+    )
 
 
 @app.callback(

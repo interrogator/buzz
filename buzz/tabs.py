@@ -12,7 +12,7 @@ import dash_table
 from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
 from buzz.helpers import _get_cols, _update_datatable
-from buzz.strings import _make_search_name, _make_table_name
+from buzz.strings import _make_search_name, _make_table_name, _capitalize_first
 
 
 class Style:
@@ -75,11 +75,11 @@ class Style:
     ]
 
 
-def _build_dataset_space(df, rows):
+def _build_dataset_space(df, rows, add_governor):
     """
     Build the search interface and the conll display
     """
-    cols = _get_cols(df)
+    cols = _get_cols(df, add_governor)
     cols += [dict(label="Dependencies", value="d")]
     df = df.reset_index()
     df = df.drop(
@@ -113,9 +113,11 @@ def _build_dataset_space(df, rows):
     search_space = html.Div(
         pieces, style={"fontFamily": "bold", **Style.VERTICAL_MARGINS}
     )
+    if add_governor:
+        df = df.drop(["gw", "gl", "gp", "gx", "gf", "gg"], axis=1)
     columns = [
         {
-            "name": SHORT_TO_COL_NAME.get(i, i).capitalize().replace("_", " "),
+            "name": _capitalize_first(SHORT_TO_COL_NAME.get(i, i)).replace("_", " "),
             "id": i,
             "deletable": i not in ["s", "i"],
         }
@@ -150,11 +152,11 @@ def _build_dataset_space(df, rows):
     return html.Div(id="dataset-container", children=[search_space, conll_table])
 
 
-def _build_frequencies_space(corpus, table, rows):
+def _build_frequencies_space(corpus, table, rows, add_governor):
     """
     Build stuff related to the frequency table
     """
-    cols = _get_cols(corpus)
+    cols = _get_cols(corpus, add_governor)
     show_check = dcc.Dropdown(
         placeholder="Features to show",
         multi=True,
@@ -224,7 +226,13 @@ def _build_frequencies_space(corpus, table, rows):
     )
     style = {**Style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}
     left = html.Div(
-        [html.Div(show_check, style=style), html.Div(subcorpora_drop, style=style)]
+        [html.Div(show_check, style=style), html.Div(subcorpora_drop, style=style), html.Button(
+                "Update",
+                id="table-update",
+                disabled=False,
+                title="Remove dropped items from underlying dataset",
+                style={"width": "20%", **Style.CELL_MIDDLE_35, **Style.MARGIN_5_MONO},
+            ),]
     )
     right = html.Div(
         [
@@ -241,11 +249,11 @@ def _build_frequencies_space(corpus, table, rows):
     return html.Div([toolbar, freq_table])
 
 
-def _build_concordance_space(df, rows):
+def _build_concordance_space(df, rows, add_governor):
     """
     Div representing the concordance tab
     """
-    cols = _get_cols(df)
+    cols = _get_cols(df, add_governor)
 
     show_check = dcc.Dropdown(
         multi=True,
@@ -323,7 +331,7 @@ def _build_chart_space(tables, rows):
             style=Style.MARGIN_5_MONO,
         )
         types = [
-            dict(label=i.capitalize().replace("_", " "), value=i)
+            dict(label=_capitalize_first(i).replace("_", " "), value=i)
             for i in sorted(CHART_TYPES)
         ]
         chart_type = dcc.Dropdown(
@@ -404,11 +412,12 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     """
     Generate initial layout div
     """
+    add_gov = kwargs['add_governor']
     corpus = next(iter(searches.values()))
-    dataset = _build_dataset_space(corpus, page_size)
-    frequencies = _build_frequencies_space(corpus, tables["initial"], page_size)
+    dataset = _build_dataset_space(corpus, page_size, add_gov)
+    frequencies = _build_frequencies_space(corpus, tables["initial"], page_size, add_gov)
     chart = _build_chart_space(tables, page_size)
-    concordance = _build_concordance_space(corpus, page_size)
+    concordance = _build_concordance_space(corpus, page_size, add_gov)
 
     search_from = [
         dict(value=i, label=_make_search_name(h, len(corpus)))

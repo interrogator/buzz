@@ -85,6 +85,15 @@ def _from_cmdline():
     )
 
     parser.add_argument(
+        "-g",
+        "--add-governor",
+        default=False,
+        action="store_true",
+        required=False,
+        help="Load governor attributes into dataset. Slow to load and uses more memory, but allows more kinds of searching/showing",
+    )
+
+    parser.add_argument(
         "-e",
         "--env",
         nargs="?",
@@ -124,22 +133,23 @@ def _from_env(env_path):
     """
     trues = {"1", "true", "True", "Y", "y", "yes", True}
     load_dotenv(dotenv_path=env_path)
-    drop_columns = os.getenv("DASH_DROP_COLUMNS")
+    drop_columns = os.getenv("BUZZWORD_DROP_COLUMNS")
     if drop_columns:
         drop_columns = drop_columns.split(",")
-    table_size = os.getenv("DASH_TABLE_SIZE")
+    table_size = os.getenv("BUZZWORD_TABLE_SIZE")
     if table_size:
         table_size = [int(i) for i in table_size.split(",")]
-    max_dataset_rows = os.getenv("DASH_MAX_DATASET_ROWS")
+    max_dataset_rows = os.getenv("BUZZWORD_MAX_DATASET_ROWS")
     if max_dataset_rows:
         max_dataset_rows = int(max_dataset_rows)
 
     return dict(
-        path=os.environ["DASH_PATH"],
-        debug=os.getenv("DASH_DEBUG", True) in trues,
-        load=os.getenv("DASH_LOAD", True) in trues,
-        title=os.getenv("DASH_TITLE", "buzzword"),
-        page_size=int(os.getenv("DASH_PAGE_SIZE", 25)),
+        path=os.environ["BUZZWORD_PATH"],
+        debug=os.getenv("BUZZWORD_DEBUG", True) in trues,
+        load=os.getenv("BUZZWORD_LOAD", True) in trues,
+        add_governor=os.getenv("BUZZWORD_ADD_GOVERNOR", False) in trues,
+        title=os.getenv("BUZZWORD_TITLE", "buzzword"),
+        page_size=int(os.getenv("BUZZWORD_PAGE_SIZE", 25)),
         max_dataset_rows=max_dataset_rows,
         drop_columns=drop_columns,
         table_size=table_size,

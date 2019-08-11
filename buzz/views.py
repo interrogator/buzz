@@ -127,7 +127,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
 
     if by == "name":
         # currently case sensitive
-        df = df.reindex_axis(sorted(df.columns), axis=1)
+        df = df.reindex(sorted(df.columns), axis=1)
 
     elif by in {"total", "infreq"}:
         ascending = by != "total"

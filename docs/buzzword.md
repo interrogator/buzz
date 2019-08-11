@@ -21,6 +21,7 @@ Either command gives you the following options:
 --page-size / -p        : 25       : Rows per page of table
 --env / -e              : none     : Use .env for configuration (pass path to .env file)
 --debug                 : true     : run flask/dash in debug mode
+--add-governor / -g     : false    : add governor token features to dataset. Slow to load and consumes more memory, but allows searching/showing governor features
 ```
 
 ## Dataset view

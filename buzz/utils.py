@@ -219,6 +219,30 @@ def _order_df_columns(df, metadata=None):
     return df
 
 
+def _apply_governor(row, df=None, dummy=None):
+    """
+    Appliable function to get the governor of a token. Slow.
+    """
+    try:
+        return df.loc[row.name[0], row.name[1], row['g']]
+    except:
+        return dummy
+
+
+def _add_governor(df):
+    """
+    Add governor features to dataframe. Slow.
+    """
+    cols = ['w', 'l', 'x', 'p', 'f', 'g']
+    dummy = pd.Series(['ROOT', 'ROOT', 'ROOT', 'ROOT', 'ROOT', 0])
+    govs = df.apply(_apply_governor, df=df[cols], axis=1, reduce=False, dummy=dummy)
+    govs['g'] = govs['g'].fillna(0).astype(int)
+    govs = govs.fillna('ROOT')
+    govs = govs[['w', 'l', 'x', 'p', 'f', 'g']]
+    govs.columns = ['g' + i for i in list(govs.columns)]
+    return pd.concat([df, govs], axis=1, sort=False)
+
+
 def _to_df(
     corpus,
     load_trees: bool = True,
@@ -226,6 +250,7 @@ def _to_df(
     usecols: List[str] = COLUMN_NAMES,
     usename: Optional[str] = None,
     set_data_types: bool = True,
+    add_governor: bool = False,
 ):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
@@ -277,6 +302,8 @@ def _to_df(
     df = df.fillna("_")
     if set_data_types:
         df = _set_best_data_types(df)
+    if add_governor:
+        df = _add_governor(df)
     return Dataset(df, name=usename or corpus.name)
 
 
