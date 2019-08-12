@@ -225,7 +225,7 @@ def _apply_governor(row, df=None, dummy=None):
     """
     try:
         return df.loc[row.name[0], row.name[1], row["g"]]
-    except:
+    except Exception:
         return dummy
 
 
