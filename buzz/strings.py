@@ -13,7 +13,7 @@ def _make_table_name(history):
     """
     if history == "initial":
         return "Wordclasses by file"
-    specs, show, subcorpora, relative, keyness, sort, n = history
+    specs, show, subcorpora, relative, keyness, sort, n, updates = history
     subcorpora = (
         SHORT_TO_LONG_NAME.get(subcorpora, subcorpora).lower().replace("_", " ")
     )
@@ -25,6 +25,8 @@ def _make_table_name(history):
     if relative is False and keyness is False:
         relkey = " showing absolute frequencies"
     basic = f"{show} by {subcorpora}{relkey}, sorting by {sort}"
+    if updates:
+        basic += f", {updates} edits"
     parent = specs[-2] if isinstance(specs, tuple) else 0
     if not parent:
         return basic
@@ -85,6 +87,7 @@ def _table_error(show, subcorpora, updating):
     if not errors:
         return ""
     return "* " + "\n* ".join(errors)
+
 
 def _capitalize_first(s):
     return s[0].upper() + s[1:]

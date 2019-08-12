@@ -8,6 +8,7 @@ from .views import _tabview
 # setting with copy error for setting ['_match']
 pd.options.mode.chained_assignment = None
 
+
 class Concordance(pd.DataFrame):
     """
     A dataframe holding left, match and right columns, plus optional metadata

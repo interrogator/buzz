@@ -154,6 +154,8 @@ for i in range(1, 6):
         Output("dialog-search", "displayed"),
         Output("dialog-search", "message"),
         Output("conll-view", "row_deletable"),
+        Output("loading-main", "className"),
+        Output("loading-main", "fullscreen"),
     ],
     [Input("search-button", "n_clicks"), Input("clear-history", "n_clicks")],
     [
@@ -167,16 +169,35 @@ for i in range(1, 6):
     ],
 )
 def _new_search(
-    n_clicks, cleared, search_from, skip, col, search_string, search_from_options, current_cols, current_data
+    n_clicks,
+    cleared,
+    search_from,
+    skip,
+    col,
+    search_string,
+    search_from_options,
+    current_cols,
+    current_data,
 ):
     """
     Callback when a new search is submitted
 
     Validate input, run the search, store data and display things
     """
-    # the first callback, before anything is loaded. do nothing.
+    # the first callback, before anything is loaded
     if n_clicks is None:
-        raise PreventUpdate
+        return (
+            current_cols,
+            current_data,
+            search_from_options,
+            search_from,
+            True,
+            False,
+            "",
+            False,
+            "loading-non-main",
+            False,
+        )
 
     add_governor = CONFIG["add_governor"]
 
@@ -184,7 +205,18 @@ def _new_search(
 
     msg = _search_error(col, search_string)
     if msg:
-        return current_cols, current_data, search_from_options, search_from, False, True, msg, False
+        return (
+            current_cols,
+            current_data,
+            search_from_options,
+            search_from,
+            False,
+            True,
+            msg,
+            False,
+            "loading-non-main",
+            False,
+        )
 
     new_value = len(SEARCHES)
     this_search = [specs, col, skip, search_string]
@@ -207,7 +239,18 @@ def _new_search(
         ]
         # set number of clicks at last moment
         CLICKS["clear"] = cleared
-        return cols, data, search_from, 0, True, False, "", False
+        return (
+            cols,
+            data,
+            search_from,
+            0,
+            True,
+            False,
+            "",
+            False,
+            "loading-non-main",
+            False,
+        )
 
     found_results = True
 
@@ -230,7 +273,7 @@ def _new_search(
         # if there are no results
         if not len(df):
             found_results = False
-            msg = 'No results found, sorry.'
+            msg = "No results found, sorry."
 
     this_search = tuple(this_search + [new_value, len(df)])
     if found_results:
@@ -256,6 +299,8 @@ def _new_search(
         bool(msg),
         msg,
         True,
+        "loading-non-main",
+        False,
     )
 
 
@@ -265,10 +310,19 @@ stat = [State(f"chart-from-{i}", "value") for i in range(1, 6)]
 
 
 @app.callback(
-    [Output("freq-table", "columns"), Output("freq-table", "data")]
-    + opts
-    + vals
-    + [
+    [
+        Output("freq-table", "columns"),
+        Output("freq-table", "data"),
+        Output("chart-from-1", "options"),
+        Output("chart-from-1", "value"),
+        Output("chart-from-2", "options"),
+        Output("chart-from-2", "value"),
+        Output("chart-from-3", "options"),
+        Output("chart-from-3", "value"),
+        Output("chart-from-4", "options"),
+        Output("chart-from-4", "value"),
+        Output("chart-from-5", "options"),
+        Output("chart-from-5", "value"),
         Output("dialog-table", "displayed"),
         Output("dialog-table", "message"),
         Output("freq-table", "row_deletable"),
@@ -287,8 +341,12 @@ stat = [State(f"chart-from-{i}", "value") for i in range(1, 6)]
         State("relative-for-table", "value"),
         State("sort-for-table", "value"),
         State("chart-from-1", "options"),
-    ]
-    + stat,
+        State("chart-from-1", "value"),
+        State("chart-from-2", "value"),
+        State("chart-from-3", "value"),
+        State("chart-from-4", "value"),
+        State("chart-from-5", "value"),
+    ],
 )
 def _new_table(
     n_clicks,
@@ -335,7 +393,7 @@ def _new_table(
         )
     msg = _table_error(show, subcorpora, updating)
     nv = len(TABLES)
-    this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv)
+    this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv, 0)
 
     # if table already made, use that one
     exists = next((i for i in TABLES if list(this_table)[:6] == list(i)[:6]), False)
@@ -343,8 +401,11 @@ def _new_table(
     # if we are updating the table:
     if updating:
         table = TABLES[exists]
+        times_updated = exists[-1] + 1
+        exists = tuple(list(exists)[:-1] + [times_updated])
+        this_table = exists
         table = table[[i["id"] for i in current_cols[1:]]]
-        table = table.loc[[i[table.index.name] for i in current_data]]
+        table = table.loc[[i["_" + table.index.name] for i in current_data]]
         TABLES[exists] = table
     elif exists:
         msg = "Table already exists. Switching to that one to save memory."
@@ -402,14 +463,14 @@ def _new_table(
         cols,
         data,
         tfo,
-        tfo,
-        tfo,
-        tfo,
-        tfo,
         nv1,
+        tfo,
         nv2,
+        tfo,
         nv3,
+        tfo,
         nv4,
+        tfo,
         nv5,
         bool(msg),
         msg,
@@ -445,9 +506,11 @@ def _new_conc(n_clicks, show, search_from, current_cols, current_data):
         return current_cols, current_data, True, msg
 
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
-    conc = corpus.conc(show=show, window=(100, 100))
+    conc = corpus.conc(
+        show=show, metadata=["file", "s", "i", "speaker"], window=(100, 100)
+    )
     cols, data = _update_datatable(
-        _corpus(), conc.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False
+        _corpus(), conc.iloc[:MAX_ROWS, :MAX_COLUMNS], conc=True
     )
     return cols, data, bool(msg), msg
 

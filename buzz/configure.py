@@ -28,13 +28,7 @@ def _from_cmdline():
     )
 
     parser.add_argument(
-        "-t",
-        "--title",
-        nargs="?",
-        type=str,
-        default="buzzword",
-        required=False,
-        help="Title for app",
+        "-t", "--title", nargs="?", type=str, required=False, help="Title for app"
     )
 
     parser.add_argument(

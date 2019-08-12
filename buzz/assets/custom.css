@@ -1,0 +1,12 @@
+.loading-main::after{
+  content: "Preparing your workspace...";
+  position: fixed;
+  margin-top: 50px;
+}
+
+.loading-non-main::after{
+  content: "Updating...";
+  position: absolute;
+  left: 50%;
+  margin-left: -36px;
+}

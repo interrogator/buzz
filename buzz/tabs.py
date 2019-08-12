@@ -11,7 +11,7 @@ import dash_table
 
 from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
-from buzz.helpers import _get_cols, _update_datatable
+from buzz.helpers import _get_cols, _update_datatable, _drop_cols_for_datatable
 from buzz.strings import _make_search_name, _make_table_name, _capitalize_first
 
 
@@ -43,11 +43,16 @@ class Style:
         {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
         for c in ["file", "match", "right", "speaker", "setting"]
     ]
+    FILE_INDEX = {
+        "if": {"column_id": "file"},
+        "backgroundColor": "#fafafa",
+        "color": "#555555",
+        "fontWeight": "bold",
+    }
     INDEX = [
         {
             "if": {"column_id": c},
             "backgroundColor": "#fafafa",
-            # "color": "white",
             "color": "#555555",
             "fontWeight": "bold",
         }
@@ -80,16 +85,16 @@ def _build_dataset_space(df, rows, add_governor):
     Build the search interface and the conll display
     """
     cols = _get_cols(df, add_governor)
-    cols += [dict(label="Dependencies", value="d")]
+    cols = [dict(label="Dependencies", value="d")] + cols
+    df = _drop_cols_for_datatable(df, add_governor)
     df = df.reset_index()
-    df = df.drop(
-        ["parse", "text", "e", "sent_id", "sent_len", "_n"], axis=1, errors="ignore"
-    )
     pieces = [
         dcc.Dropdown(
             id="search-target",
             options=cols,
             value="w",
+            # title="Select the column you wish to search (e.g. word/lemma/POS) "
+            # + ", or query language (e.g. Tgrep2, Depgrep)",
             style={"width": "200px", "fontFamily": "monospace"},
         ),
         dcc.Input(
@@ -113,8 +118,6 @@ def _build_dataset_space(df, rows, add_governor):
     search_space = html.Div(
         pieces, style={"fontFamily": "bold", **Style.VERTICAL_MARGINS}
     )
-    if add_governor:
-        df = df.drop(["gw", "gl", "gp", "gx", "gf", "gg"], axis=1)
     columns = [
         {
             "name": _capitalize_first(SHORT_TO_COL_NAME.get(i, i)).replace("_", " "),
@@ -125,29 +128,24 @@ def _build_dataset_space(df, rows, add_governor):
     ]
     data = df.to_dict("rows")
 
-    conll_table = dcc.Loading(
-        type="default",
-        children=[
-            dash_table.DataTable(
-                id="conll-view",
-                columns=columns,
-                data=data,
-                editable=True,
-                style_cell=Style.HORIZONTAL_PAD_5,
-                filter_action="native",
-                sort_action="native",
-                sort_mode="multi",
-                row_deletable=False,
-                selected_rows=[],
-                page_action="native",
-                page_current=0,
-                page_size=rows,
-                # style_as_list_view=True,
-                style_header=Style.BOLD_DARK,
-                style_cell_conditional=Style.LEFT_ALIGN,
-                style_data_conditional=Style.INDEX + Style.STRIPES,
-            )
-        ],
+    conll_table = dash_table.DataTable(
+        id="conll-view",
+        columns=columns,
+        data=data,
+        editable=True,
+        style_cell=Style.HORIZONTAL_PAD_5,
+        filter_action="native",
+        sort_action="native",
+        sort_mode="multi",
+        row_deletable=False,
+        selected_rows=[],
+        page_action="native",
+        page_current=0,
+        page_size=rows,
+        # style_as_list_view=True,
+        style_header=Style.BOLD_DARK,
+        style_cell_conditional=Style.LEFT_ALIGN,
+        style_data_conditional=Style.INDEX + Style.STRIPES,
     )
     return html.Div(id="dataset-container", children=[search_space, conll_table])
 
@@ -199,30 +197,25 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
     )
     columns, data = _update_datatable(corpus, table, conll=False, deletable=False)
     # modify the style_index used for other tables to just work for this index
-    style_index = Style.INDEX[0].copy()
+    style_index = Style.FILE_INDEX
     style_index["if"]["column_id"] = table.index.name
-    freq_table = dcc.Loading(
-        type="default",
-        children=[
-            dash_table.DataTable(
-                id="freq-table",
-                columns=columns,
-                data=data,
-                editable=True,
-                style_cell=Style.HORIZONTAL_PAD_5,
-                filter_action="native",
-                sort_action="native",
-                sort_mode="multi",
-                row_deletable=False,
-                selected_rows=[],
-                page_action="native",
-                page_current=0,
-                page_size=rows,
-                style_header=Style.BOLD_DARK,
-                style_cell_conditional=Style.LEFT_ALIGN,
-                style_data_conditional=[style_index] + Style.STRIPES,
-            )
-        ],
+    freq_table = dash_table.DataTable(
+        id="freq-table",
+        columns=columns,
+        data=data,
+        editable=True,
+        style_cell=Style.HORIZONTAL_PAD_5,
+        filter_action="native",
+        sort_action="native",
+        sort_mode="multi",
+        row_deletable=False,
+        selected_rows=[],
+        page_action="native",
+        page_current=0,
+        page_size=rows,
+        style_header=Style.BOLD_DARK,
+        style_cell_conditional=Style.LEFT_ALIGN,
+        style_data_conditional=[style_index] + Style.STRIPES,
     )
     style = {**Style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}
     left = html.Div(
@@ -273,30 +266,25 @@ def _build_concordance_space(df, rows, add_governor):
     style_data = [Style.STRIPES[0], Style.INDEX[0]] + Style.CONC_LMR
     data = df.to_dict("rows")
     rule = "display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;"
-    conc = dcc.Loading(
-        type="default",
-        children=[
-            dash_table.DataTable(
-                id="conc-table",
-                css=[{"selector": ".dash-cell div.dash-cell-value", "rule": rule}],
-                columns=columns,
-                data=data,
-                editable=True,
-                style_cell=Style.HORIZONTAL_PAD_5,
-                filter_action="native",
-                sort_action="native",
-                sort_mode="multi",
-                row_deletable=False,
-                selected_rows=[],
-                page_action="native",
-                page_current=0,
-                page_size=rows,
-                # style_as_list_view=True,
-                style_header=Style.BOLD_DARK,
-                style_cell_conditional=Style.LEFT_ALIGN_CONC,
-                style_data_conditional=style_data,
-            )
-        ],
+    conc = dash_table.DataTable(
+        id="conc-table",
+        css=[{"selector": ".dash-cell div.dash-cell-value", "rule": rule}],
+        columns=columns,
+        data=data,
+        editable=True,
+        style_cell=Style.HORIZONTAL_PAD_5,
+        filter_action="native",
+        sort_action="native",
+        sort_mode="multi",
+        row_deletable=True,
+        selected_rows=[],
+        page_action="native",
+        page_current=0,
+        page_size=rows,
+        # style_as_list_view=True,
+        style_header=Style.BOLD_DARK,
+        style_cell_conditional=Style.LEFT_ALIGN_CONC,
+        style_data_conditional=style_data,
     )
 
     return html.Div([conc_space, conc])
@@ -379,7 +367,7 @@ def _build_chart_space(tables, rows):
             figure=figure,
             style={"height": "60vh", "width": "95vw"},
         )
-        chart = dcc.Loading(type="default", children=[dcc.Graph(**chart_data)])
+        chart = dcc.Graph(**chart_data)
         chart_space = html.Div([toolbar, chart])
         collapse = html.Details(
             [
@@ -436,7 +424,7 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
         html.Img(
             src="assets/bolt.jpg", height=42, width=38, style=Style.BLOCK_MIDDLE_35
         ),
-        html.H3(children=title, style=pad_block),
+        html.H3(children="buzzword", style=pad_block),
         # these spaces are used to flash messages to the user if something is wrong
         dcc.ConfirmDialog(id="dialog-search", message=""),
         dcc.ConfirmDialog(id="dialog-table", message=""),
@@ -466,27 +454,39 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     )
 
     tab_contents = [
-        html.Div(
-            id="tab-dataset",
-            style={"display": "none"},
-            children=[html.Div(id="display-dataset", children=[dataset])],
-        ),
-        html.Div(
-            id="tab-frequencies",
-            style={"display": "none"},
-            children=[html.Div(id="display-frequencies", children=[frequencies])],
-        ),
-        html.Div(
-            id="tab-chart",
-            style={"display": "none"},
-            children=[html.Div(id="display-chart", children=[chart])],
-        ),
-        html.Div(
-            id="tab-concordance",
-            style={"display": "none"},
-            children=[html.Div(id="display-concordance", children=[concordance])],
-        ),
+        dcc.Loading(
+            type="default",
+            id="loading-main",
+            fullscreen=True,
+            className="loading-main",
+            children=[
+                html.Div(
+                    id="tab-dataset",
+                    style={"display": "none"},
+                    children=[html.Div(id="display-dataset", children=[dataset])],
+                ),
+                html.Div(
+                    id="tab-frequencies",
+                    style={"display": "none"},
+                    children=[
+                        html.Div(id="display-frequencies", children=[frequencies])
+                    ],
+                ),
+                html.Div(
+                    id="tab-chart",
+                    style={"display": "none"},
+                    children=[html.Div(id="display-chart", children=[chart])],
+                ),
+                html.Div(
+                    id="tab-concordance",
+                    style={"display": "none"},
+                    children=[
+                        html.Div(id="display-concordance", children=[concordance])
+                    ],
+                ),
+            ],
+        )
     ]
-    tab_contents = html.Div(children=tab_contents)
+    tab_contents = html.Div(id="tab-contents", children=tab_contents)
 
-    return html.Div([top_bit, tab_headers, tab_contents])
+    return html.Div(id="everything", children=[top_bit, tab_headers, tab_contents])

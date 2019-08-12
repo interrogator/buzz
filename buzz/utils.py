@@ -224,7 +224,7 @@ def _apply_governor(row, df=None, dummy=None):
     Appliable function to get the governor of a token. Slow.
     """
     try:
-        return df.loc[row.name[0], row.name[1], row['g']]
+        return df.loc[row.name[0], row.name[1], row["g"]]
     except:
         return dummy
 
@@ -233,13 +233,13 @@ def _add_governor(df):
     """
     Add governor features to dataframe. Slow.
     """
-    cols = ['w', 'l', 'x', 'p', 'f', 'g']
-    dummy = pd.Series(['ROOT', 'ROOT', 'ROOT', 'ROOT', 'ROOT', 0])
+    cols = ["w", "l", "x", "p", "f", "g"]
+    dummy = pd.Series(["ROOT", "ROOT", "ROOT", "ROOT", "ROOT", 0])
     govs = df.apply(_apply_governor, df=df[cols], axis=1, reduce=False, dummy=dummy)
-    govs['g'] = govs['g'].fillna(0).astype(int)
-    govs = govs.fillna('ROOT')
-    govs = govs[['w', 'l', 'x', 'p', 'f', 'g']]
-    govs.columns = ['g' + i for i in list(govs.columns)]
+    govs["g"] = govs["g"].fillna(0).astype(int)
+    govs = govs.fillna("ROOT")
+    govs = govs[["w", "l", "x", "p", "f", "g"]]
+    govs.columns = ["g" + i for i in list(govs.columns)]
     return pd.concat([df, govs], axis=1, sort=False)
 
 
