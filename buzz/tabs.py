@@ -226,13 +226,7 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
     )
     style = {**Style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}
     left = html.Div(
-        [html.Div(show_check, style=style), html.Div(subcorpora_drop, style=style), html.Button(
-                "Update",
-                id="table-update",
-                disabled=False,
-                title="Remove dropped items from underlying dataset",
-                style={"width": "20%", **Style.CELL_MIDDLE_35, **Style.MARGIN_5_MONO},
-            ),]
+        [html.Div(show_check, style=style), html.Div(subcorpora_drop, style=style)]
     )
     right = html.Div(
         [
@@ -412,10 +406,12 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     """
     Generate initial layout div
     """
-    add_gov = kwargs['add_governor']
+    add_gov = kwargs["add_governor"]
     corpus = next(iter(searches.values()))
     dataset = _build_dataset_space(corpus, page_size, add_gov)
-    frequencies = _build_frequencies_space(corpus, tables["initial"], page_size, add_gov)
+    frequencies = _build_frequencies_space(
+        corpus, tables["initial"], page_size, add_gov
+    )
     chart = _build_chart_space(tables, page_size)
     concordance = _build_concordance_space(corpus, page_size, add_gov)
 

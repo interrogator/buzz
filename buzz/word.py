@@ -40,7 +40,7 @@ server = app.server
 SEARCHES = OrderedDict()
 TABLES = OrderedDict()
 # CLICKS is a hack for clear history. move eventually to hidden div
-CLICKS = dict(clear=-1, update=-1)
+CLICKS = dict(clear=-1, table=-1)
 
 
 def _corpus():
@@ -251,7 +251,6 @@ def _new_search(
     [
         Output("freq-table", "columns"),
         Output("freq-table", "data"),
-        Output("table-update", "disabled"),
         Output("chart-from-1", "options"),
         Output("chart-from-1", "value"),
         Output("chart-from-2", "options"),
@@ -265,7 +264,11 @@ def _new_search(
         Output("dialog-table", "displayed"),
         Output("dialog-table", "message"),
     ],
-    [Input("table-button", "n_clicks"), Input("table-update", "n_clicks")],
+    [
+        Input("table-button", "n_clicks"),
+        Input("freq-table", "columns_previous"),
+        Input("freq-table", "data_previous"),
+    ],
     [
         State("freq-table", "columns"),
         State("freq-table", "data"),
@@ -284,7 +287,8 @@ def _new_search(
 )
 def _new_table(
     n_clicks,
-    n_clicks_update,
+    prev_cols,
+    prev_data,
     current_cols,
     current_data,
     search_from,
@@ -306,8 +310,6 @@ def _new_table(
     if n_clicks is None:
         raise PreventUpdate
 
-    disable_update = False
-
     # parse options and get correct data
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
     if not sort:
@@ -315,7 +317,14 @@ def _new_table(
     relative, keyness = _translate_relative(relkey, _corpus())
 
     # check if there are any validation problems
-    updating = n_clicks_update is not None and n_clicks_update > CLICKS["update"]
+    if CLICKS["table"] != n_clicks:
+        updating = False
+        CLICKS["table"] = n_clicks
+    else:
+        updating = prev_data is not None and (
+            len(prev_data) != len(current_data)
+            or len(prev_data[0]) != len(current_data[0])
+        )
     msg = _table_error(show, subcorpora, updating)
     nv = len(TABLES)
     this_table = (specs, tuple(show), subcorpora, relative, keyness, sort, nv)
@@ -325,8 +334,6 @@ def _new_table(
 
     # if we are updating the table:
     if updating:
-        updating = True
-        CLICKS["update"] = n_clicks_update
         table = TABLES[exists]
         table = table[[i["id"] for i in current_cols[1:]]]
         table = table.loc[[i[table.index.name] for i in current_data]]
@@ -385,7 +392,6 @@ def _new_table(
     return (
         cols,
         data,
-        disable_update,
         tfo,
         nv1,
         tfo,
