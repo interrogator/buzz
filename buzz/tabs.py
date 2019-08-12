@@ -119,7 +119,7 @@ def _build_dataset_space(df, rows, add_governor):
         {
             "name": _capitalize_first(SHORT_TO_COL_NAME.get(i, i)).replace("_", " "),
             "id": i,
-            "deletable": i not in ["s", "i"],
+            "deletable": False,
         }
         for i in df.columns
     ]
@@ -137,7 +137,7 @@ def _build_dataset_space(df, rows, add_governor):
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
-                row_deletable=True,
+                row_deletable=False,
                 selected_rows=[],
                 page_action="native",
                 page_current=0,
@@ -197,7 +197,7 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
         ],
         placeholder="Sort columns by...",
     )
-    columns, data = _update_datatable(corpus, table, conll=False)
+    columns, data = _update_datatable(corpus, table, conll=False, deletable=False)
     # modify the style_index used for other tables to just work for this index
     style_index = Style.INDEX[0].copy()
     style_index["if"]["column_id"] = table.index.name
@@ -213,7 +213,7 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
-                row_deletable=True,
+                row_deletable=False,
                 selected_rows=[],
                 page_action="native",
                 page_current=0,
@@ -286,7 +286,7 @@ def _build_concordance_space(df, rows, add_governor):
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
-                row_deletable=True,
+                row_deletable=False,
                 selected_rows=[],
                 page_action="native",
                 page_current=0,
@@ -308,11 +308,11 @@ def _build_chart_space(tables, rows):
     """
     charts = []
     for chart_num, kind in [
-        (1, "bar"),
+        (1, "stacked_bar"),
         (2, "line"),
         (3, "area"),
         (4, "heatmap"),
-        (5, "stacked_bar"),
+        (5, "bar"),
     ]:
 
         table_from = [

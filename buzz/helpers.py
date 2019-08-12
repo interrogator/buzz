@@ -45,7 +45,7 @@ def _get_cols(corpus, add_governor):
     return [dict(value=v, label=l.replace("_", " ")) for v, l in longs]
 
 
-def _update_datatable(corpus, df, conll=True, conc=False, drop_govs=False):
+def _update_datatable(corpus, df, conll=True, conc=False, drop_govs=False, deletable=True):
     """
     Helper for datatables
     """
@@ -78,7 +78,7 @@ def _update_datatable(corpus, df, conll=True, conc=False, drop_govs=False):
             {
                 "name": SHORT_TO_COL_NAME.get(i, i),
                 "id": i,
-                "deletable": i not in ["s", "i"],
+                "deletable": i not in ["s", "i"] and deletable,
             }
             for i in df.columns
         ]
@@ -89,7 +89,7 @@ def _update_datatable(corpus, df, conll=True, conc=False, drop_govs=False):
         ]
     else:
         columns = [
-            {"name": i.lstrip("_"), "id": i, "deletable": True} for i in df.columns
+            {"name": i.lstrip("_"), "id": i, "deletable": deletable} for i in df.columns
         ]
     data = df.to_dict("rows")
     return columns, data

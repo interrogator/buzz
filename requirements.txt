@@ -6,8 +6,8 @@ scipy
 scikit-learn
 tensorflow
 spacy==2.1.6
-pandas==0.24.0
-tqdm
+pandas==0.25.0
+tqdm==4.33.0
 pyparsing
 depgrep>=0.1.2
 git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5

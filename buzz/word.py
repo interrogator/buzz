@@ -44,7 +44,10 @@ CLICKS = dict(clear=-1, table=-1)
 
 
 def _corpus():
-    """Get the corpus data, whatever its name may be"""
+    """
+    Get the corpus data, whatever its name may be
+    """
+
     return next(iter(SEARCHES.values()))
 
 
@@ -150,6 +153,7 @@ for i in range(1, 6):
         Output("search-from", "disabled"),
         Output("dialog-search", "displayed"),
         Output("dialog-search", "message"),
+        Output("conll-view", "row_deletable"),
     ],
     [Input("search-button", "n_clicks"), Input("clear-history", "n_clicks")],
     [
@@ -158,10 +162,12 @@ for i in range(1, 6):
         State("search-target", "value"),
         State("input-box", "value"),
         State("search-from", "options"),
+        State("conll-view", "columns"),
+        State("conll-view", "data"),
     ],
 )
 def _new_search(
-    n_clicks, cleared, search_from, skip, col, search_string, search_from_options
+    n_clicks, cleared, search_from, skip, col, search_string, search_from_options, current_cols, current_data
 ):
     """
     Callback when a new search is submitted
@@ -178,8 +184,7 @@ def _new_search(
 
     msg = _search_error(col, search_string)
     if msg:
-        cols, data = _update_datatable(_corpus(), _corpus(), drop_govs=add_governor)
-        return cols, data, search_from_options, search_from, False, True, msg
+        return current_cols, current_data, search_from_options, search_from, False, True, msg, False
 
     new_value = len(SEARCHES)
     this_search = [specs, col, skip, search_string]
@@ -202,7 +207,9 @@ def _new_search(
         ]
         # set number of clicks at last moment
         CLICKS["clear"] = cleared
-        return cols, data, search_from, 0, True, False, ""
+        return cols, data, search_from, 0, True, False, "", False
+
+    found_results = True
 
     if not exists:
         # the expected callback. run a search and update dataset view and search history
@@ -220,14 +227,18 @@ def _new_search(
         else:
             method = "just" if not skip else "skip"
             df = getattr(getattr(corpus, method), col)(search_string.strip())
+        # if there are no results
+        if not len(df):
+            found_results = False
+            msg = 'No results found, sorry.'
 
     this_search = tuple(this_search + [new_value, len(df)])
-
-    SEARCHES[this_search] = df.index
-    corpus = _corpus()
-    datatable_cols, datatable_data = _update_datatable(
-        corpus, df, drop_govs=add_governor
-    )
+    if found_results:
+        SEARCHES[this_search] = df.index
+        corpus = _corpus()
+        current_cols, current_data = _update_datatable(
+            corpus, df, drop_govs=add_governor, deletable=True
+        )
     if not msg:
         name = _make_search_name(this_search, len(corpus))
         option = dict(value=new_value, label=name)
@@ -237,32 +248,30 @@ def _new_search(
     else:
         new_value = search_from
     return (
-        datatable_cols,
-        datatable_data,
+        current_cols,
+        current_data,
         search_from_options,
         new_value,
         False,
         bool(msg),
         msg,
+        True,
     )
 
 
+opts = [Output(f"chart-from-{i}", "options") for i in range(1, 6)]
+vals = [Output(f"chart-from-{i}", "values") for i in range(1, 6)]
+stat = [State(f"chart-from-{i}", "value") for i in range(1, 6)]
+
+
 @app.callback(
-    [
-        Output("freq-table", "columns"),
-        Output("freq-table", "data"),
-        Output("chart-from-1", "options"),
-        Output("chart-from-1", "value"),
-        Output("chart-from-2", "options"),
-        Output("chart-from-2", "value"),
-        Output("chart-from-3", "options"),
-        Output("chart-from-3", "value"),
-        Output("chart-from-4", "options"),
-        Output("chart-from-4", "value"),
-        Output("chart-from-5", "options"),
-        Output("chart-from-5", "value"),
+    [Output("freq-table", "columns"), Output("freq-table", "data")]
+    + opts
+    + vals
+    + [
         Output("dialog-table", "displayed"),
         Output("dialog-table", "message"),
+        Output("freq-table", "row_deletable"),
     ],
     [
         Input("table-button", "n_clicks"),
@@ -278,12 +287,8 @@ def _new_search(
         State("relative-for-table", "value"),
         State("sort-for-table", "value"),
         State("chart-from-1", "options"),
-        State("chart-from-1", "value"),
-        State("chart-from-2", "value"),
-        State("chart-from-3", "value"),
-        State("chart-from-4", "value"),
-        State("chart-from-5", "value"),
-    ],
+    ]
+    + stat,
 )
 def _new_table(
     n_clicks,
@@ -309,6 +314,9 @@ def _new_table(
     # do nothing if not yet loaded
     if n_clicks is None:
         raise PreventUpdate
+
+    # because no option below can return initial table, rows can now be deleted
+    row_deletable = True
 
     # parse options and get correct data
     specs, corpus = _get_from_corpus(search_from, SEARCHES)
@@ -369,6 +377,7 @@ def _new_table(
     # if successful table, update all to latest
     # if table existed, update all to that one
     # if error, keep as they are (ths is why we need many states)
+    # if updating, we reuse the current data
     if updating:
         cols, data = current_cols, current_data
     else:
@@ -393,17 +402,18 @@ def _new_table(
         cols,
         data,
         tfo,
+        tfo,
+        tfo,
+        tfo,
+        tfo,
         nv1,
-        tfo,
         nv2,
-        tfo,
         nv3,
-        tfo,
         nv4,
-        tfo,
         nv5,
         bool(msg),
         msg,
+        row_deletable,
     )
 
 
@@ -422,7 +432,7 @@ def _new_table(
         State("conc-table", "data"),
     ],
 )
-def new_conc(n_clicks, show, search_from, current_cols, current_data):
+def _new_conc(n_clicks, show, search_from, current_cols, current_data):
     """
     Callback for concordance. We just pick what to show and where from...
     """
