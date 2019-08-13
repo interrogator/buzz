@@ -199,23 +199,28 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
     # modify the style_index used for other tables to just work for this index
     style_index = Style.FILE_INDEX
     style_index["if"]["column_id"] = table.index.name
-    freq_table = dash_table.DataTable(
-        id="freq-table",
-        columns=columns,
-        data=data,
-        editable=True,
-        style_cell=Style.HORIZONTAL_PAD_5,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        row_deletable=False,
-        selected_rows=[],
-        page_action="native",
-        page_current=0,
-        page_size=rows,
-        style_header=Style.BOLD_DARK,
-        style_cell_conditional=Style.LEFT_ALIGN,
-        style_data_conditional=[style_index] + Style.STRIPES,
+    freq_table = dcc.Loading(
+        type="default",
+        children=[
+            dash_table.DataTable(
+                id="freq-table",
+                columns=columns,
+                data=data,
+                editable=True,
+                style_cell=Style.HORIZONTAL_PAD_5,
+                filter_action="native",
+                sort_action="native",
+                sort_mode="multi",
+                row_deletable=False,
+                selected_rows=[],
+                page_action="native",
+                page_current=0,
+                page_size=rows,
+                style_header=Style.BOLD_DARK,
+                style_cell_conditional=Style.LEFT_ALIGN,
+                style_data_conditional=[style_index] + Style.STRIPES,
+            )
+        ],
     )
     style = {**Style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}
     left = html.Div(
@@ -266,25 +271,30 @@ def _build_concordance_space(df, rows, add_governor):
     style_data = [Style.STRIPES[0], Style.INDEX[0]] + Style.CONC_LMR
     data = df.to_dict("rows")
     rule = "display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;"
-    conc = dash_table.DataTable(
-        id="conc-table",
-        css=[{"selector": ".dash-cell div.dash-cell-value", "rule": rule}],
-        columns=columns,
-        data=data,
-        editable=True,
-        style_cell=Style.HORIZONTAL_PAD_5,
-        filter_action="native",
-        sort_action="native",
-        sort_mode="multi",
-        row_deletable=True,
-        selected_rows=[],
-        page_action="native",
-        page_current=0,
-        page_size=rows,
-        # style_as_list_view=True,
-        style_header=Style.BOLD_DARK,
-        style_cell_conditional=Style.LEFT_ALIGN_CONC,
-        style_data_conditional=style_data,
+    conc = dcc.Loading(
+        type="default",
+        children=[
+            dash_table.DataTable(
+                id="conc-table",
+                css=[{"selector": ".dash-cell div.dash-cell-value", "rule": rule}],
+                columns=columns,
+                data=data,
+                editable=True,
+                style_cell=Style.HORIZONTAL_PAD_5,
+                filter_action="native",
+                sort_action="native",
+                sort_mode="multi",
+                row_deletable=True,
+                selected_rows=[],
+                page_action="native",
+                page_current=0,
+                page_size=rows,
+                # style_as_list_view=True,
+                style_header=Style.BOLD_DARK,
+                style_cell_conditional=Style.LEFT_ALIGN_CONC,
+                style_data_conditional=style_data,
+            )
+        ],
     )
 
     return html.Div([conc_space, conc])
@@ -454,15 +464,11 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     )
 
     tab_contents = [
-        dcc.Loading(
-            type="default",
-            id="loading-main",
-            fullscreen=True,
-            className="loading-main",
+        html.Div(
             children=[
                 html.Div(
                     id="tab-dataset",
-                    style={"display": "none"},
+                    style={"display": "block"},
                     children=[html.Div(id="display-dataset", children=[dataset])],
                 ),
                 html.Div(
@@ -484,9 +490,11 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
                         html.Div(id="display-concordance", children=[concordance])
                     ],
                 ),
-            ],
+            ]
         )
     ]
     tab_contents = html.Div(id="tab-contents", children=tab_contents)
-
-    return html.Div(id="everything", children=[top_bit, tab_headers, tab_contents])
+    gload = dcc.Loading(
+        type="default", id="loading-main", fullscreen=True, className="loading-main"
+    )
+    return html.Div(children=[top_bit, tab_headers, tab_contents, gload])

@@ -1,5 +1,10 @@
 .loading-main::after{
   content: "Preparing your workspace...";
   position: fixed;
-  margin-top: 50px;
+  margin-top: 100px;
+}
+
+/* Hide the 'Loading...' text at startup */
+._dash-loading {
+	display:none;
 }
