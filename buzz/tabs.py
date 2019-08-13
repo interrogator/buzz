@@ -424,7 +424,7 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
         html.Img(
             src="assets/bolt.jpg", height=42, width=38, style=Style.BLOCK_MIDDLE_35
         ),
-        html.H3(children="buzzword", style=pad_block),
+        html.H3(children="buzzword", style={"paddingBottom": "5px", **pad_block}),
         # these spaces are used to flash messages to the user if something is wrong
         dcc.ConfirmDialog(id="dialog-search", message=""),
         dcc.ConfirmDialog(id="dialog-table", message=""),
