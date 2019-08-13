@@ -91,3 +91,11 @@ def _table_error(show, subcorpora, updating):
 
 def _capitalize_first(s):
     return s[0].upper() + s[1:]
+
+
+def _downloadable_name(name):
+    """
+    Make a safe filename for CSV download. todo: url safe?
+    """
+    name = name.strip(".,/#").split("-- from ")[0]
+    return name.replace(" ", "-").strip("- ").lower()

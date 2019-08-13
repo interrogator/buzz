@@ -219,7 +219,14 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
                 style_header=Style.BOLD_DARK,
                 style_cell_conditional=Style.LEFT_ALIGN,
                 style_data_conditional=[style_index] + Style.STRIPES,
-            )
+            ),
+            html.A(
+                "Download",
+                id="download-link",
+                # download="freq-table.csv",
+                href="",
+                target="_blank",
+            ),
         ],
     )
     style = {**Style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}

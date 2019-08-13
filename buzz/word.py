@@ -2,6 +2,7 @@
 
 from collections import OrderedDict
 
+import os
 import pandas as pd
 
 import dash
@@ -13,16 +14,21 @@ from buzz.helpers import (
     _preprocess_corpus,
     _translate_relative,
     _update_datatable,
+    _make_csv,
 )
 from buzz.strings import (
     _make_search_name,
     _make_table_name,
     _search_error,
     _table_error,
+    _downloadable_name,
 )
 from buzz.tabs import _make_tabs
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
+
+import flask
+from flask import send_file, Response
 
 #######################
 # MAKE FLASK/DASH APP #
@@ -42,6 +48,9 @@ TABLES = OrderedDict()
 # CLICKS is a hack for clear history. move eventually to hidden div
 CLICKS = dict(clear=-1, table=-1)
 
+# where downloadable CSVs get stored
+if not os.path.isdir('csv'):
+    os.makedirs('csv')
 
 def _corpus():
     """
@@ -326,6 +335,7 @@ stat = [State(f"chart-from-{i}", "value") for i in range(1, 6)]
         Output("dialog-table", "displayed"),
         Output("dialog-table", "message"),
         Output("freq-table", "row_deletable"),
+        Output("download-link", "href"),
     ],
     [
         Input("table-button", "n_clicks"),
@@ -445,9 +455,15 @@ def _new_table(
         cols, data = _update_datatable(
             _corpus(), table.iloc[:MAX_ROWS, :MAX_COLUMNS], conll=False
         )
+
+    table_name = _make_table_name(this_table)
+
+    # todo: slow to do this every time!
+    csv_path = _make_csv(table, table_name)
+
     tfo = table_from_options
     if not msg and not updating:
-        option = dict(value=nv, label=_make_table_name(this_table))
+        option = dict(value=nv, label=table_name)
         tfo.append(option)
         nv1, nv2, nv3, nv4, nv5 = nv, nv, nv, nv, nv
     elif exists or updating:
@@ -475,6 +491,7 @@ def _new_table(
         bool(msg),
         msg,
         row_deletable,
+        csv_path,
     )
 
 
@@ -513,6 +530,15 @@ def _new_conc(n_clicks, show, search_from, current_cols, current_data):
         _corpus(), conc.iloc[:MAX_ROWS, :MAX_COLUMNS], conc=True
     )
     return cols, data, bool(msg), msg
+
+
+@app.server.route("/csv/<path:path>")
+def serve_static(path):
+    """
+    Download the file at the specified path
+    """
+    root_dir = os.path.join(os.getcwd(), "csv")
+    return flask.send_from_directory(root_dir, path)
 
 
 if __name__ == "__main__":

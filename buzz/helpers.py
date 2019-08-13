@@ -125,3 +125,16 @@ def _preprocess_corpus(corpus, max_dataset_rows, drop_columns, **kwargs):
     if drop_columns is not None:
         corpus = corpus.drop(drop_columns, axis=1)
     return corpus
+
+
+def _make_csv(table, long_name):
+    """
+    Save a CSV for table with this name
+    """
+    fname = _downloadable_name(long_name)
+    fpath = f"csv/{fname}.csv"
+    df = pd.DataFrame.from_dict(table)
+    csv_string = df.to_csv(index=False, encoding="utf-8")
+    with open(fpath, "w") as fo:
+        fo.write(df.to_csv())
+    return fpath
