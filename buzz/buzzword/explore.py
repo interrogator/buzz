@@ -487,7 +487,7 @@ def _new_conc(n_clicks, show, search_from, current_cols, current_data, slug):
     if not show:
         return current_cols, current_data, True, msg
 
-    specs, corpus = _get_from_corpus(search_from, CORPORA, SEARCHES)
+    specs, corpus = _get_from_corpus(search_from, CORPORA, SEARCHES, slug=slug)
     conc = corpus.conc(
         show=show, metadata=["file", "s", "i", "speaker"], window=(100, 100)
     )
