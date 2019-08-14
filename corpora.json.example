@@ -1,14 +1,20 @@
 {
-  "Do the Right Thing (1989)": {
+  "Do the Right Thing": {
     "slug": "do-the-right-thing",
     "path": "dtrt/do-the-right-thing-parsed",
     "desc": "Script of Spike Lee's 1989 drama, with various speaker and scene annotations",
-    "len": 17713
+    "len": 17713,
+    "drop_columns": ["voice_over", "camera_angle"],
+    "disable": false,
+    "date": "1989"
   },
-  "Unabomber Manifesto (1995)" : {
+  "Unabomber Manifesto" : {
     "slug": "manifesto",
     "path": "unabomber/manifesto-parsed",
     "desc": "Text of the Unabomber's manifesto",
-    "len": 37347
+    "len": 37347,
+    "add_governor": false,
+    "disable": false,
+    "date": "1995"
   }
 }

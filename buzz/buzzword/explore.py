@@ -29,7 +29,7 @@ from dash.exceptions import PreventUpdate
 import flask
 from flask import send_file, Response
 
-from buzz.word import app, CONFIG, CORPORA, INITIAL_TABLES
+from buzz.word import app, CONFIG, CORPORA, INITIAL_TABLES, CORPUS_META
 
 ###########
 # STORAGE #
@@ -197,7 +197,8 @@ def _new_search(
     if cleared and cleared != CLICKS["clear"]:
         # clear searches
         SEARCHES.clear()
-        SEARCHES[corpus._name] = corpus
+        name = next(k for k, v in CORPUS_META.items() if v["slug"] == slug)
+        SEARCHES[name] = corpus
         # todo: the line below could be slow. can we get from elsewhere?
         cols, data = _update_datatable(
             CORPORA[slug], CORPORA[slug], drop_govs=add_governor

@@ -22,23 +22,32 @@ def _make_corpus_table():
     """
     Create HTML table with links to each corpus in corpora.json
     """
+    import locale
+
+    locale.setlocale(locale.LC_ALL, "")
     corpora_file = "corpora.json"
     with open(corpora_file, "r") as fo:
         corpora = json.loads(fo.read())
-    fields = ["id", "title", "description", "tokens"]
+    fields = ["#", "title", "date", "description", "url", "tokens"]
     columns = [html.Tr([html.Th(col) for col in fields])]
     rows = list()
     for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
         slug = metadata["slug"]
         link = "explore/{}".format(slug)
-        row_data = [i, corpus, metadata["desc"], metadata["len"]]
+        date = metadata.get("date", "undated")
+        tokens = "{:n}".format(metadata["len"])
+        url = metadata.get("url", "none")
+        row_data = [i, corpus, date, metadata["desc"], url, tokens]
         row = list()
         for j, value in enumerate(row_data):
             if j == 1:
-                BLOCK = html.Td(html.A(href=link, children=value))
+                cell = html.Td(html.A(href=link, children=value))
+            elif j == 4:
+                hyper = html.A(href=value, children="ⓘ")
+                cell = html.Td(className="no-underline", children=hyper)
             else:
-                BLOCK = html.Td(children=value)
-            row.append(BLOCK)
+                cell = html.Td(children=value)
+            row.append(cell)
         rows.append(html.Tr(row))
     return html.Table(columns + rows)
 
@@ -75,14 +84,14 @@ def _make_upload_parse_space():
         placeholder="Language of corpus",
         id="corpus-language",
         options=[{"value": v, "label": k} for k, v in langs.items()],
-        style={**BLOCK, **{"width": "25vw"}},
+        style={**BLOCK, **{"width": "20vw"}},
     )
     upload = html.Div(children=[upload, html.Div(id="show-upload-files")])
     dialog = dcc.ConfirmDialog(id="dialog-upload", message="")
     upload_button = html.Button(
         "Upload and parse",
         id="upload-parse-button",
-        style={**BLOCK, **{"width": "10vw"}},
+        style={**BLOCK, **{"width": "15vw"}},
     )
     explore = dcc.Link(
         "Explore",
@@ -91,7 +100,12 @@ def _make_upload_parse_space():
         style={**BLOCK, **{"display": "none"}},
     )
     toolbar = html.Div([corpus_name, lang, upload_button])
-    return html.Div(id="upload-space", children=dcc.Loading(type="default", children=[dialog, upload, toolbar, explore]))
+    return html.Div(
+        id="upload-space",
+        children=dcc.Loading(
+            type="default", children=[dialog, upload, toolbar, explore]
+        ),
+    )
 
 
 def _store_corpus(contents, filenames, corpus_name):

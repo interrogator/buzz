@@ -516,12 +516,10 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
         )
     ]
     tab_contents = html.Div(id="tab-contents", children=tab_contents)
-    gload = dcc.Loading(
-        type="default", id="loading-main", fullscreen=True, className="loading-main"
-    )
+
     hidden_corpus_name = html.Div(
         id="corpus-slug", children=corpus_slug, style={"display": "none"}
     )
     return html.Div(
-        children=[top_bit, tab_headers, tab_contents, gload, hidden_corpus_name]
+        children=[top_bit, tab_headers, tab_contents, hidden_corpus_name]
     )
