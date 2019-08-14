@@ -142,7 +142,7 @@ def _from_env(env_path):
         debug=os.getenv("BUZZWORD_DEBUG", True) in trues,
         load=os.getenv("BUZZWORD_LOAD", True) in trues,
         add_governor=os.getenv("BUZZWORD_ADD_GOVERNOR", False) in trues,
-        title=os.getenv("BUZZWORD_TITLE", "buzzword"),
+        title=os.getenv("BUZZWORD_TITLE"),
         page_size=int(os.getenv("BUZZWORD_PAGE_SIZE", 25)),
         max_dataset_rows=max_dataset_rows,
         drop_columns=drop_columns,
