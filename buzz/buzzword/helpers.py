@@ -20,7 +20,7 @@ def _get_from_corpus(from_number, corpora, dataset, slug=None):
     specs, corpus = list(dataset.items())[from_number-1]
     # tables are dataframes, conll searches are just (multi)index
     if not isinstance(corpus, pd.DataFrame):
-        corpus = next(iter(dataset.values())).loc[corpus]
+        corpus = corpora[slug].loc[corpus]
     return specs, corpus
 
 

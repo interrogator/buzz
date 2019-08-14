@@ -487,12 +487,17 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
 
     tab_contents = [
         html.Div(
+            children=[dcc.Loading(
+            type="default",
+            id="loading-main",
+            fullscreen=True,
+            className="loading-main",
             children=[
                 html.Div(
                     id="tab-dataset",
                     style={"display": "block"},
                     children=[html.Div(id="display-dataset", children=[dataset])],
-                ),
+                )]),
                 html.Div(
                     id="tab-frequencies",
                     style={"display": "none"},

@@ -99,3 +99,9 @@ def _downloadable_name(name):
     """
     name = name.strip(".,/#").split("-- from ")[0]
     return name.replace(" ", "-").strip("- ").lower()
+
+def _slug_from_name(name):
+    """
+    Make a slug from an (uploaded) corpus name
+    """
+    return name.replace('/', '-').replace('.', '-').replace(' ', '-')
