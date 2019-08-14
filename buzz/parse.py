@@ -41,7 +41,7 @@ def _parse_cmd_line():
         default="benepar",
         type=str,
         required=False,
-        choices=["bllip", "benepar"],
+        choices=["bllip", "benepar", "none"],
         help="Constituency parser to use (bllip/benepar)",
     )
 
@@ -73,7 +73,7 @@ class Parser:
     """
 
     def __init__(self, cons_parser="bllip", language="english"):
-        self.cons_parser = cons_parser
+        self.cons_parser = cons_parser if cons_parser != "none" else None
         self.language = language
         self.nlp = _get_nlp()
         if self.cons_parser == "bllip":
