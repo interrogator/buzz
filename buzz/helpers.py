@@ -7,15 +7,18 @@ buzz webapp: helpers and utilities
 import pandas as pd
 
 from buzz.constants import SHORT_TO_COL_NAME, SHORT_TO_LONG_NAME
-from buzz.strings import _capitalize_first
+from buzz.strings import _capitalize_first, _downloadable_name
 
 
-def _get_from_corpus(from_number, dataset):
+def _get_from_corpus(from_number, corpora, dataset, slug=None):
     """
     Get the correct dataset from number stored in the dropdown for search_from
     """
-    specs, corpus = list(dataset.items())[from_number]
-    # load from index to save memory
+    # if we want the whole corpus, return that
+    if not from_number and corpora:
+        return slug, corpora[slug]
+    specs, corpus = list(dataset.items())[from_number-1]
+    # tables are dataframes, conll searches are just (multi)index
     if not isinstance(corpus, pd.DataFrame):
         corpus = next(iter(dataset.values())).loc[corpus]
     return specs, corpus
@@ -123,7 +126,7 @@ def _preprocess_corpus(corpus, max_dataset_rows, drop_columns, **kwargs):
     if max_dataset_rows is not None:
         corpus = corpus.iloc[:max_dataset_rows, :]
     if drop_columns is not None:
-        corpus = corpus.drop(drop_columns, axis=1)
+        corpus = corpus.drop(drop_columns, axis=1, errors='ignore')
     return corpus
 
 

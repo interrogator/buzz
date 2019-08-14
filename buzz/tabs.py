@@ -265,8 +265,15 @@ def _build_concordance_space(df, rows, add_governor):
     style = dict(width="100%", **Style.CELL_MIDDLE_35)
     toolbar = [html.Div(i, style=style) for i in [show_check, update]]
     conc_space = html.Div(toolbar, style=Style.VERTICAL_MARGINS)
-    df = df.just.x.NOUN.conc(metadata=["file", "s", "i", "speaker"], window=(100, 100))
-    df = df[["left", "match", "right", "file", "s", "i", "speaker"]]
+    meta = ["file", "s", "i"]
+    if "speaker" in df.columns:
+        meta.append("speaker")
+    df = df.just.x.NOUN.conc(metadata=meta, window=(100, 100))
+
+    just = ["left", "match", "right", "file", "s", "i"]
+    if "speaker" in df.columns:
+        just.append("speaker")
+    df = df[just]
     columns = [
         {
             "name": SHORT_TO_COL_NAME.get(i, i),
@@ -407,7 +414,7 @@ def _build_chart_space(tables, rows):
     return html.Div(charts)
 
 
-def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
+def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs):
     """
     Generate initial layout div
     """
@@ -437,11 +444,19 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
         **Style.BLOCK_MIDDLE_35,
     }
 
+    header_style = {
+        "display": "inline-block",
+        "verticalAlign": "middle",
+        "color": "#555555",
+        "text-decoration": "none",
+        "font-size": 32,
+    }
+
     top_bit = [
         html.Img(
-            src="assets/bolt.jpg", height=42, width=38, style=Style.BLOCK_MIDDLE_35
+            src="../assets/bolt.jpg", height=42, width=38, style=Style.BLOCK_MIDDLE_35
         ),
-        html.H3(children="buzzword", style={"paddingBottom": "5px", **pad_block}),
+        dcc.Link("buzzword", href="/", style=header_style),
         # these spaces are used to flash messages to the user if something is wrong
         dcc.ConfirmDialog(id="dialog-search", message=""),
         dcc.ConfirmDialog(id="dialog-table", message=""),
@@ -504,4 +519,9 @@ def _make_tabs(searches, tables, title=None, page_size=25, **kwargs):
     gload = dcc.Loading(
         type="default", id="loading-main", fullscreen=True, className="loading-main"
     )
-    return html.Div(children=[top_bit, tab_headers, tab_contents, gload])
+    hidden_corpus_name = html.Div(
+        id="corpus-slug", children=corpus_slug, style={"display": "none"}
+    )
+    return html.Div(
+        children=[top_bit, tab_headers, tab_contents, gload, hidden_corpus_name]
+    )

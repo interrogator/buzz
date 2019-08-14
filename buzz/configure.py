@@ -96,7 +96,15 @@ def _from_cmdline():
         help="Use .env file to load config, rather than command line",
     )
 
-    parser.add_argument("path", help="Path to the corpus")
+    parser.add_argument(
+        "-c",
+        "--corpora-file",
+        default="corpora.json",
+        type=str,
+        nargs="?",
+        help="Path to corpora.json",
+    )
+
     kwargs = vars(parser.parse_args())
     if kwargs["drop_columns"] is not None:
         kwargs["drop_columns"] = kwargs["drop_columns"].split(",")
@@ -138,7 +146,7 @@ def _from_env(env_path):
         max_dataset_rows = int(max_dataset_rows)
 
     return dict(
-        path=os.environ["BUZZWORD_PATH"],
+        corpora_file=os.getenv("BUZZWORD_CORPORA_FILE", "corpora.json"),
         debug=os.getenv("BUZZWORD_DEBUG", True) in trues,
         load=os.getenv("BUZZWORD_LOAD", True) in trues,
         add_governor=os.getenv("BUZZWORD_ADD_GOVERNOR", False) in trues,

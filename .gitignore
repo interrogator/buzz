@@ -113,3 +113,4 @@ sopranos/
 sopranos-parsed/
 publish.sh
 csv/
+corpora.json

@@ -121,7 +121,7 @@ def _get_nlp(language="english"):
     """
     import spacy
 
-    langs = dict(english="en_core_web_sm", german="de")
+    langs = dict(english="en_core_web_sm", en="en_core_web_sm", german="de", de="de")
     lang = langs.get(language, language)
 
     try:

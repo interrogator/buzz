@@ -1,0 +1,211 @@
+import base64
+import json
+import os
+
+import dash_core_components as dcc
+import dash_html_components as html
+from buzz.corpus import Corpus
+from buzz.word import app, CORPORA, INITIAL_TABLES
+from dash.dependencies import Input, Output, State
+from dash.exceptions import PreventUpdate
+
+BLOCK = {
+    "display": "inline-block",
+    "verticalAlign": "middle",
+    "height": "35px",
+    "paddingLeft": "5px",
+    "paddingRight": "5px",
+}
+
+
+def _make_corpus_table():
+    """
+    Create HTML table with links to each corpus in corpora.json
+    """
+    corpora_file = "corpora.json"
+    with open(corpora_file, "r") as fo:
+        corpora = json.loads(fo.read())
+    fields = ["id", "title", "description", "tokens"]
+    columns = [html.Tr([html.Th(col) for col in fields])]
+    rows = list()
+    for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
+        slug = metadata["slug"]
+        link = "explore/{}".format(slug)
+        row_data = [i, corpus, metadata["desc"], metadata["len"]]
+        row = list()
+        for j, value in enumerate(row_data):
+            if j == 1:
+                BLOCK = html.Td(html.A(href=link, children=value))
+            else:
+                BLOCK = html.Td(children=value)
+            row.append(BLOCK)
+        rows.append(html.Tr(row))
+    return html.Table(columns + rows)
+
+
+def _make_upload_parse_space():
+    """
+    Make space for uploading files, and toolbar for submit
+    """
+
+    upload = dcc.Upload(
+        id="upload-data",
+        children=html.Div(["Drag-and-drop or ", html.A("select files")]),
+        style={
+            "width": "60vw",
+            "height": "60px",
+            "lineHeight": "60px",
+            "borderWidth": "1px",
+            "borderStyle": "dashed",
+            "borderRadius": "5px",
+            "textAlign": "center",
+            "marginBottom": "10px",
+        },
+        # Allow multiple files to be uploaded
+        multiple=True,
+    )
+    langs = {"English": "en", "German": "de"}
+    corpus_name = dcc.Input(
+        id="upload-corpus-name",
+        type="text",
+        placeholder="Enter a name for your corpus",
+        style={**BLOCK, **{"width": "25vw"}},
+    )
+    lang = dcc.Dropdown(
+        placeholder="Language of corpus",
+        id="corpus-language",
+        options=[{"value": v, "label": k} for k, v in langs.items()],
+        style={**BLOCK, **{"width": "25vw"}},
+    )
+    upload = html.Div(children=[upload, html.Div(id="show-upload-files")])
+    dialog = dcc.ConfirmDialog(id="dialog-upload", message="")
+    upload_button = html.Button(
+        "Upload and parse",
+        id="upload-parse-button",
+        style={**BLOCK, **{"width": "10vw"}},
+    )
+    explore = dcc.Link(
+        "Explore",
+        id="explore-uploaded",
+        href="",
+        style={**BLOCK, **{"display": "none"}},
+    )
+    toolbar = html.Div([corpus_name, lang, upload_button])
+    return html.Div(id="upload-space", children=dcc.Loading(type="default", children=[dialog, upload, toolbar, explore]))
+
+
+def _store_corpus(contents, filenames, corpus_name):
+    """
+    From content and filenames, build a corpus and return the path to it
+    """
+    extensions = set()
+    if not os.path.isdir("uploads"):
+        os.makedirs("uploads")
+    store_at = os.path.join("uploads", corpus_name)
+    os.makedirs(store_at)
+    for content, filename in zip(contents, filenames):
+        extensions.add(os.path.splitext(filename)[-1])
+        if len(extensions) > 1:
+            break
+        content_type, content_string = content.split(",")
+        decoded = base64.b64decode(content_string)
+        outpath = os.path.join(store_at, filename)
+        with open(outpath, "wb") as fo:
+            fo.write(decoded)
+    if not len(extensions):
+        raise ValueError("No file extensions provided")
+    elif len(extensions) > 1:
+        raise ValueError("Multiple extensions provided: {}".format(extensions))
+    is_parsed = all(i.endswith(("conll", "conllu")) for i in filenames)
+    return store_at, is_parsed
+
+
+@app.callback(
+    [
+        Output("dialog-upload", "displayed"),
+        Output("dialog-upload", "message"),
+        Output("explore-uploaded", "href"),
+        Output("explore-uploaded", "style"),
+        Output("explore-uploaded", "children"),
+    ],
+    [Input("upload-parse-button", "n_clicks")],
+    [
+        State("upload-data", "contents"),
+        State("upload-data", "filename"),
+        State("corpus-language", "value"),
+        State("upload-corpus-name", "value"),
+    ],
+)
+def _upload_files(n_clicks, contents, names, corpus_lang, corpus_name):
+    """
+    Callback when the user clicks 'upload and parse'
+    """
+    if n_clicks is None:
+        raise PreventUpdate
+    msg = ""
+    try:
+        path, is_parsed = _store_corpus(contents, names, corpus_name)
+        corpus = Corpus(path)
+        if not is_parsed:
+            corpus = corpus.parse(cons_parser=None, language=corpus_lang)
+    except Exception as error:
+        msg = str(error)
+        raise
+    if not msg:
+        CORPORA[corpus_name] = corpus.load()
+        INITIAL_TABLES[corpus_name] = CORPORA[corpus_name].table(
+            show="p", subcorpora="file"
+        )
+    href = "/explore/{}".format(corpus_name)
+    display = {"display": "block", "fontSize": 24} if not msg else {"display": "none"}
+    display = {**display, **BLOCK}
+    text = "Explore: " + corpus_name
+    return bool(msg), msg, href, display, text
+
+
+@app.callback(
+    Output("show-upload-files", "children"),
+    [Input("upload-data", "contents")],
+    [State("upload-data", "filename")],
+)
+def show_uploaded(contents, filenames):
+    """
+    Display files for upload underneath the upload space
+    """
+    if not contents:
+        raise PreventUpdate
+    markdown = "* " + "\n* ".join([i for i in filenames])
+    return dcc.Markdown(markdown)
+
+
+# Configure navbar menu
+nav_menu = html.Div(
+    [
+        html.Ul(
+            [
+                html.Li([dcc.Link("First", href="/first")], className="active"),
+                html.Li([dcc.Link("Second", href="/second")]),
+                html.Li([dcc.Link("Explore", href="/explore")]),
+            ],
+            className="nav navbar-nav",
+        )
+    ],
+    className="navbar navbar-default navbar-static-top",
+)
+
+header = html.H2("buzzword: a tool for analysing annotated linguistic data")
+
+intro = html.P(
+    "Here you can create and explore parsed and annotated corpora. "
+    "If you want to work with your own corpus, simply upload plain text files, "
+    "annotated text files, or CONLL-U files. Otherwise, you can try out the corpora below."
+)
+uphead = html.H3("Upload data")
+
+demos = html.Div([html.H3("Available corpora"), _make_corpus_table()])
+
+upload = _make_upload_parse_space()
+
+content = html.Div([header, intro, uphead, upload, demos])
+# Define layout
+layout = html.Div(content, style={"marginLeft": "10px", "marginRight": "10px"})
