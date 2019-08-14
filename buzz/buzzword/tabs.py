@@ -11,8 +11,8 @@ import dash_table
 
 from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
-from buzz.helpers import _get_cols, _update_datatable, _drop_cols_for_datatable
-from buzz.strings import _make_search_name, _make_table_name, _capitalize_first
+from buzz.buzzword.helpers import _get_cols, _update_datatable, _drop_cols_for_datatable
+from buzz.buzzword.strings import _make_search_name, _make_table_name, _capitalize_first
 
 
 class Style:

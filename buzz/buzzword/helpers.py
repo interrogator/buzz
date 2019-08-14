@@ -7,7 +7,7 @@ buzz webapp: helpers and utilities
 import pandas as pd
 
 from buzz.constants import SHORT_TO_COL_NAME, SHORT_TO_LONG_NAME
-from buzz.strings import _capitalize_first, _downloadable_name
+from buzz.buzzword.strings import _capitalize_first, _downloadable_name
 
 
 def _get_from_corpus(from_number, corpora, dataset, slug=None):

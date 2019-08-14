@@ -8,28 +8,28 @@ import pandas as pd
 import dash
 from buzz.corpus import Corpus
 from buzz.dashview import _df_to_figure
-from buzz.helpers import (
+from buzz.buzzword.helpers import (
     _get_from_corpus,
     _preprocess_corpus,
     _translate_relative,
     _update_datatable,
     _make_csv,
 )
-from buzz.strings import (
+from buzz.buzzword.strings import (
     _make_search_name,
     _make_table_name,
     _search_error,
     _table_error,
     _downloadable_name,
 )
-from buzz.tabs import _make_tabs
+from buzz.buzzword.tabs import _make_tabs
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
 import flask
 from flask import send_file, Response
 
-from buzz.word import app, CONFIG, CORPORA, INITIAL_TABLES, CORPUS_META
+from buzz.buzzword.main import app, CONFIG, CORPORA, INITIAL_TABLES, CORPUS_META
 
 ###########
 # STORAGE #

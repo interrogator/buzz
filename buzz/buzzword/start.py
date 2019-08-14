@@ -5,7 +5,8 @@ import os
 import dash_core_components as dcc
 import dash_html_components as html
 from buzz.corpus import Corpus
-from buzz.word import app, CORPORA, INITIAL_TABLES
+from buzz.buzzword.main import app, CORPORA, INITIAL_TABLES, CORPUS_META
+from buzz.buzzword.strings import _slug_from_name
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
@@ -28,7 +29,7 @@ def _make_corpus_table():
     corpora_file = "corpora.json"
     with open(corpora_file, "r") as fo:
         corpora = json.loads(fo.read())
-    fields = ["#", "title", "date", "description", "url", "tokens"]
+    fields = ["#", "title", "date", "description", "info", "tokens"]
     columns = [html.Tr([html.Th(col) for col in fields])]
     rows = list()
     for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
@@ -43,7 +44,7 @@ def _make_corpus_table():
             if j == 1:
                 cell = html.Td(html.A(href=link, children=value))
             elif j == 4:
-                hyper = html.A(href=value, children="ⓘ")
+                hyper = html.A(href=value, children="ⓘ", target="_blank")
                 cell = html.Td(className="no-underline", children=hyper)
             else:
                 cell = html.Td(children=value)
@@ -61,7 +62,7 @@ def _make_upload_parse_space():
         id="upload-data",
         children=html.Div(["Drag-and-drop or ", html.A("select files")]),
         style={
-            "width": "60vw",
+            "width": "61vw",
             "height": "60px",
             "lineHeight": "60px",
             "borderWidth": "1px",
@@ -166,11 +167,14 @@ def _upload_files(n_clicks, contents, names, corpus_lang, corpus_name):
         msg = str(error)
         raise
     if not msg:
-        CORPORA[corpus_name] = corpus.load()
-        INITIAL_TABLES[corpus_name] = CORPORA[corpus_name].table(
+        slug = _slug_from_name(corpus_name)
+        CORPORA[slug] = corpus.load()
+        CORPUS_META[corpus_name] = dict(slug=slug)
+        INITIAL_TABLES[slug] = CORPORA[slug].table(
             show="p", subcorpora="file"
         )
-    href = "/explore/{}".format(corpus_name)
+    slug = _slug_from_name(corpus_name)
+    href = "/explore/{}".format(slug)
     display = {"display": "block", "fontSize": 24} if not msg else {"display": "none"}
     display = {**display, **BLOCK}
     text = "Explore: " + corpus_name

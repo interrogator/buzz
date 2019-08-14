@@ -4,25 +4,53 @@
 
 ## Running locally
 
+To run the tool locally, you'll want to have at least one parsed corpus ready to analyse. To do this, first, parse a corpus if you don't already have one parsed:
+
 ```bash
-python -m buzz.word ./path-to-parsed-corpus
+python -m buzz.parse --cons-parser none ./path/to/data
+```
+
+After this, you should configure a `corpora.json`, which tells the tool which corpora will be loaded into the tool. Copy `corpora.json.example` as `corpora.json` and modify it to contain the corpora you want to show in the app.
+
+Then, you need to choose if you'd like to configure global settings via a `.env` file or command line options. If you want to use a `.env` file, copy `.env.example` to `.env`, and change settings as you like. Most importantly, make sure `BUZZWORD_CORPORA_FILE` is set to the path for your `corpora.json`.
+
+If a value isn't configured in `corpora.json`, the tool will look to `.env` or the provided command line options.
+
+Once these files are set up, you can start the tool with:
+
+```bash
+python -m buzz.word
 # or
-buzzword ./path-to-parsed-corpus
+buzzword
 ```
 
-Either command gives you the following options:
+With either command, you can also enter any the following options:
 
 ```
---no-load / -nl         : false    : do not load the full corpus into memory (for very large datasets/small machines, makes searches much slower)
---title / -t            : buzzword : Custom title for the app
---drop-columns / -d     : none     : Comma separated list of corpus columns to drop before loading into tool
---max-dataset-rows / -m : none     : Cut corpus at this many lines before loading into tool
---table-size / -s       : 2000,200 : Max rows,columns to show in tables
---page-size / -p        : 25       : Rows per page of table
---env / -e              : none     : Use .env for configuration (pass path to .env file)
---debug                 : true     : run flask/dash in debug mode
---add-governor / -g     : false    : add governor token features to dataset. Slow to load and consumes more memory, but allows searching/showing governor features
+# global settings
+--corpora-json          : corpora.json : path to corpora.json file used to load corpora
+--no-load / -nl         : false        : do not load the full corpus into memory (for very large datasets/small machines, makes searches much slower)
+--page-size / -p        : 25           : Rows per page of table
+--env / -e              : none         : Use .env for configuration (pass path to .env file)
+--debug                 : true         : run flask/dash in debug mode
+
+# settings overridden by corpora.json
+
+--drop-columns / -d     : none         : Comma separated list of corpus columns to drop before loading into tool
+--max-dataset-rows / -m : none         : Cut corpus at this many lines before loading into tool
+--table-size / -s       : 2000,200     : Max rows,columns to show in tables
+--add-governor / -g     : false        : add governor token features to dataset. Slow to load and consumes more memory, but allows searching/showing governor features
 ```
+
+If you pass a value for `--env`, make sure all settings are in your `.env` file.
+
+## Start page
+
+The main page of the tool allows you to select a pre-loaded corpus, or upload your own. If you want to browse a pre-loaded corpus, simply click its name in the table.
+
+If you want to upload your own, you need to add files to the file input box. If you add plain text files, the tool will automatically parse them. If you add `.conll` or `.conllu` files, the tool will assume they are in `CONLL-U v2` format and attempt to load them without any kind of conversion.
+
+Once you've added files, simply provide a name for your corpus, and select its language. Then, hit `Upload and parse`. Once the parsing is finished, a link to the new corpus will appear. Click it to explore the corpus in the `Explore` view.
 
 ## Dataset view
 
