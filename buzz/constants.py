@@ -47,7 +47,6 @@ DTYPES = dict(
     m=str,
     o=str,
     n="category",
-    gender="category",
     speaker="category",
     year=np.int64,  # 'datetime64',
     date="category",  # 'datetime64',
@@ -58,7 +57,20 @@ DTYPES = dict(
     _n=np.int64,
     sent_len=np.int64,
     line=np.int64,
+    mood="category",
+    number="category",
+    person=np.int64,
+    tense="category",
+    verbform="category",
+    definite="category",
+    gender="category",
+    prontype="category",
+    adptype="category",
+    puncttype="category",
+    numtype="category",
+    punctside="category",
 )
+
 
 LONG_NAMES = dict(
     file={"files"},
@@ -132,5 +144,18 @@ LANGUAGES = {
     "Chinese": "zh",
 }
 
-_AVAILABLE_MODELS = {'en', 'de', 'it', 'nl', 'el', 'pt', 'fr', 'es'}
+_AVAILABLE_MODELS = {"en", "de", "it", "nl", "el", "pt", "fr", "es"}
 SPACY_LANGUAGES = {k: v for k, v in LANGUAGES.items() if v in _AVAILABLE_MODELS}
+
+MORPH_FIELDS = {
+    "adptype": "adp_type",
+    "definite": "definite",
+    "gender": "gender",
+    "mood": "mood",
+    "number": "number",
+    "numtype": "num_type",
+    "person": "person",
+    "prontype": "pron_type",
+    "punctside": "punct_side",
+    "puncttype": "punct_type",
+}

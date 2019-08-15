@@ -15,6 +15,7 @@ from .constants import (
     LONG_NAMES,
     MAX_SPEAKERNAME_SIZE,
     SPACY_LANGUAGES,
+    MORPH_FIELDS,
 )
 
 
@@ -216,11 +217,12 @@ def _make_csv(raw_lines, fname):
     return "\n".join(csvdat), meta_dicts
 
 
-def _order_df_columns(df, metadata=None):
+def _order_df_columns(df, metadata=None, morph=None):
     if metadata is None:
         metadata = [i for i in list(df.columns) if i not in COLUMN_NAMES]
+    morph = morph or list()
     good_names = [i for i in COLUMN_NAMES if i in df.columns]
-    df = df[good_names + list(sorted(metadata))]
+    df = df[good_names + morph + list(sorted(metadata))]
     return df
 
 
@@ -247,6 +249,23 @@ def _add_governor(df):
     govs.columns = ["g" + i for i in list(govs.columns)]
     return pd.concat([df, govs], axis=1, sort=False)
 
+def _morph_apply(morph_list):
+    out = dict()
+    if morph_list == ['_']: 
+        return out
+    for item in morph_list:
+        k, v = item.split('=', 1) 
+        out[k] = v 
+    return out 
+
+def _parse_out_morph(df):
+    m = df['m'].str.split('|')
+    morph = m.apply(_morph_apply)
+    morph = pd.DataFrame.from_dict(list(morph)).fillna('_')
+    morph.index = df.index
+    morph.columns = [MORPH_FIELDS.get(i.lower(), i.lower()) for i in morph.columns]
+    cols = list(morph.columns)
+    return morph.join(df, how="inner"), cols
 
 def _to_df(
     corpus,
@@ -256,6 +275,7 @@ def _to_df(
     usename: Optional[str] = None,
     set_data_types: bool = True,
     add_governor: bool = False,
+    morph: bool = True,
 ):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
@@ -287,6 +307,10 @@ def _to_df(
         usecols=usecols,
     )
 
+    morph_cols = None
+    if morph and (df.m != '_').any():
+        df, morph_cols = _parse_out_morph(df)
+
     # make a dataframe containing sentence level metadata, then join it to main df
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
     metadata = pd.DataFrame(metadata).T
@@ -294,10 +318,11 @@ def _to_df(
     df = metadata.join(df, how="inner")
 
     # fix the column order
-    df = _order_df_columns(df, metadata)
+    df = _order_df_columns(df, metadata, morph_cols)
 
     # remove columns whose value was interpeted or for which nothing is ever availablr
     badcols = ["o", "m"]
+
     df = df.drop(badcols, axis=1, errors="ignore")
 
     df["g"] = df["g"].fillna(0)

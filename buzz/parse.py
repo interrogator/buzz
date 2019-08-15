@@ -180,14 +180,18 @@ class Parser:
             governor = self._get_governor_id(word)
             word_text = self._normalise_word(str(word))
             named_ent = self._make_misc_field(word)
+            if '__' in word.tag_ and len(word.tag_) > 2:
+                tag, morph = word.tag_.split('__', 1)
+            else:
+                tag, morph = word.tag_, '_'
 
             parts = [
                 str(word_index),
                 word_text,
                 word.lemma_,
                 word.pos_,
-                word.tag_,
-                "_",
+                tag,
+                morph,
                 governor,
                 word.dep_,
                 "_",
