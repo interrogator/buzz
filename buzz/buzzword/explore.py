@@ -162,7 +162,6 @@ def _new_search(
     Validate input, run the search, store data and display things
     """
     # the first callback, before anything is loaded
-    print("NEW SEARCH CALLBACK", n_clicks)
     if n_clicks is None:
         return (
             current_cols,
@@ -340,7 +339,6 @@ def _new_table(
     """
     # do nothing if not yet loaded
     if n_clicks is None:
-        print("THIS ONE HAPPENED")
         raise PreventUpdate
 
     # because no option below can return initial table, rows can now be deleted

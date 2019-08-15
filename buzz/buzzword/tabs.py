@@ -534,6 +534,6 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
     hidden_corpus_name = html.Div(
         id="corpus-slug", children=corpus_slug, style={"display": "none"}
     )
-    return html.Div(
+    return html.Div(id="everything",
         children=[top_bit, tab_headers, tab_contents, hidden_corpus_name]
     )

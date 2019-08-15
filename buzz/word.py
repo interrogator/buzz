@@ -15,9 +15,15 @@ if not os.path.isdir("csv"):
     os.makedirs("csv")
 
 
-app.layout = html.Div(
-    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
-)
+def _get_layout():
+    """
+    Function for layout. Could be helpful in future to do it this way.
+    """
+    loc = dcc.Location(id="url", refresh=False)
+    content = html.Div(id="page-content")
+    return html.Div([loc, content])
+
+app.layout = _get_layout
 
 LAYOUTS = dict()
 
