@@ -110,6 +110,18 @@ for i in range(1, 6):
 
 
 @app.callback(
+    [Output("loading-main", "className"), Output("loading-main", "fullscreen")],
+    [Input("everything", "children")],
+    [],
+)
+def _on_load_callback(n_clicks):
+    """
+    This gets triggered on load; we use it to fix loading screen
+    """
+    return "loading-non-main", False
+
+
+@app.callback(
     [
         Output("conll-view", "columns"),
         Output("conll-view", "data"),
@@ -119,8 +131,6 @@ for i in range(1, 6):
         Output("dialog-search", "displayed"),
         Output("dialog-search", "message"),
         Output("conll-view", "row_deletable"),
-        Output("loading-main", "className"),
-        Output("loading-main", "fullscreen"),
     ],
     [Input("search-button", "n_clicks"), Input("clear-history", "n_clicks")],
     [
@@ -152,6 +162,7 @@ def _new_search(
     Validate input, run the search, store data and display things
     """
     # the first callback, before anything is loaded
+    print("NEW SEARCH CALLBACK", n_clicks)
     if n_clicks is None:
         return (
             current_cols,
@@ -162,14 +173,14 @@ def _new_search(
             False,
             "",
             False,
-            "loading-non-main",
-            False,
         )
 
     add_governor = CONFIG["add_governor"]
     max_row, max_col = CONFIG["table_size"]
 
-    specs, corpus = _get_from_corpus(search_from, CORPORA, SEARCHES, slug=slug)
+    specs, corpus = _get_from_corpus(
+        search_from, CORPORA, SEARCHES, slug=slug, tables_extra=TABLES
+    )
 
     msg = _search_error(col, search_string)
     if msg:
@@ -181,8 +192,6 @@ def _new_search(
             False,
             True,
             msg,
-            False,
-            "loading-non-main",
             False,
         )
 
@@ -208,18 +217,7 @@ def _new_search(
         ]
         # set number of clicks at last moment
         CLICKS["clear"] = cleared
-        return (
-            cols,
-            data,
-            search_from,
-            0,
-            True,
-            False,
-            "",
-            False,
-            "loading-non-main",
-            False,
-        )
+        return (cols, data, search_from, 0, True, False, "", False)
 
     found_results = True
 
@@ -269,8 +267,6 @@ def _new_search(
         bool(msg),
         msg,
         True,
-        "loading-non-main",
-        False,
     )
 
 
@@ -344,13 +340,16 @@ def _new_table(
     """
     # do nothing if not yet loaded
     if n_clicks is None:
+        print("THIS ONE HAPPENED")
         raise PreventUpdate
 
     # because no option below can return initial table, rows can now be deleted
     row_deletable = True
 
     # parse options and get correct data
-    specs, corpus = _get_from_corpus(search_from, CORPORA, SEARCHES, slug=slug)
+    specs, corpus = _get_from_corpus(
+        search_from, CORPORA, SEARCHES, slug=slug, tables_extra=TABLES
+    )
     if not sort:
         sort = "total"
     relative, keyness = _translate_relative(relkey, CORPORA[slug])
@@ -487,7 +486,9 @@ def _new_conc(n_clicks, show, search_from, current_cols, current_data, slug):
     if not show:
         return current_cols, current_data, True, msg
 
-    specs, corpus = _get_from_corpus(search_from, CORPORA, SEARCHES, slug=slug)
+    specs, corpus = _get_from_corpus(
+        search_from, CORPORA, SEARCHES, slug=slug, tables_extra=TABLES
+    )
     conc = corpus.conc(
         show=show, metadata=["file", "s", "i", "speaker"], window=(100, 100)
     )
