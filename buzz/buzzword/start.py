@@ -10,14 +10,8 @@ from buzz.buzzword.main import app, CORPORA, INITIAL_TABLES, CORPUS_META
 from buzz.buzzword.strings import _slug_from_name
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
-
-BLOCK = {
-    "display": "inline-block",
-    "verticalAlign": "middle",
-    "height": "35px",
-    "paddingLeft": "5px",
-    "paddingRight": "5px",
-}
+from buzz.buzzword.nav import navbar
+from buzz.buzzword import style
 
 
 def _make_corpus_table():
@@ -34,7 +28,7 @@ def _make_corpus_table():
     columns = [html.Tr([html.Th(col) for col in fields])]
     rows = list()
     for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
-        if metadata.get('disabled'):
+        if metadata.get("disabled"):
             continue
         slug = metadata["slug"]
         link = "explore/{}".format(slug)
@@ -47,7 +41,7 @@ def _make_corpus_table():
         for j, value in enumerate(row_data):
             if j == 1:
                 cell = html.Td(html.A(href=link, children=value))
-            elif j == 4:
+            elif j == 5:
                 hyper = html.A(href=value, children="ⓘ", target="_blank")
                 cell = html.Td(className="no-underline", children=hyper)
             else:
@@ -82,26 +76,26 @@ def _make_upload_parse_space():
         id="upload-corpus-name",
         type="text",
         placeholder="Enter a name for your corpus",
-        style={**BLOCK, **{"width": "25vw"}},
+        style={**style.BLOCK, **{"width": "25vw"}},
     )
     lang = dcc.Dropdown(
         placeholder="Language of corpus",
         id="corpus-language",
         options=[{"value": v, "label": k} for k, v in SPACY_LANGUAGES.items()],
-        style={**BLOCK, **{"width": "20vw"}},
+        style={**style.BLOCK, **{"width": "20vw"}},
     )
     upload = html.Div(children=[upload, html.Div(id="show-upload-files")])
     dialog = dcc.ConfirmDialog(id="dialog-upload", message="")
     upload_button = html.Button(
         "Upload and parse",
         id="upload-parse-button",
-        style={**BLOCK, **{"width": "15vw"}},
+        style={**style.BLOCK, **{"width": "15vw"}},
     )
     explore = dcc.Link(
         "Explore",
         id="explore-uploaded",
         href="",
-        style={**BLOCK, **{"display": "none"}},
+        style={**style.BLOCK, **{"display": "none"}},
     )
     toolbar = html.Div([corpus_name, lang, upload_button])
     return html.Div(
@@ -173,13 +167,11 @@ def _upload_files(n_clicks, contents, names, corpus_lang, corpus_name):
         slug = _slug_from_name(corpus_name)
         CORPORA[slug] = corpus.load()
         CORPUS_META[corpus_name] = dict(slug=slug)
-        INITIAL_TABLES[slug] = CORPORA[slug].table(
-            show="p", subcorpora="file"
-        )
+        INITIAL_TABLES[slug] = CORPORA[slug].table(show="p", subcorpora="file")
     slug = _slug_from_name(corpus_name)
     href = "/explore/{}".format(slug)
     display = {"display": "block", "fontSize": 24} if not msg else {"display": "none"}
-    display = {**display, **BLOCK}
+    display = {**display, **style.BLOCK}
     text = "Explore: " + corpus_name
     return bool(msg), msg, href, display, text
 
@@ -199,21 +191,6 @@ def show_uploaded(contents, filenames):
     return dcc.Markdown(markdown)
 
 
-# Configure navbar menu
-nav_menu = html.Div(
-    [
-        html.Ul(
-            [
-                html.Li([dcc.Link("First", href="/first")], className="active"),
-                html.Li([dcc.Link("Second", href="/second")]),
-                html.Li([dcc.Link("Explore", href="/explore")]),
-            ],
-            className="nav navbar-nav",
-        )
-    ],
-    className="navbar navbar-default navbar-static-top",
-)
-
 header = html.H2("buzzword: a tool for analysing annotated linguistic data")
 
 intro = html.P(
@@ -227,6 +204,6 @@ demos = html.Div([html.H3("Available corpora"), _make_corpus_table()])
 
 upload = _make_upload_parse_space()
 
-content = html.Div([header, intro, uphead, upload, demos])
+content = html.Div([navbar, header, intro, uphead, upload, demos])
 # Define layout
 layout = html.Div(content, style={"marginLeft": "10px", "marginRight": "10px"})

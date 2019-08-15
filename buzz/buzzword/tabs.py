@@ -13,83 +13,19 @@ from buzz.constants import SHORT_TO_COL_NAME
 from buzz.dashview import CHART_TYPES, _df_to_figure
 from buzz.buzzword.helpers import _get_cols, _update_datatable, _drop_cols_for_datatable
 from buzz.buzzword.strings import _make_search_name, _make_table_name, _capitalize_first
-
-
-class Style:
-    """
-    Reusable CSS
-    """
-
-    VERTICAL_MARGINS = {"marginBottom": 15, "marginTop": 15}
-    HORIZONTAL_PAD_5 = {"paddingLeft": 5, "paddingRight": 5}
-    CELL_MIDDLE_35 = {
-        "display": "table-cell",
-        "verticalAlign": "middle",
-        "height": "35px",
-    }
-    BLOCK_MIDDLE_35 = {
-        "display": "inline-block",
-        "verticalAlign": "middle",
-        "height": "35px",
-    }
-    MARGIN_5_MONO = {"marginLeft": 5, "marginRight": 5, "fontFamily": "monospace"}
-    BOLD_DARK = {"fontWeight": "bold", "color": "#555555"}
-    STRIPES = [{"if": {"row_index": "odd"}, "backgroundColor": "rgb(248, 248, 248)"}]
-    LEFT_ALIGN = [
-        {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
-        for c in ["file", "w", "l", "x", "p", "f", "speaker", "setting"]
-    ]
-    LEFT_ALIGN_CONC = [
-        {"if": {"column_id": c}, "textAlign": "left", "paddingLeft": "5px"}
-        for c in ["file", "match", "right", "speaker", "setting"]
-    ]
-    FILE_INDEX = {
-        "if": {"column_id": "file"},
-        "backgroundColor": "#fafafa",
-        "color": "#555555",
-        "fontWeight": "bold",
-    }
-    INDEX = [
-        {
-            "if": {"column_id": c},
-            "backgroundColor": "#fafafa",
-            "color": "#555555",
-            "fontWeight": "bold",
-        }
-        for c in ["file", "s", "i"]
-    ]
-    CONC_LMR = [
-        {"if": {"column_id": "match"}, "fontWeight": "bold"},
-        {
-            "if": {"column_id": "left"},
-            "whiteSpace": "no-wrap",
-            "overflow": "hidden",
-            "textOverflow": "ellipsis",
-            "width": "35%",
-            "maxWidth": 0,
-            "direction": "rtl",
-        },
-        {
-            "if": {"column_id": "right"},
-            "whiteSpace": "no-wrap",
-            "overflow": "hidden",
-            "textOverflow": "ellipsis",
-            "width": "35%",
-            "maxWidth": 0,
-        },
-    ]
+from buzz.buzzword import style
 
 
 def _build_dataset_space(df, rows, **kwargs):
     """
     Build the search interface and the conll display
     """
-    cols = _get_cols(df, kwargs['add_governor'])
+    cols = _get_cols(df, kwargs["add_governor"])
     cols = [dict(label="Dependencies", value="d")] + cols
-    df = _drop_cols_for_datatable(df, kwargs['add_governor'])
+    df = _drop_cols_for_datatable(df, kwargs["add_governor"])
     df = df.reset_index()
     max_row, max_col = kwargs["table_size"]
-    df = df.iloc[:max_row,:max_col]
+    df = df.iloc[:max_row, :max_col]
     pieces = [
         dcc.Dropdown(
             id="search-target",
@@ -104,21 +40,21 @@ def _build_dataset_space(df, rows, **kwargs):
             type="text",
             placeholder="Enter regular expression search query...",
             size="120",
-            style=Style.MARGIN_5_MONO,
+            style=style.MARGIN_5_MONO,
         ),
         daq.BooleanSwitch(
             id="skip-switch",
             on=False,
-            style={"verticalAlign": "middle", **Style.MARGIN_5_MONO},
+            style={"verticalAlign": "middle", **style.MARGIN_5_MONO},
         ),
         html.Button("Search", id="search-button"),
     ]
-    pieces = [html.Div(piece, style=Style.CELL_MIDDLE_35) for piece in pieces]
+    pieces = [html.Div(piece, style=style.CELL_MIDDLE_35) for piece in pieces]
     # add tooltip to boolean switch
     pieces[2].title = "Invert result"
     # pieces[0].style['position'] = "absolute";
     search_space = html.Div(
-        pieces, style={"fontFamily": "bold", **Style.VERTICAL_MARGINS}
+        pieces, style={"fontFamily": "bold", **style.VERTICAL_MARGINS}
     )
     columns = [
         {
@@ -135,7 +71,7 @@ def _build_dataset_space(df, rows, **kwargs):
         columns=columns,
         data=data,
         editable=True,
-        style_cell=Style.HORIZONTAL_PAD_5,
+        style_cell=style.HORIZONTAL_PAD_5,
         filter_action="native",
         sort_action="native",
         sort_mode="multi",
@@ -145,9 +81,9 @@ def _build_dataset_space(df, rows, **kwargs):
         page_current=0,
         page_size=rows,
         # style_as_list_view=True,
-        style_header=Style.BOLD_DARK,
-        style_cell_conditional=Style.LEFT_ALIGN,
-        style_data_conditional=Style.INDEX + Style.STRIPES,
+        style_header=style.BOLD_DARK,
+        style_cell_conditional=style.LEFT_ALIGN,
+        style_data_conditional=style.INDEX + style.STRIPES,
     )
     return html.Div(id="dataset-container", children=[search_space, conll_table])
 
@@ -156,24 +92,24 @@ def _build_frequencies_space(corpus, table, rows, **kwargs):
     """
     Build stuff related to the frequency table
     """
-    cols = _get_cols(corpus, kwargs['add_governor'])
+    cols = _get_cols(corpus, kwargs["add_governor"])
     show_check = dcc.Dropdown(
         placeholder="Features to show",
         multi=True,
         id="show-for-table",
         options=cols,
         value=[],
-        style=Style.MARGIN_5_MONO,
+        style=style.MARGIN_5_MONO,
     )
     subcorpora_drop = dcc.Dropdown(
         id="subcorpora-for-table",
         options=cols,
         placeholder="Feature for index",
-        style=Style.MARGIN_5_MONO,
+        style=style.MARGIN_5_MONO,
     )
     relative_drop = dcc.Dropdown(
         id="relative-for-table",
-        style=Style.MARGIN_5_MONO,
+        style=style.MARGIN_5_MONO,
         options=[
             {"label": "Absolute frequency", "value": "ff"},
             {"label": "Relative of result", "value": "tf"},
@@ -185,7 +121,7 @@ def _build_frequencies_space(corpus, table, rows, **kwargs):
     )
     sort_drop = dcc.Dropdown(
         id="sort-for-table",
-        style=Style.MARGIN_5_MONO,
+        style=style.MARGIN_5_MONO,
         options=[
             {"label": "Total", "value": "total"},
             {"label": "Infrequent", "value": "infreq"},
@@ -198,11 +134,11 @@ def _build_frequencies_space(corpus, table, rows, **kwargs):
         placeholder="Sort columns by...",
     )
     max_row, max_col = kwargs["table_size"]
-    table = table.iloc[:max_row,:max_col]
+    table = table.iloc[:max_row, :max_col]
     columns, data = _update_datatable(corpus, table, conll=False, deletable=False)
 
     # modify the style_index used for other tables to just work for this index
-    style_index = Style.FILE_INDEX
+    style_index = style.FILE_INDEX
     style_index["if"]["column_id"] = table.index.name
     freq_table = dcc.Loading(
         type="default",
@@ -212,7 +148,7 @@ def _build_frequencies_space(corpus, table, rows, **kwargs):
                 columns=columns,
                 data=data,
                 editable=True,
-                style_cell=Style.HORIZONTAL_PAD_5,
+                style_cell=style.HORIZONTAL_PAD_5,
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
@@ -221,9 +157,9 @@ def _build_frequencies_space(corpus, table, rows, **kwargs):
                 page_action="native",
                 page_current=0,
                 page_size=rows,
-                style_header=Style.BOLD_DARK,
-                style_cell_conditional=Style.LEFT_ALIGN,
-                style_data_conditional=[style_index] + Style.STRIPES,
+                style_header=style.BOLD_DARK,
+                style_cell_conditional=style.LEFT_ALIGN,
+                style_data_conditional=[style_index] + style.STRIPES,
             ),
             html.A(
                 "Download",
@@ -234,22 +170,22 @@ def _build_frequencies_space(corpus, table, rows, **kwargs):
             ),
         ],
     )
-    style = {**Style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}
+    tstyle = {**style.CELL_MIDDLE_35, **{"width": "25%", "display": "inline-block"}}
     left = html.Div(
-        [html.Div(show_check, style=style), html.Div(subcorpora_drop, style=style)]
+        [html.Div(show_check, style=tstyle), html.Div(subcorpora_drop, style=tstyle)]
     )
     right = html.Div(
         [
-            html.Div(sort_drop, style=style),
-            html.Div(relative_drop, style=style),
+            html.Div(sort_drop, style=tstyle),
+            html.Div(relative_drop, style=tstyle),
             html.Button(
                 "Generate table",
                 id="table-button",
-                style={"width": "20%", **Style.CELL_MIDDLE_35, **Style.MARGIN_5_MONO},
+                style={"width": "20%", **style.CELL_MIDDLE_35, **style.MARGIN_5_MONO},
             ),
         ]
     )
-    toolbar = html.Div([left, right], style=Style.VERTICAL_MARGINS)
+    toolbar = html.Div([left, right], style=style.VERTICAL_MARGINS)
     return html.Div([toolbar, freq_table])
 
 
@@ -257,22 +193,22 @@ def _build_concordance_space(df, rows, **kwargs):
     """
     Div representing the concordance tab
     """
-    cols = _get_cols(df, kwargs['add_governor'])
+    cols = _get_cols(df, kwargs["add_governor"])
 
     show_check = dcc.Dropdown(
         multi=True,
         placeholder="Features to show",
         id="show-for-conc",
         options=cols,
-        style=Style.MARGIN_5_MONO,
+        style=style.MARGIN_5_MONO,
     )
-    update = html.Button("Update", id="update-conc", style=Style.MARGIN_5_MONO)
-    style = dict(width="100%", **Style.CELL_MIDDLE_35)
-    toolbar = [html.Div(i, style=style) for i in [show_check, update]]
-    conc_space = html.Div(toolbar, style=Style.VERTICAL_MARGINS)
-    
+    update = html.Button("Update", id="update-conc", style=style.MARGIN_5_MONO)
+    tstyle = dict(width="100%", **style.CELL_MIDDLE_35)
+    toolbar = [html.Div(i, style=tstyle) for i in [show_check, update]]
+    conc_space = html.Div(toolbar, style=style.VERTICAL_MARGINS)
+
     max_row, max_col = kwargs["table_size"]
-    df = df.iloc[:max_row,:max_col]
+    df = df.iloc[:max_row, :max_col]
 
     meta = ["file", "s", "i"]
     if "speaker" in df.columns:
@@ -292,7 +228,7 @@ def _build_concordance_space(df, rows, **kwargs):
         }
         for i in df.columns
     ]
-    style_data = [Style.STRIPES[0], Style.INDEX[0]] + Style.CONC_LMR
+    style_data = [style.STRIPES[0], style.INDEX[0]] + style.CONC_LMR
     data = df.to_dict("rows")
     rule = "display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;"
     conc = dcc.Loading(
@@ -304,7 +240,7 @@ def _build_concordance_space(df, rows, **kwargs):
                 columns=columns,
                 data=data,
                 editable=True,
-                style_cell=Style.HORIZONTAL_PAD_5,
+                style_cell=style.HORIZONTAL_PAD_5,
                 filter_action="native",
                 sort_action="native",
                 sort_mode="multi",
@@ -314,8 +250,8 @@ def _build_concordance_space(df, rows, **kwargs):
                 page_current=0,
                 page_size=rows,
                 # style_as_list_view=True,
-                style_header=Style.BOLD_DARK,
-                style_cell_conditional=Style.LEFT_ALIGN_CONC,
+                style_header=style.BOLD_DARK,
+                style_cell_conditional=style.LEFT_ALIGN_CONC,
                 style_data_conditional=style_data,
             )
         ],
@@ -344,7 +280,7 @@ def _build_chart_space(tables, rows, **kwargs):
             id=f"chart-from-{chart_num}",
             options=table_from,
             value=0,
-            style=Style.MARGIN_5_MONO,
+            style=style.MARGIN_5_MONO,
         )
         types = [
             dict(label=_capitalize_first(i).replace("_", " "), value=i)
@@ -354,7 +290,7 @@ def _build_chart_space(tables, rows, **kwargs):
             id=f"chart-type-{chart_num}",
             options=types,
             value=kind,
-            style=Style.MARGIN_5_MONO,
+            style=style.MARGIN_5_MONO,
         )
         transpose = (
             daq.BooleanSwitch(
@@ -370,12 +306,12 @@ def _build_chart_space(tables, rows, **kwargs):
             min=1,
             max=99,
             value=7,
-            style=Style.MARGIN_5_MONO,
+            style=style.MARGIN_5_MONO,
         )
         update = html.Button("Update", id=f"figure-button-{chart_num}")
 
         toolbar = [dropdown, chart_type, top_n, transpose, update]
-        style = dict(display="inline-block", verticalAlign="middle")
+        tstyle = dict(display="inline-block", verticalAlign="middle")
         widths = {
             dropdown: "50%",
             chart_type: "25%",
@@ -386,14 +322,14 @@ def _build_chart_space(tables, rows, **kwargs):
         tools = list()
         for component in toolbar:
             width = widths.get(component, "10%")
-            nstyle = {**style, **{"width": width}}
+            nstyle = {**tstyle, **{"width": width}}
             div = html.Div(component, style=nstyle)
             if component == transpose:
                 div.title = "Transpose axes"
             elif component == top_n:
                 div.title = "Number of entries to display"
             tools.append(div)
-        toolbar = html.Div(tools, style=Style.VERTICAL_MARGINS)
+        toolbar = html.Div(tools, style=style.VERTICAL_MARGINS)
         df = tables["initial"]
         figure = _df_to_figure(df, kind=kind)
         chart_data = dict(
@@ -412,7 +348,7 @@ def _build_chart_space(tables, rows, **kwargs):
                         "fontSize": "11pt",
                         "paddingBottom": "10px",
                         "paddingTop": "10px",
-                        **Style.BOLD_DARK,
+                        **style.BOLD_DARK,
                     },
                 ),
                 html.Div(chart_space),
@@ -440,41 +376,33 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
         dict(value=i, label=_make_search_name(h, len(corpus)))
         for i, h in enumerate(searches)
     ]
-    clear = html.Button("Clear history", id="clear-history", style=Style.MARGIN_5_MONO)
+    clear = html.Button("Clear history", id="clear-history", style=style.MARGIN_5_MONO)
     dropdown = dcc.Dropdown(
         id="search-from", options=search_from, value=0, disabled=True
     )
 
-    pad_block = {**Style.HORIZONTAL_PAD_5, **Style.BLOCK_MIDDLE_35}
+    pad_block = {**style.HORIZONTAL_PAD_5, **style.BLOCK_MIDDLE_35}
     drop_style = {
         "fontFamily": "monospace",
         "width": "60%",
-        **Style.HORIZONTAL_PAD_5,
-        **Style.BLOCK_MIDDLE_35,
-    }
-
-    header_style = {
-        "display": "inline-block",
-        "verticalAlign": "middle",
-        "color": "#555555",
-        "text-decoration": "none",
-        "font-size": 32,
+        **style.HORIZONTAL_PAD_5,
+        **style.BLOCK_MIDDLE_35,
     }
 
     top_bit = [
         html.Img(
-            src="../assets/bolt.jpg", height=42, width=38, style=Style.BLOCK_MIDDLE_35
+            src="../assets/bolt.jpg", height=42, width=38, style=style.BLOCK_MIDDLE_35
         ),
-        dcc.Link("buzzword", href="/", style=header_style),
+        dcc.Link("buzzword", href="/", style=style.NAV_HEADER),
         # these spaces are used to flash messages to the user if something is wrong
         dcc.ConfirmDialog(id="dialog-search", message=""),
         dcc.ConfirmDialog(id="dialog-table", message=""),
         dcc.ConfirmDialog(id="dialog-chart", message=""),
         dcc.ConfirmDialog(id="dialog-conc", message=""),
         html.Div(dropdown, style=drop_style),
-        html.Div(clear, style=dict(width="10%", **Style.BLOCK_MIDDLE_35)),
+        html.Div(clear, style=dict(width="10%", **style.BLOCK_MIDDLE_35)),
     ]
-    top_bit = html.Div(top_bit, style=Style.VERTICAL_MARGINS)
+    top_bit = html.Div(top_bit, style=style.VERTICAL_MARGINS)
 
     tab_headers = dcc.Tabs(
         id="tabs",
@@ -496,17 +424,22 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
 
     tab_contents = [
         html.Div(
-            children=[dcc.Loading(
-            type="default",
-            id="loading-main",
-            fullscreen=True,
-            className="loading-main",
             children=[
-                html.Div(
-                    id="tab-dataset",
-                    style={"display": "block"},
-                    children=[html.Div(id="display-dataset", children=[dataset])],
-                )]),
+                dcc.Loading(
+                    type="default",
+                    id="loading-main",
+                    fullscreen=True,
+                    className="loading-main",
+                    children=[
+                        html.Div(
+                            id="tab-dataset",
+                            style={"display": "block"},
+                            children=[
+                                html.Div(id="display-dataset", children=[dataset])
+                            ],
+                        )
+                    ],
+                ),
                 html.Div(
                     id="tab-frequencies",
                     style={"display": "none"},
@@ -534,6 +467,7 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
     hidden_corpus_name = html.Div(
         id="corpus-slug", children=corpus_slug, style={"display": "none"}
     )
-    return html.Div(id="everything",
-        children=[top_bit, tab_headers, tab_contents, hidden_corpus_name]
+    return html.Div(
+        id="everything",
+        children=[top_bit, tab_headers, tab_contents, hidden_corpus_name],
     )

@@ -249,23 +249,26 @@ def _add_governor(df):
     govs.columns = ["g" + i for i in list(govs.columns)]
     return pd.concat([df, govs], axis=1, sort=False)
 
+
 def _morph_apply(morph_list):
     out = dict()
-    if morph_list == ['_']: 
+    if morph_list == ["_"]:
         return out
     for item in morph_list:
-        k, v = item.split('=', 1) 
-        out[k] = v 
-    return out 
+        k, v = item.split("=", 1)
+        out[k] = v
+    return out
+
 
 def _parse_out_morph(df):
-    m = df['m'].str.split('|')
+    m = df["m"].str.split("|")
     morph = m.apply(_morph_apply)
-    morph = pd.DataFrame.from_dict(list(morph)).fillna('_')
+    morph = pd.DataFrame.from_dict(list(morph)).fillna("_")
     morph.index = df.index
     morph.columns = [MORPH_FIELDS.get(i.lower(), i.lower()) for i in morph.columns]
     cols = list(morph.columns)
     return morph.join(df, how="inner"), cols
+
 
 def _to_df(
     corpus,
@@ -308,7 +311,7 @@ def _to_df(
     )
 
     morph_cols = None
-    if morph and (df.m != '_').any():
+    if morph and (df.m != "_").any():
         df, morph_cols = _parse_out_morph(df)
 
     # make a dataframe containing sentence level metadata, then join it to main df

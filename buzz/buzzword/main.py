@@ -4,7 +4,10 @@ import json
 from buzz.buzzword.helpers import _preprocess_corpus
 from buzz.buzzword.configure import _configure_buzzword
 
-external_stylesheets = ["https://codepen.io/chriddyp/pen/bWLwgP.css"]
+external_stylesheets = [
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+    "https://codepen.io/chriddyp/pen/bWLwgP.css",
+]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
@@ -39,7 +42,7 @@ def _get_corpora(corpus_meta):
             continue
         corpus = Corpus(metadata["path"])
         conf = _get_corpus_config(metadata, CONFIG)
-        print('Loading corpus into memory: {} ...'.format(corpus_name))
+        print("Loading corpus into memory: {} ...".format(corpus_name))
         corpus = corpus.load(add_governor=conf["add_governor"])
         corpus = _preprocess_corpus(corpus, **conf)
         initial_table = corpus.table(show="p", subcorpora="file")

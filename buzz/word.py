@@ -2,11 +2,13 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-from buzz.buzzword.main import app, server, CORPORA, CONFIG, INITIAL_TABLES, CORPUS_META
-from buzz.buzzword import start, explore
+from buzz.buzzword.main import app, CORPORA, CONFIG, INITIAL_TABLES, CORPUS_META
+from buzz.buzzword import start, guide, about
 from buzz.buzzword.tabs import _make_tabs
 from dash.exceptions import PreventUpdate
 from collections import OrderedDict
+from buzz.buzzword import explore  # noqa: F401
+from buzz.buzzword.main import server  # noqa: F401
 
 import os
 
@@ -22,6 +24,7 @@ def _get_layout():
     loc = dcc.Location(id="url", refresh=False)
     content = html.Div(id="page-content")
     return html.Div([loc, content])
+
 
 app.layout = _get_layout
 
@@ -39,6 +42,10 @@ def _make_explore_layout(slug, name):
 def _choose_correct_page(pathname):
     if pathname is None:
         raise PreventUpdate
+    if pathname == "/about":
+        return about.layout
+    if pathname == "/guide":
+        return guide.layout
     if pathname.startswith("/explore"):
         slug = pathname.rstrip("/").split("/")[-1]
         if slug not in CORPORA:

@@ -18,15 +18,15 @@ def _get_from_corpus(from_number, corpora, dataset, slug=None, tables_extra=None
     """
     # handle uploaded corpora
     if slug and slug not in corpora:
-        upload = os.path.join('uploads', slug + '-parsed')
+        upload = os.path.join("uploads", slug + "-parsed")
         loaded = Corpus(upload).load()
         corpora[slug] = loaded
         # also add to tables
-        tables_extra["initial"] = loaded.table(show='p', subcorpora='file')
+        tables_extra["initial"] = loaded.table(show="p", subcorpora="file")
     # if we want the whole corpus, return that
     if not from_number and corpora:
         return slug, corpora[slug]
-    specs, corpus = list(dataset.items())[from_number-1]
+    specs, corpus = list(dataset.items())[from_number - 1]
     # tables are dataframes, conll searches are just (multi)index
     if not isinstance(corpus, pd.DataFrame):
         corpus = corpora[slug].loc[corpus]
@@ -135,7 +135,7 @@ def _preprocess_corpus(corpus, max_dataset_rows, drop_columns, **kwargs):
     if max_dataset_rows is not None:
         corpus = corpus.iloc[:max_dataset_rows, :]
     if drop_columns is not None:
-        corpus = corpus.drop(drop_columns, axis=1, errors='ignore')
+        corpus = corpus.drop(drop_columns, axis=1, errors="ignore")
     return corpus
 
 
