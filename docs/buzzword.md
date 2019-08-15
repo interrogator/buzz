@@ -14,9 +14,9 @@ After this, you should configure a `corpora.json`, which tells the tool which co
 
 Then, you need to choose if you'd like to configure global settings via a `.env` file or command line options. If you want to use a `.env` file, copy `.env.example` to `.env`, and change settings as you like. Most importantly, make sure `BUZZWORD_CORPORA_FILE` is set to the path for your `corpora.json`.
 
-If a value isn't configured in `corpora.json`, the tool will look to `.env` or the provided command line options.
+If a value isn't configured in `corpora.json`, the tool will look to `.env`, or to the provided command line options, for global settings.
 
-Once these files are set up, you can start the tool with:
+Once your configuration files are set up, you can start the tool with:
 
 ```bash
 python -m buzz.word
@@ -24,7 +24,7 @@ python -m buzz.word
 buzzword
 ```
 
-With either command, you can also enter any the following options:
+With either command, you can also enter any the following options on the command line:
 
 ```
 # global settings
@@ -42,7 +42,7 @@ With either command, you can also enter any the following options:
 --add-governor / -g     : false        : add governor token features to dataset. Slow to load and consumes more memory, but allows searching/showing governor features
 ```
 
-If you pass a value for `--env`, make sure all settings are in your `.env` file.
+If you pass a value for `--env`, make sure all these settings are in your `.env` file.
 
 ## Start page
 
@@ -94,6 +94,8 @@ In contrast to other tools, *buzzword* separates the processes of searching data
 
 So, once you are happy with a search result generated in the *Dataset* tab, you can move to the *Frequencies* tab to transform your results into a frequency table.
 
+### Tabling options
+
 To generate a frequency table, start by searching the correct search from the *Search from* dropdown menu at the top of the tool. These are the results you will be calculating from. You can select either the entire corpus, or a search result generated in the *Dataset* tab.
 
 Next, you need to choose which feature or features you want to use as the column(s) of the table. Multiple selections are possible; for example, you can select `Word` and then `Wordclass` to get results in the form: `happy/ADJ`.
@@ -106,22 +108,34 @@ Finally, choose what kind of calculation you would like. The default, *Absolute 
 
 Alternatively, you can also choose to calculate keyness, rather than absolute/relative frequency. Both [log-likelihood](http://ucrel.lancs.ac.uk/llwizard.html) and percentage-difference measures are supported. These measures are particularly useful as means to find out which tokens are unexpectedly frequent or infreuent in the corpus.
 
-Once you've chosen your parameters, hit *Generate table* to start the tabling process. Like searching, the calculations themselves are fairly fast. What might take some time, however, is displaying a result with many rows/columns. So, bear in mind when tabling that some choices can lead to unmanageably large results: if you choose to display *Word*, *Filename*, *Sent #* and *Token #* as columns, for example, you will be generatng a column for every single token in the corpus.
+### Generating tables: a note on performance
+
+Once you've chosen your parameters, hit *Generate table* to start the tabling process. Like searching, the calculations themselves are fairly fast. What might take some time, however, is displaying a result with many rows/columns. So, it is important to bear in mind when tabling that some choices can lead to unmanageably large results, which could potentially cause memory-related errors: if you choose to display *Word*, *Filename*, *Sent #* and *Token #* as columns, for example, you will be generatng a column for every single token in the corpus. Before generating a table, it's therefore wise to quickly consider the expected size of the output.
 
 ### Editing the *Frequencies* table
 
+Whenever you edit the frequencies table (i.e. deleting rows or columns), the changes will be reflected in the underlying data. So, charts generated from this table will not contain the deleted rows and columns. Note, however, that deleting rows and columns will not lead to recalculation of relative frequencies. If you want to recalculate relative frequencies, you should instead run a new sub-search from the *Dataset* view, skipping the rows and/or columns you don't want.
 
+### Downloading the table
+
+You can click the *Download* link to download the entire frequency table in CSV format. You can then load this file into software like Excel in order to explore it further,
 
 ## Chart view
 
-Once you have a table representing the results you're interested in, you can go to the Chart tab to visualise the result.
+Once you have a table representing the results you're interested in, you can go to the Chart tab to visualise the result. Visualisation is easy: just select the plot type, the number of items to display, and whether or not you want to transpose the rows and columns.
 
-Visualisation is easy: just select the plot type, the number of items to display, and whether or not you want to transpose
-
-Figures are interactive, so go ahead and play with the various tools that appear above the charts.
+All figures are interactive, so go ahead and play with the various tools that appear above the charts. Using these tools, you can also choose to save the figure to your hard drive for access outside of *buzzword*,
 
 Note that there are multiple chart spaces. Just click '*Chart #1*' to fold this space in and out of view. Each space is completely independent from the others. You can therefore visualise completely different things in each.
 
 ## Concordance view
 
-Concordancing, or Keyword-in-context, aligns search result matches in a column, displaying their co-text on either side. To generate a concordance, first, select the data you want to visualise from the *Search from* dropdown menu at the top of the page. Then, select how you would like to format your matches. Like when making frequency tables, you can format matches using multiple token features. One popular combination is *word/POS*, but there are plenty more combinations that might be useful, too!
+Concordances, or *Keyword-in-context* (KWIC) views, involve aligning each search result in a column, displaying their co-text on either side. In *buzzword*, concordances are another way of viewing a search result. Therefore, rather than directly running a concordance query like you do in most other tools, you first run a search in the *Dataset* view, and then use the *Concordance* tab to display this result as a concordance.
+
+To display a concordance, first, select the search result you want to visualise from the *Search from* dropdown menu at the top of the page. Then, select how you would like to format your matches. Like when making frequency tables, you can format matches using multiple token features. One popular combination is *word/POS*, but there are plenty more combinations that might be useful, too!
+
+## Bugs, features and notes
+
+*buzzword* is a new tool, and still a work in progress. If you find a bug, or need a feature in order to use the tool more effectively, please create an *Issue* at [the project's repository](https://github.com/interrogator/buzz).
+
+In terms of future development, the first priority is on making the tool stable and useful for researchers. After this, there are new planned features, such as language modelling and word embeddings, where you can enter text and check its similarity to texts inside the corpus. Also planned is the ability to create permalinks, so that you can quickly share results and charts with others.

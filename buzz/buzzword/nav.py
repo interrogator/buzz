@@ -12,6 +12,7 @@ navbar = html.Div(
             html.Ul(
                 [
                     html.Li([dcc.Link("User guide", href="/guide")]),
+                    html.Li([dcc.Link("Depgrep query syntax", href="/depgrep")]),
                     html.Li([dcc.Link("About", href="/about")]),
                 ],
                 className="nav navbar-nav",

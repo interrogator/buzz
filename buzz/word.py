@@ -3,7 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from buzz.buzzword.main import app, CORPORA, CONFIG, INITIAL_TABLES, CORPUS_META
-from buzz.buzzword import start, guide, about
+from buzz.buzzword import start, guide, about, depgrep
 from buzz.buzzword.tabs import _make_tabs
 from dash.exceptions import PreventUpdate
 from collections import OrderedDict
@@ -46,6 +46,8 @@ def _choose_correct_page(pathname):
         return about.layout
     if pathname == "/guide":
         return guide.layout
+    if pathname == "/depgrep":
+        return depgrep.layout
     if pathname.startswith("/explore"):
         slug = pathname.rstrip("/").split("/")[-1]
         if slug not in CORPORA:
