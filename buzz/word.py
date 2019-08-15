@@ -19,9 +19,6 @@ app.layout = html.Div(
     [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
 )
 
-server = app.server
-
-
 LAYOUTS = dict()
 
 
@@ -57,6 +54,8 @@ def _choose_correct_page(pathname):
     else:
         return "404"
 
+
+server = app.server
 
 if __name__ == "__main__":
     app.run_server(debug=True)
