@@ -2,7 +2,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-from buzz.buzzword.main import app, CORPORA, CONFIG, INITIAL_TABLES, CORPUS_META
+from buzz.buzzword.main import app, server, CORPORA, CONFIG, INITIAL_TABLES, CORPUS_META
 from buzz.buzzword import start, explore
 from buzz.buzzword.tabs import _make_tabs
 from dash.exceptions import PreventUpdate
@@ -54,8 +54,6 @@ def _choose_correct_page(pathname):
     else:
         return "404"
 
-
-server = app.server
 
 if __name__ == "__main__":
     app.run_server(debug=True)

@@ -39,6 +39,7 @@ def _get_corpora(corpus_meta):
             continue
         corpus = Corpus(metadata["path"])
         conf = _get_corpus_config(metadata, CONFIG)
+        print('Loading corpus into memory: {} ...'.format(corpus_name))
         corpus = corpus.load(add_governor=conf["add_governor"])
         corpus = _preprocess_corpus(corpus, **conf)
         initial_table = corpus.table(show="p", subcorpora="file")
