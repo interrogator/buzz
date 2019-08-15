@@ -5,7 +5,7 @@ import os
 import dash_core_components as dcc
 import dash_html_components as html
 from buzz.corpus import Corpus
-from buzz.word import app, CORPORA, INITIAL_TABLES, CORPUS_META
+from buzz.buzzword.main import app, CORPORA, INITIAL_TABLES, CORPUS_META
 from buzz.buzzword.strings import _slug_from_name
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
