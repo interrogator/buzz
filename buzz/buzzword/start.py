@@ -30,7 +30,7 @@ def _make_corpus_table():
     corpora_file = "corpora.json"
     with open(corpora_file, "r") as fo:
         corpora = json.loads(fo.read())
-    fields = ["#", "title", "date", "description", "info", "tokens"]
+    fields = ["#", "title", "date", "language", "description", "info", "tokens"]
     columns = [html.Tr([html.Th(col) for col in fields])]
     rows = list()
     for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
@@ -39,9 +39,10 @@ def _make_corpus_table():
         slug = metadata["slug"]
         link = "explore/{}".format(slug)
         date = metadata.get("date", "undated")
+        lang = metadata.get("language", "unknown")
         tokens = "{:n}".format(metadata["len"])
         url = metadata.get("url", "none")
-        row_data = [i, corpus, date, metadata["desc"], url, tokens]
+        row_data = [i, corpus, date, lang, metadata["desc"], url, tokens]
         row = list()
         for j, value in enumerate(row_data):
             if j == 1:

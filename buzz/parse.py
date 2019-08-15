@@ -82,7 +82,7 @@ class Parser:
             self._prepare_benepar()
 
     def _prepare_bllip(self):
-        print("Loading constituency parser...")
+        print("Loading BLLIP...")
         try:
             model_dir = nltk.data.find("models/bllip_wsj_no_aux").path
         except LookupError:
@@ -153,7 +153,7 @@ class Parser:
         self.ntokens += len(toks)
         sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=len(toks))
 
-        if self.trees and self.language.startswith("en"):
+        if self.trees and self.language.lower().startswith("en"):
             parse = [self._normalise_word(str(i), wrap=True) for i in toks]
             if self.cons_parser == "bllip":
                 parse = BLLIP.parse_one(parse)
