@@ -167,6 +167,7 @@ def _new_search(
         )
 
     add_governor = CONFIG["add_governor"]
+    max_row, max_col = CONFIG["table_size"]
 
     specs, corpus = _get_from_corpus(search_from, CORPORA, SEARCHES, slug=slug)
 
@@ -199,10 +200,8 @@ def _new_search(
         SEARCHES.clear()
         name = next(k for k, v in CORPUS_META.items() if v["slug"] == slug)
         SEARCHES[name] = corpus
-        # todo: the line below could be slow. can we get from elsewhere?
-        cols, data = _update_datatable(
-            CORPORA[slug], CORPORA[slug], drop_govs=add_governor
-        )
+        corpus = corpus.iloc[:max_row, :max_col]
+        cols, data = _update_datatable(corpus, corpus, drop_govs=add_governor)
         search_from = [
             dict(value=i, label=_make_search_name(h, len(corpus)))
             for i, h in enumerate(SEARCHES)
@@ -249,6 +248,7 @@ def _new_search(
     if found_results:
         SEARCHES[this_search] = df.index
         corpus = CORPORA[slug]
+        df = df.iloc[:max_row, :max_col]
         current_cols, current_data = _update_datatable(
             corpus, df, drop_govs=add_governor, deletable=True
         )
