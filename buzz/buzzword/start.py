@@ -5,7 +5,7 @@ import os
 import dash_core_components as dcc
 import dash_html_components as html
 from buzz.corpus import Corpus
-from buzz.buzzword.main import app, CORPORA, INITIAL_TABLES, CORPUS_META
+from buzz.word import app, CORPORA, INITIAL_TABLES, CORPUS_META
 from buzz.buzzword.strings import _slug_from_name
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
@@ -33,6 +33,8 @@ def _make_corpus_table():
     columns = [html.Tr([html.Th(col) for col in fields])]
     rows = list()
     for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
+        if metadata.get('disabled'):
+            continue
         slug = metadata["slug"]
         link = "explore/{}".format(slug)
         date = metadata.get("date", "undated")

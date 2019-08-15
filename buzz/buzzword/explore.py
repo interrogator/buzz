@@ -29,7 +29,7 @@ from dash.exceptions import PreventUpdate
 import flask
 from flask import send_file, Response
 
-from buzz.buzzword.main import app, CONFIG, CORPORA, INITIAL_TABLES, CORPUS_META
+from buzz.word import app, CONFIG, CORPORA, INITIAL_TABLES, CORPUS_META
 
 ###########
 # STORAGE #
