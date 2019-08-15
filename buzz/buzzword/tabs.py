@@ -80,14 +80,16 @@ class Style:
     ]
 
 
-def _build_dataset_space(df, rows, add_governor):
+def _build_dataset_space(df, rows, **kwargs):
     """
     Build the search interface and the conll display
     """
-    cols = _get_cols(df, add_governor)
+    cols = _get_cols(df, kwargs['add_governor'])
     cols = [dict(label="Dependencies", value="d")] + cols
-    df = _drop_cols_for_datatable(df, add_governor)
+    df = _drop_cols_for_datatable(df, kwargs['add_governor'])
     df = df.reset_index()
+    max_row, max_col = kwargs["table_size"]
+    df = df.iloc[:max_row,:max_col]
     pieces = [
         dcc.Dropdown(
             id="search-target",
@@ -150,11 +152,11 @@ def _build_dataset_space(df, rows, add_governor):
     return html.Div(id="dataset-container", children=[search_space, conll_table])
 
 
-def _build_frequencies_space(corpus, table, rows, add_governor):
+def _build_frequencies_space(corpus, table, rows, **kwargs):
     """
     Build stuff related to the frequency table
     """
-    cols = _get_cols(corpus, add_governor)
+    cols = _get_cols(corpus, kwargs['add_governor'])
     show_check = dcc.Dropdown(
         placeholder="Features to show",
         multi=True,
@@ -195,7 +197,10 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
         ],
         placeholder="Sort columns by...",
     )
+    max_row, max_col = kwargs["table_size"]
+    table = table.iloc[:max_row,:max_col]
     columns, data = _update_datatable(corpus, table, conll=False, deletable=False)
+
     # modify the style_index used for other tables to just work for this index
     style_index = Style.FILE_INDEX
     style_index["if"]["column_id"] = table.index.name
@@ -248,11 +253,11 @@ def _build_frequencies_space(corpus, table, rows, add_governor):
     return html.Div([toolbar, freq_table])
 
 
-def _build_concordance_space(df, rows, add_governor):
+def _build_concordance_space(df, rows, **kwargs):
     """
     Div representing the concordance tab
     """
-    cols = _get_cols(df, add_governor)
+    cols = _get_cols(df, kwargs['add_governor'])
 
     show_check = dcc.Dropdown(
         multi=True,
@@ -265,9 +270,14 @@ def _build_concordance_space(df, rows, add_governor):
     style = dict(width="100%", **Style.CELL_MIDDLE_35)
     toolbar = [html.Div(i, style=style) for i in [show_check, update]]
     conc_space = html.Div(toolbar, style=Style.VERTICAL_MARGINS)
+    
+    max_row, max_col = kwargs["table_size"]
+    df = df.iloc[:max_row,:max_col]
+
     meta = ["file", "s", "i"]
     if "speaker" in df.columns:
         meta.append("speaker")
+
     df = df.just.x.NOUN.conc(metadata=meta, window=(100, 100))
 
     just = ["left", "match", "right", "file", "s", "i"]
@@ -314,7 +324,7 @@ def _build_concordance_space(df, rows, add_governor):
     return html.Div([conc_space, conc])
 
 
-def _build_chart_space(tables, rows):
+def _build_chart_space(tables, rows, **kwargs):
     """
     Div representing the chart tab
     """
@@ -418,14 +428,13 @@ def _make_tabs(searches, tables, corpus_slug, title=None, page_size=25, **kwargs
     """
     Generate initial layout div
     """
-    add_gov = kwargs["add_governor"]
     corpus = next(iter(searches.values()))
-    dataset = _build_dataset_space(corpus, page_size, add_gov)
+    dataset = _build_dataset_space(corpus, page_size, **kwargs)
     frequencies = _build_frequencies_space(
-        corpus, tables["initial"], page_size, add_gov
+        corpus, tables["initial"], page_size, **kwargs
     )
-    chart = _build_chart_space(tables, page_size)
-    concordance = _build_concordance_space(corpus, page_size, add_gov)
+    chart = _build_chart_space(tables, page_size, **kwargs)
+    concordance = _build_concordance_space(corpus, page_size, **kwargs)
 
     search_from = [
         dict(value=i, label=_make_search_name(h, len(corpus)))

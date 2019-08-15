@@ -115,17 +115,16 @@ def _from_cmdline():
 
 def _configure_buzzword(name):
     """
-    Configure application. If run as main, look at command line args.
-    If the user wants to use dotenv, load from that.
+    Configure application. First, look at command line args.
+    If the user wants to use dotenv (--env flag), load from that.
     If not from main, use dotenv only.
     """
     env_path = os.path.join(os.getcwd(), ".env")
-    if name == "__main__":
-        config = _from_cmdline()
-        if not config["env"]:
-            return config
-        else:
-            env_path = config["env"]
+    config = _from_cmdline()
+    if not config["env"]:
+        return config
+    else:
+        env_path = config["env"]
     return _from_env(env_path)
 
 
