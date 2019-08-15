@@ -9,7 +9,13 @@ import pandas as pd
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, MAX_SPEAKERNAME_SIZE
+from .constants import (
+    COLUMN_NAMES,
+    DTYPES,
+    LONG_NAMES,
+    MAX_SPEAKERNAME_SIZE,
+    SPACY_LANGUAGES,
+)
 
 
 def _get_texts(file_data):
@@ -121,8 +127,7 @@ def _get_nlp(language="english"):
     """
     import spacy
 
-    langs = dict(english="en_core_web_sm", en="en_core_web_sm", german="de", de="de")
-    lang = langs.get(language, language)
+    lang = SPACY_LANGUAGES.get(language.capitalize(), language)
 
     try:
         return spacy.load(lang)

@@ -6,7 +6,7 @@ import shutil
 import nltk
 from nltk.parse import BllipParser
 
-from .constants import MAX_SPEAKERNAME_SIZE
+from .constants import MAX_SPEAKERNAME_SIZE, SPACY_LANGUAGES
 from .utils import (
     _get_nlp,
     _get_tqdm,
@@ -75,7 +75,7 @@ class Parser:
     def __init__(self, cons_parser="bllip", language="english"):
         self.cons_parser = cons_parser if cons_parser != "none" else None
         self.language = language
-        self.nlp = _get_nlp()
+        self.nlp = _get_nlp(language=language)
         if self.cons_parser == "bllip":
             self._prepare_bllip()
         elif self.cons_parser == "benepar":
@@ -99,8 +99,7 @@ class Parser:
     def _prepare_benepar(self):
         from benepar.spacy_plugin import BeneparComponent
 
-        langs = dict(english="en", german="de")
-        lang = langs.get(self.language)
+        lang = SPACY_LANGUAGES.get(self.language.capitalize())
         ben_file = f"benepar_{lang}"
         try:
             nltk.data.find(ben_file).path

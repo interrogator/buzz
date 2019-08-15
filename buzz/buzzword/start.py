@@ -4,6 +4,7 @@ import os
 
 import dash_core_components as dcc
 import dash_html_components as html
+from buzz.constants import SPACY_LANGUAGES
 from buzz.corpus import Corpus
 from buzz.buzzword.main import app, CORPORA, INITIAL_TABLES, CORPUS_META
 from buzz.buzzword.strings import _slug_from_name
@@ -76,7 +77,6 @@ def _make_upload_parse_space():
         # Allow multiple files to be uploaded
         multiple=True,
     )
-    langs = {"English": "en", "German": "de"}
     corpus_name = dcc.Input(
         id="upload-corpus-name",
         type="text",
@@ -86,7 +86,7 @@ def _make_upload_parse_space():
     lang = dcc.Dropdown(
         placeholder="Language of corpus",
         id="corpus-language",
-        options=[{"value": v, "label": k} for k, v in langs.items()],
+        options=[{"value": v, "label": k} for k, v in SPACY_LANGUAGES.items()],
         style={**BLOCK, **{"width": "20vw"}},
     )
     upload = html.Div(children=[upload, html.Div(id="show-upload-files")])
