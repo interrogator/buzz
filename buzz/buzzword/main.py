@@ -1,6 +1,7 @@
 import dash
 from buzz.corpus import Corpus
 import json
+import os
 from buzz.buzzword.helpers import _preprocess_corpus
 from buzz.buzzword.configure import _configure_buzzword
 
@@ -51,9 +52,19 @@ def _get_corpora(corpus_meta):
     return corpora, tables
 
 
-corpora_file = CONFIG["corpora_file"]
-with open(corpora_file, "r") as fo:
-    CORPUS_META = json.loads(fo.read())
+def _get_corpora_meta(config):
+    """
+    Get the contents of corpora.json, or an empty dict
+    """
+    corpora_file = config.get("corpora_file")
+    exists = os.path.isfile(corpora_file)
+    if not exists:
+        print("Corpora file not found at {}!".format(corpora_file))
+        return dict()
+    with open(corpora_file, "r") as fo:
+        return json.loads(fo.read())
 
+
+CORPUS_META = _get_corpora_meta(CONFIG)
 
 CORPORA, INITIAL_TABLES = _get_corpora(CORPUS_META)

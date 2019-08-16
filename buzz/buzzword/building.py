@@ -6,7 +6,7 @@ import buzz
 
 root = os.path.dirname(os.path.dirname(buzz.__file__))
 
-with open(os.path.join(root, "docs/depgrep.md"), "r") as fo:
+with open(os.path.join(root, "docs/building.md"), "r") as fo:
     text = fo.read()
 
 layout = html.Div([navbar, dcc.Markdown(text)])

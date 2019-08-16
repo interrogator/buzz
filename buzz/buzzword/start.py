@@ -1,5 +1,4 @@
 import base64
-import json
 import os
 
 import dash_core_components as dcc
@@ -21,13 +20,11 @@ def _make_corpus_table():
     import locale
 
     locale.setlocale(locale.LC_ALL, "")
-    corpora_file = "corpora.json"
-    with open(corpora_file, "r") as fo:
-        corpora = json.loads(fo.read())
     fields = ["#", "title", "date", "language", "description", "info", "tokens"]
     columns = [html.Tr([html.Th(col) for col in fields])]
     rows = list()
-    for i, (corpus, metadata) in enumerate(corpora.items(), start=1):
+    is_empty = True
+    for i, (corpus, metadata) in enumerate(CORPUS_META.items(), start=1):
         if metadata.get("disabled"):
             continue
         slug = metadata["slug"]
@@ -48,7 +45,8 @@ def _make_corpus_table():
                 cell = html.Td(children=value)
             row.append(cell)
         rows.append(html.Tr(row))
-    return html.Table(columns + rows)
+        is_empty = False
+    return html.Table(columns + rows), is_empty
 
 
 def _make_upload_parse_space():
@@ -193,17 +191,25 @@ def show_uploaded(contents, filenames):
 
 header = html.H2("buzzword: a tool for analysing annotated linguistic data")
 
+# if no corpora available, do not show this table
+table, is_empty = _make_corpus_table()
+avail = ""
+if not is_empty:
+    demos = html.Div([html.H3("Available corpora"), table])
+    avail = "Otherwise, you can try out the corpora below."
+
 intro = html.P(
     "Here you can create and explore parsed and annotated corpora. "
     "If you want to work with your own corpus, simply upload plain text files, "
-    "annotated text files, or CONLL-U files. Otherwise, you can try out the corpora below."
+    "annotated text files, or CONLL-U files." + avail
 )
 uphead = html.H3("Upload data")
-
-demos = html.Div([html.H3("Available corpora"), _make_corpus_table()])
-
 upload = _make_upload_parse_space()
 
-content = html.Div([navbar, header, intro, uphead, upload, demos])
-# Define layout
+components = [navbar, header, intro, uphead, upload]
+if not is_empty:
+    components.append(demos)
+
+
+content = html.Div(components)
 layout = html.Div(content, style={"marginLeft": "10px", "marginRight": "10px"})
