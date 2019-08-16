@@ -24,13 +24,15 @@ python setup.py install
 
 ## Frontend: *buzzword*
 
-The app comes bundled with a web frontend for exploring parsed corpora. To use it, first parse a corpus (see below), and then do:
+The app comes bundled with a web frontend for exploring parsed corpora. To use it, configure a `.env` file from `.env.example`, a `corpora.json` file from `corpora.json.example`, and then do:
 
 ```bash
-buzzword path/to/parsed/corpus
+buzzword
 # or
-python -m buzz.word path/to/parsed/corpus
+python -m buzz.word
 ```
+
+More complete documentation is available [here](https://buzz.readthedocs.io/en/latest/buzzword/), as well from the main page of the app itself.
 
 A URL will be printed, which can be used to access the app in your browser.
 
