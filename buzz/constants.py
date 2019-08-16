@@ -4,8 +4,6 @@ CONLL_COLUMNS = ["i", "w", "l", "x", "p", "m", "g", "f", "e", "o"]
 
 COLUMN_NAMES = ["file", "s"] + CONLL_COLUMNS
 
-MAX_SPEAKERNAME_SIZE = 40
-
 SHORT_TO_LONG_NAME = dict(
     w="Word",
     l="Lemma",  # noqa: E741

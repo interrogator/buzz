@@ -1,7 +1,7 @@
 import os
 import re
-import shlex
 import shutil
+from collections import OrderedDict
 from io import StringIO
 from typing import List, Optional
 
@@ -9,14 +9,7 @@ import pandas as pd
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import (
-    COLUMN_NAMES,
-    DTYPES,
-    LONG_NAMES,
-    MAX_SPEAKERNAME_SIZE,
-    SPACY_LANGUAGES,
-    MORPH_FIELDS,
-)
+from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, SPACY_LANGUAGES, MORPH_FIELDS
 
 
 def _get_texts(file_data):
@@ -139,21 +132,6 @@ def _get_nlp(language="english"):
         return spacy.load(lang)
 
 
-def _strip_metadata(text):
-    """
-    Remove metadata html from a string
-    """
-    from .constants import MAX_SPEAKERNAME_SIZE
-
-    idregex = re.compile(
-        r"(^[A-Za-z0-9-_]{,%d}?):" % MAX_SPEAKERNAME_SIZE, re.MULTILINE
-    )
-    text = re.sub(idregex, "", text)
-    text = re.sub("<metadata.*?>", "", text)
-    text = "\n".join([i.strip() for i in text.splitlines()])
-    return re.sub(r"\n\s*\n", "\n", text)
-
-
 def cast(text):
     """
     Attempt to get object from JSON string, or return the string
@@ -250,7 +228,7 @@ def _add_governor(df):
     return pd.concat([df, govs], axis=1, sort=False)
 
 
-def _morph_apply(morph_list):
+def _multiples_apply(morph_list):
     out = dict()
     if morph_list == ["_"]:
         return out
@@ -260,14 +238,17 @@ def _morph_apply(morph_list):
     return out
 
 
-def _parse_out_morph(df):
-    m = df["m"].str.split("|")
-    morph = m.apply(_morph_apply)
-    morph = pd.DataFrame.from_dict(list(morph)).fillna("_")
-    morph.index = df.index
-    morph.columns = [MORPH_FIELDS.get(i.lower(), i.lower()) for i in morph.columns]
-    cols = list(morph.columns)
-    return morph.join(df, how="inner"), cols
+def _parse_out_multiples(df, morph=False):
+    letter = "m" if morph else "o"
+    col = df[letter].str.split("|")
+    multis = col.apply(_multiples_apply)
+    multis = pd.DataFrame.from_dict(list(multis)).fillna("_")
+    multis.index = df.index
+    if morph:
+        fix = [MORPH_FIELDS.get(i.lower(), i.lower()) for i in multis.columns]
+        multis.columns = fix
+    cols = list(multis.columns)
+    return multis.join(df, how="inner"), cols
 
 
 def _to_df(
@@ -279,6 +260,7 @@ def _to_df(
     set_data_types: bool = True,
     add_governor: bool = False,
     morph: bool = True,
+    misc: bool = True,
 ):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
@@ -310,9 +292,13 @@ def _to_df(
         usecols=usecols,
     )
 
-    morph_cols = None
+    morph_cols = list()
     if morph and (df.m != "_").any():
-        df, morph_cols = _parse_out_morph(df)
+        df, morph_cols = _parse_out_multiples(df, morph=True)
+
+    misc_cols = list()
+    if misc and (df.o != "_").any():
+        df, misc_cols = _parse_out_multiples(df)
 
     # make a dataframe containing sentence level metadata, then join it to main df
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
@@ -321,9 +307,9 @@ def _to_df(
     df = metadata.join(df, how="inner")
 
     # fix the column order
-    df = _order_df_columns(df, metadata, morph_cols)
+    df = _order_df_columns(df, metadata, morph_cols + misc_cols)
 
-    # remove columns whose value was interpeted or for which nothing is ever availablr
+    # remove columns whose value was interpeted or for which nothing is ever available
     badcols = ["o", "m"]
 
     df = df.drop(badcols, axis=1, errors="ignore")
@@ -349,37 +335,16 @@ def _get_short_name_from_long_name(longname):
 
 
 def _make_meta_dict_from_sent(text, first=False):
-    from .utils import cast
+    """
+    Make dict of sentence and token metadata
+    """
+    from .html import InputParser
 
-    metad = dict()
-
-    if first and not text.strip().startswith("<metadata"):
-        return metad
-
-    if "<metadata" in text:
-        relevant = text.strip().rstrip(">").rsplit("<metadata ", 1)
-        try:
-            shxed = shlex.split(relevant[-1])
-        except Exception:  # what is it?
-            shxed = relevant[-1].split("' ")
-        for m in shxed:
-            try:
-                k, v = m.split("=", 1)
-                v = v.replace("\u2018", "'").replace("\u2019", "'")
-                v = v.strip("'").strip('"')
-                metad[k.replace("-", "_")] = cast(v)
-            except ValueError:
-                continue
-
+    marker = "<meta "
+    if first and not text.strip().startswith(marker):
+        return dict(), dict()
+    parser = InputParser()
+    parser.feed(text)
     if first:
-        return metad
-
-    # speaker seg part
-    regex = r"(^[a-zA-Z0-9-_]{,%d}?):..+" % MAX_SPEAKERNAME_SIZE
-    speaker_regex = re.compile(regex)
-    match = re.search(speaker_regex, text)
-    if not match:
-        return metad
-    speaker = match.group(1)
-    metad["speaker"] = speaker
-    return metad
+        return parser.sent_meta, dict()
+    return parser.sent_meta, parser.result

@@ -1,12 +1,13 @@
 import argparse
 import os
-import re
 import shutil
 
 import nltk
+
 from nltk.parse import BllipParser
 
-from .constants import MAX_SPEAKERNAME_SIZE, SPACY_LANGUAGES
+from .html import MetadataStripper
+from .constants import SPACY_LANGUAGES
 from .utils import (
     _get_nlp,
     _get_tqdm,
@@ -115,14 +116,35 @@ class Parser:
         return Phony(norm) if wrap else norm
 
     @staticmethod
-    def _make_misc_field(word):
-        if not word.ent_type_ and not word.sentiment:
+    def _is_correct_span(word, span, nth, features):
+        """
+        Is this spacy token inside an html span? (for token metadata)
+        """
+        sent = word.sent
+        ix_in_sent = next(i for i, t in enumerate(sent) if t == word)
+        toks_after = sent[ix_in_sent:]
+        after = str(toks_after)[: len(span)]
+        if span != after:
+            return False
+        n = str(sent[:ix_in_sent]).count(after)
+        return n == nth
+
+    def _make_misc_field(self, word, token_meta):
+        """
+        Build the misc cell for this word
+        """
+        if not word.ent_type_ and not word.sentiment and not token_meta:
             return "_"
         formatters = dict(typ=word.ent_type_, num=word.ent_type, iob=word.ent_iob_)
-        ent = "ent_type={typ}|ent_id={num}|ent_iob={iob}".format(**formatters)
-        if not word.sentiment:
-            return ent
-        return ent + "|sentiment={}".format(word.sentiment)
+        misc = "ent_type={typ}|ent_id={num}|ent_iob={iob}".format(**formatters)
+        if word.sentiment:
+            misc += "|sentiment={}".format(word.sentiment)
+        for (span, nth), features in token_meta.items():
+            if not self._is_correct_span(word, span, nth, features):
+                continue
+            for key, val in features.items():
+                misc += "|{}={}".format(key, val)
+        return misc
 
     @staticmethod
     def _get_governor_id(word):
@@ -132,18 +154,20 @@ class Parser:
 
     @staticmethod
     def _strip_metadata(plain):
-        idregex = re.compile(r"^[A-Za-z0-9-_]{1,%d}: " % MAX_SPEAKERNAME_SIZE)
-        metregex = re.compile("<metadata .*>")
-        plain = plain.splitlines()
-        plain = [re.sub(metregex, "", re.sub(idregex, "", i)) for i in plain]
-        return "\n".join(plain)
+        # todo: do this without splitting
+        out = []
+        for line in plain.splitlines():
+            parser = MetadataStripper()
+            parser.feed(line)
+            out.append(parser.text)
+        return "\n".join(out)
 
     @staticmethod
     def _get_line_with_meta(start, plain, stripped):
         all_before = stripped[:start]
-        newlines_before = all_before.count("\n")
+        line_index = all_before.count("\n")
         plain = plain.splitlines()
-        return plain[newlines_before]
+        return plain[line_index]
 
     def _process_sent(self, sent_index, sent, file_meta, plain, stripped_data):
         word_index = 1
@@ -166,8 +190,8 @@ class Parser:
             sent_meta["parse"] = parse.replace("\n", " ").strip()
 
         metaline = self._get_line_with_meta(sent.start_char, plain, stripped_data)
-        extra_meta = _make_meta_dict_from_sent(metaline)
-        all_meta = {**file_meta, **sent_meta, **extra_meta}
+        inner_sent_meta, token_meta = _make_meta_dict_from_sent(metaline)
+        all_meta = {**file_meta, **sent_meta, **inner_sent_meta}
 
         for field, value in sorted(all_meta.items()):
             sent_parts.append("# {} = {}".format(field, value))
@@ -179,7 +203,7 @@ class Parser:
 
             governor = self._get_governor_id(word)
             word_text = self._normalise_word(str(word))
-            named_ent = self._make_misc_field(word)
+            named_ent = self._make_misc_field(word, token_meta)
             if "__" in word.tag_ and len(word.tag_) > 2:
                 tag, morph = word.tag_.split("__", 1)
             else:
@@ -210,7 +234,7 @@ class Parser:
         """
         # break into lines, removing empty
         plain = [i.strip(" ") for i in plain.splitlines() if i.strip(" ")]
-        file_meta = _make_meta_dict_from_sent(plain[0], first=True)
+        file_meta, _ = _make_meta_dict_from_sent(plain[0], first=True)
         if file_meta:
             plain = plain[1:]
         plain = "\n".join(plain)

@@ -1,56 +1,41 @@
-# buzzword: a web app for corpus linguistics
+# buzzword
 
-> *buzz* comes bundled with a graphical interface, *buzzword*, which allows you to interact with parsed/annotated corpora in your browser. Using *buzz* as a backend, *buzzword* provides the ability to perform complex searches, make frequency tables, generate interactive visualisations and build concordances.
+> *buzzword* is a web app for corpus linguistics, built with [buzz](https://github.com/interrogator/buzz) as a backend. *buzzword* allows you to parse, search and visualise corpora in your browser. The tool is soon to be hosted by UZH, but can also be run locally (see below for instructions).
 
-## Running locally
-
-To run the tool locally, you'll want to have at least one parsed corpus ready to analyse. To do this, first, parse a corpus if you don't already have one parsed:
-
-```bash
-python -m buzz.parse --cons-parser none ./path/to/data
-```
-
-After this, you should configure a `corpora.json`, which tells the tool which corpora will be loaded into the tool. Copy `corpora.json.example` as `corpora.json` and modify it to contain the corpora you want to show in the app.
-
-Then, you need to choose if you'd like to configure global settings via a `.env` file or command line options. If you want to use a `.env` file, copy `.env.example` to `.env`, and change settings as you like. Most importantly, make sure `BUZZWORD_CORPORA_FILE` is set to the path for your `corpora.json`.
-
-If a value isn't configured in `corpora.json`, the tool will look to `.env`, or to the provided command line options, for global settings.
-
-Once your configuration files are set up, you can start the tool with:
-
-```bash
-python -m buzz.word
-# or
-buzzword
-```
-
-With either command, you can also enter any the following options on the command line:
-
-```
-# global settings
---corpora-json          : corpora.json : path to corpora.json file used to load corpora
---no-load / -nl         : false        : do not load the full corpus into memory (for very large datasets/small machines, makes searches much slower)
---page-size / -p        : 25           : Rows per page of table
---env / -e              : none         : Use .env for configuration (pass path to .env file)
---debug                 : true         : run flask/dash in debug mode
-
-# settings overridden by corpora.json
-
---drop-columns / -d     : none         : Comma separated list of corpus columns to drop before loading into tool
---max-dataset-rows / -m : none         : Cut corpus at this many lines before loading into tool
---table-size / -s       : 2000,200     : Max rows,columns to show in tables
---add-governor / -g     : false        : add governor token features to dataset. Slow to load and consumes more memory, but allows searching/showing governor features
-```
-
-If you pass a value for `--env`, make sure all these settings are in your `.env` file.
+*buzzword* consists of two main pages: a *Start* page, where you select or upload a corpus, or get help; and an *Explore* page, which provides an interface for working with a parsed corpus. The *Explore* page is divided into tabs for different linguistic tasks. Below are instructions for each page and tab.
 
 ## Start page
 
 The main page of the tool allows you to select a pre-loaded corpus, or upload your own. If you want to browse a pre-loaded corpus, simply click its name in the table.
 
+### Uploading corpora: data types
+
 If you want to upload your own, you need to add files to the file input box. If you add plain text files, the tool will automatically parse them. If you add `.conll` or `.conllu` files, the tool will assume they are in `CONLL-U v2` format and attempt to load them without any kind of conversion.
 
-Once you've added files, simply provide a name for your corpus, and select its language. Then, hit `Upload and parse`. Once the parsing is finished, a link to the new corpus will appear. Click it to explore the corpus in the `Explore` view.
+The third option is to produce text with speaker names and/or XML metadata, which will be automatically understood by the tool and added into your parsed corpus. The addition of these features leads to rich possibilities for analysis.
+
+For example, the following text, `01-joke.txt` has both speaker names and additional metadata added, which will be parsed by the tool and inserted into the parsed corpus as searchable fields. The first line is file-wide metadata, which will be added to each sentence. it can be overridden by sentence-level meta
+
+`01-joke.txt`
+
+
+```xml
+<metadata doc-type="joke" rating=6.50/>
+A lion <metadata ent-type="animal"> and a cheetah <metadata ent-type="animal"> decide to race. <metadata move="setup" dialog=false punchline=false some-schema=9/>
+CHEETAH: I win! <metadata move="middle" dialog=true some-schema=2/>
+LION: You're a cheetah! <metadata move="punchline" funny=true dialog=true some-schema=3/>
+CHEETAH: You're lion! <metadata move="punchline" funny=truedialog=true some-schema=4 rating=7.8/>
+```
+
+If a field is missing in one of the metadata, this is OK. It will simply have a value of None in the parsed corpus.
+
+Unmarked speakers will enter the corpus as `UNIDENTIFIED`.
+
+Once you've added files, simply provide a name for your corpus, and select its language. Then, hit `Upload and parse`. Once the parsing is finished, a link to the new corpus will appear. Click it to explore the corpus in the `Explore` page.
+
+## Explore page
+
+The *Explore* page provides an interface for manipulating a parsed corpus.
 
 ## Dataset view
 
@@ -60,15 +45,17 @@ In this view, you can see the loaded corpus, row by row, with its token and meta
 
 The dataset tab is also the place where you search the corpus. In *buzzword*, because you can search within search results, the best way to find what you're looking for is usually to "drill-down" into the data by searching multiple times, rather than writing one big, complicated query.
 
-In the leftmost dropdown field, you select the feature you want to search (word form, lemma form, POS, etc). Each of these options targets a token or metadata feature, except *Dependencies*, which is used to search the dependency grammar with which a corpus has been parsed.
+**Feature to search**: in the leftmost dropdown field, you select the feature you want to search (word form, lemma form, POS, etc). Each of these options targets a token or metadata feature, except *Dependencies*, which is used to search the dependency grammar with which a corpus has been parsed. To start out, select something simple, like 'Word', so that your search string will be compared to the word as it was writtin in the original, unparsed text.
 
-To start out, select something simple, like 'Word', so that your search string will be compared to the word as it was writtin in the original, unparsed text.
+**Query entry**: in the text entry field, you neeed to provide a case-sensitive regular expression that you want to match. The only exception to this is if you are searching *Dependencies*, in which case you will need to use [the depgrep query language](https://github.com/interrogator/depgrep). If you're new to regular expressions, and just want to find words that exactly match a string, enter `^word$`. The caret (`^`) denotes 'start of string', and the dollar sign (`$`) denotes the end of string. Without the dollar sign, the query would match not only *word*, but *wordy*, *wording*, *word-salad*, and so on.
 
-In the text entry field, you neeed to provide a case-sensitive regular expression that you want to match. The only exception to this is if you are searching *Dependencies*, in which case you will need to use [the depgrep query language](https://github.com/interrogator/depgrep). If you're new to regular expressions, and just want to find words that exactly match a string, enter `^word$`. The caret (`^`) denotes 'start of string', and the dollar sign (`$`) denotes the end of string. Without the dollar sign, the query would match not only *word*, but *wordy*, *wording*, *word-salad*, and so on.
+**Inverting searches**: finally, you can toggle result inversion using the toggle switch (i.e. return rows *not matching* the search criteria). This is especially useful if you want to remove particular unwanted results. For example, if you want to match any pronoun but *me*, rather than writing a regular expression to match every other pronoun (*I*, *you*, *he*, etc.), simple search for any token whose part of speech is *PRP*, and then run another search for any word matching *me*, inverting the result.
 
-Finally, you can toggle result inversion using the toggle switch (i.e. return rows *not matching* the search criteria). Then, hit *Search*. Search time depends mostly on how many items are returned, though very complex *depgrep* queries can also take a few seconds.
+Once your query is formulated, hit *Search*. Search time depends mostly on how many items are returned, though very complex *depgrep* queries can also take a few seconds.
 
-When the search has completed, the table in the Dataset Tab will be reduced to just those rows that match your query. At the top of the tool, you'll see that your search has entered into the "Search from" space, translated into something resembling natural English. Beside the search is a bracketed expression telling you how many results you have. This component has the format:
+### Search results
+
+When the search has completed, the table in the *Dataset* tab will be reduced to just those rows that match your query. At the top of the tool, you'll see that your search has entered into the "Search from" space, translated into something resembling natural English. Beside the search is a bracketed expression telling you how many results you have. This component has the format:
 
 `(absolute-frequency/percentage-of-parent-search/percentage-of-corpus)`
 
@@ -139,3 +126,46 @@ To display a concordance, first, select the search result you want to visualise 
 *buzzword* is a new tool, and still a work in progress. If you find a bug, or need a feature in order to use the tool more effectively, please create an *Issue* at [the project's repository](https://github.com/interrogator/buzz).
 
 In terms of future development, the first priority is on making the tool stable and useful for researchers. After this, there are new planned features, such as language modelling and word embeddings, where you can enter text and check its similarity to texts inside the corpus. Also planned is the ability to create permalinks, so that you can quickly share results and charts with others.
+
+
+## Running *buzzword* locally
+
+To run the tool locally, you'll want to have at least one parsed corpus ready to analyse. To do this, first, parse a corpus if you don't already have one parsed:
+
+```bash
+python -m buzz.parse --cons-parser none ./path/to/data
+```
+
+After this, you should configure a `corpora.json`, which tells the tool which corpora will be loaded into the tool. Copy `corpora.json.example` as `corpora.json` and modify it to contain the corpora you want to show in the app.
+
+Then, you need to choose if you'd like to configure global settings via a `.env` file or command line options. If you want to use a `.env` file, copy `.env.example` to `.env`, and change settings as you like. Most importantly, make sure `BUZZWORD_CORPORA_FILE` is set to the path for your `corpora.json`.
+
+If a value isn't configured in `corpora.json`, the tool will look to `.env`, or to the provided command line options, for global settings.
+
+Once your configuration files are set up, you can start the tool with:
+
+```bash
+python -m buzz.word
+# or
+buzzword
+```
+
+With either command, you can also enter any the following options on the command line:
+
+```
+# global settings
+--corpora-json          : corpora.json : path to corpora.json file used to load corpora
+--no-load / -nl         : false        : do not load the full corpus into memory (for very large datasets/small machines, makes searches much slower)
+--page-size / -p        : 25           : Rows per page of table
+--env / -e              : none         : Use .env for configuration (pass path to .env file)
+--debug                 : true         : run flask/dash in debug mode
+
+# settings overridden by corpora.json
+
+--drop-columns / -d     : none         : Comma separated list of corpus columns to drop before loading into tool
+--max-dataset-rows / -m : none         : Cut corpus at this many lines before loading into tool
+--table-size / -s       : 2000,200     : Max rows,columns to show in tables
+--add-governor / -g     : false        : add governor token features to dataset. Slow to load and consumes more memory, but allows searching/showing governor features
+```
+
+If you pass a value for `--env`, make sure all these settings are in your `.env` file.
