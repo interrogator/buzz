@@ -1,5 +1,5 @@
 <metadata annotated=yeah>
-NARRATOR: A major theme in the book is abandonment followed by fostering, as in the life of Mowgli, echoing Kipling's own childhood.<metadata field=value>
-The theme is echoed in the triumph of protagonists including Rikki-Tikki-Tavi and The White Seal over their enemies, as well as Mowgli's. Another important theme is of law and freedom; the stories are not about animal behaviour, still less about the Darwinian struggle for survival, but about human archetypes in animal form.
+NARRATOR: A major theme in the book is abandonment followed by fostering, as in the life of Mowgli, echoing Kipling's own childhood.<meta field=value>
+The theme is echoed in the triumph of protagonists including Rikki-Tikki-Tavi and The White Seal over their enemies, as well as Mowgli's. Another <meta token-annotation="level">important theme</meta> is of law and freedom; the stories are not about animal behaviour, still less about the Darwinian struggle for survival, but about human archetypes in animal form.
 
 FRIEND: They teach respect for authority, obedience, and knowing one's place in society with "the law of the jungle", but the stories also illustrate the freedom to move between different worlds, such as when Mowgli moves between the jungle and the village. Critics have also noted the essential wildness and lawless energies in the stories, reflecting the irresponsible side of human nature.
