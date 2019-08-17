@@ -1,100 +1,100 @@
-# parse = (S (NP (DT The) (NNP Jungle) (NNP Book)) (VP (VBZ has) (VP (VBN remained) (ADJP (JJ popular)) (, ,) (PP (ADVP (RB partly)) (IN through) (NP (NP (PRP$ its) (JJ many) (NNS adaptations)) (PP (IN for) (NP (NP (NN film)) (CC and) (NP (JJ other) (NNS media)))))))) (. .))
+# parse = (S (NP (DT The) (NN Jungle) (NN Book)) (VP (VBZ has) (VP (VBN remained) (ADJP (JJ popular)) (, ,) (PP (ADVP (RB partly)) (IN through) (NP (NP (PRP$ its) (JJ many) (NNS adaptations)) (PP (IN for) (NP (NP (NN film)) (CC and) (NP (JJ other) (NNS media)))))))) (. .))
 # sent_id = 1
 # sent_len = 18
 # text = The Jungle Book has remained popular, partly through its many adaptations for film and other media.
-1	The	the	DET	DT	_	3	det	_	ent_type=PERSON|ent_id=380|ent_iob=B
-2	Jungle	Jungle	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
-3	Book	Book	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=I
-4	has	have	VERB	VBZ	_	5	aux	_	_
-5	remained	remain	VERB	VBN	_	0	ROOT	_	_
-6	popular	popular	ADJ	JJ	_	5	acomp	_	_
-7	,	,	PUNCT	,	_	5	punct	_	_
-8	partly	partly	ADV	RB	_	9	advmod	_	_
-9	through	through	ADP	IN	_	5	prep	_	_
-10	its	-PRON-	DET	PRP$	_	12	poss	_	_
-11	many	many	ADJ	JJ	_	12	amod	_	_
-12	adaptations	adaptation	NOUN	NNS	_	9	pobj	_	_
-13	for	for	ADP	IN	_	12	prep	_	_
-14	film	film	NOUN	NN	_	13	pobj	_	_
-15	and	and	CCONJ	CC	_	14	cc	_	_
-16	other	other	ADJ	JJ	_	17	amod	_	_
-17	media	medium	NOUN	NNS	_	14	conj	_	_
-18	.	.	PUNCT	.	_	5	punct	_	_
+1	The	the	DET	DT	_	3	det	_	ent_type=PERSON|ent_id=3|ent_iob=B
+2	Jungle	Jungle	PROPN	NNP	_	3	compound	_	ent_type=PERSON|ent_id=1|ent_iob=I
+3	Book	Book	PROPN	NNP	_	5	nsubj	_	ent_type=PERSON|ent_id=1|ent_iob=I
+4	has	have	VERB	VBZ	_	5	aux	_	ent_type=_|ent_id=2|ent_iob=O
+5	remained	remain	VERB	VBN	_	0	ROOT	_	ent_type=_|ent_id=2|ent_iob=O
+6	popular	popular	ADJ	JJ	_	5	acomp	_	ent_type=_|ent_id=2|ent_iob=O
+7	,	,	PUNCT	,	_	5	punct	_	ent_type=_|ent_id=2|ent_iob=O
+8	partly	partly	ADV	RB	_	9	advmod	_	ent_type=_|ent_id=2|ent_iob=O
+9	through	through	ADP	IN	_	5	prep	_	ent_type=_|ent_id=2|ent_iob=O
+10	its	-PRON-	DET	PRP$	_	12	poss	_	ent_type=_|ent_id=2|ent_iob=O
+11	many	many	ADJ	JJ	_	12	amod	_	ent_type=_|ent_id=2|ent_iob=O
+12	adaptations	adaptation	NOUN	NNS	_	9	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+13	for	for	ADP	IN	_	12	prep	_	ent_type=_|ent_id=2|ent_iob=O
+14	film	film	NOUN	NN	_	13	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+15	and	and	CCONJ	CC	_	14	cc	_	ent_type=_|ent_id=2|ent_iob=O
+16	other	other	ADJ	JJ	_	17	amod	_	ent_type=_|ent_id=2|ent_iob=O
+17	media	medium	NOUN	NNS	_	14	conj	_	ent_type=_|ent_id=2|ent_iob=O
+18	.	.	PUNCT	.	_	5	punct	_	ent_type=_|ent_id=2|ent_iob=O
 
-# parse = (S (NP (NP (NNS Critics)) (PP (JJ such) (IN as) (NP (NNP Swati) (NNP Singh)))) (VP (VBP have) (VP (VBN noted) (SBAR (IN that) (S (NP (NP (RB even) (NNS critics)) (ADJP (JJ wary) (PP (IN of) (NP (NNP Kipling))) (PP (IN for) (NP (PRP$ his) (VBN supposed) (NN imperialism))))) (VP (VBP have) (VP (VBN admired) (NP (NP (DT the) (NN power)) (PP (IN of) (NP (PRP$ his) (NN storytelling)))))))))) (. .))
+# parse = (S (NP (NP (NNS Critics)) (PP (JJ such) (IN as) (NP (NNP Swati) (NNP Singh)))) (VP (VBP have) (VP (VBN noted) (SBAR (IN that) (S (NP (NP (RB even) (NNS critics)) (ADJP (JJ wary) (PP (IN of) (NP (NNP Kipling))) (PP (IN for) (NP (PRP$ his) (JJ supposed) (NN imperialism))))) (VP (VBP have) (VP (VBD admired) (NP (NP (DT the) (NN power)) (PP (IN of) (NP (PRP$ his) (NN storytelling)))))))))) (. .))
 # sent_id = 2
 # sent_len = 25
 # text = Critics such as Swati Singh have noted that even critics wary of Kipling for his supposed imperialism have admired the power of his storytelling.
-1	Critics	critic	NOUN	NNS	_	7	nsubj	_	_
-2	such	such	ADJ	JJ	_	3	amod	_	_
-3	as	as	ADP	IN	_	1	prep	_	_
-4	Swati	Swati	PROPN	NNP	_	5	compound	_	ent_type=LOC|ent_id=385|ent_iob=B
-5	Singh	Singh	PROPN	NNP	_	3	pobj	_	ent_type=LOC|ent_id=385|ent_iob=I
-6	have	have	VERB	VBP	_	7	aux	_	_
-7	noted	note	VERB	VBN	_	0	ROOT	_	_
-8	that	that	ADP	IN	_	19	mark	_	_
-9	even	even	ADV	RB	_	10	advmod	_	_
-10	critics	critic	NOUN	NNS	_	19	nsubj	_	_
-11	wary	wary	ADJ	JJ	_	10	amod	_	_
-12	of	of	ADP	IN	_	11	prep	_	_
-13	Kipling	Kipling	PROPN	NNP	_	12	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
-14	for	for	ADP	IN	_	13	prep	_	_
-15	his	-PRON-	DET	PRP$	_	17	poss	_	_
-16	supposed	suppose	VERB	VBN	_	17	amod	_	_
-17	imperialism	imperialism	NOUN	NN	_	14	pobj	_	_
-18	have	have	VERB	VBP	_	19	aux	_	_
-19	admired	admire	VERB	VBN	_	7	ccomp	_	_
-20	the	the	DET	DT	_	21	det	_	_
-21	power	power	NOUN	NN	_	19	dobj	_	_
-22	of	of	ADP	IN	_	21	prep	_	_
-23	his	-PRON-	DET	PRP$	_	24	poss	_	_
-24	storytelling	storytelling	NOUN	NN	_	22	pobj	_	_
-25	.	.	PUNCT	.	_	7	punct	_	_
+1	Critics	critic	NOUN	NNS	_	7	nsubj	_	ent_type=_|ent_id=2|ent_iob=O
+2	such	such	ADJ	JJ	_	3	amod	_	ent_type=_|ent_id=2|ent_iob=O
+3	as	as	ADP	IN	_	1	prep	_	ent_type=_|ent_id=2|ent_iob=O
+4	Swati	Swati	PROPN	NNP	_	5	compound	_	ent_type=LOC|ent_id=3|ent_iob=B
+5	Singh	Singh	PROPN	NNP	_	3	pobj	_	ent_type=LOC|ent_id=1|ent_iob=I
+6	have	have	VERB	VBP	_	7	aux	_	ent_type=_|ent_id=2|ent_iob=O
+7	noted	note	VERB	VBN	_	0	ROOT	_	ent_type=_|ent_id=2|ent_iob=O
+8	that	that	ADP	IN	_	19	mark	_	ent_type=_|ent_id=2|ent_iob=O
+9	even	even	ADV	RB	_	10	advmod	_	ent_type=_|ent_id=2|ent_iob=O
+10	critics	critic	NOUN	NNS	_	19	nsubj	_	ent_type=_|ent_id=2|ent_iob=O
+11	wary	wary	ADJ	JJ	_	10	amod	_	ent_type=_|ent_id=2|ent_iob=O
+12	of	of	ADP	IN	_	11	prep	_	ent_type=_|ent_id=2|ent_iob=O
+13	Kipling	Kipling	PROPN	NNP	_	12	pobj	_	ent_type=GPE|ent_id=3|ent_iob=B
+14	for	for	ADP	IN	_	13	prep	_	ent_type=_|ent_id=2|ent_iob=O
+15	his	-PRON-	DET	PRP$	_	17	poss	_	ent_type=_|ent_id=2|ent_iob=O
+16	supposed	suppose	VERB	VBN	_	17	amod	_	ent_type=_|ent_id=2|ent_iob=O
+17	imperialism	imperialism	NOUN	NN	_	14	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+18	have	have	VERB	VBP	_	19	aux	_	ent_type=_|ent_id=2|ent_iob=O
+19	admired	admire	VERB	VBN	_	7	ccomp	_	ent_type=_|ent_id=2|ent_iob=O
+20	the	the	DET	DT	_	21	det	_	ent_type=_|ent_id=2|ent_iob=O
+21	power	power	NOUN	NN	_	19	dobj	_	ent_type=_|ent_id=2|ent_iob=O
+22	of	of	ADP	IN	_	21	prep	_	ent_type=_|ent_id=2|ent_iob=O
+23	his	-PRON-	DET	PRP$	_	24	poss	_	ent_type=_|ent_id=2|ent_iob=O
+24	storytelling	storytelling	NOUN	NN	_	22	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+25	.	.	PUNCT	.	_	7	punct	_	ent_type=_|ent_id=2|ent_iob=O
 
-# parse = (S (NP (DT The) (NN book)) (VP (VBZ has) (VP (VBN been) (ADJP (JJ influential)) (PP (IN in) (NP (NP (DT the) (NN scout) (NN movement)) (, ,) (SBAR (WHNP (WHNP (WHNP (WP$ whose) (NN founder)) (, ,) (NP (NNP Robert) (NNP Baden))) (HYPH -) (NP (NNP Powell)) (, ,)) (S (VP (VBD was) (NP (NP (DT a) (NN friend)) (PP (IN of) (NP (NNP Kipling) (POS 's))))))))))) (. .))
+# parse = (S (NP (DT The) (NN book)) (VP (VBZ has) (VP (VBN been) (ADJP (JJ influential)) (PP (IN in) (NP (NP (DT the) (NN scout) (NN movement)) (, ,) (SBAR (WHNP (WHNP (WP$ whose) (NN founder)) (, ,) (NP (NP (NNP Robert) (NNP Baden)) (: -) (NP (NNP Powell))) (, ,)) (S (VP (VBD was) (NP (NP (DT a) (NN friend)) (PP (IN of) (NP (NNP Kipling) (POS 's))))))))))) (. .))
 # sent_id = 3
 # sent_len = 25
 # text = The book has been influential in the scout movement, whose founder, Robert Baden-Powell, was a friend of Kipling's.
-1	The	the	DET	DT	_	2	det	_	_
-2	book	book	NOUN	NN	_	4	nsubj	_	_
-3	has	have	VERB	VBZ	_	4	aux	_	_
-4	been	be	VERB	VBN	_	0	ROOT	_	_
-5	influential	influential	ADJ	JJ	_	4	acomp	_	_
-6	in	in	ADP	IN	_	5	prep	_	_
-7	the	the	DET	DT	_	9	det	_	_
-8	scout	scout	NOUN	NN	_	9	compound	_	_
-9	movement	movement	NOUN	NN	_	6	pobj	_	_
-10	,	,	PUNCT	,	_	9	punct	_	_
-11	whose	whose	DET	WP$	_	12	poss	_	_
-12	founder	founder	NOUN	NN	_	19	nsubj	_	_
-13	,	,	PUNCT	,	_	12	punct	_	_
-14	Robert	Robert	PROPN	NNP	_	17	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
-15	Baden	Baden	PROPN	NNP	_	17	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
-16	-	-	PUNCT	HYPH	_	17	punct	_	ent_type=PERSON|ent_id=380|ent_iob=I
-17	Powell	Powell	PROPN	NNP	_	12	appos	_	ent_type=PERSON|ent_id=380|ent_iob=I
-18	,	,	PUNCT	,	_	19	punct	_	_
-19	was	be	VERB	VBD	_	9	relcl	_	_
-20	a	a	DET	DT	_	21	det	_	_
-21	friend	friend	NOUN	NN	_	19	attr	_	_
-22	of	of	ADP	IN	_	21	prep	_	_
-23	Kipling	Kipling	PROPN	NNP	_	22	pobj	_	ent_type=GPE|ent_id=384|ent_iob=B
-24	's	's	PART	POS	_	23	case	_	_
-25	.	.	PUNCT	.	_	4	punct	_	_
+1	The	the	DET	DT	_	2	det	_	ent_type=_|ent_id=2|ent_iob=O
+2	book	book	NOUN	NN	_	4	nsubj	_	ent_type=_|ent_id=2|ent_iob=O
+3	has	have	VERB	VBZ	_	4	aux	_	ent_type=_|ent_id=2|ent_iob=O
+4	been	be	VERB	VBN	_	0	ROOT	_	ent_type=_|ent_id=2|ent_iob=O
+5	influential	influential	ADJ	JJ	_	4	acomp	_	ent_type=_|ent_id=2|ent_iob=O
+6	in	in	ADP	IN	_	5	prep	_	ent_type=_|ent_id=2|ent_iob=O
+7	the	the	DET	DT	_	9	det	_	ent_type=_|ent_id=2|ent_iob=O
+8	scout	scout	NOUN	NN	_	9	compound	_	ent_type=_|ent_id=2|ent_iob=O
+9	movement	movement	NOUN	NN	_	6	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+10	,	,	PUNCT	,	_	9	punct	_	ent_type=_|ent_id=2|ent_iob=O
+11	whose	whose	DET	WP$	_	12	poss	_	ent_type=_|ent_id=2|ent_iob=O
+12	founder	founder	NOUN	NN	_	19	nsubj	_	ent_type=_|ent_id=2|ent_iob=O
+13	,	,	PUNCT	,	_	12	punct	_	ent_type=_|ent_id=2|ent_iob=O
+14	Robert	Robert	PROPN	NNP	_	17	compound	_	ent_type=PERSON|ent_id=3|ent_iob=B
+15	Baden	Baden	PROPN	NNP	_	17	compound	_	ent_type=PERSON|ent_id=1|ent_iob=I
+16	-	-	PUNCT	HYPH	_	17	punct	_	ent_type=PERSON|ent_id=1|ent_iob=I
+17	Powell	Powell	PROPN	NNP	_	12	appos	_	ent_type=PERSON|ent_id=1|ent_iob=I
+18	,	,	PUNCT	,	_	19	punct	_	ent_type=_|ent_id=2|ent_iob=O
+19	was	be	VERB	VBD	_	9	relcl	_	ent_type=_|ent_id=2|ent_iob=O
+20	a	a	DET	DT	_	21	det	_	ent_type=_|ent_id=2|ent_iob=O
+21	friend	friend	NOUN	NN	_	19	attr	_	ent_type=_|ent_id=2|ent_iob=O
+22	of	of	ADP	IN	_	21	prep	_	ent_type=_|ent_id=2|ent_iob=O
+23	Kipling	Kipling	PROPN	NNP	_	22	pobj	_	ent_type=GPE|ent_id=3|ent_iob=B
+24	's	's	PART	POS	_	23	case	_	ent_type=_|ent_id=2|ent_iob=O
+25	.	.	PUNCT	.	_	4	punct	_	ent_type=_|ent_id=2|ent_iob=O
 
-# parse = (S (NP (NNP Percy) (NNP Grainger)) (VP (VBD composed) (NP (PRP$ his) (NNP Jungle) (NNP Book) (NN Cycle)) (PP (IN around) (NP (NP (NNS quotations)) (PP (IN from) (NP (DT the) (NN book)))))) (. .))
+# parse = (S (NP (NNP Percy) (NNP Grainger)) (VP (VBN composed) (NP (PRP$ his) (NN Jungle) (NN Book) (NN Cycle)) (PP (IN around) (NP (NP (NNS quotations)) (PP (IN from) (NP (DT the) (NN book)))))) (. .))
 # sent_id = 4
 # sent_len = 13
 # text = Percy Grainger composed his Jungle Book Cycle around quotations from the book.
-1	Percy	Percy	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
-2	Grainger	Grainger	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=380|ent_iob=I
-3	composed	compose	VERB	VBD	_	0	ROOT	_	_
-4	his	-PRON-	DET	PRP$	_	7	poss	_	_
-5	Jungle	Jungle	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=380|ent_iob=B
-6	Book	Book	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=380|ent_iob=I
-7	Cycle	cycle	NOUN	NN	_	3	dobj	_	_
-8	around	around	ADP	IN	_	3	prep	_	_
-9	quotations	quotation	NOUN	NNS	_	8	pobj	_	_
-10	from	from	ADP	IN	_	9	prep	_	_
-11	the	the	DET	DT	_	12	det	_	_
-12	book	book	NOUN	NN	_	10	pobj	_	_
-13	.	.	PUNCT	.	_	3	punct	_	_
+1	Percy	Percy	PROPN	NNP	_	2	compound	_	ent_type=PERSON|ent_id=3|ent_iob=B
+2	Grainger	Grainger	PROPN	NNP	_	3	nsubj	_	ent_type=PERSON|ent_id=1|ent_iob=I
+3	composed	compose	VERB	VBD	_	0	ROOT	_	ent_type=_|ent_id=2|ent_iob=O
+4	his	-PRON-	DET	PRP$	_	7	poss	_	ent_type=_|ent_id=2|ent_iob=O
+5	Jungle	Jungle	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=3|ent_iob=B
+6	Book	Book	PROPN	NNP	_	7	compound	_	ent_type=PERSON|ent_id=1|ent_iob=I
+7	Cycle	cycle	NOUN	NN	_	3	dobj	_	ent_type=_|ent_id=2|ent_iob=O
+8	around	around	ADP	IN	_	3	prep	_	ent_type=_|ent_id=2|ent_iob=O
+9	quotations	quotation	NOUN	NNS	_	8	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+10	from	from	ADP	IN	_	9	prep	_	ent_type=_|ent_id=2|ent_iob=O
+11	the	the	DET	DT	_	12	det	_	ent_type=_|ent_id=2|ent_iob=O
+12	book	book	NOUN	NN	_	10	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+13	.	.	PUNCT	.	_	3	punct	_	ent_type=_|ent_id=2|ent_iob=O

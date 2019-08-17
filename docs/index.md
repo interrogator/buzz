@@ -2,7 +2,9 @@
 
 It relies heavily on *pandas*, *numpy*, *spaCy*, and occasionally *NLTK*. Constituency parsing can be performed with either *benepar* or *bllip*. Dependency searching is handled by a purpose-built library called *depgrep*.
 
-A general introduction to the basics of *buzz* is available [via GitHub](https://github.com/interrogator/buzz). This site provides more comprehensive
+A general introduction to the basics of *buzz* is available [via GitHub](https://github.com/interrogator/buzz). This site provides more comprehensive information.
+
+For the associated web frontend, *buzzword*, head [here](https://buzzword.readthedocs.io/en/latest/).
 
 - [Installing *buzz*](install.md)
 - [Modelling and parsing corpora](corpus.md)
@@ -13,7 +15,6 @@ A general introduction to the basics of *buzz* is available [via GitHub](https:/
 - [Concordancing](conc.md)
 - [Measuring prototypicality and similarity](proto.md)
 - [Working with pandas](pandas.md)
-- [buzzword web app](buzzword.md)
 - [Interactive visualisation in the browser](site.md)
 - [Case study: lexical density](density.md)
 - [About `buzz`](about.md)

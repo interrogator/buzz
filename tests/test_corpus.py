@@ -96,13 +96,18 @@ class TestCorpus(unittest.TestCase):
             "f",
             "e",
             "annotated",
-            "field",
+            "ent_id",
+            "ent_iob",
+            "ent_type",
             "parse",
             "sent_id",
             "sent_len",
             "speaker",
             "text",
+            "token_annotation",
             "_n",
+            "_match",
+            "_count",
         ]
         self.assertTrue(all(i in self.loaded.columns for i in expect))
 
@@ -180,6 +185,11 @@ class TestCorpus(unittest.TestCase):
     def test_just_index(self):
         just_two = self.loaded.just.sentences("^2$")
         self.assertTrue((just_two.index.get_level_values("s") == 2).all())
+
+    def test_token_annotation(self):
+        tokens = self.loaded[self.loaded["token_annotation"] == "level"]
+        self.assertEqual(len(tokens), 2)
+        self.assertEqual(list(tokens["w"]), ["important", "theme"])
 
 
 if __name__ == "__main__":

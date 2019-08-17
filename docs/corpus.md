@@ -16,9 +16,9 @@ corpus.files[0].read()
 ```
 
 ```
-WE SEE only big white teeth and very Negroidal (big) lips. <metadata time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true">
-Waaaake up! Wake up! Wake up! Wake up! Up ya wake! Up ya wake! Up ya wake!. <metadata time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="1"> <metadata time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="1">
-This is Mister Señor Love Daddy. Your voice of choice. The world's only twelve-hour strongman, here on WE LOVE radio, 108 FM. The last on your dial, but the first in ya hearts, and that's the truth, Ruth!. <metadata time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2"> <metadata time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2">
+WE SEE only big white teeth and very Negroidal (big) lips. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" />
+Waaaake up! Wake up! Wake up! Wake up! Up ya wake! Up ya wake! Up ya wake!. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="1"> <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="1" />
+This is Mister Señor Love Daddy. Your voice of choice. The world's only twelve-hour strongman, here on WE LOVE radio, 108 FM. The last on your dial, but the first in ya hearts, and that's the truth, Ruth!. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2"> <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2" />
 ```
 
 ## Parsing a corpus

@@ -14,7 +14,6 @@ nav:
     - Concordancing: conc.md
     - Prototypicality and similarity: proto.md
     - Working with pandas: pandas.md
-    - buzzword web app: buzzword.md
     - Interactive visualisation in the browser: site.md
     - "Case study: lexical density": density.md
     - About: about.md

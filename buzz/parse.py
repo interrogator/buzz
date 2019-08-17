@@ -116,26 +116,70 @@ class Parser:
         return Phony(norm) if wrap else norm
 
     @staticmethod
-    def _is_correct_span(word, span, nth, features):
+    def _strip_punct(span):
+        """
+        Fallback only --- last ditch effort to match token in span
+        """
+        return "".join(i for i in span if i.isalnum() or i in {"-"})
+
+    def _get_token_index_in_span(self, span, word):
+        """
+        Inherently imperfect: from span given by html parser, find spacy token
+
+        We should avoid tokenising where possible, because it is imperfect.
+
+        Edge cases are when the span is 'word.'. This is two tokens
+        """
+        # if the span is obviously one token, we're good
+        if span.strip().isalnum() or len(span.strip()) == 1:
+            return 0
+        # this seems imperfect too, but saves running nlp
+        if span.strip().startswith(word.text):
+            return 0
+        # otherwise, tokenise and get its index
+        tokens = self.nlp(span, disable=["parser", "ner"])
+        gen = (i for i, t in enumerate(tokens) if t.text == word.text)
+        try:
+            return next(gen)
+        except StopIteration:
+            split = enumerate(span.split())
+            fallback = (i for i, t in split if self._strip_punct(t) == word.text)
+            return next(fallback, 0)
+        return 0
+
+    def _is_correct_span(self, word, span, nth, features):
         """
         Is this spacy token inside an html span? (for token metadata)
+        nth is the number of times this exact span appears to the left in sent.
+        So we need to check that not only is word in the span, but that the ix
+        of the span is correct
         """
-        sent = word.sent
-        ix_in_sent = next(i for i, t in enumerate(sent) if t == word)
-        toks_after = sent[ix_in_sent:]
+        # quick exit if it definitely does not match
+        if word.text not in span or len(span) < len(word.text):
+            return False
+        nth_in_span = self._get_token_index_in_span(span, word)
+        # there must be a faster way to get token index in sent than this...
+        ix_in_sent = next(i for i, t in enumerate(word.sent) if t == word)
+        # get the tokens from start of our match to end of seent
+        toks_after = word.sent[ix_in_sent - nth_in_span :]
+        # get this part of the sent as string, and cut it to length of span
         after = str(toks_after)[: len(span)]
+        # ideally now, we can compare the span and the sent
         if span != after:
             return False
-        n = str(sent[:ix_in_sent]).count(after)
-        return n == nth
+        # if they are the same, we need to check prior occurrences in the sent
+        count_before_here = str(word.sent[:ix_in_sent]).count(after)
+        # prior occurrences should be same as nth from htmlparser
+        return count_before_here == nth
 
     def _make_misc_field(self, word, token_meta):
         """
-        Build the misc cell for this word
+        Build the misc cell for this word. It has NER, sentiment AND user-added
         """
-        if not word.ent_type_ and not word.sentiment and not token_meta:
+        if not word.ent_iob and not word.sentiment and not token_meta:
             return "_"
-        formatters = dict(typ=word.ent_type_, num=word.ent_type, iob=word.ent_iob_)
+        ent = word.ent_type_ or "_"
+        formatters = dict(typ=ent, num=word.ent_iob, iob=word.ent_iob_)
         misc = "ent_type={typ}|ent_id={num}|ent_iob={iob}".format(**formatters)
         if word.sentiment:
             misc += "|sentiment={}".format(word.sentiment)
