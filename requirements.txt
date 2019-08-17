@@ -12,10 +12,6 @@ pyparsing
 depgrep>=0.1.2
 git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5
 setuptools
-flask
-dash
-dash-daq
-python-dotenv
 # just needed for test/ci:
 flake8
 coverage

@@ -15,7 +15,7 @@
 
 
 ```bash
-pip install buzz
+pip install buzz[word]
 # or
 git clone http://github.com/interrogator/buzz
 cd buzz
@@ -24,12 +24,18 @@ python setup.py install
 
 ## Frontend: *buzzword*
 
-The app comes bundled with a web frontend for exploring parsed corpora. To use it, configure a `.env` file from `.env.example`, a `corpora.json` file from `corpora.json.example`, and then do:
+*buzz* has an optional frontend, *buzzword*, for exploring parsed corpora. To use it, install:
 
 ```bash
-buzzword
-# or
-python -m buzz.word
+pip install buzz[word]
+```
+
+Then, generate a workspace, `cd` into it, and start:
+
+```bash
+python -m buzzword.create workspace
+cd workspace
+python -m buzzword
 ```
 
 More complete documentation is available [here](https://buzz.readthedocs.io/en/latest/buzzword/), as well from the main page of the app itself.

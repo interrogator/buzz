@@ -21,7 +21,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     packages=["buzz"],
-    scripts=["bin/buzzword", "bin/parse"],
+    scripts=["bin/parse"],
+    extras_require={"word": ["buzzword", "dash==1.1.1", "dash-daq", "flask==1.1.1"]},
     author_email="mcddjx@gmail.com",
     license="MIT",
     keywords=["corpus", "linguistics", "nlp"],
@@ -39,13 +40,8 @@ setup(
         "spacy==2.1.6",
         "pandas==0.25.0",
         "tqdm==4.33.0",
-        "pyparsing",
         "tabview==1.4.5",
         "isort==4.3.21",
-        "flask",
-        "dash",
-        "python-dotenv",
-        "dash-daq",
     ],
     dependency_links=[
         "git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5"
