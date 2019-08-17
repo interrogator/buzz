@@ -44,6 +44,7 @@ setup(
         "cython",
         "depgrep>=0.1.2",
         "scikit-learn",
+        "colorama",
         # 'benepar',
         # 'benepar[cpu]',
         "tensorflow>=1.12.1",

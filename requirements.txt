@@ -11,6 +11,7 @@ tqdm==4.33.0
 pyparsing
 depgrep>=0.1.2
 setuptools
+colorama
 # just needed for test/ci:
 flake8
 coverage
