@@ -6,7 +6,6 @@ import math
 
 import numpy as np
 import pandas as pd
-from tabview import view
 
 from .utils import _auto_window, _make_match_col
 
@@ -45,6 +44,7 @@ def _tabview(df, reference, window="auto", **kwargs):
     Show concordance in interactive cli view
     """
     from .conc import Concordance
+    from tabview import view
 
     is_conc = type(df) == Concordance
 

@@ -10,7 +10,7 @@ pandas==0.25.0
 tqdm==4.33.0
 pyparsing
 depgrep>=0.1.2
-git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5
+git+http://github.com/interrogator/tabview.git
 setuptools
 # just needed for test/ci:
 flake8
@@ -18,5 +18,5 @@ coverage
 mypy
 codecov
 pre-commit
-black
+black==19.3b0
 isort==4.3.21
