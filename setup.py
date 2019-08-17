@@ -22,7 +22,9 @@ setup(
     zip_safe=False,
     packages=["buzz"],
     scripts=["bin/parse"],
-    extras_require={"word": ["buzzword", "dash==1.1.1", "dash-daq", "flask==1.1.1"]},
+    extras_require={
+        "word": ["buzzword>=0.1.0", "dash==1.1.1", "dash-daq", "flask==1.1.1"]
+    },
     author_email="mcddjx@gmail.com",
     license="MIT",
     keywords=["corpus", "linguistics", "nlp"],
