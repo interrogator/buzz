@@ -51,10 +51,6 @@ setup(
         "spacy==2.1.6",
         "pandas==0.25.0",
         "tqdm==4.33.0",
-        "tabview==1.4.5",
         "isort==4.3.21",
-    ],
-    dependency_links=[
-        "git+http://github.com/interrogator/tabview.git#egg=tabview-1.4.5"
     ],
 )

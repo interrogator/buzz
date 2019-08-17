@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 
 from .utils import _auto_window, _make_match_col
+from .tabview import view
 
 
 def _get_widths(df, is_conc, window):
@@ -44,7 +45,6 @@ def _tabview(df, reference, window="auto", **kwargs):
     Show concordance in interactive cli view
     """
     from .conc import Concordance
-    from tabview import view
 
     is_conc = type(df) == Concordance
 
