@@ -51,14 +51,14 @@ First, you need to make sure that your corpus is in a format and structure that 
 Text files should be plain text, with a `.txt` extension. Importantly though, they can be augmented with metadata, which can be stored in two ways. First, speaker names can be added by using capital letters and a colon, much like in a script. Second, you can use XML style metadata markup. Here is an example file, `sopranos/s1/e01.txt`:
 
 ```html
-<metadata aired="10.01.1999">
-MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <metadata exposition=true interrogative-type="intonation" move="info-request">
-TONY: They said it was a panic attack <metadata emph-token=0 move="refute">
-MELFI: You don't agree that you had a panic attack? <metadata move="info-request" question=type="in">
+<meta aired="10.01.1999" />
+MELFI: My understanding from Dr. Cusamano, your family physician, is you collapsed? Possibly a panic attack? <meta exposition=true interrogative-type="intonation" move="info-request">
+TONY: <meta emph=true>They</meta> said it was a panic attack <meta move="refute" /> 
+MELFI: You don't agree that you had a panic attack? <meta move="info-request" question=type="in" />
 ...
 ```
 
-If you add a metadata element at the start of the text file, it will be understood as file-level metadata. For sentence-specific metadata, the element should follow the sentence, ideally at the end of a line. All metadata will be searchable later, so the more you can add, the more you can do with your corpus.
+If you add a `meta` element at the start of the text file, it will be understood as file-level metadata. For sentence-specific metadata, the element should follow the sentence, ideally at the end of a line. Span- and token-level metadata should wrap the tokens you want to annotate. All metadata will be searchable later, so the more you can add, the more you can do with your corpus.
 
 To load corpora as *buzz* objects:
 
@@ -80,7 +80,7 @@ buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as
 
 ```python
 parsed = corpus.parse()
-# if you don't need constituency parses, you can speed things up with:
+# if you don't need constituency parses, you can speed things up a lot with:
 parsed = corpus.parse(cons_parser=None)
 ```
 
@@ -140,11 +140,9 @@ loaded.head()
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-    </tr>
-    <tr>
-      <th>file</th>
-      <th>s</th>
-      <th>i</th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th>w</th>
       <th>l</th>
       <th>x</th>
@@ -153,21 +151,50 @@ loaded.head()
       <th>f</th>
       <th>e</th>
       <th>aired</th>
-      <th>emph_token</th>
+      <th>emph</th>
+      <th>ent_id</th>
+      <th>ent_iob</th>
+      <th>ent_type</th>
       <th>exposition</th>
       <th>interrogative_type</th>
       <th>move</th>
-      <th>parse</th>
       <th>question</th>
       <th>sent_id</th>
       <th>sent_len</th>
       <th>speaker</th>
       <th>text</th>
+      <th>_n</th>
+    </tr>
+    <tr>
+      <th>file</th>
+      <th>s</th>
+      <th>i</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="5" valign="top">e01</th>
+      <th rowspan="5" valign="top">text</th>
       <th rowspan="5" valign="top">1</th>
       <th>1</th>
       <td>My</td>
@@ -179,15 +206,18 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
+      <td>2</td>
+      <td>O</td>
+      <td>_</td>
       <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
-      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
       <td>_</td>
       <td>1</td>
       <td>14</td>
       <td>MELFI</td>
-      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>My understanding from Dr. Cusamano, your family physician, is you collapsed?</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -200,15 +230,18 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
+      <td>2</td>
+      <td>O</td>
+      <td>_</td>
       <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
-      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
       <td>_</td>
       <td>1</td>
       <td>14</td>
       <td>MELFI</td>
-      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>My understanding from Dr. Cusamano, your family physician, is you collapsed?</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -221,15 +254,18 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
+      <td>2</td>
+      <td>O</td>
+      <td>_</td>
       <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
-      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
       <td>_</td>
       <td>1</td>
       <td>14</td>
       <td>MELFI</td>
-      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>My understanding from Dr. Cusamano, your family physician, is you collapsed?</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
@@ -242,15 +278,18 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
+      <td>2</td>
+      <td>O</td>
+      <td>_</td>
       <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
-      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
       <td>_</td>
       <td>1</td>
       <td>14</td>
       <td>MELFI</td>
-      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>My understanding from Dr. Cusamano, your family physician, is you collapsed?</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>5</th>
@@ -263,15 +302,18 @@ loaded.head()
       <td>_</td>
       <td>10.01.1999</td>
       <td>_</td>
+      <td>3</td>
+      <td>B</td>
+      <td>PERSON</td>
       <td>True</td>
       <td>intonation</td>
       <td>info-request</td>
-      <td>(S (NP (NP (PRP$ My) (NN understanding)) (PP (...</td>
       <td>_</td>
       <td>1</td>
       <td>14</td>
       <td>MELFI</td>
-      <td>My understanding from Dr. Cusamano, your famil...</td>
+      <td>My understanding from Dr. Cusamano, your family physician, is you collapsed?</td>
+      <td>4</td>
     </tr>
   </tbody>
 </table>
@@ -289,7 +331,7 @@ The interactive view has a number of cool features, such as the ability to sort 
 A corpus is a pandas DataFrame object. The index is a multiindex, comprised of `filename`, `sent_id` and `token`. Each token in the corpus is therefore uniquely identifiable through this index. The columns for the loaded copus are all the CONLL columns, plus anything included as metadata.
 
 ```python
-# get the first sentence using buzz.sent()
+# get the first sentence using buzz.dataset.sent()
 first = loaded.sent(0)
 # using pandas syntax to get first 5 words
 first.iloc[:5]['w']
@@ -301,7 +343,7 @@ print(' '.join(first.x.str.cat(first.w, sep='/')))
 "DET/My NOUN/understanding ADP/from PROPN/Dr. PROPN/Cusamano PUNCT/, DET/your NOUN/family NOUN/physician PUNCT/, VERB/is PRON/you VERB/collapsed PUNCT/?
 ```
 
-You don't need to know pandas, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguisitcs in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties:
+You don't need to know pandas, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguistics in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties:
 
 ```python
 tony = loaded.just.speaker.TONY
@@ -335,18 +377,15 @@ The search language works by modelling nodes and the links between them. Specify
 
 The arrow-like link specifies that the `nsubj` must govern the determiner. The `&` relation specifies that the two nodes are actually the same node. Brackets may be necessary to contain the query.
 
-This language is based on `tgrep`, syntax, customised for dependencies. It is still a work in progress, but documentation should emerge [here](https://github.com/interrogator/depgrep).
+This language is based on `Tgrep2`, syntax, customised for dependencies. It is still a work in progress, but documentation should emerge [here](https://buzzword.readthedocs.io/en/latest/depgrep/), with repository [here](https://github.com/interrogator/depgrep).
 
-When you search a Corpus or a Dataset, the result is simply another Dataset, representing a subset of the Corpus. Therefore, rather than trying to construct one query string that gets everything you want, it is often easier to perform multiple small searches:
+## Drill-down
 
-```python
-tony_subjects = loaded.just.speaker.TONY.depgrep('f/nsubj/ <- f/ROOT/')
-```
-
-rather than the more error-prone:
+When you search a `Corpus` or `Dataset`, the result is simply another Dataset, representing a subset of the Corpus. Therefore, rather than trying to construct one query string that gets everything you want, it is often easier to perform multiple small searches:
 
 ```python
-tony_subjects = loaded.depgrep('f/nsubj/ <- f/ROOT/ & speaker/TONY/')
+query = 'f/nsubj/ <- f/ROOT/'
+tony_subjects = loaded.skip.wordclass.PUNCT.just.speaker.TONY.depgrep(query)
 ```
 
 Note that for any searches that do not require traversal of the grammatical structure, you should use the `skip` and `just` methods. *tgrep* and *depgrep* only need to be used when your search involves the grammar, and not just token features.
