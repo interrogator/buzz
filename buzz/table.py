@@ -62,6 +62,7 @@ class Table(pd.DataFrame):
 
     def site(self, title=None, kind="bar", **kwargs):
         from .dashview import DashSite
+
         title = title or getattr(self, "name", None)
         site = DashSite(title)
         height, width = self.shape

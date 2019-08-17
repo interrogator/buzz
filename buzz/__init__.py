@@ -1,6 +1,7 @@
 import warnings
 
 from .corpus import Corpus  # noqa: F401, E402
+
 # we may not have buzz[word] installed, so this can fail
 try:
     from .dashview import DashSite  # noqa: F401, E402

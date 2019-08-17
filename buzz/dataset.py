@@ -165,6 +165,7 @@ class Dataset(pd.DataFrame):
         Make a website with this dataset as a datatable
         """
         from .dashview import DashSite
+
         site = DashSite(title)
         height, width = self.shape
         if height > 100 or width > 100:
