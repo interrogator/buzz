@@ -1,7 +1,11 @@
 import warnings
 
 from .corpus import Corpus  # noqa: F401, E402
-from .dashview import DashSite  # noqa: F401, E402
+# we may not have buzz[word] installed, so this can fail
+try:
+    from .dashview import DashSite  # noqa: F401, E402
+except ImportError:
+	pass
 from .dataset import Dataset  # noqa: F401, E402
 from .file import File  # noqa: F401, E402
 from .parse import Parser  # noqa: F401, E402

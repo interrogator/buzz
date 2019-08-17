@@ -4,7 +4,6 @@ import pandas as pd
 import scipy
 
 from .conc import _concordance
-from .dashview import DashSite
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
@@ -165,6 +164,7 @@ class Dataset(pd.DataFrame):
         """
         Make a website with this dataset as a datatable
         """
+        from .dashview import DashSite
         site = DashSite(title)
         height, width = self.shape
         if height > 100 or width > 100:

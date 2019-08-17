@@ -1,6 +1,5 @@
 import pandas as pd
 
-from .dashview import DashSite
 from .views import _sort, _tabview
 
 
@@ -62,6 +61,7 @@ class Table(pd.DataFrame):
         return self.iloc[:n, :n]
 
     def site(self, title=None, kind="bar", **kwargs):
+        from .dashview import DashSite
         title = title or getattr(self, "name", None)
         site = DashSite(title)
         height, width = self.shape

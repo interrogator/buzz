@@ -23,7 +23,16 @@ setup(
     packages=["buzz"],
     scripts=["bin/parse"],
     extras_require={
-        "word": ["buzzword>=0.1.0", "dash==1.1.1", "dash-daq", "flask==1.1.1"]
+        "word": [
+            "buzzword>=0.1.0",
+            "dash==1.1.1",
+            "flask==1.1.1",
+            "dash-core-components==1.1.1",
+            "dash-html-components==1.0.0",
+            "dash-renderer==1.0.0",
+            "dash-table==4.1.0",
+            "dash-daq==0.1.7",
+        ]
     },
     author_email="mcddjx@gmail.com",
     license="MIT",
