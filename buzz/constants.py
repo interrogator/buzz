@@ -28,7 +28,9 @@ SHORT_TO_LONG_NAME = dict(
     t="TGrep2",
 )
 
-_SHORTER = dict(s="Sent #", i="Token #", p="POS", g="Gov.", f="Function", x="Class", m="Morph")
+_SHORTER = dict(
+    s="Sent #", i="Token #", p="POS", g="Gov.", f="Function", x="Class", m="Morph"
+)
 SHORT_TO_COL_NAME = {**SHORT_TO_LONG_NAME, **_SHORTER}
 SHORT_TO_COL_NAME = {
     k: v.replace("Governor", "Gov.") for k, v in SHORT_TO_COL_NAME.items()

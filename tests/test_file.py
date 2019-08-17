@@ -39,4 +39,3 @@ class TestFile(unittest.TestCase):
             self.assertEqual(from_iter, from_load)
         doc = parsed.to_spacy()
         self.assertIsInstance(doc, Doc)
-

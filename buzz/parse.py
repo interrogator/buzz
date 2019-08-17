@@ -120,12 +120,12 @@ class Parser:
         """
         Fallback only --- last ditch effort to match token in span
         """
-        return "".join(i for i in span if i.isalnum() or i in {'-'})
+        return "".join(i for i in span if i.isalnum() or i in {"-"})
 
     def _get_token_index_in_span(self, span, word):
         """
         Inherently imperfect: from span given by html parser, find spacy token
-        
+
         We should avoid tokenising where possible, because it is imperfect.
 
         Edge cases are when the span is 'word.'. This is two tokens
@@ -137,7 +137,7 @@ class Parser:
         if span.strip().startswith(word.text):
             return 0
         # otherwise, tokenise and get its index
-        tokens = self.nlp(span, disable=['parser', 'ner'])
+        tokens = self.nlp(span, disable=["parser", "ner"])
         gen = (i for i, t in enumerate(tokens) if t.text == word.text)
         try:
             return next(gen)
@@ -161,7 +161,7 @@ class Parser:
         # there must be a faster way to get token index in sent than this...
         ix_in_sent = next(i for i, t in enumerate(word.sent) if t == word)
         # get the tokens from start of our match to end of seent
-        toks_after = word.sent[ix_in_sent-nth_in_span:]
+        toks_after = word.sent[ix_in_sent - nth_in_span :]
         # get this part of the sent as string, and cut it to length of span
         after = str(toks_after)[: len(span)]
         # ideally now, we can compare the span and the sent
