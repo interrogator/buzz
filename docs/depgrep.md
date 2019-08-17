@@ -1,6 +1,6 @@
 # depgrep: a language for searching linguistic dependencies
 
-When bulding a search query with *buzzword*, you can select *Dependencies* to activate *depgrep* queries. *Depgrep* searches consist of combinations of *nodes* and *relations*, just like [Tgrep2](https://tedlab.mit.edu/~dr/Tgrep2/), on which this tool is based. Learning to create searches consists of learning:
+When bulding a search query with *buzz*, you can select *Dependencies* to activate *depgrep* queries. *Depgrep* searches consist of combinations of *nodes* and *relations*, just like [Tgrep2](https://tedlab.mit.edu/~dr/Tgrep2/), on which this tool is based. Learning to create searches consists of learning:
 
 1. How to specify nodes (including regular expressions)
 2. How to specify relations between nodes
