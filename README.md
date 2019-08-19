@@ -7,7 +7,7 @@
 # buzz: python corpus linguistics
 
 <!--- Don't edit the version line below manually. Let bump2version do it for you. -->
-> Version 3.0.3
+> Version 3.0.4
 
 > *buzz* is a linguistics tool for parsing and then exploring plain or metadata-rich text. This README provides an overview of functionality. Visit the [full documentation](https://buzz.readthedocs.io/en/latest/) for a more complete user guide.
 
