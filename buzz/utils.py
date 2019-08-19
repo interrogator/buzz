@@ -255,7 +255,7 @@ def _to_df(
     corpus,
     load_trees: bool = True,
     subcorpus: Optional[str] = None,
-    usecols: List[str] = COLUMN_NAMES,
+    usecols: Optional[List[str]] = None,
     usename: Optional[str] = None,
     set_data_types: bool = True,
     add_governor: bool = False,

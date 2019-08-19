@@ -21,7 +21,7 @@ class TestSearch(unittest.TestCase):
         self.assertTrue(list(res._n) == list(lres._n))
         res = self.parsed.depgrep("l/book/")
         lres = self.loaded.depgrep("l/book/")
-        self.assertEqual(len(res), 3)
+        self.assertEqual(len(res), 6)
         self.assertTrue(list(res.index) == list(lres.index))
         self.assertTrue(list(res._n) == list(lres._n))
 
@@ -30,7 +30,7 @@ class TestSearch(unittest.TestCase):
         self.assertEqual(len(res), 3)
 
     def test_depgrep(self):
-        res = self.loaded.depgrep("l/book/")
+        res = self.loaded.depgrep("L/book/")
         self.assertEqual(len(res), 3)
         res = self.loaded.depgrep('x/^NOUN/ -> l"the"', case_sensitive=False)
         sup = self.loaded.depgrep('p/^N/ -> l"the"', case_sensitive=False)
