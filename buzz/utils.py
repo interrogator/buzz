@@ -91,7 +91,7 @@ def _set_best_data_types(df):
     Make DF have the best possible column data types
     """
     for c in list(df.columns):
-        if c == "g" or df[c].dtype.name.startswith("date"):
+        if df[c].dtype.name.startswith("date"):
             continue
         try:
             df[c] = df[c].astype(DTYPES.get(c, "category"))
@@ -154,7 +154,7 @@ def _get_sentence(row, df):
     return df.iloc[start:end]
 
 
-def _make_csv(raw_lines, fname):
+def _make_csv(raw_lines, fname, usecols):
     """
     Turn raw CONLL-U file data into something pandas' CSV reader can easily and quickly read.
 
@@ -170,20 +170,21 @@ def _make_csv(raw_lines, fname):
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
     splut = [re.split("\n([0-9])", s, 1) for s in sents]
+    regex = "^# (.*?) = (.*?)$"
     try:
         for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
             text = one + text  # rejoin it as it was
             sent_meta = dict()
             # get every metadata row, split into key//value
-            for key, value in re.findall(
-                "^# (.*?) = (.*?)$", raw_sent_meta, re.MULTILINE
-            ):
+            found = re.findall(regex, raw_sent_meta, re.MULTILINE)
+            for key, value in found:
                 # turn the string into an object if it's valid json
+                if usecols and key.strip() not in usecols:
+                    continue
                 sent_meta[key.strip()] = cast(value.strip())
             # add the fsi part to every row
-            text = "\n".join(
-                f"{fname}\t{sent_id}\t{line}" for line in text.splitlines()
-            )
+            lines = text.splitlines()
+            text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in lines)
             # add csv and meta to our collection
             csvdat.append(text)
             meta_dicts.append(sent_meta)
@@ -276,27 +277,32 @@ def _to_df(
     elif isinstance(corpus, str) and not os.path.exists(corpus):
         data = corpus
 
-    data, metadata = _make_csv(data, usename or corpus.name)
+    data, metadata = _make_csv(data, usename or corpus.name, usecols)
+
+    if usecols is not None:
+        usecols = usecols + [i for i in ["file", "s", "i"] if i not in usecols]
 
     df = pd.read_csv(
         StringIO(data),
         sep="\t",
         header=None,
-        names=usecols,
+        names=COLUMN_NAMES,
         quoting=3,
         memory_map=True,
-        index_col=["file", "s", "i"],
+        # index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
         usecols=usecols,
     )
 
+    df = df.set_index(["file", "s", "i"])
+
     morph_cols = list()
-    if morph and (df.m != "_").any():
+    if morph and "m" in df.columns and (df["m"] != "_").any():
         df, morph_cols = _parse_out_multiples(df, morph=True)
 
     misc_cols = list()
-    if misc and (df.o != "_").any():
+    if misc and "o" in df.columns and (df["o"] != "_").any():
         df, misc_cols = _parse_out_multiples(df)
 
     # make a dataframe containing sentence level metadata, then join it to main df
@@ -310,17 +316,13 @@ def _to_df(
 
     # remove columns whose value was interpeted or for which nothing is ever available
     badcols = ["o", "m"]
-
     df = df.drop(badcols, axis=1, errors="ignore")
 
-    df["g"] = df["g"].fillna(0)
-    if df["g"].dtype in {object, str}:
-        df["g"] = df["g"].str.replace("_|^$", "0").astype(int)
-    df["g"] = df["g"].astype(int)
     df = df.fillna("_")
+
     if set_data_types:
         df = _set_best_data_types(df)
-    if add_governor:
+    if "g" in df.columns and add_governor:
         df = _add_governor(df)
     return Dataset(df, name=usename or corpus.name)
 

@@ -48,12 +48,26 @@ class File(Corpus):
     def __bool__(self):
         return True
 
+    def table(self, show=["w"], subcorpora=["file"], **kwargs):
+        """
+        Generate a frequency table for this file
+        """
+        if isinstance(show, str):
+            show = [show]
+        if isinstance(subcorpora, str):
+            subcorpora = [subcorpora]
+        needed = show + subcorpora
+        usecols = kwargs.pop("usecols", needed)
+        loaded = self.load(usecols=usecols)
+        return loaded.table(show=show, subcorpora=subcorpora, **kwargs)
+
     def load(self, **kwargs):
         """
         For parsed dataset, get dataframe or spacy object
         """
         if self.is_parsed:
             df = _to_df(self, **kwargs)
+            df.reference = df
             df["_n"] = range(len(df))
             return df
         raise NotImplementedError(

@@ -105,6 +105,19 @@ class Corpus(MutableSequence):
         """
         return Searcher().run(self, "t", query, **kwargs)
 
+    def table(self, show=["w"], subcorpora=["file"], **kwargs):
+        """
+        Generate a frequency table from the whole corpus
+        """
+        if isinstance(show, str):
+            show = [show]
+        if isinstance(subcorpora, str):
+            subcorpora = [subcorpora]
+        needed = show + subcorpora
+        usecols = kwargs.pop("usecols", needed)
+        loaded = self.load(usecols=usecols)
+        return loaded.table(show=show, subcorpora=subcorpora, **kwargs)
+
     def depgrep(self, query, **kwargs):
         """
         Search dependencies using depgrep
