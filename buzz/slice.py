@@ -112,7 +112,7 @@ class Interim(Filter):
         if not entry:
             try:
                 return self._corpus[self.column].value_counts()
-            except:
+            except Exception:
                 raise NotImplementedError("Not done yet.")
         else:
             entry = _get_short_name_from_long_name(entry)
