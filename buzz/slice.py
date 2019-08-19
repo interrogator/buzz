@@ -33,7 +33,12 @@ class Filter(object):
     """
 
     def __init__(self, corpus, column, inverse=False):
-        self.column = _get_short_name_from_long_name(column)
+        if isinstance(column, str):
+            column = [column]
+        fixed = list()
+        for i in column:
+            fixed.append(_get_short_name_from_long_name(i))
+        self.column = fixed
         self.inverse = inverse
         self._corpus = corpus
 
@@ -115,9 +120,17 @@ class Interim(Filter):
             except Exception:
                 raise NotImplementedError("Not done yet.")
         else:
-            entry = _get_short_name_from_long_name(entry)
+            if isinstance(entry, str):
+                entry = [entry]
+            show = list()
+            for i in entry:
+                show.append(_get_short_name_from_long_name(i))
+            entry = show
         if not isinstance(self._corpus, pd.DataFrame):
-            usecols = [entry, self.column]
+            if isinstance(self.column, str):
+                self.column = [self.column]
+            self.column = self.column if isinstance(self.column, list) else [self.column]
+            usecols = entry + self.column
             self._corpus = self._corpus.load(usecols=usecols)
         return self._corpus.table(subcorpora=self.column, show=entry, *args, **kwargs)
 

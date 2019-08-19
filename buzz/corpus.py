@@ -12,7 +12,7 @@ from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
-
+from .utils import _get_short_name_from_long_name
 
 tqdm = utils._get_tqdm()
 
@@ -339,3 +339,13 @@ class SliceHelper(object):
     def __getattr__(self, attr):
         use = Filter if not self.see else Interim
         return use(self._corpus, attr, inverse=self.inverse)
+
+    def __call__(self, column, *args, **kwargs):
+        if isinstance(column, str):
+            column = [column]
+        show = list()
+        for i in column:
+            show.append(_get_short_name_from_long_name(i))
+        use = Filter if not self.see else Interim
+        return use(self._corpus, show, inverse=self.inverse)
+
