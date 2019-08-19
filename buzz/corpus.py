@@ -331,7 +331,6 @@ class Subcorpus(Corpus):
 
 
 class SliceHelper(object):
-
     def __init__(self, corpus, inverse=False, see=False):
         self._corpus = corpus
         self.inverse = inverse
