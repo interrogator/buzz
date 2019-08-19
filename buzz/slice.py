@@ -32,22 +32,35 @@ class Filter(object):
     Filterer for DF like objects
     """
 
-    def __init__(self, df, column, inverse=False):
-        self.column = column
+    def __init__(self, corpus, column, inverse=False):
+        self.column = _get_short_name_from_long_name(column)
         self.inverse = inverse
-        self._df = df
+        self._corpus = corpus
 
-    def __call__(self, entry, case=True, exact_match=False, *args, **kwargs):
+    def __call__(self, entry, case=True, exact_match=False, **kwargs):
         """
         Accepts pd.series.str.contains kwargs: case, regex, etc.
 
         exact_match: match whole word, or just part of it
         """
-        if self.column in self._df.columns:
-            strung = self._df[self.column].astype(str)
+        # if it's a corpus, do this in a loop over files
+        if not isinstance(self._corpus, pd.DataFrame) and self._corpus.files:
+            results = []
+            for file in self._corpus.files:
+                self._corpus = file.load()
+                res = self.__call__(entry, case=case, exact_match=exact_match, **kwargs)
+                results.append(res)
+            return pd.concat(results)
+        # if it's a file, load it now
+        elif not isinstance(self._corpus, pd.DataFrame):
+            self._corpus = self._corpus.load()
+
+        # the remaining stuff
+        if self.column in self._corpus.columns:
+            strung = self._corpus[self.column].astype(str)
         else:
-            index_data = self._df.index.get_level_values(self.column).astype(str)
-            strung = pd.Series(index_data, index=self._df.index)
+            index_data = self._corpus.index.get_level_values(self.column).astype(str)
+            strung = pd.Series(index_data, index=self._corpus.index)
 
         if not case:
             if isinstance(entry, (set, list)):
@@ -67,12 +80,12 @@ class Filter(object):
             if not kwargs.get("regex") and exact_match:
                 bool_ix = strung == entry
             else:
-                bool_ix = search_method(entry, *args, **kwargs)
+                bool_ix = search_method(entry, **kwargs)
 
         if self.inverse:
             bool_ix = ~bool_ix
 
-        return self._df[bool_ix]
+        return self._corpus[bool_ix]
 
     def __getattr__(self, entry):
         """
@@ -93,14 +106,20 @@ class Interim(Filter):
         """
         df.see.x.by.y
         """
-        return Interim(self._df, self.column)
+        return Interim(self._corpus, self.column)
 
     def __call__(self, entry=None, *args, **kwargs):
         if not entry:
-            return self._df[self.column].value_counts()
+            try:
+                return self._corpus[self.column].value_counts()
+            except:
+                raise NotImplementedError("Not done yet.")
         else:
             entry = _get_short_name_from_long_name(entry)
-        return self._df.table(subcorpora=self.column, show=entry, *args, **kwargs)
+        if not isinstance(self._corpus, pd.DataFrame):
+            usecols = [entry, self.column]
+            self._corpus = self._corpus.load(usecols=usecols)
+        return self._corpus.table(subcorpora=self.column, show=entry, *args, **kwargs)
 
 
 class Proto(Filter):
@@ -115,17 +134,17 @@ class Proto(Filter):
         """
         df.see.x.by.y
         """
-        return Proto(self._df, self.column)
+        return Proto(self._corpus, self.column)
 
     @property
     def showing(self):
-        return Proto(self._df, self.column)
+        return Proto(self._corpus, self.column)
 
     def __call__(self, show=["w"], top=10, n_top_members=-1, only_correct=True):
         if not isinstance(show, list):
             show = [show]
         show = [_get_short_name_from_long_name(i) for i in show]
-        return self._df.prototypical(
+        return self._corpus.prototypical(
             self.column,
             show=show,
             top=top,
@@ -142,13 +161,13 @@ class Finder(Filter):
     """
 
     def __call__(self, *args, **kwargs):
-        return Searcher(self._df).run(self.column, *args, **kwargs)
+        return Searcher(self._corpus).run(self.column, *args, **kwargs)
 
 
 class Slice(ABC):
-    def __init__(self, df):
-        self._df = df
-        self._valid = list(self._df.columns) + list(self._df.index.names)
+    def __init__(self, corpus):
+        self._corpus = corpus
+        self._valid = list(self._corpus.columns) + list(self._corpus.index.names)
         self._validate()
 
     def __getattr__(self, col):
@@ -178,7 +197,7 @@ class Just(Slice):
     """
 
     def _grab(self, colname, *args):
-        return Filter(self._df, colname)
+        return Filter(self._corpus, colname)
 
 
 @pd.api.extensions.register_dataframe_accessor("proto")
@@ -188,7 +207,7 @@ class Prototypical(Slice):
     """
 
     def _grab(self, colname, *args):
-        return Proto(self._df, colname)
+        return Proto(self._corpus, colname)
 
 
 @pd.api.extensions.register_dataframe_accessor("skip")
@@ -198,7 +217,7 @@ class Skip(Slice):
     """
 
     def _grab(self, colname, *args):
-        return Filter(self._df, colname, inverse=True)
+        return Filter(self._corpus, colname, inverse=True)
 
 
 @pd.api.extensions.register_dataframe_accessor("see")
@@ -208,4 +227,4 @@ class See(Slice):
     """
 
     def _grab(self, colname):
-        return Interim(self._df, colname)
+        return Interim(self._corpus, colname)

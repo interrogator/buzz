@@ -11,6 +11,8 @@ from .contents import Contents
 from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
+from .slice import Filter, Interim
+
 
 tqdm = utils._get_tqdm()
 
@@ -297,6 +299,27 @@ class Corpus(MutableSequence):
         is_parsed = self.path.endswith("-parsed")
         return subcorpora, files, is_parsed
 
+    @property
+    def just(self):
+        """
+        Allow corpus.just.word.the without loading everything into memory
+        """
+        return SliceHelper(self)
+
+    @property
+    def skip(self):
+        """
+        Allow corpus.skip.word.the without loading everything into memory
+        """
+        return SliceHelper(self, inverse=True)
+
+    @property
+    def see(self):
+        """
+        Allow corpus.see.word.by.speaker
+        """
+        return SliceHelper(self, inverse=True, see=True)
+
 
 class Subcorpus(Corpus):
     """
@@ -305,3 +328,15 @@ class Subcorpus(Corpus):
 
     def __init__(self, path, **kwargs):
         super().__init__(path, **kwargs)
+
+
+class SliceHelper(object):
+
+    def __init__(self, corpus, inverse=False, see=False):
+        self._corpus = corpus
+        self.inverse = inverse
+        self.see = see
+
+    def __getattr__(self, attr):
+        use = Filter if not self.see else Interim
+        return use(self._corpus, attr, inverse=self.inverse)
