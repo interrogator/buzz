@@ -42,7 +42,7 @@ setup(
         "bllipparser",
         "scipy",
         "cython",
-        "depgrep>=0.1.2",
+        "depgrep>=0.1.3",
         "scikit-learn",
         "colorama",
         # 'benepar',
