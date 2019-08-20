@@ -344,4 +344,4 @@ class SliceHelper(object):
         column = _ensure_list_of_short_names(column)
         # duplicated because we can't pass list to getattr
         use = Filter if not self.see else Interim
-        return use(self._corpus, show, inverse=self.inverse)
+        return use(self._corpus, column, inverse=self.inverse)

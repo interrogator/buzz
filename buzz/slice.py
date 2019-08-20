@@ -24,7 +24,7 @@ from abc import ABC, abstractmethod
 import pandas as pd
 
 from .search import Searcher
-from .utils import _ensure_list_of_short_names
+from .utils import _ensure_list_of_short_names, _get_short_name_from_long_name
 
 
 class Filter(object):
@@ -33,10 +33,46 @@ class Filter(object):
     """
 
     def __init__(self, corpus, column, inverse=False):
-        column = _ensure_list_of_short_names(column)
-        self.column = column
+        """
+        Unlike other slices, we can't have multiple columns here
+        """
+        if isinstance(column, (list, set)):
+            problem = "Can only past str/length 1 iterable here: {}".format(column)
+            assert len(column) == 1, problem
+            column = list(column)[0]
+        self.column = _get_short_name_from_long_name(column)
         self.inverse = inverse
         self._corpus = corpus
+
+    def _make_column_to_match_against(self, case):
+        # the remaining stuff
+        if self.column in self._corpus.columns:
+            strung = self._corpus[self.column].astype(str)
+        else:
+            index_data = self._corpus.index.get_level_values(self.column).astype(str)
+            strung = pd.Series(index_data, index=self._corpus.index)
+        if not case:
+            strung = strung.str.lower()
+        return strung
+
+    @staticmethod
+    def _normalise_entry(entry, case):
+        if case:
+            return entry
+        if isinstance(entry, (set, list)):
+            return {i.lower() for i in entry}
+        else:
+            return entry.lower()
+
+    def _make_bool_index(self, entry, strung, exact_match, **kwargs):
+        if isinstance(entry, (set, list)):
+            if exact_match:
+                return strung.isin(entry)
+            return strung.apply(lambda x: any(i in x for i in entry))
+        if not kwargs.get("regex") and exact_match:
+            return strung == entry
+        search_method = strung.str.match if exact_match else strung.str.contains
+        return search_method(entry, **kwargs)
 
     def __call__(self, entry, case=True, exact_match=False, **kwargs):
         """
@@ -56,32 +92,9 @@ class Filter(object):
         elif not isinstance(self._corpus, pd.DataFrame):
             self._corpus = self._corpus.load()
 
-        # the remaining stuff
-        if self.column in self._corpus.columns:
-            strung = self._corpus[self.column].astype(str)
-        else:
-            index_data = self._corpus.index.get_level_values(self.column).astype(str)
-            strung = pd.Series(index_data, index=self._corpus.index)
-
-        if not case:
-            if isinstance(entry, (set, list)):
-                entry = {i.lower() for i in entry}
-            else:
-                entry = entry.lower()
-            strung = strung.str.lower()
-
-        if isinstance(entry, (set, list)):
-            if exact_match:
-                bool_ix = strung.isin(entry)
-            else:
-                bool_ix = strung.apply(lambda x: any(i in x for i in entry))
-        else:
-            # get the correct method --- if user wants exact match
-            search_method = strung.str.match if exact_match else strung.str.contains
-            if not kwargs.get("regex") and exact_match:
-                bool_ix = strung == entry
-            else:
-                bool_ix = search_method(entry, **kwargs)
+        strung = self._make_column_to_match_against(case)
+        entry = self._normalise_entry(entry, case)
+        bool_ix = self._make_bool_index(entry, strung, kwargs)
 
         if self.inverse:
             bool_ix = ~bool_ix
