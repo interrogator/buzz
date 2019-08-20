@@ -24,7 +24,7 @@ from abc import ABC, abstractmethod
 import pandas as pd
 
 from .search import Searcher
-from .utils import _get_short_name_from_long_name
+from .utils import _ensure_list_of_short_names
 
 
 class Filter(object):
@@ -33,7 +33,8 @@ class Filter(object):
     """
 
     def __init__(self, corpus, column, inverse=False):
-        self.column = _get_short_name_from_long_name(column)
+        column = _ensure_list_of_short_names(column)
+        self.column = column
         self.inverse = inverse
         self._corpus = corpus
 
@@ -112,12 +113,17 @@ class Interim(Filter):
         if not entry:
             try:
                 return self._corpus[self.column].value_counts()
-            except:
+            except Exception:
                 raise NotImplementedError("Not done yet.")
         else:
-            entry = _get_short_name_from_long_name(entry)
+            entry = _ensure_list_of_short_names(entry)
         if not isinstance(self._corpus, pd.DataFrame):
-            usecols = [entry, self.column]
+            if isinstance(self.column, str):
+                self.column = [self.column]
+            self.column = (
+                self.column if isinstance(self.column, list) else [self.column]
+            )
+            usecols = entry + self.column
             self._corpus = self._corpus.load(usecols=usecols)
         return self._corpus.table(subcorpora=self.column, show=entry, *args, **kwargs)
 
@@ -141,9 +147,7 @@ class Proto(Filter):
         return Proto(self._corpus, self.column)
 
     def __call__(self, show=["w"], top=10, n_top_members=-1, only_correct=True):
-        if not isinstance(show, list):
-            show = [show]
-        show = [_get_short_name_from_long_name(i) for i in show]
+        show = _ensure_list_of_short_names(show)
         return self._corpus.prototypical(
             self.column,
             show=show,
@@ -175,11 +179,12 @@ class Slice(ABC):
         <operation:> just, skip, see...
         gets ATTRIB in df.<operation>.ATTRIB
         """
-        short = _get_short_name_from_long_name(col)
-        if short not in self._valid:
-            raise ValueError(f"Invalid name: {col}")
+        col = _ensure_list_of_short_names(col)
+        for i in col:
+            if i not in self._valid:
+                raise ValueError(f"Invalid name(s): {col}")
         # use the custom data grabber for this kind of slicer.
-        return self._grab(short)
+        return self._grab(col)
 
     @abstractmethod
     def _grab(self, *args, **kwargs):

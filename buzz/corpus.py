@@ -12,7 +12,7 @@ from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
-
+from .utils import _ensure_list_of_short_names
 
 tqdm = utils._get_tqdm()
 
@@ -331,7 +331,6 @@ class Subcorpus(Corpus):
 
 
 class SliceHelper(object):
-
     def __init__(self, corpus, inverse=False, see=False):
         self._corpus = corpus
         self.inverse = inverse
@@ -340,3 +339,9 @@ class SliceHelper(object):
     def __getattr__(self, attr):
         use = Filter if not self.see else Interim
         return use(self._corpus, attr, inverse=self.inverse)
+
+    def __call__(self, column, *args, **kwargs):
+        column = _ensure_list_of_short_names(column)
+        # duplicated because we can't pass list to getattr
+        use = Filter if not self.see else Interim
+        return use(self._corpus, show, inverse=self.inverse)

@@ -33,6 +33,7 @@ def colorama_data(lines, conc_data):
     take a list of strings for printing, and add ansi colors
     """
     from colorama import Back, Fore, Style, init
+
     regex = re.compile(r"^\s*([0-9]+)")
 
     if not conc_data:
