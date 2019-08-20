@@ -90,12 +90,14 @@ class Filter(object):
         """
         # if it's a corpus, do this in a loop over files
         if not isinstance(self._corpus, pd.DataFrame) and self._corpus.files:
+            order = self._corpus._order_columns
             results = []
             for file in self._corpus.files:
                 self._corpus = file.load()
                 res = self.__call__(entry, case=case, exact_match=exact_match, **kwargs)
                 results.append(res)
-            return pd.concat(results)
+            df = pd.concat(results)
+            return order(df)
         # if it's a file, load it now
         elif not isinstance(self._corpus, pd.DataFrame):
             self._corpus = self._corpus.load()

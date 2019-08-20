@@ -67,8 +67,9 @@ class File(Corpus):
         """
         if self.is_parsed:
             df = _to_df(self, **kwargs)
-            df.reference = df
             df["_n"] = range(len(df))
+            df = self._order_columns(df)
+            df.reference = df
             return df
         raise NotImplementedError(
             "Cannot load DataFame from unparsed file. Use file.read()"
