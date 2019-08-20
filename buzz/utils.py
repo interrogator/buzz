@@ -356,7 +356,7 @@ def _ensure_list_of_short_names(item):
     Normalise 'word' to ["w"]
     """
     if isinstance(item, str):
-        return [_get_short_name_from_long_name(item`)]
+        return [_get_short_name_from_long_name(item)]
     fixed = []
     for i in item:
         fixed.append(_get_short_name_from_long_name(i))
