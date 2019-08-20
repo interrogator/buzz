@@ -45,7 +45,9 @@ class Filter(object):
         self._corpus = corpus
 
     def _make_column_to_match_against(self, case):
-        # the remaining stuff
+        """
+        Get a stringified column from the dataset
+        """
         if self.column in self._corpus.columns:
             strung = self._corpus[self.column].astype(str)
         else:
@@ -57,6 +59,9 @@ class Filter(object):
 
     @staticmethod
     def _normalise_entry(entry, case):
+        """
+        Lowercase the search text and normalise to set if need be
+        """
         if case:
             return entry
         if isinstance(entry, (set, list)):
@@ -65,6 +70,9 @@ class Filter(object):
             return entry.lower()
 
     def _make_bool_index(self, entry, strung, exact_match, **kwargs):
+        """
+        Get a boolean index of matches for this entry over strung
+        """
         if isinstance(entry, (set, list)):
             if exact_match:
                 return strung.isin(entry)
