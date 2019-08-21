@@ -275,44 +275,56 @@ def _table(
 
     # make a column representing the 'show' info
     df["_match"] = _make_match_col(df, show, preserve_case)
-    reference["_match"] = df["_match"]
+    if reference is not None:
+        reference["_match"] = df["_match"]
 
     # need a column of ones for summing, yuck
     df["_count"] = 1
 
     # make the matrix
-    df = df.pivot_table(
+    table = df.pivot_table(
         index=subcorpora, columns="_match", values="_count", aggfunc=sum
     )
-    df = df.fillna(0)
+    table = table.fillna(0)
+
     # make table now so we can relative/sort
-    df = Table(df, reference=reference)
+    table = Table(table, reference=reference)
 
     # relative frequency if user wants that
-    df = df.relative(relative) if relative is not False else df.astype(int)
+    table = table.relative(relative) if relative is not False else table.astype(int)
     if keyness:
+        if reference is None:
+            warn = "Warning: no reference corpus supplied. Using result frame as reference corpus"
+            print(warn)
+            reference = df
+        ref = reference["_match"].value_counts()
         kwa = dict(
             axis=0,
-            reference=reference["_match"].value_counts(),
+            reference=ref,
             measure=dict(ll=_log_likelihood, pd=_perc_diff).get(
                 keyness, _log_likelihood
             ),
             ref_sum=reference.shape[0],
-            target_sum=df.shape[0],
+            target_sum=table.shape[0],
         )
-        applied = df.T.apply(_make_keywords, **kwa).T
+        applied = table.T.apply(_make_keywords, **kwa).T
         top = applied.abs().sum().sort_values(ascending=False)
-        df = applied[top.index]
+        table = applied[top.index]
 
     # sort if the user wants that
     if sort and not keyness:
-        df = df.sort(by=sort, keep_stats=keep_stats, remove_above_p=remove_above_p)
+        sorts = dict(by=sort, keep_stats=keep_stats, remove_above_p=remove_above_p)
+        table = table.sort(**sorts)
 
     # make columns into multiindex if the user wants that
     if multiindex_columns and len(show) > 1:
-        df.columns = [i.split("/") for i in df.columns.names]
-        df.columns.names = df.columns.names[0].split("/")
+        table.columns = [i.split("/") for i in table.columns.names]
+        table.columns.names = table.columns.names[0].split("/")
     else:
-        df.columns.name = "/".join(show)
+        table.columns.name = "/".join(show)
 
-    return df
+    df.drop(["_match", "_count"], axis=1, inplace=True, errors="ignore")
+    if reference is not None:
+        reference.drop("_match", axis=1, inplace=True, errors="ignore")
+
+    return table
