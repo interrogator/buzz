@@ -60,14 +60,14 @@ class Filter(object):
     @staticmethod
     def _normalise_entry(entry, case):
         """
-        Lowercase the search text and normalise to set if need be
+        Casefold the search text and normalise to set if need be
         """
         if case:
             return entry
         if isinstance(entry, (set, list)):
-            return {i.lower() for i in entry}
+            return {i.casefold() for i in entry}
         else:
-            return entry.lower()
+            return entry.casefold()
 
     def _make_bool_index(self, entry, strung, exact_match, **kwargs):
         """
