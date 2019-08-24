@@ -23,6 +23,7 @@ from abc import ABC, abstractmethod
 
 import pandas as pd
 
+from .exceptions import DataTypeError
 from .search import Searcher
 from .utils import _ensure_list_of_short_names, _get_short_name_from_long_name
 
@@ -65,8 +66,12 @@ class Filter(object):
         # because searching loaded corpus will consider these rows, so must unloaded
         # so we make some blank data...
         except KeyError:
-            blank = [''] * len(self._corpus)
-            return pd.Series(blank, index=self._corpus.index).astype(typ)
+            blank = '' if typ == str else -1
+            blank = [blank] * len(self._corpus)
+            return pd.Series(blank, index=self._corpus.index)
+        except ValueError as err:
+            prob = "Mismatch between query and column types: " + str(err)
+            raise DataTypeError(prob) from err
 
     @staticmethod
     def _normalise_entry(entry, case):
