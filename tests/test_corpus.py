@@ -10,6 +10,7 @@ from buzz.constants import LONG_NAMES
 from buzz.contents import Contents
 from buzz.corpus import Corpus
 from buzz.dataset import Dataset
+from buzz.exceptions import NoReferenceCorpus
 from buzz.table import Table
 
 TOTAL_TOKENS = 329
@@ -22,9 +23,6 @@ BOOK_IX = [("second", 1, 6), ("space in name", 3, 2), ("space in name", 4, 12)]
 class TestCorpus(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        """ get_some_resource() is slow, to avoid calling it for each test use setUpClass()
-            and store the result as class variable
-        """
         super().setUpClass()
         cls.unparsed = Corpus("tests/data")
         cls.loaded_plain = cls.unparsed.load()
@@ -84,7 +82,7 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(str(parsed).startswith(start))
         self.assertTrue(str(parsed).endswith(end), str(parsed))
 
-    def test_loaded(self):
+    def test_loaded_unloaded(self):
         self.assertIsInstance(self.loaded, Dataset)
         self.assertEqual(len(self.loaded), TOTAL_TOKENS)
         expect = [
@@ -106,8 +104,6 @@ class TestCorpus(unittest.TestCase):
             "text",
             "token_annotation",
             "_n",
-            "_match",
-            "_count",
         ]
         self.assertTrue(all(i in self.loaded.columns for i in expect))
 
@@ -122,20 +118,39 @@ class TestCorpus(unittest.TestCase):
         nobook = self.loaded.skip.lemmata.book
         self.assertEqual(len(nobook), TOTAL_TOKENS - len(book))
 
+    def test_unloaded_loaded_same(self):
+        """
+        Test just/load methods on Corpus objects, and that
+        they give us the same as on loaded corpora
+        """
+        book_l = self.loaded.just.lemmata.book
+        book_u = self.parsed.just.lemmata.book
+        self.assertEqual(len(book_l), len(book_u))
+        nobook_l = self.loaded.skip.lemmata.book
+        nobook_u = self.parsed.skip.lemmata.book
+        self.assertEqual(len(nobook_l), len(nobook_u))
+        self.assertEqual(len(nobook_u), TOTAL_TOKENS - len(book_u))
+        self.assertEqual(len(nobook_l), TOTAL_TOKENS - len(book_l))
+
     def test_all_slice_names(self):
         """
         Test that all slice names work and produce same result as column name
         """
-        for col, set_of_names in LONG_NAMES.items():
-            if col not in list(self.loaded.columns):
-                continue
-            every_match = getattr(self.loaded.just, col)(".*")
-            self.assertEqual(len(every_match), len(self.loaded))
-            for name in set_of_names:
-                res = getattr(self.loaded.just, name)(".*")
-                self.assertEqual(len(res), len(every_match))
+        cols = self.loaded.columns
+        for corp in [self.loaded, self.parsed]:
+            for col, set_of_names in LONG_NAMES.items():
+                if col not in cols:
+                    continue
+                every_match = getattr(corp.just, col)(".*")
+                self.assertEqual(len(every_match), len(self.loaded))
+                for name in set_of_names:
+                    res = getattr(corp.just, name)(".*")
+                    self.assertEqual(len(res), len(every_match))
 
     def test_conc(self):
+        """
+        Test concordance on loaded data
+        """
         book = self.loaded.just.lemmata.book
         conc = book.conc(show=["w", "p"])
         self.assertTrue(all(i in conc.columns for i in ["left", "match", "right"]))
@@ -146,18 +161,24 @@ class TestCorpus(unittest.TestCase):
         # can we use iloc here reliably? speaker can move to be next to match...
         # self.assertTrue(right in conc['right'][0])
 
+    def test_unloaded_conc_error(self):
+        book = self.parsed.just.lemmata.book
+        with self.assertRaises(NoReferenceCorpus):
+            book.conc(show=["w", "p"])
+
     def test_dot_syntax(self):
         """
         The kind of ridiculous 'see' method
 
         Tests for the table itself should stay in test_table
         """
-        tab = self.loaded.see.pos.by.lemma
+        for corp in [self.loaded, self.parsed]:
+            tab = corp.see.pos.by.lemma
+            self.assertIsInstance(tab, Table)
+            self.assertEqual(tab.columns.name, "l")
+            self.assertEqual(tab.index.name, "p")
+            self.assertEqual(tab.sum()["the"], 30)    
         short = self.loaded.see.l()
-        self.assertIsInstance(tab, Table)
-        self.assertEqual(tab.columns.name, "l")
-        self.assertEqual(tab.index.name, "p")
-        self.assertEqual(tab.sum()["the"], 30)
         self.assertEqual(short["the"], 30)
 
     def test_no_path(self):
@@ -182,9 +203,12 @@ class TestCorpus(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.loaded.view()
 
-    def test_just_index(self):
-        just_two = self.loaded.just.sentences("^2$")
-        self.assertTrue((just_two.index.get_level_values("s") == 2).all())
+    def test_just_index_and_int_match(self):
+        for corp in [self.loaded, self.parsed]:
+            just_two = corp.just.sentences(2)
+            self.assertTrue((just_two.index.get_level_values("s") == 2).all())
+            with self.assertRaises(ValueError):
+                corp.just.words(1)
 
     def test_token_annotation(self):
         tokens = self.loaded[self.loaded["token_annotation"] == "level"]

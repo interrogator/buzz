@@ -44,18 +44,29 @@ class Filter(object):
         self.inverse = inverse
         self._corpus = corpus
 
-    def _make_column_to_match_against(self, case):
+    def _make_column_to_match_against(self, case, entry):
         """
         Get a stringified column from the dataset
         """
-        if self.column in self._corpus.columns:
-            strung = self._corpus[self.column].astype(str)
-        else:
-            index_data = self._corpus.index.get_level_values(self.column).astype(str)
-            strung = pd.Series(index_data, index=self._corpus.index)
-        if not case:
-            strung = strung.str.lower()
-        return strung
+        if isinstance(entry, (list, set, tuple)):
+            entry = list(entry)[0]
+        typ = type(entry)
+        try:
+            if self.column in self._corpus.columns:
+                strung = self._corpus[self.column].astype(typ)
+            else:
+                index_data = self._corpus.index.get_level_values(self.column)
+                index_data = index_data.astype(typ)
+                strung = pd.Series(index_data, index=self._corpus.index)
+            if not case and typ == str:
+                strung = strung.str.lower()
+            return strung
+        # sometimes a column doesn't exist in this data, but might in a later slice
+        # because searching loaded corpus will consider these rows, so must unloaded
+        # so we make some blank data...
+        except KeyError:
+            blank = [''] * len(self._corpus)
+            return pd.Series(blank, index=self._corpus.index).astype(typ)
 
     @staticmethod
     def _normalise_entry(entry, case):
@@ -73,6 +84,8 @@ class Filter(object):
         """
         Get a boolean index of matches for this entry over strung
         """
+        if isinstance(entry, (int, float)):
+            return strung == entry
         if isinstance(entry, (set, list)):
             if exact_match:
                 return strung.isin(entry)
@@ -96,13 +109,13 @@ class Filter(object):
                 self._corpus = file.load()
                 res = self.__call__(entry, case=case, exact_match=exact_match, **kwargs)
                 results.append(res)
-            df = pd.concat(results)
+            df = pd.concat(results, sort=True)
             return order(df)
         # if it's a file, load it now
         elif not isinstance(self._corpus, pd.DataFrame):
             self._corpus = self._corpus.load()
 
-        strung = self._make_column_to_match_against(case)
+        strung = self._make_column_to_match_against(case, entry)
         entry = self._normalise_entry(entry, case)
         bool_ix = self._make_bool_index(entry, strung, kwargs)
 

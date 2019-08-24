@@ -4,6 +4,7 @@ import pandas as pd
 import scipy
 
 from .conc import _concordance
+from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
@@ -69,6 +70,16 @@ class Dataset(pd.DataFrame):
         Generate a concordance for each row
         """
         reference = kwargs.pop("reference", self.reference)
+        if reference is None:
+            error = (
+                "Reference corpus not available in memory for this data. "
+                "This is probably because you didn't load your corpus before "
+                "searching. Without a reference corpus, there is no data to "
+                "generate the left and right columns of a concordance. To fix, "
+                "either load corpus before searching, or pass a reference "
+                "Dataset: `conc(reference=loaded_corpus)`"
+            )
+            raise NoReferenceCorpus(error)
         return _concordance(self, reference, *args, **kwargs)
 
     def table(self, *args, **kwargs):
