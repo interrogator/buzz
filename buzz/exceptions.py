@@ -1,0 +1,2 @@
+class NoReferenceCorpus(Exception):
+	pass
