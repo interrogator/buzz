@@ -293,7 +293,7 @@ def _to_df(
     if usecols is None:
         csv_usecols = None
     else:
-        csv_usecols = [i for i in usecols if i in ['file', 's'] + CONLL_COLUMNS]
+        csv_usecols = [i for i in usecols if i in ["file", "s"] + CONLL_COLUMNS]
 
     df = pd.read_csv(
         StringIO(data),

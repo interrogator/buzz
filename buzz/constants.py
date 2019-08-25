@@ -184,6 +184,7 @@ QUERYSETS = dict(
     },
     VERB={
         # I STUPIDLY risked it
-        'F"advmod" <- (X"VERB" = {query})'},
-        # risking it was STUPID...
+        'F"advmod" <- (X"VERB" = {query})'
+    },
+    # risking it was STUPID...
 )

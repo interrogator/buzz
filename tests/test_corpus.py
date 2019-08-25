@@ -41,12 +41,12 @@ class TestCorpus(unittest.TestCase):
             self.assertEqual(self.unparsed.files[i].read(), data)
 
     def test_load_usecols(self):
-        load = ['w', 'l']
+        load = ["w", "l"]
         loaded = self.parsed.load(usecols=load)
-        self.assertEqual(list(loaded.columns), load + ['_n'])
-        load = ['l', 'speaker']
+        self.assertEqual(list(loaded.columns), load + ["_n"])
+        load = ["l", "speaker"]
         loaded = self.parsed.load(usecols=load)
-        self.assertEqual(list(loaded.columns), load + ['_n'])
+        self.assertEqual(list(loaded.columns), load + ["_n"])
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -185,7 +185,7 @@ class TestCorpus(unittest.TestCase):
             self.assertIsInstance(tab, Table)
             self.assertEqual(tab.columns.name, "l")
             self.assertEqual(tab.index.name, "p")
-            self.assertEqual(tab.sum()["the"], 30)    
+            self.assertEqual(tab.sum()["the"], 30)
         short = self.loaded.see.l()
         self.assertEqual(short["the"], 30)
 

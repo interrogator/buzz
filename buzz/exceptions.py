@@ -1,5 +1,6 @@
 class NoReferenceCorpus(Exception):
-	pass
+    pass
+
 
 class DataTypeError(Exception):
-	pass
+    pass

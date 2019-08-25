@@ -302,7 +302,6 @@ class Nearby(Filter):
         """
         distance = self.distance or kwargs.pop("distance", 3)
         from_reference = kwargs.pop("from_reference", False)
-        n_from_current = list(range(len(self._corpus)))
         store_n = self._corpus["_n"]
         if not from_reference:
             self._corpus["_n"] = range(len(self._corpus))
