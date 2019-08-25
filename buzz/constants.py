@@ -161,3 +161,29 @@ MORPH_FIELDS = {
     "punctside": "punct_side",
     "puncttype": "punct_type",
 }
+
+
+QUERYSETS = dict(
+    NOUN={
+        # women are STUPID
+        'f"acomp" <- (X"VERB" -> ({query} = F/nsubj/))',
+        # STUPID women
+        'f"amod" <- {query}',
+        # STUPIDITY of women, women of STUPIDITY
+        'P"NN" -> (F"prep" = w/of/ -> ({query} = F/pobj|nsubj/))',
+        # women and STUPIDITY
+        'X"NOUN" -> F/cc/ -> ({query} = F"conj")',
+        # Women's STUPID attitudes (note, women's stupid husbands...)
+        'F"amod" <- (X"NOUN" -> ({query} = F"poss"))',
+        # women's STUPIDITY
+        'X"NOUN" -> ({query} = F"poss")',
+        # women who are STUPID
+        'F"acomp" <- (F"relcl" <- {query})',
+        # women STUPIDLY want ...
+        'F"advmod" <- (X"VERB" -> ({query} = F"nsubj"))',
+    },
+    VERB={
+        # I STUPIDLY risked it
+        'F"advmod" <- (X"VERB" = {query})'},
+        # risking it was STUPID...
+)

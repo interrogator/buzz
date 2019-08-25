@@ -4,6 +4,7 @@ import pandas as pd
 import scipy
 
 from .conc import _concordance
+from .constants import QUERYSETS
 from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
@@ -103,6 +104,57 @@ class Dataset(pd.DataFrame):
         """
         # order of magnitude faster than groupby:
         return self.iloc[self.index.get_loc(self.index.droplevel("i").unique()[n])]
+
+    def describe(self, depgrep_query, queryset="NOUN", **kwargs):
+        """
+        Run numerous depgrep queries to get modifiers of a noun/verb
+        """
+        queries = QUERYSETS[queryset]
+        out = list()
+        for i, query in enumerate(queries, start=1):
+            print("Running query {}/{}".format(i, len(queries)))
+            formed = query.format(query=depgrep_query)
+            res = self.depgrep(formed, **kwargs)
+            if res is not None and not res.empty:
+                out.append(res)
+        df = pd.concat(out).drop_duplicates()
+        df.reference = self
+        return df
+
+    def set(self):
+        """
+        Set this dataset as a corpus (i.e. reindex _n)
+        """
+        self["_n"] = range(len(self))
+        self.reference = self.copy()
+        return self
+
+    def near(self, depgrep_query, distance=3, from_reference=False):
+        """
+        Get tokens distance away from depgrep_query
+
+        distance: how far either side of token to look
+        from_reference: get nearby tokens from dataset, or from corpus
+        """
+        n_from_current = list(range(len(self)))
+        store_n = self["_n"]
+        if not from_reference:
+            self["_n"] = range(len(self))
+        matches = self.depgrep(depgrep_query)
+        nears = set()
+        for n in matches["_n"]:
+            start = max([0, n - distance])
+            end = min([n + distance + 1, len(self.reference)])
+            for i in range(start, end):
+                if i != n:
+                    nears.add(i)
+        ref = self.reference if from_reference else self
+        out = ref.iloc[sorted(list(nears))]
+        self["_n"] = store_n
+        return out
+
+    def bigrams(self, depgrep_query, from_reference=False):
+        return self.near(depgrep_query, distance=1, from_reference=from_reference)
 
     def tfidf_by(self, column, n_top_members=-1, show=["w"]):
         """

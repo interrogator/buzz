@@ -10,7 +10,7 @@ from buzz.constants import LONG_NAMES
 from buzz.contents import Contents
 from buzz.corpus import Corpus
 from buzz.dataset import Dataset
-from buzz.exceptions import NoReferenceCorpus
+from buzz.exceptions import NoReferenceCorpus, DataTypeError
 from buzz.table import Table
 
 TOTAL_TOKENS = 329
@@ -39,6 +39,14 @@ class TestCorpus(unittest.TestCase):
         for i, (path, data) in enumerate(self.loaded_plain.items()):
             self.assertEqual(self.unparsed.files[i].path, path)
             self.assertEqual(self.unparsed.files[i].read(), data)
+
+    def test_load_usecols(self):
+        load = ['w', 'l']
+        loaded = self.parsed.load(usecols=load)
+        self.assertEqual(list(loaded.columns), load + ['_n'])
+        load = ['l', 'speaker']
+        loaded = self.parsed.load(usecols=load)
+        self.assertEqual(list(loaded.columns), load + ['_n'])
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -207,7 +215,7 @@ class TestCorpus(unittest.TestCase):
         for corp in [self.loaded, self.parsed]:
             just_two = corp.just.sentences(2)
             self.assertTrue((just_two.index.get_level_values("s") == 2).all())
-            with self.assertRaises(ValueError):
+            with self.assertRaises(DataTypeError):
                 corp.just.words(1)
 
     def test_token_annotation(self):

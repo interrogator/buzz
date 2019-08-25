@@ -8,7 +8,14 @@ import pandas as pd
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import COLUMN_NAMES, DTYPES, LONG_NAMES, SPACY_LANGUAGES, MORPH_FIELDS
+from .constants import (
+    COLUMN_NAMES,
+    DTYPES,
+    LONG_NAMES,
+    SPACY_LANGUAGES,
+    MORPH_FIELDS,
+    CONLL_COLUMNS,
+)
 
 
 def _get_texts(file_data):
@@ -282,6 +289,12 @@ def _to_df(
     if usecols is not None:
         usecols = usecols + [i for i in ["file", "s", "i"] if i not in usecols]
 
+    # remove metadata from here because it doesn't make it to read_csv
+    if usecols is None:
+        csv_usecols = None
+    else:
+        csv_usecols = [i for i in usecols if i in ['file', 's'] + CONLL_COLUMNS]
+
     df = pd.read_csv(
         StringIO(data),
         sep="\t",
@@ -292,7 +305,7 @@ def _to_df(
         # index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
-        usecols=usecols,
+        usecols=csv_usecols,
     )
 
     df = df.set_index(["file", "s", "i"])

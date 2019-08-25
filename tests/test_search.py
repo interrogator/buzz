@@ -25,6 +25,17 @@ class TestSearch(unittest.TestCase):
         self.assertTrue(list(res.index) == list(lres.index))
         self.assertTrue(list(res._n) == list(lres._n))
 
+    def test_bigrams(self):
+        j = self.loaded.just.words('(?i)jungle')
+        self.assertEqual(len(j), 6)
+        big = corpus.bigrams('l/jungle/').table(show=['x'])
+        self.assertTrue('PUNCT' in big.columns)
+        self.assertEqual(big.shape[1], 6)
+        no_punct = self.loaded.skip.wordclass.PUNCT
+        big = no_punct.bigrams('l/jungle/').table(show=['x'])
+        self.assertFalse('PUNCT' in big.columns)
+        self.assertEqual(big.shape[1], 6)
+
     def test_tgrep(self):
         res = self.loaded.tgrep("NN < /book/")
         self.assertEqual(len(res), 3)
