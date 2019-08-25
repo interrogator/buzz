@@ -120,12 +120,14 @@ You could get similar results in slightly different ways:
 dtrt.just.wordclass('NOUN') 
 # if you wanted to use pos rather than wordclass
 dtrt.just.pos('^N')
+# if you want a full dependency query, use depgrep:
+dtrt.just.depgrep('l/person/ <- F"ROOT"')
 ```
 
 Using the bracket syntax, you can pass in some keyword arguments:
 
 * `case`: case sensitivity (default True)
-
+* `regex`: true by default, you can turn it off if you want simple string search
 
 Because Datasets are subclasses of pandas DataFrames, we could also do this using pandas syntax:
 
@@ -224,6 +226,30 @@ dtrt.just.speaker.MOOKIE.to_html()
 ```python
 dtrt.skip.wordclass.PUNCT
 ```
+
+## Dataset.near
+
+`Dataset.near` will find tokens within a certain distance of a match. To get tokens within the default three spaces of the lemma `person`, you can use:
+
+```python
+dtrt.near.lemma.person
+```
+
+If you want to customise the distance, or use a regular expression, you can use brackets:
+
+```python
+dtrt.near.lemma('person', distance=2)
+```
+
+If you have a more specific query, you can match a depgrep query:
+
+```python
+dtrt.near.depgrep('l/person/ = X"NOUN"', distance=2)
+```
+
+## Dataset.bigrams
+
+`Dataset.bigrams` will find tokens immediately before or after the matching token. It is equivalent to `Dataset.near(query, distance=1)`
 
 ## Chaining operations
 

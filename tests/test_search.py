@@ -28,13 +28,13 @@ class TestSearch(unittest.TestCase):
     def test_bigrams(self):
         j = self.loaded.just.words('(?i)jungle')
         self.assertEqual(len(j), 6)
-        big = corpus.bigrams('l/jungle/').table(show=['x'])
-        self.assertTrue('PUNCT' in big.columns)
-        self.assertEqual(big.shape[1], 6)
+        big = self.loaded.bigrams.depgrep('l/jungle/', from_reference=True).table(show=['x'])
+        self.assertTrue('punct' in big.columns)
+        self.assertEqual(big.shape[1], 5)
         no_punct = self.loaded.skip.wordclass.PUNCT
-        big = no_punct.bigrams('l/jungle/').table(show=['x'])
-        self.assertFalse('PUNCT' in big.columns)
-        self.assertEqual(big.shape[1], 6)
+        big = no_punct.bigrams.lemma('jungle', from_reference=False).table(show=['x'])
+        self.assertFalse('punct' in big.columns)
+        self.assertEqual(big.shape[1], 3)
 
     def test_tgrep(self):
         res = self.loaded.tgrep("NN < /book/")

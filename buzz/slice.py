@@ -1,7 +1,7 @@
 """
 DataFrame namespace additions
 
-df can usually be LoadedCorpus or Results
+df can usually be Dataset or Results
 column is short or long name like l, lemma, lemmata
 
 df.find.column.name: very simple search, same as 'just'
@@ -33,7 +33,7 @@ class Filter(object):
     Filterer for DF like objects
     """
 
-    def __init__(self, corpus, column, inverse=False):
+    def __init__(self, corpus, column, inverse=False, distance=None):
         """
         Unlike other slices, we can't have multiple columns here
         """
@@ -43,6 +43,7 @@ class Filter(object):
             column = list(column)[0]
         self.column = _get_short_name_from_long_name(column)
         self.inverse = inverse
+        self.distance = distance
         self._corpus = corpus
 
     def _make_column_to_match_against(self, case, entry):
@@ -66,7 +67,7 @@ class Filter(object):
         # because searching loaded corpus will consider these rows, so must unloaded
         # so we make some blank data...
         except KeyError:
-            blank = '' if typ == str else -1
+            blank = "" if typ == str else -1
             blank = [blank] * len(self._corpus)
             return pd.Series(blank, index=self._corpus.index)
         except ValueError as err:
@@ -100,13 +101,7 @@ class Filter(object):
         search_method = strung.str.match if exact_match else strung.str.contains
         return search_method(entry, **kwargs)
 
-    def __call__(self, entry, case=True, exact_match=False, **kwargs):
-        """
-        Accepts pd.series.str.contains kwargs: case, regex, etc.
-
-        exact_match: match whole word, or just part of it
-        """
-        # if it's a corpus, do this in a loop over files
+    def _normalise(self, entry, case=True, exact_match=False, **kwargs):
         if not isinstance(self._corpus, pd.DataFrame) and self._corpus.files:
             order = self._corpus._order_columns
             results = []
@@ -120,9 +115,30 @@ class Filter(object):
         elif not isinstance(self._corpus, pd.DataFrame):
             self._corpus = self._corpus.load()
 
+    def __call__(self, entry, case=True, exact_match=False, **kwargs):
+        """
+        Accepts pd.series.str.contains kwargs: case, regex, etc.
+
+        exact_match: match whole word, or just part of it
+        """
+        # if it's a corpus, do this in a loop over files
+        done = self._normalise(entry, case=case, exact_match=exact_match, **kwargs)
+        if done is not None:
+            return done
+
+        result = None
+        if self.column in ["dependencies", "depgrep", "deps", "d"]:
+            result = self._corpus.depgrep(entry)
+        elif self.column in ["tgrep", "trees", "t", "tree"]:
+            result = self._corpus.tgrep(entry)
+        if result is not None:
+            if not self.inverse:
+                return result
+            return self._corpus[~self._corpus["_n"].isin(result["_n"])]
+
         strung = self._make_column_to_match_against(case, entry)
         entry = self._normalise_entry(entry, case)
-        bool_ix = self._make_bool_index(entry, strung, kwargs)
+        bool_ix = self._make_bool_index(entry, strung, exact_match, **kwargs)
 
         if self.inverse:
             bool_ix = ~bool_ix
@@ -213,6 +229,7 @@ class Slice(ABC):
     def __init__(self, corpus):
         self._corpus = corpus
         self._valid = list(self._corpus.columns) + list(self._corpus.index.names)
+        self._valid += ["depgrep", "tgrep", "tree", "trees", "deps", "t", "d"]
         self._validate()
 
     def __getattr__(self, col):
@@ -239,7 +256,7 @@ class Slice(ABC):
 @pd.api.extensions.register_dataframe_accessor("just")
 class Just(Slice):
     """
-    LoadedCorpus.just.speakers.MOOKIE -- filter df
+    Dataset.just.speakers.MOOKIE -- filter df
     """
 
     def _grab(self, colname, *args):
@@ -249,7 +266,7 @@ class Just(Slice):
 @pd.api.extensions.register_dataframe_accessor("proto")
 class Prototypical(Slice):
     """
-    LoadedCorpus.just.speakers.MOOKIE -- filter df
+    Dataset.just.speakers.MOOKIE -- filter df
     """
 
     def _grab(self, colname, *args):
@@ -259,7 +276,7 @@ class Prototypical(Slice):
 @pd.api.extensions.register_dataframe_accessor("skip")
 class Skip(Slice):
     """
-    LoadedCorpus.skip.speakers.MOOKIE -- filter df
+    Dataset.skip.speakers.MOOKIE -- filter df
     """
 
     def _grab(self, colname, *args):
@@ -274,3 +291,50 @@ class See(Slice):
 
     def _grab(self, colname):
         return Interim(self._corpus, colname)
+
+
+class Nearby(Filter):
+    def __call__(self, entry, case=True, exact_match=False, **kwargs):
+        """
+        Accepts pd.series.str.contains kwargs: case, regex, etc.
+
+        exact_match: match whole word, or just part of it
+        """
+        distance = self.distance or kwargs.pop("distance", 3)
+        from_reference = kwargs.pop("from_reference", False)
+        n_from_current = list(range(len(self._corpus)))
+        store_n = self._corpus["_n"]
+        if not from_reference:
+            self._corpus["_n"] = range(len(self._corpus))
+        matches = super().__call__(entry, case=case, exact_match=exact_match, **kwargs)
+        nears = set()
+        for n in matches["_n"]:
+            start = max([0, n - distance])
+            end = min([n + distance + 1, len(self._corpus.reference)])
+            for i in range(start, end):
+                if i != n:
+                    nears.add(i)
+        ref = self._corpus.reference if from_reference else self._corpus
+        out = ref.iloc[sorted(list(nears))]
+        self._corpus["_n"] = store_n
+        return out
+
+
+@pd.api.extensions.register_dataframe_accessor("near")
+class Near(Slice):
+    """
+    Dataset.near.speakers.MOOKIE -- filter df
+    """
+
+    def _grab(self, colname, *args):
+        return Nearby(self._corpus, colname)
+
+
+@pd.api.extensions.register_dataframe_accessor("bigrams")
+class Bigrams(Slice):
+    """
+    Dataset.near.speakers.MOOKIE -- filter df
+    """
+
+    def _grab(self, colname, *args):
+        return Nearby(self._corpus, colname, distance=1)
