@@ -40,6 +40,10 @@ class TestCorpus(unittest.TestCase):
             self.assertEqual(self.unparsed.files[i].path, path)
             self.assertEqual(self.unparsed.files[i].read(), data)
 
+    def test_add_governor(self):
+        loaded = self.parsed.load(add_governor=True)
+        self.assertTrue(all(i in loaded.columns for i in ['gw', 'gl', 'gf', 'gg']))
+
     def test_load_usecols(self):
         load = ["w", "l"]
         loaded = self.parsed.load(usecols=load)

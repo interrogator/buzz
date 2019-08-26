@@ -150,17 +150,6 @@ def cast(text):
         return text
 
 
-def _get_sentence(row, df):
-    """
-    Get the sentence for a given pd.Series (i.e. row in Dataset)
-
-    Replace this if a faster way is found, possibly using .loc and reindexing.
-    """
-    start = row._n - row.name[2] + 1
-    end = start + row.sent_len
-    return df.iloc[start:end]
-
-
 def _make_csv(raw_lines, fname, usecols):
     """
     Turn raw CONLL-U file data into something pandas' CSV reader can easily and quickly read.
