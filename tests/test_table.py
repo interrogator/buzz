@@ -45,9 +45,28 @@ class TestTable(unittest.TestCase):
         self.assertEqual(word_pos.columns.name, "p/w")
         word_pos = LOADED.table(show=["w", "+1w"])
         self.assertTrue(all("/" in i for i in word_pos.columns))
-        self.assertEqual(
-            list(word_pos.columns[:3]), ["in/the", "the/jungle", "the/stories"]
-        )
+        first = ["in/the", "the/jungle", "the/stories"]
+        self.assertEqual(list(word_pos.columns[:3]), first)
+
+    def test_ll_keyword(self):
+        word_pos = LOADED.table(show=["w", "p"], keyness='ll')
+        self.assertEqual(word_pos.shape[0], 3)
+        self.assertEqual(word_pos.shape[1], 173)
+        self.assertEqual(word_pos.columns[0], 'the/dt')
+
+    def test_pd_keyword(self):
+        word_pos = LOADED.table(show=["w", "p"], keyness='pd')
+        self.assertEqual(word_pos.shape[0], 3)
+        self.assertEqual(word_pos.shape[1], 173)
+        self.assertEqual(word_pos.columns[0], 'worlds/nns')
+
+    def test_no_ref_keyness(self):
+        nouns = LOADED.just.wordclass.NOUN
+        nouns.reference = None
+        word_pos = nouns.table(show=["w", "p"], keyness='pd')
+        self.assertEqual(word_pos.columns[0], 'theme/nn')
+        self.assertEqual(word_pos.shape[0], 3)
+        self.assertEqual(word_pos.shape[1], 55)
 
     def test_sort(self):
         tab = LOADED.table()

@@ -169,49 +169,19 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
     return df
 
 
-def _uncomma(row, df, df_show_col, gram_ix):
-    n = row.name
-    gramsize = str(row[gram_ix]).count(",") + 1
-    try:
-        rel = df[n : n + gramsize, df_show_col]
-        # todo: if df_show_col is list, do slash sep
-        form = " ".join(rel)
-        return form
-    except Exception:  # todo: why?
-        return str()
-
-
-def _relativise(df, denom=None):
-    denom = denom if denom is not None else df
-    if not isinstance(denom, pd.Series):
-        denom = denom.sum(axis=1)
-    return (df.T * 100.0 / denom).T
-
-
 def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
     """
     calculate log likelihood keyness
     """
-
     neg = (word_in_target / float(target_sum)) < (word_in_ref / float(ref_sum))
+    ref_targ = float(word_in_ref) + float(word_in_target)
+    ref_targ_sum = float(ref_sum) + float(target_sum)
 
-    E1 = float(ref_sum) * (
-        (float(word_in_ref) + float(word_in_target))
-        / (float(ref_sum) + float(target_sum))
-    )
-    E2 = float(target_sum) * (
-        (float(word_in_ref) + float(word_in_target))
-        / (float(ref_sum) + float(target_sum))
-    )
+    E1 = float(ref_sum) * (ref_targ / ref_targ_sum)
+    E2 = float(target_sum) * (ref_targ / ref_targ_sum)
 
-    if word_in_ref == 0:
-        logaE1 = 0
-    else:
-        logaE1 = math.log(word_in_ref / E1)
-    if word_in_target == 0:
-        logaE2 = 0
-    else:
-        logaE2 = math.log(word_in_target / E2)
+    logaE1 = 0 if not word_in_ref else math.log(word_in_ref / E1)
+    logaE2 = 0 if not word_in_target else math.log(word_in_target / E2)
     score = float(2 * ((word_in_ref * logaE1) + (word_in_target * logaE2)))
     if neg:
         score = -score
