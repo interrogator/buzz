@@ -315,7 +315,7 @@ class Nearby(Filter):
                     nears[i] = i - n
         ref = self._corpus.reference if from_reference else self._corpus
         out = ref.iloc[sorted(list(nears))]
-        out['_position'] = [v for k, v in sorted(nears.items())]
+        out["_position"] = [v for k, v in sorted(nears.items())]
         self._corpus["_n"] = store_n
         return out
 

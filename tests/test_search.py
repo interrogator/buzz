@@ -58,7 +58,7 @@ class TestSearch(unittest.TestCase):
         count = 0
         # iterate over rows, get governor of the, lookup this row.
         # if row is a noun, check that its index is in our results
-        for (f, s, i), series in the.T.iteritems():
+        for (f, s, _), series in the.T.items():
             gov = series["g"]
             gov = self.loaded.loc[f, s, gov]
             if gov.x == "NOUN":
