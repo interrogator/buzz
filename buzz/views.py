@@ -232,7 +232,7 @@ def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
 def _make_keywords(subcorpus, reference, ref_sum, target_sum, measure):
     points = [
         (reference.get(name, 0), count, ref_sum, target_sum)
-        for name, count in subcorpus.iteritems()
+        for name, count in subcorpus.items()
     ]
     return [measure(*arg) for arg in points]
 

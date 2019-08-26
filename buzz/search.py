@@ -53,7 +53,7 @@ class Searcher(object):
                 total=len(tree_once), desc="Searching trees", ncols=120, unit="tree"
             )
 
-        for n, tree in tree_once.iteritems():
+        for n, tree in tree_once.items():
             if not tree:
                 continue
             match_count = 0

@@ -306,15 +306,16 @@ class Nearby(Filter):
         if not from_reference:
             self._corpus["_n"] = range(len(self._corpus))
         matches = super().__call__(entry, case=case, exact_match=exact_match, **kwargs)
-        nears = set()
+        nears = dict()
         for n in matches["_n"]:
             start = max([0, n - distance])
             end = min([n + distance + 1, len(self._corpus.reference)])
             for i in range(start, end):
                 if i != n:
-                    nears.add(i)
+                    nears[i] = i - n
         ref = self._corpus.reference if from_reference else self._corpus
         out = ref.iloc[sorted(list(nears))]
+        out['_position'] = [v for k, v in sorted(nears.items())]
         self._corpus["_n"] = store_n
         return out
 

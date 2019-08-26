@@ -218,7 +218,7 @@ class Dataset(pd.DataFrame):
         """
         if "parse" in self.columns:
             par = list()
-            for (f, s, i), data in self["parse"].iteritems():
+            for (f, s, i), data in self["parse"].items():
                 if i == 1:
                     par.append(data)
                 else:
