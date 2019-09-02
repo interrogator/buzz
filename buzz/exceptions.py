@@ -4,3 +4,7 @@ class NoReferenceCorpus(Exception):
 
 class DataTypeError(Exception):
     pass
+
+
+class InvalidData(Exception):
+    pass

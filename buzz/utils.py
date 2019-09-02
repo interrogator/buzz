@@ -224,20 +224,31 @@ def _add_governor(df):
     return pd.concat([df, govs], axis=1, sort=False)
 
 
-def _multiples_apply(morph_list):
+def _multiples_apply(morph_list, path=None, column=None):
+    """
+    Function applied to each dataframe row, to extract multi value column data
+    """
     out = dict()
     if morph_list == ["_"]:
         return out
     for item in morph_list:
-        k, v = item.split("=", 1)
+        if '=' not in item:
+            warn = "Warning: equals missing in '{}' column {}, file {}"
+            print(warn.format(item, column, path))
+            k, v = "untitled", item
+        else:
+            k, v = item.split("=", 1)
         out[k] = v
     return out
 
 
-def _parse_out_multiples(df, morph=False):
+def _parse_out_multiples(df, morph=False, path=None):
+    """
+    Get morphology or metadata stored at token level in m/o columns
+    """
     letter = "m" if morph else "o"
     col = df[letter].str.split("|")
-    multis = col.apply(_multiples_apply)
+    multis = col.apply(_multiples_apply, path=path, column=letter)
     multis = pd.DataFrame.from_dict(list(multis)).fillna("_")
     multis.index = df.index
     if morph:
@@ -301,11 +312,11 @@ def _to_df(
 
     morph_cols = list()
     if morph and "m" in df.columns and (df["m"] != "_").any():
-        df, morph_cols = _parse_out_multiples(df, morph=True)
+        df, morph_cols = _parse_out_multiples(df, morph=True, path=corpus.path)
 
     misc_cols = list()
     if misc and "o" in df.columns and (df["o"] != "_").any():
-        df, misc_cols = _parse_out_multiples(df)
+        df, misc_cols = _parse_out_multiples(df, path=corpus.path)
 
     # make a dataframe containing sentence level metadata, then join it to main df
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
@@ -330,6 +341,9 @@ def _to_df(
 
 
 def _get_short_name_from_long_name(longname):
+    """
+    Translate "lemmata" to "l" and so on
+    """
     revers = dict()
     for k, vs in LONG_NAMES.items():
         for v in vs:
