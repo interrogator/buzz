@@ -233,8 +233,8 @@ def _multiples_apply(morph_list, path=None, column=None):
         return out
     for item in morph_list:
         if '=' not in item:
-            warn = "Warning: equals missing in '{}' column {}, file {}"
-            print(warn.format(item, column, path))
+            # warn = "Warning: equals missing in '{}' column {}, file {}"
+            # print(warn.format(item, column, path))
             k, v = "untitled", item
         else:
             k, v = item.split("=", 1)
