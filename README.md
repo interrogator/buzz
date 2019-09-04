@@ -105,7 +105,7 @@ the `parse()` method returns another `Corpus` object, representing the newly cre
 parsed.subcorpora.s1.files.e01
 parsed.files[0]
 parsed.subcorpora.s1[:5]
-parsed.subcorpora['s1']
+parsed.subcorpora["s1"]
 ```
 
 ### Parse command
@@ -334,21 +334,23 @@ A corpus is a pandas DataFrame object. The index is a multiindex, comprised of `
 # get the first sentence using buzz.dataset.sent()
 first = loaded.sent(0)
 # using pandas syntax to get first 5 words
-first.iloc[:5]['w']
+first.iloc[:5]["w"]
 # join the wordclasses and words
-print(' '.join(first.x.str.cat(first.w, sep='/')))
+print(" ".join(first.x.str.cat(first.w, sep="/")))
 ```
 
 ```
 "DET/My NOUN/understanding ADP/from PROPN/Dr. PROPN/Cusamano PUNCT/, DET/your NOUN/family NOUN/physician PUNCT/, VERB/is PRON/you VERB/collapsed PUNCT/?
 ```
 
-You don't need to know pandas, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguistics in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties:
+You don't need to know pandas, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguistics in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties, combined with the column/metadata feature you want to filter by:
 
 ```python
 tony = loaded.just.speaker.TONY
-# for regular expressions, like removing all punctuation:
-no_punct = loaded.skip.wordlcass.PUNCT
+# you can use brackets (i.e. for regular expressions):
+no_punct = loaded.skip.lemmata("^[^a-zA-Z0-9]")
+# or you can pass in a list/set/tuple:
+end_in_s = loaded.just.pos(["NNS", "NNPS", "VBZ"])
 ```
 
 Any object created by *buzz* has a `.view()` method, which launches a `tabview` interactive space where you can explore corpora, frequencies or concordances.
@@ -410,7 +412,7 @@ Concordancing is a nice way of looking at results. The main thing you have to do
 
 ```python
 nsubj = loaded.just.function.nsubj
-nsubj.conc(show=['w', 'p'])
+nsubj.conc(show=["w", "p"])
 ```
 
 ### Frequency tables
@@ -418,7 +420,7 @@ nsubj.conc(show=['w', 'p'])
 You can turn your dataset into frequency tables, both before or after searching or filtering. Tabling takes a `show` argument similar to the `show` argument for concordancing, as well as an additional `subcorpora` argument. `show` represents the how the columns will be formatted, and `subcorpora` is used as the index. Below we create a frequency table of `nsubj` tokens, in lemma form, organised by speaker.
 
 ```python
-tab = nsubj.table(show='l', subcorpora=['speaker'])
+tab = nsubj.table(show="l", subcorpora=["speaker"])
 ```
 
 Possible keyword arguments for the `.table()` method are as follows:
