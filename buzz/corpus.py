@@ -204,37 +204,42 @@ class Corpus(MutableSequence):
             loaded = list()
             prsd = self.is_parsed
             for file in self.files:
-                loaded.append(
-                    file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
-                )
+                if self.is_parsed:
+                    data = file.load(load_trees=load_trees, _complete=False, **kwargs)
+                else:
+                    data = file.read()
                 utils._tqdm_update(t)
             utils._tqdm_close(t)
         else:
             import numpy as np
             from joblib import Parallel, delayed
+
             chunks = np.array_split(self.files, multiprocess)
-            delay = (delayed(utils._load)(x, i, **kwargs) for i, x in enumerate(chunks))
+            delay = (
+                delayed(utils._load_multi)(x, i, **kwargs) for i, x in enumerate(chunks)
+            )
             loaded = Parallel(n_jobs=multiprocess)(delay)
+            # unpack the nested list that multiprocessing creates
             loaded = [item for sublist in loaded for item in sublist]
 
         # for unparsed corpora, we give a dict of {path: text}
         if not self.is_parsed:
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
-        # for parsed corpora, we merge each file contents into one huge dataframe as LoadedCorpus
-        df = pd.concat(loaded, sort=False)
+        # for parsed corpora, we merge each file contents into one huge dataframe
+        # if we multiprocessed, we need to sort too
+        needs_sort = multiprocess is not False
+        df = pd.concat(loaded, sort=needs_sort)
         if load_trees:
             tree_once = utils._tree_once(df)
             if isinstance(tree_once.values[0], str):
                 df["parse"] = tree_once.apply(utils._make_tree)
 
-        df = df.drop("_n", axis=1, errors="ignore")
-        col_order = list(df.columns)
         df["_n"] = range(len(df))
-        df = df[col_order + ["_n"]]
-        df = utils._set_best_data_types(df)
-        fixed = self._order_columns(df)
-        return Dataset(fixed, reference=fixed, name=self.name)
+        if kwargs.get("set_data_types", True):
+            df = utils._set_best_data_types(df)
+        df = utils._order_df_columns(df)
+        return Dataset(df, reference=df, name=self.name)
 
     @property
     def vector(self):
@@ -265,20 +270,6 @@ class Corpus(MutableSequence):
         for file in self.files:
             models.append(file.to_spacy(language=language))
         return models
-
-    @staticmethod
-    def _order_columns(df):
-        """
-        Put Corpus columns in best possible order. This means, follow CONLL-U, then metadata.
-        At the end we add _n, a helper column that is just a range index
-        """
-        proper_order = CONLL_COLUMNS[1:]
-        fixed = [i for i in proper_order if i in list(df.columns)]
-        met = list(sorted([i for i in list(df.columns) if i not in proper_order]))
-        met.remove("_n")
-        if met:
-            fixed += met
-        return df[fixed + ["_n"]]
 
     def _get_subcorpora_and_files(self):
         """
@@ -343,6 +334,7 @@ class SliceHelper(object):
     """
     This connects corpus.py and slice.py, so that Corpus and Dataset work the same way
     """
+
     def __init__(self, corpus, inverse=False, see=False):
         self._corpus = corpus
         self.inverse = inverse
