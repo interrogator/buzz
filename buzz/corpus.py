@@ -2,6 +2,7 @@ import json
 import os
 from collections import MutableSequence
 from functools import total_ordering
+from collections import OrderedDict
 
 import pandas as pd
 
@@ -12,7 +13,6 @@ from .dataset import Dataset
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
-from .utils import _ensure_list_of_short_names
 
 tqdm = utils._get_tqdm()
 
@@ -191,47 +191,56 @@ class Corpus(MutableSequence):
         self.parser = Parser(cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
-    def load(self, load_trees: bool = False, **kwargs):
+    def load(self, load_trees: bool = False, multiprocess: bool = False, **kwargs):
         """
         Load a Corpus into memory.
         """
-        # progress indicator
-        kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
-        t = tqdm(**kwa) if len(self.files) > 1 else None
 
-        # load each file and add to list, indicating progress
-        loaded = list()
-        prsd = self.is_parsed
-        for file in self.files:
-            loaded.append(
-                file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
-            )
-            utils._tqdm_update(t)
-        utils._tqdm_close(t)
+        multiprocess = utils._get_multiprocess(multiprocess)
+
+        if multiprocess is False:
+            kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
+            t = tqdm(**kwa) if len(self.files) > 1 else None
+            loaded = list()
+            prsd = self.is_parsed
+            for file in self.files:
+                loaded.append(
+                    file.load(load_trees=load_trees, **kwargs) if prsd else file.read()
+                )
+                utils._tqdm_update(t)
+            utils._tqdm_close(t)
+        else:
+            import numpy as np
+            from joblib import Parallel, delayed
+            chunks = np.array_split(self.files, multiprocess)
+            delay = (delayed(utils._load)(x, i, **kwargs) for i, x in enumerate(chunks))
+            loaded = Parallel(n_jobs=multiprocess)(delay)
+            loaded = [item for sublist in loaded for item in sublist]
+
+        # for unparsed corpora, we give a dict of {path: text}
+        if not self.is_parsed:
+            return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
         # for parsed corpora, we merge each file contents into one huge dataframe as LoadedCorpus
-        if self.is_parsed:
-            df = pd.concat(loaded, sort=False)
-            if load_trees:
-                tree_once = utils._tree_once(df)
-                if isinstance(tree_once.values[0], str):
-                    df["parse"] = tree_once.apply(utils._make_tree)
+        df = pd.concat(loaded, sort=False)
+        if load_trees:
+            tree_once = utils._tree_once(df)
+            if isinstance(tree_once.values[0], str):
+                df["parse"] = tree_once.apply(utils._make_tree)
 
-            df = df.drop("_n", axis=1, errors="ignore")
-            col_order = list(df.columns)
-            df["_n"] = range(len(df))
-            df = df[col_order + ["_n"]]
-            df = utils._set_best_data_types(df)
-            fixed = self._order_columns(df)
-            return Dataset(fixed, reference=fixed, name=self.name)
-        # for unparsed corpora, we give a dict of {path: text}
-        else:
-            from collections import OrderedDict
-
-            return OrderedDict(sorted(zip(self.filepaths, loaded)))
+        df = df.drop("_n", axis=1, errors="ignore")
+        col_order = list(df.columns)
+        df["_n"] = range(len(df))
+        df = df[col_order + ["_n"]]
+        df = utils._set_best_data_types(df)
+        fixed = self._order_columns(df)
+        return Dataset(fixed, reference=fixed, name=self.name)
 
     @property
     def vector(self):
+        """
+        Grab the spacy vector for this document
+        """
         spac = self.to_spacy(concat=True)
         return spac.vector
 
@@ -331,6 +340,9 @@ class Subcorpus(Corpus):
 
 
 class SliceHelper(object):
+    """
+    This connects corpus.py and slice.py, so that Corpus and Dataset work the same way
+    """
     def __init__(self, corpus, inverse=False, see=False):
         self._corpus = corpus
         self.inverse = inverse
@@ -341,7 +353,7 @@ class SliceHelper(object):
         return use(self._corpus, attr, inverse=self.inverse)
 
     def __call__(self, column, *args, **kwargs):
-        column = _ensure_list_of_short_names(column)
+        column = utils._ensure_list_of_short_names(column)
         # duplicated because we can't pass list to getattr
         use = Filter if not self.see else Interim
         return use(self._corpus, column, inverse=self.inverse)

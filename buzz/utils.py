@@ -1,3 +1,4 @@
+import multiprocessing
 import os
 import re
 import shutil
@@ -258,9 +259,37 @@ def _parse_out_multiples(df, morph=False, path=None):
     return multis.join(df, how="inner"), cols
 
 
+def _get_multiprocess(multiprocess):
+    """
+    Get number of processes, or False
+
+    Hardest utility ever written.
+    """
+    if multiprocess is True:
+        multiprocess = multiprocessing.cpu_count()
+    if type(multiprocess) == int and multiprocess < 2:
+        return False
+    if multiprocess is False or multiprocess is None:
+        return False
+    return multiprocess
+
+
+def _load(_paths, position, **kwargs):
+    """
+    Picklable loader for multiprocessing
+    """
+    kwa = dict(ncols=120, unit="chunk", desc="Loading", position=position, total=len(_paths))
+    t = tqdm(**kwa)
+    out = []
+    for path in _paths:
+        out.append(_to_df(corpus=path, **kwargs))
+        _tqdm_update(t)
+    _tqdm_close(t)
+    return out
+
+
 def _to_df(
     corpus,
-    load_trees: bool = True,
     subcorpus: Optional[str] = None,
     usecols: Optional[List[str]] = None,
     usename: Optional[str] = None,
