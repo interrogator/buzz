@@ -3,6 +3,7 @@ numpy
 nltk
 bllipparser
 scipy
+joblib
 scikit-learn
 tensorflow
 spacy==2.1.6

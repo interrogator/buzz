@@ -25,7 +25,11 @@ import pandas as pd
 
 from .exceptions import DataTypeError
 from .search import Searcher
-from .utils import _ensure_list_of_short_names, _get_short_name_from_long_name
+from .utils import (
+    _ensure_list_of_short_names,
+    _get_short_name_from_long_name,
+    _order_df_columns,
+)
 
 
 class Filter(object):
@@ -103,14 +107,13 @@ class Filter(object):
 
     def _normalise(self, entry, case=True, exact_match=False, **kwargs):
         if not isinstance(self._corpus, pd.DataFrame) and self._corpus.files:
-            order = self._corpus._order_columns
             results = []
             for file in self._corpus.files:
                 self._corpus = file.load()
                 res = self.__call__(entry, case=case, exact_match=exact_match, **kwargs)
                 results.append(res)
             df = pd.concat(results, sort=True)
-            return order(df)
+            return _order_df_columns(df)
         # if it's a file, load it now
         elif not isinstance(self._corpus, pd.DataFrame):
             self._corpus = self._corpus.load()

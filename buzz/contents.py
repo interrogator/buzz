@@ -78,7 +78,7 @@ class Contents(MutableSequence):
     def load(self, **kwargs):
         loaded = []
         for piece in self:
-            loaded.append(piece.load(**kwargs))
+            loaded.append(piece.load(_complete=False, **kwargs))
         df = pd.concat(loaded)
         df["_n"] = range(len(df))
         return _order_df_columns(df)

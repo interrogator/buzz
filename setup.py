@@ -40,6 +40,7 @@ setup(
     install_requires=[
         "nltk",
         "bllipparser",
+        "joblib",
         "scipy",
         "cython",
         "depgrep>=0.1.3",

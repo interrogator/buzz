@@ -2,7 +2,7 @@ import os
 from functools import total_ordering
 
 from .corpus import Corpus
-from .utils import _get_nlp, _to_df
+from .utils import _get_nlp, _to_df, _order_df_columns
 
 
 @total_ordering
@@ -68,7 +68,7 @@ class File(Corpus):
         if self.is_parsed:
             df = _to_df(self, **kwargs)
             df["_n"] = range(len(df))
-            df = self._order_columns(df)
+            df = _order_df_columns(df)
             df.reference = df
             return df
         raise NotImplementedError(

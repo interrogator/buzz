@@ -197,8 +197,11 @@ def _order_df_columns(df, metadata=None, morph=None):
         metadata = [i for i in list(df.columns) if i not in COLUMN_NAMES]
     morph = morph or list()
     good_names = [i for i in COLUMN_NAMES if i in df.columns]
-    df = df[good_names + morph + list(sorted(metadata))]
-    return df
+    with_n = good_names + morph + list(sorted(metadata))
+    if "_n" in with_n:
+        with_n.remove("_n")
+        with_n.append("_n")
+    return df[with_n]
 
 
 def _apply_governor(row, df=None, dummy=None):
@@ -274,15 +277,17 @@ def _get_multiprocess(multiprocess):
     return multiprocess
 
 
-def _load(_paths, position, **kwargs):
+def _load_multi(_paths, position, **kwargs):
     """
     Picklable loader for multiprocessing
     """
-    kwa = dict(ncols=120, unit="chunk", desc="Loading", position=position, total=len(_paths))
-    t = tqdm(**kwa)
+    kwa = dict(
+        ncols=120, unit="chunk", desc="Loading", position=position, total=len(_paths)
+    )
+    t = _get_tqdm()(**kwa)
     out = []
     for path in _paths:
-        out.append(_to_df(corpus=path, **kwargs))
+        out.append(_to_df(corpus=path, _complete=False, **kwargs))
         _tqdm_update(t)
     _tqdm_close(t)
     return out
@@ -297,6 +302,7 @@ def _to_df(
     add_governor: bool = False,
     morph: bool = True,
     misc: bool = True,
+    _complete: bool = True,  # internal use only
 ):
     """
     Turn buzz.corpus.Corpus into a Dataset (i.e. pd.DataFrame-like object)
@@ -305,23 +311,26 @@ def _to_df(
     from .dataset import Dataset
     from .file import File
 
+    # understand what we received.
+    # path to a conll file
     if isinstance(corpus, str) and os.path.isfile(corpus):
         corpus = File(corpus)
+    # a buzz corpus or file: get raw contents
     if isinstance(corpus, (Corpus, File)):
         with open(corpus.path, "r") as fo:
             data = fo.read().strip("\n")
+    # if a directory, do nothing much
     elif isinstance(corpus, str) and not os.path.exists(corpus):
         data = corpus
 
+    # add file and s columns to the csv string; get metadata as well
     data, metadata = _make_csv(data, usename or corpus.name, usecols)
 
+    # user can only load a subset, but index always needed
+    csv_usecols = None
     if usecols is not None:
         usecols = usecols + [i for i in ["file", "s", "i"] if i not in usecols]
-
-    # remove metadata from here because it doesn't make it to read_csv
-    if usecols is None:
-        csv_usecols = None
-    else:
+        # usecols for pandas read_csv. todo: can i just make it usecols?
         csv_usecols = [i for i in usecols if i in ["file", "s"] + CONLL_COLUMNS]
 
     df = pd.read_csv(
@@ -330,7 +339,6 @@ def _to_df(
         header=None,
         names=COLUMN_NAMES,
         quoting=3,
-        memory_map=True,
         # index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
@@ -339,11 +347,10 @@ def _to_df(
 
     df = df.set_index(["file", "s", "i"])
 
-    morph_cols = list()
+    morph_cols, misc_cols = list(), list()
     if morph and "m" in df.columns and (df["m"] != "_").any():
         df, morph_cols = _parse_out_multiples(df, morph=True, path=corpus.path)
 
-    misc_cols = list()
     if misc and "o" in df.columns and (df["o"] != "_").any():
         df, misc_cols = _parse_out_multiples(df, path=corpus.path)
 
@@ -353,8 +360,9 @@ def _to_df(
     metadata.index.name = "s"
     df = metadata.join(df, how="inner")
 
-    # fix the column order
-    df = _order_df_columns(df, metadata, morph_cols + misc_cols)
+    # fix the column order (when this is the whole corpus)
+    if _complete:
+        df = _order_df_columns(df, metadata, morph_cols + misc_cols)
 
     # remove columns whose value was interpeted or for which nothing is ever available
     badcols = ["o", "m"]
@@ -362,8 +370,10 @@ def _to_df(
 
     df = df.fillna("_")
 
-    if set_data_types:
+    # setting types is really expensive, cheaper on whole corpus
+    if set_data_types and _complete:
         df = _set_best_data_types(df)
+    # adding governor is cheaper when corpus is in chunks, so do now
     if "g" in df.columns and add_governor:
         df = _add_governor(df)
     return Dataset(df, name=usename or corpus.name)
