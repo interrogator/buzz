@@ -47,10 +47,11 @@ class TestCorpus(unittest.TestCase):
     def test_load_usecols(self):
         load = ["w", "l"]
         loaded = self.parsed.load(usecols=load)
-        self.assertEqual(list(loaded.columns), load + ["_n"])
+        extra = ["subcorpus", "_n"]
+        self.assertEqual(list(loaded.columns), load + extra)
         load = ["l", "speaker"]
         loaded = self.parsed.load(usecols=load)
-        self.assertEqual(list(loaded.columns), load + ["_n"])
+        self.assertEqual(list(loaded.columns), load + extra)
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -210,7 +211,7 @@ class TestCorpus(unittest.TestCase):
         d = Dataset(self.parsed.path, load_trees=True)
         f = Dataset(self.parsed.files[0].path, load_trees=True)
         self.assertTrue(d.equals(self.loaded))
-        self.assertTrue(f.equals(self.parsed.files[0].load()))
+        self.assertTrue(f.equals(self.parsed.files[0].load(load_trees=True)))
         with patch("buzz.views.view", side_effect=ValueError("Boom!")):
             with self.assertRaises(ValueError):
                 self.loaded.view()

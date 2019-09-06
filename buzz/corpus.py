@@ -7,7 +7,6 @@ from collections import OrderedDict
 import pandas as pd
 
 from . import utils
-from .constants import CONLL_COLUMNS
 from .contents import Contents
 from .dataset import Dataset
 from .parse import Parser
@@ -274,7 +273,7 @@ class Corpus(MutableSequence):
 
     def _get_in_subcorpus(self, fpath):
         rel = fpath.split(self.path, 1)[-1]
-        return os.path.dirname(rel).strip(' /')
+        return os.path.dirname(rel).strip(" /")
 
     def _get_subcorpora_and_files(self):
         """

@@ -2,7 +2,7 @@ import os
 from functools import total_ordering
 
 from .corpus import Corpus
-from .utils import _get_nlp, _to_df, _order_df_columns
+from .utils import _get_nlp, _to_df, _order_df_columns, _tree_once, _make_tree
 
 
 @total_ordering
@@ -62,7 +62,7 @@ class File(Corpus):
         loaded = self.load(usecols=usecols)
         return loaded.table(show=show, subcorpora=subcorpora, **kwargs)
 
-    def load(self, **kwargs):
+    def load(self, load_trees=False, **kwargs):
         """
         For parsed dataset, get dataframe or spacy object
         """
@@ -71,6 +71,10 @@ class File(Corpus):
             df["_n"] = range(len(df))
             df = _order_df_columns(df)
             df.reference = df
+            if load_trees:
+                tree_once = _tree_once(df)
+                if isinstance(tree_once.values[0], str):
+                    df["parse"] = tree_once.apply(_make_tree)
             return df
         raise NotImplementedError(
             "Cannot load DataFame from unparsed file. Use file.read()"

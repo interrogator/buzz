@@ -361,7 +361,7 @@ def _to_df(
     df = metadata.join(df, how="inner")
 
     if subcorpus:
-        df['subcorpus'] = subcorpus
+        df["subcorpus"] = subcorpus
 
     # fix the column order (when this is the whole corpus)
     if _complete:
