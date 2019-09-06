@@ -199,15 +199,17 @@ class Corpus(MutableSequence):
         multiprocess = utils._get_multiprocess(multiprocess)
 
         if multiprocess is False:
-            kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
-            t = tqdm(**kwa) if len(self.files) > 1 else None
+            total = len(self.files)
+            kwa = dict(ncols=120, unit="file", desc="Loading", total=total)
+            t = tqdm(**kwa) if total > 1 else None
             loaded = list()
-            prsd = self.is_parsed
             for file in self.files:
+                subc = file.in_subcorpus
                 if self.is_parsed:
-                    data = file.load(load_trees=load_trees, _complete=False, **kwargs)
+                    data = file.load(_complete=False, subcorpus=subc, **kwargs)
                 else:
                     data = file.read()
+                loaded.append(data)
                 utils._tqdm_update(t)
             utils._tqdm_close(t)
         else:
@@ -227,9 +229,8 @@ class Corpus(MutableSequence):
             return OrderedDict(sorted(zip(self.filepaths, loaded)))
 
         # for parsed corpora, we merge each file contents into one huge dataframe
-        # if we multiprocessed, we need to sort too
-        needs_sort = multiprocess is not False
-        df = pd.concat(loaded, sort=needs_sort)
+        df = pd.concat(loaded, sort=False)
+        # todo: think a bit more about when to load load_trees
         if load_trees:
             tree_once = utils._tree_once(df)
             if isinstance(tree_once.values[0], str):
@@ -271,6 +272,10 @@ class Corpus(MutableSequence):
             models.append(file.to_spacy(language=language))
         return models
 
+    def _get_in_subcorpus(self, fpath):
+        rel = fpath.split(self.path, 1)[-1]
+        return os.path.dirname(rel).strip(' /')
+
     def _get_subcorpora_and_files(self):
         """
         Helper to set subcorpora and files
@@ -286,7 +291,8 @@ class Corpus(MutableSequence):
                 if filename.startswith("."):
                     continue
                 fpath = os.path.join(root, filename)
-                fpath = File(fpath)
+                subc = self._get_in_subcorpus(fpath)
+                fpath = File(fpath, in_subcorpus=subc)
                 files.append(fpath)
             for directory in dirnames:
                 if directory.startswith("."):

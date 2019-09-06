@@ -15,6 +15,7 @@ class File(Corpus):
         self.subcorpora = None
         self.nlp = None
         self.is_parsed = self.filename.endswith((".conll", ".conllu"))
+        self.in_subcorpus = kwargs.get("in_subcorpus")
 
     def __ne__(self, other):
         return not self == other

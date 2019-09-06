@@ -277,16 +277,16 @@ def _get_multiprocess(multiprocess):
     return multiprocess
 
 
-def _load_multi(_paths, position, **kwargs):
+def _load_multi(paths, position, **kwargs):
     """
     Picklable loader for multiprocessing
     """
     kwa = dict(
-        ncols=120, unit="chunk", desc="Loading", position=position, total=len(_paths)
+        ncols=120, unit="chunk", desc="Loading", position=position, total=len(paths)
     )
     t = _get_tqdm()(**kwa)
     out = []
-    for path in _paths:
+    for path in paths:
         out.append(_to_df(corpus=path, _complete=False, **kwargs))
         _tqdm_update(t)
     _tqdm_close(t)
@@ -359,6 +359,9 @@ def _to_df(
     metadata = pd.DataFrame(metadata).T
     metadata.index.name = "s"
     df = metadata.join(df, how="inner")
+
+    if subcorpus:
+        df['subcorpus'] = subcorpus
 
     # fix the column order (when this is the whole corpus)
     if _complete:
