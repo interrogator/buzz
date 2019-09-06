@@ -18,4 +18,4 @@ warnings.filterwarnings("ignore", message="Attribibute 'is_copy")
 warnings.filterwarnings("ignore")
 
 
-__version__ = "3.0.10"
+__version__ = "3.1.0"
