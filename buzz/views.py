@@ -245,7 +245,8 @@ def _table(
         remove_above_p = 0.05
 
     # make a column representing the 'show' info
-    df["_match"] = _make_match_col(df, show, preserve_case, show_entities=show_entities)
+    kwa = dict(show_entities=show_entities, reference=reference)
+    df["_match"] = _make_match_col(df, show, preserve_case, **kwa)
     if reference is not None:
         reference["_match"] = df["_match"]
 

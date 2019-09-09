@@ -31,24 +31,86 @@ def _get_texts(file_data):
             out.append(line.strip())
     return "\n".join(out)
 
-def _do_entity_work(df, show, reference):
-    """
 
+def _entity_getter(row, reference=None):
     """
-    pass
+    Pandas rowwise apply. Gets fsis
+    """
+    iob = row["ent_iob"]
+    file, s, i = row.name
+    out = {i}
 
+    if iob in ["_", "O"]:
+        return out
+
+    ent_id = row["ent_id"]
+    sent = reference.loc[(file, s)]
+    sent = sent[sent["ent_id"] == ent_id]
+    sent["_i"] = sent.index
+    sent["diff"] = sent["_i"].diff()
+    start = i
+    end = i
+    # get the row at which this entity starts
+    while True:
+        if iob == "B":
+            break
+        start -= 1
+        if not start:
+            break
+        try:
+            line = sent.loc[start]
+        except:
+            break
+        if line["diff"] != 1:
+            out.add(start)
+            break
+        iob = line["ent_iob"]
+        out.add(start)
+    # get the row at which this entity ends
+    while True:
+        end += 1
+        try:
+            line = sent.loc[end]
+        except:
+            break
+        if line["diff"] != 1:
+            break
+        out.add(end)
+    return out
+
+
+def _join_entities(made, entity_info):
+    """
+    Once we've formatted needed tokens, for entities, we need to join them
+    """
+    out = []
+    for (f, s, _), set_of_is in entity_info.items():
+        sent = made.loc[(f, s)]
+        tokens = [v for k, v in sent.items() if k in set_of_is]
+        out.append(' '.join(tokens))
+    return pd.Series(out, index=entity_info.index)
 
 
 def _make_match_col(df, show, preserve_case, show_entities=False, reference=None):
     """
     Make a Series representing the format requested in `show`
     """
+    # this is brutal code, only needed when we are showing entities
+    if show_entities:
+        ixes = set()
+        entity_info = df.apply(_entity_getter, reference=reference, axis=1)
+        for (f, s, i), set_of_is in entity_info.items():
+            for ix in set_of_is:
+                ixes.add((f, s, ix))
+        # now we make the expanded results into the df for formatting
+        df = reference.loc[list(sorted(ixes))]
+
+    # if we need to add file, s or i as columns to the df?
     for s in show:
         if s in df.index.names and s not in df.columns:
             df[s] = df.index.get_level_values(s)
-    if show_entities:
-        made = _do_entity_work(df, show, reference)
 
+    # here is where we make the match column with slash sep
     if len(show) == 1:
         made = df[show[0]].astype(str)
     else:
@@ -56,6 +118,11 @@ def _make_match_col(df, show, preserve_case, show_entities=False, reference=None
         made = df[show[0]].str.cat(others=cats, sep="/").str.rstrip("/")
     if not preserve_case:
         made = made.str.lower()
+
+    # if doing entity stuff, we now have to join the tokens
+    if show_entities:
+        made = _join_entities(made, entity_info)
+
     return made
 
 
