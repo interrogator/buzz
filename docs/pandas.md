@@ -24,7 +24,7 @@ preprocessed = Corpus('path/to/corpus').load().no_punct()
 
 ## Recipe: finding character mentions
 
-In *Do the right thing*, as in any film, characters refer to other characters by name. It's interesting to compare who is mentioned, how often, and whether or not mentions are proportional to the amount of lines the character has. Let's investigate this using buzz and pandas.
+In *Do the right thing*, as in any film, characters refer to other characters by name. It's interesting to compare who is mentioned, how often, and whether or not mentions are proportional to the amount of lines the character has. Let's investigate this using buzz, combined with some pandas.
 
 First, we load in our data, and pull out the speakers' names.
 
@@ -50,6 +50,7 @@ unique_speakers.remove('stage_direction')
  'EDDIE',
  'ELLA',
  ...
+}
 ```
 
 ```python
@@ -178,3 +179,18 @@ This leaves us with a nice matrix of mentions; from this view, we can quickly se
     </tr>
   </tbody>
 </table>
+
+Just for the sake of completeness, though, it's worth noting that we can pretty much achieve the same thing with more *buzz*, and less *pandas*:
+
+```python
+unique_speakers = set(dtrt.speaker)
+# don't care about case, but match entire word, not just part of it
+mentions = dtrt.just.word(unique_speakers, case=False, exact_match=True)
+# show word (i.e. mentioned speaker) by mentioner
+tab = mentions.table(show='w', subcorpora='speaker')
+# remove things we don't care about
+tab = tab.drop('stage_direction').drop('stage_direction', axis=1)
+# make relative, then cut down to top 10x10
+tab = tab.relative()
+print(tab.iloc[:14,:7].to_html())
+```

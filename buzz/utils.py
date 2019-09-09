@@ -31,14 +31,24 @@ def _get_texts(file_data):
             out.append(line.strip())
     return "\n".join(out)
 
+def _do_entity_work(df, show, reference):
+    """
 
-def _make_match_col(df, show, preserve_case):
+    """
+    pass
+
+
+
+def _make_match_col(df, show, preserve_case, show_entities=False, reference=None):
     """
     Make a Series representing the format requested in `show`
     """
     for s in show:
         if s in df.index.names and s not in df.columns:
             df[s] = df.index.get_level_values(s)
+    if show_entities:
+        made = _do_entity_work(df, show, reference)
+
     if len(show) == 1:
         made = df[show[0]].astype(str)
     else:

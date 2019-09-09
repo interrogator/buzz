@@ -218,6 +218,7 @@ def _table(
     remove_above_p=False,
     multiindex_columns=False,
     keep_stats=False,
+    show_entities=False,
     **kwargs
 ):
     """
@@ -244,7 +245,7 @@ def _table(
         remove_above_p = 0.05
 
     # make a column representing the 'show' info
-    df["_match"] = _make_match_col(df, show, preserve_case)
+    df["_match"] = _make_match_col(df, show, preserve_case, show_entities=show_entities)
     if reference is not None:
         reference["_match"] = df["_match"]
 
