@@ -83,7 +83,7 @@ class Searcher(object):
         # df of _gram
         return pd.Series(indices_to_keep)
 
-    def depgrep(self, df, positions):
+    def depgrep(self, df, positions, position=0):
         """
         Run query over dependencies
         """
@@ -91,7 +91,7 @@ class Searcher(object):
         if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             prog_bar_info = dict(
-                desc="Searching loaded corpus", unit="tokens", ncols=120
+                desc="Searching loaded corpus", unit="tokens", ncols=120, position=position
             )
             tqdm.pandas(**prog_bar_info)
             matches = df.progress_apply(self.query, axis=1, raw=True)
@@ -106,7 +106,7 @@ class Searcher(object):
 
         return [bool(i) for i in matches.values]
 
-    def _depgrep_iteration(self, piece, query):
+    def _depgrep_iteration(self, piece, query, position):
         """
         depgrep over one piece of data, returning the matching lines
         """
@@ -124,11 +124,11 @@ class Searcher(object):
             case_sensitive=self.case_sensitive,
         )
         # run the query, returning a boolean index
-        bool_ix = self.depgrep(df, positions)
+        bool_ix = self.depgrep(df, positions, position=position)
         # get just the lines matching the bool ix
         return bool_ix
 
-    def run(self, corpus, target, query, case_sensitive=True, inverse=False):
+    def run(self, corpus, target, query, case_sensitive=True, inverse=False, position=0):
         """
         Search either trees or dependencies for query
 
@@ -171,7 +171,7 @@ class Searcher(object):
                 n += len(piece)
             # do the dep or tree searches and make a reduced dataset containing just matches
             if self.target == "d":
-                depg = self._depgrep_iteration(piece, query)
+                depg = self._depgrep_iteration(piece, query, position=position)
                 res = piece[depg] if not inverse else piece[~depg]
             elif self.target == "t":
                 gram_ser = self._tgrep_iteration(piece)
