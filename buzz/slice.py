@@ -204,6 +204,9 @@ class Proto(Filter):
 
     @property
     def showing(self):
+        """
+        Exactly the same as 'by', just different name
+        """
         return Proto(self._corpus, self.column)
 
     def __call__(self, show=["w"], top=10, n_top_members=-1, only_correct=True):

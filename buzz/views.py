@@ -171,7 +171,7 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
 
 def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
     """
-    calculate log likelihood keyness
+    Calculate log likelihood keyness
     """
     neg = (word_in_target / float(target_sum)) < (word_in_ref / float(ref_sum))
     ref_targ = float(word_in_ref) + float(word_in_target)
@@ -189,8 +189,9 @@ def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
 
 
 def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
-    """calculate using perc diff measure"""
-
+    """
+    Calculate using perc diff measure
+    """
     norm_target = float(word_in_target) / target_sum
     norm_ref = float(word_in_ref) / ref_sum
     # Gabrielatos and Marchi (2012) do it this way!
@@ -200,6 +201,9 @@ def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
 
 
 def _make_keywords(subcorpus, reference, ref_sum, target_sum, measure):
+    """
+    Apply function for getting keyness calculations
+    """
     points = [
         (reference.get(name, 0), count, ref_sum, target_sum)
         for name, count in subcorpus.items()
@@ -270,12 +274,12 @@ def _table(
             print(warn)
             reference = df
         ref = reference["_match"].value_counts()
+        measures = dict(ll=_log_likelihood, pd=_perc_diff)
+        measure = measures.get(keyness, _log_likelihood)
         kwa = dict(
             axis=0,
             reference=ref,
-            measure=dict(ll=_log_likelihood, pd=_perc_diff).get(
-                keyness, _log_likelihood
-            ),
+            measure=measure,
             ref_sum=reference.shape[0],
             target_sum=table.shape[0],
         )
