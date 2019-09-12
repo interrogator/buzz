@@ -190,7 +190,7 @@ mentions = dtrt.just.word(unique_speakers, case=False, exact_match=True)
 tab = mentions.table(show='w', subcorpora='speaker')
 # remove things we don't care about
 tab = tab.drop('stage_direction').drop('stage_direction', axis=1)
-# make relative, then cut down to top 10x10
+# make relative, then cut down to top
 tab = tab.relative()
 print(tab.iloc[:14,:7].to_html())
 ```

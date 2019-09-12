@@ -3,7 +3,8 @@ buzz: attempting to measure token/sentence formality
 """
 
 from pattern.en.wordlist import ACADEMIC, BASIC, PROFANITY
-import pandas as pd
+from tqdm import tqdm
+import numpy as np
 
 # here are all the different scores within formality, and how important
 # they should be for the final score. adjust them to prioritise things until it works
@@ -47,18 +48,19 @@ class FormalityScorer:
         Score a token for formality
         """
         # allow a pandas series (i.e. dataset row) to be passed in
-        if not isinstance(lemma, str):
-            xpos = lemma["x"]
-            lemma = lemma["l"]
-        elif not xpos:
-            raise ValueError(
-                "For token formality, either pass a Series, or lemma and XPOS"
-            )
-
-        scores = dict()
+        try:
+            xpos = lemma[0]
+            lemma = lemma[1]
+        except:
+            pass
+        if not xpos:
+            msg = "For token formality, either pass a Series, or lemma and XPOS"
+            raise ValueError(msg)
 
         if (lemma, xpos) in self.override:
             return self.override[(lemma, xpos)]
+
+        scores = dict()
 
         # add any score we can figure out
         small = min(self.max_word_length, len(lemma))
@@ -70,15 +72,7 @@ class FormalityScorer:
         scores["is_common"] = 1 if lemma in BASIC else -1
         scores["is_profane"] = 1 if lemma in PROFANITY else -1
         scores["is_academic"] = 1 if lemma in ACADEMIC else -1
-        return sum(self._adjust_by_weights(scores))
-
-    def _adjust_by_weights(self, scores):
-        """
-        adjust each score by how important we think it is, relatively
-        """
-        return [
-            score * self.weights[name] / self.wsum for name, score in scores.items()
-        ]
+        return sum([score * self.weights[name] / self.wsum for name, score in scores.items()])
 
     def _formality_by_sent_length(self, length):
         """
@@ -87,29 +81,29 @@ class FormalityScorer:
         sent_len = min(length, self.max_sent_length)
         return (sent_len - self.max_sent_length / 2) / (self.max_sent_length / 2)
 
-    def sentences(self, df, ignore_sent_length=False):
+    def _sent_formality(self, group):
+        sent_score = self._formality_by_sent_length(len(group))
+        token_score = group.mean()
+        return ((sent_score / 2) + (token_score * 2)) / 2
+
+    def sentences(self, df):
         """
         Score each sentence in a dataset
 
         Right now, the score from sentence length is just as important as the averaged tokens score
         """
-        sent_scores = dict()
-        df["_formality"] = df.apply(self.token, axis=1)
-        for fs, sent in df.groupby(level=["file", "s"]):
-            average_token_score = sent["_formality"].sum() / len(sent)
-            sent_score = self._formality_by_sent_length(len(sent))
-            if ignore_sent_length:
-                sent_scores[fs] = average_token_score
-            else:
-                # assume sent and tokens are equally important. how to improve?
-                sent_scores[fs] = (sent_score + average_token_score) / 2
-        ser = pd.Series(sent_scores)
-        df['_sent_formality'] = ser
-        return ser
+        kwa = dict(ncols=120, unit="token", desc="Calculating tokens")
+        tqdm.pandas(**kwa)
+        df["_formality"] = df[['l', 'x']].astype(str).progress_apply(self.token, axis=1, raw=True)
+        kwa = dict(ncols=120, unit="sentence", desc="Calculating sentences")
+        tqdm.pandas(**kwa)
+        groups = df['_formality'].astype(float).groupby(['file', 's'])
+        df['_sent_formality'] = groups.progress_apply(self._sent_formality)
+        return df[['_formality', '_sent_formality']]
 
     def text(self, df):
         """
         Average sentence scores
         """
         scores = self.sentences(df)
-        return scores.sum() / len(scores)
+        return scores['_formality'].mean()
