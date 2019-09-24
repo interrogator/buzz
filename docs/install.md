@@ -1,6 +1,6 @@
 # Installing *buzz*
 
-*buzz* requires Python 3.6 or higher. You can install it easily with *pip*:
+*buzz* requires Python 3.6 or higher. You can install it easily with *pip* (ideally, from inside a virtual environment):
 
 ```bash
 pip install buzz
@@ -20,4 +20,4 @@ cd buzz
 python setup.py install
 ```
 
-Once installed, you'll either want to [work within a Python session](corpus.md), or [run the graphical interface](buzzword.md).
+Once installed, you'll either want to [work within a Python session](corpus.md), or [run the graphical interface](https://buzzword.readthedocs.io/en/latest/).
