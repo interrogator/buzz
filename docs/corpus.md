@@ -2,10 +2,7 @@
 
 `Corpus` can model collections of unparsed or parsed data. It's probably the only class you will ever need to import from `buzz`.
 
-All you need to get started is a directory containing plain text files, optionally within subdirectories, which will be understood as subcorpora.
-
-## Corpus methods
-
+All you need to get started is a directory containing plain text files, optionally within subdirectories, which will be understood as subcorpora. Once you have this, you import the `buzz.Corpus` object, and point it to the directory containing your data:
 
 ```python
 from buzz import Corpus
@@ -19,6 +16,26 @@ corpus.files[0].read()
 WE SEE only big white teeth and very Negroidal (big) lips. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" />
 Waaaake up! Wake up! Wake up! Wake up! Up ya wake! Up ya wake! Up ya wake!. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="1"> <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="1" />
 This is Mister Señor Love Daddy. Your voice of choice. The world's only twelve-hour strongman, here on WE LOVE radio, 108 FM. The last on your dial, but the first in ya hearts, and that's the truth, Ruth!. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2"> <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2" />
+```
+
+## Navigating the `Corpus` object
+
+`Corpus` objects can be manipulated using the `subcorpora` and `files` attributes. You can use these attributes to quickly select subsets of the corpus.
+
+If your corpus contains subfolders, they will be understood as `subcorpora`:
+
+```python
+# get the first three subcorpora
+corpus.subcorpora[:3]
+# get second file from first subcorpus;
+corpus.subcorpora[0].files[1]
+```
+
+Both `Corpus` and `Subcorpus` objects have the `files` attribute. As shown above, you can get files by index. You can also pass in a regular expression to get just files whose names match a pattern:
+
+```python
+import re
+abcd = corpus.files[re.compile('^[abcd]')]
 ```
 
 ## Parsing a corpus
@@ -60,13 +77,19 @@ print(parsed.files[0].read())
 14	.	.	PUNCT	.	_	2	punct	_	_
 ```
 
-## Load corpus into memory
+## Load corpora into memory
 
-To load an entire corpus:
+At this point, you have a `Corpus` object that models a corpus of parsed text files. This is everything you need in order to start exploring its contents. However, you first need to make a decision as to whether or not you should load the corpus into memory before searching it. The advantage of loading into memory is after loading, searching will be really fast. The disadvantage is that your machine needs enough memory to store a given corpus.
+
+Unless your corpus is huge (tens of millions of words or more), you'll probably be able to load it into memory without too much of a problem. To do this, use the `load` method of the `Corpus`. If this operation is slow, you can speed it up by using the `multiprocess` argument, which can be set to either a number of processes to spawn, or `True` (one for each CPU). If your corpus is small, don't worry about including this argument, because loading won't take long.
 
 ```python
-loaded = parsed.load()
-print(loaded)
+loaded = parsed.load(multiprocess=True)
+```
+
+We now have a `buzz.Dataset` object, which is like a `pandas DataFrame`, with one row for each token, and one column for each token feature:
+
+```python
 print(loaded.iloc[0:8, 0:6].to_html())
 ```
 
@@ -173,16 +196,19 @@ print(loaded.iloc[0:8, 0:6].to_html())
   </tbody>
 </table>
 
-All metadata attributes are available for each token in the text.
 
-If you want to load parts of a corpus, you can select the needed parts from the `subcorpora` or `files` attributes:
+Just as before, if you want to load parts of a corpus, you can still select the needed parts from the `subcorpora` or `files` attributes, though now we are accessing the parsed dataset:
 
 ```python
-parsed.files[:5].load()
-# load all files whose name matches a regex
+# load the first 5 subcorpora
+parsed.subcorpora[:5].load()
+# load all files whose name matches a regex pattern:
 import re
 parsed.files[re.compile('pizzeria$')].load()
 ```
+
+All metadata attributes are available for each token in the text. Here, we look at the features of the first token in the text:
+
 
 ```python
 print(loaded.head(1).T.to_html())
@@ -272,3 +298,7 @@ print(loaded.head(1).T.to_html())
 </table>
 
 By default, loading files will spend a fair bit of time transforming data into optimal categories (e.g. categorical datatypes for POS tags). This slows down loading quite a lot, so if you don't care about setting optimial data types, you can do `data.load(set_data_types=False)` to double the loading speed.
+
+## Next steps
+
+Next, head [here](dataset.md) to learn how to explore your corpus data.

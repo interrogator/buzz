@@ -24,54 +24,35 @@ preprocessed = Corpus('path/to/corpus').load().no_punct()
 
 ## Recipe: finding character mentions
 
-In *Do the right thing*, as in any film, characters refer to other characters by name. It's interesting to compare who is mentioned, how often, and whether or not mentions are proportional to the amount of lines the character has. Let's investigate this using buzz, combined with some pandas.
+In *Do the right thing*, as in any film, characters refer to other characters by name. It's interesting to compare who is mentioned, how often, and whether or not mentions are proportional to the amount of lines the character has. Something like that is made trivial by *buzz*.
 
-First, we load in our data, and pull out the speakers' names.
+First, we load in our dataset, and get the set of all speaker names:
 
 ```python
-from buzz.corpus import Corpus
-from buzz.table import Table
-from collections import Counter, defaultdict
-
 dtrt = Corpus('do-the-right-thing-parsed').load()
 unique_speakers = set(dtrt.speaker)
-unique_speakers.remove('stage_direction')
 ```
+
+We can use this set of names as a search query on the corpus, returning all tokens that are names:
 
 ```python
-{'AHMAD',
- "BUGGIN' OUT",
- 'CEE',
- 'CHARLIE',
- 'CLIFTON',
- 'COCONUT SID',
- 'CROWD',
- 'DA MAYOR',
- 'EDDIE',
- 'ELLA',
- ...
-}
+# don't care about case, but match entire word, not just part of it
+mentions = dtrt.just.word(unique_speakers, case=False, exact_match=True)
 ```
+
+Then, we turn this into a table, remove the non-speaker entries, and relativise the frequencies:
 
 ```python
-# here is the data structure we save our results to
-results = defaultdict(Counter)
-
-# use buzz to get any sentence containing any string from the character list
-matches = dtrt.sentences().just.text(unique_speakers, case=False)
-
-for index, match in dtrt.sentences().iterrows():
-    if match.speaker == 'stage_direction':
-        continue
-    found = [s for s in unique_speakers if s.lower() in match.text.lower()]
-    for f in found:
-        results[match.speaker][f] += 1
-
-results = Table(results).fillna(0).astype(int).sort('total')
-print(results.iloc[:14,:7].to_html())
+# show word (i.e. mentioned speaker) by mentioner
+tab = mentions.table(show='w', subcorpora='speaker')
+# remove things we don't care about
+tab = tab.drop('stage_direction').drop('stage_direction', axis=1)
+# make relative, then cut down to top
+tab = tab.relative()
+tab.iloc[:14,:7].to_html()
 ```
 
-This leaves us with a nice matrix of mentions; from this view, we can quickly see which characters are typically related 
+This leaves us with a nice matrix of mentions:
                                                                                                     
 <table border="1" class="dataframe">
   <thead>
@@ -179,18 +160,3 @@ This leaves us with a nice matrix of mentions; from this view, we can quickly se
     </tr>
   </tbody>
 </table>
-
-Just for the sake of completeness, though, it's worth noting that we can pretty much achieve the same thing with more *buzz*, and less *pandas*:
-
-```python
-unique_speakers = set(dtrt.speaker)
-# don't care about case, but match entire word, not just part of it
-mentions = dtrt.just.word(unique_speakers, case=False, exact_match=True)
-# show word (i.e. mentioned speaker) by mentioner
-tab = mentions.table(show='w', subcorpora='speaker')
-# remove things we don't care about
-tab = tab.drop('stage_direction').drop('stage_direction', axis=1)
-# make relative, then cut down to top 10x10
-tab = tab.relative()
-print(tab.iloc[:14,:7].to_html())
-```

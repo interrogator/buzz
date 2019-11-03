@@ -1,15 +1,19 @@
-# buzz datasets: exploring parsed corpora
+# Exploring parsed corpora
 
-Once you have loaded a corpus into memory, or queried a corpus without loading, you are left with a `Dataset`---a DataFrame like object with each token as a row, and its features as columns.
-
-This object can be manipulated in a number of ways.
-
-First, let's load in our corpus. This time, we'll use the metadata-rich script from [Spike Lee](https://en.wikipedia.org/wiki/Spike_Lee)'s [Do the Right Thing](https://en.wikipedia.org/wiki/Do_the_Right_Thing).
+By this point, you have a parsed corpus. For our example here, we'll use a metadata-rich script from [Spike Lee](https://en.wikipedia.org/wiki/Spike_Lee)'s [Do the Right Thing](https://en.wikipedia.org/wiki/Do_the_Right_Thing).
 
 ```python
 from buzz import Corpus
 dtrt = Corpus('dtrt/do-the-right-thing-parsed')
 ```
+
+If it's not too large, we'll probably want to load it into memory too:
+
+```python
+dtrt = dtrt.load(multiprocess=True)
+```
+
+The commands in this section will work on both `Corpus` and `Dataset` objects (i.e. on unloaded and loaded data), but will all be *much* faster on Datasets, because there is no file reading performed.
 
 ## Dataset attributes
 
@@ -20,10 +24,14 @@ You can also use any metadata features that were included in your original texts
 | Feature | Valid accessors
 |-------|---------------------------|
 | file  | `file`            |
-| sentence # | `s`, `sentence` | 
+| sentence # | `s`, `sentence`, `sentences` | 
 | word  | `w`, `word`, `words`            |
 | lemma | `l`, `lemma`, `lemmas`, `lemmata` |
-| speaker | `speaker` | 
+| POS tag | `p`, `pos`, `partofspeech`, `tag`, `tags` |
+| wordclass | `x`, `wordclass`, `wordclasses` |
+| dependency label | `f`, `function`, `functions` |
+| governor index | `g`, `governor`, `governors`, `gov`, `govs` |
+| speaker | `speaker`, `speakers` | 
 
 
 ## Dataset.just
@@ -115,9 +123,10 @@ dtrt.just.wordclass.NOUN.head().to_html()
 </table>
 
 You could get similar results in slightly different ways:
+
 ```python
 # when your query needs to be a string
-dtrt.just.wordclass('NOUN') 
+dtrt.just.wordclass('NOUN')
 # if you wanted to use pos rather than wordclass
 dtrt.just.pos('^N')
 # if you want a full dependency query, use depgrep:
@@ -127,7 +136,8 @@ dtrt.just.depgrep('l/person/ <- F"ROOT"')
 Using the bracket syntax, you can pass in some keyword arguments:
 
 * `case`: case sensitivity (default True)
-* `regex`: true by default, you can turn it off if you want simple string search
+* `regex`: `True` by default, you can turn it off if you want simple string search
+* `exact_match`: `False` by default, whether or not strings must match end-to-end, rather than within
 
 Because Datasets are subclasses of pandas DataFrames, we could also do this using pandas syntax:
 
@@ -227,6 +237,13 @@ dtrt.just.speaker.MOOKIE.to_html()
 dtrt.skip.wordclass.PUNCT
 ```
 
+Or, a regex approach:
+
+```python
+# skip tokens not starting with alpha numeric...
+dtrt.skip.word('^[^A-Za-z0-9]')
+```
+
 ## Dataset.near
 
 `Dataset.near` will find tokens within a certain distance of a match. To get tokens within the default three spaces of the lemma `person`, you can use:
@@ -234,6 +251,8 @@ dtrt.skip.wordclass.PUNCT
 ```python
 dtrt.near.lemma.person
 ```
+
+The method returns matching rows, plus an extra column, `_position`, which tells you the place this token occupies relative to the match (i.e. `-1` is one position to the left, `1` is one position to the right).
 
 If you want to customise the distance, or use a regular expression, you can use brackets:
 
@@ -556,4 +575,3 @@ verbs.see.speaker.by.lemma.to_html()
 </table>
 
 This is really just the basics, however. If you want to do more advanced kinds of frequency calculations, you'll want to use the `Dataset.table()` method, with documentation available [here](/en/latest/table).
-
