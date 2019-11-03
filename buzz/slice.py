@@ -37,7 +37,7 @@ class Filter(object):
     Filterer for DF like objects
     """
 
-    def __init__(self, corpus, column, inverse=False, distance=None):
+    def __init__(self, corpus, column, inverse=False, distance=None, **kwargs):
         """
         Unlike other slices, we can't have multiple columns here
         """
@@ -322,6 +322,39 @@ class Nearby(Filter):
         self._corpus["_n"] = store_n
         return out
 
+class Describer(Filter):
+    def __call__(self, entry, case=True, exact_match=False, multiprocess=False, queryset="NOUN", **kwargs):
+        
+        from .constants import QUERYSETS
+        from .utils import _get_multiprocess
+
+        queries = QUERYSETS[queryset]
+        multiprocess = _get_multiprocess(multiprocess)
+        out = list()
+        matches = super().__call__(entry, case=case, exact_match=exact_match, **kwargs)
+        depgrep_query = set(matches)
+        depgrep_query = 'W'
+        if multiprocess is False:
+            for i, query in enumerate(queries, start=1):
+                print("Running query {}/{}".format(i, len(queries)))
+                formed = query.format(query=depgrep_query)
+                res = self._corpus.depgrep(formed, **kwargs)
+                if res is not None and not res.empty:
+                    out.append(res)
+        else:
+            from joblib import Parallel, delayed
+            queries = [i.format(query=depgrep_query) for i in queries]
+            qs = enumerate(list(queries))
+            delay = (
+                delayed(self._corpus.depgrep)(x, position=i, **kwargs) for i, x in qs)
+            results = Parallel(n_jobs=multiprocess)(delay)
+            for res in results:
+                if res is not None and not res.empty:
+                    out.append(res)
+        df = pd.concat(out).drop_duplicates()
+        # df.reference = 
+        return df
+
 
 @pd.api.extensions.register_dataframe_accessor("near")
 class Near(Slice):
@@ -332,11 +365,19 @@ class Near(Slice):
     def _grab(self, colname, *args):
         return Nearby(self._corpus, colname)
 
+@pd.api.extensions.register_dataframe_accessor("desc")
+class Describe(Slice):
+    """
+    Dataset.describe.speaker.MOOKIE -- filter df then query
+    """
+    def _grab(self, colname):
+        return Describer(self._corpus, colname)
+
 
 @pd.api.extensions.register_dataframe_accessor("bigrams")
 class Bigrams(Slice):
     """
-    Dataset.near.speakers.MOOKIE -- filter df
+    Dataset.bigrams.speakers.MOOKIE -- filter df
     """
 
     def _grab(self, colname, *args):

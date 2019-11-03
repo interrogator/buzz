@@ -287,22 +287,6 @@ def _get_multiprocess(multiprocess):
     return multiprocess
 
 
-def _load_multi(paths, position, **kwargs):
-    """
-    Picklable loader for multiprocessing
-    """
-    kwa = dict(
-        ncols=120, unit="chunk", desc="Loading", position=position, total=len(paths)
-    )
-    t = _get_tqdm()(**kwa)
-    out = []
-    for path in paths:
-        out.append(_to_df(corpus=path, _complete=False, **kwargs))
-        _tqdm_update(t)
-    _tqdm_close(t)
-    return out
-
-
 def _to_df(
     corpus,
     subcorpus: Optional[str] = None,

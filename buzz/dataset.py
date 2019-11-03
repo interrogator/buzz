@@ -1,5 +1,6 @@
 import os
 
+import numpy as np
 import pandas as pd
 import scipy
 
@@ -9,7 +10,7 @@ from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import _get_nlp, _make_tree, _tree_once
+from .utils import _get_nlp, _make_tree, _tree_once, _get_multiprocess
 from .views import _table, _tabview
 
 
@@ -105,18 +106,30 @@ class Dataset(pd.DataFrame):
         # order of magnitude faster than groupby:
         return self.iloc[self.index.get_loc(self.index.droplevel("i").unique()[n])]
 
-    def describe(self, depgrep_query, queryset="NOUN", **kwargs):
+    def odescribe(self, depgrep_query, queryset="NOUN", multiprocess=False, **kwargs):
         """
         Run numerous depgrep queries to get modifiers of a noun/verb
         """
         queries = QUERYSETS[queryset]
+        multiprocess = _get_multiprocess(multiprocess)
         out = list()
-        for i, query in enumerate(queries, start=1):
-            print("Running query {}/{}".format(i, len(queries)))
-            formed = query.format(query=depgrep_query)
-            res = self.depgrep(formed, **kwargs)
-            if res is not None and not res.empty:
-                out.append(res)
+        if multiprocess is False:
+            for i, query in enumerate(queries, start=1):
+                print("Running query {}/{}".format(i, len(queries)))
+                formed = query.format(query=depgrep_query)
+                res = self.depgrep(formed, **kwargs)
+                if res is not None and not res.empty:
+                    out.append(res)
+        else:
+            from joblib import Parallel, delayed
+            queries = [i.format(query=depgrep_query) for i in queries]
+            qs = enumerate(list(queries))
+            delay = (
+                delayed(self.depgrep)(x, position=i, **kwargs) for i, x in qs)
+            loaded = Parallel(n_jobs=multiprocess)(delay)
+            for res in loaded:
+                if res is not None and not res.empty:
+                    out.append(res)
         df = pd.concat(out).drop_duplicates()
         df.reference = self
         return df
