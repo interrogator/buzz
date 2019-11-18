@@ -68,7 +68,7 @@ site.reload()
 You can also build a site from scratch by importing `DashSite` and adding components as you like:
 
 ```python
-from buzz import DashSite
+from buzz.dashview import DashSite
 site = DashSite("My data exploration")
 markdown = "> This site shows my key findings\n\n## A concordance for `person`:"
 site.add("markdown", markdown)
