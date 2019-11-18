@@ -38,7 +38,7 @@ cd workspace
 python -m buzzword
 ```
 
-More complete documentation is available [here](https://buzz.readthedocs.io/en/latest/buzzword/), as well from the main page of the app itself.
+More complete documentation is available [here](https://buzzword.readthedocs.io/en/latest/), as well from the main page of the app itself.
 
 A URL will be printed, which can be used to access the app in your browser.
 
