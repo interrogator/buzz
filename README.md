@@ -44,7 +44,7 @@ A URL will be printed, which can be used to access the app in your browser.
 
 ## Creating corpora
 
-*buzz* models plain text, or [CONLL-U formatted](https://universaldependencies.org/format.html) files. The remainder of this guide will assume that you are have plain text data, and want to process and analyse it on the command line using *buzz*
+*buzz* models plain text, or [CONLL-U formatted](https://universaldependencies.org/format.html) files. The remainder of this guide will assume that you are have plain text data, and want to process and analyse it on the command line using *buzz*.
 
 First, you need to make sure that your corpus is in a format and structure that *buzz* can work with. This simply means putting all your text files into a folder, and optionally within subfolders (representing subcorpora).
 
@@ -76,7 +76,7 @@ corpus = Corpus.from_string("Some sentences here.", save_as="corpusname")
 
 ## Parsing
 
-buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simple:
+*buzz* uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simple:
 
 ```python
 parsed = corpus.parse()
@@ -441,8 +441,12 @@ This creates a `Table` object, which is also based on DataFrame. You can use its
 
 ### Plotting
 
-You can also use *buzz* to create high-quality visualisations of frequency data. This relies completely on pandas' plotting method. A `plot` method more tailored to language datasets is still in development.
+You can also use *buzz* to create high-quality visualisations of frequency data. This relies completely on [pandas' plotting method](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html). A `plot` method more tailored to language datasets is still in development.
 
 ```python
 tab.plot(...)
 ```
+
+## Contributing
+
+If you find bugs, feel free to create an issue. The project is open-source, so pull requests are also welcome. Code style is [`black`](https://github.com/psf/black), and versioning is handled by [`bump2version`](https://github.com/c4urself/bump2version).

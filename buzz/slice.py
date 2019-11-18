@@ -25,11 +25,8 @@ import pandas as pd
 
 from .exceptions import DataTypeError
 from .search import Searcher
-from .utils import (
-    _ensure_list_of_short_names,
-    _get_short_name_from_long_name,
-    _order_df_columns,
-)
+from .utils import (_ensure_list_of_short_names,
+                    _get_short_name_from_long_name, _order_df_columns)
 
 
 class Filter(object):
@@ -272,7 +269,7 @@ class Just(Slice):
 @pd.api.extensions.register_dataframe_accessor("proto")
 class Prototypical(Slice):
     """
-    Dataset.just.speakers.MOOKIE -- filter df
+    Dataset.proto.speakers.by.text
     """
 
     def _grab(self, colname, *args):
@@ -339,7 +336,7 @@ class Near(Slice):
 @pd.api.extensions.register_dataframe_accessor("bigrams")
 class Bigrams(Slice):
     """
-    Dataset.near.speakers.MOOKIE -- filter df
+    Dataset.bigrams.speakers.MOOKIE -- filter df
     """
 
     def _grab(self, colname, *args):
