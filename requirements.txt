@@ -6,10 +6,10 @@ scipy
 joblib
 scikit-learn
 tensorflow
-spacy==2.1.6
-en-core-web-sm
+spacy==2.2.2
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
 pandas==0.25.0
-tqdm==4.33.0
+tqdm==4.38.0
 pyparsing
 depgrep>=0.1.3
 setuptools
