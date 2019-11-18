@@ -148,6 +148,9 @@ LANGUAGES = {
 
 _AVAILABLE_MODELS = {"en", "de", "it", "nl", "el", "pt", "fr", "es"}
 SPACY_LANGUAGES = {k: v for k, v in LANGUAGES.items() if v in _AVAILABLE_MODELS}
+# need to give the full name for english, due to issue noted here:
+# https://github.com/interrogator/buzz/issues/4
+SPACY_LANGUAGES["English"] = "en_core_web_sm"
 
 MORPH_FIELDS = {
     "adptype": "adp_type",
