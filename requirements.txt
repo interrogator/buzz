@@ -7,6 +7,7 @@ joblib
 scikit-learn
 tensorflow
 spacy==2.1.6
+en-core-web-sm==2.1.0
 pandas==0.25.0
 tqdm==4.33.0
 pyparsing
