@@ -40,7 +40,7 @@ setup(
     install_requires=[
         "nltk",
         "bllipparser",
-        "en-core-web-sm==2.1.0",
+        "en-core-web-sm",
         "joblib",
         "scipy",
         "cython",
