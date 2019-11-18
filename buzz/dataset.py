@@ -6,7 +6,6 @@ import scipy
 from .conc import _concordance
 from .constants import QUERYSETS
 from .exceptions import NoReferenceCorpus
-from .formality import FormalityScorer
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
@@ -111,6 +110,9 @@ class Dataset(pd.DataFrame):
         Calculate the formality of tokens and sentences. Tokens are added to the
         Dataset as _formality column, and sentences are returned. This will change...
         """
+        # import here for faster loading
+        from .formality import FormalityScorer
+
         scorer = FormalityScorer()
         return scorer.sentences(self, **kwargs)
 
