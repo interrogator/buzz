@@ -1,8 +1,7 @@
 import json
 import os
-from collections import MutableSequence
+from collections import MutableSequence, OrderedDict
 from functools import total_ordering
-from collections import OrderedDict
 
 import pandas as pd
 
@@ -249,7 +248,7 @@ class Corpus(MutableSequence):
         spac = self.to_spacy(concat=True)
         return spac.vector
 
-    def to_spacy(self, language="en", concat=False):
+    def to_spacy(self, language="english", concat=False):
         """
         Get spacy's model of the Corpus
 
