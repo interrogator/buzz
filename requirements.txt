@@ -1,5 +1,5 @@
 cython
-numpy
+numpy==1.17.4
 nltk
 bllipparser
 scipy
@@ -14,10 +14,10 @@ depgrep>=0.1.3
 setuptools
 colorama
 # just needed for test/ci:
-flake8
+flake8==3.7.9
 coverage
 mypy
 codecov
 pre-commit
-black==19.3b0
+black==19.10b0
 isort==4.3.21
