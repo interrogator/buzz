@@ -46,6 +46,7 @@ setup(
         "depgrep>=0.1.3",
         "scikit-learn",
         "colorama",
+        "numpy==1.17.4",
         # 'benepar',
         # 'benepar[cpu]',
         "tensorflow>=1.12.1",
