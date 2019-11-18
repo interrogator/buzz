@@ -91,7 +91,10 @@ class Searcher(object):
         if isinstance(self.corpus, pd.DataFrame):
             tqdm = _get_tqdm()
             prog_bar_info = dict(
-                desc="Searching loaded corpus", unit="tokens", ncols=120, position=position
+                desc="Searching loaded corpus",
+                unit="tokens",
+                ncols=120,
+                position=position,
             )
             tqdm.pandas(**prog_bar_info)
             matches = df.progress_apply(self.query, axis=1, raw=True)
@@ -128,7 +131,9 @@ class Searcher(object):
         # get just the lines matching the bool ix
         return bool_ix
 
-    def run(self, corpus, target, query, case_sensitive=True, inverse=False, position=0):
+    def run(
+        self, corpus, target, query, case_sensitive=True, inverse=False, position=0
+    ):
         """
         Search either trees or dependencies for query
 

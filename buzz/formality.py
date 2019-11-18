@@ -2,13 +2,16 @@
 buzz: attempting to measure token/sentence formality
 """
 
+import pandas as pd
+
+from .utils import _get_tqdm
+
 try:
     from pattern.en.wordlist import ACADEMIC, BASIC, PROFANITY
 except ImportError:
     print("patttern.en not found. Install it for more precision here!")
     ACADEMIC, BASIC, PROFANITY = set(), set(), set()
 
-from .utils import _get_tqdm
 
 tqdm = _get_tqdm()
 
@@ -54,11 +57,9 @@ class FormalityScorer:
         Score a token for formality
         """
         # allow a pandas series (i.e. dataset row) to be passed in
-        try:
+        if isinstance(lemma, pd.Series):
             xpos = lemma[0]
             lemma = lemma[1]
-        except:
-            pass
         if not xpos:
             msg = "For token formality, either pass a Series, or lemma and XPOS"
             raise ValueError(msg)
