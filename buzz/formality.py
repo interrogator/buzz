@@ -2,9 +2,15 @@
 buzz: attempting to measure token/sentence formality
 """
 
-from pattern.en.wordlist import ACADEMIC, BASIC, PROFANITY
-from tqdm import tqdm
-import numpy as np
+try:
+    from pattern.en.wordlist import ACADEMIC, BASIC, PROFANITY
+except ImportError:
+    print("patttern.en not found. Install it for more precision here!")
+    ACADEMIC, BASIC, PROFANITY = set(), set(), set()
+
+from .utils import _get_tqdm
+
+tqdm = _get_tqdm()
 
 # here are all the different scores within formality, and how important
 # they should be for the final score. adjust them to prioritise things until it works
@@ -72,7 +78,9 @@ class FormalityScorer:
         scores["is_common"] = 1 if lemma in BASIC else -1
         scores["is_profane"] = 1 if lemma in PROFANITY else -1
         scores["is_academic"] = 1 if lemma in ACADEMIC else -1
-        return sum([score * self.weights[name] / self.wsum for name, score in scores.items()])
+        return sum(
+            [score * self.weights[name] / self.wsum for name, score in scores.items()]
+        )
 
     def _formality_by_sent_length(self, length):
         """
@@ -94,16 +102,18 @@ class FormalityScorer:
         """
         kwa = dict(ncols=120, unit="token", desc="Calculating tokens")
         tqdm.pandas(**kwa)
-        df["_formality"] = df[['l', 'x']].astype(str).progress_apply(self.token, axis=1, raw=True)
+        df["_formality"] = (
+            df[["l", "x"]].astype(str).progress_apply(self.token, axis=1, raw=True)
+        )
         kwa = dict(ncols=120, unit="sentence", desc="Calculating sentences")
         tqdm.pandas(**kwa)
-        groups = df['_formality'].astype(float).groupby(['file', 's'])
-        df['_sent_formality'] = groups.progress_apply(self._sent_formality)
-        return df[['_formality', '_sent_formality']]
+        groups = df["_formality"].astype(float).groupby(["file", "s"])
+        df["_sent_formality"] = groups.progress_apply(self._sent_formality)
+        return df[["_formality", "_sent_formality"]]
 
     def text(self, df):
         """
         Average sentence scores
         """
         scores = self.sentences(df)
-        return scores['_formality'].mean()
+        return scores["_formality"].mean()
