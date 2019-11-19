@@ -185,7 +185,8 @@ class Corpus(MutableSequence):
         if os.path.isdir(parsed_path) or self.path.endswith(
             ("-parsed", "conll", "conllu")
         ):
-            raise ValueError("Corpus is already parsed.")
+            msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
+            raise ValueError(msg)
         self.parser = Parser(cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
