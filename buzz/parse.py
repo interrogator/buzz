@@ -3,11 +3,10 @@ import os
 import shutil
 
 import nltk
-
 from nltk.parse import BllipParser
 
+from .constants import BENEPAR_LANGUAGES
 from .html import MetadataStripper
-from .constants import SPACY_LANGUAGES
 from .utils import (
     _get_nlp,
     _get_tqdm,
@@ -73,7 +72,7 @@ class Parser:
     Create an object that can parse a Corpus.
     """
 
-    def __init__(self, cons_parser="bllip", language="english"):
+    def __init__(self, cons_parser="benepar", language="english"):
         self.cons_parser = cons_parser if cons_parser != "none" else None
         self.language = language
         self.nlp = _get_nlp(language=language)
@@ -100,7 +99,7 @@ class Parser:
     def _prepare_benepar(self):
         from benepar.spacy_plugin import BeneparComponent
 
-        lang = SPACY_LANGUAGES.get(self.language.capitalize())
+        lang = BENEPAR_LANGUAGES.get(self.language.capitalize())
         ben_file = f"benepar_{lang}"
         try:
             nltk.data.find(ben_file).path

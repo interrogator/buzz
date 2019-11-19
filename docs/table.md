@@ -178,19 +178,56 @@ This is the most basic kind of table.
 
 For more complex tables, you can use a number of keyword arguments:
 
-| Keyword argument | default | type | purpose |
-| show | ['w'] | list of strings |
-| subcorpora | ['file'] | list of strings | Dataset columns/index levels to use as new index
+| Keyword argument    | default           | type            | purpose |
+| -- | -- | -- | -- |
+| `show`                | `['w']`           | `list` of `str` | What token features to use as new columns. For example, `["w", "l"]` will show `word/lemma` |
+| `subcorpora`          | `['file']`        | `list` of `str` | Dataset columns/index levels to use as new index. Same format as `show`. |
+| `preserve_case`       |  `False`          |  `bool`         | Whether or not results should be lowercased before counting |
+| `sort`                |  `"total"`        |  `str`          | Sort output columns by `"total"`/`"infreq"`, `"name"`/`"reverse"`. You can also pass in `"increase"`/`"decrease"` or `"static"`/`"turbulent"`, which will do linear regression and sort by slope |
+| `relative`            |  `False`          |  `bool`/`Dataset` | Get relative frequencies. You can pass in a dataset to use as the reference corpus, or use `True` to use the current dataset as the reference (more info below) |
+| `keyness`             |  `False`          |  `bool`/`"pd"`/`"ll"`  | Calculate keyness (percentage difference or log-likelihood) |
+| `remove_above_p`      |  `False`          |  `bool`/`float`         | If `sort` triggered linear regression, `p` values were generated; you can pass in a float value, or `True` to use `0.05`. Results with higher `p` value will be dropped. |
+| `multiindex_columns`  |  `False`          |  `bool`         | If `len(show) > 1`, make columns a pandas MultiIndex rather than slash-separated strings |
+| `keep_stats`          |  `False`          |  `bool`         | If `sort` triggered linear regression, keep the associated stats in the table |
+| `show_entities `      |  `False`          |  `bool`         | Display whole entity, rather than just matching tokens within entitiy |
+
+
+## `show` and `subcorpora`
+
+`show` and `subcorpora` can be used to customise exactly what your index and column values will be. The main features you will need can be accessed as per the following:
+
+| Feature | Valid accessors |
+|-------|------------------|
+| file  | `file`            |
+| sentence # | `s` | 
+| word  | `w` |
+| lemma | `l` |
+| POS tag | `p` |
+| wordclass | `x` |
+| dependency label | `f` |
+| governor index | `g` |
+| speaker | `speaker` | 
+
+
+So, `["l", "x", "speaker"]` will produce `lemma/wordclass/speaker`, which may look like `champion/noun/tony`. Any additional metadata in your corpus can also be accessed and displayed.
+
+### Showing surrounding tokens
+
+In addition to the regular `show` and `subcorpora` strings, you can use a special notation to get features from surrounding words: `+1w` will get the following word form; `-2l` will get the lemma form of the token two spaces back. Numbers 1-9 are accepted.
+
+So, you could do `["-1x", "l", "x", "+1x"]` to show the preceding token's wordclass, matching lemma, matching wordclass, and following token's wordclass. This can be useful if you are interested in n-grams, group patterns, and the like.
+
+## Multiindexing
 
 When you have multiple items in `show`/`subcorpora`, by default, the index of the Table is a `pd.MultiIndex`, but the columns as slash-separated and kept as a single level.
 
 If you want multiindex columns, you can turn them on with:
 
 ```python
-multi = dtrt.table(show=['l', 'x'], multiiindex_columns=True) 
+multi = dtrt.table(show=['l', 'x'], multiiindex_columns=True)
 ```
 
-If you wanted a slash-separated index, the easiest way is to use pandas' transpose method:
+If you wanted a slash-separated index, the easiest way is to use [pandas' transposer](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.transpose.html), `.T`:
 
 ```python
 multi_row = dtrt.table(show=['file', 'speaker'], subcorpora=['w']).T
@@ -202,12 +239,12 @@ Absolute frequencies can be difficult to interpret, especially when your subcorp
 
 `relative` keyword argument value can be:
 
-| Value for r`elative` | Interpretation |
+| Value for `relative` | Interpretation |
 | -- | -- |
-| False | default: just use absolute frequencies |
-| True | Calculate relative frequencies using the sum of the axis |
-| buzz.Dataset | Turn dataset into a table using the same criteria used on the main table. Use the values of the result as the denominators | 
-| pd.Series | Use the values in the Series as denominators |
+| `False` | default: just use absolute frequencies |
+| `True` | Calculate relative frequencies using the sum of the axis |
+| `buzz.Dataset` | Turn dataset into a table using the same criteria used on the main table. Use the values of the result as the denominators | 
+| `pd.Series` | Use the values in the `Series` as denominators |
 
 For example, to find out the frequency of each noun in the corpus, relative to all nouns in the corpus, you can do:
 

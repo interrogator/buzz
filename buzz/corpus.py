@@ -141,7 +141,7 @@ class Corpus(MutableSequence):
         meta = dict(
             language="english",
             parser="spacy",
-            cons_parser="bllip",
+            cons_parser="benepar",
             path=self.path,
             name=self.name,
             parsed=self.is_parsed,
