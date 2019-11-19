@@ -13,6 +13,7 @@
 
 ## Install
 
+*buzz* requires Python 3.6 or higher. A virtual environment is recommended.
 
 ```bash
 pip install buzz[word]
