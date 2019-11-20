@@ -40,10 +40,11 @@ abcd = corpus.files[re.compile('^[abcd]')]
 
 ## Parsing a corpus
 
-The `parse` method of Corpus objects will do a full dependency and constituency parse of the text, including lemmatisation, POS tagging, and so on. The result will be stored in a new directory with the same structure as the unparsed corpus, with each file now being formatted as CONLL-U 2.0.
+The `parse` method of Corpus objects will do a full dependency (and optionally also constituency) parse of the text, including lemmatisation, POS tagging, and so on. The result will be stored in a new directory with the same structure as the unparsed corpus, with each file now being formatted as CONLL-U 2.0.
 
 ```python
 parsed = corpus.parse()
+# for constituency parsing, do corpus.parse(cons_parser="benepar"/"bllip")
 print(parsed)
 # <buzz.corpus.Corpus object at 0x7fb2f3af6470 (dtrt/do-the-right-thing-parsed, parsed)>
 print(parsed.files[0].path)

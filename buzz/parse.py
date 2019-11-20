@@ -39,11 +39,11 @@ def _parse_cmd_line():
         "-p",
         "--cons-parser",
         nargs="?",
-        default="benepar",
+        default="none",
         type=str,
         required=False,
         choices=["bllip", "benepar", "none"],
-        help="Constituency parser to use (bllip/benepar)",
+        help="Constituency parser to use (bllip/benepar/none)",
     )
 
     parser.add_argument("path", help="Directory containing files to parse")
@@ -73,14 +73,19 @@ class Parser:
     Create an object that can parse a Corpus.
     """
 
-    def __init__(self, cons_parser="bllip", language="english"):
-        self.cons_parser = cons_parser if cons_parser != "none" else None
+    def __init__(self, cons_parser=None, language="english"):
+        if cons_parser is True:
+            cons_parser == "benepar"
+        self.cons_parser = cons_parser
         self.language = language
         self.nlp = _get_nlp(language=language)
         if self.cons_parser == "bllip":
             self._prepare_bllip()
         elif self.cons_parser == "benepar":
             self._prepare_benepar()
+        elif self.cons_parser not in {None, "none"}:
+            msg = "Constituency parser not recognised. Use bllip, benepar or None"
+            raise ValueError(msg)
 
     def _prepare_bllip(self):
         print("Loading BLLIP...")

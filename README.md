@@ -76,12 +76,15 @@ corpus = Corpus.from_string("Some sentences here.", save_as="corpusname")
 
 ## Parsing
 
-buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing a corpus is very simple:
+buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing by default is only for dependencies, but constituency parsing can be added with a keyword argument:
 
 ```python
+# only dependency parsing
 parsed = corpus.parse()
-# if you don't need constituency parses, you can speed things up a lot with:
-parsed = corpus.parse(cons_parser=None)
+# if you also want constituency parsing, using benepar
+parsed = corpus.parse(cons_parser="benepar")
+# if you want constituency parsing using bllip
+parsed = corpus.parse(cons_parser="bblip")
 ```
 
 You can also parse text strings, optionally passing in a name under which to save the corpus:
