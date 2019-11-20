@@ -177,7 +177,7 @@ class Corpus(MutableSequence):
             json.dump(pairs, fo, sort_keys=True, indent=4, separators=(",", ": "))
         return self.metadata
 
-    def parse(self, cons_parser: str = "benepar", language: str = "english", **kwargs):
+    def parse(self, cons_parser=None, language="english", **kwargs):
         """
         Parse a plaintext corpus
         """
