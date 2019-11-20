@@ -7,8 +7,8 @@ import math
 import numpy as np
 import pandas as pd
 
-from .utils import _auto_window, _make_match_col
 from .tabview import view
+from .utils import _auto_window, _make_match_col
 
 
 def _get_widths(df, is_conc, window):
@@ -223,7 +223,6 @@ def _table(
     multiindex_columns=False,
     keep_stats=False,
     show_entities=False,
-    **kwargs
 ):
     """
     Generate a result table view from Results, or a Results-like DataFrame

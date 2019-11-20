@@ -33,7 +33,7 @@ def _tfidf_prototypical(df, column, show, n_top_members=-1, only_correct=True, t
     kwa = dict(ncols=120, unit="bin", desc="Scoring against models", total=len(groupby))
     t = tqdm(**kwa) if len(groupby) > 1 else None
 
-    for column_value, df_by_attr in groupby:
+    for _column_value, df_by_attr in groupby:
         for fsi, sent in df_by_attr.groupby(level=["file", "s"]):
             # note, the actions below are probably done twice. bad.
             text = sent.iloc[0].text
@@ -91,7 +91,7 @@ def _tfidf_score(df, column, show, text):
         else:
             sents = list()
             series = _make_match_col(text, show, preserve_case=False)
-            for fsi, sent in series.groupby(level=["file", "s"]):
+            for _, sent in series.groupby(level=["file", "s"]):
                 sents.append(" ".join(sent))
         new_features = vec.transform(sents)
         scored = (features * new_features.T).A
@@ -123,12 +123,12 @@ def _tfidf_model(df, column, n_top_members=-1, show=["w"]):
 
     if column:
         for attr, df_by_attr in df.groupby(column):
-            for fsi, sent in df_by_attr.groupby(level=["file", "s"]):
+            for _, sent in df_by_attr.groupby(level=["file", "s"]):
                 attr_sents[attr].append(" ".join(sent["_formatted"]))
             _tqdm_update(t)
 
     else:
-        for fsi, sent in df["_formatted"].groupby(level=["file", "s"]):
+        for _, sent in df["_formatted"].groupby(level=["file", "s"]):
             sents.append(" ".join(sent))
             _tqdm_update(t)
         attr_sents["_base"] = sents

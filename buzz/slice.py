@@ -272,7 +272,7 @@ class Just(Slice):
 @pd.api.extensions.register_dataframe_accessor("proto")
 class Prototypical(Slice):
     """
-    Dataset.just.speakers.MOOKIE -- filter df
+    Dataset.proto.speakers.by.text
     """
 
     def _grab(self, colname, *args):
@@ -339,7 +339,7 @@ class Near(Slice):
 @pd.api.extensions.register_dataframe_accessor("bigrams")
 class Bigrams(Slice):
     """
-    Dataset.near.speakers.MOOKIE -- filter df
+    Dataset.bigrams.speakers.MOOKIE -- filter df
     """
 
     def _grab(self, colname, *args):

@@ -1,8 +1,7 @@
 import json
 import os
-from collections import MutableSequence
+from collections import MutableSequence, OrderedDict
 from functools import total_ordering
-from collections import OrderedDict
 
 import pandas as pd
 
@@ -142,7 +141,7 @@ class Corpus(MutableSequence):
         meta = dict(
             language="english",
             parser="spacy",
-            cons_parser="bllip",
+            cons_parser="benepar",
             path=self.path,
             name=self.name,
             parsed=self.is_parsed,
@@ -178,7 +177,7 @@ class Corpus(MutableSequence):
             json.dump(pairs, fo, sort_keys=True, indent=4, separators=(",", ": "))
         return self.metadata
 
-    def parse(self, cons_parser: str = "bllip", language: str = "english", **kwargs):
+    def parse(self, cons_parser: str = "benepar", language: str = "english", **kwargs):
         """
         Parse a plaintext corpus
         """
@@ -186,7 +185,8 @@ class Corpus(MutableSequence):
         if os.path.isdir(parsed_path) or self.path.endswith(
             ("-parsed", "conll", "conllu")
         ):
-            raise ValueError("Corpus is already parsed.")
+            msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
+            raise ValueError(msg)
         self.parser = Parser(cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
@@ -249,7 +249,7 @@ class Corpus(MutableSequence):
         spac = self.to_spacy(concat=True)
         return spac.vector
 
-    def to_spacy(self, language="en", concat=False):
+    def to_spacy(self, language="english", concat=False):
         """
         Get spacy's model of the Corpus
 

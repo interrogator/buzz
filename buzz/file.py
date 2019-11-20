@@ -2,7 +2,7 @@ import os
 from functools import total_ordering
 
 from .corpus import Corpus
-from .utils import _get_nlp, _to_df, _order_df_columns, _tree_once, _make_tree
+from .utils import _get_nlp, _make_tree, _order_df_columns, _to_df, _tree_once
 
 
 @total_ordering
@@ -24,7 +24,7 @@ class File(Corpus):
         in_memory = self.load() if self.is_parsed else self.read()
         return in_memory.__iter__()
 
-    def to_spacy(self, language="en"):
+    def to_spacy(self, language="english"):
         """
         get spaCy model of this file
         """

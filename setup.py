@@ -40,19 +40,24 @@ setup(
     install_requires=[
         "nltk",
         "bllipparser",
+        "en-core-web-sm",
         "joblib",
         "scipy",
         "cython",
         "depgrep>=0.1.3",
         "scikit-learn",
         "colorama",
+        "numpy==1.17.4",
         # 'benepar',
         # 'benepar[cpu]',
         "tensorflow>=1.12.1",
         "setuptools>=41.0.0",
-        "spacy==2.1.6",
+        "spacy==2.2.2",
         "pandas==0.25.0",
-        "tqdm==4.33.0",
+        "tqdm==4.38.0",
         "isort==4.3.21",
+    ],
+    dependency_links=[
+        "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz"  # noqa: E501
     ],
 )

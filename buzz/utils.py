@@ -11,11 +11,11 @@ from tqdm import tqdm, tqdm_notebook
 
 from .constants import (
     COLUMN_NAMES,
+    CONLL_COLUMNS,
     DTYPES,
     LONG_NAMES,
-    SPACY_LANGUAGES,
     MORPH_FIELDS,
-    CONLL_COLUMNS,
+    SPACY_LANGUAGES,
 )
 
 
@@ -59,7 +59,7 @@ def _entity_getter(row, reference=None):
             break
         try:
             line = sent.loc[start]
-        except:
+        except Exception:
             break
         if line["diff"] != 1:
             out.add(start)
@@ -71,7 +71,7 @@ def _entity_getter(row, reference=None):
         end += 1
         try:
             line = sent.loc[end]
-        except:
+        except Exception:
             break
         if line["diff"] != 1:
             break
@@ -87,7 +87,7 @@ def _join_entities(made, entity_info):
     for (f, s, _), set_of_is in entity_info.items():
         sent = made.loc[(f, s)]
         tokens = [v for k, v in sent.items() if k in set_of_is]
-        out.append(' '.join(tokens))
+        out.append(" ".join(tokens))
     return pd.Series(out, index=entity_info.index)
 
 
@@ -99,7 +99,7 @@ def _make_match_col(df, show, preserve_case, show_entities=False, reference=None
     if show_entities:
         ixes = set()
         entity_info = df.apply(_entity_getter, reference=reference, axis=1)
-        for (f, s, i), set_of_is in entity_info.items():
+        for (f, s, _), set_of_is in entity_info.items():
             for ix in set_of_is:
                 ixes.add((f, s, ix))
         # now we make the expanded results into the df for formatting
