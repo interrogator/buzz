@@ -71,6 +71,7 @@ class Parser:
     """
     Create an object that can parse a Corpus.
     """
+
     def __init__(self, cons_parser=None, language="english"):
         if cons_parser is True:
             cons_parser == "benepar"
