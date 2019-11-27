@@ -347,12 +347,9 @@ def _get_multiprocess(multiprocess):
     """
     if multiprocess is True:
         multiprocess = multiprocessing.cpu_count()
-    if type(multiprocess) == int and multiprocess < 2:
-        return False
-    if multiprocess is False or multiprocess is None:
-        return False
+    if multiprocess in {0, 1, False, None}:
+        multiprocess = 1
     return multiprocess
-
 
 def _load_multi(paths, position, **kwargs):
     """
@@ -367,6 +364,19 @@ def _load_multi(paths, position, **kwargs):
         out.append(_to_df(corpus=path, _complete=False, **kwargs))
         _tqdm_update(t)
     _tqdm_close(t)
+    return out
+
+def _search_multi(corpus, queries, position, **kwargs):
+    """
+    Picklable searcher for multiprocessing
+
+    No need for progress bar  because it is in depgrep
+    """
+    out = []
+    for query in queries:
+        res = corpus.depgrep(query, position=position, **kwargs)
+        if res is not None and not res.empty:
+            out.append(res)
     return out
 
 

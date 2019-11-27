@@ -4,6 +4,8 @@ from collections import MutableSequence, OrderedDict
 from functools import total_ordering
 
 import pandas as pd
+import numpy as np
+from joblib import Parallel, delayed
 
 from . import utils
 from .contents import Contents
@@ -190,38 +192,19 @@ class Corpus(MutableSequence):
         self.parser = Parser(cons_parser=cons_parser, language=language)
         return self.parser.run(self)
 
-    def load(self, load_trees: bool = False, multiprocess: bool = False, **kwargs):
+    def load(self, load_trees: bool = False, multiprocess: bool = True, **kwargs):
         """
         Load a Corpus into memory.
         """
-
         multiprocess = utils._get_multiprocess(multiprocess)
 
-        if multiprocess is False:
-            total = len(self.files)
-            kwa = dict(ncols=120, unit="file", desc="Loading", total=total)
-            t = tqdm(**kwa) if total > 1 else None
-            loaded = list()
-            for file in self.files:
-                subc = file.in_subcorpus
-                if self.is_parsed:
-                    data = file.load(_complete=False, subcorpus=subc, **kwargs)
-                else:
-                    data = file.read()
-                loaded.append(data)
-                utils._tqdm_update(t)
-            utils._tqdm_close(t)
-        else:
-            import numpy as np
-            from joblib import Parallel, delayed
-
-            chunks = np.array_split(self.files, multiprocess)
-            delay = (
-                delayed(utils._load_multi)(x, i, **kwargs) for i, x in enumerate(chunks)
-            )
-            loaded = Parallel(n_jobs=multiprocess)(delay)
-            # unpack the nested list that multiprocessing creates
-            loaded = [item for sublist in loaded for item in sublist]
+        chunks = np.array_split(self.files, multiprocess)
+        delay = (
+            delayed(utils._load_multi)(x, i, **kwargs) for i, x in enumerate(chunks)
+        )
+        loaded = Parallel(n_jobs=multiprocess)(delay)
+        # unpack the nested list that multiprocessing creates
+        loaded = [item for sublist in loaded for item in sublist]
 
         # for unparsed corpora, we give a dict of {path: text}
         if not self.is_parsed:

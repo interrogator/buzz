@@ -2,6 +2,8 @@ import os
 
 import pandas as pd
 import scipy
+import numpy as np
+from joblib import Parallel, delayed
 
 from .conc import _concordance
 from .constants import QUERYSETS
@@ -9,7 +11,7 @@ from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import _get_nlp, _make_tree, _tree_once
+from .utils import _get_nlp, _make_tree, _tree_once, _search_multi, _get_multiprocess
 from .views import _table, _tabview
 
 
@@ -116,26 +118,29 @@ class Dataset(pd.DataFrame):
         scorer = FormalityScorer()
         return scorer.sentences(self, **kwargs)
 
-    def describe(self, depgrep_query, queryset="NOUN", drop_self=False, **kwargs):
+    def describe(self, depgrep_query, queryset="NOUN", drop_self=False, multiprocess=True, **kwargs):
         """
         Run numerous depgrep queries to get modifiers of a noun/verb
 
         drop_self will remove results also matching depgrep_query itself.
-
-        todo: multiprocess this, it is too slow.
         """
-        queries = QUERYSETS[queryset]
-        out = list()
-        for i, query in enumerate(queries, start=1):
-            print("Running query {}/{}".format(i, len(queries)))
-            formed = query.format(query=depgrep_query)
-            res = self.depgrep(formed, **kwargs)
-            if res is not None and not res.empty:
-                out.append(res)
-        df = pd.concat(out).drop_duplicates()
+        queries = [q.format(query=depgrep_query) for q in QUERYSETS[queryset]]
+        multiprocess = _get_multiprocess(multiprocess)
+        print('MULTIPROCESS FOUND', multiprocess)
+
+        chunks = np.array_split(queries, multiprocess)
+        delay = (
+            delayed(_search_multi)(self, x, i, **kwargs) for i, x in enumerate(chunks)
+        )
+        nested = Parallel(n_jobs=multiprocess)(delay)
+        # unpack the nested list that multiprocessing creates
+        results = [item for sublist in nested for item in sublist]
+
+        df = pd.concat(results).sort_index().drop_duplicates()
         if drop_self:
             plain = self.depgrep(depgrep_query)
             df = df.drop(plain.index)
+
         df.reference = self
         return df
 
