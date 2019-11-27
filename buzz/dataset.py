@@ -116,9 +116,13 @@ class Dataset(pd.DataFrame):
         scorer = FormalityScorer()
         return scorer.sentences(self, **kwargs)
 
-    def describe(self, depgrep_query, queryset="NOUN", **kwargs):
+    def describe(self, depgrep_query, queryset="NOUN", drop_self=False, **kwargs):
         """
         Run numerous depgrep queries to get modifiers of a noun/verb
+
+        drop_self will remove results also matching depgrep_query itself.
+
+        todo: multiprocess this, it is too slow.
         """
         queries = QUERYSETS[queryset]
         out = list()
@@ -129,6 +133,9 @@ class Dataset(pd.DataFrame):
             if res is not None and not res.empty:
                 out.append(res)
         df = pd.concat(out).drop_duplicates()
+        if drop_self:
+            plain = self.depgrep(depgrep_query)
+            df = df.drop(plain.index)
         df.reference = self
         return df
 

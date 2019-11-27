@@ -26,6 +26,7 @@ SHORT_TO_LONG_NAME = dict(
     speaker="Speaker",
     d="Depgrep",
     t="TGrep2",
+    describe="Describe entities"
 )
 
 _SHORTER = dict(
