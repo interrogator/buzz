@@ -10,6 +10,7 @@ from joblib import Parallel, delayed
 from . import utils
 from .contents import Contents
 from .dataset import Dataset
+from .multi import _get_multiprocess, _load_multi
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
@@ -196,11 +197,11 @@ class Corpus(MutableSequence):
         """
         Load a Corpus into memory.
         """
-        multiprocess = utils._get_multiprocess(multiprocess)
+        multiprocess = _get_multiprocess(multiprocess)
 
         chunks = np.array_split(self.files, multiprocess)
         delay = (
-            delayed(utils._load_multi)(x, i, **kwargs) for i, x in enumerate(chunks)
+            delayed(_load_multi)(x, i, **kwargs) for i, x in enumerate(chunks)
         )
         loaded = Parallel(n_jobs=multiprocess)(delay)
         # unpack the nested list that multiprocessing creates

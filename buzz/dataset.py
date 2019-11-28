@@ -8,10 +8,11 @@ from joblib import Parallel, delayed
 from .conc import _concordance
 from .constants import QUERYSETS
 from .exceptions import NoReferenceCorpus
+from .multi import _get_multiprocess, _search_multi
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import _get_nlp, _make_tree, _tree_once, _search_multi, _get_multiprocess
+from .utils import _get_nlp, _make_tree, _tree_once, _search_multi
 from .views import _table, _tabview
 
 
@@ -126,8 +127,6 @@ class Dataset(pd.DataFrame):
         """
         queries = [q.format(query=depgrep_query) for q in QUERYSETS[queryset]]
         multiprocess = _get_multiprocess(multiprocess)
-        print('MULTIPROCESS FOUND', multiprocess)
-
         chunks = np.array_split(queries, multiprocess)
         delay = (
             delayed(_search_multi)(self, x, i, **kwargs) for i, x in enumerate(chunks)
