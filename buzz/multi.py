@@ -1,9 +1,10 @@
 """
 buzz: multiprocessing helpers
 """
+from joblib import delayed
 
 import multiprocessing
-from .utils import _get_tqdm, _tqdm_update, _tqdm_close
+from .utils import _get_tqdm, _tqdm_update, _tqdm_close, _to_df
 
 def _get_multiprocess(multiprocess):
     """
@@ -17,6 +18,7 @@ def _get_multiprocess(multiprocess):
         multiprocess = 1
     return multiprocess
 
+@delayed
 def _load_multi(paths, position, **kwargs):
     """
     Picklable loader for multiprocessing
@@ -32,6 +34,7 @@ def _load_multi(paths, position, **kwargs):
     _tqdm_close(t)
     return out
 
+@delayed
 def _search_multi(corpus, queries, position, **kwargs):
     """
     Picklable searcher for multiprocessing

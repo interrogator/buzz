@@ -5,7 +5,7 @@ from functools import total_ordering
 
 import pandas as pd
 import numpy as np
-from joblib import Parallel, delayed
+from joblib import Parallel
 
 from . import utils
 from .contents import Contents
@@ -200,9 +200,7 @@ class Corpus(MutableSequence):
         multiprocess = _get_multiprocess(multiprocess)
 
         chunks = np.array_split(self.files, multiprocess)
-        delay = (
-            delayed(_load_multi)(x, i, **kwargs) for i, x in enumerate(chunks)
-        )
+        delay = (_load_multi(x, i, **kwargs) for i, x in enumerate(chunks))
         loaded = Parallel(n_jobs=multiprocess)(delay)
         # unpack the nested list that multiprocessing creates
         loaded = [item for sublist in loaded for item in sublist]
