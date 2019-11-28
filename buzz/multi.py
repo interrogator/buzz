@@ -6,7 +6,7 @@ from joblib import delayed
 import multiprocessing
 from .utils import _get_tqdm, _tqdm_update, _tqdm_close, _to_df
 
-def _get_multiprocess(multiprocess):
+def how_many(multiprocess):
     """
     Get number of processes, or False
 
@@ -19,7 +19,7 @@ def _get_multiprocess(multiprocess):
     return multiprocess
 
 @delayed
-def _load_multi(paths, position, **kwargs):
+def load(paths, position, **kwargs):
     """
     Picklable loader for multiprocessing
     """
@@ -35,7 +35,7 @@ def _load_multi(paths, position, **kwargs):
     return out
 
 @delayed
-def _search_multi(corpus, queries, position, **kwargs):
+def search(corpus, queries, position, **kwargs):
     """
     Picklable searcher for multiprocessing
 

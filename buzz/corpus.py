@@ -10,7 +10,7 @@ from joblib import Parallel
 from . import utils
 from .contents import Contents
 from .dataset import Dataset
-from .multi import _get_multiprocess, _load_multi
+from . import multi
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
@@ -197,10 +197,10 @@ class Corpus(MutableSequence):
         """
         Load a Corpus into memory.
         """
-        multiprocess = _get_multiprocess(multiprocess)
+        multiprocess = multi.how_many(multiprocess)
 
         chunks = np.array_split(self.files, multiprocess)
-        delay = (_load_multi(x, i, **kwargs) for i, x in enumerate(chunks))
+        delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
         loaded = Parallel(n_jobs=multiprocess)(delay)
         # unpack the nested list that multiprocessing creates
         loaded = [item for sublist in loaded for item in sublist]
@@ -221,6 +221,7 @@ class Corpus(MutableSequence):
         if kwargs.get("set_data_types", True):
             df = utils._set_best_data_types(df)
         df = utils._order_df_columns(df)
+        print('\n' * multiprocess)
         return Dataset(df, reference=df, name=self.name)
 
     @property

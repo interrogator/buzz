@@ -8,7 +8,7 @@ from joblib import Parallel
 from .conc import _concordance
 from .constants import QUERYSETS
 from .exceptions import NoReferenceCorpus
-from .multi import _get_multiprocess, _search_multi
+from . import multi
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
@@ -126,9 +126,9 @@ class Dataset(pd.DataFrame):
         drop_self will remove results also matching depgrep_query itself.
         """
         queries = [q.format(query=depgrep_query) for q in QUERYSETS[queryset]]
-        multiprocess = _get_multiprocess(multiprocess)
+        multiprocess = multi.how_many(multiprocess)
         chunks = np.array_split(queries, multiprocess)
-        delay = (_search_multi(self, x, i, **kwargs) for i, x in enumerate(chunks))
+        delay = (multi.search(self, x, i, **kwargs) for i, x in enumerate(chunks))
         nested = Parallel(n_jobs=multiprocess)(delay)
         # unpack the nested list that multiprocessing creates
         results = [item for sublist in nested for item in sublist]
@@ -137,6 +137,7 @@ class Dataset(pd.DataFrame):
         if drop_self:
             plain = self.depgrep(depgrep_query)
             df = df.drop(plain.index)
+        print('\n' * multiprocess)
 
         df.reference = self
         return df
