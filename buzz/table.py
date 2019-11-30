@@ -49,7 +49,10 @@ class Table(pd.DataFrame):
         if denom is True or denom is None:
             denom = self
         if isinstance(denom, Dataset):
-            denom = denom.table(subcorpora=list(self.index.names))
+            subcorpora = list(self.index.names)
+            if subcorpora == [None]:
+                subcorpora = None
+            denom = denom.table(subcorpora=subcorpora)
         if not isinstance(denom, pd.Series):
             denom = denom.sum(axis=1)
         return (self.T * 100.0 / denom).T
