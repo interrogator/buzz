@@ -235,7 +235,7 @@ def _table(
     # show and subcorpora must always be a list
     if not isinstance(show, list):
         show = [show]
-    if not isinstance(subcorpora, list):
+    if subcorpora and not isinstance(subcorpora, list):
         subcorpora = [subcorpora]
 
     # showing next or previous words -- add the cols
@@ -253,13 +253,16 @@ def _table(
     if reference is not None:
         reference["_match"] = df["_match"]
 
-    # need a column of ones for summing, yuck
-    df["_count"] = 1
-
     # make the matrix
-    table = df.pivot_table(
-        index=subcorpora, columns="_match", values="_count", aggfunc=sum
-    )
+    if subcorpora:
+        # need a column of ones for summing, yuck
+        df["_count"] = 1
+        table = df.pivot_table(
+            index=subcorpora, columns="_match", values="_count", aggfunc=sum
+        )
+    else:
+        table = pd.DataFrame(df['_match'].value_counts()).T
+
     table = table.fillna(0)
 
     # make table now so we can relative/sort
