@@ -19,7 +19,7 @@ from .utils import (
     _make_match_col,
     _series_to_wordlist,
 )
-from .views import _table, _tabview
+from .views import _table, _tabview, _add_frequencies
 
 
 class Dataset(pd.DataFrame):
@@ -281,28 +281,59 @@ class Dataset(pd.DataFrame):
         subcorpora=["file"],
         sort="total",
         top=100,
+        relative=False,
+        keyness=False,
         preserve_case=False,
+        show_entities=False,
+        show_frequencies=True,
         **kwargs,
     ):
         """
         Make a table where cells are strings, not frequencies
+
+        Show: how cells will be formatted
+        subcorpora: what shall be the columns of the dataset (multiindex ok)
+        sort: determine what goes first: total/infreq, name/reverse...
+        top: max number of rows
+        relative: add relative frequency to cell strings
+        keyness: add relative frequency to cell strings and sort by keyness
+        preserve case: do cells keep their case
+        show_entities: show entire named entity, not just term
         """
-        # split show into freq and not freq
-        freq_show = {"abs", "rel"}
-        freq = [i for i in show if i in freq_show]
-        show = [i for i in show if i not in freq_show]
-        # make match column
-        self["_match"] = _make_match_col(
-            self, show, preserve_case, reference=self.reference, **kwargs
+        reference = self.reference
+        # show and subcorpora must always be a list
+        cols_added = set()
+        if not isinstance(show, list):
+            show = [show]
+        if subcorpora and not isinstance(subcorpora, list):
+            subcorpora = [subcorpora]
+
+        for bit in show + subcorpora:
+            if bit in self.index.names and bit not in list(self.columns):
+                self[bit] = self.index.get_level_values(bit)
+                cols_added.add(bit)
+
+
+        form = _make_match_col(
+            self,
+            show,
+            preserve_case,
+            reference=self.reference,
+            show_entities=show_entities,
         )
+        self["_match"] = form
+        cols_added.add("_match")
         columns = dict()
-        for group, data in self.groupby(subcorpora):
+        needed = subcorpora + ["_match"]
+        self.drop(['file', 's', 'i'], axis=1, inplace=True, errors="ignore")
+        # reduced = self[needed]
+        for group, data in self.reset_index().groupby(subcorpora):
+            # series is fsi index, _match formatted values
             series = data["_match"]
-            if freq:
-                # series = _add_counts(series)
-                raise NotImplementedError()
+            # same format as _match but formatted correctly
+            if show_frequencies:
+                series = _add_frequencies(series, relative, keyness, reference=reference)
             padded = _series_to_wordlist(series, sort, top)
             columns[group] = padded
-        df = pd.DataFrame(columns)
-        self.drop("_match", axis=1, inplace=True)
-        return df
+        # self.drop(list(cols_added), axis=1, inplace=True, errors="ignore")
+        return pd.DataFrame(columns)

@@ -77,3 +77,10 @@ class Table(pd.DataFrame):
         site.add("datatable", dataset)
         site.run()
         return site
+
+    def keyness(self, keyness, reference=None):
+        """
+        Generate keywords for this table, either ll or pd
+        """
+        from .views import _keyness
+        return _keyness(self, keyness, reference=reference)

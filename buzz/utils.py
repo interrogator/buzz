@@ -474,18 +474,19 @@ def _ensure_list_of_short_names(item):
 
 def _series_to_wordlist(series, by, top):
     """
+    Series is _match, maybe with frequencies
+
     Return: padded list of words by sort, max top
     """
-    if by == "total":
+    lst = None
+    if by in {"total", "infreq"}:
         lst = list(series.value_counts().head(top).index)
-    elif by == "infreq":
-        lst = [i for i in reversed(series.value_counts().head(top).index)]
-    elif by == "name":
+    elif by in {"name", "reverse"}:
         lst = sorted(set(series.values))[:top]
-    elif by == "reverse":
-        lst = [i for i in reversed(sorted(set(series.values))[:top])]
+    if by in {"infreq", "reverse"}:
+        lst = [i for i in reversed(lst)]
     # todo: keyness etc
-    else:
+    if lst is None:
         raise NotImplementedError()
     # return padded
     return lst + [None] * (top - len(lst))

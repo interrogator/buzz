@@ -200,10 +200,12 @@ def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
     return ((norm_target - norm_ref) * 100.0) / norm_ref
 
 
-def _make_keywords(subcorpus, reference, ref_sum, target_sum, measure):
+def _make_keywords(subcorpus, reference, ref_sum, measure):
     """
     Apply function for getting keyness calculations
     """
+    target_sum = subcorpus.sum()
+
     points = [
         (reference.get(name, 0), count, ref_sum, target_sum)
         for name, count in subcorpus.items()
@@ -212,7 +214,7 @@ def _make_keywords(subcorpus, reference, ref_sum, target_sum, measure):
 
 
 def _table(
-    dataset,
+    df,
     subcorpora=["file"],
     show=["w"],
     preserve_case=False,
@@ -229,8 +231,11 @@ def _table(
     """
     from .table import Table
 
+    if relative is not False and keyness:
+        raise ValueError("Either relative or keyness, not both.")
+
     # we need access to reference corpus for freq calculation
-    df, reference = dataset, dataset.reference
+    reference = df.reference
 
     # show and subcorpora must always be a list
     if not isinstance(show, list):
@@ -244,24 +249,23 @@ def _table(
             continue
         df[to_show] = reference[to_show[2:]].shift(-int(to_show[1]))
 
-    if remove_above_p is True:
-        remove_above_p = 0.05
+    # create a default for remove_above_p
+    remove_above_p = 0.05 if remove_above_p is True else remove_above_p
 
     # make a column representing the 'show' info
+    needs_format = df if not keyness else reference
     kwa = dict(show_entities=show_entities, reference=reference)
-    df["_match"] = _make_match_col(df, show, preserve_case, **kwa)
-    if reference is not None:
-        reference["_match"] = df["_match"]
+    match = _make_match_col(needs_format, show, preserve_case, **kwa)
+    df['_match'] = match
+    reference['_match'] = match
 
     # make the matrix
     if subcorpora:
-        # need a column of ones for summing, yuck
         df["_count"] = 1
-        table = df.pivot_table(
-            index=subcorpora, columns="_match", values="_count", aggfunc=sum
-        )
+        pivot = dict(index=subcorpora, columns="_match", values="_count", aggfunc=sum)
+        table = df.pivot_table(**pivot)
     else:
-        table = pd.DataFrame(df['_match'].value_counts()).T
+        table = pd.DataFrame(df["_match"].value_counts()).T
 
     table = table.fillna(0)
 
@@ -269,34 +273,23 @@ def _table(
     table = Table(table, reference=reference)
 
     # relative frequency if user wants that
-    table = table.relative(relative) if relative is not False else table.astype(int)
-    if keyness:
-        if reference is None:
-            warn = "Warning: no reference corpus supplied. Using result frame as reference corpus"
-            print(warn)
-            reference = df
-        ref = reference["_match"].value_counts()
-        measures = dict(ll=_log_likelihood, pd=_perc_diff)
-        measure = measures.get(keyness, _log_likelihood)
-        kwa = dict(
-            axis=0,
-            reference=ref,
-            measure=measure,
-            ref_sum=reference.shape[0],
-            target_sum=table.shape[0],
-        )
-        applied = table.T.apply(_make_keywords, **kwa).T
-        top = applied.abs().sum().sort_values(ascending=False)
-        table = applied[top.index]
+    if relative is not False:
+        table = table.relative(relative)
+    # keyness calculations
+    elif keyness is not False:
+        table = table.keyness(keyness, reference=reference)
+    # use ints for absolute frequency
+    else:
+        table = table.astype(int)
 
-    # sort if the user wants that
+    # sort if the user wants that. do not sort keyness because it is different
     if sort and not keyness:
         sorts = dict(by=sort, keep_stats=keep_stats, remove_above_p=remove_above_p)
         table = table.sort(**sorts)
 
     # make columns into multiindex if the user wants that
     if multiindex_columns and len(show) > 1:
-        table.columns = table.columns.str.split('/', expand=True)
+        table.columns = table.columns.str.split("/", expand=True)
         table.columns.names = show
     else:
         table.columns.name = "/".join(show)
@@ -306,3 +299,54 @@ def _table(
         reference.drop("_match", axis=1, inplace=True, errors="ignore")
 
     return table
+
+
+def _keyness(table, keyness, reference=None):
+    print('ref', reference._match)
+    if reference is None:
+        warn = "Warning: no reference corpus supplied. Using result frame as reference corpus"
+        print(warn)
+        reference = df
+    ref = reference["_match"].value_counts()
+    measures = dict(ll=_log_likelihood, pd=_perc_diff)
+    measure = measures.get(keyness, _log_likelihood)
+    kwa = dict(
+        axis=0,
+        reference=ref,
+        measure=measure,
+        ref_sum=reference.shape[0]
+    )
+    applied = table.T.apply(_make_keywords, **kwa).T
+    top = applied.abs().sum().sort_values(ascending=False)
+    table = applied[top.index]
+    return table
+
+
+
+
+def _add_frequencies(series, relative, keyness, reference):
+    """
+    Series should be the _match column (for a subcorpus)
+
+    Return the formatted words as list
+    """
+    # keyness needs its own calculation.
+    if keyness:
+        raise NotImplementedError()
+        res = _keyness(pd.DataFrame(series), keyness, reference)
+        return res
+
+    valcounts = series.value_counts()
+    absolute = series.map(valcounts)
+
+    # just absolute frequencies
+    if relative is False or relative is None:
+        absolute = absolute.map(' (N={:})'.format)
+        return series.str.cat(absolute)
+
+    # absolute/relative
+    rel_data = valcounts * 100 / valcounts.sum()
+    relative = series.map(rel_data)
+    absolute = absolute.map(" (N={:}/".format)
+    relative = relative.map("{:.2f}%)".format)
+    return series.str.cat([absolute, relative])
