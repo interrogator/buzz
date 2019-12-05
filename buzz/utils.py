@@ -388,6 +388,7 @@ def _to_df(
         # index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
+        na_values={"_"},
         usecols=csv_usecols,
     )
 
