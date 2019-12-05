@@ -12,7 +12,13 @@ from . import multi
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import _get_nlp, _make_tree, _tree_once
+from .utils import (
+    _get_nlp,
+    _make_tree,
+    _tree_once,
+    _make_match_col,
+    _series_to_wordlist,
+)
 from .views import _table, _tabview
 
 
@@ -119,7 +125,14 @@ class Dataset(pd.DataFrame):
         scorer = FormalityScorer()
         return scorer.sentences(self, **kwargs)
 
-    def describe(self, depgrep_query, queryset="NOUN", drop_self=False, multiprocess=True, **kwargs):
+    def describe(
+        self,
+        depgrep_query,
+        queryset="NOUN",
+        drop_self=False,
+        multiprocess=True,
+        **kwargs,
+    ):
         """
         Run numerous depgrep queries to get modifiers of a noun/verb
 
@@ -137,7 +150,7 @@ class Dataset(pd.DataFrame):
         if drop_self:
             plain = self.depgrep(depgrep_query)
             df = df.drop(plain.index)
-        print('\n' * multiprocess)
+        print("\n" * multiprocess)
 
         df.reference = self
         return df
@@ -261,3 +274,35 @@ class Dataset(pd.DataFrame):
         if isinstance(tree_once.values[0], str):
             df["parse"] = tree_once.apply(_make_tree)
         return Dataset(df, reference=df, name=name)
+
+    def content_table(
+        self,
+        show=["w"],
+        subcorpora=["file"],
+        sort="total",
+        top=100,
+        preserve_case=False,
+        **kwargs,
+    ):
+        """
+        Make a table where cells are strings, not frequencies
+        """
+        # split show into freq and not freq
+        freq_show = {"abs", "rel"}
+        freq = [i for i in show if i in freq_show]
+        show = [i for i in show if i not in freq_show]
+        # make match column
+        self["_match"] = _make_match_col(
+            self, show, preserve_case, reference=self.reference, **kwargs
+        )
+        columns = dict()
+        for group, data in self.groupby(subcorpora):
+            series = data["_match"]
+            if freq:
+                # series = _add_counts(series)
+                raise NotImplementedError()
+            padded = _series_to_wordlist(series, sort, top)
+            columns[group] = padded
+        df = pd.DataFrame(columns)
+        self.drop("_match", axis=1, inplace=True)
+        return df

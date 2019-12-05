@@ -6,6 +6,7 @@ from io import StringIO
 from typing import List, Optional
 
 import pandas as pd
+import numpy as np
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
@@ -388,7 +389,7 @@ def _to_df(
         # index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
-        na_values={"_"},
+        # na_values="_",
         usecols=csv_usecols,
     )
 
@@ -426,6 +427,9 @@ def _to_df(
     # adding governor is cheaper when corpus is in chunks, so do now
     if "g" in df.columns and add_governor:
         df = _add_governor(df)
+
+    df = df.replace('_', np.nan)
+    df['w'] = df['w'].replace(np.nan, '_')
     return Dataset(df, name=usename or corpus.name)
 
 
@@ -466,3 +470,22 @@ def _ensure_list_of_short_names(item):
     for i in item:
         fixed.append(_get_short_name_from_long_name(i))
     return fixed
+
+
+def _series_to_wordlist(series, by, top):
+    """
+    Return: padded list of words by sort, max top
+    """
+    if by == "total":
+        lst = list(series.value_counts().head(top).index)
+    elif by == "infreq":
+        lst = [i for i in reversed(series.value_counts().head(top).index)]
+    elif by == "name":
+        lst = sorted(set(series.values))[:top]
+    elif by == "reverse":
+        lst = [i for i in reversed(sorted(set(series.values))[:top])]
+    # todo: keyness etc
+    else:
+        raise NotImplementedError()
+    # return padded
+    return lst + [None] * (top - len(lst))
