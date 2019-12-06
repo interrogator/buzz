@@ -290,7 +290,7 @@ def _table(
 
     # make columns into multiindex if the user wants that
     if multiindex_columns and len(show) > 1:
-        table.columns = table.columns.str.split("/", expand=True)
+        table.columns = table.columns.str.split("/", n=len(show)-1, expand=True)
         table.columns.names = show
     else:
         table.columns.name = "/".join(show)
