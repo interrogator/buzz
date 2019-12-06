@@ -225,6 +225,7 @@ def _table(
     multiindex_columns=False,
     keep_stats=False,
     show_entities=False,
+    **kwargs
 ):
     """
     Generate a result table view from Results, or a Results-like DataFrame
