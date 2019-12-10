@@ -144,7 +144,7 @@ class Corpus(MutableSequence):
         meta = dict(
             language="english",
             parser="spacy",
-            cons_parser="benepar",
+            cons_parser=None,
             path=self.path,
             name=self.name,
             parsed=self.is_parsed,
@@ -171,7 +171,6 @@ class Corpus(MutableSequence):
             "path",
             "language",
             "parser",
-            "cons_parser",
         }
         if not all(i in pairs for i in must_exist):
             not_there = must_exist - pairs.keys()
@@ -180,7 +179,7 @@ class Corpus(MutableSequence):
             json.dump(pairs, fo, sort_keys=True, indent=4, separators=(",", ": "))
         return self.metadata
 
-    def parse(self, cons_parser=None, language="english", **kwargs):
+    def parse(self, language="english", multiprocess=False):
         """
         Parse a plaintext corpus
         """
@@ -190,7 +189,7 @@ class Corpus(MutableSequence):
         ):
             msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
             raise ValueError(msg)
-        self.parser = Parser(cons_parser=cons_parser, language=language)
+        self.parser = Parser(language=language, multiprocess=multiprocess)
         return self.parser.run(self)
 
     def load(self, load_trees: bool = False, multiprocess: bool = True, **kwargs):

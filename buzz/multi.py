@@ -17,6 +17,7 @@ def how_many(multiprocess):
     if multiprocess in {0, 1, False, None}:
         multiprocess = 1
     return multiprocess
+    
 
 @delayed
 def load(paths, position, **kwargs):
@@ -47,3 +48,16 @@ def search(corpus, queries, position, **kwargs):
         if res is not None and not res.empty:
             out.append(res)
     return out
+
+@delayed
+def parse(processor, paths, position, *args):
+    kwa = dict(
+        ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
+    )
+    t = _get_tqdm()(**kwa)
+    for path in paths:
+        with open(path, "r") as fo:
+            plain = fo.read().strip()
+        processor(plain, path, *args)
+        _tqdm_update(t)
+    _tqdm_close(t)
