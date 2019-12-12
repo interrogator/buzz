@@ -171,7 +171,7 @@ class Parser:
         # prior occurrences should be same as nth from htmlparser
         return count_before_here == nth
 
-    def _make_misc_field(self, word, token_meta, sent_meta):
+    def _make_misc_field(self, word, token_meta, other_meta):
         """
         Build the misc cell for this word. It has NER, sentiment AND user-added
         """
@@ -188,8 +188,10 @@ class Parser:
             for key, val in features.items():
                 # add this to stop misc field also being in sent meta,
                 # which creates an ambiguity. todo: warn here?
-                if key not in sent_meta:
+                if key not in other_meta:
                     misc += "|{}={}".format(key, val)
+                else:
+                    print(f"Warning: key {key} in token metadata already in parent metadata")
         return misc
 
     @staticmethod
@@ -249,7 +251,7 @@ class Parser:
 
             governor = self._get_governor_id(word)
             word_text = self._normalise_word(str(word))
-            named_ent = self._make_misc_field(word, token_meta, sent_meta)
+            named_ent = self._make_misc_field(word, token_meta, all_meta)
             if "__" in word.tag_ and len(word.tag_) > 2:
                 tag, morph = word.tag_.split("__", 1)
             else:
