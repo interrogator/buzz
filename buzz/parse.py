@@ -7,13 +7,8 @@ from nltk.parse import BllipParser
 
 from .constants import BENEPAR_LANGUAGES
 from .html import MetadataStripper
-from .utils import (
-    _get_nlp,
-    _get_tqdm,
-    _make_meta_dict_from_sent,
-    _tqdm_close,
-    _tqdm_update,
-)
+from .utils import (_get_nlp, _get_tqdm, _make_meta_dict_from_sent,
+                    _tqdm_close, _tqdm_update)
 
 tqdm = _get_tqdm()
 
@@ -176,7 +171,7 @@ class Parser:
         # prior occurrences should be same as nth from htmlparser
         return count_before_here == nth
 
-    def _make_misc_field(self, word, token_meta):
+    def _make_misc_field(self, word, token_meta, sent_meta):
         """
         Build the misc cell for this word. It has NER, sentiment AND user-added
         """
@@ -191,7 +186,10 @@ class Parser:
             if not self._is_correct_span(word, span, nth, features):
                 continue
             for key, val in features.items():
-                misc += "|{}={}".format(key, val)
+                # add this to stop misc field also being in sent meta,
+                # which creates an ambiguity. todo: warn here?
+                if key not in sent_meta:
+                    misc += "|{}={}".format(key, val)
         return misc
 
     @staticmethod
@@ -251,7 +249,7 @@ class Parser:
 
             governor = self._get_governor_id(word)
             word_text = self._normalise_word(str(word))
-            named_ent = self._make_misc_field(word, token_meta)
+            named_ent = self._make_misc_field(word, token_meta, sent_meta)
             if "__" in word.tag_ and len(word.tag_) > 2:
                 tag, morph = word.tag_.split("__", 1)
             else:
@@ -296,6 +294,10 @@ class Parser:
             sstr = self._process_sent(sent_index, sent, file_meta, plain, stripped_data)
             output.append(sstr)
         output = "\n\n".join(output).strip() + "\n"
+
+        if not output.strip():
+            print("No data created")
+            return
 
         if not self.save_as and isinstance(self.plain_corpus, str):
             return output
