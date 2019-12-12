@@ -5,19 +5,13 @@ import shutil
 from io import StringIO
 from typing import List, Optional
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import (
-    COLUMN_NAMES,
-    CONLL_COLUMNS,
-    DTYPES,
-    LONG_NAMES,
-    MORPH_FIELDS,
-    SPACY_LANGUAGES,
-)
+from .constants import (COLUMN_NAMES, CONLL_COLUMNS, DTYPES, LONG_NAMES,
+                        MORPH_FIELDS, SPACY_LANGUAGES)
 
 
 def _get_texts(file_data):
@@ -406,7 +400,7 @@ def _to_df(
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
     metadata = pd.DataFrame(metadata).T
     metadata.index.name = "s"
-    df = metadata.join(df, how="inner")
+    df = metadata.join(df, how="inner", lsuffix="other_")
 
     if subcorpus:
         df["subcorpus"] = subcorpus
