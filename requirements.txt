@@ -1,13 +1,12 @@
 cython
 numpy==1.17.4
 nltk
-bllipparser
 scipy
 joblib
 scikit-learn
 tensorflow
-spacy==2.2.2
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+spacy==2.2.3
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz
 pandas==0.25.0
 tqdm==4.38.0
 pyparsing
