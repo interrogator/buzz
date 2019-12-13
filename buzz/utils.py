@@ -240,7 +240,8 @@ def _make_csv(raw_lines, fname, usecols):
     """
     csvdat = list()  # a list of csv strings as we make them
     meta_dicts = list()  # our sent-level metadata will go in here
-    # fname = os.path.basename(fname)
+    # todo: find better way to use correct path as file index
+    fname = fname.rsplit('-parsed/')[-1]
     # make list of sentence strings
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
