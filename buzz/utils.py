@@ -240,7 +240,7 @@ def _make_csv(raw_lines, fname, usecols):
     """
     csvdat = list()  # a list of csv strings as we make them
     meta_dicts = list()  # our sent-level metadata will go in here
-    fname = os.path.basename(fname)
+    # fname = os.path.basename(fname)
     # make list of sentence strings
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
@@ -366,12 +366,16 @@ def _to_df(
     if isinstance(corpus, (Corpus, File)):
         with open(corpus.path, "r") as fo:
             data = fo.read().strip("\n")
+
+    if not data.strip():
+        # print(f"File empty: {corpus.path}")
+        return
     # if a directory, do nothing much
     elif isinstance(corpus, str) and not os.path.exists(corpus):
         data = corpus
 
     # add file and s columns to the csv string; get metadata as well
-    data, metadata = _make_csv(data, usename or corpus.name, usecols)
+    data, metadata = _make_csv(data, usename or corpus.path, usecols)
 
     # user can only load a subset, but index always needed
     csv_usecols = None
@@ -406,7 +410,7 @@ def _to_df(
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
     metadata = pd.DataFrame(metadata).T
     metadata.index.name = "s"
-    df = metadata.join(df, how="inner")
+    df = metadata.join(df, how="inner", lsuffix="other_")
 
     if subcorpus:
         df["subcorpus"] = subcorpus

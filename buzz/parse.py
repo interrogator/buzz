@@ -111,7 +111,7 @@ def _is_correct_span(word, span, nth, features, nlp):
     return count_before_here == nth
 
 
-def _make_misc_field(word, token_meta, nlp):
+def _make_misc_field(word, token_meta, nlp, all_meta):
     """
     Build the misc cell for this word. It has NER, sentiment AND user-added
     """
@@ -126,7 +126,8 @@ def _make_misc_field(word, token_meta, nlp):
         if not _is_correct_span(word, span, nth, features, nlp):
             continue
         for key, val in features.items():
-            misc += "|{}={}".format(key, val)
+            if key not in all_meta:
+                misc += "|{}={}".format(key, val)
     return misc
 
 
@@ -205,7 +206,7 @@ def _process_sent(
 
         governor = _get_governor_id(word)
         word_text = _normalise_word(str(word))
-        named_ent = _make_misc_field(word, token_meta, nlp)
+        named_ent = _make_misc_field(word, token_meta, nlp, all_meta)
         if "__" in word.tag_ and len(word.tag_) > 2:
             tag, morph = word.tag_.split("__", 1)
         else:
