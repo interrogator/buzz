@@ -27,11 +27,11 @@ import multiprocessing
 from .utils import _get_tqdm, _tqdm_update, _tqdm_close, _to_df
 
 
-def _strip_metadata(plain):
+def _strip_metadata(plain, speakers):
     # todo: do this without splitting
     out = []
     for line in plain.splitlines():
-        parser = MetadataStripper()
+        parser = MetadataStripper(speakers)
         parser.feed(line)
         out.append(parser.text)
     return "\n".join(out)
@@ -133,17 +133,17 @@ def _make_misc_field(word, token_meta, nlp, all_meta):
     return misc
 
 
-def _process_string(plain, path, save_as, corpus_name, language):
+def _process_string(plain, path, save_as, corpus_name, language, speakers):
     """
     spacy: process a string of text
     """
     # break into lines, removing empty
     plain = [i.strip(" ") for i in plain.splitlines() if i.strip(" ")]
-    file_meta, _ = _make_meta_dict_from_sent(plain[0], first=True)
+    file_meta, _ = _make_meta_dict_from_sent(plain[0], first=True, speakers=speakers)
     if file_meta:
         plain = plain[1:]
     plain = "\n".join(plain)
-    stripped_data = _strip_metadata(plain)
+    stripped_data = _strip_metadata(plain, speakers)
 
     nlp = _get_nlp(language=language)
 
@@ -152,7 +152,7 @@ def _process_string(plain, path, save_as, corpus_name, language):
 
     for sent_index, sent in enumerate(doc.sents, start=1):
         sstr = _process_sent(
-            sent_index, sent, file_meta, plain, stripped_data, language, nlp
+            sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers
         )
         output.append(sstr)
     output = "\n\n".join(output).strip() + "\n"
@@ -166,7 +166,7 @@ def _process_string(plain, path, save_as, corpus_name, language):
 
 
 @delayed
-def multiparse(paths, position, save_as, corpus_name, language):
+def multiparse(paths, position, save_as, corpus_name, language, speakers):
     kwa = dict(
         ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
     )
@@ -174,12 +174,12 @@ def multiparse(paths, position, save_as, corpus_name, language):
     for path in paths:
         with open(path, "r") as fo:
             plain = fo.read().strip()
-        _process_string(plain, path, save_as, corpus_name, language)
+        _process_string(plain, path, save_as, corpus_name, language, speakers)
         _tqdm_update(t)
     _tqdm_close(t)
 
 
-def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, nlp):
+def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers):
     word_index = 1
     sent_parts = list()
     text = sent.text.strip(" ").replace("\n", " ")
@@ -187,7 +187,7 @@ def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, n
     sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=len(toks))
 
     metaline = _get_line_with_meta(sent.start_char, plain, stripped_data)
-    inner_sent_meta, token_meta = _make_meta_dict_from_sent(metaline)
+    inner_sent_meta, token_meta = _make_meta_dict_from_sent(metaline, speakers=speakers)
     all_meta = {**file_meta, **sent_meta, **inner_sent_meta}
 
     for field, value in sorted(all_meta.items()):
@@ -250,9 +250,10 @@ class Parser:
     Create an object that can parse a Corpus.
     """
 
-    def __init__(self, language="english", multiprocess=False):
+    def __init__(self, language="english", multiprocess=False, speakers=True):
         self.multiprocess = multiprocess
         self.language = language
+        self.speakers = speakers
 
     def _spacy_parse(self):
         if self.from_str:
@@ -264,7 +265,7 @@ class Parser:
             chunks = np.array_split(fs, multiprocess)
             args = (self.save_as, self.corpus_name)
             delay = (
-                multiparse(x, i, self.save_as, self.corpus_name, self.language)
+                multiparse(x, i, self.save_as, self.corpus_name, self.language, self.speakers)
                 for i, x in enumerate(chunks)
             )
             done = Parallel(n_jobs=multiprocess)(delay)
@@ -288,6 +289,8 @@ class Parser:
 
         Args:
            corpus (Corpus): plain data to process
+           save_as (str): custom save path
+           speakers (bool): look for speakers at start of line
 
         Return:
             Corpus: parsed corpus

@@ -455,7 +455,7 @@ def _get_short_name_from_long_name(longname):
     return revers.get(longname, longname)
 
 
-def _make_meta_dict_from_sent(text, first=False):
+def _make_meta_dict_from_sent(text, first=False, speakers=True):
     """
     Make dict of sentence and token metadata
     """
@@ -464,7 +464,7 @@ def _make_meta_dict_from_sent(text, first=False):
     marker = "<meta "
     if first and not text.strip().startswith(marker):
         return dict(), dict()
-    parser = InputParser()
+    parser = InputParser(speakers=speakers)
     parser.feed(text)
     if first:
         return parser.sent_meta, dict()

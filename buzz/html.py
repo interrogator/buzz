@@ -3,21 +3,21 @@ from html.parser import HTMLParser
 from collections import OrderedDict
 from buzz.utils import cast
 
+SPEAKER_REGEX = re.compile(r"^([A-Z0-9-_]{1,30}):\s*", re.MULTILINE)
+
 
 class MetadataStripper(HTMLParser):
     """
     Strip HTML/XML properly
     """
-
-    def __init__(self):
+    def __init__(self, speakers=True):
         super().__init__()
         self.text = str()
+        self.speakers = speakers
 
     def handle_data(self, data):
-        regex = r"^[A-Za-z0-9-_]{1,40}:\s*"
-        idregex = re.compile(regex, re.MULTILINE)
-        if not self.getpos()[1]:
-            data = re.sub(idregex, "", data)
+        if not self.getpos()[1] and self.speakers:
+            data = re.sub(SPEAKER_REGEX, "", data)
         self.text += data
 
 
@@ -26,7 +26,7 @@ class InputParser(HTMLParser):
     Get metadata out of a line of text
     """
 
-    def __init__(self):
+    def __init__(self, speakers=True):
         super().__init__()
         self.tmp = None
         self.result = OrderedDict()
@@ -34,6 +34,7 @@ class InputParser(HTMLParser):
         self.text = None
         self.num_elements = 0
         self.num_done = 0
+        self.speakers = speakers
         self.stripper = MetadataStripper()
 
     def _has_sent_meta(self):
@@ -61,17 +62,17 @@ class InputParser(HTMLParser):
         return super().feed(text, *args, **kwargs)
 
     def handle_data(self, data):
-        # data is the string of plain text
-        regex = r"^([A-Z0-9-_]{1,30}):\s*"
-        idregex = re.compile(regex, re.MULTILINE)
+        """
+        data is the string of plain text
+        """
         offset = self.getpos()[1]
         # todo: i think this could be wrong if text appears inside metadata
         # so ideally, we need to remove anything inside <> from self.text
         # we should use clean_text for this, which is not used elsewhere rn.
         text_before_this = self.text[:offset]
         nth = text_before_this.count(data)
-        if not offset:
-            found_speaker = re.search(idregex, data)
+        if not offset and self.speakers:
+            found_speaker = re.search(SPEAKER_REGEX, data)
             if found_speaker:
                 self.sent_meta["speaker"] = found_speaker.group(1)
         if self.tmp:
