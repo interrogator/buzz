@@ -20,8 +20,8 @@ class Concordance(pd.DataFrame):
     _metadata = ["reference"]
     reference = None
 
-    def __init__(self, data, reference=None, *args, **kwargs):
-        super().__init__(data, **kwargs)
+    def __init__(self, data, reference=None):
+        super().__init__(data)
         self.reference = reference
 
     @property
@@ -31,63 +31,70 @@ class Concordance(pd.DataFrame):
     def view(self, *args, **kwargs):
         return _tabview(self, self.reference, *args, **kwargs)
 
-    def __repr__(self):
-        cols = ["left", "match", "right"]
-        if "speaker" in self.columns and self["speaker"][0]:
-            cols.append("speaker")
-        with option_context("display.max_colwidth", 200):
-            return str(self[cols])
 
+def _get_right(n, allwords, window):
+    """
+    For df.apply(), generate left, match and right cols
 
-def _apply_conc(line, allwords, window):
-    middle, n = line["_match"], line["_n"]
-    start = max(n - window[0], 0)
+    This needs to be performant.
+    """
     end = min(n + window[1], len(allwords) - 1)
-    left = " ".join(allwords[start:n])[-window[0] :]
-    right = " ".join(allwords[n + 1 : end])[: window[1]]
-    series = pd.Series([left, middle, right])
-    series.names = ["left", "match", "right"]
-    return series
+    return " ".join(allwords[n + 1 : end])[: window[1]]
+
+def _get_left(n, allwords, window):
+    """
+    For df.apply(), generate left, match and right cols
+
+    This needs to be performant.
+    """
+    return " ".join(allwords[max(n - window[0], 0):n])[-window[0] :]
 
 
 def _concordance(
     data_in,
     reference,
     show=["w"],
-    n=100,
+    n=-1,
     window="auto",
     metadata=True,
     preserve_case=True,
+    preserve_index=False,
 ):
     """
     Generate a concordance
     """
-    # max number of lines
-    n = max(n, len(data_in))
+    # cut dataset down
+    if n and n > 0:
+        data_in = data_in.iloc[:n]
 
     if window == "auto":
         window = _auto_window()
     if isinstance(window, int):
         window = [window, window]
 
-    data_in["_match"] = _make_match_col(data_in, show, preserve_case=preserve_case)
+    if not preserve_index:
+        data_in = data_in.reset_index()
 
-    df = pd.DataFrame(data_in).reset_index()
-    finished = df.apply(
-        _apply_conc, axis=1, allwords=reference["w"].values, window=window
-    )
-    finished.columns = ["left", "match", "right"]
-    finished = finished[["left", "match", "right"]]
+    # get series of matches, fsi index
+    matches = _make_match_col(data_in, show, preserve_case=preserve_case)
+    match_indices = data_in["_n"]
 
-    # if showing metadata to the right of lmr, add it here
-    cnames = list(df.columns)
-    if metadata is True:
-        metadata = [i for i in cnames if i not in CONLL_COLUMNS]
+    words = reference["w"].values
+    apply_data = dict(allwords=words, window=window)
+    left = match_indices.apply(_get_left, **apply_data)
+    right = match_indices.apply(_get_right, **apply_data)
+
+    left.name, matches.name, right.name = "left", "match", "right"
+
+    ignores = ["_match", "_n", "sent_len", "parse", "text"]
+
+    conc = pd.concat([left, matches, right], axis=1)
+
+    if metadata is True:  # add all meta cols
+        skips = CONLL_COLUMNS + ignores
+        metadata = [i for i in list(data_in.columns) if i not in skips]
+
     if metadata:
-        met_df = df[metadata]
-        finished = pd.concat([finished, met_df], axis=1, sort=False)
-    finished = finished.drop(
-        ["_match", "_n", "sent_len", "parse"], axis=1, errors="ignore"
-    )
+        conc = conc.join(data_in[metadata])
 
-    return Concordance(finished, reference=data_in)
+    return Concordance(conc, reference=data_in)
