@@ -1,11 +1,10 @@
 import json
 import os
-from collections import MutableSequence, OrderedDict
+from collections import MutableSequence
 from functools import total_ordering
 
 import pandas as pd
 import numpy as np
-from joblib import Parallel
 
 from . import utils
 from .contents import Contents
@@ -28,19 +27,25 @@ class Corpus(MutableSequence):
         """
         Initialise the corpus, deteremine if parsed, hook up methods
         """
-        self.files = Contents()
-        self.subcorpora = Contents()
         path = os.path.expanduser(path)
-        if not os.path.isdir(path):
+        self.is_feather = os.path.isfile(path) and path.endswith(".feather")
+        if not os.path.isdir(path) and not self.is_feather:
             raise FileNotFoundError(f"Not a valid path: {path}")
         self.path = path
-        self._metadata_path = os.path.join(self.path, ".metadata.json")
-        self.filename = os.path.basename(path)
-        self.name = self.filename
+        meta = ".metadata.json"
+        self._metadata_path = (
+            os.path.join(self.path, meta)
+            if not self.is_feather
+            # where else should meta go for feather corpora?!
+            else os.path.join(os.path.dirname(self.path), meta)
+        )
+        self.name = os.path.basename(path)
         if self.name.endswith("-parsed"):
-            self.name = self.name[:-7]
+            self.name = self.name[:-7]  # lol
         self.subcorpora, self.files, self.is_parsed = self._get_subcorpora_and_files()
-        self.filepaths = Contents([i.path for i in self.files])
+        self.filepaths = Contents(
+            [i.path for i in self.files], is_parsed=self.is_parsed, name=self.name
+        )
         self.nlp = None
         self.iterable = self.subcorpora if self.subcorpora else self.files
 
@@ -192,36 +197,27 @@ class Corpus(MutableSequence):
         self.parser = Parser(language=language, multiprocess=multiprocess)
         return self.parser.run(self)
 
-    def load(self, load_trees: bool = False, multiprocess: bool = True, **kwargs):
+    def load(self, load_trees: bool = False, **kwargs):
         """
-        Load a Corpus into memory.
+        Load a Corpus into memory
+
+        If it's parsed, a Dataset is returned.
+        If unparsed, return a dict mapping paths to strings (the file content)
+
+        Multiprocessing is a bit complex here. You can pass in a keyword arg,
+        `multiprocess`, which can be True (use your machine's number of cores),
+        an integer (use that many processes), or false/None/0/1, which mean
+        just one process.
+
+        Multiprocess is not specified in the call signature, because the default
+        should change based on whether or not your corpus is parsed. For parsed
+        corpora, multiprocessing is switched on by default. For unparsed, it is
+        switched off. This is for performance in both cases --- your unparsed
+        corpus needs to be pretty huge to be loaded quicker via multiprocess.
         """
-        multiprocess = multi.how_many(multiprocess)
-
-        chunks = np.array_split(self.files, multiprocess)
-        delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
-        loaded = Parallel(n_jobs=multiprocess)(delay)
-        # unpack the nested list that multiprocessing creates
-        loaded = [item for sublist in loaded for item in sublist]
-
-        # for unparsed corpora, we give a dict of {path: text}
-        if not self.is_parsed:
-            return OrderedDict(sorted(zip(self.filepaths, loaded)))
-
-        # for parsed corpora, we merge each file contents into one huge dataframe
-        df = pd.concat(loaded, sort=False)
-        # todo: think a bit more about when to load load_trees
-        if load_trees:
-            tree_once = utils._tree_once(df)
-            if isinstance(tree_once.values[0], str):
-                df["parse"] = tree_once.apply(utils._make_tree)
-
-        df["_n"] = range(len(df))
-        if kwargs.get("set_data_types", True):
-            df = utils._set_best_data_types(df)
-        df = utils._order_df_columns(df)
-        print('\n' * multiprocess)
-        return Dataset(df, reference=df, name=self.name)
+        if self.is_feather:
+            return self.files[0].load()
+        return utils._load_corpus(self, load_trees=load_trees, **kwargs)
 
     @property
     def vector(self):
@@ -253,18 +249,18 @@ class Corpus(MutableSequence):
             models.append(file.to_spacy(language=language))
         return models
 
-    def _get_in_subcorpus(self, fpath):
-        rel = fpath.split(self.path, 1)[-1]
-        return os.path.dirname(rel).strip(" /")
-
     def _get_subcorpora_and_files(self):
         """
         Helper to set subcorpora and files
         """
         from .file import File
 
+        is_parsed = self.path.endswith(("-parsed", ".feather"))
+        info = dict(is_parsed=is_parsed, name=self.name)
         subcorpora = list()
         files = list()
+        if self.is_feather:
+            return Contents([], **info), Contents([File(self.path)], **info), True
         for root, dirnames, filenames in os.walk(self.path):
             for filename in sorted(filenames):
                 if not filename.endswith(("conll", "conllu", "txt")):
@@ -272,8 +268,7 @@ class Corpus(MutableSequence):
                 if filename.startswith("."):
                     continue
                 fpath = os.path.join(root, filename)
-                subc = self._get_in_subcorpus(fpath)
-                fpath = File(fpath, in_subcorpus=subc)
+                fpath = File(fpath)
                 files.append(fpath)
             for directory in dirnames:
                 if directory.startswith("."):
@@ -281,9 +276,8 @@ class Corpus(MutableSequence):
                 directory = os.path.join(root, directory)
                 directory = Subcorpus(directory)
                 subcorpora.append(directory)
-        subcorpora = Contents(list(sorted(subcorpora)))
-        files = Contents(list(sorted(files)))
-        is_parsed = self.path.endswith("-parsed")
+        subcorpora = Contents(list(sorted(subcorpora)), **info)
+        files = Contents(list(sorted(files)), **info)
         return subcorpora, files, is_parsed
 
     @property

@@ -6,7 +6,7 @@ import numpy as np
 from joblib import Parallel
 
 from .conc import _concordance
-from .constants import QUERYSETS
+from .constants import QUERYSETS, SENT_LEVEL_METADATA
 from .exceptions import NoReferenceCorpus
 from . import multi
 from .search import Searcher
@@ -246,33 +246,38 @@ class Dataset(pd.DataFrame):
         site.run()
         return site
 
-    def save(self, savename):
+    def save(self, savename=None):
         """
         Save to feather
         """
-        if "parse" in self.columns:
-            par = list()
-            for (_, _, i), data in self["parse"].items():
-                if i == 1:
-                    par.append(data)
-                else:
-                    par.append(None)
-            self["parse"] = par
-        self.reset_index().to_feather(savename)
+        if not savename:
+            savename = self._name
+        if not savename.endswith(".feather"):
+            savename += ".feather"
+        print(f"Saving dataset to {savename} ...")
+        to_reduce = [i for i in self.columns if i in SENT_LEVEL_METADATA]
+        df = self.drop("i", axis=1, errors="ignore").reset_index()
+        if to_reduce:
+            # amazing line: make nan in many places, save a lot of memory!
+            df.loc[df.i != 1, to_reduce] = np.nan
+        df.to_feather(savename)
+        print("Done!")
 
     @staticmethod
-    def load(loadname):
+    def load(loadname, load_trees=False, multiprocess=True):
         """
         Load from feather
         """
-        df = pd.read_feather(loadname)
+        multiprocess = multi.how_many(multiprocess)
+        df = pd.read_feather(loadname, nthreads=multiprocess)
         name = os.path.splitext(os.path.basename(loadname))[0]
         if name.endswith("-parsed"):
             name = name[:-7]
         df = df.set_index(["file", "s", "i"])
-        tree_once = _tree_once(df)
-        if isinstance(tree_once.values[0], str):
+        if load_trees and "parse" in df.columns:
+            tree_once = _tree_once(df)
             df["parse"] = tree_once.apply(_make_tree)
+        df = df.ffill()
         return Dataset(df, reference=df, name=name)
 
     def content_table(
@@ -313,7 +318,6 @@ class Dataset(pd.DataFrame):
                 self[bit] = self.index.get_level_values(bit)
                 cols_added.add(bit)
 
-
         form = _make_match_col(
             self,
             show,
@@ -325,14 +329,16 @@ class Dataset(pd.DataFrame):
         cols_added.add("_match")
         columns = dict()
         needed = subcorpora + ["_match"]
-        self.drop(['file', 's', 'i'], axis=1, inplace=True, errors="ignore")
+        self.drop(["file", "s", "i"], axis=1, inplace=True, errors="ignore")
         # reduced = self[needed]
         for group, data in self.reset_index().groupby(subcorpora):
             # series is fsi index, _match formatted values
             series = data["_match"]
             # same format as _match but formatted correctly
             if show_frequencies:
-                series = _add_frequencies(series, relative, keyness, reference=reference)
+                series = _add_frequencies(
+                    series, relative, keyness, reference=reference
+                )
             padded = _series_to_wordlist(series, sort, top)
             columns[group] = padded
         # self.drop(list(cols_added), axis=1, inplace=True, errors="ignore")
