@@ -26,7 +26,7 @@ SHORT_TO_LONG_NAME = dict(
     speaker="Speaker",
     d="Depgrep",
     t="TGrep2",
-    describe="Describe entities"
+    describe="Describe entities",
 )
 
 _SHORTER = dict(
@@ -72,6 +72,13 @@ DTYPES = dict(
     puncttype="category",
     numtype="category",
     punctside="category",
+    part_name=str,
+    part_number=int,
+    chapter_name=str,
+    chapter_number=int,
+    emph=bool,
+    strong=bool,
+    text=str,
 )
 
 
@@ -91,6 +98,8 @@ LONG_NAMES = dict(
     speaker={"speaker", "speakers"},
     text={"text", "texts", "original"},
 )
+
+SENT_LEVEL_METADATA = {"sent_len", "text", "parse", "speaker", "year", "date"}
 
 LANGUAGES = {
     "German": "de",

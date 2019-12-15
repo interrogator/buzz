@@ -2,6 +2,7 @@ import os
 from functools import total_ordering
 
 from .corpus import Corpus
+from .dataset import Dataset
 from .utils import _get_nlp, _make_tree, _order_df_columns, _to_df, _tree_once
 
 
@@ -14,8 +15,8 @@ class File(Corpus):
         self.files = None
         self.subcorpora = None
         self.nlp = None
-        self.is_parsed = self.filename.endswith((".conll", ".conllu"))
-        self.in_subcorpus = kwargs.get("in_subcorpus")
+        self.is_parsed = self.filename.endswith((".conll", ".conllu", ".feather"))
+        self.is_feather = self.filename.endswith(".feather")
 
     def __ne__(self, other):
         return not self == other
@@ -66,6 +67,8 @@ class File(Corpus):
         """
         For parsed dataset, get dataframe or spacy object
         """
+        if self.is_feather:
+            return Dataset.load(self.path)
         if self.is_parsed:
             df = _to_df(self, **kwargs)
             df["_n"] = range(len(df))
