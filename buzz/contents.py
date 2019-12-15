@@ -3,7 +3,7 @@ from collections import MutableSequence
 
 import pandas as pd
 
-from .utils import _order_df_columns
+from .utils import _order_df_columns, _load_corpus
 
 
 class Contents(MutableSequence):
@@ -11,8 +11,10 @@ class Contents(MutableSequence):
     Holder for ordered collections of files or subcorpora
     """
 
-    def __init__(self, data=[]):
+    def __init__(self, data=[], is_parsed=True, name=None):
         self.list = data
+        self.is_parsed = is_parsed
+        self.name = name
 
     def __repr__(self):
         return str(self.list)
@@ -76,9 +78,7 @@ class Contents(MutableSequence):
         self.list.insert(i, v)
 
     def load(self, **kwargs):
-        loaded = []
-        for piece in self:
-            loaded.append(piece.load(_complete=False, **kwargs))
-        df = pd.concat(loaded)
-        df["_n"] = range(len(df))
-        return _order_df_columns(df)
+        """
+        Load this data just as we do a Corpus
+        """
+        return _load_corpus(self, **kwargs)

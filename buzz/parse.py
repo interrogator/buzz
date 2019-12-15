@@ -40,6 +40,7 @@ def _strip_metadata(plain):
 def _normalise_word(word, wrap=False):
     return str(word).strip().replace("\t", "").replace("\n", "")
 
+
 def _get_line_with_meta(start, plain, stripped):
     all_before = stripped[:start]
     line_index = all_before.count("\n")
@@ -84,6 +85,7 @@ def _get_token_index_in_span(span, word, nlp):
         fallback = (i for i, t in split if _strip_punct(t) == word.text)
         return next(fallback, 0)
     return 0
+
 
 def _is_correct_span(word, span, nth, features, nlp):
     """
@@ -150,13 +152,7 @@ def _process_string(plain, path, save_as, corpus_name, language):
 
     for sent_index, sent in enumerate(doc.sents, start=1):
         sstr = _process_sent(
-            sent_index,
-            sent,
-            file_meta,
-            plain,
-            stripped_data,
-            language,
-            nlp,
+            sent_index, sent, file_meta, plain, stripped_data, language, nlp
         )
         output.append(sstr)
     output = "\n\n".join(output).strip() + "\n"
@@ -183,9 +179,7 @@ def multiparse(paths, position, save_as, corpus_name, language):
     _tqdm_close(t)
 
 
-def _process_sent(
-    sent_index, sent, file_meta, plain, stripped_data, language, nlp
-):
+def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, nlp):
     word_index = 1
     sent_parts = list()
     text = sent.text.strip(" ").replace("\n", " ")
