@@ -257,8 +257,8 @@ def _table(
     needs_format = df if not keyness else reference
     kwa = dict(show_entities=show_entities, reference=reference)
     match = _make_match_col(needs_format, show, preserve_case, **kwa)
-    df['_match'] = match
-    reference['_match'] = match
+    df["_match"] = match
+    reference["_match"] = match
 
     # make the matrix
     if subcorpora:
@@ -290,7 +290,7 @@ def _table(
 
     # make columns into multiindex if the user wants that
     if multiindex_columns and len(show) > 1:
-        table.columns = table.columns.str.split("/", n=len(show)-1, expand=True)
+        table.columns = table.columns.str.split("/", n=len(show) - 1, expand=True)
         table.columns.names = show
     else:
         table.columns.name = "/".join(show)
@@ -303,7 +303,7 @@ def _table(
 
 
 def _keyness(table, keyness, reference=None):
-    print('ref', reference._match)
+    print("ref", reference._match)
     if reference is None:
         warn = "Warning: no reference corpus supplied. Using result frame as reference corpus"
         print(warn)
@@ -311,18 +311,11 @@ def _keyness(table, keyness, reference=None):
     ref = reference["_match"].value_counts()
     measures = dict(ll=_log_likelihood, pd=_perc_diff)
     measure = measures.get(keyness, _log_likelihood)
-    kwa = dict(
-        axis=0,
-        reference=ref,
-        measure=measure,
-        ref_sum=reference.shape[0]
-    )
+    kwa = dict(axis=0, reference=ref, measure=measure, ref_sum=reference.shape[0])
     applied = table.T.apply(_make_keywords, **kwa).T
     top = applied.abs().sum().sort_values(ascending=False)
     table = applied[top.index]
     return table
-
-
 
 
 def _add_frequencies(series, relative, keyness, reference):
@@ -342,7 +335,7 @@ def _add_frequencies(series, relative, keyness, reference):
 
     # just absolute frequencies
     if relative is False or relative is None:
-        absolute = absolute.map(' (N={:})'.format)
+        absolute = absolute.map(" (N={:})".format)
         return series.str.cat(absolute)
 
     # absolute/relative
