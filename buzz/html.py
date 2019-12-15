@@ -62,7 +62,7 @@ class InputParser(HTMLParser):
 
     def handle_data(self, data):
         # data is the string of plain text
-        regex = r"^([A-Za-z0-9-_]{1,40}):\s*"
+        regex = r"^([A-Z0-9-_]{1,30}):\s*"
         idregex = re.compile(regex, re.MULTILINE)
         offset = self.getpos()[1]
         # todo: i think this could be wrong if text appears inside metadata
