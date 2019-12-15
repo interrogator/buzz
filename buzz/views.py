@@ -169,10 +169,11 @@ def _sort(df, by=False, keep_stats=False, remove_above_p=False):
     return df
 
 
-def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
+def _log_likelihood(data, target_sum, ref_sum):
     """
     Calculate log likelihood keyness
     """
+    word_in_target, word_in_ref = data
     neg = (word_in_target / float(target_sum)) < (word_in_ref / float(ref_sum))
     ref_targ = float(word_in_ref) + float(word_in_target)
     ref_targ_sum = float(ref_sum) + float(target_sum)
@@ -188,29 +189,32 @@ def _log_likelihood(word_in_ref, word_in_target, ref_sum, target_sum):
     return score
 
 
-def _perc_diff(word_in_ref, word_in_target, ref_sum, target_sum):
+def _perc_diff(data, target_sum, ref_sum):
     """
-    Calculate using perc diff measure
+    Calculate using perc diff measure :/
     """
+    word_in_target, word_in_ref = data
     norm_target = float(word_in_target) / target_sum
     norm_ref = float(word_in_ref) / ref_sum
     # Gabrielatos and Marchi (2012) do it this way!
     if norm_ref == 0:
         norm_ref = 0.00000000000000000000000001
-    return ((norm_target - norm_ref) * 100.0) / norm_ref
+    score = ((norm_target - norm_ref) * 100.0) / norm_ref
+    return 0 if score == -100.0 else score
 
 
 def _make_keywords(subcorpus, reference, ref_sum, measure):
     """
     Apply function for getting keyness calculations
-    """
-    target_sum = subcorpus.sum()
 
-    points = [
-        (reference.get(name, 0), count, ref_sum, target_sum)
-        for name, count in subcorpus.items()
-    ]
-    return [measure(*arg) for arg in points]
+    subcorpus: Series of tokens and their counts for this subcorpus
+    """
+    # how many words are there in this subcorpus
+    target_sum = subcorpus.sum()
+    # make series with counts in reference
+    df = pd.DataFrame(subcorpus)
+    df["_ref_counts"] = reference
+    return df.apply(measure, axis=1, raw=True, args=(target_sum, ref_sum))
 
 
 def _table(
@@ -273,15 +277,14 @@ def _table(
     # make table now so we can relative/sort
     table = Table(table, reference=reference)
 
+    table = table.astype(int)
+
     # relative frequency if user wants that
     if relative is not False:
         table = table.relative(relative)
     # keyness calculations
     elif keyness is not False:
         table = table.keyness(keyness, reference=reference)
-    # use ints for absolute frequency
-    else:
-        table = table.astype(int)
 
     # sort if the user wants that. do not sort keyness because it is different
     if sort and not keyness:
@@ -303,16 +306,22 @@ def _table(
 
 
 def _keyness(table, keyness, reference=None):
-    print("ref", reference._match)
+    """
+    Need a freq table, keyness measure and a reference corpus
+    """
     if reference is None:
         warn = "Warning: no reference corpus supplied. Using result frame as reference corpus"
         print(warn)
-        reference = df
-    ref = reference["_match"].value_counts()
+        reference = table
+    # get the total counts for match column in reference, sorted
+    ref = reference["_match"].value_counts()[table.iloc[0].index]
     measures = dict(ll=_log_likelihood, pd=_perc_diff)
     measure = measures.get(keyness, _log_likelihood)
-    kwa = dict(axis=0, reference=ref, measure=measure, ref_sum=reference.shape[0])
-    applied = table.T.apply(_make_keywords, **kwa).T
+    # kwargs for apply func. ref sum is number of words in reference, which is its shape
+    kwa = dict(axis=1, reference=ref, measure=measure, ref_sum=reference.shape[0])
+    # keywords runs over every subcorpus and then every match.
+    # first, for each row (subcorpus) in the table, we apply _make_keywords
+    applied = table.apply(_make_keywords, **kwa)
     top = applied.abs().sum().sort_values(ascending=False)
     table = applied[top.index]
     return table
