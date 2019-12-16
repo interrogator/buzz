@@ -12,7 +12,8 @@ from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import (_get_nlp, _make_match_col, _make_tree, _series_to_wordlist,
+from .utils import (_fix_datatypes_on_save, _get_nlp, _make_match_col,
+                    _make_tree, _series_to_wordlist, _set_best_data_types,
                     _tree_once)
 from .views import _add_frequencies, _table, _tabview
 
@@ -254,17 +255,7 @@ class Dataset(pd.DataFrame):
         print(f"Saving dataset to {savename} ...")
         to_reduce = [i for i in self.columns if i in SENT_LEVEL_METADATA]
         df = self.drop("i", axis=1, errors="ignore").reset_index()
-        for col in df.columns:
-            # special handling of speaker, because user may have int values
-            if col == "speaker":
-                df[col] = df[col].astype(str)
-                continue
-            # if we do not have a good column type, convert to string
-            if col not in DTYPES or df[col].dtype.name == "object":
-                if col in to_reduce:
-                    continue
-                print(f'Stringifying column {col}...')
-                df[col] = df[col].astype(str)
+        df = _fix_datatypes_on_save(df, to_reduce)
         if to_reduce:
             # amazing line: make nan in many places, save a lot of memory!
             df.loc[df.i != 1, to_reduce] = np.nan
@@ -289,9 +280,7 @@ class Dataset(pd.DataFrame):
             tree_once = _tree_once(df)
             df["parse"] = tree_once.apply(_make_tree)
         df = df.ffill()
-        for col in df.columns:
-            if col in DTYPES:
-                df[col] = df[col].astype(DTYPES[col])
+        df = _set_best_data_types(df)
         return Dataset(df, reference=df, name=name)
 
     def content_table(

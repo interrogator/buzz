@@ -1,4 +1,3 @@
-import multiprocessing
 import os
 import re
 import shutil
@@ -165,25 +164,6 @@ def _auto_window():
     columns = shutil.get_terminal_size().columns
     size = (columns / 2) * 0.60
     return [int(size), int(size)]
-
-
-def _set_best_data_types(df):
-    """
-    Make DF have the best possible column data types
-    """
-    for c in list(df.columns):
-        if df[c].dtype.name.startswith("date"):
-            continue
-        try:
-            df[c] = df[c].astype(DTYPES.get(c, object))
-            # the below, why?
-            try:
-                df[c].cat.add_categories("_")
-            except AttributeError:
-                pass
-        except (ValueError, TypeError):
-            pass
-    return df
 
 
 def _make_tree(tree):
@@ -434,7 +414,7 @@ def _to_df(
     if "g" in df.columns and add_governor:
         df = _add_governor(df)
 
-    df = df.replace("_", np.nan)
+    df = df.replace("_", np.nan)  # always use nan instead of _
     df["w"] = df["w"].replace(np.nan, "_")
     return Dataset(df, name=usename or corpus.name)
 
@@ -530,9 +510,9 @@ def _load_corpus(self, load_trees: bool = False, **kwargs):
     df = pd.concat(loaded, sort=False)
     # todo: think a bit more about when to load load_trees
     if load_trees:
-        tree_once = utils._tree_once(df)
+        tree_once = _tree_once(df)
         if isinstance(tree_once.values[0], str):
-            df["parse"] = tree_once.apply(utils._make_tree)
+            df["parse"] = tree_once.apply(_make_tree)
 
     df["_n"] = range(len(df))
     if kwargs.get("set_data_types", True):
@@ -540,3 +520,43 @@ def _load_corpus(self, load_trees: bool = False, **kwargs):
     df = _order_df_columns(df)
     print("\n" * multiprocess)  # not sure if this really helps
     return Dataset(df, reference=df, name=self.name)
+
+
+def _fix_datatypes_on_save(df, to_reduce):
+    """
+    Before saving as feather/parquet, we need to do stricter handling
+    of column dtypes, or else the save operation fails.
+    """
+    for col in df.columns:
+        # special handling of speaker, because user may have int values
+        if col == "speaker":
+            df[col] = df[col].astype(str)
+            continue
+        # if we do not have a good column type, convert to string
+        if col not in DTYPES or df[col].dtype.name == "object":
+            if col in to_reduce:
+                continue
+            print(f'Stringifying column {col}...')
+            df[col] = df[col].astype(str).fillna('_')
+    return df
+
+
+def _set_best_data_types(df):
+    """
+    Make DF have the best possible column data types
+
+    Used during load from feather, parquet and conll
+    """
+    for c in list(df.columns):
+        if df[c].dtype.name.startswith("date"):
+            continue
+        try:
+            df[c] = df[c].astype(DTYPES.get(c, object))
+            # the below, why?
+            try:
+                df[c].cat.add_categories("_")
+            except AttributeError:
+                pass
+        except (ValueError, TypeError):
+            pass
+    return df
