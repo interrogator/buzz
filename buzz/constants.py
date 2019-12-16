@@ -50,6 +50,7 @@ DTYPES = dict(
     m=str,
     o=str,
     n="category",
+    e=str,
     speaker="category",
     year=np.int64,  # 'datetime64',
     date="category",  # 'datetime64',
@@ -59,6 +60,7 @@ DTYPES = dict(
     postnum=np.float64,
     _n=np.int64,
     sent_len=np.int64,
+    sent_id=np.int64,
     line=np.int64,
     mood="category",
     number="category",
@@ -73,12 +75,15 @@ DTYPES = dict(
     numtype="category",
     punctside="category",
     part_name=str,
-    part_number=int,
+    part_number=np.int64,
     chapter_name=str,
-    chapter_number=int,
+    chapter_number=np.int64,
     emph=bool,
     strong=bool,
     text=str,
+    location=str,
+    file="category",
+    title=str
 )
 
 

@@ -1,25 +1,20 @@
 import os
 
+import numpy as np
 import pandas as pd
 import scipy
-import numpy as np
 from joblib import Parallel
 
-from .conc import _concordance
-from .constants import QUERYSETS, SENT_LEVEL_METADATA
-from .exceptions import NoReferenceCorpus
 from . import multi
+from .conc import _concordance
+from .constants import DTYPES, QUERYSETS, SENT_LEVEL_METADATA
+from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import (
-    _get_nlp,
-    _make_tree,
-    _tree_once,
-    _make_match_col,
-    _series_to_wordlist,
-)
-from .views import _table, _tabview, _add_frequencies
+from .utils import (_get_nlp, _make_match_col, _make_tree, _series_to_wordlist,
+                    _tree_once)
+from .views import _add_frequencies, _table, _tabview
 
 
 class Dataset(pd.DataFrame):
@@ -246,21 +241,34 @@ class Dataset(pd.DataFrame):
         site.run()
         return site
 
-    def save(self, savename=None):
+    def save(self, savename=None, use="feather"):
         """
-        Save to feather
+        Save to feather/parquet
         """
         if not savename:
             savename = self._name
-        if not savename.endswith(".feather"):
+        if not savename.endswith(".feather") and use == "feather":
             savename += ".feather"
+        elif not savename.endswith(".parquet") and use == "parquet":
+            savename += ".parquet"
         print(f"Saving dataset to {savename} ...")
         to_reduce = [i for i in self.columns if i in SENT_LEVEL_METADATA]
         df = self.drop("i", axis=1, errors="ignore").reset_index()
+        for col in df.columns:
+            # special handling of speaker, because user may have int values
+            if col == "speaker":
+                df[col] = df[col].astype(str)
+                continue
+            # if we do not have a good column type, convert to string
+            if col not in DTYPES or df[col].dtype.name == "object":
+                if col in to_reduce:
+                    continue
+                print(f'Stringifying column {col}...')
+                df[col] = df[col].astype(str)
         if to_reduce:
             # amazing line: make nan in many places, save a lot of memory!
             df.loc[df.i != 1, to_reduce] = np.nan
-        df.to_feather(savename)
+        df.to_feather(savename) if use == "feather" else df.to_parquet(savename)
         print("Done!")
 
     @staticmethod
@@ -269,7 +277,10 @@ class Dataset(pd.DataFrame):
         Load from feather
         """
         multiprocess = multi.how_many(multiprocess)
-        df = pd.read_feather(loadname, nthreads=multiprocess)
+        if loadname.endswith('.feather'):
+            df = pd.read_feather(loadname, nthreads=multiprocess)
+        elif loadname.endswith('.parquet'):
+            df = pd.read_parquet(loadname)
         name = os.path.splitext(os.path.basename(loadname))[0]
         if name.endswith("-parsed"):
             name = name[:-7]
@@ -278,6 +289,9 @@ class Dataset(pd.DataFrame):
             tree_once = _tree_once(df)
             df["parse"] = tree_once.apply(_make_tree)
         df = df.ffill()
+        for col in df.columns:
+            if col in DTYPES:
+                df[col] = df[col].astype(DTYPES[col])
         return Dataset(df, reference=df, name=name)
 
     def content_table(
