@@ -7,6 +7,7 @@ from typing import List, Optional
 
 import numpy as np
 import pandas as pd
+from joblib import Parallel
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
@@ -174,7 +175,8 @@ def _set_best_data_types(df):
         if df[c].dtype.name.startswith("date"):
             continue
         try:
-            df[c] = df[c].astype(DTYPES.get(c, "category"))
+            df[c] = df[c].astype(DTYPES.get(c, object))
+            # the below, why?
             try:
                 df[c].cat.add_categories("_")
             except AttributeError:
@@ -234,7 +236,8 @@ def _make_csv(raw_lines, fname, usecols):
     """
     csvdat = list()  # a list of csv strings as we make them
     meta_dicts = list()  # our sent-level metadata will go in here
-    fname = os.path.basename(fname)
+    # todo: find better way to use correct path as file index
+    fname = fname.rsplit("-parsed/")[-1]
     # make list of sentence strings
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
@@ -258,6 +261,7 @@ def _make_csv(raw_lines, fname, usecols):
             csvdat.append(text)
             meta_dicts.append(sent_meta)
     except ValueError as error:
+        raise
         raise ValueError(f"Problem in file: {fname}") from error
 
     # return the csv without the double newline so it can be read all at once. add meta_dicts later.
@@ -360,12 +364,16 @@ def _to_df(
     if isinstance(corpus, (Corpus, File)):
         with open(corpus.path, "r") as fo:
             data = fo.read().strip("\n")
+
+    if not data.strip():
+        # print(f"File empty: {corpus.path}")
+        return
     # if a directory, do nothing much
     elif isinstance(corpus, str) and not os.path.exists(corpus):
         data = corpus
 
     # add file and s columns to the csv string; get metadata as well
-    data, metadata = _make_csv(data, usename or corpus.name, usecols)
+    data, metadata = _make_csv(data, usename or corpus.path, usecols)
 
     # user can only load a subset, but index always needed
     csv_usecols = None
@@ -400,12 +408,15 @@ def _to_df(
     metadata = {i: d for i, d in enumerate(metadata, start=1)}
     metadata = pd.DataFrame(metadata).T
     metadata.index.name = "s"
-    df = metadata.join(df, how="inner", lsuffix="other_")
+
+    df = metadata.join(df, how="inner", lsuffix="_other")
 
     if subcorpus:
         df["subcorpus"] = subcorpus
 
     # fix the column order (when this is the whole corpus)
+    # we do not order when it isn't a whole corpus, because this could differ
+    # in other corpus files
     if _complete:
         df = _order_df_columns(df, metadata, morph_cols + misc_cols)
 
@@ -416,14 +427,15 @@ def _to_df(
     df = df.fillna("_")
 
     # setting types is really expensive, cheaper on whole corpus
+    # do not do
     if set_data_types and _complete:
         df = _set_best_data_types(df)
     # adding governor is cheaper when corpus is in chunks, so do now
     if "g" in df.columns and add_governor:
         df = _add_governor(df)
 
-    df = df.replace('_', np.nan)
-    df['w'] = df['w'].replace(np.nan, '_')
+    df = df.replace("_", np.nan)
+    df["w"] = df["w"].replace(np.nan, "_")
     return Dataset(df, name=usename or corpus.name)
 
 
@@ -438,7 +450,7 @@ def _get_short_name_from_long_name(longname):
     return revers.get(longname, longname)
 
 
-def _make_meta_dict_from_sent(text, first=False):
+def _make_meta_dict_from_sent(text, first=False, speakers=True):
     """
     Make dict of sentence and token metadata
     """
@@ -447,7 +459,7 @@ def _make_meta_dict_from_sent(text, first=False):
     marker = "<meta "
     if first and not text.strip().startswith(marker):
         return dict(), dict()
-    parser = InputParser()
+    parser = InputParser(speakers=speakers)
     parser.feed(text)
     if first:
         return parser.sent_meta, dict()
@@ -484,3 +496,47 @@ def _series_to_wordlist(series, by, top):
         raise NotImplementedError()
     # return padded
     return lst + [None] * (top - len(lst))
+
+
+def _load_corpus(self, load_trees: bool = False, **kwargs):
+    """
+    Generic loader for corpus or contents
+    """
+    from .corpus import Corpus
+    from .dataset import Dataset
+    from . import multi
+
+    # current favourite line in buzz codebase :P
+    multiprocess = multi.how_many(kwargs.get("multiprocess", self.is_parsed))
+
+    to_iter = self.files if isinstance(self, Corpus) else self
+
+    chunks = np.array_split(to_iter, multiprocess)
+    if self.is_parsed:
+        delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
+    else:
+        delay = (multi.read(x, i) for i, x in enumerate(chunks))
+    loaded = Parallel(n_jobs=multiprocess)(delay)
+    # unpack the nested list that multiprocessing creates
+    loaded = [item for sublist in loaded for item in sublist]
+
+    # for unparsed corpora, we give a dict of {path: text}
+    # this used to be an OrderedDict, but dict order is now guaranteed.
+    if not self.is_parsed:
+        keys = self.filepaths if self.is_parsed else [i.path for i in self]
+        return dict(sorted(zip(keys, loaded)))
+
+    # for parsed corpora, we merge each file contents into one huge dataframe
+    df = pd.concat(loaded, sort=False)
+    # todo: think a bit more about when to load load_trees
+    if load_trees:
+        tree_once = utils._tree_once(df)
+        if isinstance(tree_once.values[0], str):
+            df["parse"] = tree_once.apply(utils._make_tree)
+
+    df["_n"] = range(len(df))
+    if kwargs.get("set_data_types", True):
+        df = _set_best_data_types(df)
+    df = _order_df_columns(df)
+    print("\n" * multiprocess)  # not sure if this really helps
+    return Dataset(df, reference=df, name=self.name)

@@ -83,4 +83,5 @@ class Table(pd.DataFrame):
         Generate keywords for this table, either ll or pd
         """
         from .views import _keyness
+
         return _keyness(self, keyness, reference=reference)
