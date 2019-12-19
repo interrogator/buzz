@@ -271,7 +271,7 @@ class Dataset(pd.DataFrame):
         if loadname.endswith('.feather'):
             df = pd.read_feather(loadname, nthreads=multiprocess)
         elif loadname.endswith('.parquet'):
-            df = pd.read_parquet(loadname)
+            df = pd.read_parquet(loadname, nthreads=multiprocess)
         name = os.path.splitext(os.path.basename(loadname))[0]
         if name.endswith("-parsed"):
             name = name[:-7]
