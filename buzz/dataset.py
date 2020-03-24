@@ -7,7 +7,7 @@ from joblib import Parallel
 
 from . import multi
 from .conc import _concordance
-from .constants import DTYPES, QUERYSETS, SENT_LEVEL_METADATA
+from .constants import QUERYSETS, SENT_LEVEL_METADATA
 from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
@@ -331,7 +331,6 @@ class Dataset(pd.DataFrame):
         self["_match"] = form
         cols_added.add("_match")
         columns = dict()
-        needed = subcorpora + ["_match"]
         self.drop(["file", "s", "i"], axis=1, inplace=True, errors="ignore")
         # reduced = self[needed]
         for group, data in self.reset_index().groupby(subcorpora):

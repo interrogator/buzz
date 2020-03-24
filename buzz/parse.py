@@ -1,22 +1,15 @@
 import argparse
-import multiprocessing
 import os
 import shutil
 
-import nltk
 import numpy as np
-from joblib import Parallel, delayed
+from joblib import Parallel
 
 from . import multi
 from .html import MetadataStripper
-from .utils import (_get_nlp, _get_tqdm, _make_meta_dict_from_sent, _to_df,
-                    _tqdm_close, _tqdm_update)
+from .utils import _get_nlp, _get_tqdm, _make_meta_dict_from_sent
 
 tqdm = _get_tqdm()
-
-
-
-
 
 
 def _strip_metadata(plain, speakers):
@@ -93,7 +86,7 @@ def _is_correct_span(word, span, nth, features, nlp):
     # there must be a faster way to get token index in sent than this...
     ix_in_sent = next(i for i, t in enumerate(word.sent) if t == word)
     # get the tokens from start of our match to end of seent
-    toks_after = word.sent[ix_in_sent - nth_in_span :]
+    toks_after = word.sent[ix_in_sent - nth_in_span:]
     # get this part of the sent as string, and cut it to length of span
     after = str(toks_after)[: len(span)]
     # ideally now, we can compare the span and the sent
@@ -155,20 +148,6 @@ def _process_string(plain, path, save_as, corpus_name, language, speakers):
 
     with open(outpath, "w") as fo:
         fo.write(output)
-
-
-@delayed
-def multiparse(paths, position, save_as, corpus_name, language, speakers):
-    kwa = dict(
-        ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
-    )
-    t = _get_tqdm()(**kwa)
-    for path in paths:
-        with open(path, "r") as fo:
-            plain = fo.read().strip()
-        _process_string(plain, path, save_as, corpus_name, language, speakers)
-        _tqdm_update(t)
-    _tqdm_close(t)
 
 
 def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers):
@@ -253,12 +232,11 @@ class Parser:
             fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
             multiprocess = multi.how_many(self.multiprocess)
             chunks = np.array_split(fs, multiprocess)
-            args = (self.save_as, self.corpus_name)
             delay = (
-                multiparse(x, i, self.save_as, self.corpus_name, self.language, self.speakers)
+                multi.parse(x, i, self.save_as, self.corpus_name, self.language, self.speakers)
                 for i, x in enumerate(chunks)
             )
-            done = Parallel(n_jobs=multiprocess)(delay)
+            Parallel(n_jobs=multiprocess)(delay)
 
     def _make_metadata(self, description):
         return dict(

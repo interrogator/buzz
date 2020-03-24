@@ -368,14 +368,14 @@ def _to_df(
         header=None,
         names=COLUMN_NAMES,
         quoting=3,
-        # index_col=["file", "s", "i"],
+        index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
         # na_values="_",
         usecols=csv_usecols,
     )
 
-    df = df.set_index(["file", "s", "i"])
+    # df = df.set_index(["file", "s", "i"])
 
     morph_cols, misc_cols = list(), list()
     if morph and "m" in df.columns and (df["m"] != "_").any():

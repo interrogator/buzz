@@ -1,12 +1,8 @@
 import pandas as pd
-from pandas import option_context
 
 from .constants import CONLL_COLUMNS
 from .utils import _auto_window, _make_match_col
 from .views import _tabview
-
-# setting with copy error for setting ['_match']
-pd.options.mode.chained_assignment = None
 
 
 class Concordance(pd.DataFrame):
@@ -34,20 +30,21 @@ class Concordance(pd.DataFrame):
 
 def _get_right(n, allwords, window):
     """
-    For df.apply(), generate left, match and right cols
+    For df.apply(), generate right
 
     This needs to be performant.
     """
     end = min(n + window[1], len(allwords) - 1)
-    return " ".join(allwords[n + 1 : end])[: window[1]]
+    return " ".join(allwords[n + 1: end])[: window[1]]
+
 
 def _get_left(n, allwords, window):
     """
-    For df.apply(), generate left, match and right cols
+    For df.apply(), generate left
 
     This needs to be performant.
     """
-    return " ".join(allwords[max(n - window[0], 0):n])[-window[0] :]
+    return " ".join(allwords[max(n - window[0], 0):n])[-window[0]:]
 
 
 def _concordance(

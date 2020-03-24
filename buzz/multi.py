@@ -1,10 +1,12 @@
 """
 buzz: multiprocessing helpers
 """
-from joblib import delayed
 
 import multiprocessing
-from .utils import _get_tqdm, _tqdm_update, _tqdm_close, _to_df
+
+from joblib import delayed
+
+from .utils import _get_tqdm, _to_df, _tqdm_close, _tqdm_update
 
 
 def how_many(multiprocess):
@@ -71,7 +73,11 @@ def search(corpus, queries, position, **kwargs):
 
 
 @delayed
-def parse(processor, paths, position, *args):
+def parse(paths, position, save_as, corpus_name, language, speakers):
+    """
+    Parse using multiprocessing, chunks of paths
+    """
+    from .parse import _process_string
     kwa = dict(
         ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
     )
@@ -79,6 +85,6 @@ def parse(processor, paths, position, *args):
     for path in paths:
         with open(path, "r") as fo:
             plain = fo.read().strip()
-        processor(plain, path, *args)
+        _process_string(plain, path, save_as, corpus_name, language, speakers)
         _tqdm_update(t)
     _tqdm_close(t)

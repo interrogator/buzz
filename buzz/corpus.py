@@ -3,13 +3,8 @@ import os
 from collections import MutableSequence
 from functools import total_ordering
 
-import pandas as pd
-import numpy as np
-
 from . import utils
 from .contents import Contents
-from .dataset import Dataset
-from . import multi
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
