@@ -487,11 +487,10 @@ def _load_corpus(self, load_trees: bool = False, **kwargs):
     from . import multi
 
     # current favourite line in buzz codebase :P
-    multiprocess = multi.how_many(kwargs.get("multiprocess", self.is_parsed))
-
+    multiprocess = multi.how_many(kwargs.pop("multiprocess", self.is_parsed))
     to_iter = self.files if isinstance(self, Corpus) else self
-
     chunks = np.array_split(to_iter, multiprocess)
+
     if self.is_parsed:
         delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
     else:
