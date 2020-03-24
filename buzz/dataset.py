@@ -269,7 +269,7 @@ class Dataset(pd.DataFrame):
         """
         multiprocess = multi.how_many(multiprocess)
         if loadname.endswith('.feather'):
-            df = pd.read_feather(loadname, nthreads=multiprocess)
+            df = pd.read_feather(loadname, use_threads=multiprocess)
         elif loadname.endswith('.parquet'):
             df = pd.read_parquet(loadname)
         name = os.path.splitext(os.path.basename(loadname))[0]

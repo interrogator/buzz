@@ -38,7 +38,7 @@ class Table(pd.DataFrame):
         """
         Visualise this table
         """
-        pass
+        return super().plot(*args, **kwargs)
 
     def relative(self, denom=None):
         """

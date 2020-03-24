@@ -53,7 +53,8 @@ setup(
         "tensorflow>=1.12.1",
         "setuptools>=41.0.0",
         "spacy==2.2.2",
-        "pandas==0.25.0",
+        "pandas==1.0.3",
+        "pyarrow==0.16.0"
         "tqdm==4.38.0",
         "isort==4.3.21",
     ],
