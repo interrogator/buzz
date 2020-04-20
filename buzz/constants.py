@@ -83,7 +83,7 @@ DTYPES = dict(
     text=str,
     location=str,
     file="category",
-    title=str
+    title=str,
 )
 
 

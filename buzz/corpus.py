@@ -189,7 +189,9 @@ class Corpus(MutableSequence):
         ):
             msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
             raise ValueError(msg)
-        self.parser = Parser(language=language, multiprocess=multiprocess, speakers=speakers)
+        self.parser = Parser(
+            language=language, multiprocess=multiprocess, speakers=speakers
+        )
         return self.parser.run(self)
 
     def load(self, load_trees: bool = False, **kwargs):

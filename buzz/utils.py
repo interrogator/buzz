@@ -10,8 +10,14 @@ from joblib import Parallel
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import (COLUMN_NAMES, CONLL_COLUMNS, DTYPES, LONG_NAMES,
-                        MORPH_FIELDS, SPACY_LANGUAGES)
+from .constants import (
+    COLUMN_NAMES,
+    CONLL_COLUMNS,
+    DTYPES,
+    LONG_NAMES,
+    MORPH_FIELDS,
+    SPACY_LANGUAGES,
+)
 
 
 def _get_texts(file_data):
@@ -489,15 +495,31 @@ def _load_corpus(self, load_trees: bool = False, **kwargs):
     # current favourite line in buzz codebase :P
     multiprocess = multi.how_many(kwargs.pop("multiprocess", self.is_parsed))
     to_iter = self.files if isinstance(self, Corpus) else self
-    chunks = np.array_split(to_iter, multiprocess)
 
-    if self.is_parsed:
-        delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
+    # i would love to only ever use joblib, and therefore just use the first
+    # part of these conditionals, but django and joblib don't play nice.
+    if multiprocess and multiprocess > 1:
+        chunks = np.array_split(to_iter, multiprocess)
+        if self.is_parsed:
+            delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
+        else:
+            delay = (multi.read(x, i) for i, x in enumerate(chunks))
+        loaded = Parallel(n_jobs=multiprocess)(delay)
+        # unpack the nested list that multiprocessing creates
+        loaded = [item for sublist in loaded for item in sublist]
     else:
-        delay = (multi.read(x, i) for i, x in enumerate(chunks))
-    loaded = Parallel(n_jobs=multiprocess)(delay)
-    # unpack the nested list that multiprocessing creates
-    loaded = [item for sublist in loaded for item in sublist]
+        kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
+        t = tqdm(**kwa) if len(to_iter) > 1 else None
+        loaded = list()
+        for file in to_iter:
+            data = (
+                file.load(load_trees=load_trees, **kwargs)
+                if file.is_parsed
+                else file.read()
+            )
+            loaded.append(data)
+            _tqdm_update(t)
+        _tqdm_close(t)
 
     # for unparsed corpora, we give a dict of {path: text}
     # this used to be an OrderedDict, but dict order is now guaranteed.
@@ -535,8 +557,8 @@ def _fix_datatypes_on_save(df, to_reduce):
         if col not in DTYPES or df[col].dtype.name == "object":
             if col in to_reduce:
                 continue
-            print(f'Stringifying column {col}...')
-            df[col] = df[col].astype(str).fillna('_')
+            print(f"Stringifying column {col}...")
+            df[col] = df[col].astype(str).fillna("_")
     return df
 
 

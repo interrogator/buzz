@@ -39,7 +39,7 @@ setup(
     keywords=["corpus", "linguistics", "nlp"],
     install_requires=[
         "nltk",
-        "bllipparser",
+        # "bllipparser",
         "en-core-web-sm",
         "joblib",
         "scipy",
