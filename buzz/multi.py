@@ -1,7 +1,7 @@
 """
 buzz: multiprocessing helpers
 """
-
+import os
 import multiprocessing
 
 from joblib import delayed
@@ -15,6 +15,9 @@ def how_many(multiprocess):
 
     Hardest utility ever written.
     """
+    # silently disable multiprocessing for windows because it fails?
+    if os.name == "nt":
+        return 1
     if multiprocess is True:
         multiprocess = multiprocessing.cpu_count()
     if multiprocess in {0, 1, False, None}:
@@ -78,6 +81,7 @@ def parse(paths, position, save_as, corpus_name, language, speakers):
     Parse using multiprocessing, chunks of paths
     """
     from .parse import _process_string
+
     kwa = dict(
         ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
     )
