@@ -7,7 +7,10 @@ import math
 import numpy as np
 import pandas as pd
 
-from .tabview import view
+try:
+    from .tabview import view
+except:
+    view = None
 from .utils import _auto_window, _make_match_col
 
 
@@ -83,6 +86,8 @@ def _tabview(df, reference, window="auto", **kwargs):
         view_style["align_right"] = aligns
     if "trunc_left" not in kwargs:
         view_style["trunc_left"] = truncs
+    if view is None:
+        raise OSError("Cannot use tabview on windows.")
     view(df, **view_style)
 
 
@@ -229,7 +234,7 @@ def _table(
     multiindex_columns=False,
     keep_stats=False,
     show_entities=False,
-    **kwargs
+    **kwargs,
 ):
     """
     Generate a result table view from Results, or a Results-like DataFrame
