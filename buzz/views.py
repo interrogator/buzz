@@ -7,10 +7,6 @@ import math
 import numpy as np
 import pandas as pd
 
-try:
-    from .tabview import view
-except:
-    view = None
 from .utils import _auto_window, _make_match_col
 
 
@@ -49,6 +45,11 @@ def _tabview(df, reference, window="auto", **kwargs):
     """
     from .conc import Concordance
 
+    try:
+        from .tabview import view
+    except:
+        raise OSError("Not available on Windows, sorry.")
+
     is_conc = type(df) == Concordance
 
     # needs review
@@ -86,8 +87,6 @@ def _tabview(df, reference, window="auto", **kwargs):
         view_style["align_right"] = aligns
     if "trunc_left" not in kwargs:
         view_style["trunc_left"] = truncs
-    if view is None:
-        raise OSError("Cannot use tabview on windows.")
     view(df, **view_style)
 
 
