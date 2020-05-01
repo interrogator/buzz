@@ -110,7 +110,7 @@ def _df_to_figure(df, kind="bar"):
     return dict(data=datapoints, layout=layout)
 
 
-def _make_component(kind="div", data=None, id=None, **kwargs):
+def _make_component(kind="div", data=None, idx=None, **kwargs):
     if kind in CHART_TYPES:
         get_from = dcc
         chart_type = kind
@@ -119,7 +119,7 @@ def _make_component(kind="div", data=None, id=None, **kwargs):
         chart_type = None
         get_from = MAPPING.get(kind.lower(), html)
     if kind.lower() == "datatable":
-        datatable = _make_datatable(data, id)
+        datatable = _make_datatable(data, idx)
         return datatable
     elif kind.lower() == "markdown":
         contents = dict(children=data)
@@ -142,7 +142,6 @@ class DashSite(object):
             __name__,
             external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"],
         )
-        self._n_chart = 0
         self.title = title or "buzz project (pass `title` argument to rename)"
         self.colors = {"background": "#ffffff", "text": "#7FDBFF"}
         self._process = None
@@ -156,9 +155,10 @@ class DashSite(object):
             ],
         )
 
-    def add(self, kind="div", data=None, id=None, **kwargs):
-
-        comp = _make_component(kind, data, id, **kwargs)
+    def add(self, kind="div", data=None, idx=None, **kwargs):
+        if not idx:
+            idx = "el-" + str(id(data))
+        comp = _make_component(kind, data, idx, **kwargs)
         self.app.layout.children.append(comp)
         if self._process and self._process.is_alive():
             self.reload()
@@ -172,13 +172,27 @@ class DashSite(object):
         print("* Process running on pid: {}".format(self._process.pid))
 
     def kill(self):
-        self._process.terminate()
+        if self._process is not None:
+            self._process.terminate()
 
     def reload(self):
         self.kill()
         self.run()
 
+    def remove(self, idx):
+        if isinstance(idx, int):
+            idx = str(idx)
+        elif not isinstance(idx, str):
+            idx = str(id(idx))
+        if not idx.startswith("el-"):
+            idx = "el-" + idx
+        self.app.layout.children = [
+            i
+            for i in self.app.layout.children
+            if str(getattr(i, "id", None)) != str(idx)
+        ]
+        self.reload()
+
     def empty(self):
         self.app.layout.children = [self.app.layout.children[0]]
-        self._n_chart = 0
         self.reload()

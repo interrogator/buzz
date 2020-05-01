@@ -48,6 +48,7 @@ setup(
         "scikit-learn",
         "colorama",
         "numpy==1.17.4",
+        "matplotlib==3.2.1",
         # 'benepar',
         # 'benepar[cpu]',
         "tensorflow>=1.12.1",

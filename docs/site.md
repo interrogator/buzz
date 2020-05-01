@@ -8,7 +8,7 @@ This returns a `DashSite` object, which you can then extend and refine. Generati
 
 ```python
 corpus = Corpus("dtrt/do-the-right-thing-parsed").load()
-verbs = corpus.just.wordclass.VERB
+verb = corpus.just.wordclass.VERB
 tab = verb.table(relative=True, sort="total")
 site = tab.site('Verbs in "Do the right thing')
 ```

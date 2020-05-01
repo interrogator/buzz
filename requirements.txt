@@ -17,6 +17,7 @@ pyarrow==0.15.1
 # just needed for test/ci:
 flake8==3.7.9
 coverage
+matplotlib==3.2.1
 mypy
 codecov
 pre-commit
