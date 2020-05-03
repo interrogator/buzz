@@ -50,7 +50,7 @@ setup(
         "numpy==1.17.4",
         "matplotlib==3.2.1",
         "tensorflow>=1.12.1",
-        "setuptools>=41.0.0",
+        "setuptools>=46.1.3",
         "spacy==2.2.2",
         "pandas==1.0.3",
         "pyarrow==0.16.0",
