@@ -210,7 +210,6 @@ parsed.files[re.compile('pizzeria$')].load()
 
 All metadata attributes are available for each token in the text. Here, we look at the features of the first token in the text:
 
-
 ```python
 print(loaded.head(1).T.to_html())
 ```
@@ -299,6 +298,36 @@ print(loaded.head(1).T.to_html())
 </table>
 
 By default, loading files will spend a fair bit of time transforming data into optimal categories (e.g. categorical datatypes for POS tags). This slows down loading quite a lot, so if you don't care about setting optimial data types, you can do `data.load(set_data_types=False)` to double the loading speed.
+
+### Customising the way your subcorpora are loaded into the DataFrame
+
+If your dataset is not just a single folder full of text files, but a nested structure, where folder names are meaningful, you may want to think about exactly how you want you data loaded into memory. Note that doing things this way is not recommended. Ideally, you have a flat folder structure, plus the use of XML metadata tags only. But, if that is not possible, *buzz* can you still help.
+
+If you want the path to the file in the dataset's index, you can do that using the following (default) beahviour):
+
+```python
+mem = corpus.load(folder="index")
+```
+
+This way, the index will show the whole path to the filename, rather than just the filename itself. This is good for avoiding unambiguity.
+
+Alternatively, the following will make a metadata-like column with the subfolder name:
+
+```python
+mem = corpus.load(folder="column")
+# this makes it easy to pull out a specific subcorpus
+mem[mem.subcorpus == "chapter1"]
+```
+
+Finally, you can ignore your folder structure altogether:
+
+```python
+mem = corpus.load(folder=None)
+```
+
+This will ignore your folder structure entirely. If you do it, make sure that all filenames in your corpus are unique, or there could be problems.
+
+But, again, it's recommended that you don't use folder structures for your corpus. Instead, use a flat list of files, with each contaning metadata that can be used to dynamically produce subcorpora. Try to get into that habit, it's much more powerful, and in a future release, *buzz* may not continue to support handling of subfolders within corpora (since everything it can help you do is possible with metadata tagging).
 
 ## Next steps
 
