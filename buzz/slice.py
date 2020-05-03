@@ -25,8 +25,11 @@ import pandas as pd
 
 from .exceptions import DataTypeError
 from .search import Searcher
-from .utils import (_ensure_list_of_short_names,
-                    _get_short_name_from_long_name, _order_df_columns)
+from .utils import (
+    _ensure_list_of_short_names,
+    _get_short_name_from_long_name,
+    _order_df_columns,
+)
 
 
 class Filter(object):
