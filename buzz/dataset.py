@@ -12,15 +12,9 @@ from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import (
-    _fix_datatypes_on_save,
-    _get_nlp,
-    _make_match_col,
-    _make_tree,
-    _series_to_wordlist,
-    _set_best_data_types,
-    _tree_once,
-)
+from .utils import (_fix_datatypes_on_save, _get_nlp, _make_match_col,
+                    _make_tree, _series_to_wordlist, _set_best_data_types,
+                    _tree_once)
 from .views import _add_frequencies, _table, _tabview
 
 

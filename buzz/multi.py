@@ -1,8 +1,8 @@
 """
 buzz: multiprocessing helpers
 """
-import os
 import multiprocessing
+import os
 
 from joblib import delayed
 

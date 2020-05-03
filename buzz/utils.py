@@ -10,14 +10,8 @@ from joblib import Parallel
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import (
-    COLUMN_NAMES,
-    CONLL_COLUMNS,
-    DTYPES,
-    LONG_NAMES,
-    MORPH_FIELDS,
-    SPACY_LANGUAGES,
-)
+from .constants import (COLUMN_NAMES, CONLL_COLUMNS, DTYPES, LONG_NAMES,
+                        MORPH_FIELDS, SPACY_LANGUAGES)
 
 
 def _get_texts(file_data):

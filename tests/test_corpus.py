@@ -8,7 +8,7 @@ from buzz.constants import LONG_NAMES
 from buzz.contents import Contents
 from buzz.corpus import Corpus
 from buzz.dataset import Dataset
-from buzz.exceptions import NoReferenceCorpus, DataTypeError
+from buzz.exceptions import DataTypeError, NoReferenceCorpus
 from buzz.table import Table
 
 TOTAL_TOKENS = 342

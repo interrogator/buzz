@@ -6,7 +6,11 @@
   Based on code contributed by A.M. Kuchling <amk at amk dot ca>
 
 """
+import _curses
 import csv
+import curses
+import curses.ascii
+import io
 import locale
 import os
 import re
@@ -14,17 +18,13 @@ import string
 import sys
 import unicodedata
 from collections import Counter
+from curses.textpad import Textbox
 from operator import itemgetter
 from subprocess import PIPE, Popen
 from textwrap import wrap
 
-import _curses
-import curses
-import curses.ascii
-import io
 import numpy as np
 import pandas as pd
-from curses.textpad import Textbox
 from pandas import option_context
 
 

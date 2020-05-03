@@ -1,6 +1,7 @@
 import re
-from html.parser import HTMLParser
 from collections import OrderedDict
+from html.parser import HTMLParser
+
 from buzz.utils import cast
 
 SPEAKER_REGEX = re.compile(r"^([A-Z0-9-_]{1,30}):\s*", re.MULTILINE)

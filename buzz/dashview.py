@@ -2,12 +2,11 @@
 
 from multiprocessing import Process
 
+import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_table
 import plotly.graph_objects as go
-
-import dash
 
 MAPPING = {
     "markdown": dcc,
@@ -19,6 +18,7 @@ MAPPING = {
     "graph": dcc,
     "table": html,
 }
+
 
 CHART_TYPES = {"line", "bar", "heatmap", "area", "stacked_bar"}  # "pie"
 
