@@ -118,3 +118,7 @@ You can use `__` or `*` to stand in for any token. To match any token that is th
 ```
 __ -> x"VERB"
 ```
+
+## More info needed?
+
+Checkout [the *buzzword* documentation](https://buzzword.readthedocs.io/en/latest/depgrep/), which helps with writing these queries, or head over to [the depgrep GitHub](https://github.com/interrogator/depgrep)
