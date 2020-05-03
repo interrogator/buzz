@@ -18,7 +18,7 @@ class TestTable(unittest.TestCase):
     def test_loaded_corpus_table(self):
         tab = LOADED.table()
         self.assertIsInstance(tab, Table)
-        self.assertEqual(tab.shape, (3, 168))
+        self.assertEqual(tab.shape, (4, 176))
         self.assertEqual(tab.index.name, "file")
         self.assertEqual(tab.columns.name, "w")
 
@@ -45,28 +45,34 @@ class TestTable(unittest.TestCase):
         self.assertEqual(word_pos.columns.name, "p/w")
         word_pos = LOADED.table(show=["w", "+1w"])
         self.assertTrue(all("/" in i for i in word_pos.columns))
-        first = ["in/the", "the/jungle", "the/stories"]
+        first = ["in/the", "the/jungle", "./the"]
         self.assertEqual(list(word_pos.columns[:3]), first)
 
     def test_ll_keyword(self):
         word_pos = LOADED.table(show=["w", "p"], keyness="ll")
-        self.assertEqual(word_pos.shape[0], 3)
-        self.assertEqual(word_pos.shape[1], 173)
-        self.assertEqual(word_pos.columns[0], "the/dt")
+        self.assertEqual(word_pos.shape[0], 4)
+        self.assertEqual(word_pos.shape[1], 181)
+        self.assertEqual(word_pos.columns[0], "his/prp$")
 
     def test_pd_keyword(self):
         word_pos = LOADED.table(show=["w", "p"], keyness="pd")
-        self.assertEqual(word_pos.shape[0], 3)
-        self.assertEqual(word_pos.shape[1], 173)
-        self.assertEqual(word_pos.columns[0], "worlds/nns")
+        self.assertEqual(word_pos.shape[0], 4)
+        self.assertEqual(word_pos.shape[1], 181)
+        # somewhere this changed from worlds/nns ... pd changed?
+        # todo: this table would benefit from 'secondary sort'
+        # since many values are equally turbulent...
+        self.assertEqual(word_pos.columns[0], "file/nn")
 
     def test_no_ref_keyness(self):
+        """
+        This should make a reference corpus from the corpus itself!
+        """
         nouns = LOADED.just.wordclass.NOUN
         nouns.reference = None
         word_pos = nouns.table(show=["w", "p"], keyness="pd")
-        self.assertEqual(word_pos.columns[0], "theme/nn")
-        self.assertEqual(word_pos.shape[0], 3)
-        self.assertEqual(word_pos.shape[1], 55)
+        self.assertEqual(word_pos.columns[0], "file/nn")
+        self.assertEqual(word_pos.shape[0], 4)
+        self.assertEqual(word_pos.shape[1], 56)
 
     def test_sort(self):
         tab = LOADED.table()
@@ -79,9 +85,9 @@ class TestTable(unittest.TestCase):
         tur = tab.sort("turbulent")
         sig = tab.sort("increase", remove_above_p=0.05, keep_stats=True)
         # these two entries have same slope...
-        book_his = list(inc.columns)[:2]
-        self.assertTrue("book" in book_his)
-        self.assertTrue("his" in book_his)
+        top_two = list(inc.columns)[:2]
+        self.assertTrue("," in top_two)
+        self.assertTrue("book" in top_two)
         self.assertEqual(list(inc), list(reversed(list(dec))))
         # check that columns are actually alphametical. nice idiom
         self.assertTrue(all(x <= y for x, y in zip(list(nam), list(nam)[1:])))
@@ -90,21 +96,23 @@ class TestTable(unittest.TestCase):
         # static is opposite of turbulent
         self.assertEqual(list(reversed(list(sta))), list(tur))
         sig_ix = [
-            "one",
-            "second",
-            "space in name",
+            "first/one",
+            "second/mult",
+            "second/second",
+            "third/space in name",
             "slope",
             "intercept",
             "r",
             "p",
             "stderr",
         ]
+        #
         self.assertEqual(list(sig.index), sig_ix)
         # check that all values are below the p threshold
         self.assertTrue((sig.loc["p"] <= 0.05).all(), sig.loc["p"])
 
     def test_tabview(self):
-        with patch("buzz.views.view", side_effect=ValueError("Boom!")):
+        with patch("buzz.tabview.view", side_effect=ValueError("Boom!")):
             tab = LOADED.table()
             with self.assertRaises(ValueError):
                 tab.view()

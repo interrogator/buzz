@@ -63,7 +63,7 @@ class File(Corpus):
         loaded = self.load(usecols=usecols)
         return loaded.table(show=show, subcorpora=subcorpora, **kwargs)
 
-    def load(self, load_trees=False, **kwargs):
+    def load(self, **kwargs):
         """
         For parsed dataset, get dataframe or spacy object
         """
@@ -74,10 +74,6 @@ class File(Corpus):
             df["_n"] = range(len(df))
             df = _order_df_columns(df)
             df.reference = df
-            if load_trees:
-                tree_once = _tree_once(df)
-                if isinstance(tree_once.values[0], str):
-                    df["parse"] = tree_once.apply(_make_tree)
             return df
         raise NotImplementedError(
             "Cannot load DataFame from unparsed file. Use file.read()"

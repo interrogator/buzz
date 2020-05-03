@@ -15,8 +15,8 @@ class TestSearch(unittest.TestCase):
 
     def test_non_loaded(self):
         # todo: find out why .equals isn't the same.
-        res = self.parsed.tgrep("NN < /book/")
-        lres = self.loaded.tgrep("NN < /book/")
+        res = self.parsed.depgrep("w/book/ = x/NOUN/")
+        lres = self.loaded.depgrep("w/book/ = x/NOUN/")
         self.assertEqual(len(res), 3)
         self.assertTrue(list(res._n) == list(lres._n))
         res = self.parsed.depgrep("l/book/")
@@ -38,10 +38,6 @@ class TestSearch(unittest.TestCase):
         self.assertFalse("punct" in big.columns)
         self.assertEqual(big.shape[1], 3)
 
-    def test_tgrep(self):
-        res = self.loaded.tgrep("NN < /book/")
-        self.assertEqual(len(res), 3)
-
     def test_depgrep(self):
         res = self.loaded.depgrep("L/book/")
         self.assertEqual(len(res), 3)
@@ -50,7 +46,7 @@ class TestSearch(unittest.TestCase):
         # sup is a superset of res
         self.assertTrue(all(i in sup.index for i in res.index))
         self.assertEqual(len(sup), 28)
-        self.assertEqual(len(res), 25)
+        self.assertEqual(len(res), 24)
         self.assertTrue((res.x == "NOUN").all())
         # let us check this manually
         # get all rows whose lemma is 'the'

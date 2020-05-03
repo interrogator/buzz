@@ -8,21 +8,21 @@ class Table(pd.DataFrame):
     A dataframe with numerical datapoints
     """
 
-    _internal_names = pd.DataFrame._internal_names + ["reference"]
+    _internal_names = pd.DataFrame._internal_names + ["_reference"]
     _internal_names_set = set(_internal_names)
 
-    _metadata = ["reference", "path", "name"]
+    _metadata = ["_reference", "path", "name"]
 
     def __init__(self, data, reference=None, **kwargs):
         super().__init__(data, **kwargs)
-        self.reference = reference
+        self._reference = reference
 
     @property
     def _constructor(self):
         return Table
 
     def view(self, *args, **kwargs):
-        return _tabview(self, self.reference, *args, **kwargs)
+        return _tabview(self, self._reference, *args, **kwargs)
 
     def sort(self, by="total", keep_stats=False, remove_above_p=False):
         """

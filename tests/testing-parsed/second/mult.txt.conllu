@@ -1,0 +1,16 @@
+# sent_id = 1
+# sent_len = 13
+# text = There can be more than one file in a subcorpus, sorry.
+1	There	there	PRON	EX	_	3	expl	_	ent_type=_|ent_id=2|ent_iob=O
+2	can	can	VERB	MD	_	3	aux	_	ent_type=_|ent_id=2|ent_iob=O
+3	be	be	AUX	VB	_	12	ccomp	_	ent_type=_|ent_id=2|ent_iob=O
+4	more	more	ADJ	JJR	_	6	amod	_	ent_type=CARDINAL|ent_id=3|ent_iob=B
+5	than	than	SCONJ	IN	_	6	quantmod	_	ent_type=CARDINAL|ent_id=1|ent_iob=I
+6	one	one	NUM	CD	_	7	nummod	_	ent_type=CARDINAL|ent_id=1|ent_iob=I
+7	file	file	NOUN	NN	_	3	attr	_	ent_type=_|ent_id=2|ent_iob=O
+8	in	in	ADP	IN	_	3	prep	_	ent_type=_|ent_id=2|ent_iob=O
+9	a	a	DET	DT	_	10	det	_	ent_type=_|ent_id=2|ent_iob=O
+10	subcorpus	subcorpus	NOUN	NN	_	8	pobj	_	ent_type=_|ent_id=2|ent_iob=O
+11	,	,	PUNCT	,	_	12	punct	_	ent_type=_|ent_id=2|ent_iob=O
+12	sorry	sorry	ADJ	JJ	_	0	ROOT	_	ent_type=_|ent_id=2|ent_iob=O
+13	.	.	PUNCT	.	_	12	punct	_	ent_type=_|ent_id=2|ent_iob=O

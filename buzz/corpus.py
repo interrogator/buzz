@@ -194,7 +194,7 @@ class Corpus(MutableSequence):
         )
         return self.parser.run(self)
 
-    def load(self, load_trees: bool = False, **kwargs):
+    def load(self, **kwargs):
         """
         Load a Corpus into memory
 
@@ -214,7 +214,7 @@ class Corpus(MutableSequence):
         """
         if self.is_feather:
             return self.files[0].load()
-        return utils._load_corpus(self, load_trees=load_trees, **kwargs)
+        return utils._load_corpus(self, **kwargs)
 
     @property
     def vector(self):
@@ -252,29 +252,33 @@ class Corpus(MutableSequence):
         """
         from .file import File
 
-        is_parsed = self.path.endswith(("-parsed", ".feather"))
+        is_parsed = self.path.rstrip("/").endswith(("-parsed", ".feather"))
         info = dict(is_parsed=is_parsed, name=self.name)
         subcorpora = list()
         files = list()
+        fullpaths = list()
         if self.is_feather:
             return Contents([], **info), Contents([File(self.path)], **info), True
         for root, dirnames, filenames in os.walk(self.path):
-            for filename in sorted(filenames):
-                if not filename.endswith(("conll", "conllu", "txt")):
-                    continue
-                if filename.startswith("."):
-                    continue
-                fpath = os.path.join(root, filename)
-                fpath = File(fpath)
-                files.append(fpath)
-            for directory in dirnames:
+            for directory in sorted(dirnames):
                 if directory.startswith("."):
                     continue
                 directory = os.path.join(root, directory)
                 directory = Subcorpus(directory)
                 subcorpora.append(directory)
-        subcorpora = Contents(list(sorted(subcorpora)), **info)
-        files = Contents(list(sorted(files)), **info)
+            for filename in filenames:
+                if not filename.endswith(("conll", "conllu", "txt")):
+                    continue
+                if filename.startswith("."):
+                    continue
+                fpath = os.path.join(root, filename)
+                fullpaths.append(fpath)
+
+        for path in sorted(fullpaths):
+            fpath = File(path)
+            files.append(fpath)
+        subcorpora = Contents(subcorpora, **info)
+        files = Contents(files, **info)
         return subcorpora, files, is_parsed
 
     @property

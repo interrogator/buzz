@@ -1585,7 +1585,7 @@ def view(
     orient="columns",
     align_right=False,
     df=False,
-    **kwargs
+    **kwargs,
 ):
 
     """The curses.wrapper passes stdscr as the first argument to main +
@@ -1645,7 +1645,7 @@ def view(
                     colours=colours,
                     trunc_left=trunc_left,
                     df=df,
-                    **kwargs
+                    **kwargs,
                 )
 
             except (QuitException, KeyboardInterrupt):

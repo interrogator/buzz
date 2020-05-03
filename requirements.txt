@@ -2,7 +2,7 @@ cython
 numpy==1.17.4
 nltk
 scipy
-joblib
+joblib==0.14.1
 scikit-learn
 tensorflow
 spacy==2.2.3

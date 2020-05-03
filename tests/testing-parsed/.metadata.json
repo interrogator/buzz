@@ -1,11 +1,10 @@
 {
-    "cons_parser": "bllip",
     "desc": null,
     "language": "english",
     "name": "data",
-    "nfiles": 3,
-    "nsents": 12,
-    "ntokens": 329,
+    "nfiles": 4,
+    "nsents": 0,
+    "ntokens": 0,
     "parsed": true,
     "parser": "spacy",
     "path": "/home/danny/work/buzz/tests/data-parsed"

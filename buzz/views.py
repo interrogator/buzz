@@ -244,7 +244,7 @@ def _table(
         raise ValueError("Either relative or keyness, not both.")
 
     # we need access to reference corpus for freq calculation
-    reference = df.reference
+    reference = getattr(df, "_reference", df)
 
     # show and subcorpora must always be a list
     if not isinstance(show, list):

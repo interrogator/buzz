@@ -9,22 +9,23 @@ from buzz.file import File
 class TestContents(unittest.TestCase):
     def test_contents(self):
         corpus = Corpus("tests/data")
-        self.assertEqual(len(corpus.subcorpora), len(corpus.files))
-
+        self.assertNotEqual(len(corpus.subcorpora), len(corpus.files))
+        self.assertEqual(len(corpus.subcorpora), len(corpus.files) - 1)
+        # there are three subcorpora and 4 files. here is the data that
+        # needs to be in the repr of these objects
         points = [
-            ("subcorpora", "buzz.corpus.Subcorpus object", Subcorpus, "first"),
-            ("files", "buzz.file.File object", File, "one"),
+            ("subcorpora", "buzz.corpus.Subcorpus object", Subcorpus, "first", 3),
+            ("files", "buzz.file.File object", File, "one", 4),
         ]
 
-        for name, rep, clas, filename in points:
-
+        for name, rep, clas, filename, tot in points:
             iterab = getattr(corpus, name)
             # check repr
             self.assertTrue(str(iterab).startswith("["))
             self.assertTrue(str(iterab).endswith("]"))
-            self.assertEqual(str(iterab).count(rep), 3, str(iterab))
+            self.assertEqual(str(iterab).count(rep), tot, str(iterab))
 
-            # check that getattr and getitem both work the same way
+            # check that getattr and getitem bothx work the same way
             att, item = getattr(iterab, filename), iterab[filename]
             self.assertEqual(att, item)
             self.assertIsInstance(att, clas)
@@ -47,7 +48,7 @@ class TestContents(unittest.TestCase):
             self.assertEqual(iterab[pat][0], iterab[0])
             # deletion
             del iterab[0]
-            self.assertEqual(len(iterab), 2)
+            self.assertEqual(len(iterab), tot - 1)
             # non comparable
             with self.assertRaises(TypeError):
                 iterab == corpus
