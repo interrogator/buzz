@@ -10,6 +10,7 @@ class MetadataStripper(HTMLParser):
     """
     Strip HTML/XML properly
     """
+
     def __init__(self, speakers=True):
         super().__init__()
         self.text = str()

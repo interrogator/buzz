@@ -35,7 +35,7 @@ def _get_right(n, allwords, window):
     This needs to be performant.
     """
     end = min(n + window[1], len(allwords) - 1)
-    return " ".join(allwords[n + 1: end])[: window[1]]
+    return " ".join(allwords[n + 1 : end])[: window[1]]
 
 
 def _get_left(n, allwords, window):
@@ -44,7 +44,7 @@ def _get_left(n, allwords, window):
 
     This needs to be performant.
     """
-    return " ".join(allwords[max(n - window[0], 0):n])[-window[0]:]
+    return " ".join(allwords[max(n - window[0], 0) : n])[-window[0] :]
 
 
 def _concordance(

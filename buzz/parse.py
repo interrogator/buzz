@@ -86,7 +86,7 @@ def _is_correct_span(word, span, nth, features, nlp):
     # there must be a faster way to get token index in sent than this...
     ix_in_sent = next(i for i, t in enumerate(word.sent) if t == word)
     # get the tokens from start of our match to end of seent
-    toks_after = word.sent[ix_in_sent - nth_in_span:]
+    toks_after = word.sent[ix_in_sent - nth_in_span :]
     # get this part of the sent as string, and cut it to length of span
     after = str(toks_after)[: len(span)]
     # ideally now, we can compare the span and the sent
@@ -150,7 +150,9 @@ def _process_string(plain, path, save_as, corpus_name, language, speakers):
         fo.write(output)
 
 
-def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers):
+def _process_sent(
+    sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers
+):
     word_index = 1
     sent_parts = list()
     text = sent.text.strip(" ").replace("\n", " ")
@@ -233,7 +235,9 @@ class Parser:
             multiprocess = multi.how_many(self.multiprocess)
             chunks = np.array_split(fs, multiprocess)
             delay = (
-                multi.parse(x, i, self.save_as, self.corpus_name, self.language, self.speakers)
+                multi.parse(
+                    x, i, self.save_as, self.corpus_name, self.language, self.speakers
+                )
                 for i, x in enumerate(chunks)
             )
             Parallel(n_jobs=multiprocess)(delay)

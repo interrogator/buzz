@@ -3,7 +3,7 @@ from functools import total_ordering
 
 from .corpus import Corpus
 from .dataset import Dataset
-from .utils import _get_nlp, _make_tree, _order_df_columns, _to_df, _tree_once
+from .utils import _get_nlp, _order_df_columns, _to_df
 
 
 @total_ordering

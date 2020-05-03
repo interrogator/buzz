@@ -47,7 +47,7 @@ def _tabview(df, reference, window="auto", **kwargs):
 
     try:
         from .tabview import view
-    except:
+    except Exception:  # windows, ModuleNotFoundError?
         raise OSError("Not available on Windows, sorry.")
 
     is_conc = type(df) == Concordance

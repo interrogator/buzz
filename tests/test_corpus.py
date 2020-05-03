@@ -2,7 +2,6 @@ import shutil
 import unittest
 from unittest.mock import patch
 
-from nltk.tree import ParentedTree
 from spacy.tokens.doc import Doc
 
 from buzz.constants import LONG_NAMES

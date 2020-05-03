@@ -35,7 +35,7 @@ class TestFile(unittest.TestCase):
         loaded = parsed.load()
         self.assertIsInstance(loaded, Dataset, type(loaded))
         # ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'ent_id',
-        #'ent_iob', 'ent_type', 'sent_id', 'sent_len', 'text', '_n']
+        # 'ent_iob', 'ent_type', 'sent_id', 'sent_len', 'text', '_n']
         self.assertEqual(loaded.shape, (89, 14))
         for from_iter, from_load in zip(parsed, parsed.load()):
             self.assertEqual(from_iter, from_load)
