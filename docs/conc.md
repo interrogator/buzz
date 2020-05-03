@@ -17,7 +17,7 @@ Below are the keyword arguments accepted by the `conc` method:
 | *show*     | `['w']` | A list of attributes to show in the match column. |
 | *n*         |  `100`       |   Stop after producing this many lines  |
 | *window*         |  `'auto'`       |  Size of left and right columns, as integer or tuple of two integers. `auto` will attempt to use your display size intelligently                                    |
-| *metadata*         |  `True`       |  Add metadata info as extra columns                        |
+| *metadata*         |  `True`/`list`       |  Add metadata info as extra columns (you can provide a list of metadata fields you want to include)                        |
 
 
 ```python

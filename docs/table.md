@@ -239,7 +239,7 @@ Absolute frequencies can be difficult to interpret, especially when your subcorp
 
 `relative` keyword argument value can be:
 
-| Value for `relative` | Interpretation |
+| Value for *relative* | Interpretation |
 | -- | -- |
 | `False` | default: just use absolute frequencies |
 | `True` | Calculate relative frequencies using the sum of the axis |
