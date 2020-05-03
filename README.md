@@ -398,13 +398,7 @@ Note that for any searches that do not require traversal of the grammatical stru
 
 ## Searching constituency trees
 
-Constituency tree searching can be done with the `tgrep` method, which provides a Python implementation of the [`tgrep2` query syntax](https://web.stanford.edu/dept/linguistics/corpora/cas-tut-tgrep.html): 
-
-```python
-nps_with_adjectives = loaded.tgrep('NP < JJ')
-```
-
-It also works with nodes and links, though there are numerous differences. In particular, note that arrows appear reversed --- `NP < JJ` is an NP that dominates a JJ, while something similar in depgrep would be `f/nsubj/ -> f/amod/`, a nominal subject governing an adjective.
+This is deprecated rught now, due to lackof use. Make an issue if you realy need this functionality and we can conisder bringing it back, probably via blllip or benepar.
 
 ## Viewing search results
 
