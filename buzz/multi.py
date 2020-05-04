@@ -76,7 +76,7 @@ def search(corpus, queries, position, **kwargs):
 
 
 @delayed
-def parse(paths, position, save_as, corpus_name, language, speakers):
+def parse(paths, position, save_as, corpus_name, language, constituencies, speakers):
     """
     Parse using multiprocessing, chunks of paths
     """
@@ -89,6 +89,8 @@ def parse(paths, position, save_as, corpus_name, language, speakers):
     for path in paths:
         with open(path, "r") as fo:
             plain = fo.read().strip()
-        _process_string(plain, path, save_as, corpus_name, language, speakers)
+        _process_string(
+            plain, path, save_as, corpus_name, language, constituencies, speakers
+        )
         _tqdm_update(t)
     _tqdm_close(t)

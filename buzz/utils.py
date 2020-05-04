@@ -11,12 +11,13 @@ from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
 from .constants import (
+    BENEPAR_LANGUAGES,
     COLUMN_NAMES,
     CONLL_COLUMNS,
     DTYPES,
     LONG_NAMES,
     MORPH_FIELDS,
-    SPACY_LANGUAGES,
+    LANGUAGE_TO_MODEL,
 )
 
 
@@ -182,21 +183,35 @@ def _make_tree(tree):
         return
 
 
-def _get_nlp(language="english"):
+def _get_nlp(language="en", constituencies=False):
     """
-    Get spaCY with models by language
+    Get spaCY/benepar with models by language
     """
     import spacy
 
-    lang = SPACY_LANGUAGES.get(language.capitalize(), language)
+    language = language.lower()
+    model_name = LANGUAGE_TO_MODEL.get(language, language)
 
     try:
-        return spacy.load(lang)
+        nlp = spacy.load(model_name)
     except OSError:
         from spacy.cli import download
 
-        download(lang)
-        return spacy.load(lang)
+        download(model_name)
+        nlp = spacy.load(model_name)
+
+    if language in BENEPAR_LANGUAGES and constituencies:
+        from benepar.spacy_plugin import BeneparComponent
+
+        try:
+            nlp.add_pipe(BeneparComponent(BENEPAR_LANGUAGES[language]))
+        except LookupError:
+            import benepar
+
+            benepar.download(BENEPAR_LANGUAGES[language])
+            nlp.add_pipe(BeneparComponent(BENEPAR_LANGUAGES[language]))
+            # nlp.add_pipe(nlp.create_pipe("sentencizer"))
+    return nlp
 
 
 def cast(text):

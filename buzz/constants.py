@@ -118,6 +118,7 @@ LANGUAGES = {
     "Multi-language": "xx",
     "Afrikaans": "af",
     "Arabic": "ar",
+    "Basque": "eu",
     "Bulgarian": "bg",
     "Bengali": "bn",
     "Catalan": "ca",
@@ -161,14 +162,26 @@ LANGUAGES = {
     "Chinese": "zh",
 }
 
-_AVAILABLE_MODELS = {"en", "de", "it", "nl", "el", "pt", "fr", "es"}
-BENEPAR_LANGUAGES = {k: v for k, v in LANGUAGES.items() if v in _AVAILABLE_MODELS}
+AVAILABLE_MODELS = {"en", "de", "it", "nl", "el", "pt", "fr", "es"}
 
-SPACY_LANGUAGES = {k: v for k, v in BENEPAR_LANGUAGES.items()}
+LANGUAGE_TO_MODEL = {v: v for k, v in LANGUAGES.items() if v in AVAILABLE_MODELS}
 # need to give the full name for english, due to issue noted here:
 # https://github.com/interrogator/buzz/issues/4
-SPACY_LANGUAGES["English"] = "en_core_web_sm"
-SPACY_LANGUAGES["en"] = "en_core_web_sm"
+LANGUAGE_TO_MODEL["en"] = "en_core_web_sm"
+
+BENEPAR_LANGUAGES = dict(
+    en="benepar_en_small",  # en2 will use own POS, we want to share with spacy
+    zh="benepar_zh",
+    ar="benepar_ar",
+    de="benepar_de",
+    eu="benepar_eu",
+    fr="benepar_fr",
+    he="benepar_he",
+    hu="benepar_hu",
+    ko="benepar_ko",
+    pl="benepar_pl",
+    sv="benepar_sv",
+)
 
 MORPH_FIELDS = {
     "adptype": "adp_type",

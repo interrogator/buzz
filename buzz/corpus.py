@@ -142,9 +142,9 @@ class Corpus(MutableSequence):
         Create, store and return the metadata for this corpus
         """
         meta = dict(
-            language="english",
+            language="en",
             parser="spacy",
-            cons_parser=None,
+            cons_parser="benepar",
             path=self.path,
             name=self.name,
             parsed=self.is_parsed,
@@ -179,7 +179,9 @@ class Corpus(MutableSequence):
             json.dump(pairs, fo, sort_keys=True, indent=4, separators=(",", ": "))
         return self.metadata
 
-    def parse(self, language="english", multiprocess=False, speakers=True):
+    def parse(
+        self, language="en", multiprocess=False, constituencies=False, speakers=True
+    ):
         """
         Parse a plaintext corpus
         """
@@ -190,7 +192,10 @@ class Corpus(MutableSequence):
             msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
             raise ValueError(msg)
         self.parser = Parser(
-            language=language, multiprocess=multiprocess, speakers=speakers
+            language=language,
+            multiprocess=multiprocess,
+            constituencies=constituencies,
+            speakers=speakers,
         )
         return self.parser.run(self)
 
@@ -224,7 +229,7 @@ class Corpus(MutableSequence):
         spac = self.to_spacy(concat=True)
         return spac.vector
 
-    def to_spacy(self, language="english", concat=False):
+    def to_spacy(self, language="en", concat=False):
         """
         Get spacy's model of the Corpus
 
@@ -238,6 +243,7 @@ class Corpus(MutableSequence):
                 for data in file_datas:
                     out.append(utils._get_texts(data))
                 file_datas = out
+            # TODO: constituencies?
             self.nlp = utils._get_nlp(language=language)
             return self.nlp(" ".join(file_datas))
 
