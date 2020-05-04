@@ -39,7 +39,7 @@ setup(
     keywords=["corpus", "linguistics", "nlp"],
     install_requires=[
         "nltk",
-        "benepar==0.1.2",
+        # "benepar==0.1.2",
         "en-core-web-sm",
         "joblib==0.14.1",
         "scipy==1.3.0",
