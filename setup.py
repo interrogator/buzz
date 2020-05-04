@@ -51,7 +51,7 @@ setup(
         "matplotlib==3.2.1",
         "tensorflow>=1.12.1",
         "setuptools>=46.1.3",
-        "spacy==2.2.2",
+        "spacy==2.2.4",
         "pandas==1.0.3",
         "pyarrow==0.16.0",
         "tqdm==4.38.0",

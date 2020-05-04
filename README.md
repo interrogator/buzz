@@ -398,7 +398,7 @@ Note that for any searches that do not require traversal of the grammatical stru
 
 ## Searching constituency trees
 
-This is deprecated rught now, due to lackof use. Make an issue if you realy need this functionality and we can conisder bringing it back, probably via blllip or benepar.
+This is deprecated right now, due to lack of use (combined with requiring a lot of special handling). Make an issue if you really need this functionality and we can consider bringing it back, probably via BLLIP or Benepar. If you're making corpora with constituency parses, please use `parse = (S ...)` as sentence-level metadata to encode the parse.
 
 ## Viewing search results
 

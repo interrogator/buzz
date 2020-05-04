@@ -25,7 +25,7 @@ class File(Corpus):
         in_memory = self.load() if self.is_parsed else self.read()
         return in_memory.__iter__()
 
-    def to_spacy(self, language="english"):
+    def to_spacy(self, language="en"):
         """
         get spaCy model of this file
         """

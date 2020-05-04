@@ -195,7 +195,7 @@ class Dataset(pd.DataFrame):
             top=top,
         )
 
-    def to_spacy(self, language="english"):
+    def to_spacy(self, language="en"):
         sents = self.sentences()
         text = " ".join(sents["text"])
         self.nlp = _get_nlp(language=language)
