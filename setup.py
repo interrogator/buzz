@@ -42,7 +42,7 @@ setup(
         # "benepar==0.1.2",
         "en-core-web-sm",
         "joblib==0.14.1",
-        "scipy==1.3.0",
+        "scipy==1.4.1",
         "cython==0.29.17",
         "depgrep>=0.1.3",
         "scikit-learn==0.21.2",
