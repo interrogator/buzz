@@ -101,7 +101,7 @@ class TestCorpus(unittest.TestCase):
             shutil.rmtree(parsed_path)
         except FileNotFoundError:
             pass
-        parsed = self.unparsed.parse()
+        parsed = self.unparsed.parse(constituencies=True)
         self.assertEqual(parsed.name, self.unparsed.name)
         self.test_subcorpora_and_files(parsed)
         start = "<buzz.corpus.Corpus"

@@ -1,18 +1,19 @@
 setuptools==46.1.3
-cython
+cython==0.29.17
 numpy==1.17.4
-nltk
-scipy
+nltk==3.5
+scipy==1.3.0
+benepar==0.1.2
 joblib==0.14.1
-scikit-learn
-tensorflow
+scikit-learn==0.21.2
+tensorflow==1.14.0
 spacy==2.2.4
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz
-pandas==0.25.0
+pandas==1.0.3
 tqdm==4.38.0
-pyparsing
+pyparsing==2.4.7
 depgrep>=0.1.3
-colorama
+colorama==0.4.1
 pyarrow==0.15.1
 # just needed for test/ci:
 flake8==3.7.9
