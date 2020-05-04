@@ -11,7 +11,6 @@ jobs:
     - stage: build
       script:
         - python setup.py install
-        - pip install benepar
         - pip install benepar[cpu]
     - stage: static-checks
       script:
@@ -22,5 +21,7 @@ jobs:
         # - isort -m 3 -tc -c buzz/* tests/* setup.py
     - stage: test
       script:
+        - python setup.py install
+        - pip install benepar[cpu]
         - coverage run -m unittest
         - codecov
