@@ -22,7 +22,7 @@ setup(
     zip_safe=False,
     packages=["buzz"],
     scripts=["bin/parse"],
-    extras_require={"word": ["buzzword>=1.2.5"]},
+    extras_require={"word": ["buzzword>=1.4.0"]},
     author_email="mcddjx@gmail.com",
     license="MIT",
     keywords=["corpus", "linguistics", "nlp"],
