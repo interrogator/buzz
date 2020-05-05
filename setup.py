@@ -39,8 +39,8 @@ setup(
     keywords=["corpus", "linguistics", "nlp"],
     install_requires=[
         "nltk",
-        # "benepar==0.1.2",
-        "en-core-web-sm",
+        "benepar @ git+https://github.com/interrogator/self-attentive-parser",
+        "en-core-web-sm @ git+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz",  # noqa: E501
         "joblib==0.14.1",
         "scipy==1.4.1",
         "cython==0.29.17",
@@ -56,8 +56,5 @@ setup(
         "pyarrow==0.16.0",
         "tqdm==4.38.0",
         "isort==4.3.21",
-    ],
-    dependency_links=[
-        "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz"  # noqa: E501
     ],
 )
