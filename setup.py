@@ -22,24 +22,13 @@ setup(
     zip_safe=False,
     packages=["buzz"],
     scripts=["bin/parse"],
-    extras_require={
-        "word": [
-            "buzzword>=0.1.0",
-            "dash==1.1.1",
-            "flask==1.1.1",
-            "dash-core-components==1.1.1",
-            "dash-html-components==1.0.0",
-            "dash-renderer==1.0.0",
-            "dash-table==4.1.0",
-            "dash-daq==0.1.7",
-        ]
-    },
+    extras_require={"word": ["buzzword>=1.2.5"]},
     author_email="mcddjx@gmail.com",
     license="MIT",
     keywords=["corpus", "linguistics", "nlp"],
     install_requires=[
         "nltk",
-        "benepar @ git+https://github.com/interrogator/self-attentive-parser",
+        "buzzepar>=0.1.2",
         "en-core-web-sm @ git+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz",  # noqa: E501
         "joblib==0.14.1",
         "scipy==1.4.1",
