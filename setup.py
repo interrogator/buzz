@@ -29,7 +29,7 @@ setup(
     install_requires=[
         "nltk",
         "buzzepar>=0.1.2",
-        "en-core-web-sm @ git+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz",  # noqa: E501
+        # "en-core-web-sm @ git+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz",  # noqa: E501
         "joblib==0.14.1",
         "scipy==1.4.1",
         "cython==0.29.17",
