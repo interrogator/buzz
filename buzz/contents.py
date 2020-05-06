@@ -1,9 +1,7 @@
 import re
 from collections import MutableSequence
 
-import pandas as pd
-
-from .utils import _order_df_columns, _load_corpus
+from .utils import _load_corpus
 
 
 class Contents(MutableSequence):

@@ -1,6 +1,7 @@
 import re
-from html.parser import HTMLParser
 from collections import OrderedDict
+from html.parser import HTMLParser
+
 from buzz.utils import cast
 
 SPEAKER_REGEX = re.compile(r"^([A-Z0-9-_]{1,30}):\s*", re.MULTILINE)
@@ -10,6 +11,7 @@ class MetadataStripper(HTMLParser):
     """
     Strip HTML/XML properly
     """
+
     def __init__(self, speakers=True):
         super().__init__()
         self.text = str()

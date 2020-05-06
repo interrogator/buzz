@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name="buzz",
-    version="3.1.0",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
+    version="3.1.4",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
     description="Sophisticated corpus linguistics",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
@@ -22,42 +22,28 @@ setup(
     zip_safe=False,
     packages=["buzz"],
     scripts=["bin/parse"],
-    extras_require={
-        "word": [
-            "buzzword>=0.1.0",
-            "dash==1.1.1",
-            "flask==1.1.1",
-            "dash-core-components==1.1.1",
-            "dash-html-components==1.0.0",
-            "dash-renderer==1.0.0",
-            "dash-table==4.1.0",
-            "dash-daq==0.1.7",
-        ]
-    },
+    extras_require={"word": ["buzzword>=1.4.0"]},
     author_email="mcddjx@gmail.com",
     license="MIT",
     keywords=["corpus", "linguistics", "nlp"],
     install_requires=[
         "nltk",
-        "bllipparser",
-        "en-core-web-sm",
-        "joblib",
-        "scipy",
-        "cython",
+        "buzzepar>=0.1.2",
+        # "en-core-web-sm @ git+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz",  # noqa: E501
+        "joblib==0.14.1",
+        "scipy==1.4.1",
+        "cython==0.29.17",
         "depgrep>=0.1.3",
-        "scikit-learn",
-        "colorama",
+        "scikit-learn==0.21.2",
+        "colorama==0.4.1",
         "numpy==1.17.4",
-        # 'benepar',
-        # 'benepar[cpu]',
-        "tensorflow>=1.12.1",
-        "setuptools>=41.0.0",
-        "spacy==2.2.2",
-        "pandas==0.25.0",
+        "matplotlib==3.2.1",
+        "tensorflow==2.1.0",
+        "setuptools==46.1.3",
+        "spacy==2.2.4",
+        "pandas==1.0.3",
+        "pyarrow==0.16.0",
         "tqdm==4.38.0",
         "isort==4.3.21",
-    ],
-    dependency_links=[
-        "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz"  # noqa: E501
     ],
 )

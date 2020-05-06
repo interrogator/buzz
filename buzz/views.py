@@ -7,7 +7,6 @@ import math
 import numpy as np
 import pandas as pd
 
-from .tabview import view
 from .utils import _auto_window, _make_match_col
 
 
@@ -45,6 +44,11 @@ def _tabview(df, reference, window="auto", **kwargs):
     Show concordance in interactive cli view
     """
     from .conc import Concordance
+
+    try:
+        from .tabview import view
+    except Exception:  # windows, ModuleNotFoundError?
+        raise OSError("Not available on Windows, sorry.")
 
     is_conc = type(df) == Concordance
 
@@ -229,7 +233,7 @@ def _table(
     multiindex_columns=False,
     keep_stats=False,
     show_entities=False,
-    **kwargs
+    **kwargs,
 ):
     """
     Generate a result table view from Results, or a Results-like DataFrame
@@ -240,7 +244,7 @@ def _table(
         raise ValueError("Either relative or keyness, not both.")
 
     # we need access to reference corpus for freq calculation
-    reference = df.reference
+    reference = getattr(df, "_reference", df)
 
     # show and subcorpora must always be a list
     if not isinstance(show, list):

@@ -1,21 +1,19 @@
 import shutil
 import unittest
-from collections import OrderedDict
 from unittest.mock import patch
 
-from nltk.tree import ParentedTree
 from spacy.tokens.doc import Doc
 
 from buzz.constants import LONG_NAMES
 from buzz.contents import Contents
 from buzz.corpus import Corpus
 from buzz.dataset import Dataset
-from buzz.exceptions import NoReferenceCorpus, DataTypeError
+from buzz.exceptions import DataTypeError, NoReferenceCorpus
 from buzz.table import Table
 
-TOTAL_TOKENS = 329
+TOTAL_TOKENS = 342
 
-STRUCTURE = dict(first="one", second="second", third="space in name")
+STRUCTURE = dict(first=["one"], second=["mult", "second"], third=["space in name"])
 
 BOOK_IX = [("second", 1, 6), ("space in name", 3, 2), ("space in name", 4, 12)]
 
@@ -27,17 +25,16 @@ class TestCorpus(unittest.TestCase):
         cls.unparsed = Corpus("tests/data")
         cls.loaded_plain = cls.unparsed.load()
         cls.parsed = Corpus("tests/testing-parsed")
-        cls.loaded = cls.parsed.load(load_trees=True)
-        cls.loaded_no_tree = cls.parsed.load(load_trees=False)
-
-    def test_trees(self):
-        self.assertIsInstance(self.loaded["parse"].iloc[0], ParentedTree)
-        self.assertIsInstance(self.loaded_no_tree["parse"].iloc[0], str)
+        cls.loaded = cls.parsed.load()
+        cls.loaded_subcorpora_in_col = cls.parsed.load(folders="column")
+        cls.loaded_dropsub = cls.parsed.load(folders=None)
 
     def test_load_plain(self):
-        self.assertIsInstance(self.loaded_plain, OrderedDict)
+        self.assertIsInstance(self.loaded_plain, dict)
+        # iterate over the four files
         for i, (path, data) in enumerate(self.loaded_plain.items()):
             self.assertEqual(self.unparsed.files[i].path, path)
+            # tests/data/first/one.txt' != 'tests/data/first'
             self.assertEqual(self.unparsed.files[i].read(), data)
 
     def test_add_governor(self):
@@ -46,12 +43,28 @@ class TestCorpus(unittest.TestCase):
 
     def test_load_usecols(self):
         load = ["w", "l"]
-        loaded = self.parsed.load(usecols=load)
+        loaded = self.parsed.load(usecols=load, folders="column")
         extra = ["subcorpus", "_n"]
         self.assertEqual(list(loaded.columns), load + extra)
         load = ["l", "speaker"]
         loaded = self.parsed.load(usecols=load)
-        self.assertEqual(list(loaded.columns), load + extra)
+        self.assertEqual(list(loaded.columns), load + ["_n"])
+
+    def test_folder_options(self):
+        """
+        User can choose how they handle the fact that their project
+        has folders. by default it goes into the index, but it can
+        also go into a column, or be ignored. check that these values work
+        """
+        drop = self.loaded_dropsub
+        col = self.loaded_subcorpora_in_col
+        index = self.parsed.load()  # same as folders="index"
+        self.assertTrue("subcorpus" not in drop)
+        self.assertTrue("subcorpus" not in index)
+        self.assertEqual(drop.index[0][0], "one")
+        self.assertEqual(col.index[0][0], "one")
+        self.assertEqual(index.index[0][0], "first/one")
+        self.assertEqual(col.subcorpus[0], "first")
 
     def test_subcorpora_and_files(self, corpus=None):
         corpus = corpus or self.unparsed
@@ -59,20 +72,21 @@ class TestCorpus(unittest.TestCase):
         files = corpus.files
         self.assertIsInstance(subcorpora, Contents)
         self.assertEqual(len(subcorpora), 3)
-        for i, (k, v) in enumerate(STRUCTURE.items()):
+        for i, (k, filenames) in enumerate(STRUCTURE.items()):
             sub = corpus[i]
             also_sub = subcorpora[i]
             self.assertEqual(sub, also_sub)
             self.assertEqual(sub.name, k)
-            f = sub[0]
-            also_f = sub.files[0]
-            self.assertEqual(f, also_f)
-            self.assertEqual(f.name, v)
+            file_in_sub = sub[0]
+            also_file_in_sub = sub.files[0]
+            self.assertEqual(file_in_sub, also_file_in_sub)
+            for i, fname in enumerate(filenames):
+                self.assertEqual(sub[i].name, fname)
 
         for sub in subcorpora:
             self.assertTrue(len(sub))
         self.assertIsInstance(files, Contents)
-        self.assertEqual(len(files), 3)
+        self.assertEqual(len(files), 4)
 
     def test_repr(self):
         start = "<buzz.corpus.Corpus"
@@ -87,7 +101,7 @@ class TestCorpus(unittest.TestCase):
             shutil.rmtree(parsed_path)
         except FileNotFoundError:
             pass
-        parsed = self.unparsed.parse()
+        parsed = self.unparsed.parse(constituencies=True)
         self.assertEqual(parsed.name, self.unparsed.name)
         self.test_subcorpora_and_files(parsed)
         start = "<buzz.corpus.Corpus"
@@ -110,7 +124,6 @@ class TestCorpus(unittest.TestCase):
             "ent_id",
             "ent_iob",
             "ent_type",
-            "parse",
             "sent_id",
             "sent_len",
             "speaker",
@@ -121,14 +134,14 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(all(i in self.loaded.columns for i in expect))
 
     def test_just_skip(self):
-        book = self.loaded.just.lemmata.book
-        regex_book = self.loaded.just.lemmata("b..k")
+        book = self.loaded_dropsub.just.lemmata.book
+        regex_book = self.loaded_dropsub.just.lemmata("b..k")
         self.assertTrue(all(book.index == regex_book.index))
         self.assertEqual(len(book), 3)
         indices = list(book.index)
         for fsi in BOOK_IX:
             self.assertTrue(fsi in indices)
-        nobook = self.loaded.skip.lemmata.book
+        nobook = self.loaded_dropsub.skip.lemmata.book
         self.assertEqual(len(nobook), TOTAL_TOKENS - len(book))
 
     def test_unloaded_loaded_same(self):
@@ -185,7 +198,7 @@ class TestCorpus(unittest.TestCase):
 
         Tests for the table itself should stay in test_table
         """
-        for corp in [self.loaded, self.parsed]:
+        for corp in [self.parsed.load(multiprocess=False)]:  # self.loaded
             tab = corp.see.pos.by.lemma
             self.assertIsInstance(tab, Table)
             self.assertEqual(tab.columns.name, "l")
@@ -208,11 +221,11 @@ class TestCorpus(unittest.TestCase):
         self.assertTrue(all(isinstance(i, Doc) for i in spac))
 
     def test_dataset(self):
-        d = Dataset(self.parsed.path, load_trees=True)
-        f = Dataset(self.parsed.files[0].path, load_trees=True)
+        d = Dataset(self.parsed.path)
+        f = Dataset(self.parsed.files[0].path)
         self.assertTrue(d.equals(self.loaded))
-        self.assertTrue(f.equals(self.parsed.files[0].load(load_trees=True)))
-        with patch("buzz.views.view", side_effect=ValueError("Boom!")):
+        self.assertTrue(f.equals(self.parsed.files[0].load()))
+        with patch("buzz.tabview.view", side_effect=ValueError("Boom!")):
             with self.assertRaises(ValueError):
                 self.loaded.view()
 

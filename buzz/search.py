@@ -1,6 +1,7 @@
 import pandas as pd
-from depgrep import depgrep_compile
 from nltk.tgrep import tgrep_compile
+
+from depgrep import depgrep_compile
 
 from .utils import _get_tqdm, _make_tree, _tqdm_close, _tqdm_update, _tree_once
 

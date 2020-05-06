@@ -7,7 +7,7 @@
 # buzz: python corpus linguistics
 
 <!--- Don't edit the version line below manually. Let bump2version do it for you. -->
-> Version 3.1.0
+> Version 3.1.4
 
 > *buzz* is a linguistics tool for parsing and then exploring plain or metadata-rich text. This README provides an overview of functionality. Visit the [full documentation](https://buzz.readthedocs.io/en/latest/) for a more complete user guide.
 
@@ -398,13 +398,7 @@ Note that for any searches that do not require traversal of the grammatical stru
 
 ## Searching constituency trees
 
-Constituency tree searching can be done with the `tgrep` method, which provides a Python implementation of the [`tgrep2` query syntax](https://web.stanford.edu/dept/linguistics/corpora/cas-tut-tgrep.html): 
-
-```python
-nps_with_adjectives = loaded.tgrep('NP < JJ')
-```
-
-It also works with nodes and links, though there are numerous differences. In particular, note that arrows appear reversed --- `NP < JJ` is an NP that dominates a JJ, while something similar in depgrep would be `f/nsubj/ -> f/amod/`, a nominal subject governing an adjective.
+This is deprecated right now, due to lack of use (combined with requiring a lot of special handling). Make an issue if you really need this functionality and we can consider bringing it back, probably via BLLIP or Benepar. If you're making corpora with constituency parses, please use `parse = (S ...)` as sentence-level metadata to encode the parse.
 
 ## Viewing search results
 

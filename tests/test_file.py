@@ -34,7 +34,10 @@ class TestFile(unittest.TestCase):
         parsed = File("tests/data-parsed/first/one.txt.conllu")
         loaded = parsed.load()
         self.assertIsInstance(loaded, Dataset, type(loaded))
-        self.assertEqual(loaded.shape, (89, 15))
+        # ['w', 'l', 'x', 'p', 'g', 'f', 'e', 'ent_id',
+        # 'ent_iob', 'ent_type', 'sent_id', 'sent_len', 'text', '_n']
+        ncol = 15 if "parse" in loaded.columns else 14
+        self.assertEqual(loaded.shape, (89, ncol))
         for from_iter, from_load in zip(parsed, parsed.load()):
             self.assertEqual(from_iter, from_load)
         doc = parsed.to_spacy()

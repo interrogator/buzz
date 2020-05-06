@@ -8,7 +8,7 @@ This returns a `DashSite` object, which you can then extend and refine. Generati
 
 ```python
 corpus = Corpus("dtrt/do-the-right-thing-parsed").load()
-verbs = corpus.just.wordclass.VERB
+verb = corpus.just.wordclass.VERB
 tab = verb.table(relative=True, sort="total")
 site = tab.site('Verbs in "Do the right thing')
 ```
@@ -78,12 +78,8 @@ site.add("h4", "Summary")
 site.add("div", "Thank you for reading!")
 ```
 
-## Roadmap
+## Want a real website for your corpus?
 
-*dash* should make it possible to allow all kinds of functionality, such as searching and generating components from within the page itself.
-
-Eventually, I'd also like it to be possible to create, save and easily deploy your site so that it can be viewed from anywhere.
-
-Combining these two ideas, I think it'd be wonderful if you could serve your dataset alongside an interface for concordancing, plotting, and so on.
+[buzzword](https://github.com/interrogator/buzzword) is designed for exactly this. While you can make simple sites using the DashSite functionality, *buzzword* is an open-source, deployable app that allows you to explore corpora in your browser. Go on and check it out!
 
 

@@ -1,22 +1,16 @@
 import argparse
-import multiprocessing
 import os
 import shutil
 
-import nltk
 import numpy as np
-from joblib import Parallel, delayed
+from joblib import Parallel
+
 
 from . import multi
 from .html import MetadataStripper
-from .utils import (_get_nlp, _get_tqdm, _make_meta_dict_from_sent, _to_df,
-                    _tqdm_close, _tqdm_update)
+from .utils import _get_nlp, _get_tqdm, _make_meta_dict_from_sent
 
 tqdm = _get_tqdm()
-
-
-
-
 
 
 def _strip_metadata(plain, speakers):
@@ -68,7 +62,7 @@ def _get_token_index_in_span(span, word, nlp):
     if span.strip().startswith(word.text):
         return 0
     # otherwise, tokenise and get its index
-    tokens = nlp(span, disable=["parser", "ner"])
+    tokens = nlp(span)
     gen = (i for i, t in enumerate(tokens) if t.text == word.text)
     try:
         return next(gen)
@@ -125,7 +119,9 @@ def _make_misc_field(word, token_meta, nlp, all_meta):
     return misc
 
 
-def _process_string(plain, path, save_as, corpus_name, language, speakers):
+def _process_string(
+    plain, path, save_as, corpus_name, language, constituencies, speakers
+):
     """
     spacy: process a string of text
     """
@@ -137,14 +133,22 @@ def _process_string(plain, path, save_as, corpus_name, language, speakers):
     plain = "\n".join(plain)
     stripped_data = _strip_metadata(plain, speakers)
 
-    nlp = _get_nlp(language=language)
+    nlp = _get_nlp(language=language, constituencies=constituencies)
 
     doc = nlp(stripped_data)
     output = list()
 
     for sent_index, sent in enumerate(doc.sents, start=1):
         sstr = _process_sent(
-            sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers
+            sent_index,
+            sent,
+            file_meta,
+            plain,
+            stripped_data,
+            language,
+            nlp,
+            constituencies,
+            speakers,
         )
         output.append(sstr)
     output = "\n\n".join(output).strip() + "\n"
@@ -157,26 +161,24 @@ def _process_string(plain, path, save_as, corpus_name, language, speakers):
         fo.write(output)
 
 
-@delayed
-def multiparse(paths, position, save_as, corpus_name, language, speakers):
-    kwa = dict(
-        ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
-    )
-    t = _get_tqdm()(**kwa)
-    for path in paths:
-        with open(path, "r") as fo:
-            plain = fo.read().strip()
-        _process_string(plain, path, save_as, corpus_name, language, speakers)
-        _tqdm_update(t)
-    _tqdm_close(t)
-
-
-def _process_sent(sent_index, sent, file_meta, plain, stripped_data, language, nlp, speakers):
+def _process_sent(
+    sent_index,
+    sent,
+    file_meta,
+    plain,
+    stripped_data,
+    language,
+    nlp,
+    constituencies,
+    speakers,
+):
     word_index = 1
     sent_parts = list()
     text = sent.text.strip(" ").replace("\n", " ")
     toks = [i for i in sent if not i.is_space]
     sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=len(toks))
+    if constituencies:
+        sent_meta["parse"] = str(sent._.parse_string).replace("\n", " ")
 
     metaline = _get_line_with_meta(sent.start_char, plain, stripped_data)
     inner_sent_meta, token_meta = _make_meta_dict_from_sent(metaline, speakers=speakers)
@@ -225,10 +227,19 @@ def _parse_cmd_line():
         "-l",
         "--language",
         nargs="?",
-        default="english",
+        default="en",
         type=str,
         required=False,
         help="Language of the corpus",
+    )
+
+    parser.add_argument(
+        "-c",
+        "--constituencies",
+        default=True,
+        action="store_true",
+        required=False,
+        help="Attempt constituency parsing as well as dependency parsing",
     )
 
     parser.add_argument("path", help="Directory containing files to parse")
@@ -240,25 +251,45 @@ class Parser:
     Create an object that can parse a Corpus.
     """
 
-    def __init__(self, language="english", multiprocess=False, speakers=True):
+    def __init__(
+        self, language="en", multiprocess=False, constituencies=False, speakers=True
+    ):
         self.multiprocess = multiprocess
         self.language = language
+        self.constituencies = constituencies
         self.speakers = speakers
 
     def _spacy_parse(self):
         if self.from_str:
-            return self._process_string(self.plain_corpus)
+            # todo: what is the dot, path, gonna be for? need tests for from string
+            args = (
+                self.plain_corpus,
+                ".",
+                self.save_as,
+                self.corpus_name,
+                self.language,
+                self.constituencies,
+                self.speakers,
+            )
+            return self._process_string(*args)
         else:
             abspath = os.path.abspath(os.getcwd())
             fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
             multiprocess = multi.how_many(self.multiprocess)
             chunks = np.array_split(fs, multiprocess)
-            args = (self.save_as, self.corpus_name)
             delay = (
-                multiparse(x, i, self.save_as, self.corpus_name, self.language, self.speakers)
+                multi.parse(
+                    x,
+                    i,
+                    self.save_as,
+                    self.corpus_name,
+                    self.language,
+                    self.constituencies,
+                    self.speakers,
+                )
                 for i, x in enumerate(chunks)
             )
-            done = Parallel(n_jobs=multiprocess)(delay)
+            Parallel(n_jobs=multiprocess)(delay)
 
     def _make_metadata(self, description):
         return dict(

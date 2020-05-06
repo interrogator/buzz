@@ -10,8 +10,15 @@ from joblib import Parallel
 from nltk.tree import ParentedTree
 from tqdm import tqdm, tqdm_notebook
 
-from .constants import (COLUMN_NAMES, CONLL_COLUMNS, DTYPES, LONG_NAMES,
-                        MORPH_FIELDS, SPACY_LANGUAGES)
+from .constants import (
+    BENEPAR_LANGUAGES,
+    COLUMN_NAMES,
+    CONLL_COLUMNS,
+    DTYPES,
+    LONG_NAMES,
+    MORPH_FIELDS,
+    LANGUAGE_TO_MODEL,
+)
 
 
 def _get_texts(file_data):
@@ -176,21 +183,35 @@ def _make_tree(tree):
         return
 
 
-def _get_nlp(language="english"):
+def _get_nlp(language="en", constituencies=False):
     """
-    Get spaCY with models by language
+    Get spaCY/benepar with models by language
     """
     import spacy
 
-    lang = SPACY_LANGUAGES.get(language.capitalize(), language)
+    language = language.lower()
+    model_name = LANGUAGE_TO_MODEL.get(language, language)
 
     try:
-        return spacy.load(lang)
+        nlp = spacy.load(model_name)
     except OSError:
         from spacy.cli import download
 
-        download(lang)
-        return spacy.load(lang)
+        download(model_name)
+        nlp = spacy.load(model_name)
+
+    if language in BENEPAR_LANGUAGES and constituencies:
+        from benepar.spacy_plugin import BeneparComponent
+
+        try:
+            nlp.add_pipe(BeneparComponent(BENEPAR_LANGUAGES[language]))
+        except LookupError:
+            import benepar
+
+            benepar.download(BENEPAR_LANGUAGES[language])
+            nlp.add_pipe(BeneparComponent(BENEPAR_LANGUAGES[language]))
+            # nlp.add_pipe(nlp.create_pipe("sentencizer"))
+    return nlp
 
 
 def cast(text):
@@ -205,12 +226,15 @@ def cast(text):
         return text
 
 
-def _make_csv(raw_lines, fname, usecols):
+def _make_csv(raw_lines, fname, usecols, folders):
     """
     Turn raw CONLL-U file data into something pandas' CSV reader can easily and quickly read.
 
     The main thing to do is to add the [file, sent#, token#] index, and transform the metadata
     stored as comments into additional columns
+
+    folders: a seperate column for subcorpus, or should it
+    be in the file level of the multiindex
 
     Return: str (CSV data) and list of dicts (metadata for each discovered sentence)
     """
@@ -218,6 +242,12 @@ def _make_csv(raw_lines, fname, usecols):
     meta_dicts = list()  # our sent-level metadata will go in here
     # todo: find better way to use correct path as file index
     fname = fname.rsplit("-parsed/")[-1]
+    # no file extensions!
+    if ".txt" in fname:
+        fname = fname.split(".txt", 1)[0]
+    # how to deal with folders??
+    if folders == "column" or not folders:
+        colname, fname = fname.rsplit("/", 1)
     # make list of sentence strings
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
@@ -227,6 +257,8 @@ def _make_csv(raw_lines, fname, usecols):
         for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
             text = one + text  # rejoin it as it was
             sent_meta = dict()
+            if folders == "column":
+                sent_meta["subcorpus"] = colname
             # get every metadata row, split into key//value
             found = re.findall(regex, raw_sent_meta, re.MULTILINE)
             for key, value in found:
@@ -276,7 +308,9 @@ def _add_governor(df):
     """
     cols = ["w", "l", "x", "p", "f", "g"]
     dummy = pd.Series(["ROOT", "ROOT", "ROOT", "ROOT", "ROOT", 0])
-    govs = df.apply(_apply_governor, df=df[cols], axis=1, reduce=False, dummy=dummy)
+    govs = df.apply(
+        _apply_governor, df=df[cols], axis=1, result_type="reduce", dummy=dummy
+    )
     govs["g"] = govs["g"].fillna(0).astype(int)
     govs = govs.fillna("ROOT")
     govs = govs[["w", "l", "x", "p", "f", "g"]]
@@ -321,6 +355,7 @@ def _parse_out_multiples(df, morph=False, path=None):
 def _to_df(
     corpus,
     subcorpus: Optional[str] = None,
+    folders: Optional[str] = "index",  # can be index, column or None
     usecols: Optional[List[str]] = None,
     usename: Optional[str] = None,
     set_data_types: bool = True,
@@ -353,7 +388,7 @@ def _to_df(
         data = corpus
 
     # add file and s columns to the csv string; get metadata as well
-    data, metadata = _make_csv(data, usename or corpus.path, usecols)
+    data, metadata = _make_csv(data, usename or corpus.path, usecols, folders)
 
     # user can only load a subset, but index always needed
     csv_usecols = None
@@ -368,14 +403,14 @@ def _to_df(
         header=None,
         names=COLUMN_NAMES,
         quoting=3,
-        # index_col=["file", "s", "i"],
+        index_col=["file", "s", "i"],
         engine="c",
         na_filter=False,
         # na_values="_",
         usecols=csv_usecols,
     )
 
-    df = df.set_index(["file", "s", "i"])
+    # df = df.set_index(["file", "s", "i"])
 
     morph_cols, misc_cols = list(), list()
     if morph and "m" in df.columns and (df["m"] != "_").any():
@@ -414,8 +449,10 @@ def _to_df(
     if "g" in df.columns and add_governor:
         df = _add_governor(df)
 
-    df = df.replace("_", np.nan)  # always use nan instead of _
-    df["w"] = df["w"].replace(np.nan, "_")
+    df = df.replace("_", np.nan)  # always use nan instead of
+    # sometimes w can be missing for some non-loaded corpora
+    if "w" in df.columns:
+        df["w"] = df["w"].replace(np.nan, "_")
     return Dataset(df, name=usename or corpus.name)
 
 
@@ -478,7 +515,7 @@ def _series_to_wordlist(series, by, top):
     return lst + [None] * (top - len(lst))
 
 
-def _load_corpus(self, load_trees: bool = False, **kwargs):
+def _load_corpus(self, **kwargs):
     """
     Generic loader for corpus or contents
     """
@@ -487,32 +524,38 @@ def _load_corpus(self, load_trees: bool = False, **kwargs):
     from . import multi
 
     # current favourite line in buzz codebase :P
-    multiprocess = multi.how_many(kwargs.get("multiprocess", self.is_parsed))
-
+    multiprocess = multi.how_many(kwargs.pop("multiprocess", self.is_parsed))
     to_iter = self.files if isinstance(self, Corpus) else self
 
-    chunks = np.array_split(to_iter, multiprocess)
-    if self.is_parsed:
-        delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
+    # i would love to only ever use joblib, and therefore just use the first
+    # part of these conditionals, but django and joblib don't play nice.
+    if multiprocess and multiprocess > 1:
+        chunks = np.array_split(to_iter, multiprocess)
+        if self.is_parsed:
+            delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
+        else:
+            delay = (multi.read(x, i) for i, x in enumerate(chunks))
+        loaded = Parallel(n_jobs=multiprocess)(delay)
+        # unpack the nested list that multiprocessing creates
+        loaded = [item for sublist in loaded for item in sublist]
     else:
-        delay = (multi.read(x, i) for i, x in enumerate(chunks))
-    loaded = Parallel(n_jobs=multiprocess)(delay)
-    # unpack the nested list that multiprocessing creates
-    loaded = [item for sublist in loaded for item in sublist]
+        kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
+        t = tqdm(**kwa) if len(to_iter) > 1 else None
+        loaded = list()
+        for file in to_iter:
+            data = file.load(**kwargs) if file.is_parsed else file.read()
+            loaded.append(data)
+            _tqdm_update(t)
+        _tqdm_close(t)
 
     # for unparsed corpora, we give a dict of {path: text}
     # this used to be an OrderedDict, but dict order is now guaranteed.
     if not self.is_parsed:
-        keys = self.filepaths if self.is_parsed else [i.path for i in self]
+        keys = self.filepaths if self.is_parsed else [i.path for i in self.files]
         return dict(sorted(zip(keys, loaded)))
 
     # for parsed corpora, we merge each file contents into one huge dataframe
     df = pd.concat(loaded, sort=False)
-    # todo: think a bit more about when to load load_trees
-    if load_trees:
-        tree_once = _tree_once(df)
-        if isinstance(tree_once.values[0], str):
-            df["parse"] = tree_once.apply(_make_tree)
 
     df["_n"] = range(len(df))
     if kwargs.get("set_data_types", True):
@@ -536,8 +579,8 @@ def _fix_datatypes_on_save(df, to_reduce):
         if col not in DTYPES or df[col].dtype.name == "object":
             if col in to_reduce:
                 continue
-            print(f'Stringifying column {col}...')
-            df[col] = df[col].astype(str).fillna('_')
+            print(f"Stringifying column {col}...")
+            df[col] = df[col].astype(str).fillna("_")
     return df
 
 

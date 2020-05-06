@@ -7,14 +7,20 @@ from joblib import Parallel
 
 from . import multi
 from .conc import _concordance
-from .constants import DTYPES, QUERYSETS, SENT_LEVEL_METADATA
+from .constants import QUERYSETS, SENT_LEVEL_METADATA
 from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
-from .utils import (_fix_datatypes_on_save, _get_nlp, _make_match_col,
-                    _make_tree, _series_to_wordlist, _set_best_data_types,
-                    _tree_once)
+from .utils import (
+    _fix_datatypes_on_save,
+    _get_nlp,
+    _make_match_col,
+    _make_tree,
+    _series_to_wordlist,
+    _set_best_data_types,
+    _tree_once,
+)
 from .views import _add_frequencies, _table, _tabview
 
 
@@ -34,18 +40,18 @@ class Dataset(pd.DataFrame):
     def _constructor(self):
         return Dataset
 
-    def __init__(self, data, reference=None, load_trees=False, name=None, **kwargs):
+    def __init__(self, data, reference=None, name=None, **kwargs):
 
         if isinstance(data, str):
             if os.path.isfile(data):
                 from .file import File
 
-                data = File(data).load(load_trees=load_trees)
+                data = File(data).load()
                 reference = data
             elif os.path.isdir(data):
                 from .corpus import Corpus
 
-                data = Corpus(data).load(load_trees=load_trees)
+                data = Corpus(data).load()
                 reference = data
 
         super().__init__(data, **kwargs)
@@ -189,7 +195,7 @@ class Dataset(pd.DataFrame):
             top=top,
         )
 
-    def to_spacy(self, language="english"):
+    def to_spacy(self, language="en"):
         sents = self.sentences()
         text = " ".join(sents["text"])
         self.nlp = _get_nlp(language=language)
@@ -263,20 +269,20 @@ class Dataset(pd.DataFrame):
         print("Done!")
 
     @staticmethod
-    def load(loadname, load_trees=False, multiprocess=True):
+    def load(loadname, multiprocess=True):
         """
         Load from feather
         """
         multiprocess = multi.how_many(multiprocess)
-        if loadname.endswith('.feather'):
-            df = pd.read_feather(loadname, nthreads=multiprocess)
-        elif loadname.endswith('.parquet'):
-            df = pd.read_parquet(loadname, nthreads=multiprocess)
+        if loadname.endswith(".feather"):
+            df = pd.read_feather(loadname, use_threads=multiprocess)
+        elif loadname.endswith(".parquet"):
+            df = pd.read_parquet(loadname)  # use_threads??
         name = os.path.splitext(os.path.basename(loadname))[0]
         if name.endswith("-parsed"):
             name = name[:-7]
         df = df.set_index(["file", "s", "i"])
-        if load_trees and "parse" in df.columns:
+        if "parse" in df.columns:
             tree_once = _tree_once(df)
             df["parse"] = tree_once.apply(_make_tree)
         df = df.ffill()
@@ -331,7 +337,6 @@ class Dataset(pd.DataFrame):
         self["_match"] = form
         cols_added.add("_match")
         columns = dict()
-        needed = subcorpora + ["_match"]
         self.drop(["file", "s", "i"], axis=1, inplace=True, errors="ignore")
         # reduced = self[needed]
         for group, data in self.reset_index().groupby(subcorpora):

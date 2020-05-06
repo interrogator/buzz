@@ -1,10 +1,12 @@
 """
 buzz: multiprocessing helpers
 """
+import multiprocessing
+import os
+
 from joblib import delayed
 
-import multiprocessing
-from .utils import _get_tqdm, _tqdm_update, _tqdm_close, _to_df
+from .utils import _get_tqdm, _to_df, _tqdm_close, _tqdm_update
 
 
 def how_many(multiprocess):
@@ -13,6 +15,9 @@ def how_many(multiprocess):
 
     Hardest utility ever written.
     """
+    # silently disable multiprocessing for windows because it fails?
+    if os.name == "nt":
+        return 1
     if multiprocess is True:
         multiprocess = multiprocessing.cpu_count()
     if multiprocess in {0, 1, False, None}:
@@ -71,7 +76,12 @@ def search(corpus, queries, position, **kwargs):
 
 
 @delayed
-def parse(processor, paths, position, *args):
+def parse(paths, position, save_as, corpus_name, language, constituencies, speakers):
+    """
+    Parse using multiprocessing, chunks of paths
+    """
+    from .parse import _process_string
+
     kwa = dict(
         ncols=120, unit="file", desc="Parsing", position=position, total=len(paths)
     )
@@ -79,6 +89,8 @@ def parse(processor, paths, position, *args):
     for path in paths:
         with open(path, "r") as fo:
             plain = fo.read().strip()
-        processor(plain, path, *args)
+        _process_string(
+            plain, path, save_as, corpus_name, language, constituencies, speakers
+        )
         _tqdm_update(t)
     _tqdm_close(t)
