@@ -241,7 +241,8 @@ def _make_csv(raw_lines, fname, usecols, folders):
     csvdat = list()  # a list of csv strings as we make them
     meta_dicts = list()  # our sent-level metadata will go in here
     # todo: find better way to use correct path as file index
-    fname = fname.rsplit("-parsed/")[-1]
+    fname = os.path.normcase(fname)
+    fname = fname.rsplit("-parsed" + os.sep)[-1]
     # no file extensions!
     if ".txt" in fname:
         fname = fname.split(".txt", 1)[0]

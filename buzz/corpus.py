@@ -68,7 +68,7 @@ class Corpus(MutableSequence):
             raise ValueError(f"Already exists: {dirname}")
         os.makedirs(dirname)
 
-        with open(f"{dirname}/{fname}", "w") as fo:
+        with open(f"{dirname}{os.sep}{fname}", "w") as fo:
             fo.write(data.strip() + "\n")
         return Corpus(dirname)
 
@@ -258,7 +258,7 @@ class Corpus(MutableSequence):
         """
         from .file import File
 
-        is_parsed = self.path.rstrip("/").endswith(("-parsed", ".feather"))
+        is_parsed = self.path.rstrip(os.sep).endswith(("-parsed", ".feather"))
         info = dict(is_parsed=is_parsed, name=self.name)
         subcorpora = list()
         files = list()
