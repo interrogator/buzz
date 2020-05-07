@@ -3,15 +3,17 @@ import os
 import numpy as np
 import pandas as pd
 import scipy
+
 from joblib import Parallel
 
 from . import multi
 from .conc import _concordance
-from .constants import QUERYSETS, SENT_LEVEL_METADATA
+from .constants import QUERYSETS, SENT_LEVEL_METADATA, TOPOLOGY_QUERIES
 from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401
 from .tfidf import _tfidf_model, _tfidf_prototypical, _tfidf_score
+from .topology import _topology
 from .utils import (
     _fix_datatypes_on_save,
     _get_nlp,
@@ -351,3 +353,6 @@ class Dataset(pd.DataFrame):
             columns[group] = padded
         # self.drop(list(cols_added), axis=1, inplace=True, errors="ignore")
         return pd.DataFrame(columns)
+
+    def topology(self, kind="verb", min_occur=10, *args, **kwargs):
+        return _topology(self, kind=kind, min_occur=min_occur, *args, **kwargs)

@@ -89,7 +89,7 @@ class Searcher(object):
         Run query over dependencies
         """
         # create progress bar
-        if isinstance(self.corpus, pd.DataFrame):
+        if isinstance(self.corpus, pd.DataFrame) and position is not None:
             tqdm = _get_tqdm()
             prog_bar_info = dict(
                 desc="Searching loaded corpus",
@@ -99,7 +99,7 @@ class Searcher(object):
             )
             tqdm.pandas(**prog_bar_info)
             matches = df.progress_apply(self.query, axis=1, raw=True)
-        # when corpus is not loaded, no progress bar?
+        # when corpus is not loaded, no progress bar
         else:
             matches = df.apply(self.query, axis=1, raw=True)
 
