@@ -60,8 +60,6 @@ class TopologyData(pd.DataFrame):
     def word_axis(self, word1, word2):
         import matplotlib.pyplot as plt
 
-        print(list(self.columns))
-        print(list(self.index))
         drops = ["axeuclid", "axtaxi", "axcos_unit"]
         self = self.drop(drops, errors="ignore")
         self = self.fillna(0)
@@ -82,7 +80,7 @@ class TopologyData(pd.DataFrame):
         return self.T.word_axis("taxi", "euclid")
 
     def cosine(self):
-        return self.T.word_axis("cos_unit", "euclid")
+        return self.T.word_axis("euclid", "cos_unit")
 
 
 def _process_chunk(dataset, word, name, query, is_bool, features_of_interest, counts):
@@ -134,6 +132,7 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
     queries = TOPOLOGY_QUERIES[kind.upper()].copy()
     queries.update(TOPOLOGY_QUERIES["GENERAL"])
     relevant = getattr(dataset.just.wordclass, kind.upper())
+    relevant = relevant[relevant.str.isalnum()]
     counts = relevant.l.value_counts()
     # list of nouns or verbs that occur enough times to search
     to_search = list(counts[counts >= min_occur].index)
