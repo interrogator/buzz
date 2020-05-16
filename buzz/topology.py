@@ -6,7 +6,6 @@ from collections import defaultdict
 import pandas as pd
 import numpy as np
 from joblib import Parallel
-from io import BytesIO
 from .constants import TOPOLOGY_QUERIES
 from . import multi
 from .utils import _get_tqdm, _tqdm_update, _tqdm_close
