@@ -233,6 +233,8 @@ TOPOLOGY_QUERIES = dict(
         is_last_word=(lambda x: x.name[2] == x.sent_len, False, None),
         is_root=(lambda x: x.f.lower() == "root", False, None),
         root_is=("f/root/ ->> {query}", True, _wanted_features),
+        # what shoud9999999999999
+        this_token=(lambda x: x, True, _wanted_features | {"w", "l"},),
         word_three_before=("w/.*/ -3 {query}", True, _wanted_features),
         word_two_before=("w/.*/ -2 {query}", True, _wanted_features),
         word_before=("w/.*/ - {query}", True, _wanted_features),
@@ -258,8 +260,8 @@ TOPOLOGY_QUERIES = dict(
         classified_by=("F/nummod/ <- {query}", True, _wanted_features),
         conjoined_with=("F/conj/ ( <- {query} | -> {query})", True, _wanted_features,),
         subordinated=(lambda x: x.f == "acl", False, None),
-        appositional=("F/appos/ ( <- {query} | -> {query})", True, _wanted_features,),
-        compound=("F/compound$/ ( <- {query} | -> {query})", True, _wanted_features,),
+        appositional=("F/appos/ [ <- {query} | -> {query} ]", True, _wanted_features,),
+        compound=("F/compound$/ [ <- {query} | -> {query} ]", True, _wanted_features,),
     ),
     VERB=dict(
         subject_is=("F/nsubj/ <- {query}", True, _wanted_features),

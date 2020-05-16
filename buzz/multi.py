@@ -3,6 +3,7 @@ buzz: multiprocessing helpers
 """
 import multiprocessing
 import os
+import dill
 
 from joblib import delayed
 
@@ -19,7 +20,7 @@ def how_many(multiprocess):
     if os.name == "nt":
         return 1
     if multiprocess is True:
-        multiprocess = multiprocessing.cpu_count()
+        multiprocess = multiprocessing.cpu_count() - 1  # save a core :)
     if multiprocess in {0, 1, False, None}:
         multiprocess = 1
     return multiprocess
@@ -94,3 +95,23 @@ def parse(paths, position, save_as, corpus_name, language, constituencies, speak
         )
         _tqdm_update(t)
     _tqdm_close(t)
+
+
+@delayed
+def topology(corpus, queries, position):
+    """
+    Topolgy using multiprocessing, chunks of queries
+    """
+    # [word, name, query, is_bool, features_of_interest]
+    from .topology import _process_chunk
+
+    kwa = dict(
+        ncols=120, unit="query", desc="Searching", position=position, total=len(queries)
+    )
+    t = _get_tqdm()(**kwa)
+    results = []
+    for querybits in queries:
+        results.append(_process_chunk(corpus, *querybits))
+        _tqdm_update(t)
+    _tqdm_close(t)
+    return results
