@@ -164,7 +164,7 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
                 continue
             term, freq = result
             out[term].update(freq)
-        return pd.DataFrame(out)
+        return TopologyData(out)
 
     t = tqdm(ncols=120, unit="query", desc=f"Counting {kind.lower()}s", total=n_search)
     for word, name, query, is_bool, features_of_interest in searches:
