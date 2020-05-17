@@ -106,12 +106,17 @@ def topology(corpus, queries, position):
     from .topology import _process_chunk
 
     kwa = dict(
-        ncols=120, unit="query", desc="Searching", position=position, total=len(queries)
+        ncols=120,
+        unit="query",
+        desc="Surveying",
+        position=position,
+        total=len(queries),
+        postfix="word=...",
     )
     t = _get_tqdm()(**kwa)
     results = []
     for querybits in queries:
         results.append(_process_chunk(corpus, *querybits))
-        _tqdm_update(t)
+        _tqdm_update(t, postfix=querybits[0])
     _tqdm_close(t)
     return results

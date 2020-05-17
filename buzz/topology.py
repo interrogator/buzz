@@ -61,7 +61,6 @@ class TopologyData(pd.DataFrame):
 
         drops = ["axeuclid", "axtaxi", "axcos_unit"]
         self = self.drop(drops, errors="ignore")
-        self = self.fillna(0)
         w1_data = self._make_axis_data(word1)
         w2_data = self._make_axis_data(word2)
         key1 = "ax" + word1
@@ -163,7 +162,8 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
                 continue
             term, freq = result
             out[term].update(freq)
-        return TopologyData(out)
+        top = TopologyData(out)
+        return top.fillna(0.0)
 
     t = tqdm(ncols=120, unit="query", desc=f"Counting {kind.lower()}s", total=n_search)
     for word, name, query, is_bool, features_of_interest in searches:
@@ -208,4 +208,5 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
                     huge[word][feature_name] = subc / counts[word]
             _tqdm_update(t)
     _tqdm_close(t)
-    return TopologyData(huge)
+    top = TopologyData(huge)
+    return top.fillna(0.0)

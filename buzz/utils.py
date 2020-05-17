@@ -148,12 +148,26 @@ def _tree_once(df):
     return df["parse"][df.index.get_level_values("i") == 1]
 
 
-def _tqdm_update(tqdm):
+def _truncate(s, max_len=7, justify="r"):
+    if len(s) > max_len:
+        return s[: max_len - 1] + "."
+    justifier = s.rjust if justify.startswith("r") else s.ljust
+    return justifier(max_len)
+
+
+def _tqdm_update(tqdm, postfix=None):
     """
     Try to update tqdm, or do nothing
     """
-    if tqdm is not None:
-        tqdm.update(1)
+    if tqdm is None:
+        return
+    tqdm.update(1)
+    if postfix is not None:
+        if isinstance(postfix, dict):
+            postfix = {k: _truncate(v, justify="l") for k, v in postfix.items()}
+            tqdm.set_postfix(postfix)
+            return
+        tqdm.set_postfix_str(_truncate(postfix))
 
 
 def _tqdm_close(tqdm):
