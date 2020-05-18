@@ -12,6 +12,8 @@ from .utils import _get_tqdm, _tqdm_update, _tqdm_close
 
 from scipy.spatial.distance import cosine
 
+tqdm = _get_tqdm()
+
 
 def _cos_unit(row, df=None):
     """
@@ -126,13 +128,16 @@ def _process_chunk(dataset, word, name, query, is_bool, features_of_interest, co
         return word, results
 
 
-def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
+def _topology(dataset, kind="verb", wordlist=None, min_occur=10, *args, **kwargs):
     queries = TOPOLOGY_QUERIES[kind.upper()].copy()
     queries.update(TOPOLOGY_QUERIES["GENERAL"])
     relevant = getattr(dataset.just.wordclass, kind.upper())
     relevant = relevant[relevant["l"].str.isalnum()]
+    if wordlist:
+        relevant = relevant.just.lemma(wordlist, regex=False, exact_match=True)
+    # counts is referred to in the main loop
     counts = relevant.l.value_counts()
-    # list of nouns or verbs that occur enough times to search
+    min_occur = 1 if not min_occur else min_occur
     to_search = list(counts[counts >= min_occur].index)
     n_tok = len(to_search)
     n_search = n_tok * len(queries)
@@ -166,7 +171,7 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
         return top.fillna(0.0)
 
     t = tqdm(ncols=120, unit="query", desc=f"Counting {kind.lower()}s", total=n_search)
-    for word, name, query, is_bool, features_of_interest in searches:
+    for word, name, query, is_bool, features_of_interest, _ in searches:
         huge[word] = dict()
         if not isinstance(query, str):
             # lambda query can be done as an apply, no depgrep
@@ -176,7 +181,7 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
             query = query.format(query=f'l"{word}"')
             result = dataset.depgrep(query, position=None)
         if result.empty:
-            _tqdm_update(t)
+            _tqdm_update(t, postfix=word)
             continue
         # if we have not specified which particular features to count,
         # e.g. {w, l, x}, we just count the result row itself
@@ -184,7 +189,7 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
             count = len(result) / counts[word]
             if count > 0:
                 huge[word][name.lower()] = count
-            _tqdm_update(t)
+            _tqdm_update(t, postfix=word)
             continue
         # this is almost certainly if we want the index of the word (i)
         if any(i in {"file", "s", "i"} for i in features_of_interest):
@@ -206,7 +211,7 @@ def _topology(dataset, kind="verb", min_occur=10, *args, **kwargs):
                 if count > 0:
                     # not sure if we should divide by corpus length instead?
                     huge[word][feature_name] = subc / counts[word]
-            _tqdm_update(t)
+            _tqdm_update(t, postfix=word)
     _tqdm_close(t)
     top = TopologyData(huge)
     return top.fillna(0.0)

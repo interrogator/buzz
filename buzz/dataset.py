@@ -354,5 +354,7 @@ class Dataset(pd.DataFrame):
         # self.drop(list(cols_added), axis=1, inplace=True, errors="ignore")
         return pd.DataFrame(columns)
 
-    def topology(self, kind="verb", min_occur=10, *args, **kwargs):
-        return _topology(self, kind=kind, min_occur=min_occur, *args, **kwargs)
+    def topology(self, kind="verb", wordlist=None, min_occur=10, *args, **kwargs):
+        return _topology(
+            self, kind=kind, wordlist=wordlist, min_occur=min_occur, *args, **kwargs
+        )

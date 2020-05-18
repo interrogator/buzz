@@ -42,7 +42,7 @@ class Filter(object):
         Unlike other slices, we can't have multiple columns here
         """
         if isinstance(column, (list, set)):
-            problem = "Can only past str/length 1 iterable here: {}".format(column)
+            problem = "Can only pass str/length 1 iterable here: {}".format(column)
             assert len(column) == 1, problem
             column = list(column)[0]
         self.column = _get_short_name_from_long_name(column)
@@ -83,12 +83,13 @@ class Filter(object):
         """
         Casefold the search text and normalise to set if need be
         """
+        if isinstance(entry, (set, list)) and not case:
+            return {i.casefold() for i in entry}
+        elif isinstance(entry, list):
+            return set(entry)
         if case:
             return entry
-        if isinstance(entry, (set, list)):
-            return {i.casefold() for i in entry}
-        else:
-            return entry.casefold()
+        return entry.casefold()
 
     def _make_bool_index(self, entry, strung, exact_match, **kwargs):
         """
