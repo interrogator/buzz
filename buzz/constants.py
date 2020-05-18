@@ -229,12 +229,8 @@ _wanted_features = {"p", "x", "f"}
 
 TOPOLOGY_QUERIES = dict(
     GENERAL=dict(
-        is_first_word=(lambda x: x.name[2] == 1, False, None),
-        is_last_word=(lambda x: x.name[2] == x.sent_len, False, None),
-        is_root=(lambda x: x.f.lower() == "root", False, None),
+        token=("{query}", True, _wanted_features | {"i", "g", "w"}),
         root_is=("f/root/ ->> {query}", True, _wanted_features),
-        # what shoud9999999999999
-        this_token=(lambda x: x, True, _wanted_features | {"w", "l"},),
         word_three_before=("w/.*/ -3 {query}", True, _wanted_features),
         word_two_before=("w/.*/ -2 {query}", True, _wanted_features),
         word_before=("w/.*/ - {query}", True, _wanted_features),
@@ -244,11 +240,7 @@ TOPOLOGY_QUERIES = dict(
         governor=("w/.*/ -> {query}", True, _wanted_features),
     ),
     NOUN=dict(
-        is_subject=(lambda x: x.f in {"nsubj"}, False, None),
-        is_object=(lambda x: x.f in {"ccomp"}, False, None),
         is_copula=("F/cop/ <- {query}", False, None),
-        # is_group_head=(lambda x: x., False, None),
-        # group_head=("{query}", True, _wanted_features),
         subject_of=("X/VERB/ -> {query}", True, _wanted_features),
         object_of=("X/VERB/ <- {query}", True, _wanted_features),
         determined_by=("F/det/ <- {query}", True, _wanted_features),
@@ -259,7 +251,6 @@ TOPOLOGY_QUERIES = dict(
         modified_by=("F/amod/ <- {query}", True, _wanted_features),
         classified_by=("F/nummod/ <- {query}", True, _wanted_features),
         conjoined_with=("F/conj/ ( <- {query} | -> {query})", True, _wanted_features,),
-        subordinated=(lambda x: x.f == "acl", False, None),
         appositional=("F/appos/ [ <- {query} | -> {query} ]", True, _wanted_features,),
         compound=("F/compound$/ [ <- {query} | -> {query} ]", True, _wanted_features,),
     ),
@@ -267,19 +258,10 @@ TOPOLOGY_QUERIES = dict(
         subject_is=("F/nsubj/ <- {query}", True, _wanted_features),
         object_is=("F/obj/ <- {query}", True, _wanted_features),
         indirect_object_is=("F/iobj/ <- {query}", True, _wanted_features),
-        # has_subject=(lambda x: x., False, None),
-        # has_object=(lambda x: x., False, None),
-        # has_indirect_object=(lambda x: x., False, None),
         modified_by=("F/advmod/ <- {query}", True, _wanted_features),
         modalised_by=("F/aux/ <- {query}", True, _wanted_features),
         phrasal_verb_prep=("f/compound:prt/ <- {query}", True, _wanted_features),
-        # aspect=("{query}", True, _wanted_features),
-        # progressive=("{query}", True, _wanted_features),
-        # tense=(lambda x: x., False, None),
-        # aspect=(lambda x: x., False, None),
-        # progressive=(lambda x: x., False, None),
         conjoined_with=("F/conj/ [ <- {query} | -> {query} ]", True, _wanted_features,),
         verbal_xcomp=("X/VERB/ = F/xcomp/ <- {query}", True, _wanted_features),
-        subordinated=(lambda x: x.f == "mark", False, None),
     ),
 )
