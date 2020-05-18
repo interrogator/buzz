@@ -229,7 +229,7 @@ _wanted_features = {"p", "x", "f"}
 
 TOPOLOGY_QUERIES = dict(
     GENERAL=dict(
-        token=("{query}", True, _wanted_features | {"i", "g", "w"}),
+        token_has=("{query}", True, _wanted_features | {"i", "g", "w"}),
         root_is=("f/root/ ->> {query}", True, _wanted_features),
         word_three_before=("w/.*/ -3 {query}", True, _wanted_features),
         word_two_before=("w/.*/ -2 {query}", True, _wanted_features),
