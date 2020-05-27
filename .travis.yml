@@ -23,5 +23,6 @@ jobs:
       script:
         - pip install --upgrade pip
         - python setup.py install
+        # - python -m spacy download en_core_web_sm
         - coverage run -m unittest
         - codecov
