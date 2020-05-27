@@ -56,7 +56,7 @@ class TopologyData(pd.DataFrame):
         if word == "cos_unit":
             return self.apply(_cos_unit, df=self, axis=1)
 
-        return df.apply(_create_cos(word, df), df=df, axis=1)
+        return self.apply(_create_cos(word, self), df=self, axis=1)
 
     def word_axis(self, word1, word2):
         import matplotlib.pyplot as plt
@@ -67,12 +67,12 @@ class TopologyData(pd.DataFrame):
         w2_data = self._make_axis_data(word2)
         key1 = "ax" + word1
         key2 = "ax" + word2
-        df[key1] = w1_data
-        df[key2] = w2_data
+        self[key1] = w1_data
+        self[key2] = w2_data
 
         fig, ax = plt.subplots()
-        df.plot(x=key1, y=key2, style="o", ax=ax, legend=None)
-        for index, row in df.iterrows():
+        self.plot(x=key1, y=key2, style="o", ax=ax, legend=None)
+        for index, row in self.iterrows():
             ax.annotate(index, (row[key1], row[key2]))
         plt.show()
 
@@ -171,7 +171,7 @@ def _topology(dataset, kind="verb", wordlist=None, min_occur=10, *args, **kwargs
         return top.fillna(0.0)
 
     t = tqdm(ncols=120, unit="query", desc=f"Counting {kind.lower()}s", total=n_search)
-    for word, name, query, is_bool, features_of_interest, _ in searches:
+    for word, name, query, _is_bool, features_of_interest, _ in searches:
         huge[word] = dict()
         if not isinstance(query, str):
             # lambda query can be done as an apply, no depgrep

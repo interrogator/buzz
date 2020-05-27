@@ -8,7 +8,7 @@ from joblib import Parallel
 
 from . import multi
 from .conc import _concordance
-from .constants import QUERYSETS, SENT_LEVEL_METADATA, TOPOLOGY_QUERIES
+from .constants import QUERYSETS, SENT_LEVEL_METADATA
 from .exceptions import NoReferenceCorpus
 from .search import Searcher
 from .slice import Just, See, Skip  # noqa: F401

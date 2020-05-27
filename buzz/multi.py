@@ -3,7 +3,6 @@ buzz: multiprocessing helpers
 """
 import multiprocessing
 import os
-import dill
 
 from joblib import delayed
 
