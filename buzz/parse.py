@@ -153,7 +153,9 @@ def _process_string(
         output.append(sstr)
     output = "\n\n".join(output).strip() + "\n"
 
-    outpath = path.replace(corpus_name, corpus_name + "-parsed")
+    corpus_name = os.path.dirname(path)
+    outpath = os.path.join(corpus_name, "conllu", corpus_name + ".conllu")
+
     outpath = outpath.rstrip(".") + ".conllu"
     os.makedirs(os.path.split(outpath)[0], exist_ok=True)
 
@@ -330,14 +332,14 @@ class Parser:
         if isinstance(corpus, Corpus):
             assert not corpus.is_parsed, "Corpus is already parsed"
             self.corpus_name = corpus.name
-            self.parsed_name = corpus.name + "-parsed"
-            self.parsed_path = corpus.path + "-parsed"
+            self.parsed_name = "conllu"
+            self.parsed_path = os.path.join(os.path.dirname(corpus.path), self.parsed_name)
             self.from_str = False
         # it's a string, and the savename was provided
         elif isinstance(self.save_as, str):
             self.corpus_name = self.save_as
-            self.parsed_name = self.corpus_name + "-parsed"
-            self.parsed_path = self.parsed_name
+            self.parsed_name = "conllu"
+            self.parsed_path = os.path.join(os.path.dirname(corpus.path), self.parsed_name)
         # save is simply true. needs a name.
         elif self.save_as:
             msg = "Please specify a savename with the `save` argument, or do save_as=False"

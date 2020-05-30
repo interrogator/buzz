@@ -1,5 +1,12 @@
 import numpy as np
 
+FORMATS = {"pdf", "conllu", "source", "txt", "tiff", "epub", "feather", "audio", "video"}
+
+VALID_EXTENSIONS = {k: {k} for k in FORMATS}
+VALID_EXTENSIONS["conllu"].add("conll")
+VALID_EXTENSIONS["tiff"].add("tif")
+VALID_EXTENSIONS["source"] = set()
+
 CONLL_COLUMNS = ["i", "w", "l", "x", "p", "m", "g", "f", "e", "o"]
 
 COLUMN_NAMES = ["file", "s"] + CONLL_COLUMNS
