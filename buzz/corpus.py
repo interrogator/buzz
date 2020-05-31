@@ -71,7 +71,7 @@ class Corpus(MutableSequence):
         self.format = os.path.basename(path)
         # this is a temporary measure while corpora are being restructured.
         # self.format should eventually be one of a finite set of formats...
-        if self.format not in {"source", "preprocessed", "conllu", "txt"}:
+        if self.format not in FORMATS:
             if path.endswith("-parsed"):
                 self.format = "conllu"
             else:
@@ -106,7 +106,8 @@ class Corpus(MutableSequence):
 
     def __repr__(self):
         sup = super().__repr__().rstrip(">")
-        return f"{sup} ({self.path}, .{self.format})>"
+        form = getattr(self, "format", os.path.splitext(self.path)[-1])
+        return f"{sup} ({self.path}, {form})>"
 
     def __getitem__(self, i):
         """

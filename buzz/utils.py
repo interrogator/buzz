@@ -559,7 +559,8 @@ def _load_corpus(self, **kwargs):
         loaded = list()
         for file in to_iter:
             data = file.load(**kwargs) if file.is_parsed else file.read()
-            loaded.append(data)
+            if data is not None:
+                loaded.append(data)
             _tqdm_update(t)
         _tqdm_close(t)
 

@@ -71,6 +71,8 @@ class File(Corpus):
             return Dataset.load(self.path)
         if self.is_parsed:
             df = _to_df(self, **kwargs)
+            if df is None:
+                return
             df["_n"] = range(len(df))
             df = _order_df_columns(df)
             df.reference = df
