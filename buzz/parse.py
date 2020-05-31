@@ -295,19 +295,6 @@ class Parser:
             )
             Parallel(n_jobs=multiprocess)(delay)
 
-    def _make_metadata(self, description):
-        return dict(
-            language=self.language,
-            parser="spacy",
-            path=os.path.abspath(self.parsed_path),
-            name=self.corpus_name,
-            parsed=True,
-            nsents=self.nsents,
-            ntokens=self.ntokens,
-            nfiles=len(self.plain_corpus.files),
-            desc=description,
-        )
-
     def run(self, corpus, save_as=None):
         """
         Run the parsing pipeline
@@ -361,8 +348,6 @@ class Parser:
             parsed = Corpus.from_string(as_string, save_as=False)
         else:
             parsed = Corpus(self.parsed_path)
-            metadata = self._make_metadata(None)
-            parsed.add_metadata(**metadata)
         return parsed
 
 
