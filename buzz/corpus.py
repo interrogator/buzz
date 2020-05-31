@@ -69,6 +69,13 @@ class Corpus(MutableSequence):
         """
         path = os.path.expanduser(path)
         self.format = os.path.basename(path)
+        # this is a temporary measure while corpora are being restructured.
+        # self.format should eventually be one of a finite set of formats...
+        if self.format not in {"source", "preprocessed", "conllu", "txt"}:
+            if path.endswith("-parsed"):
+                self.format = "conllu"
+            else:
+                self.format = "txt"
         self.in_collection = in_collection
 
         if not os.path.isdir(path):

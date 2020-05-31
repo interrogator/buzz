@@ -120,7 +120,7 @@ def _make_misc_field(word, token_meta, nlp, all_meta):
 
 
 def _process_string(
-    plain, path, save_as, corpus_name, language, constituencies, speakers
+    plain, path, save_as, corpus_name, language, constituencies, speakers, corpus_path
 ):
     """
     spacy: process a string of text
@@ -153,12 +153,12 @@ def _process_string(
         output.append(sstr)
     output = "\n\n".join(output).strip() + "\n"
 
-    corpus_name = os.path.dirname(path)
-    outpath = os.path.join(corpus_name, "conllu", corpus_name + ".conllu")
-
-    outpath = outpath.rstrip(".") + ".conllu"
-    os.makedirs(os.path.split(outpath)[0], exist_ok=True)
-
+    # path is the original filepath, corpus_path is the base
+    make_in = os.path.dirname(corpus_path)
+    outdir = os.path.join(make_in, "conllu")
+    os.makedirs(outdir, exist_ok=True)
+    outpath = path.replace(corpus_path, outdir)
+    outpath = os.path.splitext(outpath)[0] + ".conllu"
     with open(outpath, "w") as fo:
         fo.write(output)
 
@@ -272,6 +272,7 @@ class Parser:
                 self.language,
                 self.constituencies,
                 self.speakers,
+                "."
             )
             return self._process_string(*args)
         else:
@@ -288,6 +289,7 @@ class Parser:
                     self.language,
                     self.constituencies,
                     self.speakers,
+                    self.plain_corpus.path
                 )
                 for i, x in enumerate(chunks)
             )
