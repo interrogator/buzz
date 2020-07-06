@@ -83,7 +83,7 @@ class Corpus(MutableSequence):
 
         self.path = path
         self.name = os.path.basename(os.path.dirname(path))
-        self.is_parsed = os.path.basename(path) in {"conllu", "feather"}
+        self.is_parsed = os.path.basename(path) in {"conllu", "feather"} or path.endswith('-parsed')
         self.subcorpora, self.files = self._get_subcorpora_and_files()
         self.filepaths = Contents(
             [i.path for i in self.files], is_parsed=self.is_parsed, name=self.name
