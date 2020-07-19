@@ -307,7 +307,7 @@ class Parser:
         Return:
             Corpus: parsed corpus
         """
-        from .corpus import Corpus
+        from .corpus import Corpus, Collection
 
         self.plain_corpus = corpus
         self.save_as = save_as
@@ -318,7 +318,15 @@ class Parser:
 
         # get the corpus name and parsed name/path depending on obj type
         # it's a corpus, everything is easy
-        if isinstance(corpus, Corpus):
+        # todo: cleanup when always using collection
+        if isinstance(corpus, Collection):
+            assert not corpus.conllu, "Corpus is already parsed"
+            self.plain_corpus = corpus.txt
+            self.corpus_name = corpus.name
+            self.parsed_name = "conllu"
+            self.parsed_path = os.path.join(corpus.path, "conllu")
+            self.from_str = False
+        elif isinstance(corpus, Corpus):
             assert not corpus.is_parsed, "Corpus is already parsed"
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"

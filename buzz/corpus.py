@@ -56,6 +56,22 @@ class Collection(object):
             shutil.copytree(subpath, format_path)
         return cls(path)
 
+    def parse(self, language="en", multiprocess=False, constituencies=False, speakers=True):
+        language = language.split('_', 1)[0] # de_frak to de
+        parsed_path = os.path.join(self.path, "conllu")
+        if self.conllu or os.path.isdir(parsed_path):
+            msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
+            raise ValueError(msg)
+        self.parser = Parser(
+            language=language,
+            multiprocess=multiprocess,
+            constituencies=constituencies,
+            speakers=speakers,
+        )
+        parsed = self.parser.run(self)
+        self.conllu = parsed
+        return parsed
+
 
 @total_ordering
 class Corpus(MutableSequence):
@@ -155,6 +171,7 @@ class Corpus(MutableSequence):
         """
         Parse a plaintext corpus
         """
+        language = language.split('_', 1)[0] # de_frak to de
         parsed_path = os.path.join(os.path.dirname(self.path), "conllu")
         if os.path.isdir(parsed_path):
             msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
