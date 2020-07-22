@@ -91,7 +91,29 @@ class Filter(object):
             return entry
         return entry.casefold()
 
-    def _make_bool_index(self, entry, strung, exact_match, **kwargs):
+    def _bool_ix_for_multiword(self, bool_ix, n):
+        """
+        When there is a multiword query, we need to also return
+        the nth token(s) after the match
+        """
+        new_ix = set()
+        old_ix_length = len(bool_ix)
+        new_ser = []
+        df = self._corpus
+        only_good = df[bool_ix]
+        for abs_n in list(only_good._n):
+            for x in range(n):
+                also_good = abs_n+x
+                if also_good >= old_ix_length:
+                    continue
+                new_ix.add(also_good)
+                new_ser.append(x)
+        # now we have new_ix, a set of all the good _n values
+        # we need a boolean index
+        bool_ix = df._n.isin(new_ix)
+        return bool_ix, new_ser
+
+    def _make_bool_index(self, entry, strung, exact_match, multiword, **kwargs):
         """
         Get a boolean index of matches for this entry over strung
         """
@@ -99,12 +121,17 @@ class Filter(object):
             return strung == entry
         if isinstance(entry, (set, list)):
             if exact_match:
-                return strung.isin(entry)
-            return strung.apply(lambda x: any(i in x for i in entry))
+                return strung.isin(entry), None
+            return strung.apply(lambda x: any(i in x for i in entry)), None
         if not kwargs.get("regex") and exact_match:
-            return strung == entry
+            return strung == entry, None
         search_method = strung.str.match if exact_match else strung.str.contains
-        return search_method(entry, **kwargs)
+        bool_ix = search_method(entry, **kwargs)
+        if multiword:
+            bool_ix, new_ser = self._bool_ix_for_multiword(bool_ix, multiword)
+        else:
+            new_ser = None
+        return bool_ix, new_ser
 
     def _normalise(self, entry, case=True, exact_match=False, **kwargs):
         if not isinstance(self._corpus, pd.DataFrame) and self._corpus.files:
@@ -119,7 +146,7 @@ class Filter(object):
         elif not isinstance(self._corpus, pd.DataFrame):
             self._corpus = self._corpus.load()
 
-    def __call__(self, entry, case=True, exact_match=False, **kwargs):
+    def __call__(self, entry, case=True, exact_match=False, multiword=False, **kwargs):
         """
         Accepts pd.series.str.contains kwargs: case, regex, etc.
 
@@ -142,12 +169,15 @@ class Filter(object):
 
         strung = self._make_column_to_match_against(case, entry)
         entry = self._normalise_entry(entry, case)
-        bool_ix = self._make_bool_index(entry, strung, exact_match, **kwargs)
+        bool_ix, new_ser = self._make_bool_index(entry, strung, exact_match, multiword, **kwargs)
 
         if self.inverse:
             bool_ix = ~bool_ix
 
-        return self._corpus[bool_ix]
+        out = self._corpus[bool_ix]
+        if new_ser:
+            out["_position"] = new_ser
+        return out
 
     def __getattr__(self, entry):
         """
