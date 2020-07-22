@@ -98,7 +98,10 @@ def _concordance(
     # multiword mode, for ngrams and so on
     multiword = "_position" in data_in.columns
     if multiword:
-        data_in["_position"] = data_in["_position"].astype(int)
+        try:
+            data_in["_position"] = data_in["_position"].astype(int)
+        except ValueError:
+            pass
         multiword = data_in["_position"].max()
     # get series of matches, fsi index
     matches = _make_match_col(data_in, show, preserve_case=preserve_case)
