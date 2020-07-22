@@ -29,6 +29,7 @@ from .utils import (
     _ensure_list_of_short_names,
     _get_short_name_from_long_name,
     _order_df_columns,
+    _bool_ix_for_multiword
 )
 
 
@@ -91,28 +92,6 @@ class Filter(object):
             return entry
         return entry.casefold()
 
-    def _bool_ix_for_multiword(self, bool_ix, n):
-        """
-        When there is a multiword query, we need to also return
-        the nth token(s) after the match
-        """
-        new_ix = set()
-        old_ix_length = len(bool_ix)
-        new_ser = []
-        df = self._corpus
-        only_good = df[bool_ix]
-        for abs_n in list(only_good._n):
-            for x in range(n):
-                also_good = abs_n+x
-                if also_good >= old_ix_length:
-                    continue
-                new_ix.add(also_good)
-                new_ser.append(x)
-        # now we have new_ix, a set of all the good _n values
-        # we need a boolean index
-        bool_ix = df._n.isin(new_ix)
-        return bool_ix, new_ser
-
     def _make_bool_index(self, entry, strung, exact_match, multiword, **kwargs):
         """
         Get a boolean index of matches for this entry over strung
@@ -128,7 +107,7 @@ class Filter(object):
         search_method = strung.str.match if exact_match else strung.str.contains
         bool_ix = search_method(entry, **kwargs)
         if multiword:
-            bool_ix, new_ser = self._bool_ix_for_multiword(bool_ix, multiword)
+            bool_ix, new_ser = _bool_ix_for_multiword(self._corpus, bool_ix, multiword)
         else:
             new_ser = None
         return bool_ix, new_ser
@@ -159,7 +138,7 @@ class Filter(object):
 
         result = None
         if self.column in ["dependencies", "depgrep", "deps", "d"]:
-            result = self._corpus.depgrep(entry)
+            result = self._corpus.depgrep(entry, multiword=multiword, **kwargs)
         elif self.column in ["tgrep", "trees", "t", "tree"]:
             result = self._corpus.tgrep(entry)
         if result is not None:

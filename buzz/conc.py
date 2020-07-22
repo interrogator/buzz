@@ -62,10 +62,8 @@ def multiword_matches(matches, multiword, preserve_case):
         # shift df so index aligns with the next token in the gram
         shifted = matches.shift(-i)
         out[i] = shifted.values
-    print('OUT', out)
     # this should give us normal index with 3 cols, word 0, 1, 2
     df = pd.DataFrame(out, index=matches.index)
-    print("DF", df.head(5))
     made = df.iloc[:,0].str.cat(others=df.iloc[:,1:], sep=" ").str.rstrip("/")
     if not preserve_case:
         made = made.str.lower()
@@ -100,6 +98,7 @@ def _concordance(
     # multiword mode, for ngrams and so on
     multiword = "_position" in data_in.columns
     if multiword:
+        data_in["_position"] = data_in["_position"].astype(int)
         multiword = data_in["_position"].max()
     # get series of matches, fsi index
     matches = _make_match_col(data_in, show, preserve_case=preserve_case)

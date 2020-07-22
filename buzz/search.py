@@ -3,7 +3,13 @@ from nltk.tgrep import tgrep_compile
 
 from depgrep import depgrep_compile
 
-from .utils import _get_tqdm, _make_tree, _tqdm_close, _tqdm_update, _tree_once
+from .utils import (_get_tqdm,
+    _make_tree,
+    _tqdm_close,
+    _tqdm_update,
+    _tree_once,
+    _bool_ix_for_multiword
+)
 
 
 class Searcher(object):
@@ -110,7 +116,7 @@ class Searcher(object):
 
         return [bool(i) for i in matches.values]
 
-    def _depgrep_iteration(self, piece, query, position):
+    def _depgrep_iteration(self, piece, query, position, multiword):
         """
         depgrep over one piece of data, returning the matching lines
         """
@@ -129,11 +135,22 @@ class Searcher(object):
         )
         # run the query, returning a boolean index
         bool_ix = self.depgrep(df, positions, position=position)
+        position_data = None
+        if multiword:
+            bool_ix, position_data = _bool_ix_for_multiword(df, bool_ix, multiword)
+            bool_ix = list(bool_ix.values)
         # get just the lines matching the bool ix
-        return bool_ix
+        return bool_ix, position_data
 
     def run(
-        self, corpus, target, query, case_sensitive=True, inverse=False, position=0
+        self,
+        corpus,
+        target,
+        query,
+        case_sensitive=True,
+        inverse=False,
+        position=0,
+        multiword=0
     ):
         """
         Search either trees or dependencies for query
@@ -177,8 +194,10 @@ class Searcher(object):
                 n += len(piece)
             # do the dep or tree searches and make a reduced dataset containing just matches
             if self.target == "d":
-                depg = self._depgrep_iteration(piece, query, position=position)
+                depg, position_data = self._depgrep_iteration(piece, query, position=position, multiword=multiword)
                 res = piece[depg] if not inverse else piece[~depg]
+                if position_data:
+                    res["_position"] = position_data
             elif self.target == "t":
                 gram_ser = self._tgrep_iteration(piece)
                 res = piece.loc[gram_ser.index]

@@ -107,6 +107,7 @@ def _make_match_col(df, show, preserve_case, show_entities=False, reference=None
         # now we make the expanded results into the df for formatting
         df = reference.loc[list(sorted(ixes))]
 
+
     # if we need to add file, s or i as columns to the df?
     for s in show:
         if s in df.index.names and s not in df.columns:
@@ -619,3 +620,26 @@ def _set_best_data_types(df):
         except (ValueError, TypeError):
             pass
     return df
+
+
+def _bool_ix_for_multiword(corpus, bool_ix, n):
+    """
+    When there is a multiword query, we need to also return
+    the nth token(s) after the match
+    """
+    new_ix = set()
+    old_ix_length = len(bool_ix)
+    new_ser = []
+    df = corpus
+    only_good = df[bool_ix]
+    for abs_n in list(only_good._n):
+        for x in range(n):
+            also_good = abs_n+x
+            if also_good >= old_ix_length:
+                continue
+            new_ix.add(also_good)
+            new_ser.append(x)
+    # now we have new_ix, a set of all the good _n values
+    # we need a boolean index
+    bool_ix = df._n.isin(new_ix)
+    return bool_ix, new_ser
