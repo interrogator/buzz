@@ -254,12 +254,13 @@ class Parser:
     """
 
     def __init__(
-        self, language="en", multiprocess=False, constituencies=False, speakers=True
+        self, language="en", multiprocess=False, constituencies=False, speakers=True, just_missing=False
     ):
         self.multiprocess = multiprocess
         self.language = language
         self.constituencies = constituencies
         self.speakers = speakers
+        self.just_missing = just_missing
 
     def _spacy_parse(self):
         if self.from_str:
@@ -278,6 +279,14 @@ class Parser:
         else:
             abspath = os.path.abspath(os.getcwd())
             fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
+            # if just_missing mode is on (used in buzzword, we skip files that exist)
+            if self.just_missing:
+                todo = []
+                for f in fs:
+                    parsed_path = f.replace(".txt", ".conllu").replace("/txt/", "/conllu/")
+                    if not os.path.isfile(parsed_path):
+                        todo.append(f)
+                fs = todo
             multiprocess = multi.how_many(self.multiprocess)
             chunks = np.array_split(fs, multiprocess)
             delay = (
@@ -320,14 +329,16 @@ class Parser:
         # it's a corpus, everything is easy
         # todo: cleanup when always using collection
         if isinstance(corpus, Collection):
-            assert not corpus.conllu, "Corpus is already parsed"
+            if not self.just_missing:
+                assert not corpus.conllu, "Corpus is already parsed"
             self.plain_corpus = corpus.txt
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"
             self.parsed_path = os.path.join(corpus.path, "conllu")
             self.from_str = False
         elif isinstance(corpus, Corpus):
-            assert not corpus.is_parsed, "Corpus is already parsed"
+            if not self.just_missing:
+                assert not corpus.is_parsed, "Corpus is already parsed"
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"
             self.parsed_path = os.path.join(os.path.dirname(corpus.path), self.parsed_name)

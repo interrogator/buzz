@@ -56,17 +56,19 @@ class Collection(object):
             shutil.copytree(subpath, format_path)
         return cls(path)
 
-    def parse(self, language="en", multiprocess=False, constituencies=False, speakers=True):
+    def parse(self, language="en", multiprocess=False, constituencies=False, speakers=True, just_missing=False):
         language = language.split('_', 1)[0] # de_frak to de
         parsed_path = os.path.join(self.path, "conllu")
         if self.conllu or os.path.isdir(parsed_path):
-            msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
-            raise ValueError(msg)
+            if not just_missing:
+                msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again, or parse with just_missing==True."
+                raise ValueError(msg)
         self.parser = Parser(
             language=language,
             multiprocess=multiprocess,
             constituencies=constituencies,
             speakers=speakers,
+            just_missing=just_missing
         )
         parsed = self.parser.run(self)
         self.conllu = parsed
