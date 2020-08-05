@@ -97,7 +97,7 @@ class Filter(object):
         Get a boolean index of matches for this entry over strung
         """
         if isinstance(entry, (int, float)):
-            return strung == entry
+            return strung == entry, None
         if isinstance(entry, (set, list)):
             if exact_match:
                 return strung.isin(entry), None

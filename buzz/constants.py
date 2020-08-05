@@ -11,6 +11,13 @@ CONLL_COLUMNS = ["i", "w", "l", "x", "p", "m", "g", "f", "e", "o"]
 
 COLUMN_NAMES = ["file", "s"] + CONLL_COLUMNS
 
+LANG_TO_TESSERACT_MODEL = {
+    "en": "eng",
+    "de": "deu",
+    "deu_frak": "deu_frak2",
+    "de_frak": "deu_frak2",
+}
+
 SHORT_TO_LONG_NAME = dict(
     w="Word",
     l="Lemma",  # noqa: E741
