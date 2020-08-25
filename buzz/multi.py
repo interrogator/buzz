@@ -26,7 +26,7 @@ def how_many(multiprocess):
 
 
 @delayed
-def load(files, position, **kwargs):
+def load(files, position, order={}, **kwargs):
     """
     Picklable loader for multiprocessing
     """
@@ -36,7 +36,10 @@ def load(files, position, **kwargs):
     t = _get_tqdm()(**kwa)
     out = []
     for file in files:
-        out.append(_to_df(corpus=file, _complete=False, **kwargs))
+        df = _to_df(corpus=file, _complete=False, **kwargs)
+        if df is not None and order:
+            df["order"] = order[file.path]
+        out.append(df)
         _tqdm_update(t)
     _tqdm_close(t)
     return out

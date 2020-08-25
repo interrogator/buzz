@@ -264,6 +264,10 @@ def _make_csv(raw_lines, fname, usecols, folders):
     # how to deal with folders??
     if folders == "column" or not folders:
         colname, fname = fname.rsplit("/", 1)
+        colname = colname.split("/conllu/", 1)[-1]
+    else:
+        fname = fname.split("/conllu/", 1)[-1]
+
     # make list of sentence strings
     sents = raw_lines.strip().split("\n\n")
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
@@ -289,7 +293,6 @@ def _make_csv(raw_lines, fname, usecols, folders):
             csvdat.append(text)
             meta_dicts.append(sent_meta)
     except ValueError as error:
-        raise
         raise ValueError(f"Problem in file: {fname}") from error
 
     # return the csv without the double newline so it can be read all at once. add meta_dicts later.
@@ -429,10 +432,10 @@ def _to_df(
     # df = df.set_index(["file", "s", "i"])
 
     morph_cols, misc_cols = list(), list()
-    if morph and "m" in df.columns and (df["m"] != "_").any():
+    if morph and "m" in df.columns and (~df["m"].isin(["_", ""])).any():
         df, morph_cols = _parse_out_multiples(df, morph=True, path=corpus.path)
 
-    if misc and "o" in df.columns and (df["o"] != "_").any():
+    if misc and "o" in df.columns and (~df["o"].isin(["_", ""])).any():
         df, misc_cols = _parse_out_multiples(df, path=corpus.path)
 
     # make a dataframe containing sentence level metadata, then join it to main df
@@ -542,13 +545,14 @@ def _load_corpus(self, **kwargs):
     # current favourite line in buzz codebase :P
     multiprocess = multi.how_many(kwargs.pop("multiprocess", self.is_parsed))
     to_iter = self.files if isinstance(self, Corpus) else self
+    order = {f.path: i for i, f in enumerate(to_iter, start=1)}
 
     # i would love to only ever use joblib, and therefore just use the first
     # part of these conditionals, but django and joblib don't play nice.
     if multiprocess and multiprocess > 1:
         chunks = np.array_split(to_iter, multiprocess)
         if self.is_parsed:
-            delay = (multi.load(x, i, **kwargs) for i, x in enumerate(chunks))
+            delay = (multi.load(x, i, order=order, **kwargs) for i, x in enumerate(chunks))
         else:
             delay = (multi.read(x, i) for i, x in enumerate(chunks))
         loaded = Parallel(n_jobs=multiprocess)(delay)
@@ -558,9 +562,11 @@ def _load_corpus(self, **kwargs):
         kwa = dict(ncols=120, unit="file", desc="Loading", total=len(self))
         t = tqdm(**kwa) if len(to_iter) > 1 else None
         loaded = list()
-        for file in to_iter:
+        for i, file in enumerate(to_iter, start=1):
             data = file.load(**kwargs) if file.is_parsed else file.read()
             if data is not None:
+                if "order" not in data.columns:
+                    data["order"] = i
                 loaded.append(data)
             _tqdm_update(t)
         _tqdm_close(t)
