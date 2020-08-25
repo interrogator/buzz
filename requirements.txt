@@ -23,3 +23,5 @@ codecov
 pre-commit
 black==19.10b0
 isort==5.0.4
+seaborn==0.10.1
+wordcloud==1.8.0

@@ -129,6 +129,21 @@ class Dataset(pd.DataFrame):
         scorer = FormalityScorer()
         return scorer.sentences(self, **kwargs)
 
+
+    def wordcloud(self, show="w", preserve_case=False, **kwargs):
+        from wordcloud import WordCloud
+        if not isinstance(show, list):
+            show = [show]
+        frequencies = _make_match_col(
+            self,
+            show,
+            preserve_case,
+            reference=self.reference,
+            show_entities=False,
+        ).value_counts()
+        wc = WordCloud(**kwargs).generate_from_frequencies(frequencies.to_dict())
+        return wc
+
     def describe(
         self,
         depgrep_query,
