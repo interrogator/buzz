@@ -99,7 +99,7 @@ class Filter(object):
         if isinstance(entry, (int, float)):
             return strung == entry, None
         if isinstance(entry, (set, list)):
-            if exact_match:
+            if exact_match or not isinstance(list(entry)[0], str):
                 return strung.isin(entry), None
             return strung.apply(lambda x: any(i in x for i in entry)), None
         if not kwargs.get("regex") and exact_match:
