@@ -207,6 +207,34 @@ def _perc_diff(data, target_sum, ref_sum):
     return 0 if score == -100.0 else score
 
 
+def _odds_ratio(data, target_sum, ref_sum):
+    word_in_target, word_in_ref = data
+    score = (word_in_target / (target_sum-word_in_target)) / (word_in_ref / (ref_sum-word_in_ref))
+    return score
+
+
+def _relrisk(data, target_sum, ref_sum):
+    word_in_target, word_in_ref = data
+    target_norm = word_in_target / target_sum
+    ref_norm = word_in_ref / ref_sum
+    return target_norm / ref_norm
+
+
+def _bayes_factor_bic(data, target_sum, ref_sum):
+    degrees_of_freedom = 1
+    word_in_target, word_in_ref = data
+    ll = _log_likelihood(data, target_sum, ref_sum)
+    return ll - (degrees_of_freedom*math.log(sum([target_sum, ref_sum])))
+
+
+def _effect_size_for_ll(data, target_sum, ref_sum):
+    word_in_target, word_in_ref = data
+    ll = _log_likelihood(data, target_sum, ref_sum)
+    expected_target = target_sum * (word_in_target+word_in_ref) / (target_sum + ref_sum)
+    expected_ref = ref_sum * (word_in_target+word_in_ref) / (target_sum + ref_sum)
+    return ll / (sum([target_sum, ref_sum]) * math.log(min([expected_target, expected_ref])))
+
+
 def _make_keywords(subcorpus, reference, ref_sum, measure):
     """
     Apply function for getting keyness calculations
@@ -233,6 +261,7 @@ def _table(
     multiindex_columns=False,
     keep_stats=False,
     show_entities=False,
+    min_occur=0,
     **kwargs,
 ):
     """
@@ -244,7 +273,7 @@ def _table(
         raise ValueError("Either relative or keyness, not both.")
 
     # we need access to reference corpus for freq calculation
-    reference = getattr(df, "_reference", df)
+    reference = kwargs.get("reference", getattr(df, "_reference", df))
 
     # show and subcorpora must always be a list
     if not isinstance(show, list):
@@ -267,6 +296,11 @@ def _table(
     match = _make_match_col(needs_format, show, preserve_case, **kwa)
     df["_match"] = match
     reference["_match"] = match
+
+    if min_occur:
+        vcs = df._match.value_counts()
+        enough = vcs[vcs >= min_occur].index
+        df = df[df._match.isin(enough)]
 
     # make the matrix
     if subcorpora:
@@ -319,7 +353,14 @@ def _keyness(table, keyness, reference=None):
         reference = table
     # get the total counts for match column in reference, sorted
     ref = reference["_match"].value_counts()[table.iloc[0].index]
-    measures = dict(ll=_log_likelihood, pd=_perc_diff)
+    measures = {
+        "ll": _log_likelihood,
+        "pd": _perc_diff,
+        "or": _odds_ratio,
+        "bf": _bayes_factor_bic,
+        "el": _effect_size_for_ll,
+        "rr": _relrisk
+    }
     measure = measures.get(keyness, _log_likelihood)
     # kwargs for apply func. ref sum is number of words in reference, which is its shape
     kwa = dict(axis=1, reference=ref, measure=measure, ref_sum=reference.shape[0])
