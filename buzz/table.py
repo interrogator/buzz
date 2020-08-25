@@ -40,6 +40,15 @@ class Table(pd.DataFrame):
         """
         return super().plot(*args, **kwargs)
 
+
+    def chart(self, *args, **kwargs):
+        from .plot import plotter
+        return plotter(self, *args, **kwargs)
+
+    def multichart(self, leftdict={}, rightdict={}, **kwargs):
+        from .plot import multiplotter
+        return multiplotter(self, leftdict=leftdict, rightdict=rightdict, **kwargs)
+
     def relative(self, denom=None):
         """
         Give a relative frequency version of this table
