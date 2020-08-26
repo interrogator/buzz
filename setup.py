@@ -38,7 +38,7 @@ setup(
         "colorama==0.4.1",
         "numpy==1.17.4",
         "matplotlib==3.2.1",
-        "tensorflow==2.2.0",
+        "tensorflow",
         "setuptools==46.1.3",
         "spacy==2.2.4",
         "pandas==1.0.3",
