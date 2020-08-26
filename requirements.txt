@@ -6,7 +6,6 @@ scipy==1.4.1
 buzzepar>=0.1.2
 joblib==0.14.1
 scikit-learn==0.21.2
-tensorflow==2.2.0
 spacy==2.2.4
 pandas==1.0.3
 tqdm==4.38.0
@@ -25,3 +24,4 @@ black==19.10b0
 isort==5.0.4
 seaborn==0.10.1
 wordcloud==1.8.0
+tensorflow
