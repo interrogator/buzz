@@ -273,27 +273,29 @@ def _make_csv(raw_lines, fname, usecols, folders):
     # split into metadata and csv parts by getting first numbered row. probably but not always 1
     splut = [re.split("\n([0-9])", s, 1) for s in sents]
     regex = "^# (.*?) = (.*?)$"
-    try:
-        for sent_id, (raw_sent_meta, one, text) in enumerate(splut, start=1):
-            text = one + text  # rejoin it as it was
-            sent_meta = dict()
-            if folders == "column":
-                sent_meta["subcorpus"] = colname
-            # get every metadata row, split into key//value
-            found = re.findall(regex, raw_sent_meta, re.MULTILINE)
-            for key, value in found:
-                # turn the string into an object if it's valid json
-                if usecols and key.strip() not in usecols:
-                    continue
-                sent_meta[key.strip()] = cast(value.strip())
-            # add the fsi part to every row
-            lines = text.splitlines()
-            text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in lines)
-            # add csv and meta to our collection
-            csvdat.append(text)
-            meta_dicts.append(sent_meta)
-    except ValueError as error:
-        raise ValueError(f"Problem in file: {fname}") from error
+    enumerated = enumerate(splut, start=1)
+    for sent_id, triplet in enumerated:
+        # error handling: if the regex didn't end up with 3 parts, there is a problem with the data
+        if len(triplet) != 3:
+            raise ValueError(f"Data format problem in {fname}: {triplet}")
+        raw_sent_meta, one, text = triplet
+        text = one + text  # rejoin it as it was
+        sent_meta = dict()
+        if folders == "column":
+            sent_meta["subcorpus"] = colname
+        # get every metadata row, split into key//value
+        found = re.findall(regex, raw_sent_meta, re.MULTILINE)
+        for key, value in found:
+            # turn the string into an object if it's valid json
+            if usecols and key.strip() not in usecols:
+                continue
+            sent_meta[key.strip()] = cast(value.strip())
+        # add the fsi part to every row
+        lines = text.splitlines()
+        text = "\n".join(f"{fname}\t{sent_id}\t{line}" for line in lines)
+        # add csv and meta to our collection
+        csvdat.append(text)
+        meta_dicts.append(sent_meta)
 
     # return the csv without the double newline so it can be read all at once. add meta_dicts later.
     return "\n".join(csvdat), meta_dicts

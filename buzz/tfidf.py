@@ -12,10 +12,10 @@ def _tfidf_prototypical(df, column, show, n_top_members=-1, only_correct=True, t
     """
     Get prototypical instances over bins segmented by column
     """
-    # make the language models
     if not isinstance(show, list):
         show = [show]
 
+    # make the language models
     if (column, tuple(show)) not in df._tfidf:
         df.tfidf_by(column, show=show, n_top_members=n_top_members)
 
@@ -53,11 +53,19 @@ def _tfidf_prototypical(df, column, show, n_top_members=-1, only_correct=True, t
     _tqdm_close(t)
 
     show = "/".join(show)
-    names = ["file", "s", show, "text", "actual " + column, "guess " + column]
+    names = ["file", "s", "text", "actual " + column, "guess " + column]
+    if show not in names:
+        names.insert(2, show)
+    else:
+        names.insert(2, "data")
     index = pd.MultiIndex.from_tuples(index, names=names)
     results = pd.Series(results, index=index)
     if only_correct:
-        reset = results.reset_index()
+        try:
+            reset = results.reset_index()
+        except ValueError:
+            print("NAMES", names, results.index)
+            reset = results.drop(names, axis=0, errors="ignore").reset_index()
         bool_ix = reset["guess " + column] == reset["actual " + column]
         results = results[bool_ix.values]
         results.index = results.index.droplevel(-1)

@@ -282,7 +282,7 @@ class Dataset(pd.DataFrame):
         if to_reduce:
             # amazing line: make nan in many places, save a lot of memory!
             df.loc[df.i != 1, to_reduce] = np.nan
-        df.to_feather(savename) if use == "feather" else df.to_parquet(savename)
+        getattr(df, "to_feather" if use == "feather" else "to_parquet")(savename)
         print("Done!")
 
     @staticmethod

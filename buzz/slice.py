@@ -29,8 +29,13 @@ from .utils import (
     _ensure_list_of_short_names,
     _get_short_name_from_long_name,
     _order_df_columns,
-    _bool_ix_for_multiword
+    _bool_ix_for_multiword,
+    _get_tqdm,
+    _tqdm_update,
+    _tqdm_close
 )
+
+tqdm = _get_tqdm()
 
 
 class Filter(object):
@@ -105,6 +110,7 @@ class Filter(object):
         if not kwargs.get("regex") and exact_match:
             return strung == entry, None
         search_method = strung.str.match if exact_match else strung.str.contains
+        kwargs = {k: v for k, v in kwargs.items() if k in {"regex", "case", "flags", "na"}}
         bool_ix = search_method(entry, **kwargs)
         if multiword:
             bool_ix, new_ser = _bool_ix_for_multiword(self._corpus, bool_ix, multiword)
@@ -115,10 +121,21 @@ class Filter(object):
     def _normalise(self, entry, case=True, exact_match=False, **kwargs):
         if not isinstance(self._corpus, pd.DataFrame) and self._corpus.files:
             results = []
+            total = len(self._corpus.files)
+            kwa = dict(ncols=120, unit="file", desc="Searching corpus on disk", total=total)
+            t = tqdm(**kwa) if total > 1 else None
+            # allow user to pass in usecols for faster loading
+            usecols = {} if not kwargs.get("usecols") else {"usecols": kwargs.pop("usecols")}
+            # help the user out: the column they are searching for must be in usecols!
+            if "usecols" in usecols and self.column not in usecols["usecols"]:
+                usecols["usecols"].append(self.column)
+            print("USECOLS", usecols)
             for file in self._corpus.files:
-                self._corpus = file.load()
+                self._corpus = file.load(**usecols)
+                _tqdm_update(t)
                 res = self.__call__(entry, case=case, exact_match=exact_match, **kwargs)
                 results.append(res)
+            _tqdm_close(t)
             df = pd.concat(results, sort=True)
             return _order_df_columns(df)
         # if it's a file, load it now
@@ -162,7 +179,7 @@ class Filter(object):
         """
         data.just/skip.column.<entry>
         """
-        return self.__call__(entry, regex=False, exact_match=True)
+        return self.__call__(entry, exact_match=True, regex=False)
 
 
 class Interim(Filter):
@@ -219,7 +236,8 @@ class Proto(Filter):
         """
         return Proto(self._corpus, self.column)
 
-    def __call__(self, show=["w"], top=10, n_top_members=-1, only_correct=True):
+    def __call__(self, show=["w"], top=10, n_top_members=-1, only_correct=True, **kwargs):
+        # todo: kwargs can contain things, maybe they need to be handled
         show = _ensure_list_of_short_names(show)
         return self._corpus.prototypical(
             self.column,

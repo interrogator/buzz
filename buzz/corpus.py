@@ -24,8 +24,8 @@ class Collection(object):
     """
     def __init__(self, path=None, **data_paths):
         path = os.path.expanduser(path)
-        self.path = path
-        self.name = os.path.basename(self.path)
+        self.path = os.path.abspath(path)
+        self.name = os.path.basename(os.path.abspath(path).rstrip("/"))
         for form in FORMATS:
             subpath = os.path.join(path, form)
             if os.path.isdir(subpath) and len(os.listdir(subpath)):
@@ -36,7 +36,7 @@ class Collection(object):
 
     def __repr__(self):
         sup = super().__repr__().rstrip(">")
-        return f"{sup} ({self.path})>"
+        return f"{sup} ({self.name})>"
 
     @classmethod
     def new(cls, path, **data_paths):
@@ -73,6 +73,14 @@ class Collection(object):
         parsed = self.parser.run(self)
         self.conllu = parsed
         return parsed
+
+    def load(self, **kwargs):
+        """
+        Sensible helper for loading
+        """
+        if self.conllu:
+            return self.conllu.load(**kwargs)
+        return self.txt.load(**kwargs)
 
 
 @total_ordering
