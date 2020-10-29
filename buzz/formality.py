@@ -9,7 +9,7 @@ from .utils import _get_tqdm
 try:
     from pattern.en.wordlist import ACADEMIC, BASIC, PROFANITY
 except ImportError:
-    print("patttern.en not found. Install it for more precision here!")
+    print("pattern.en not found. Install it for more precision here!")
     ACADEMIC, BASIC, PROFANITY = set(), set(), set()
 
 

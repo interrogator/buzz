@@ -1,4 +1,0 @@
-Buggin' Out, I gotta work here. <metadata time="DAY" loc="EXT" setting="SAL'S FAMOUS PIZZERIA" scene="20" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="126">
-I'm cool. I'm cool. <metadata time="DAY" loc="EXT" setting="SAL'S FAMOUS PIZZERIA" scene="20" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="127">
-Come back in a week, it will be squashed. <metadata time="DAY" loc="EXT" setting="SAL'S FAMOUS PIZZERIA" scene="20" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="128">
-They give each other five. <metadata time="DAY" loc="EXT" setting="SAL'S FAMOUS PIZZERIA" scene="20" stage_direction="true" speaker="stage_direction">

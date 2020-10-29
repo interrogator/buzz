@@ -129,7 +129,6 @@ class Filter(object):
             # help the user out: the column they are searching for must be in usecols!
             if "usecols" in usecols and self.column not in usecols["usecols"]:
                 usecols["usecols"].append(self.column)
-            print("USECOLS", usecols)
             for file in self._corpus.files:
                 self._corpus = file.load(**usecols)
                 _tqdm_update(t)

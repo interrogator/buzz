@@ -1,2 +1,0 @@
-Mookie hands the pizzas over and takes the money and counts it. <metadata time="DAY" loc="INT" setting="TENEMENT HALLWAY" scene="42" stage_direction="true" speaker="stage_direction">
-Thanks. <metadata time="DAY" loc="INT" setting="TENEMENT HALLWAY" scene="42" stage_direction="true" speaker="stage_direction" speaker="MOOKIE" line="414">

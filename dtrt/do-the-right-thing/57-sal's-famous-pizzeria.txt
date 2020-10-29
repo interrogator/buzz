@@ -1,3 +1,0 @@
-Buggin' Out sticks his head in and yells: <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="57" stage_direction="true" speaker="stage_direction">
-Sal, we're gonna boycott ya fat ass. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="57" stage_direction="true" speaker="stage_direction" speaker="BUGGIN' OUT" line="456">
-Before Sal and his two sons can answer, Buggin' Out is gone. <metadata time="DAY" loc="INT" setting="SAL'S FAMOUS PIZZERIA" scene="57" stage_direction="true" speaker="stage_direction">

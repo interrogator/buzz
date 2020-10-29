@@ -1,2 +1,0 @@
-An old, grizzled man stirs in the bed, his sheets are soaked with sweat. He flings them off his wet body. <metadata time="DAY" loc="INT" setting="DA MAYOR'S BEDROOM" scene="2" stage_direction="true" speaker="stage_direction">
-Damn, it's hot. <metadata time="DAY" loc="INT" setting="DA MAYOR'S BEDROOM" scene="2" stage_direction="true" speaker="stage_direction" speaker="DA MAYOR" line="6">
