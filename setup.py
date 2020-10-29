@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name="buzz",
-    version="3.1.6",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
+    version="3.1.7",  # DO NOT EDIT THIS LINE MANUALLY. LET bump2version UTILITY DO IT
     description="Sophisticated corpus linguistics",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
