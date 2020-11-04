@@ -1,13 +1,13 @@
 # From dataset to results
 
-In buzz, datasets are not meant to be used for gaining insights into corpus data. Instead, Dataset is simply the contents of a loaded corpus or a search result, including all the entries you want, and all their attributes, even when some of these attributes are not important to you.
+In *buzz*, datasets are not meant to be used for gaining insights into corpus data. Instead, a `Dataset` is simply the contents of a loaded corpus or a search result, including all the entries you want, and all their attributes, even when some of these attributes are not important to you.
 
-After you have the information you need within a Dataset, the next step is to transform it into data that you can more easily interpret, such as a table of frequencies, or keyness scores.
+After you have the information you need within a `Dataset`, the next step is to transform it into data that you can more easily interpret, such as a table of frequencies, or keyness scores.
 
 For this, you can use the `dataset.table()` method. It distills the total information of a dataset into something simpler. By default, this is a matrix of words by file:
 
 ```python
-dtrt = Corpus('dtrt/do-the-right-thing-parsed').load()
+dtrt = Collection('do-the-right-thing').load()
 dtrt.table().head().to_html()
 ```
 
@@ -209,7 +209,7 @@ For more complex tables, you can use a number of keyword arguments:
 | speaker | `speaker` | 
 
 
-So, `["l", "x", "speaker"]` will produce `lemma/wordclass/speaker`, which may look like `champion/noun/tony`. Any additional metadata in your corpus can also be accessed and displayed.
+So, `show=["l", "x", "speaker"]` will produce `lemma/wordclass/speaker`, which may look like `champion/noun/sal`. Any additional metadata in your corpus can also be accessed and displayed.
 
 ### Showing surrounding tokens
 
@@ -219,7 +219,7 @@ So, you could do `["-1x", "l", "x", "+1x"]` to show the preceding token's wordcl
 
 ## Multiindexing
 
-When you have multiple items in `show`/`subcorpora`, by default, the index of the Table is a `pd.MultiIndex`, but the columns as slash-separated and kept as a single level.
+When you have multiple items in `show`/`subcorpora`, by default, the index of the `Table` is a `pd.MultiIndex`, but the columns as slash-separated and kept as a single level.
 
 If you want multiindex columns, you can turn them on with:
 
@@ -243,8 +243,8 @@ Absolute frequencies can be difficult to interpret, especially when your subcorp
 | -- | -- |
 | `False` | default: just use absolute frequencies |
 | `True` | Calculate relative frequencies using the sum of the axis |
-| `buzz.Dataset` | Turn dataset into a table using the same criteria used on the main table. Use the values of the result as the denominators | 
-| `pd.Series` | Use the values in the `Series` as denominators |
+| a `buzz.Dataset` | Turn dataset into a table using the same criteria used on the main table. Use the values of the result as the denominators | 
+| a `pd.Series` | Use the values in the `Series` as denominators |
 
 For example, to find out the frequency of each noun in the corpus, relative to all nouns in the corpus, you can do:
 
@@ -264,3 +264,5 @@ So, the following two lines give the same output:
 dtrt.see.pos.by.speaker.relative().sort('total')
 dtrt.table(show=['p'], subcorpora=['speaker'], relative=True, sort='total')
 ```
+
+Next, maybe try [concordancing](conc.md)?

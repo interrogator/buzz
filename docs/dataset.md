@@ -3,8 +3,8 @@
 By this point, you have a parsed corpus. For our example here, we'll use a metadata-rich script from [Spike Lee](https://en.wikipedia.org/wiki/Spike_Lee)'s [Do the Right Thing](https://en.wikipedia.org/wiki/Do_the_Right_Thing).
 
 ```python
-from buzz import Corpus
-dtrt = Corpus('dtrt/do-the-right-thing-parsed')
+from buzz import Collection
+dtrt = Collection('do-the-right-thing').conllu
 ```
 
 If it's not too large, we'll probably want to load it into memory too:
@@ -15,7 +15,7 @@ dtrt = dtrt.load(multiprocess=True)
 
 The commands in this section will work on both `Corpus` and `Dataset` objects (i.e. on unloaded and loaded data), but will all be *much* faster on Datasets, because there is no file reading performed.
 
-## Dataset attributes
+## `Dataset` attributes
 
 Features of the token, as determined by the parser, are all available for you to work with.
 

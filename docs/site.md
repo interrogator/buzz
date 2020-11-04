@@ -1,16 +1,16 @@
 # Generating interactive websites
 
-*buzz* interfaces smoothly with [dash](https://dash.plot.ly), a tool that builds simple websites for exploring datasets. Charts are responsive, interactive and beautiful.
+*buzz* interfaces smoothly with [dash](https://dash.plot.ly), a tool that builds simple websites for exploring datasets. Charts are responsive, interactive and beautiful. For these features to work, first install the web-app components of buzz with `pip install buzz[word]`.
 
-On any `Table` or Dataset object, you can run `df.site("Site title")` to generate a site accessible via your web browser at `http://127.0.0.1:8050/`.
+Then, on any `Table` or `Dataset` object, you can run `df.site("Site title")` to generate a site accessible via your web browser at `http://127.0.0.1:8050/`.
 
 This returns a `DashSite` object, which you can then extend and refine. Generating a simple site works like so:
 
 ```python
-corpus = Corpus("dtrt/do-the-right-thing-parsed").load()
+corpus = Collection("do-the-right-thing").load()
 verb = corpus.just.wordclass.VERB
 tab = verb.table(relative=True, sort="total")
-site = tab.site('Verbs in "Do the right thing')
+site = tab.site('Verbs in "Do the Right Thing"')
 ```
 
 ## Adding components to the site
@@ -80,6 +80,4 @@ site.add("div", "Thank you for reading!")
 
 ## Want a real website for your corpus?
 
-[buzzword](https://github.com/interrogator/buzzword) is designed for exactly this. While you can make simple sites using the DashSite functionality, *buzzword* is an open-source, deployable app that allows you to explore corpora in your browser. Go on and check it out!
-
-
+[buzzword](https://github.com/interrogator/buzzword) is designed for exactly this. While you can make simple sites using the `DashSite` functionality, *buzzword* is an open-source, deployable app that allows you to explore corpora in your browser. Go on and check it out!

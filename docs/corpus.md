@@ -2,14 +2,14 @@
 
 `Corpus` can model collections of unparsed or parsed data. It's probably the only class you will ever need to import from `buzz`.
 
-All you need to get started is a directory containing plain text files, optionally within subdirectories, which will be understood as subcorpora. Once you have this, you import the `buzz.Corpus` object, and point it to the directory containing your data:
+All you need to get started is a directory representing your corpus, containing a folder called `txt`, which contains plain text files. Once you have this, you import the `buzz.Collection` object, and point it to the directory containing your data:
 
 ```python
-from buzz import Corpus
-corpus = Corpus('dtrt/do-the-right-thing')
-print(corpus.files[0].path)
-# `dtrt/do-the-right-thing/01-we-love-radio-station-storefront.txt`
-corpus.files[0].read()
+from buzz import Collection
+collection = Collection('do-the-right-thing')
+print(collection.txt.files[0].path)
+# `do-the-right-thing/01-we-love-radio-station-storefront.txt`
+collection.txt.files[0].read()
 ```
 
 ```
@@ -18,7 +18,9 @@ Waaaake up! Wake up! Wake up! Wake up! Up ya wake! Up ya wake! Up ya wake!. <met
 This is Mister Señor Love Daddy. Your voice of choice. The world's only twelve-hour strongman, here on WE LOVE radio, 108 FM. The last on your dial, but the first in ya hearts, and that's the truth, Ruth!. <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2"> <meta time="DAY" loc="INT" setting="WE LOVE RADIO STATION STOREFRONT" scene="1" stage_direction="true" speaker="MISTER SEÑOR LOVE DADDY" line="2" />
 ```
 
-## Navigating the `Corpus` object
+## Navigating the `Collection`/`Corpus` objects
+
+Your plaintext data is accessible as a `Corpus` object, via `collection.txt`.
 
 `Corpus` objects can be manipulated using the `subcorpora` and `files` attributes. You can use these attributes to quickly select subsets of the corpus.
 
@@ -40,15 +42,15 @@ abcd = corpus.files[re.compile('^[abcd]')]
 
 ## Parsing a corpus
 
-The `parse` method of Corpus objects will do a full dependency (and optionally also constituency) parse of the text, including lemmatisation, POS tagging, and so on. The result will be stored in a new directory with the same structure as the unparsed corpus, with each file now being formatted as CONLL-U 2.0.
+The `parse` method of `Collection`/`Corpus` objects will do a full dependency (and optionally also constituency) parse of the text, including lemmatisation, POS tagging, and so on. The result will be stored inside your collection folder in a new directory, `conllu` with the same structure as the unparsed corpus, with each file now being formatted as CONLL-U 2.0.
 
 ```python
-parsed = corpus.parse()
-# for constituency parsing, do corpus.parse(cons_parser="benepar"/"bllip")
+parsed = collection.parse()  # same as collection.txt.parse()
+# for constituency parsing, do corpus.parse(constituencies=True)
 print(parsed)
-# <buzz.corpus.Corpus object at 0x7fb2f3af6470 (dtrt/do-the-right-thing-parsed, parsed)>
+# <buzz.corpus.Corpus object at 0x7fb2f3af6470 (do-the-right-thing/conllu, parsed)>
 print(parsed.files[0].path)
-# `dtrt/do-the-right-thing-parsed/01-we-love-radio-station-storefront.txt.conllu`
+# `do-the-right-thing/conllu/01-we-love-radio-station-storefront.txt.conllu`
 print(parsed.files[0].read())
 ```
 
@@ -80,12 +82,12 @@ print(parsed.files[0].read())
 
 ## Load corpora into memory
 
-At this point, you have a `Corpus` object that models a corpus of parsed text files. This is everything you need in order to start exploring its contents. However, you first need to make a decision as to whether or not you should load the corpus into memory before searching it. The advantage of loading into memory is after loading, searching will be really fast. The disadvantage is that your machine needs enough memory to store a given corpus.
+At this point, you have a `Collection` object that holds your unparsed and parsed corpora (`collection.txt` and `collection.conllu`). This is everything you need in order to start exploring its contents. However, you first need to make a decision as to whether or not you should load the corpus into memory before searching it. The advantage of loading into memory is after loading, searching will be really fast. The disadvantage is that your machine needs enough memory to store a given corpus.
 
-Unless your corpus is huge (tens of millions of words or more), you'll probably be able to load it into memory without too much of a problem. To do this, use the `load` method of the `Corpus`. If this operation is slow, you can speed it up by using the `multiprocess` argument, which can be set to either a number of processes to spawn, or `True` (one for each CPU). If your corpus is small, don't worry about including this argument, because loading won't take long.
+Unless your corpus is huge (tens of millions of words or more), you'll probably be able to load it into memory without too much of a problem. To do this, use the `load` method of the `Collection` or `Corpus`. If this operation is slow, you can speed it up by using the `multiprocess` argument, which can be set to either a number of processes to spawn, or `True` (one for each CPU). If your corpus is small, don't worry about including this argument, because loading won't take long.
 
 ```python
-loaded = parsed.load(multiprocess=True)
+loaded = collection.load(multiprocess=True)
 ```
 
 We now have a `buzz.Dataset` object, which is like a `pandas DataFrame`, with one row for each token, and one column for each token feature:
@@ -301,7 +303,7 @@ By default, loading files will spend a fair bit of time transforming data into o
 
 ### Customising the way your subcorpora are loaded into the DataFrame
 
-If your dataset is not just a single folder full of text files, but a nested structure, where folder names are meaningful, you may want to think about exactly how you want you data loaded into memory. Note that doing things this way is not recommended. Ideally, you have a flat folder structure, plus the use of XML metadata tags only. But, if that is not possible, *buzz* can you still help.
+If your dataset is not just a single folder full of text files, but a nested structure, where folder names are meaningful, you may want to think about exactly how you want you data loaded into memory. Note that doing things this way is not recommended. Ideally, you have a flat folder structure, plus the use of XML metadata tags only. But, if that is not possible, *buzz* can still help you.
 
 If you want the path to the file in the dataset's index, you can do that using the following (default) beahviour):
 

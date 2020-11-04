@@ -14,11 +14,11 @@ First, we load our corpus, and group it into sentences using [pandas' groupby me
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html):
 
 ```python
-corpus = Corpus('do-the-right-thing-parsed').load()
+corpus = Collection('do-the-right-thing').load()
 groups = corpus.groupby(['file', 's'])
 ```
 
-pandas groupby objects have an awesome `apply` method, which takes a function as an argument. The function is applied to each group, and the results joined together at the end.
+pandas `groupby` objects have an awesome `apply` method, which takes a function as an argument. The function is applied to each group, and the results joined together at the end.
 
 So, we write our function, which calculates the lexical density of a given sentence:
 

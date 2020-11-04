@@ -1,11 +1,12 @@
+# Concordancing
+
 Concordancing, also known as Keyword in Context (KWIC), is an efficient way to see how some linguistic phenomenon of interest is behaving in context.
 
 Concordancing works on any Dataset, be it a whole corpus or a search result. For example, to concordance words ending in *-ing*:
 
-
 ```python
-from buzz import Corpus
-dtrt = Corpus('dtrt/do-the-right-thing-parsed')
+from buzz import Collection
+dtrt = Collection('do-the-right-thing').load()
 ing = dtrt.just.words('ing$')
 ing.conc()
 ```
@@ -145,3 +146,7 @@ ing.head().to_html()
     </tr>
   </tbody>
 </table>
+
+## Next steps
+
+By this point you've learned the basic *buzz* pipeline of parsing, searching and turning searches into meaningful results. However, the searching process so far has been pretty basic. So, maybe it's time to learn about advanced dependency querying, using [*buzz*'s `depgrep` feature](depgrep.md).

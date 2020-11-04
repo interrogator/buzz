@@ -2,7 +2,6 @@
 
 > *`buzz` keeps everything in DataFrame-like objects, so you can use the powerful pandas syntax whenever you like. This section demonstrates how you can use some of pandas' features directly to explore your data in new ways.* 
 
-
 ## Monkey-patching Datasets
 
 Just as you can with pandas, you can also write your own methods, and monkey-patch them to the Dataset object:
@@ -19,7 +18,7 @@ Dataset.no_punct = no_punct
 From that point on, you can quickly pre-process your corpus with:
 
 ```python
-preprocessed = Corpus('path/to/corpus').load().no_punct()
+preprocessed = Collection('path/to/corpus').load().no_punct()
 ```
 
 ## Recipe: finding character mentions
@@ -29,7 +28,7 @@ In *Do the right thing*, as in any film, characters refer to other characters by
 First, we load in our dataset, and get the set of all speaker names:
 
 ```python
-dtrt = Corpus('do-the-right-thing-parsed').load()
+dtrt = Collection('do-the-right-thing').load()
 unique_speakers = set(dtrt.speaker)
 ```
 
@@ -160,3 +159,5 @@ This leaves us with a nice matrix of mentions:
     </tr>
   </tbody>
 </table>
+
+A more in-depth example of the use of *pandas* is available [here](density.md).

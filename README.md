@@ -25,21 +25,13 @@ python setup.py install
 
 ## Frontend: *buzzword*
 
-*buzz* has an optional frontend, *buzzword*, for exploring parsed corpora. To use it, install:
+*buzz* has an optional frontend, *buzzword*, currently under development, for exploring parsed corpora. To use it, install:
 
 ```bash
 pip install buzz[word]
 ```
 
-Then, generate a workspace, `cd` into it, and start:
-
-```bash
-python -m buzzword.create workspace
-cd workspace
-python -m buzzword
-```
-
-More complete documentation is available [here](https://buzzword.readthedocs.io/en/latest/), as well from the main page of the app itself.
+Documentation is emerging [here](https://buzzword.readthedocs.io/en/latest/), as well from the main page of the app itself.
 
 A URL will be printed, which can be used to access the app in your browser.
 
@@ -47,9 +39,11 @@ A URL will be printed, which can be used to access the app in your browser.
 
 *buzz* models plain text, or [CONLL-U formatted](https://universaldependencies.org/format.html) files. The remainder of this guide will assume that you are have plain text data, and want to process and analyse it on the command line using *buzz*.
 
-First, you need to make sure that your corpus is in a format and structure that *buzz* can work with. This simply means putting all your text files into a folder, and optionally within subfolders (representing subcorpora).
+First, you need to make sure that your corpus is in a format and structure that *buzz* can work with. Text files should be plain text, with a `.txt` extension. Put one or more in a folder called `txt`, inside a folder that will hold all corpus data (i.e. `mycorpus/txt/e01.txt`). You can have intermediate subdirectories inside `txt` to represent subcorpora, but this is now deprecated (use file-level metadata instead).
 
-Text files should be plain text, with a `.txt` extension. Importantly though, they can be augmented with metadata, which can be stored in two ways. First, speaker names can be added by using capital letters and a colon, much like in a script. Second, you can use XML style metadata markup. Here is an example file, `sopranos/s1/e01.txt`:
+Importantly, your text files they can be augmented with metadata, which can be stored in two ways. First, speaker names can be added by using capital letters and a colon, much like in a script. Second, you can use XML style metadata markup. Here is an example file that uses both kinds of metadata annotation:
+
+`sopranos/s1/e01.txt`:
 
 ```html
 <meta aired="10.01.1999" />
@@ -61,13 +55,15 @@ MELFI: You don't agree that you had a panic attack? <meta move="info-request" qu
 
 If you add a `meta` element at the start of the text file, it will be understood as file-level metadata. For sentence-specific metadata, the element should follow the sentence, ideally at the end of a line. Span- and token-level metadata should wrap the tokens you want to annotate. All metadata will be searchable later, so the more you can add, the more you can do with your corpus.
 
-To load corpora as *buzz* objects:
+To load corpora as *buzz* objects, use the `Collection` class:
 
 ```python
-from buzz import Corpus
+from buzz import Collection
 
-corpus = Corpus("sopranos")
+corpus = Collection("sopranos")
 ```
+
+The plaintext corpus now is available at `corpus.txt`.
 
 You can also make virtual corpora from strings, optionally saving the corpus to disk.
 
@@ -77,23 +73,23 @@ corpus = Corpus.from_string("Some sentences here.", save_as="corpusname")
 
 ## Parsing
 
-buzz uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing by default is only for dependencies, but constituency parsing can be added with a keyword argument:
+*buzz* uses [`spaCy`](https://spacy.io/) to parse your text, saving the results as CONLL-U files to your hard drive. Parsing by default is only for dependencies, but constituency parsing can be added with a keyword argument:
 
 ```python
 # only dependency parsing
 parsed = corpus.parse()
-# if you also want constituency parsing, using benepar
-parsed = corpus.parse(cons_parser="benepar")
-# if you want constituency parsing using bllip
-parsed = corpus.parse(cons_parser="bblip")
+# if you also want constituency parsing
+parsed = corpus.parse(constituencies=True)
+# select language and parse with four cores
+parsed = corpus.parse(language="en", multiprocess=4) 
 ```
 
-You can also parse text strings, optionally passing in a name under which to save the corpus:
+You can also parse text strings on-the-fly, optionally passing in a name under which to save the corpus:
 
 ```python
 from buzz import Parser
-parser = Parser(cons_parser="benepar")
-for text in list_of_texts:
+parser = Parser()
+for text in list_of_strings:
     dataset = parser.run(text, save_as=False)
 ```
 
@@ -103,39 +99,45 @@ The main advantages of parsing with *buzz* are that:
 * Metadata is respected, and transferred into the output files
 * You can do constituency and dependency parsing at the same time (with parse trees being stored as CONLL-U metadata)
 
-the `parse()` method returns another `Corpus` object, representing the newly created files. We can explore this corpus via commands like:
+the `parse()` method return a `Corpus` object, representing the newly created files. It also creates `corpus.conllu`, which also points to this `Corpus` object.
+
+We can explore this corpus via accessors like:
 
 ```python
-parsed.subcorpora.s1.files.e01
-parsed.files[0]
-parsed.subcorpora.s1[:5]
-parsed.subcorpora["s1"]
+corpus.conllu.subcorpora.s1.files.e01
+corpus.conllu.files[0]
+corpus.conllu.subcorpora.s1[:5]
+corpus.conllu.subcorpora["s1"]
 ```
 
-### Parse command
+### `parse` command
 
 You can also parse corpora without entering a Python session by using the `parse` command:
 
 ```bash
-parse --language en --cons-parser=benepar|bllip|none path/to/conll/files
+parse --language en --constituencies=true|false path/to/corpus --multiprocess=n
 # or 
-python -m buzz.parse path/to/conll/files
+python -m buzz.parse path/to/corpus
 ```
 
-Both commands will create `path/to/conll/files-parsed`, a folder containing CONLL-U files.
+Both commands will create `path/to/corpus/conllu`, a folder containing CONLL-U files.
 
 ### Loading corpora into memory
 
-You can use the `load()` method to load a whole or partial corpus into memory, as a Dataset object, which extends the [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
+Once a corpus is parsed, you can use the `load()` method to load it, or parts of it,  into memory. Loading corpora into memory creates a `Dataset` object, which extends the [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
 
 ```python
-loaded = parsed.load()
+loaded = corpus.load()
+# same as: corpus.conllu.load()
 ```
 
-You don't need to load corpora into memory to work on them, but it's great for small corpora. As a rule of thumb, datasets under a million words should be easily loadable on a personal computer.
+You can also load unparsed `txt` files using the `read` method: `corpus.txt.file1.read()`.
+
+You don't need to load corpora into memory to work on them, but it's great for smaller corpora. As a rule of thumb, datasets under a million words should be easily loadable on a personal computer.
+
+### The `Dataset` object
 
 The loaded corpus is a `Dataset` object, which is based on the pandas DataFrame. So, you can use pandas methods on it:
-
 
 ```python
 loaded.head()
@@ -332,14 +334,14 @@ The interactive view has a number of cool features, such as the ability to sort 
 
 ## Exploring parsed and loaded corpora
 
-A corpus is a pandas DataFrame object. The index is a multiindex, comprised of `filename`, `sent_id` and `token`. Each token in the corpus is therefore uniquely identifiable through this index. The columns for the loaded copus are all the CONLL columns, plus anything included as metadata.
+A corpus is a pandas `DataFrame` object. The index is a `MultiIndex`, comprised of `filename`, `sent_id` and `token` as levels. Each token in the corpus is therefore uniquely identifiable through this index. The columns for the loaded copus are all the CONLL columns, plus anything included as metadata.
 
 ```python
 # get the first sentence using buzz.dataset.sent()
 first = loaded.sent(0)
 # using pandas syntax to get first 5 words
 first.iloc[:5]["w"]
-# join the wordclasses and words
+# join the wordclasses (column x) and words
 print(" ".join(first.x.str.cat(first.w, sep="/")))
 ```
 
@@ -347,17 +349,19 @@ print(" ".join(first.x.str.cat(first.w, sep="/")))
 "DET/My NOUN/understanding ADP/from PROPN/Dr. PROPN/Cusamano PUNCT/, DET/your NOUN/family NOUN/physician PUNCT/, VERB/is PRON/you VERB/collapsed PUNCT/?
 ```
 
-You don't need to know pandas, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguistics in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` properties, combined with the column/metadata feature you want to filter by:
+You don't need to know *pandas*, however, in order to use *buzz*, because *buzz* makes possible some more intuitive measures with linguistics in mind. For example, if you want to slice the corpus some way, you can easily do this using the `just` and `skip` accessors, combined with the column/metadata feature you want to filter by:
 
 ```python
 tony = loaded.just.speaker.TONY
-# you can use brackets (i.e. for regular expressions):
+# you can use a bracket syntax too (i.e. for regular expressions):
 no_punct = loaded.skip.lemmata("^[^a-zA-Z0-9]")
 # or you can pass in a list/set/tuple:
 end_in_s = loaded.just.pos(["NNS", "NNPS", "VBZ"])
 ```
 
-Any object created by *buzz* has a `.view()` method, which launches a `tabview` interactive space where you can explore corpora, frequencies or concordances.
+Note that columns can be accessed by single letter or full names: `loaded.skip.words.doctor` is the same as `loaded.skip.w.doctor`.
+
+Any `Dataset` object created by *buzz* has a `.view()` method, which launches a `tabview` interactive space where you can explore corpora, frequencies or concordances.
 
 ## spaCy
 
@@ -373,15 +377,14 @@ loaded.to_spacy()
 
 To search the dependency graph generated by spaCy during parsing, you can use the *depgrep* method.
 
-
 ```python
 # search dependencies for nominal subjects with definite articles
 nsubj = loaded.depgrep('f/nsubj.*/ -> (w"the" & x"DET")')
 ```
 
-The search language works by modelling nodes and the links between them. Specifying a node, like `f/nsubj/`, is done by specifying the feature you want to match (`f` for `function`), and a query inside slashes (for regular expressions) or inside quotation marks (for literal matches).
+*depgrep* is a query language, which works by modelling nodes and the links between them. Specifying a node, like `f/nsubj/`, is done by specifying the feature you want to match (`f` for `function`), and a query inside slashes (for regular expressions) or inside quotation marks (for literal matches).
 
-The arrow-like link specifies that the `nsubj` must govern the determiner. The `&` relation specifies that the two nodes are actually the same node. Brackets may be necessary to contain the query.
+The arrow-like link specifies that the `nsubj` must govern the determiner. The `&` relation specifies that the two nodes are actually the same node. Brackets may be necessary to contain the query, since queries can be arbitrarily complex.
 
 This language is based on `Tgrep2`, syntax, customised for dependencies. It is still a work in progress, but documentation should emerge [here](https://buzzword.readthedocs.io/en/latest/depgrep/), with repository [here](https://github.com/interrogator/depgrep).
 
@@ -390,11 +393,11 @@ This language is based on `Tgrep2`, syntax, customised for dependencies. It is s
 When you search a `Corpus` or `Dataset`, the result is simply another Dataset, representing a subset of the Corpus. Therefore, rather than trying to construct one query string that gets everything you want, it is often easier to perform multiple small searches:
 
 ```python
-query = 'f/nsubj/ <- f/ROOT/'
+query = 'f/nsubj/ <- f/ROOT/'  # get nominal subjects dependent on sentence root
 tony_subjects = loaded.skip.wordclass.PUNCT.just.speaker.TONY.depgrep(query)
 ```
 
-Note that for any searches that do not require traversal of the grammatical structure, you should use the `skip` and `just` methods. *tgrep* and *depgrep* only need to be used when your search involves the grammar, and not just token features.
+Note that for any searches that do not require traversal of the grammatical structure, you should use the `skip` and `just` methods. *tgrep*/*depgrep* only need to be used when your search involves the grammar, and not just token features.
 
 ## Searching constituency trees
 
@@ -402,7 +405,7 @@ This is deprecated right now, due to lack of use (combined with requiring a lot 
 
 ## Viewing search results
 
-An important principle in *buzz* is the separation of searching and viewing results. Unlike many other tools, you do not search for a concordance---instead, you search the corpus, and then visualise the output of the data as a concordance.
+An important principle in *buzz* is the separation of searching and viewing results. Unlike many other tools, you do not search for a concordance---instead, you search the corpus, and then visualise the result of the search as a concordance.
 
 ### Concordancing
 
@@ -418,6 +421,7 @@ nsubj.conc(show=["w", "p"])
 You can turn your dataset into frequency tables, both before or after searching or filtering. Tabling takes a `show` argument similar to the `show` argument for concordancing, as well as an additional `subcorpora` argument. `show` represents the how the columns will be formatted, and `subcorpora` is used as the index. Below we create a frequency table of `nsubj` tokens, in lemma form, organised by speaker.
 
 ```python
+nsubj = loaded.just.function.nsubj
 tab = nsubj.table(show="l", subcorpora=["speaker"])
 ```
 
@@ -439,11 +443,42 @@ This creates a `Table` object, which is also based on DataFrame. You can use its
 
 ### Plotting
 
-You can also use *buzz* to create high-quality visualisations of frequency data. This relies completely on [pandas' plotting method](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html). A `plot` method more tailored to language datasets is still in development.
+You can also use *buzz* to create high-quality visualisations of frequency data. Once you have generated a frequency table, use the `table.plot()` to call [pandas' plotting method](https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html).
 
 ```python
 tab.plot(...)
 ```
+
+More experimentally, you can also use a purpose-built chart function, tailored for the kinds of frequency tables produced by `buzz.table()`. It takes any combination of the following argumnets:
+
+```python
+tab.chart(title=False,            # title the figure
+          kind='line',            # line/bar/hbar/heatmap/area/pie...
+          x_label=None,           # label for x axis
+          y_label=None,           # label for y axis
+          style='ggplot',         # plot appearance (list below)
+          figsize=(8, 4),         # x and y sizes
+          save=False,             # path to save figure to
+          legend_pos='best',      # 'upper right', 'outside right', 'lower right', etc
+          reverse_legend='guess', # should legend order be flipped
+          num_to_plot=6,          # plot first n entries
+          tex='try',              # render fonts with tex
+          colours='default',      # colourmap name (e.g. viridis) or a LinearSegmentedColormap
+          cumulative=False,       # show frequencies cumulatively, rather than separately
+          pie_legend=True,        # turn off legend for pie charts
+          partial_pie=False,      # allow pie slices when data does not sum to 100
+          show_totals=False,      # print frequencies in legend
+          transparent=False,      # transparent backgounds
+          output_format='png',    # save file as type
+          black_and_white=False,  # try to make a readable b+w figure
+          show_p_val=False,       # print p values in legend
+          transpose=False,        # transpose data before plotting
+          rot=False               # rotate x tick labels
+)
+```
+
+Supported plot styles: `'Solarize_Light2', '_classic_test_patch', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark', 'seaborn-dark-palette', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'tableau-colorblind10'`
+
 
 ## Contributing
 

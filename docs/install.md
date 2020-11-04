@@ -15,9 +15,7 @@ pip install buzz[word]
 ## Installing from the repository
 
 ```bash
-git clone https://github.com/interrogator/buzz
-cd buzz
-python setup.py install
+pip install git+https://github.com/interrogator/buzz
 ```
 
-Once installed, you'll either want to [work within a Python session](corpus.md), or [run the graphical interface](https://buzzword.readthedocs.io/en/latest/).
+Once installed, you'll either want to [work within a Python session](corpus.md), or, if you installed *buzzword*, [set up and run the graphical interface](https://buzzword.readthedocs.io/en/latest/).
