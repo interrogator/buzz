@@ -24,6 +24,13 @@ def _strip_metadata(plain, speakers):
     return "\n".join(out)
 
 def to_stripped(text):
+    """
+    Replace all XML with spaces:
+
+    "<meta>hello</meta>" -> "      hello       "
+
+    We do this so that we can find the original XML after parsing.
+    """
     xmltag = "(.*?)(<meta.*?>)(.*?)(</meta>\s*)"
     out = ""
     text = text.strip()
@@ -62,32 +69,7 @@ def _strip_punct(span):
     return "".join(i for i in span if i.isalnum() or i in {"-"})
 
 
-def _get_token_index_in_span(span, word, nlp):
-    """
-    Inherently imperfect: from span given by html parser, find spacy token
-
-    We should avoid tokenising where possible, because it is imperfect.
-
-    Edge cases are when the span is 'word.'. This is two tokens
-    """
-    # if the span is obviously one token, we're good
-    if span.strip().isalnum() or len(span.strip()) == 1:
-        return 0
-    # this seems imperfect too, but saves running nlp
-    if span.strip().startswith(word.text):
-        return 0
-    # otherwise, tokenise and get its index
-    tokens = nlp(span)
-    gen = (i for i, t in enumerate(tokens) if t.text == word.text)
-    try:
-        return next(gen)
-    except StopIteration:
-        split = enumerate(span.split())
-        fallback = (i for i, t in split if _strip_punct(t) == word.text)
-        return next(fallback, 0)
-    return 0
-
-def _make_misc_field(word, token_meta, nlp, all_meta):
+def _make_misc_field(word, token_meta, all_meta):
     """
     Build the misc cell for this word. It has NER, sentiment AND user-added
     """
@@ -138,7 +120,6 @@ def _process_string(
             plain,
             stripped_data,
             language,
-            nlp,
             constituencies,
             speakers,
         )
@@ -155,6 +136,27 @@ def _process_string(
         fo.write(output)
 
 
+def _get_token_meta(plain, word):
+    # this block gets the token metadata. it's evil.
+    before_this_token = plain[:word.idx+len(word)]
+    this_line = before_this_token.rstrip("\n").rsplit("\n", 1)[-1]
+    token_meta = dict()
+    if "<meta" not in this_line:
+        return token_meta
+    this_token_tag = this_line.rsplit("<meta", 1)[-1]
+    this_token_tag = this_token_tag[:-len(word)].rsplit(">", 1)[0]
+    for piece in this_token_tag.strip().split(" "):
+        k, v = piece.split("=", 1)
+        token_meta[k] = cast(v)
+    return token_meta
+
+
+def _get_tag_morph(word):
+    if "__" in word.tag_ and len(word.tag_) > 2:
+        return word.tag_.split("__", 1)
+    return word.tag_, "_"
+
+
 def _process_sent(
     sent_index,
     sent,
@@ -162,19 +164,19 @@ def _process_sent(
     plain,
     stripped_data,
     language,
-    nlp,
     constituencies,
     speakers,
 ):
     word_index = 1
     sent_parts = list()
     text = sent.text.strip(" ").replace("\n", " ")
+    text = " ".join(text.strip().split())
     toks = [i for i in sent if not i.is_space]
-    sent_meta = dict(sent_id=str(sent_index), text=" ".join(text.strip().split()), sent_len=len(toks))
+    sent_meta = dict(sent_id=str(sent_index), text=text, sent_len=len(toks))
+
     if constituencies:
         sent_meta["parse"] = str(sent._.parse_string).replace("\n", " ")
 
-    #metaline = _get_line_with_meta(sent.start_char, plain, stripped_data)
     metaline = plain[sent.start_char:sent.end_char]
     inner_sent_meta = _make_meta_dict_from_sent(metaline, speakers=speakers)
     all_meta = {**file_meta, **sent_meta, **inner_sent_meta}
@@ -182,43 +184,22 @@ def _process_sent(
     for field, value in sorted(all_meta.items()):
         sent_parts.append("# {} = {}".format(field, value))
 
+    sent = [w for w in sent if not w.is_space]
+
     for word in sent:
-
-        if word.is_space:
-            continue
-
-        # this block gets the token metadata. it's evil.
-        before_this_token = plain[:word.idx+len(word)]
-        this_token_tag = before_this_token.rsplit("<meta", 1)[-1].rsplit(">", 1)[0]
-        token_meta = dict()
-        for piece in this_token_tag.strip().split(" "):
-            k, v = piece.split("=", 1)
-            token_meta[k] = cast(v)
 
         governor = _get_governor_id(word)
         word_text = _normalise_word(str(word))
-        named_ent = _make_misc_field(word, token_meta, nlp, all_meta)
-
-        if "__" in word.tag_ and len(word.tag_) > 2:
-            tag, morph = word.tag_.split("__", 1)
-        else:
-            tag, morph = word.tag_, "_"
+        token_meta = _get_token_meta(plain, word)
+        named_ent = _make_misc_field(word, token_meta, all_meta)
+        tag, morph = _get_tag_morph(word)
 
         parts = [
-            str(word_index),
-            word_text,
-            word.lemma_,
-            word.pos_,
-            tag,
-            morph,
-            governor,
-            word.dep_,
-            "_",
-            named_ent,
+            str(word_index), word_text, word.lemma_, word.pos_,
+            tag, morph, governor, word.dep_, "_", named_ent,
         ]
 
-        line = "\t".join(parts)
-        sent_parts.append(line)
+        sent_parts.append("\t".join(parts))
         word_index += 1
 
     return "\n".join(sent_parts)
