@@ -305,7 +305,6 @@ def plotter(df,
     # make some font kwargs here
     using_tex = False
     mpl.rcParams['font.family'] = 'sans-serif'
-    mpl.rcParams['text.latex.unicode'] = True
     
     if tex == 'try' or tex is True:
         try:

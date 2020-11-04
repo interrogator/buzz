@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import shutil
 
 from collections import MutableSequence
@@ -8,12 +9,12 @@ from functools import total_ordering
 from . import utils
 from .constants import FORMATS, VALID_EXTENSIONS
 from .contents import Contents
+from .extract import _extract
 from .parse import Parser
 from .search import Searcher
 from .slice import Filter, Interim
 
 tqdm = utils._get_tqdm()
-
 
 
 class Collection(object):
@@ -22,6 +23,7 @@ class Collection(object):
 
     todo: we can add parse methods here for example
     """
+
     def __init__(self, path=None, **data_paths):
         path = os.path.expanduser(path)
         self.path = os.path.abspath(path)
@@ -56,8 +58,15 @@ class Collection(object):
             shutil.copytree(subpath, format_path)
         return cls(path)
 
-    def parse(self, language="en", multiprocess=False, constituencies=False, speakers=True, just_missing=False):
-        language = language.split('_', 1)[0] # de_frak to de
+    def parse(
+        self,
+        language="en",
+        multiprocess=False,
+        constituencies=False,
+        speakers=True,
+        just_missing=False,
+    ):
+        language = language.split("_", 1)[0]  # de_frak to de
         parsed_path = os.path.join(self.path, "conllu")
         if self.conllu or os.path.isdir(parsed_path):
             if not just_missing:
@@ -68,7 +77,7 @@ class Collection(object):
             multiprocess=multiprocess,
             constituencies=constituencies,
             speakers=speakers,
-            just_missing=just_missing
+            just_missing=just_missing,
         )
         parsed = self.parser.run(self)
         self.conllu = parsed
@@ -81,6 +90,16 @@ class Collection(object):
         if self.conllu:
             return self.conllu.load(**kwargs)
         return self.txt.load(**kwargs)
+
+    def extract(self, language="en", multiprocess=False, coordinates=True, page_numbers=False):
+
+        return _extract(
+            self,
+            language=language,
+            multiprocess=multiprocess,
+            coordinates=coordinates,
+            page_numbers=page_numbers
+        )
 
 
 @total_ordering
@@ -109,7 +128,7 @@ class Corpus(MutableSequence):
 
         self.path = path
         self.name = os.path.basename(os.path.dirname(path))
-        self.is_parsed = os.path.basename(path) in {"conllu", "feather"} or path.endswith('-parsed')
+        self.is_parsed = os.path.basename(path) in {"conllu", "feather"} or path.endswith("-parsed")
         self.subcorpora, self.files = self._get_subcorpora_and_files()
         self.filepaths = Contents(
             [i.path for i in self.files], is_parsed=self.is_parsed, name=self.name
@@ -175,14 +194,18 @@ class Corpus(MutableSequence):
         """
         return Searcher().run(self, "d", query, **kwargs)
 
-    def parse(
-        self, language="en", multiprocess=False, constituencies=False, speakers=True
-    ):
+    def parse(self, language="en", multiprocess=False, constituencies=False, speakers=True):
         """
         Parse a plaintext corpus
         """
-        language = language.split('_', 1)[0] # de_frak to de
-        parsed_path = os.path.join(os.path.dirname(self.path), "conllu")
+        from buzz.file import File
+        language = language.split("_", 1)[0]  # de_frak to de
+        files = []
+        if isinstance(self, File):
+            parsed_path = self.path.split("/txt/", 1)[0] + "/conllu"
+            files.append(self)
+        else:
+            parsed_path = os.path.join(os.path.dirname(self.path), "conllu")
         if os.path.isdir(parsed_path):
             msg = f"Parsed data found at {parsed_path}. Move or delete the folder before parsing again."
             raise ValueError(msg)
@@ -193,7 +216,7 @@ class Corpus(MutableSequence):
             constituencies=constituencies,
             speakers=speakers,
         )
-        return self.parser.run(self)
+        return self.parser.run(self, files=files)
 
     def load(self, **kwargs):
         """
@@ -253,6 +276,7 @@ class Corpus(MutableSequence):
         Helper to set subcorpora and files
         """
         from .file import File
+
         info = dict(is_parsed=self.is_parsed, name=self.name)
         subcorpora = list()
         files = list()

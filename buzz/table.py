@@ -82,7 +82,7 @@ class Table(pd.DataFrame):
             warn = f"Warning: shape of data is large ({self.shape}). Performance may be slow."
             print(warn)
         dataset = self.to_frame() if isinstance(self, pd.Series) else self
-        site.add(kind, dataset)
+        site.add(kind, dataset, idx="1")
         site.add("datatable", dataset)
         site.run()
         return site

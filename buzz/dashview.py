@@ -1,12 +1,25 @@
 # flake8: noqa
 
+"""
+Experimental module for creating quick sites via dash
+"""
+
 from multiprocessing import Process
 
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-import dash_table
-import plotly.graph_objects as go
+try:
+    import dash
+    import dash_core_components as dcc
+    import dash_html_components as html
+    import dash_table
+    import plotly.graph_objects as go
+except ImportError:
+    msg = "Graphical libraries not found. do 'pip install buzz[word]' to get them"
+    raise ImportError(msg)
+
+from buzz.table import Table
+from buzz.conc import Concordance
+from buzz.dataset import Dataset
+
 
 MAPPING = {
     "markdown": dcc,
@@ -19,14 +32,13 @@ MAPPING = {
     "table": html,
 }
 
-
 CHART_TYPES = {"line", "bar", "heatmap", "area", "stacked_bar"}  # "pie"
 
 
-def _make_datatable(df, id):
+def _make_datatable(df, idx):
     df = df.drop("parse", axis=1, errors="ignore")
     return dash_table.DataTable(
-        id=id,
+        id=idx,
         columns=[{"name": i, "id": i} for i in df.columns],
         data=df.to_dict("rows"),
         editable=True,
@@ -118,7 +130,7 @@ def _make_component(kind="div", data=None, idx=None, **kwargs):
     else:
         chart_type = None
         get_from = MAPPING.get(kind.lower(), html)
-    if kind.lower() == "datatable":
+    if "table" in kind.lower():
         datatable = _make_datatable(data, idx)
         return datatable
     elif kind.lower() == "markdown":
@@ -129,7 +141,7 @@ def _make_component(kind="div", data=None, idx=None, **kwargs):
             # style={"textAlign": "center"},
         )
     elif get_from == dcc:
-        contents = _df_to_plot(data, chart_type, id)
+        contents = _df_to_plot(data, chart_type, idx)
     else:
         raise ValueError(f'Do not understand component type "{kind}"')
 
@@ -158,6 +170,9 @@ class DashSite(object):
     def add(self, kind="div", data=None, idx=None, **kwargs):
         if not idx:
             idx = "el-" + str(id(data))
+        # maybe the user just passed a component...
+        if isinstance(kind, (Concordance, Table, Dataset)) and not data:
+            data, kind = kind, "datatable"
         comp = _make_component(kind, data, idx, **kwargs)
         self.app.layout.children.append(comp)
         if self._process and self._process.is_alive():

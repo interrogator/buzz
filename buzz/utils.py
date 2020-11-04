@@ -496,12 +496,10 @@ def _make_meta_dict_from_sent(text, first=False, speakers=True):
 
     marker = "<meta "
     if first and not text.strip().startswith(marker):
-        return dict(), dict()
+        return dict()
     parser = InputParser(speakers=speakers)
     parser.feed(text)
-    if first:
-        return parser.sent_meta, dict()
-    return parser.sent_meta, parser.result
+    return parser.sent_meta
 
 
 def _ensure_list_of_short_names(item):
@@ -651,3 +649,17 @@ def _bool_ix_for_multiword(corpus, bool_ix, n):
     # we need a boolean index
     bool_ix = df._n.isin(new_ix)
     return bool_ix, new_ser
+
+def _get_ocr_engine(lang):
+    """
+    todo: handle english and other spacy languages
+
+    * add to tessdata
+    * make a mapping of language names to tess models
+    """
+    import pyocr
+    tools = pyocr.get_available_tools()
+    tool = tools[0]
+    # langs = tool.get_available_languages()
+    # lang = langs[0]
+    return tool, "eng"

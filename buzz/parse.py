@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 import shutil
 
 import numpy as np
@@ -8,7 +9,7 @@ from joblib import Parallel
 
 from . import multi
 from .html import MetadataStripper
-from .utils import _get_nlp, _get_tqdm, _make_meta_dict_from_sent
+from .utils import _get_nlp, _get_tqdm, _make_meta_dict_from_sent, cast
 
 tqdm = _get_tqdm()
 
@@ -21,6 +22,20 @@ def _strip_metadata(plain, speakers):
         parser.feed(line)
         out.append(parser.text)
     return "\n".join(out)
+
+def to_stripped(text):
+    xmltag = "(.*?)(<meta.*?>)(.*?)(</meta>\s*)"
+    out = ""
+    text = text.strip()
+    for match in re.finditer(xmltag, text):
+        first, start, content, end = match.group(1), match.group(2), match.group(3), match.group(4)
+        piece = first + (" " * len(start)) + content + (" " * len(end))
+        if len(piece) != len(match.group(0)):
+            raise ValueError(piece + "///" + match.group(0))
+        out += piece
+
+    assert len(out) == len(text), f"{len(out)} vs {len(text)}"
+    return out
 
 
 def _normalise_word(word, wrap=False):
@@ -72,33 +87,6 @@ def _get_token_index_in_span(span, word, nlp):
         return next(fallback, 0)
     return 0
 
-
-def _is_correct_span(word, span, nth, features, nlp):
-    """
-    Is this spacy token inside an html span? (for token metadata)
-    nth is the number of times this exact span appears to the left in sent.
-    So we need to check that not only is word in the span, but that the ix
-    of the span is correct
-    """
-    # quick exit if it definitely does not match
-    if word.text not in span or len(span) < len(word.text):
-        return False
-    nth_in_span = _get_token_index_in_span(span, word, nlp)
-    # there must be a faster way to get token index in sent than this...
-    ix_in_sent = next(i for i, t in enumerate(word.sent) if t == word)
-    # get the tokens from start of our match to end of seent
-    toks_after = word.sent[ix_in_sent - nth_in_span :]
-    # get this part of the sent as string, and cut it to length of span
-    after = str(toks_after)[: len(span)]
-    # ideally now, we can compare the span and the sent
-    if span != after:
-        return False
-    # if they are the same, we need to check prior occurrences in the sent
-    count_before_here = str(word.sent[:ix_in_sent]).count(after)
-    # prior occurrences should be same as nth from htmlparser
-    return count_before_here == nth
-
-
 def _make_misc_field(word, token_meta, nlp, all_meta):
     """
     Build the misc cell for this word. It has NER, sentiment AND user-added
@@ -110,12 +98,9 @@ def _make_misc_field(word, token_meta, nlp, all_meta):
     misc = "ent_type={typ}|ent_id={num}|ent_iob={iob}".format(**formatters)
     if word.sentiment:
         misc += "|sentiment={}".format(word.sentiment)
-    for (span, nth), features in token_meta.items():
-        if not _is_correct_span(word, span, nth, features, nlp):
-            continue
-        for key, val in features.items():
-            if key not in all_meta:
-                misc += "|{}={}".format(key, val)
+    for key, val in token_meta.items():
+        if key not in all_meta:
+            misc += "|{}={}".format(key, val)
     return misc
 
 
@@ -127,18 +112,25 @@ def _process_string(
     """
     # break into lines, removing empty
     plain = [i.strip(" ") for i in plain.splitlines() if i.strip(" ")]
-    file_meta, _ = _make_meta_dict_from_sent(plain[0], first=True, speakers=speakers)
+    file_meta = _make_meta_dict_from_sent(plain[0], first=True, speakers=speakers)
     if file_meta:
         plain = plain[1:]
     plain = "\n".join(plain)
-    stripped_data = _strip_metadata(plain, speakers)
-
+    # stripped_data = _strip_metadata(plain, speakers)
+    stripped_data = to_stripped(plain)
     nlp = _get_nlp(language=language, constituencies=constituencies)
-
+    sentencizer = nlp.create_pipe("sentencizer")
+    nlp.add_pipe(sentencizer, before='parser')
     doc = nlp(stripped_data)
     output = list()
+    sent_index = 1
+    for sent in doc.sents:
 
-    for sent_index, sent in enumerate(doc.sents, start=1):
+        if all(i.is_space for i in sent):
+            continue
+
+        sent_index += 1
+
         sstr = _process_sent(
             sent_index,
             sent,
@@ -178,12 +170,13 @@ def _process_sent(
     sent_parts = list()
     text = sent.text.strip(" ").replace("\n", " ")
     toks = [i for i in sent if not i.is_space]
-    sent_meta = dict(sent_id=str(sent_index), text=text.strip(), sent_len=len(toks))
+    sent_meta = dict(sent_id=str(sent_index), text=" ".join(text.strip().split()), sent_len=len(toks))
     if constituencies:
         sent_meta["parse"] = str(sent._.parse_string).replace("\n", " ")
 
-    metaline = _get_line_with_meta(sent.start_char, plain, stripped_data)
-    inner_sent_meta, token_meta = _make_meta_dict_from_sent(metaline, speakers=speakers)
+    #metaline = _get_line_with_meta(sent.start_char, plain, stripped_data)
+    metaline = plain[sent.start_char:sent.end_char]
+    inner_sent_meta = _make_meta_dict_from_sent(metaline, speakers=speakers)
     all_meta = {**file_meta, **sent_meta, **inner_sent_meta}
 
     for field, value in sorted(all_meta.items()):
@@ -194,9 +187,18 @@ def _process_sent(
         if word.is_space:
             continue
 
+        # this block gets the token metadata. it's evil.
+        before_this_token = plain[:word.idx+len(word)]
+        this_token_tag = before_this_token.rsplit("<meta", 1)[-1].rsplit(">", 1)[0]
+        token_meta = dict()
+        for piece in this_token_tag.strip().split(" "):
+            k, v = piece.split("=", 1)
+            token_meta[k] = cast(v)
+
         governor = _get_governor_id(word)
         word_text = _normalise_word(str(word))
         named_ent = _make_misc_field(word, token_meta, nlp, all_meta)
+
         if "__" in word.tag_ and len(word.tag_) > 2:
             tag, morph = word.tag_.split("__", 1)
         else:
@@ -287,6 +289,9 @@ class Parser:
                     if not os.path.isfile(parsed_path):
                         todo.append(f)
                 fs = todo
+            if self.files:
+                paths = [os.path.abspath(p.path) for p in self.files]
+                fs = [f for f in fs if f in paths]
             multiprocess = multi.how_many(self.multiprocess)
             chunks = np.array_split(fs, multiprocess)
             delay = (
@@ -304,7 +309,7 @@ class Parser:
             )
             Parallel(n_jobs=multiprocess)(delay)
 
-    def run(self, corpus, save_as=None):
+    def run(self, corpus, save_as=None, files=[]):
         """
         Run the parsing pipeline
 
@@ -317,6 +322,7 @@ class Parser:
             Corpus: parsed corpus
         """
         from .corpus import Corpus, Collection
+        from .file import File
 
         self.plain_corpus = corpus
         self.save_as = save_as
@@ -324,6 +330,7 @@ class Parser:
         self.nsents = 0
         self.made_new_dir = False
         self.from_str = True
+        self.files = files
 
         # get the corpus name and parsed name/path depending on obj type
         # it's a corpus, everything is easy
@@ -331,6 +338,13 @@ class Parser:
         if isinstance(corpus, Collection):
             if not self.just_missing:
                 assert not corpus.conllu, "Corpus is already parsed"
+            self.plain_corpus = corpus.txt
+            self.corpus_name = corpus.name
+            self.parsed_name = "conllu"
+            self.parsed_path = os.path.join(corpus.path, "conllu")
+            self.from_str = False
+        elif isinstance(corpus, File):
+            corpus = Collection(corpus.path.split("/txt/", 1)[0])
             self.plain_corpus = corpus.txt
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"
