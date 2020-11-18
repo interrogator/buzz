@@ -91,14 +91,15 @@ class Collection(object):
             return self.conllu.load(**kwargs)
         return self.txt.load(**kwargs)
 
-    def extract(self, language="en", multiprocess=False, coordinates=True, page_numbers=False):
+    def extract(self, language="en", multiprocess=False, coordinates=True, page_numbers=False, output="txt"):
 
         return _extract(
             self,
             language=language,
             multiprocess=multiprocess,
             coordinates=coordinates,
-            page_numbers=page_numbers
+            page_numbers=page_numbers,
+            output=output
         )
 
 

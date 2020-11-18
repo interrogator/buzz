@@ -23,7 +23,8 @@ def _strip_metadata(plain, speakers):
         out.append(parser.text)
     return "\n".join(out)
 
-def to_stripped(text):
+
+def to_stripped(text, hocr=False):
     """
     Replace all XML with spaces:
 
@@ -31,6 +32,24 @@ def to_stripped(text):
 
     We do this so that we can find the original XML after parsing.
     """
+    if hocr:
+        xmltag = "(.*?)((?:<span.*?ocrx_word|<em).*?>)(.*?)((?:</span>|</em>)\s*)"
+        out = ""
+        text = text.strip()
+        for line in text.splitlines():
+            match = re.search(xmltag, line)
+            if not match:
+                out += " " * len(line) + "\n"
+                continue
+            first, start, content, end = match.group(1), match.group(2), match.group(3), match.group(4)
+            piece = first + (" " * len(start)) + content + (" " * len(end)) + "\n"
+            if len(piece) - 1 != len(match.group(0)):
+                raise ValueError(len(piece), len(match.group(0)), piece + "///" + match.group(0))
+            out += piece
+        text += "\n"
+        assert len(out) == len(text), f"{len(out)} vs {len(text)}"
+        return out
+    
     xmltag = "(.*?)(<meta.*?>)(.*?)(</meta>\s*)"
     out = ""
     text = text.strip()
@@ -87,7 +106,7 @@ def _make_misc_field(word, token_meta, all_meta):
 
 
 def _process_string(
-    plain, path, save_as, corpus_name, language, constituencies, speakers, corpus_path
+    plain, path, save_as, corpus_name, language, constituencies, speakers, corpus_path, hocr
 ):
     """
     spacy: process a string of text
@@ -99,7 +118,7 @@ def _process_string(
         plain = plain[1:]
     plain = "\n".join(plain)
     # stripped_data = _strip_metadata(plain, speakers)
-    stripped_data = to_stripped(plain)
+    stripped_data = to_stripped(plain, hocr=hocr)
     nlp = _get_nlp(language=language, constituencies=constituencies)
     sentencizer = nlp.create_pipe("sentencizer")
     nlp.add_pipe(sentencizer, before='parser')
@@ -256,17 +275,19 @@ class Parser:
                 self.language,
                 self.constituencies,
                 self.speakers,
-                "."
+                ".",
+                self.hocr
             )
             return self._process_string(*args)
         else:
             abspath = os.path.abspath(os.getcwd())
             fs = [os.path.join(abspath, f.path) for f in self.plain_corpus.files]
             # if just_missing mode is on (used in buzzword, we skip files that exist)
+            input_format = "hocr" if self.plain_corpus.path.rstrip("/").endswith("hocr") else "txt"
             if self.just_missing:
                 todo = []
                 for f in fs:
-                    parsed_path = f.replace(".txt", ".conllu").replace("/txt/", "/conllu/")
+                    parsed_path = f.replace(f".{input_format}", ".conllu").replace(f"/{input_format}/", "/conllu/")
                     if not os.path.isfile(parsed_path):
                         todo.append(f)
                 fs = todo
@@ -289,6 +310,12 @@ class Parser:
                 for i, x in enumerate(chunks)
             )
             Parallel(n_jobs=multiprocess)(delay)
+
+
+    def _best_corpus_to_parse(self, collection):
+        if getattr(collection, "hocr"):
+            return collection.hocr, True
+        return collection.txt, False
 
     def run(self, corpus, save_as=None, files=[]):
         """
@@ -319,14 +346,14 @@ class Parser:
         if isinstance(corpus, Collection):
             if not self.just_missing:
                 assert not corpus.conllu, "Corpus is already parsed"
-            self.plain_corpus = corpus.txt
+            self.plain_corpus, self.hocr = self._best_corpus_to_parse(corpus)
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"
             self.parsed_path = os.path.join(corpus.path, "conllu")
             self.from_str = False
         elif isinstance(corpus, File):
             corpus = Collection(corpus.path.split("/txt/", 1)[0])
-            self.plain_corpus = corpus.txt
+            self.plain_corpus, self.hocr = self._best_corpus_to_parse(corpus)
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"
             self.parsed_path = os.path.join(corpus.path, "conllu")
@@ -334,12 +361,14 @@ class Parser:
         elif isinstance(corpus, Corpus):
             if not self.just_missing:
                 assert not corpus.is_parsed, "Corpus is already parsed"
+            self.hocr = self.path.rstrip("/").endswith("/hocr")
             self.corpus_name = corpus.name
             self.parsed_name = "conllu"
             self.parsed_path = os.path.join(os.path.dirname(corpus.path), self.parsed_name)
             self.from_str = False
         # it's a string, and the savename was provided
         elif isinstance(self.save_as, str):
+            # todo, self.hocr etc
             self.corpus_name = self.save_as
             self.parsed_name = "conllu"
             self.parsed_path = os.path.join(os.path.dirname(corpus.path), self.parsed_name)

@@ -40,13 +40,13 @@ class InputParser(HTMLParser):
     def _has_sent_meta(self):
         # todo: fix this to work even with coordinate data
         return False
-        n_meta = self.text.count("<meta")
-        n_end = self.text.count("</meta")
+        n_meta = self.text.count("<meta") + self.text.count("<md")
+        n_end = self.text.count("</meta") + self.text.count("</md")
         return bool(n_meta - n_end)
 
     def handle_starttag(self, tag, attrs):
         self.tmp = dict()
-        if tag in {"metadata", "meta"}:
+        if tag in {"metadata", "meta", "md"}:
             for k, v in attrs:
                 self.tmp[k.strip().replace("-", "_")] = cast(v)
         is_last = self.num_elements == self.num_done + 1

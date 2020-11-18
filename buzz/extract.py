@@ -33,7 +33,8 @@ def _extract(collection,
              language="en",
              multiprocess=False,
              coordinates=True,
-             page_numbers=False):
+             page_numbers=False,
+             output="txt"):
 
     import pyocr
     import pytesseract
@@ -46,7 +47,11 @@ def _extract(collection,
     if not collection.tiff and collection.pdf:
         collection = _pdf_to_tif(collection)
 
-    os.makedirs(collection.path.rstrip("/") + "/txt", exist_ok=True)
+    output = output.lstrip(".")
+    if output not in {"txt", "hocr"}:
+        raise ValueError("output must be txt or hocr")
+
+    os.makedirs(collection.path.rstrip("/") + f"/{output}", exist_ok=True)
 
     for tif in collection.tiff.files:
         tif_path = tif.path
@@ -78,6 +83,8 @@ def _extract(collection,
                     output_type=Output.DICT,
                     lang=lang_chosen,
                 )
+
+                # hocr = pytesseract.image_to_pdf_or_hocr(Image.open(tif_path), extension='hocr')
             except:  # no text at all
                 d = {}
 
@@ -106,13 +113,11 @@ def _extract(collection,
         if page_numbers:
             pass
 
-        # todo: postprocessing here
-
         txt_path = (
-            tif_path.replace("/tiff/", "/txt/")
-            .replace("/tif/", "/txt/")
-            .replace(".tiff", ".txt")
-            .replace(".tif", ".txt")
+            tif_path.replace("/tiff/", f"/{output}/")
+            .replace("/tif/", f"/{output}/")
+            .replace(".tiff", f".{output}")
+            .replace(".tif", f".{output}")
         )
 
         if os.path.isfile(txt_path):
@@ -120,5 +125,5 @@ def _extract(collection,
         with open(txt_path, "w") as fo:
             fo.write(plaintext)
 
-    collection.txt = Corpus(collection.path.rstrip("/") + "/txt")
+    collection.txt = Corpus(collection.path.rstrip("/") + "/{output}")
     return collection
