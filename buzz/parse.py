@@ -313,7 +313,7 @@ class Parser:
 
 
     def _best_corpus_to_parse(self, collection):
-        if getattr(collection, "hocr"):
+        if getattr(collection, "hocr", None):
             return collection.hocr, True
         return collection.txt, False
 
