@@ -305,7 +305,8 @@ class Parser:
                     self.language,
                     self.constituencies,
                     self.speakers,
-                    self.plain_corpus.path
+                    self.plain_corpus.path,
+                    self.hocr
                 )
                 for i, x in enumerate(chunks)
             )
