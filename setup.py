@@ -36,7 +36,7 @@ setup(
         "depgrep>=0.1.3",
         "scikit-learn==0.23.2",
         "colorama==0.4.4",
-        "numpy==1.18.5",
+        "numpy==1.22.0",
         "matplotlib==3.3.2",
         "tensorflow==2.3.1",
         "setuptools==50.3.2",
