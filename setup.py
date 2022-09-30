@@ -30,7 +30,7 @@ setup(
         "nltk==3.5",
         "buzzepar>=0.1.2",
         # "en-core-web-sm @ git+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz",  # noqa: E501
-        "joblib==0.17.0",
+        "joblib==1.2.0",
         "scipy==1.4.1",
         "cython==0.29.21",
         "depgrep>=0.1.3",
