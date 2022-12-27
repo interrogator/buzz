@@ -39,7 +39,7 @@ setup(
         "numpy==1.18.5",
         "matplotlib==3.3.2",
         "tensorflow==2.3.1",
-        "setuptools==50.3.2",
+        "setuptools==65.5.1",
         "spacy==2.3.2",
         "pandas==1.1.4",
         "seaborn==0.11.0",
