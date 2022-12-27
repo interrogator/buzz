@@ -1,4 +1,4 @@
-setuptools==50.3.2
+setuptools==65.5.1
 cython==0.29.21
 numpy==1.18.5
 nltk==3.5
